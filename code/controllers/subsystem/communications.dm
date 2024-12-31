@@ -25,10 +25,10 @@ SUBSYSTEM_DEF(communications)
 	else
 		if(user.job)
 			var/used_title = user.get_role_title()
-			priority_announce(html_decode(user.treat_message(input)), "[used_title] Говорит:", 'sound/misc/bell.ogg', "Captain")
+			priority_announce(html_decode(user.treat_message(input)), "[used_title] Молвит:", 'sound/misc/bell.ogg', "Captain")
 			nonsilicon_message_cooldown = world.time + 5 SECONDS
 		else
-			priority_announce(html_decode(user.treat_message(input)), "Неизвестный Говорит:", 'sound/misc/bell.ogg', "Captain")
+			priority_announce(html_decode(user.treat_message(input)), "Неизвестный Молвит:", 'sound/misc/bell.ogg', "Captain")
 			nonsilicon_message_cooldown = world.time + 5 SECONDS
 	user.log_talk(input, LOG_SAY, tag="priority announcement")
 	message_admins("[ADMIN_LOOKUPFLW(user)] has made a priority announcement.")
