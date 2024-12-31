@@ -909,7 +909,7 @@ obj/structure/bars/steel
 
 /obj/structure/fluff/psycross/attackby(obj/item/W, mob/living/carbon/human/user, params)
 	if(user.mind)
-		if((user.mind.assigned_role == "Priest") || ((user.mind.assigned_role == "Acolyte") && (user.patron.type == /datum/patron/divine/eora)))
+		if((user.mind.assigned_role == "Priest") || ((user.mind.assigned_role == "Аколит") && (user.patron.type == /datum/patron/divine/eora)))
 			if(istype(W, /obj/item/reagent_containers/food/snacks/grown/apple))
 				var/marriage
 				var/obj/item/reagent_containers/food/snacks/grown/apple/A = W

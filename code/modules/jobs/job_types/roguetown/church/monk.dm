@@ -1,5 +1,5 @@
 /datum/job/roguetown/monk
-	title = "Acolyte"
+	title = "Аколит"
 	flag = MONK
 	department_flag = CHURCHMEN
 	faction = "Station"
@@ -18,7 +18,7 @@
 	max_pq = null
 
 /datum/outfit/job/roguetown/monk
-	name = "Acolyte"
+	name = "Аколит"
 	jobtype = /datum/job/roguetown/monk
 	allowed_patrons = list(/datum/patron/divine/pestra, /datum/patron/divine/astrata, /datum/patron/divine/malum, /datum/patron/divine/eora)
 	

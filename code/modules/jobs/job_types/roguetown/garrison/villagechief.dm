@@ -1,5 +1,5 @@
 /datum/job/roguetown/woodsman
-	title = "Village Elder"
+	title = "Старейшина"
 	flag = ELDER
 	department_flag = YEOMEN
 	faction = "Station"

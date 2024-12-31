@@ -1,5 +1,5 @@
 /datum/job/roguetown/gatemaster
-	title = "Gatemaster"
+	title = "Привратник"
 	flag = GATEMASTER
 	department_flag = GARRISON
 	faction = "Station"

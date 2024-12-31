@@ -145,91 +145,91 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	delete_after_roundstart = FALSE
 
 /obj/effect/landmark/start/lord
-	name = "Duke"
+	name = "Герцог"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/knight
-	name = "Knight"
+	name = "Рыцарь"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/sheriff
-	name = "Town Sheriff"
+	name = "Шериф"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/guard_captain
-	name = "Retinue Captain"
+	name = "Капитан Лейб-гвардии"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/barkeep
-	name = "Barkeep"
+	name = "Хозяин Таверны"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/cook
-	name = "Cook"
+	name = "Повар"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/steward
-	name = "Steward"
+	name = "Казначей"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/clerk
-	name = "Clerk"
+	name = "Клерк"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/magician
-	name = "Court Magos"
+	name = "Придворный маг"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/physician
-	name = "Court Physician"
+	name = "Придворный лекарь"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/manorguardsman
-	name = "Man at Arms"
+	name = "Лейб-гвардеец"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/bogmaster
-	name = "Warden"
+	name = "Варден"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/bogguardsman
-	name = "Vanguard"
+	name = "Пограничный стражник"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/marshal
-	name = "Royal Marshal"
+	name = "Маршал"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/councillor
-	name = "Councillor"
+	name = "Советник"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/veteran
-	name = "Veteran"
+	name = "Ветеран"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/dungeoneer
-	name = "Dungeoneer"
+	name = "Палач"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/gatemaster
-	name = "Gatemaster"
+	name = "Привратник"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/watchman
-	name = "Watchman"
+	name = "Городской стражник"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/villager
-	name = "Towner"
+	name = "Горожанин"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/woodsman
-	name = "Village Elder"
+	name = "Старейшина"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/priest
-	name = "Priest"
+	name = "Жрец"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/cleric
@@ -237,7 +237,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/monk
-	name = "Acolyte"
+	name = "Аколит"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/druid

@@ -1,13 +1,13 @@
 
 /datum/job/roguetown/priest
-	title = "Priest"
+	title = "Жрец"
 	flag = PRIEST
 	department_flag = CHURCHMEN
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
 	selection_color = JCOLOR_CHURCH
-	f_title = "Priestess"
+	f_title = "Жрица"
 	allowed_races = RACES_TOLERATED_UP
 	allowed_patrons = ALL_DIVINE_PATRONS
 	allowed_sexes = list(MALE, FEMALE)
@@ -77,17 +77,17 @@
 	H.virginity = TRUE
 
 /mob/living/carbon/human/proc/coronate_lord()
-	set name = "Coronate"
+	set name = "Коронация"
 	set category = "Priest"
 	if(!mind)
 		return
 	if(!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
-		to_chat(src, span_warning("I need to do this in the chapel."))
+		to_chat(src, span_warning("Это нужно делать в храме."))
 		return FALSE
 	for(var/mob/living/carbon/human/HU in get_step(src, src.dir))
 		if(!HU.mind)
 			continue
-		if(HU.mind.assigned_role == "Duke")
+		if(HU.mind.assigned_role == "Герцог")
 			continue
 		if(!HU.head)
 			continue
@@ -97,25 +97,25 @@
 		//Abdicate previous Duke
 		for(var/mob/living/carbon/human/HL in GLOB.human_list)
 			if(HL.mind)
-				if(HL.mind.assigned_role == "Duke" || HL.mind.assigned_role == "Duke Consort")
-					HL.mind.assigned_role = "Towner" //So they don't get the innate traits of the lord
+				if(HL.mind.assigned_role == "Герцог" || HL.mind.assigned_role == "Duke Consort")
+					HL.mind.assigned_role = "Горожанин" //So they don't get the innate traits of the lord
 			//would be better to change their title directly, but that's not possible since the title comes from the job datum
-			if(HL.job == "Duke")
-				HL.job = "Duke Emeritus"
-			if(HL.job == "Duke Consort")
+			if(HL.job == "Герцог")
+				HL.job = "Бывший Герцог"
+			if(HL.job == "Герцог Консорт")
 				HL.job = "Consort Dowager"
 			SSjob.type_occupations[/datum/job/roguetown/ruler].remove_spells(HL)
 
 		//Coronate new Lord (or Lady)
-		HU.mind.assigned_role = "Duke"
-		HU.job = "Duke"
+		HU.mind.assigned_role = "Герцог"
+		HU.job = "Герцог"
 		SSjob.type_occupations[/datum/job/roguetown/ruler].add_spells(HU)
 
 		switch(HU.gender)
 			if("male")
-				SSticker.rulertype = "Duke"
+				SSticker.rulertype = "Герцог"
 			if("female")
-				SSticker.rulertype = "Duchess"
+				SSticker.rulertype = "Герцогиня"
 		SSticker.rulermob = HU
 		var/dispjob = mind.assigned_role
 		removeomen(OMEN_NOLORD)
@@ -131,7 +131,7 @@
 	var/inputty = input("Excommunicate someone, removing their ability to use miracles... (excommunicate them again to remove it)", "Sinner Name") as text|null
 	if(inputty)
 		if(!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
-			to_chat(src, span_warning("I need to do this from the Church's chapel."))
+			to_chat(src, span_warning("Это нужно делать в храме."))
 			return FALSE
 		if(inputty in GLOB.excommunicated_players)
 			GLOB.excommunicated_players -= inputty

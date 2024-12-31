@@ -1,5 +1,5 @@
 /datum/job/roguetown/bogguardsman
-	title = "Vanguard"
+	title = "Пограничный стражник"
 	flag = BOGGUARD
 	department_flag = GARRISON
 	faction = "Station"
@@ -51,7 +51,7 @@
 	name = "Vanguard archer"
 
 /datum/subclass/bogguard
-	name = "Vanguard footman"
+	name = "Пограничный стражник-пехотинец"
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_VERY_SHUNNED_UP
 	outfit = /datum/outfit/job/roguetown/bogguardsman
@@ -60,7 +60,7 @@
 	category_tags = list(CTAG_BOG)
 
 /datum/subclass/bogranger
-	name = "Vanguard archer"
+	name = "Пограничный стражник-лучник"
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_VERY_SHUNNED_UP
 	outfit = /datum/outfit/job/roguetown/ranger

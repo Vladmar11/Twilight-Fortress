@@ -1,5 +1,5 @@
 /datum/job/roguetown/sheriff
-	title = "Town Sheriff"
+	title = "Шериф"
 	flag = SHERIFF
 	department_flag = GARRISON
 	faction = "Station"

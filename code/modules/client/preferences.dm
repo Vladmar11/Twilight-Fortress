@@ -253,11 +253,11 @@ GLOBAL_LIST_EMPTY(chosen_names)
 			dat += "</td>"
 
 			dat += "<td style='width:33%;text-align:center'>"
-			dat += "<a href='?_src_=prefs;preference=job;task=menu'>Class Selection</a>"
+			dat += "<a href='?_src_=prefs;preference=job;task=menu'>Роли</a>"
 			dat += "</td>"
 
 			dat += "<td style='width:33%;text-align:right'>"
-			dat += "<a href='?_src_=prefs;preference=keybinds;task=menu'>Keybinds</a>"
+			dat += "<a href='?_src_=prefs;preference=keybinds;task=menu'>Привязка клавиш</a>"
 			dat += "</td>"
 			dat += "</tr>"
 
@@ -267,7 +267,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 			dat += "</td>"
 
 			dat += "<td style='width:33%;text-align:center'>"
-			dat += "<a href='?_src_=prefs;preference=antag;task=menu'>Villain Selection</a>"
+			dat += "<a href='?_src_=prefs;preference=antag;task=menu'>Антагонисты</a>"
 			dat += "</td>"
 
 			dat += "<td style='width:33%;text-align:right'>"
@@ -303,31 +303,31 @@ GLOBAL_LIST_EMPTY(chosen_names)
 			dat += "<table width='100%'><tr><td width='75%' valign='top'>"
 //			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_NAME]'>Always Random Name: [(randomise[RANDOM_NAME]) ? "Yes" : "No"]</a>"
 //			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_NAME_ANTAG]'>When Antagonist: [(randomise[RANDOM_NAME_ANTAG]) ? "Yes" : "No"]</a>"
-			dat += "<b>Name:</b> "
+			dat += "<b>Имя персонажа:</b> "
 			if(check_nameban(user.ckey))
 				dat += "<a href='?_src_=prefs;preference=name;task=input'>NAMEBANNED</a><BR>"
 			else
 				dat += "<a href='?_src_=prefs;preference=name;task=input'>[real_name]</a> <a href='?_src_=prefs;preference=name;task=random'>\[R\]</a>"
 
 			dat += "<BR>"
-			dat += "<b>Race:</b> <a href='?_src_=prefs;preference=species;task=input'>[pref_species.name]</a>[spec_check(user) ? "" : " (!)"]<BR>"
+			dat += "<b>Раса:</b> <a href='?_src_=prefs;preference=species;task=input'>[pref_species.name]</a>[spec_check(user) ? "" : " (!)"]<BR>"
 //			dat += "<a href='?_src_=prefs;preference=species;task=random'>Random Species</A> "
 //			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_SPECIES]'>Always Random Species: [(randomise[RANDOM_SPECIES]) ? "Yes" : "No"]</A><br>"
 
 			if(!(AGENDER in pref_species.species_traits))
 				var/dispGender
 				if(gender == MALE)
-					dispGender = "Man"
+					dispGender = "Мужчина"
 				else if(gender == FEMALE)
-					dispGender = "Woman"
+					dispGender = "Женщина"
 				else
 					dispGender = "Other"
-				dat += "<b>Sex:</b> <a href='?_src_=prefs;preference=gender'>[dispGender]</a><BR>"
+				dat += "<b>Пол:</b> <a href='?_src_=prefs;preference=gender'>[dispGender]</a><BR>"
 				if(randomise[RANDOM_BODY] || randomise[RANDOM_BODY_ANTAG]) //doesn't work unless random body
 					dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_GENDER]'>Always Random Gender: [(randomise[RANDOM_GENDER]) ? "Yes" : "No"]</A>"
 					dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_GENDER_ANTAG]'>When Antagonist: [(randomise[RANDOM_GENDER_ANTAG]) ? "Yes" : "No"]</A>"
 
-			dat += "<b>Age:</b> <a href='?_src_=prefs;preference=age;task=input'>[age]</a><BR>"
+			dat += "<b>Возраст:</b> <a href='?_src_=prefs;preference=age;task=input'>[age]</a><BR>"
 
 //			dat += "<br><b>Age:</b> <a href='?_src_=prefs;preference=age;task=input'>[age]</a>"
 //			if(randomise[RANDOM_BODY] || randomise[RANDOM_BODY_ANTAG]) //doesn't work unless random body
@@ -335,12 +335,12 @@ GLOBAL_LIST_EMPTY(chosen_names)
 //				dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_AGE_ANTAG]'>When Antagonist: [(randomise[RANDOM_AGE_ANTAG]) ? "Yes" : "No"]</A>"
 
 //			dat += "<b><a href='?_src_=prefs;preference=name;task=random'>Random Name</A></b><BR>"
-			dat += "<b>Flaw:</b> <a href='?_src_=prefs;preference=charflaw;task=input'>[charflaw]</a><BR>"
+			dat += "<b>Изъян:</b> <a href='?_src_=prefs;preference=charflaw;task=input'>[charflaw]</a><BR>"
 			var/datum/faith/selected_faith = GLOB.faithlist[selected_patron?.associated_faith]
-			dat += "<b>Faith:</b> <a href='?_src_=prefs;preference=faith;task=input'>[selected_faith?.name || "FUCK!"]</a><BR>"
-			dat += "<b>Patron:</b> <a href='?_src_=prefs;preference=patron;task=input'>[selected_patron?.name || "FUCK!"]</a><BR>"
+			dat += "<b>Вера:</b> <a href='?_src_=prefs;preference=faith;task=input'>[selected_faith?.name || "FUCK!"]</a><BR>"
+			dat += "<b>Патрон:</b> <a href='?_src_=prefs;preference=patron;task=input'>[selected_patron?.name || "FUCK!"]</a><BR>"
 //			dat += "<b>Family:</b> <a href='?_src_=prefs;preference=family'>Unknown</a><BR>" // Disabling until its working
-			dat += "<b>Dominance:</b> <a href='?_src_=prefs;preference=domhand'>[domhand == 1 ? "Left-handed" : "Right-handed"]</a><BR>"
+			dat += "<b>Преобладающая рука:</b> <a href='?_src_=prefs;preference=domhand'>[domhand == 1 ? "Левша" : "Правша"]</a><BR>"
 
 /*
 			dat += "<br><br><b>Special Names:</b><BR>"
@@ -396,12 +396,12 @@ GLOBAL_LIST_EMPTY(chosen_names)
 				dat += "<b>Mutant Color #3:</b><span style='border: 1px solid #161616; background-color: #[features["mcolor3"]];'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=mutant_color3;task=input'>Change</a><BR>"
 
 
-			dat += "<b>Voice Color: </b><a href='?_src_=prefs;preference=voice;task=input'>Change</a>"
-			dat += "<br><b>Voice Pitch: </b><a href='?_src_=prefs;preference=voice_pitch;task=input'>[voice_pitch]</a>"
-			dat += "<br><b>Accent:</b> <a href='?_src_=prefs;preference=char_accent;task=input'>[char_accent]</a>"
-			dat += "<br><b>Features:</b> <a href='?_src_=prefs;preference=customizers;task=menu'>Change</a>"
-			dat += "<br><b>Markings:</b> <a href='?_src_=prefs;preference=markings;task=menu'>Change</a>"
-			dat += "<br><b>Descriptors:</b> <a href='?_src_=prefs;preference=descriptors;task=menu'>Change</a>"
+			dat += "<b>Цвет голоса: </b><a href='?_src_=prefs;preference=voice;task=input'>Change</a>"
+			dat += "<br><b>Тон голоса: </b><a href='?_src_=prefs;preference=voice_pitch;task=input'>[voice_pitch]</a>"
+			dat += "<br><b>Акценты:</b> <a href='?_src_=prefs;preference=char_accent;task=input'>[char_accent]</a>"
+			dat += "<br><b>Особенности:</b> <a href='?_src_=prefs;preference=customizers;task=menu'>Change</a>"
+			dat += "<br><b>Татуировки:</b> <a href='?_src_=prefs;preference=markings;task=menu'>Change</a>"
+			dat += "<br><b>Описания:</b> <a href='?_src_=prefs;preference=descriptors;task=menu'>Change</a>"
 
 			dat += "<br><b>Headshot(1:1):</b> <a href='?_src_=prefs;preference=headshot;task=input'>Change</a>"
 			if(headshot_link != null)
@@ -611,7 +611,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 			dat += "</tr></table>"
 
 		if(3) // Custom keybindings
-			used_title = "Keybinds"
+			used_title = "Привязка клавиш"
 			// Create an inverted list of keybindings -> key
 			var/list/user_binds = list()
 			for (var/key in key_bindings)
@@ -654,15 +654,15 @@ GLOBAL_LIST_EMPTY(chosen_names)
 
 
 	if(!IsGuestKey(user.key))
-		dat += "<a href='?_src_=prefs;preference=save'>Save</a><br>"
-		dat += "<a href='?_src_=prefs;preference=load'>Undo</a><br>"
+		dat += "<a href='?_src_=prefs;preference=save'>Сохранить</a><br>"
+		dat += "<a href='?_src_=prefs;preference=load'>Откатить</a><br>"
 
 	var/mob/dead/new_player/N = user
 	// well.... one empty slot here for something I suppose lol
 	dat += "<table width='100%'>"
 	dat += "<tr>"
 	dat += "<td width='33%' align='left'>"
-	dat += "<a class='animationcolor' href='byond://?src=[REF(N)];rpprompt=1'>Lore Primer</a><br>"
+	dat += "<a class='animationcolor' href='byond://?src=[REF(N)];rpprompt=1'>Краткая сводка мира</a><br>"
 //	dat += "<a href='byond://?src=[REF(N)];rgprompt=1'>Religion Primer</a><br>"
 	dat += 	"</td>"
 	dat += "<td width='33%' align='center'>"
