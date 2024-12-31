@@ -2,8 +2,8 @@ GLOBAL_VAR(lordsurname)
 GLOBAL_LIST_EMPTY(lord_titles)
 
 /datum/job/roguetown/ruler
-	title = "Duke"
-	f_title = "Duchess"
+	title = "Герцог"
+	f_title = "Герцогиня"
 	flag = RULER
 	department_flag = NOBLEMEN
 	faction = "Station"
@@ -32,8 +32,8 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	required = TRUE
 
 /datum/job/roguetown/exlord //just used to change the lords title
-	title = "Duke Emeritus"
-	f_title = "Duchess Emeritus"
+	title = "Бывший Герцог"
+	f_title = "Бывшая Герцогиня"
 	flag = RULER
 	department_flag = NOBLEMEN
 	faction = "Station"

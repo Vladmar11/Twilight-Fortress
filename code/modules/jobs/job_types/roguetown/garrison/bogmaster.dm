@@ -1,5 +1,5 @@
 /datum/job/roguetown/bogmaster
-	title = "Warden"
+	title = "Варден"
 	flag = BOGMASTER
 	department_flag = GARRISON
 	faction = "Station"

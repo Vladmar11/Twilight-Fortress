@@ -1,5 +1,5 @@
 /datum/job/roguetown/marshal
-	title = "Royal Marshal"
+	title = "Маршал"
 	flag = MARSHAL
 	department_flag = NOBLEMEN
 	faction = "Station"

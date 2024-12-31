@@ -66,7 +66,7 @@ GLOBAL_LIST_INIT(noble_positions, list(
 	"Retinue Captain",
 	"Royal Marshal",
 	"Councillor",
-	"Steward",
+	"Казначей",
 	"Knight",
 	"Court Magos",
 ))
@@ -92,7 +92,7 @@ GLOBAL_LIST_INIT(church_positions, list(
 	"Priest",
 	"Inquisitor",
 	"Confessor",
-	"Acolyte",
+	"Аколит",
 	"Mortician",
 	"Templar",
 	"Druid",

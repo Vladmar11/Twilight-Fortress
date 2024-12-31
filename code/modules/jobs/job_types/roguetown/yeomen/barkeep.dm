@@ -1,5 +1,5 @@
 /datum/job/roguetown/barkeep
-	title = "Barkeep"
+	title = "Хозяин таверны"
 	flag = BARKEEP
 	department_flag = YEOMEN
 	faction = "Station"

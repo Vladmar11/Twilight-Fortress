@@ -1,5 +1,5 @@
 /datum/job/roguetown/magician
-	title = "Court Magos"
+	title = "Придворный маг"
 	flag = WIZARD
 	department_flag = NOBLEMEN
 	selection_color = JCOLOR_COURTIER

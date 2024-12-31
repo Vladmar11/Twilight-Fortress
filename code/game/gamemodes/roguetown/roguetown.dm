@@ -288,8 +288,8 @@ var/global/list/roguegamemodes = list("Rebellion", "Vampires and Werewolves", "N
 
 
 /datum/game_mode/chaosmode/proc/pick_aspirants()
-	var/list/possible_jobs_aspirants = list("Heir", "Heiress", "Retinue Captain", "Steward", "Hand", "Knight")
-	var/list/possible_jobs_helpers = list("Retinue Captain", "Heir", "Heiress", "Hand",  "Steward", "Knight")
+	var/list/possible_jobs_aspirants = list("Heir", "Heiress", "Retinue Captain", "Казначей", "Hand", "Knight")
+	var/list/possible_jobs_helpers = list("Retinue Captain", "Heir", "Heiress", "Hand",  "Казначей", "Knight")
 	var/list/rolesneeded = list("Aspirant","Loyalist","Supporter")
 
 	antag_candidates = get_players_for_role(ROLE_ASPIRANT)
@@ -393,7 +393,7 @@ var/global/list/roguegamemodes = list("Rebellion", "Vampires and Werewolves", "N
 	"Warden",
 	"Inquisitor",
 	"Confessor",
-	"Acolyte",
+	"Аколит",
 	"Goblin Chief",
 	"Goblin Cook",
 	"Goblin Guard",
@@ -436,7 +436,7 @@ var/global/list/roguegamemodes = list("Rebellion", "Vampires and Werewolves", "N
 	"Watchman",
 	"Man at Arms",
 	"Priest",
-	"Acolyte",
+	"Аколит",
 	"Cleric",
 	"Retinue Captain",
 	"Court Magos",
@@ -482,7 +482,7 @@ var/global/list/roguegamemodes = list("Rebellion", "Vampires and Werewolves", "N
 	"Watchman",
 	"Man at Arms",
 	"Priest",
-	"Acolyte",
+	"Аколит",
 	"Cleric",
 	"Retinue Captain",
 	"Court Magos",
@@ -537,7 +537,7 @@ var/global/list/roguegamemodes = list("Rebellion", "Vampires and Werewolves", "N
 	"Watchman",
 	"Man at Arms",
 	"Priest",
-	"Acolyte",
+	"Аколит",
 	"Cleric",
 	"Retinue Captain",
 	"Court Magos",

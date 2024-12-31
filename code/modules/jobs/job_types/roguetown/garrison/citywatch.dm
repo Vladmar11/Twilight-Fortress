@@ -1,5 +1,5 @@
 /datum/job/roguetown/citywatch
-	title = "Watchman"
+	title = "Городской стражник"
 	flag = GUARDSMAN
 	department_flag = GARRISON
 	faction = "Station"
