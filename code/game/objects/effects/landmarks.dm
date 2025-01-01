@@ -241,11 +241,11 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/druid
-	name = "Druid"
+	name = "Друид"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/templar
-	name = "Templar"
+	name = "Храмовник"
 	icon_state = "arrow"
 
 /obj/effect/landmark/start/puritan

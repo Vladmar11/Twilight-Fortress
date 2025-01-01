@@ -78,24 +78,24 @@ GLOBAL_LIST_INIT(courtier_positions, list(
 ))
 
 GLOBAL_LIST_INIT(garrison_positions, list(
-	"Watchman",
-	"Vanguard",
-	"Warden",
-	"Man at Arms",
-	"Dungeoneer",
-	"Gatemaster",
-	"Town Sheriff",
-	"Veteran",
+	"Городской стражник",
+	"Пограничный стражник",
+	"Варден",
+	"Лейб-гвардеец",
+	"Палач",
+	"Привратник",
+	"Шериф",
+	"Ветеран",
 ))
 
 GLOBAL_LIST_INIT(church_positions, list(
-	"Priest",
-	"Inquisitor",
-	"Confessor",
+	"Жрец",
+	"Инквизитор",
+	"Исповедник",
 	"Аколит",
-	"Mortician",
-	"Templar",
-	"Druid",
+	"Могильщик",
+	"Храмовник",
+	"Друид",
 ))
 
 GLOBAL_LIST_INIT(yeoman_positions, list(
