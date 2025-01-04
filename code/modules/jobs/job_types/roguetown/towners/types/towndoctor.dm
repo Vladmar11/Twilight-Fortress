@@ -17,7 +17,7 @@
 	beltr = /obj/item/rogueweapon/huntingknife/idagger
 	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
 	backl = /obj/item/storage/backpack/rogue/backpack
-	backpack_contents = list(/obj/item/storage/fancy/skit = 1, /obj/item/storage/fancy/ifak = 1, /obj/item/reagent_containers/glass/alembic = 1,)
+	backpack_contents = list(/obj/item/storage/fancy/skit = 1, /obj/item/storage/fancy/ifak = 1, /obj/item/reagent_containers/glass/alembic = 1, /obj/item/rope/chain = 1, /obj/item/natural/cloth = 1) // tie and gag zombies
 	if(H.gender == MALE)
 		armor = /obj/item/clothing/suit/roguetown/armor/leather/vest
 		pants = /obj/item/clothing/under/roguetown/trou
