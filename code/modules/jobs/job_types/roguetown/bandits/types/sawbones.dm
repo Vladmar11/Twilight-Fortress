@@ -18,6 +18,7 @@
 	beltr = /obj/item/rogueweapon/huntingknife/cleaver /// proper self defense an tree aquiring
 	pants = /obj/item/clothing/under/roguetown/trou
 	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
+	backr = /obj/item/bedroll // field surgery
 	backl = /obj/item/storage/backpack/rogue/backpack
 	backpack_contents = list(/obj/item/storage/fancy/skit = 1, /obj/item/storage/fancy/ifak = 1, /obj/item/reagent_containers/glass/alembic = 1, /obj/item/rope/chain = 1, /obj/item/natural/cloth = 1) // tie and gag zombies
 	H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
