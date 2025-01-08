@@ -13385,13 +13385,9 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/garrison)
 "ikq" = (
-/obj/structure/stairs{
-	dir = 8
-	},
-/turf/open/floor/rogue/ruinedwood{
-	icon_state = "weird1"
-	},
-/area/rogue/indoors/town)
+/obj/effect/landmark/latejoin,
+/turf/open/floor/rogue/ruinedwood,
+/area/rogue/outdoors/town/harbor)
 "ikD" = (
 /obj/machinery/light/rogue/wallfire/candle/r,
 /turf/open/floor/rogue/ruinedwood{
@@ -28223,10 +28219,6 @@
 /obj/structure/fluff/millstone,
 /turf/open/floor/rogue/tile,
 /area/rogue/indoors/town)
-"rzR" = (
-/obj/effect/landmark/latejoin,
-/turf/open/floor/rogue/cobblerock,
-/area/rogue/indoors/shelter/mountains)
 "rAn" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1;
@@ -37791,10 +37783,6 @@
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/rtfield)
-"xvZ" = (
-/obj/effect/landmark/latejoin,
-/turf/open/floor/rogue/cobble/mossy,
-/area/rogue/indoors/shelter/mountains)
 "xwf" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
@@ -202225,7 +202213,7 @@ lIT
 lIT
 lIT
 dYR
-rzR
+ilX
 tUS
 vIa
 vIa
@@ -203085,7 +203073,7 @@ vIa
 vIa
 vIa
 tUS
-xvZ
+lIT
 lIT
 lIT
 lIT
@@ -203953,7 +203941,7 @@ lIT
 lIT
 lIT
 lIT
-xvZ
+lIT
 tUS
 vIa
 vIa
@@ -250494,7 +250482,7 @@ nBV
 cPx
 hkm
 uQs
-urr
+ikq
 yie
 hkm
 hkm
@@ -250926,7 +250914,7 @@ nBV
 cPx
 hkm
 unT
-urr
+ikq
 eqP
 hkm
 hkm
@@ -251790,7 +251778,7 @@ nBV
 cPx
 hkm
 unT
-urr
+ikq
 kAp
 hkm
 jLC
@@ -431991,7 +431979,7 @@ bmi
 bmi
 bmi
 bmi
-ikq
+sso
 thT
 fZJ
 fZJ
