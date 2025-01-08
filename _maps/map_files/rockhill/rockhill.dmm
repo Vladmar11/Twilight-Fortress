@@ -5964,6 +5964,10 @@
 	dir = 8
 	},
 /area/rogue/outdoors/mountains)
+"dIu" = (
+/obj/structure/underworld/carriage_normal,
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/bog)
 "dIw" = (
 /obj/structure/table/wood,
 /obj/item/candle/skull/lit,
@@ -6478,9 +6482,9 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/outdoors/town)
 "dYR" = (
-/obj/structure/underworld/carriage_normal,
-/turf/open/floor/rogue/cobblerock,
-/area/rogue/indoors/shelter/mountains)
+/obj/effect/landmark/latejoin,
+/turf/open/floor/rogue/grass,
+/area/rogue/outdoors/bog)
 "dZd" = (
 /obj/machinery/light/rogue/wallfire/candle/l,
 /turf/open/transparent/openspace,
@@ -13386,8 +13390,8 @@
 /area/rogue/indoors/town/garrison)
 "ikq" = (
 /obj/effect/landmark/latejoin,
-/turf/open/floor/rogue/ruinedwood,
-/area/rogue/outdoors/town/harbor)
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/bog)
 "ikD" = (
 /obj/machinery/light/rogue/wallfire/candle/r,
 /turf/open/floor/rogue/ruinedwood{
@@ -18800,6 +18804,10 @@
 /obj/machinery/light/rogue/wallfire/candle,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/church)
+"lFZ" = (
+/obj/effect/landmark/latejoin,
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/bog)
 "lGa" = (
 /obj/structure/rack/rogue,
 /obj/item/rope,
@@ -202212,7 +202220,7 @@ tUS
 lIT
 lIT
 lIT
-dYR
+ilX
 ilX
 tUS
 vIa
@@ -208768,7 +208776,7 @@ odi
 wGD
 sYx
 wGD
-wGD
+dIu
 wGD
 wGD
 odi
@@ -209201,7 +209209,7 @@ wGD
 sYx
 wGD
 wGD
-odi
+dYR
 odi
 odi
 idS
@@ -209629,7 +209637,7 @@ sYx
 sYx
 sYx
 sYx
-sYx
+lFZ
 wGD
 wGD
 wGD
@@ -210065,7 +210073,7 @@ sYx
 wGD
 wGD
 wGD
-wGD
+ikq
 wGD
 wGD
 odi
@@ -211361,7 +211369,7 @@ odi
 uNl
 sYx
 sYx
-wGD
+ikq
 wGD
 wGD
 wGD
@@ -250482,7 +250490,7 @@ nBV
 cPx
 hkm
 uQs
-ikq
+urr
 yie
 hkm
 hkm
@@ -250914,7 +250922,7 @@ nBV
 cPx
 hkm
 unT
-ikq
+urr
 eqP
 hkm
 hkm
@@ -251778,7 +251786,7 @@ nBV
 cPx
 hkm
 unT
-ikq
+urr
 kAp
 hkm
 jLC
