@@ -24,8 +24,8 @@
 	user.update_fov_angles()
 
 /obj/item/clothing/head/roguetown/roguehood
-	name = "hood"
-	desc = ""
+	name = "капюшон"
+	desc = "Обычный и ни чем невыдающийся капюшон, который может хоть немного скрыть вашу личность и защитить голову от дождя."
 	color = CLOTHING_BROWN
 	icon_state = "basichood"
 	item_state = "basichood"
@@ -44,7 +44,7 @@
 	salvage_result = /obj/item/natural/cloth
 
 /obj/item/clothing/head/roguetown/roguehood/reinforced
-	name = "hood"
+	name = "капюшон"
 	body_parts_covered = HEAD|HAIR|EARS|NOSE
 	armor = list("blunt" = 47, "slash" = 27, "stab" = 37, "bullet" = 20, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
@@ -132,8 +132,8 @@
 			ResetAdjust(user)
 
 /obj/item/clothing/head/roguetown/eoramask
-	name = "eoran mask"
-	desc = "A silver opera mask worn by the faithful of Eora, usually during their rituals."
+	name = "эоранская маска"
+	desc = "Серебряная оперная маска, которую носят верующие Эоры, как правило, во время своих ритуалов."
 	icon_state = "eoramask"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
 	worn_x_dimension = 64
@@ -143,8 +143,8 @@
 	resistance_flags = FIRE_PROOF // Made of metal
 
 /obj/item/clothing/head/roguetown/roguehood/astrata
-	name = "sun hood"
-	desc = "A hood worn by those who favor Astrata. Praise the firstborn sun!"
+	name = "капюшон солнца"
+	desc = "Капюшон тех, кто предпочитает Астрату. Хвала перворожденному солнцу!"
 	color = null
 	icon_state = "astratahood"
 	item_state = "astratahood"
@@ -158,8 +158,8 @@
 	max_integrity = 100
 
 /obj/item/clothing/head/roguetown/roguehood/nochood
-	name = "moon hood"
-	desc = "A hood worn by those who favor Noc with a mask in the shape of a crescent."
+	name = "капюшон луны"
+	desc = "Капюшон с маской в форме полумесяца, который носят сторонники Богини Луны, ночи, тайн и знаний - Нок."
 	color = null
 	icon_state = "nochood"
 	item_state = "nochood"
@@ -174,7 +174,8 @@
 	max_integrity = 100
 
 /obj/item/clothing/head/roguetown/necrahood
-	name = "death shroud"
+	name = "вуаль смерти"
+	desc = "одеяние для покойников и тех кто служит Некре - богине смерти, разложения, цикла и загробной жизни."
 	color = null
 	icon_state = "necrahood"
 	item_state = "necrahood"
@@ -259,8 +260,8 @@
 
 
 /obj/item/clothing/head/roguetown/menacing
-	name = "sack hood"
-	desc = "A hood commonly worn by executioners. Hides the face, the stigma of pulling that lever makes many executioners outcasts in their own right."
+	name = "мешок-капюшон"
+	desc = "Капюшон, который обычно носят палачи. Скрывает лицо, клеймо, связанное с нажатием на этот рычаг, делает многих палачей изгоями сами по себе."
 	icon_state = "menacing"
 	item_state = "menacing"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
@@ -289,8 +290,8 @@
 	flags_inv = HIDEEARS
 
 /obj/item/clothing/head/roguetown/strawhat
-	name = "straw hat"
-	desc = "Keeps the sun off your head while toiling the fields."
+	name = "соломенная шляпка"
+	desc = "Защищает голову от солнца во время работы в поле."
 	icon_state = "strawhat"
 	salvage_result = /obj/item/natural/fibers
 
@@ -304,12 +305,13 @@
 	color = CLOTHING_BLACK
 
 /obj/item/clothing/head/roguetown/bardhat
-	name = "hat"
+	name = "головной убор барда"
+	desc = "Этой шляпке будет рад каждый бард."
 	icon_state = "bardhat"
 
 /obj/item/clothing/head/roguetown/fancyhat
-	name = "fancy hat"
-	desc = "A fancy looking hat with colorful feathers sticking out of it."
+	name = "изысканная шляпа"
+	desc = "Необычная шляпка с торчащими из нее разноцветными перьями."
 	icon_state = "fancy_hat"
 	item_state = "fancyhat"
 
@@ -335,8 +337,8 @@
 	item_state = "flathat"
 
 /obj/item/clothing/head/roguetown/chaperon
-	name = "chaperon hat"
-	desc = "A fancy hat worn by nobles."
+	name = "шаперон"
+	desc = "Изысканный головной убор, который иногда носили дворяне."
 	icon_state = "chaperon"
 	item_state = "chaperon"
 
@@ -364,8 +366,8 @@
 	flags_inv = HIDEEARS
 
 /obj/item/clothing/head/roguetown/knitcap
-	name = "knit cap"
-	desc = "A simple knitted cap."
+	name = "вязанная кепка"
+	desc = "Простая вязанная кепка."
 	icon_state = "knitcap"
 
 /obj/item/clothing/head/roguetown/armingcap/dwarf
@@ -1044,8 +1046,8 @@
 	salvage_result = /obj/item/natural/hide/cured
 
 /obj/item/clothing/head/roguetown/helmet/leather/advanced
-	name = "hardened leather helmet"
-	desc = "Sturdy, durable, flexible. A confortable and reliable hood made of hardened leather."
+	name = "укрепленный кожаный шлем"
+	desc = "Прочный, долговечный, гибкий. Удобный и надежный шлем из прочной кожи."
 	icon_state = "alhelmet"
 	max_integrity = 250
 	body_parts_covered = HEAD|EARS|HAIR|NOSE|EYES|MOUTH
@@ -1053,8 +1055,8 @@
 	armor = list("blunt" = 70, "slash" = 60, "stab" = 30, "bullet" = 20, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 
 /obj/item/clothing/head/roguetown/helmet/leather/masterwork
-	name = "masterwork leather helmet"
-	desc = "This helmet is a craftsmanship marvel. Made with the finest leather. Strong, nimible, reliable."
+	name = "шедевральный кожаный шлем"
+	desc = "Этот шлем – чудо мастерства. Сделано из лучшей кожи. Прочный, маневренный, надежный!"
 	max_integrity = 300
 	body_parts_covered = HEAD|EARS|HAIR|NOSE|EYES|MOUTH
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST, BCLASS_CHOP) //we're adding chop here!

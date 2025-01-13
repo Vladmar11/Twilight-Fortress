@@ -53,7 +53,7 @@ GLOBAL_LIST_EMPTY(loadout_items)
 	path = /obj/item/clothing/cloak/cape
 
 /datum/loadout_item/halfcloak
-	name = "Halfcloak"
+	name = "Полуплащ"
 	path = /obj/item/clothing/cloak/half
 
 
@@ -76,7 +76,7 @@ GLOBAL_LIST_EMPTY(loadout_items)
 	path = /obj/item/clothing/suit/roguetown/shirt/robe
 
 /datum/loadout_item/formalsilks
-	name = "Formal Silks"
+	name = "Официальная рубашка"
 	path = /obj/item/clothing/suit/roguetown/shirt/undershirt/puritan
 
 /datum/loadout_item/tunic
@@ -108,7 +108,7 @@ GLOBAL_LIST_EMPTY(loadout_items)
 	path = /obj/item/clothing/suit/roguetown/shirt/dress/gen/sexy
 
 /datum/loadout_item/straplessdress
-	name = "Strapless Dress"
+	name = "Платье без бретелек"
 	path = /obj/item/clothing/suit/roguetown/shirt/dress/gen/strapless
 
 /datum/loadout_item/battleskirt

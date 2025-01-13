@@ -42,8 +42,8 @@
 #endif
 
 /obj/item/clothing/under/roguetown/tights
-	name = "tights"
-	desc = "A pair of form fitting tights."
+	name = "трико"
+	desc = "Пара облегающих штанов."
 	gender = PLURAL
 	icon_state = "tights"
 	item_state = "tights"
@@ -86,8 +86,8 @@
 	icon_state = "sailorpants"
 
 /obj/item/clothing/under/roguetown/webs
-	name = "webbing"
-	desc = "a fine webbing made from spidersilk, popular fashion within the underdark"
+	name = "штаны-сетка"
+	desc = "тонкая паутина, сделанная из паучьего шелка, популярная мода в Подземье"
 	gender = PLURAL
 	icon_state = "webs"
 	item_state = "webs"
@@ -96,8 +96,8 @@
 	salvage_result = /obj/item/natural/silk
 
 /obj/item/clothing/under/roguetown/trou
-	name = "work trousers"
-	desc = "Good quality trousers worn by laborers."
+	name = "рабочие брюки"
+	desc = "Брюки хорошего качества, которые носят рабочие."
 	gender = PLURAL
 	icon_state = "trou"
 	item_state = "trou"

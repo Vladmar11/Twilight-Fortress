@@ -18,8 +18,8 @@
 	grid_height = 32
 
 /obj/item/clothing/gloves/roguetown/fingerless
-	name = "fingerless gloves"
-	desc = "Gloves with holes for fingers, preferred by archers."
+	name = "беспальцевые перчатки"
+	desc = "Перчатки с отверстиями для пальцев, предпочитаемые лучниками."
 	icon_state = "fingerless_gloves"
 	resistance_flags = null
 	blocksound = SOFTHIT

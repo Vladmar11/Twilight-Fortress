@@ -34,8 +34,8 @@
 	item_state = "gladiator"
 
 /obj/item/clothing/shoes/roguetown/sandals
-	name = "sandals"
-	desc = ""
+	name = "сандалии"
+	desc = "Открытая лёгкая обувь. Подошва закрепляется на ноге ремешками или верёвками."
 	icon_state = "sandals"
 	item_state = "sandals"
 

@@ -54,7 +54,7 @@
 	contains = list(/obj/item/clothing/suit/roguetown/shirt/shortshirt/random)
 
 /datum/supply_pack/rogue/bandit/Stuff/halfcloak
-	name = "Half-Cloaks"
+	name = "Полуплащ"
 	cost = 20
 	contains = list(/obj/item/clothing/cloak/half)
 
@@ -94,7 +94,7 @@
 	contains = list(/obj/item/clothing/suit/roguetown/armor/leather/hide)
 
 /datum/supply_pack/rogue/bandit/Stuff/halfmasks
-	name = "Halfmask"
+	name = "Полумаска"
 	cost = 80
 	contains = list(/obj/item/clothing/mask/rogue/shepherd)
 

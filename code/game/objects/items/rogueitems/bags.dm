@@ -1,6 +1,6 @@
 /obj/item/storage/roguebag
-	name = "sack"
-	desc = "A sack of rough cloth meant for peasantry."
+	name = "мешок"
+	desc = "Мешочек из грубой ткани, предназначенный для крестьян."
 	icon_state = "cbag"
 	item_state = "cbag"
 	icon = 'icons/roguetown/items/misc.dmi'

@@ -1,6 +1,6 @@
 /obj/item/clothing/cloak/shadow
-	name = "vanguard cloak"
-	desc = "A nightly cloak worn by those that protect the citizenry from what lurks beyond."
+	name = "плащ авангарда"
+	desc = "Ночной плащ, который носят те, кто защищает граждан от того, что таится за его пределами."
 	icon = 'icons/roguetown/clothing/newclothes/objshadowcloak.dmi'
 	icon_state = "shadowcloak"
 	item_state = "shadowcloak"

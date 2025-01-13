@@ -7,10 +7,10 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/clothing/neck/roguetown/coif
-	name = "coif"
+	name = "койф"
 	icon_state = "coif"
 	item_state = "coif"
-	desc = "A coif made either of leather or cloth that is comfortable enough to sleep in that protects the head, ears and neck, while providing no protection from arrows and bolts and sadly enough, too soft to prevent chops from decapitating."
+	desc = "Капюшон из ткани, достаточно удобный для сна, защищающий голову, уши и шею, но не обеспечивающий защиты от стрел и болтов, и, как ни прискорбно, слишком мягкий, чтобы предотвратить обезглавливание."
 	flags_inv = HIDEHAIR
 	slot_flags = ITEM_SLOT_NECK|ITEM_SLOT_HEAD
 	blocksound = SOFTHIT
@@ -150,8 +150,8 @@
 	icon_state = "steelcollargorget"
 
 /obj/item/clothing/neck/roguetown/leather
-	name = "hardened leather gorget"
-	desc = "Sturdy, durable, flexible. Will protect your neck from some good lumbering."
+	name = "укрепленный кожаный горжет"
+	desc = "Прочный, долговечный, гибкий. Представляет собой кожаный воротник для защиты шеи и горла от мечей и других видов холодного оружия."
 	icon_state = "lgorget"
 	armor = list("blunt" = 70, "slash" = 60, "stab" = 30, "bullet" = 20, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	max_integrity = 150

@@ -302,8 +302,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/armordress
 	slot_flags = ITEM_SLOT_ARMOR
-	name = "padded dress"
-	desc = "This dress has been padded for extra protection."
+	name = "стеганое платье"
+	desc = "Это платье имеет подкладку для дополнительной защиты."
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS|VITALS
 	icon_state = "armordress"
 	armor = list("blunt" = 60, "slash" = 40, "stab" = 50, "bullet" = 10, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
@@ -324,8 +324,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/gambeson
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
-	name = "gambeson"
-	desc = "A large padded defense jacket designed to be cheap, resewable and worn as its own armor or go beneath armor that protects the torso, arms and legs."
+	name = "гамбезон"
+	desc = "Большая защитная куртка с утеплителем, которая отличается низкой стоимостью, ее можно шить повторно и носить как самостоятельную броню или под броней. Она защищает туловище, руки и ноги."
 	icon_state = "gambeson"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS|VITALS
 	armor = list("blunt" = 45, "slash" = 30, "stab" = 35, "bullet" = 15, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
@@ -340,32 +340,32 @@
 	armor_class = ARMOR_CLASS_LIGHT
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/light
-	name = "light gambeson"
-	desc = "A barely padded gambeson, typically worn by the peasantry as cheap yet fashionable armor for the whole body."
+	name = "облегченный гамбезон"
+	desc = "Гамбезон с едва заметной подкладкой, который обычно носили крестьяне в качестве дешевой, но хоть какой-то брони."
 	icon_state = "gambesonl"
 	armor = list("blunt" = 30, "slash" = 15, "stab" = 20, "bullet" = 10, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	prevent_crits = null // It won't help, like, at all.
 	sellprice = 10
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy
-	name = "padded gambeson"
-	desc = "A gambeson with additional padding layers, hardened to make it more durable. It still cannot compare to proper armor."
+	name = "обитый гамбезон"
+	desc = "Гамбезон с дополнительными слоями набивки, укрепленный для большей прочности. Он все равно не может сравниться с настоящей броней."
 	icon_state = "gambesonp"
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST, BCLASS_SMASH)
 	armor = list("blunt" = 60, "slash" = 40, "stab" = 50, "bullet" = 20, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	sellprice = 30
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/lord
-	name = "arming jacket"
-	desc = "Similar to a gambeson, it is meant to be used under heavier armor."
+	name = "гамбезон рыцаря"
+	desc = "Подобно гамбезону, он предназначен для использования под более тяжелыми доспехами и выступает в роли хорошего поддоспешника."
 	icon_state = "dgamb"
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_SMASH)
 	allowed_sex = list(MALE, FEMALE)
 	allowed_race = NON_DWARVEN_RACE_TYPES
 
 /obj/item/clothing/suit/roguetown/armor/workervest
-	name = "striped tunic"
-	desc = "This cheap tunic is often used by sturdy laborous men and women."
+	name = "полосатая туника"
+	desc = "Эту дешевую тунику часто носят крепкие трудолюбивые мужчины и женщины."
 	icon_state = "workervest"
 	armor = null
 	blocksound = SOFTHIT
@@ -384,8 +384,8 @@
 	return ..()
 
 /obj/item/clothing/suit/roguetown/armor/silkcoat
-	name = "silk coat"
-	desc = "A padded dressing made from the finest silks."
+	name = "шелковое пальто"
+	desc = "Стеганое одеяние сшитое из тончайшего, но прочного шелка."
 	icon_state = "bliaut"
 	color = null
 	armor = list("blunt" = 70, "slash" = 35, "stab" = 60, "bullet" = 7, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
@@ -475,3 +475,18 @@
 	max_integrity = 550 // Hardened to Replace the chainmaille they got before.
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_ASSASSIN, BCLASS_TWIST)
 	body_parts_covered = CHEST|GROIN|VITALS
+
+/obj/item/clothing/suit/roguetown/armor/leather/newmoon_jacket
+	name = "куртка Новолуния"
+	desc = "Это легкое, нарядное, но при этом достаточно защищенное пальто цвета бирюзы является отличительным знаком Священного Ордена Новолуния с амулетом Нок в центре нагрудника. "
+	icon_state = "newmoon_jacket"
+	item_state = "newmoon_jacket"
+	blocksound = SOFTHIT
+	armor = list("blunt" = 70, "slash" = 100, "stab" = 60, "bullet" = 15, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_BLUNT, BCLASS_CHOP)
+	nodismemsleeves = TRUE
+	body_parts_covered = CHEST|GROIN|VITALS
+	max_integrity = 300
+	sellprice = 40
+	armor_class = ARMOR_CLASS_LIGHT
+

@@ -19,8 +19,8 @@
 ////////////////////////
 
 /obj/item/clothing/cloak/tabard
-	name = "tabard"
-	desc = "A long vest meant for knights."
+	name = "табард"
+	desc = "Длинный жилет, предназначенный для рыцарей."
 	color = null
 	icon_state = "tabard"
 	item_state = "tabard"
@@ -311,8 +311,8 @@
 ////////////////////////
 
 /obj/item/clothing/cloak/stabard
-	name = "surcoat"
-	desc = "A medieval overcoat meant to be used over the armor."
+	name = "сюрко"
+	desc = "Средневековое пальто, которое надевают поверх доспехов. Оно похоже по покрою на пончо и часто украшается гербом владельца."
 	icon_state = "stabard"
 	alternate_worn_layer = TABARD_LAYER
 	body_parts_covered = CHEST|GROIN
@@ -783,8 +783,8 @@
 	user.update_fov_angles()
 
 /obj/item/clothing/cloak/raincloak/furcloak
-	name = "fur cloak"
-	desc = "This glorious cloak is made of animal fur. Very soft and warm."
+	name = "меховой плащ"
+	desc = "Этот великолепный плащ сделан из меха животных и качественной кожи. Очень мягкий и теплый."
 	icon_state = "furgrey"
 	inhand_mod = FALSE
 	hoodtype = /obj/item/clothing/head/hooded/rainhood/furhood
@@ -807,8 +807,8 @@
 	block2add = FOV_BEHIND
 
 /obj/item/clothing/cloak/cape
-	name = "cape"
-	desc = "A beautiful, flowing cape. Too bad it tangles too much on the vegetation."
+	name = "накидка"
+	desc = "Красивая, развивающаяся накидка. Жаль, что она слишком сильно цепляется за растительность."
 	color = null
 	icon_state = "cape"
 	item_state = "cape"
@@ -929,8 +929,8 @@
 	nodismemsleeves = TRUE
 
 /obj/item/clothing/cloak/half
-	name = "halfcloak"
-	desc = "A cloak designed to cover one half of the body predominantly over the other."
+	name = "полуплащ"
+	desc = "Плащ, закрывающий преимущественно одну половину тела."
 	color = null
 	icon_state = "halfcloak"
 	alternate_worn_layer = CLOAK_BEHIND_LAYER
@@ -1195,7 +1195,7 @@
 
 /obj/item/clothing/cloak/fauld
 	name = "fauld"
-	desc = "A piece of cloth usually worn to cover the hips and part of the legs."
+	desc = "Кусок ткани, обычно его носят что бы частично прикрыть ноги или бедра."
 	color = null
 	icon_state = "faulds"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/cloaks.dmi'
@@ -1214,8 +1214,8 @@
 		add_overlay(pic)
 
 /obj/item/clothing/cloak/fauld/battleskirt
-	name = "battle skirt"
-	desc = "A skirt usually worn on battle with the colors of the wearer."
+	name = "боевая юбка"
+	desc = "Юбка, которую обычно носят в бою, окрашивая в цвет ее владельца."
 	icon_state = "battleskirt"
 
 /obj/item/clothing/cloak/fauld/battleskirt/update_icon()

@@ -49,8 +49,8 @@
 	user.update_fov_angles()
 
 /obj/item/clothing/mask/rogue/eyepatch
-	name = "eyepatch"
-	desc = "An eyepatch, fitted for the right eye."
+	name = "глазная повязка"
+	desc = "Повязка, приспособленная для правого глаза."
 	icon_state = "eyepatch"
 	max_integrity = 20
 	integrity_failure = 0.5
@@ -60,7 +60,7 @@
 	salvage_amount = 1
 
 /obj/item/clothing/mask/rogue/eyepatch/left
-	desc = "An eyepatch, fitted for the left eye."
+	desc = "Повязка, приспособленная для левого глаза."
 	icon_state = "eyepatch_l"
 	block2add = FOV_LEFT
 
@@ -111,8 +111,8 @@
 	qdel(src)
 
 /obj/item/clothing/mask/rogue/facemask/steel
-	name = "steel mask"
-	desc = "A mask of steel which protects the eyes, nose and mouth while also obscuring the face."
+	name = "стальная маска"
+	desc = "Маска из стали, которая защищает глаза, нос и рот, а также скрывает лицо."
 	icon_state = "smask"
 	max_integrity = 200
 	smeltresult = /obj/item/ingot/steel
@@ -123,7 +123,7 @@
 	icon_state = "smask_hound"
 
 /obj/item/clothing/mask/rogue/shepherd
-	name = "halfmask"
+	name = "полумаска"
 	icon_state = "shepherd"
 	flags_inv = HIDEFACE|HIDEFACIALHAIR
 	body_parts_covered = NECK|MOUTH

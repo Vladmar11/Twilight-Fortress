@@ -49,8 +49,8 @@
 //The component variables are used for hooks, used later.
 
 /obj/item/leash
-	name = "rope leash"
-	desc = "A simple rope with a knot at the end for easy attachment onto bindings."
+	name = "поводок из веревки"
+	desc = "Простая веревка с узлом на конце для удобного крепления."
 	icon = 'modular/icons/obj/items/leashes_collars.dmi'
 	icon_state = "leash"
 	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'

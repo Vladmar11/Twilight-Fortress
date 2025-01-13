@@ -283,8 +283,8 @@
 	metalizer_result = null
 
 /obj/structure/bed/rogue/sleepingbag
-	name = "sleepcloth"
-	desc = "So you can sleep on the ground in relative peace."
+	name = "спальный мешок"
+	desc = "Теперь вы можете спать на земле в относительном спокойствии."
 	icon_state = "sleepingcloth"
 	attacked_sound = 'sound/foley/cloth_rip.ogg'
 	break_sound = 'sound/foley/cloth_rip.ogg'
@@ -300,7 +300,7 @@
 		qdel(src)
 		
 /obj/item/sleepingbag
-	name = "roll of sleepcloth"
+	name = "спальный мешок"
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "sleepingcloth_rolled"
 	w_class = WEIGHT_CLASS_NORMAL

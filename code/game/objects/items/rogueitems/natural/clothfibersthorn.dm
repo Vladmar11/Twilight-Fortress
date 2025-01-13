@@ -1,8 +1,8 @@
 /obj/item/natural/fibers
-	name = "fibers"
+	name = "волокно"
 	icon_state = "fibers"
 	possible_item_intents = list(/datum/intent/use)
-	desc = "Plant fibers. The peasants make their living making these into clothing."
+	desc = "Растительное волокно. Крестьяне зарабатывают на жизнь изготовлением из него одежды."
 	force = 0
 	throwforce = 0
 	color = "#534d3e"
@@ -37,10 +37,10 @@
 			qdel(F)
 
 /obj/item/natural/silk
-	name = "silk"
+	name = "шелк"
 	icon_state = "fibers"
 	possible_item_intents = list(/datum/intent/use)
-	desc = "Silken strands. Their usage in clothing is exotic in all places save the underdark"
+	desc = "Шелковые пряди. Их используют для изготовления экзотической и дорогой одежды, которая годится куда угодно кроме подземья."
 	force = 0
 	throwforce = 0
 	color = "#e6e3db"
@@ -92,10 +92,10 @@
 #endif
 
 /obj/item/natural/cloth
-	name = "cloth"
+	name = "ткань"
 	icon_state = "cloth"
 	possible_item_intents = list(/datum/intent/use)
-	desc = "This piece of fabric is ready to be worked, or used."
+	desc = "Обычная ткань сделанная из растительного волокна. Годится для создания одежды и прочего использования."
 	force = 0
 	throwforce = 0
 	firefuel = 5 MINUTES
@@ -263,10 +263,10 @@
 			L.consider_ambush()
 
 /obj/item/natural/bundle/fibers
-	name = "fiber bundle"
+	name = "моток волокна"
 	icon_state = "fibersroll1"
 	possible_item_intents = list(/datum/intent/use)
-	desc = "Fibers, bundled together."
+	desc = "Волокна, связанные вместе."
 	force = 0
 	throwforce = 0
 	maxamount = 6
@@ -288,10 +288,10 @@
 	firefuel = 30 MINUTES
 
 /obj/item/natural/bundle/silk
-	name = "silken weave"
+	name = "моток шелка"
 	icon_state = "fibersroll1"
 	possible_item_intents = list(/datum/intent/use)
-	desc = "Silk neatly woven together."
+	desc = "Пучок нежного шелка. Он аккурастно соткан и смотан. Кропотливая работа."
 	force = 0
 	throwforce = 0
 	maxamount = 6
@@ -308,12 +308,12 @@
 	icon2step = 6
 
 /obj/item/natural/bundle/cloth
-	name = "bundle of cloth"
+	name = "рулон ткани"
 	icon_state = "clothroll1"
 	grid_width = 64
 	grid_height = 32
 	possible_item_intents = list(/datum/intent/use)
-	desc = "A cloth roll of several pieces of fabric."
+	desc = "Целый рулон из нескольких кусков ткани."
 	force = 0
 	throwforce = 0
 	maxamount = 10
