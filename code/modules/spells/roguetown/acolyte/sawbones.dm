@@ -6,7 +6,7 @@
 	miracle = FALSE
 	devotion_cost = 0
 
-/obj/effect/proc_holder/spell/targeted/docheal  /////// miricle on 3x cooldown from normal
+/obj/effect/proc_holder/spell/targeted/docheal  // miracle but 1 tile range
 	action_icon = 'icons/mob/actions/roguespells.dmi'
 	name = "Rapid Treatment"
 	overlay_state = "doc"
@@ -15,12 +15,11 @@
 	sound = 'sound/gore/flesh_eat_03.ogg'
 	associated_skill = /datum/skill/misc/treatment
 	antimagic_allowed = TRUE
-	charge_max = 60 SECONDS
+	charge_max = 20 SECONDS
 	miracle = FALSE
 	devotion_cost = 0
 
-/obj/effect/proc_holder/spell/targeted/stable // sets ox lose to 0 knocks out some toxin, brings blood levels to safe. epi stabalizes ox lose, antihol purges booze, water and iron slowly restores blood.
-	action_icon = 'icons/mob/actions/roguespells.dmi'
+/obj/effect/proc_holder/spell/targeted/stable // gamer fuel injection
 	name = "Stabilising Syringe"
 	overlay_state = "stable"
 	range = 1
@@ -28,11 +27,11 @@
 	associated_skill = /datum/skill/misc/treatment
 	antimagic_allowed = TRUE
 	include_user = TRUE
-	charge_max = 5 MINUTES
+	charge_max = 2 MINUTES
 	miracle = FALSE
 	devotion_cost = 0
 
-/obj/effect/proc_holder/spell/targeted/purge // Purges all reagents and clears all toxin damage while lowering blood levels and hitting with brute
+/obj/effect/proc_holder/spell/targeted/purge // Purges all reagents and clears all toxin damage while lowering blood levels and making an artery wound
 	action_icon = 'icons/mob/actions/roguespells.dmi'
 	name = "Purifying Blood Draw"
 	overlay_state = "snek"
@@ -41,11 +40,11 @@
 	sound = 'sound/combat/newstuck.ogg'
 	associated_skill = /datum/skill/misc/treatment
 	antimagic_allowed = TRUE
-	charge_max = 5 MINUTES
+	charge_max = 2 MINUTES
 	miracle = FALSE
 	devotion_cost = 0
 
-/obj/effect/proc_holder/spell/targeted/debride // Cure rot if has weak liver debuff
+/obj/effect/proc_holder/spell/targeted/debride // Cure rot if has weak liver debuff (achieved by surgery)
 	action_icon = 'icons/mob/actions/roguespells.dmi'
 	name = "Tissue Debridement"
 	overlay_state = "unrot"
@@ -60,7 +59,7 @@
 	/// Amount of PQ gained for curing zombos
 	var/unzombification_pq = PQ_GAIN_UNZOMBIFY
 
-/obj/effect/proc_holder/spell/targeted/cpr
+/obj/effect/proc_holder/spell/targeted/cpr // revive if has weak heart debuff (achieved by surgery)
 	action_icon = 'icons/mob/actions/roguespells.dmi'
 	name = "Cardiac Massage"
 	overlay_state = "cpr"
@@ -257,7 +256,7 @@
 		target.setOxyLoss(-100)
 		target.adjustToxLoss(-50)
 		target.emote("rage")
-		target.blood_volume += BLOOD_VOLUME_SURVIVE
+		target.blood_volume += BLOOD_VOLUME_NORMAL
 		return TRUE
 	revert_cast()
 	return FALSE
