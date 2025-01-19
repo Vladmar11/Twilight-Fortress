@@ -67,6 +67,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/slot_randomized					//keeps track of round-to-round randomization of the character slot, prevents overwriting
 	var/real_name						//our character's name
 	var/gender = MALE					//gender of character (well duh)
+	var/datum/statpack/statpack	= new /datum/statpack/wildcard/fated // LETHALSTONE EDIT: the statpack we're giving our char instead of racial bonuses
 	var/age = AGE_ADULT						//age of character
 	var/origin = "Default"
 	var/underwear = "Nude"				//underwear type
@@ -326,8 +327,11 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 			dat += "<BR>"
 			dat += "<b>Раса:</b> <a href='?_src_=prefs;preference=species;task=input'>[pref_species.name]</a>[spec_check(user) ? "" : " (!)"]<BR>"
+			// LETHALSTONE EDIT BEGIN: add statpack selection
+			dat += "<b>Навыки:</b> <a href='?_src_=prefs;preference=statpack;task=input'>[statpack.name]</a><BR>"
 //			dat += "<a href='?_src_=prefs;preference=species;task=random'>Random Species</A> "
 //			dat += "<a href='?_src_=prefs;preference=toggle_random;random_type=[RANDOM_SPECIES]'>Always Random Species: [(randomise[RANDOM_SPECIES]) ? "Yes" : "No"]</A><br>"
+
 
 			if(!(AGENDER in pref_species.species_traits))
 				var/dispGender
@@ -1409,8 +1413,35 @@ Slots: [job.spawn_positions]</span>
 							hairs = pref_species.get_hairc_list()
 						hair_color = hairs[pick(hairs)]
 						facial_hair_color = hair_color
+						// LETHALSTONE EDIT: let players know what this shit does stats-wise
+						switch (age)
+							if (AGE_ADULT)
+								to_chat(user, "Ты самом расцвете сил и не получаешь никаких бонусов и штрафов!")
+							if (AGE_MIDDLEAGED)
+								to_chat(user, "Твои мышцы постепенно стареют и продряхают, но жизнь уже научила тебя выносить её без лишних капризов.")
+								to_chat(user, "(-1 SPD, +1 END)")
+							if (AGE_OLD)
+								to_chat(user, "В подобных Энигме местах старики - настоящее чудо!.. Если они, конечно, не доживающие свой век на золотых горах дворяне.")
+								to_chat(user, "(-1 STR, -2 SPE, -1 PER, -2 CON, +3 INT, +1 FOR)")
+						// LETHALSTONE EDIT END
 						ResetJobs()
 						to_chat(user, "<font color='red'>Classes reset.</font>")
+
+				// LETHALSTONE EDIT: add statpack selection
+				if ("statpack")
+					var/list/statpacks_available = list()
+					for (var/path as anything in GLOB.statpacks)
+						var/datum/statpack/statpack = GLOB.statpacks[path]
+						if (!statpack.name)
+							continue
+						statpacks_available[statpack.name] = statpack
+
+					var/statpack_input = input(user, "Выберите навыки для своего персонажа:", "Навыки") as null|anything in statpacks_available
+					if (statpack_input)
+						var/datum/statpack/statpack_chosen = statpacks_available[statpack_input]
+						statpack = statpack_chosen
+						to_chat(user, "<font color='purple'>[statpack.name]</font>")
+						to_chat(user, "<font color='purple'>[statpack.description_string()]</font>")
 
 				if("faith")
 					var/list/faiths_named = list()
@@ -2107,6 +2138,7 @@ Slots: [job.spawn_positions]</span>
 
 	character.headshot_link = headshot_link
 	character.nudeshot_link = nudeshot_link
+	character.statpack = statpack
 
 	if(parent)
 		var/list/L = get_player_curses(parent.ckey)

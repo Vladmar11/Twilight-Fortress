@@ -1983,4 +1983,9 @@
 #include "modular\Smoker\code\Smoker.dm"
 #include "modular\ze_genesis_call\genesis_call.dm"
 #include "modular_twilight\code\modules\living\overhead_effects.dm"
+#include "modular_azurepeak\_statpacks.dm"
+#include "modular_azurepeak\statpacks\agile.dm"
+#include "modular_azurepeak\statpacks\mental.dm"
+#include "modular_azurepeak\statpacks\physical.dm"
+#include "modular_azurepeak\statpacks\wildcard.dm"
 // END_INCLUDE

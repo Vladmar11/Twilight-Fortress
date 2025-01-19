@@ -1,4 +1,12 @@
 
+#define STAT_STRENGTH "strength"
+#define STAT_PERCEPTION "perception"
+#define STAT_INTELLIGENCE "intelligence"
+#define STAT_CONSTITUTION "constitution"
+#define STAT_ENDURANCE "endurance"
+#define STAT_SPEED "speed"
+#define STAT_FORTUNE "fortune"
+
 /mob/living
 	var/STASTR = 10
 	var/STAPER = 10
@@ -35,6 +43,10 @@
 	new_patron.on_gain(src)
 	return TRUE
 
+/datum/species
+	// Associative list of stat (STAT_STRENGTH, etc) bonuses used to differentiate each race. They should ALWAYS be positive.
+	var/list/race_bonus = list()
+
 /mob/living/proc/roll_stats()
 	STASTR = 10
 	STAPER = 10
@@ -43,23 +55,19 @@
 	STAEND = 10
 	STASPD = 10
 	STALUC = 10
-	for(var/S in MOBSTATS)
-		var/how_much = pick(-1, 0, 1)
-		change_stat(S, how_much)
+
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
-		if(H.dna.species)
-			// Species stats
-			for(var/S in H.dna.species.specstats)
-				change_stat(S, H.dna.species.specstats[S])
-			if(gender == FEMALE)
-				// Female species stats
-				for(var/S in H.dna.species.specstats_f)
-					change_stat(S, H.dna.species.specstats_f[S])
-			else
-				// Male species stats
-				for(var/S in H.dna.species.specstats_m)
-					change_stat(S, H.dna.species.specstats_m[S])
+
+		if (H.statpack)
+			H.statpack.apply_to_human(H)
+		if (H.dna?.species) // LETHALSTONE EDIT: apply our race bonus, if we have one
+			var/datum/species/species = H.dna.species
+			if (species.race_bonus)
+				for (var/stat in species.race_bonus)
+					var/amt = species.race_bonus[stat]
+					H.change_stat(stat, amt)
+
 		switch(H.age)
 			if(AGE_MIDDLEAGED)
 				change_stat("speed", -1)
