@@ -28,7 +28,20 @@
 	associated_skill = /datum/skill/misc/treatment
 	antimagic_allowed = TRUE
 	include_user = TRUE
-	charge_max = 2 MINUTES
+	charge_max = 1 MINUTES
+	miracle = FALSE
+	devotion_cost = 0
+
+/obj/effect/proc_holder/spell/targeted/berserkium // doktor! turn off my pain inhibitors!
+	action_icon = 'icons/mob/actions/roguespells.dmi'
+	name = "Berserkium Injection"
+	overlay_state = "bcry"
+	range = 1
+	include_user = TRUE
+	sound = 'modular/Smoker/sound/inject.ogg'
+	associated_skill = /datum/skill/misc/treatment
+	antimagic_allowed = TRUE
+	charge_max = 5 MINUTES
 	miracle = FALSE
 	devotion_cost = 0
 
@@ -41,7 +54,7 @@
 	sound = 'sound/combat/newstuck.ogg'
 	associated_skill = /datum/skill/misc/treatment
 	antimagic_allowed = TRUE
-	charge_max = 2 MINUTES
+	charge_max = 1 MINUTES
 	miracle = FALSE
 	devotion_cost = 0
 
@@ -95,6 +108,10 @@
 			to_chat(user, span_warning("They need to be mended more."))
 			revert_cast()
 			return FALSE
+		if(target.mobility_flags & MOBILITY_STAND)
+			to_chat(user, span_warning("I need to lay them on the ground!"))
+			revert_cast()
+			return FALSE
 		testing("revived2")
 		var/mob/living/carbon/spirit/underworld_spirit = target.get_spirit()
 		//GET OVER HERE!
@@ -114,7 +131,7 @@
 				var/obj/item/organ/wings/seelie/new_wings = new wing_type()
 				new_wings.Insert(fairy_target)
 		target.update_body()
-		target.visible_message(span_notice("[target] is revived by holy light!"), span_green("I awake from the void."))
+		target.visible_message(span_notice("[target] starts to twitch violently!"), span_green("My ears are ringing with a sound!"))
 		if(target.mind)
 			if(revive_pq && !HAS_TRAIT(target, TRAIT_IWASREVIVED) && user?.ckey)
 				adjust_playerquality(revive_pq, user.ckey)
@@ -180,13 +197,6 @@
 	if(!..())
 		revert_cast()
 		return FALSE
-	var/found = null
-	for(var/obj/structure/bed/rogue/S in oview(5, user))
-		found = S
-	if(!found)
-		to_chat(user, span_warning("I need them on a bed."))
-		revert_cast()
-		return FALSE
 	return TRUE
 
 /obj/effect/proc_holder/spell/targeted/debride/cast(list/targets, mob/living/user)
@@ -209,6 +219,11 @@
 	// If, for whatever reason, someone manages to capture a vampire with (somehow) rot??? This prevents them from losing their undead biotype.
 	if(target.mind?.has_antag_datum(/datum/antagonist/vampire) || target.mind?.has_antag_datum(/datum/antagonist/vampire/lesser) || target.mind?.has_antag_datum(/datum/antagonist/vampirelord))
 		to_chat(user, span_warning("It's of an incurable evil, I can't."))
+		revert_cast()
+		return FALSE
+
+	if(target.mobility_flags & MOBILITY_STAND)
+		to_chat(user, span_warning("I need to lay them on the ground!"))
 		revert_cast()
 		return FALSE
 
@@ -252,7 +267,7 @@
 			ghost.mind.transfer_to(target, TRUE)
 			qdel(underworld_spirit)
 	target.grab_ghost(force = TRUE) // even suicides
-	
+
 	target.update_body()
 	target.visible_message(span_notice("The rot leaves [target]'s body!"), span_green("I feel the rot leave my body!"))
 
@@ -260,13 +275,6 @@
 
 /obj/effect/proc_holder/spell/targeted/debride/cast_check(skipcharge = 0,mob/user = usr)
 	if(!..())
-		revert_cast()
-		return FALSE
-	var/found = null
-	for(var/obj/structure/bed/rogue/S in oview(5, user))
-		found = S
-	if(!found)
-		to_chat(user, span_warning("I need to lay them on a bed"))
 		revert_cast()
 		return FALSE
 	return TRUE
@@ -281,16 +289,13 @@
 			var/mob/living/carbon/C = target
 			var/obj/item/bodypart/affecting = C.get_bodypart(check_zone(user.zone_selected))
 			if(affecting)
-				if(affecting.heal_damage(50, 50))
+				if(affecting.heal_damage(200, 200))
 					C.update_damage_overlays()
-				if(affecting.heal_wounds(50))
+				if(affecting.heal_wounds(200))
 					C.update_damage_overlays()
 		else
-			target.adjustBruteLoss(-50)
-			target.adjustFireLoss(-50)
-		target.adjustToxLoss(-50)
-		target.adjustOxyLoss(-50)
-		target.blood_volume += BLOOD_VOLUME_SURVIVE
+			target.adjustBruteLoss(-200)
+			target.adjustFireLoss(-200)
 		return TRUE
 	revert_cast()
 	return FALSE
@@ -302,11 +307,21 @@
 		var/ramount = 10
 		var/rid = /datum/reagent/medicine/stimu
 		target.reagents.add_reagent(rid, ramount)
-		target.visible_message(span_green("[user] stabs [target]'s chest with a syringe."), span_notice("My grip on life tightens!"))
-		target.setOxyLoss(-100)
-		target.adjustToxLoss(-50)
+		target.visible_message(span_green("[user] stabs [target]'s chest with a syringe."), span_notice("Feel the vibrations – my hearts starts to pound!"))
+		target.blood_volume = BLOOD_VOLUME_NORMAL
+		return TRUE
+	revert_cast()
+	return FALSE
+
+/obj/effect/proc_holder/spell/targeted/berserkium/cast(list/targets, mob/user)
+	. = ..()
+	if(iscarbon(targets[1]))
+		var/mob/living/carbon/target = targets[1]
+		var/ramount = 10
+		var/rid = /datum/reagent/medicine/berserkium
+		target.reagents.add_reagent(rid, ramount)
+		target.visible_message(span_green("[user] stabs [target]'s chest with a syringe."), span_danger("I CAN'T DENY THE VOICES INSIDE MY BRAIN!"))
 		target.emote("rage")
-		target.blood_volume += BLOOD_VOLUME_NORMAL
 		return TRUE
 	revert_cast()
 	return FALSE
@@ -320,6 +335,10 @@
 			to_chat(user, span_warning("They're missing that part!"))
 			revert_cast()
 			return FALSE
+		if(target.mobility_flags & MOBILITY_STAND)
+			to_chat(user, span_warning("I need to lay them on the ground!"))
+			revert_cast()
+			return FALSE
 		BPA.add_wound(/datum/wound/artery/)
 		target.visible_message(span_danger("[user] drains the reagents and toxins from [target]."))
 		target.adjustToxLoss(-999)
@@ -331,13 +350,6 @@
 
 /obj/effect/proc_holder/spell/targeted/purge/cast_check(skipcharge = 0,mob/user = usr)
 	if(!..())
-		revert_cast()
-		return FALSE
-	var/found = null
-	for(var/obj/structure/bed/rogue/S in oview(2, user))
-		found = S
-	if(!found)
-		to_chat(user, span_warning("I need to lay them on a bed."))
 		revert_cast()
 		return FALSE
 	return TRUE
@@ -669,14 +681,6 @@
 	metabolization_rate = 20 * REAGENTS_METABOLISM
 	overdose_threshold = null
 
-/datum/reagent/medicine/stimu
-	name = "Stimu"
-	description = "crit stabalizer and blood restorer painkiller"
-	reagent_state = LIQUID
-	color = "#D2FFFA"
-	metabolization_rate = 0.25 * REAGENTS_METABOLISM
-	overdose_threshold = null
-
 /datum/reagent/alch/on_mob_metabolize(mob/living/carbon/M)
 	if(prob(50))
 		M.confused = max(M.confused+3,0)
@@ -711,35 +715,109 @@
 
 /datum/reagent/medicine/stimu
 	name = "Stimu"
-	description = "crit stabalizer and blood restorer painkiller"
+	description = "Blood refueler"
 	reagent_state = LIQUID
 	color = "#D2FFFA"
 	metabolization_rate = 0.25 * REAGENTS_METABOLISM
 	overdose_threshold = null
 
-/datum/reagent/medicine/stimu/on_mob_metabolize(mob/living/carbon/M)
-	..()
-	ADD_TRAIT(M, TRAIT_NOCRITDAMAGE, TRAIT_GENERIC)
-	ADD_TRAIT(M, TRAIT_NOPAIN, TRAIT_GENERIC)
-
-/datum/reagent/medicine/stimu/on_mob_end_metabolize(mob/living/carbon/M)
-	REMOVE_TRAIT(M, TRAIT_NOCRITDAMAGE, TRAIT_GENERIC)
-	REMOVE_TRAIT(M, TRAIT_NOPAIN, TRAIT_GENERIC)
-	..()
-
 /datum/reagent/medicine/stimu/on_mob_life(mob/living/carbon/M)
 	if(M.blood_volume < BLOOD_VOLUME_NORMAL)
-		M.heal_wounds(2) //same as health pot only heal wounds while bleeding. technically.
-		M.blood_volume = min(M.blood_volume+15, BLOOD_VOLUME_NORMAL)
-	if(M.health <= M.crit_threshold)
-		M.adjustToxLoss(-0.5*REM, 0)
-		M.adjustBruteLoss(-0.5*REM, 0)
-		M.adjustFireLoss(-0.5*REM, 0)
-		M.adjustOxyLoss(-0.5*REM, 0)
+		M.heal_wounds(2) // ok for healing minor bleeding wounds
+		M.blood_volume = BLOOD_VOLUME_NORMAL
 	if(M.losebreath >= 4)
 		M.losebreath -= 2
 	if(M.losebreath < 0)
 		M.losebreath = 0
+	..()
+
+/datum/reagent/medicine/berserkium
+	name = "Berserkium"
+	description = "Makes you REALLY mad"
+	reagent_state = LIQUID
+	color = "#ff0000"
+	metabolization_rate = 0.25 * REAGENTS_METABOLISM
+	overdose_threshold = null
+
+/datum/status_effect/buff/berserkium_buff
+	id = "berserkiumbuff"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/berserkium_buff
+	effectedstats = list("strength" = 5, "constitution" = 5, "speed" = -10, "perception" = -5, "intelligence" = -10)
+	duration = 1
+
+/atom/movable/screen/alert/status_effect/buff/berserkium_buff
+	name = "ABNORMAL RAGE"
+	desc = "I CAN'T DENY THE VOICES INSIDE MY BRAIN!"
+	icon_state = "acid"
+
+/datum/status_effect/buff/berserkium_crash
+	id = "berserkiumcrash"
+	alert_type = /atom/movable/screen/alert/status_effect/debuff/berserkium_crash
+	effectedstats = list("strength" = -4, "perception" = -4, "intelligence" = -4, "constitution" = -4, "endurance" = -4, "speed" = -4, "fortune" = -4)
+	duration = 10 MINUTES
+
+/atom/movable/screen/alert/status_effect/debuff/berserkium_crash
+	name = "Abnormal Fatigue"
+	desc = "For all our righteous crimes we compensate."
+	icon_state = "muscles"
+
+/datum/reagent/medicine/berserkium/on_mob_metabolize(mob/living/carbon/M)
+	..()
+	ADD_TRAIT(M, TRAIT_NOSOFTCRIT, TRAIT_GENERIC)
+	ADD_TRAIT(M, TRAIT_NOHARDCRIT, TRAIT_GENERIC)
+	ADD_TRAIT(M, TRAIT_NODEATH, TRAIT_GENERIC)
+	ADD_TRAIT(M, TRAIT_NOCRITDAMAGE, TRAIT_GENERIC)
+	ADD_TRAIT(M, TRAIT_NOPAIN, TRAIT_GENERIC)
+	ADD_TRAIT(M, TRAIT_NOPAINSTUN, TRAIT_GENERIC)
+	ADD_TRAIT(M, TRAIT_NOLIMBDISABLE, TRAIT_GENERIC)
+	ADD_TRAIT(M, TRAIT_STUNIMMUNE, TRAIT_GENERIC)
+	ADD_TRAIT(M, TRAIT_BASHDOORS, TRAIT_GENERIC)
+	ADD_TRAIT(M, TRAIT_NOBREATH, TRAIT_GENERIC)
+	ADD_TRAIT(M, TRAIT_BLOODLOSS_IMMUNE, TRAIT_GENERIC)
+	ADD_TRAIT(M, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
+	ADD_TRAIT(M, TRAIT_NOSTAMINA, TRAIT_GENERIC)
+	ADD_TRAIT(M, TRAIT_NOSLEEP, TRAIT_GENERIC)
+	ADD_TRAIT(M, TRAIT_SCHIZO_AMBIENCE, TRAIT_GENERIC)
+	ADD_TRAIT(M, TRAIT_NOFLASH, TRAIT_GENERIC)
+	M.apply_status_effect(/datum/status_effect/buff/berserkium_buff)
+	M.overlay_fullscreen("rage", /atom/movable/screen/fullscreen/color_vision/red)
+
+/datum/reagent/medicine/berserkium/on_mob_end_metabolize(mob/living/carbon/M)
+	REMOVE_TRAIT(M, TRAIT_NOSOFTCRIT, TRAIT_GENERIC)
+	REMOVE_TRAIT(M, TRAIT_NOHARDCRIT, TRAIT_GENERIC)
+	REMOVE_TRAIT(M, TRAIT_NODEATH, TRAIT_GENERIC)
+	REMOVE_TRAIT(M, TRAIT_NOCRITDAMAGE, TRAIT_GENERIC)
+	REMOVE_TRAIT(M, TRAIT_NOPAIN, TRAIT_GENERIC)
+	REMOVE_TRAIT(M, TRAIT_NOPAINSTUN, TRAIT_GENERIC)
+	REMOVE_TRAIT(M, TRAIT_NOLIMBDISABLE, TRAIT_GENERIC)
+	REMOVE_TRAIT(M, TRAIT_STUNIMMUNE, TRAIT_GENERIC)
+	REMOVE_TRAIT(M, TRAIT_BASHDOORS, TRAIT_GENERIC)
+	REMOVE_TRAIT(M, TRAIT_NOBREATH, TRAIT_GENERIC)
+	REMOVE_TRAIT(M, TRAIT_BLOODLOSS_IMMUNE, TRAIT_GENERIC)
+	REMOVE_TRAIT(M, TRAIT_CRITICAL_RESISTANCE, TRAIT_GENERIC)
+	REMOVE_TRAIT(M, TRAIT_NOSTAMINA, TRAIT_GENERIC)
+	REMOVE_TRAIT(M, TRAIT_NOSLEEP, TRAIT_GENERIC)
+	REMOVE_TRAIT(M, TRAIT_SCHIZO_AMBIENCE, TRAIT_GENERIC)
+	REMOVE_TRAIT(M, TRAIT_NOFLASH, TRAIT_GENERIC)
+	M.remove_status_effect(/datum/status_effect/buff/berserkium_buff)
+	M.energy_add(-1000)
+	M.stamina_add(1000)
+	M.adjustOxyLoss(100)
+	M.apply_status_effect(/datum/status_effect/buff/berserkium_crash)
+	M.updatehealth()
+	M.clear_fullscreen("rage")
+	..()
+
+/datum/reagent/medicine/berserkium/on_mob_life(mob/living/carbon/M)
+	M.Dizzy(10)
+	M.Jitter(10)
+	if(M.has_status_effect(/datum/status_effect/debuff/sleepytime))
+		M.remove_status_effect(/datum/status_effect/debuff/sleepytime)
+		M.remove_stress(/datum/stressevent/sleepytime)
+		M.mind.sleep_adv.advance_cycle()
+	if(prob(25))
+		M.say("RA-A-A-AH!!", forced = /datum/reagent/medicine/berserkium)
+		M.emote("rage")
 	..()
 
 /datum/reagent/medicine/purify
@@ -802,7 +880,7 @@
 /*documentation: 15 oz = 45 units
 2 lesser health makes 1 health bottle, 2 health makes 1 greater health
 you need 4 lesser bottles to make 2 health to make 1 half bottle of greater
-8 lesser bottles for 1 bottle of greater 
+8 lesser bottles for 1 bottle of greater
 end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bottle of greater*/
 
 /datum/chemical_reaction/alch/mana
