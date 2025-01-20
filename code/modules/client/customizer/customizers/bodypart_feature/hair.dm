@@ -382,7 +382,14 @@
 		/datum/sprite_accessory/hair/head/thickcurly,
 		/datum/sprite_accessory/hair/head/thicklong_alt,
 		/datum/sprite_accessory/hair/head/baum,
-		)
+
+		// Twilight style
+		/datum/sprite_accessory/hair/head/cactus,
+		/datum/sprite_accessory/hair/head/choppy,
+		/datum/sprite_accessory/hair/head/elize,
+		/datum/sprite_accessory/hair/head/wavy_tied,
+		/datum/sprite_accessory/hair/head/wavy,
+	)
 
 /datum/customizer_choice/bodypart_feature/hair/head/humanoid/get_random_accessory(datum/customizer_entry/entry, datum/preferences/prefs)
 	return pick(sprite_accessories)

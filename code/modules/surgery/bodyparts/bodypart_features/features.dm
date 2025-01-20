@@ -26,6 +26,10 @@
 	feature_slot = BODYPART_FEATURE_HAIR
 	body_zone = BODY_ZONE_HEAD
 
+/datum/bodypart_feature/hair/head/proc/get_tied_type()
+	var/datum/sprite_accessory/hair/head/hairstyle_type = accessory_type
+	return hairstyle_type?.tied_type
+
 /datum/bodypart_feature/hair/facial
 	name = "Facial Hair"
 	feature_slot = BODYPART_FEATURE_FACIAL_HAIR
