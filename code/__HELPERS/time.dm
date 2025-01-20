@@ -47,21 +47,23 @@ GLOBAL_VAR_INIT(dayspassed, FALSE)
 						GLOB.forecast = "rain"
 				//					if(prob(1))						SNOW COMMENTED OUT UNTIL ITS UPDATED TO FIX BUGS. ROGTODO
 //						GLOB.forecast = "snow"
+					if(prob(2))
+						GLOB.forecast = "snow"
 				if("day")
 					if(prob(5))
 						GLOB.forecast = "rain"
-//					if(prob(1))
-//						GLOB.forecast = "snow"
+			//		if(prob(1))
+				//		GLOB.forecast = "snow"
 				if("dusk")
 					if(prob(33))
 						GLOB.forecast = "rain"
-//					if(prob(1))
-//						GLOB.forecast = "snow"
+			//		if(prob(3))
+			//			GLOB.forecast = "snow"
 				if("night")
 					if(prob(40))
 						GLOB.forecast = "rain"
-//					if(prob(1))
-//						GLOB.forecast = "snow"
+				//	if(prob(4))
+			//			GLOB.forecast = "snow"
 			if(GLOB.forecast == "rain")
 				var/foundnd
 				if(SSParticleWeather?.runningWeather?.target_trait == PARTICLEWEATHER_RAIN)

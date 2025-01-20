@@ -9,6 +9,9 @@
 	grid_height = 32
 	grid_width = 64
 
+	grid_height = 32
+	grid_width = 64
+
 /obj/item/signal_horn/attack_self(mob/living/user)
 	. = ..()
 	user.visible_message("<span class='warning'>[user] is about to sound the [src]!</span>")

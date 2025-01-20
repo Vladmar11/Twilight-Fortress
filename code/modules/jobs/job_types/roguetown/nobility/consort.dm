@@ -93,7 +93,7 @@
 		beltl = /obj/item/ammo_holder/bullet/lead
 		r_hand = /obj/item/storage/keyring/royal
 		neck = /obj/item/storage/belt/rogue/pouch/coins/rich
-		backr = /obj/item/storage/backpack/rogue/satchel/black
+		backr = /obj/item/storage/backpack/rogue/satchel
 		id = /obj/item/clothing/ring/active/nomag	
 		pants = /obj/item/clothing/under/roguetown/tights/black
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
