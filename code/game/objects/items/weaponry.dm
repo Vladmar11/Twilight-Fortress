@@ -14,6 +14,9 @@
 	armor = list("blunt" = 0, "slash" = 0, "stab" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 70)
 	resistance_flags = FIRE_PROOF
 
+	grid_height = 32
+	grid_width = 32
+
 /obj/item/banhammer/suicide_act(mob/user)
 		user.visible_message(span_suicide("[user] is hitting [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to ban [user.p_them()]self from life."))
 		return (BRUTELOSS|FIRELOSS|TOXLOSS|OXYLOSS)

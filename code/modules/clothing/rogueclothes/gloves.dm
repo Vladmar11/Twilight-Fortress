@@ -77,6 +77,9 @@
 	smeltresult = /obj/item/ingot/steel
 	sewrepair = FALSE
 
+	grid_width = 64
+	grid_height = 32
+
 /obj/item/clothing/gloves/roguetown/grenzelgloves
 	name = "grenzelhoft gloves"
 	desc = "Fancy gloves worn by foreign mercenaries."

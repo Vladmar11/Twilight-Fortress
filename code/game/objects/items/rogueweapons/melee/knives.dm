@@ -28,7 +28,8 @@
 	anvilrepair = /datum/skill/craft/blacksmithing
 	smeltresult = /obj/item/ingot/iron
 	can_cdg = TRUE
-
+	grid_height = 64
+	grid_width = 32
 
 /datum/intent/dagger
 	clickcd = 8

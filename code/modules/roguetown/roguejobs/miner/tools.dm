@@ -20,6 +20,8 @@
 	associated_skill = /datum/skill/combat/maces
 	smeltresult = /obj/item/ingot/iron
 	w_class = WEIGHT_CLASS_BULKY
+	grid_width = 64
+	grid_height = 64
 
 /obj/item/rogueweapon/pick/steel
 	name = "стальная кирка"

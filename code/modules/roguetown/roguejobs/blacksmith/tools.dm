@@ -17,6 +17,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	associated_skill = /datum/skill/combat/maces
 	smeltresult = /obj/item/ash
+	grid_width = 32
+	grid_height = 64
 
 /obj/item/rogueweapon/hammer/attack_obj(obj/attacked_object, mob/living/user)
 	if(!isliving(user) || !user.mind)

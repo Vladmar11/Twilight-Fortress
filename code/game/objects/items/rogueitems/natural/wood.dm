@@ -20,6 +20,8 @@
 	var/lumber = /obj/item/grown/log/tree/small //These are solely for lumberjack calculations
 	var/lumber_amount = 2
 	metalizer_result = /obj/item/rogueore/iron
+	grid_width = 64
+	grid_height = 32
 
 /obj/item/grown/log/tree/attacked_by(obj/item/I, mob/living/user) //This serves to reward woodcutting
 	user.changeNext_move(CLICK_CD_MELEE)

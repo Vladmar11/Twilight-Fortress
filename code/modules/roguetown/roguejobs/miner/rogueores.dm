@@ -3,6 +3,8 @@
 	icon = 'icons/roguetown/items/ore.dmi'
 	icon_state = "ore"
 	w_class = WEIGHT_CLASS_NORMAL
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/rogueore/gold
 	name = "золотая руда"
@@ -11,6 +13,8 @@
 	smeltresult = /obj/item/ingot/gold
 	grind_results = list(/datum/reagent/gold = 15)
 	sellprice = 10
+	grid_width = 64
+	grid_height = 32
 
 /obj/item/rogueore/gold/Initialize()
 	icon_state = "oregold[rand(1,3)]"
