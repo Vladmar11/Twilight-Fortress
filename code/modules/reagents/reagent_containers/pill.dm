@@ -14,6 +14,8 @@
 	var/rename_with_volume = FALSE
 	var/self_delay = 0 //pills are instant, this is because patches inheret their aplication from pills
 	var/dissolvable = FALSE
+	grid_height = 32
+	grid_width = 32
 
 /obj/item/reagent_containers/pill/Initialize()
 	. = ..()

@@ -44,6 +44,7 @@
 
 	var/collection_mode = COLLECT_EVERYTHING
 
+	var/insert_verb = "tuck"
 	var/insert_preposition = "in"					//you put things "in" a bag, but "on" a tray.
 
 	var/display_numerical_stacking = FALSE			//stack things of the same type and show as a single object with a number.
@@ -755,11 +756,11 @@
 		playsound(parent, "rustle", 50, TRUE, -5)
 	for(var/mob/viewing in viewers(user, null))
 		if(M == viewing)
-			to_chat(usr, span_notice("I tuck [I] [insert_preposition]to [parent]."))
+			to_chat(usr, span_notice("I [insert_verb] [I] [insert_preposition]to [parent]."))
 		else if(in_range(M, viewing)) //If someone is standing close enough, they can tell what it is...
-			viewing.show_message(span_notice("[M] tucks [I] [insert_preposition]to [parent]."), MSG_VISUAL)
+			viewing.show_message(span_notice("[M] [insert_verb]s [I] [insert_preposition]to [parent]."), MSG_VISUAL)
 		else
-			viewing.show_message(span_notice("[M] tucks something [insert_preposition]to [parent]."), MSG_VISUAL)
+			viewing.show_message(span_notice("[M] [insert_verb]s something [insert_preposition]to [parent]."), MSG_VISUAL)
 
 /datum/component/storage/proc/update_icon()
 	if(isobj(parent))

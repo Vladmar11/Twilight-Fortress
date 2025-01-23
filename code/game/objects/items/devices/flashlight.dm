@@ -265,6 +265,8 @@
 	var/max_occupants = 1 //Hard-cap so you can't have multiple seelie in one carrier
 	metalizer_result = null
 	smeltresult = /obj/item/ingot/iron
+	grid_height = 64
+	grid_width = 64
 
 /obj/item/flashlight/flare/torch/lantern/process()
 	open_flame(heat)

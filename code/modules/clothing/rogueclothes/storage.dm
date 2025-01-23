@@ -193,6 +193,7 @@
 	content_overlays = FALSE
 	bloody_icon_state = "bodyblood"
 	fiber_salvage = FALSE
+	component_type = /datum/component/storage/concrete/roguetown/coin_pouch
 
 /obj/item/storage/belt/rogue/pouch/coins
 	grid_height = 64

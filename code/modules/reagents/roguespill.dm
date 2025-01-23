@@ -1,6 +1,6 @@
 /obj/item/storage/equipped(mob/user, slot)
 	. = ..()
-	if(!istype(src, /obj/item/storage/bag/tray))
+	if(!istype(src, /obj/item/storage/tray))
 		for(var/obj/item/reagent_containers/I in contents)
 			if(I.reagents && I.spillable)
 				RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(check_spill), override = TRUE)

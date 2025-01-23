@@ -54,7 +54,7 @@
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/scale/inqcoat
 	backr = /obj/item/rogueweapon/sword/rapier
 	backl = /obj/item/storage/backpack/rogue/satchel
-	r_hand = /obj/item/roguekey/psydonkey
+	r_hand = /obj/item/key/psydonkey
 	backpack_contents = list(/obj/item/storage/keyring/puritan = 1, /obj/item/rogueweapon/huntingknife/idagger/silver, /obj/item/lockpick = 1, /obj/item/powderflask = 1)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)

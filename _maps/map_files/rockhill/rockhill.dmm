@@ -16687,9 +16687,9 @@
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/indoors/town/bath)
 "jOS" = (
-/obj/item/storage/bag/tray,
-/obj/item/storage/bag/tray,
-/obj/item/storage/bag/tray,
+/obj/item/storage/tray,
+/obj/item/storage/tray,
+/obj/item/storage/tray,
 /obj/item/reagent_containers/glass/bowl,
 /obj/item/reagent_containers/glass/bowl,
 /obj/item/reagent_containers/glass/bowl,
