@@ -1,7 +1,7 @@
 /obj/item/needle
-	name = "needle"
+	name = "игла"
 	icon_state = "needle"
-	desc = "This sharp needle can sew wounds, cloth and can be used for self defence if you're crazy."
+	desc = "Этой острой иглой можно зашивать раны, ткань, а если вы достаточно безумны - использовать для самообороны."
 	icon = 'icons/roguetown/items/misc.dmi'
 	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
@@ -25,11 +25,11 @@
 	. = ..()
 	if(!infinite)
 		if(stringamt > 0)
-			. += span_bold("It has [stringamt] uses left.")
+			. += span_bold("Можно использовать еще [stringamt] раз.")
 		else
-			. += span_bold("It has no uses left.")
+			. += span_bold("Больше нельзя использовать.")
 	else
-		. += "Can be used indefinitely."
+		. += "Может быть использована до бесконечности."
 
 /obj/item/needle/Initialize()
 	. = ..()
@@ -54,15 +54,15 @@
 /obj/item/needle/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/natural/fibers))
 		if(infinite || maxstring - stringamt <= 0) //is the needle infinite OR does it have all of its uses left
-			to_chat(user, span_warning("The needle has no need to be refilled."))
+			to_chat(user, span_warning("Нити еще не нужно восполнять."))
 			return
 
-		to_chat(user, "I begin threading the needle with additional fibers...")
+		to_chat(user, "Я продеваю в ушко иголки больше волокон...")
 		if(do_after(user, 6 SECONDS - user.mind.get_skill_level(/datum/skill/misc/sewing), target = I))
 			var/refill_amount
 			refill_amount = min(5, (maxstring - stringamt))
 			stringamt += refill_amount
-			to_chat(user, "I replenish the needle's thread by [refill_amount] uses!")
+			to_chat(user, "Новые нити прибавили [refill_amount] использований игле!")
 			qdel(I)
 		return
 
@@ -70,44 +70,44 @@
 	var/obj/item/I = O
 	if(can_repair)
 		if(stringamt < 1)
-			to_chat(user, span_warning("The needle has no thread left!"))
+			to_chat(user, span_warning("В игле не осталось нитей!"))
 			return
 		if(!I.sewrepair || !I.max_integrity)
 			to_chat(user, span_warning("[I] can't be repaired!"))
 			return
 		if(I.sewrepair && I.max_integrity)
 			if(I.obj_integrity == I.max_integrity)
-				to_chat(user, span_warning("[I] is not damaged!"))
+				to_chat(user, span_warning("[I] в целости!"))
 				return
 			if(!I.ontable())
-				to_chat(user, span_warning("I should put this on a table first."))
+				to_chat(user, span_warning("Сначала разложите вещь на столе."))
 				return
 			var/armor_value = 0
 			var/skill_level = user.mind.get_skill_level(/datum/skill/misc/sewing)
 			for(var/key in I.armor.getList()) // Here we are checking if the armor value of the item is 0 so we can know if the item is armor without having to make a snowflake var
 				armor_value += I.armor.getRating(key)
 			if((armor_value == 0 && skill_level < 1) || (armor_value > 0 && skill_level < 2))
-				to_chat(user, span_warning("I should probably not be doing this..."))
+				to_chat(user, span_warning("Не думаю, что стоит это делать..."))
 			playsound(loc, 'sound/foley/sewflesh.ogg', 100, TRUE, -2)
 			var/skill_multiplied = (skill_level * 10)
 			var/sewtime = (60 - skill_multiplied)
 			if(!do_after(user, sewtime, target = I))
 				return
 			if((armor_value == 0 && skill_level > 0) || (armor_value > 0 && skill_level > 1)) //If not armor but skill level at least 1 or Armor and skill level at least 2
-				user.visible_message(span_info("[user] repairs [I]!"))
+				user.visible_message(span_info("[user] чинит [I]!"))
 				I.obj_integrity = min(I.obj_integrity + skill_multiplied, I.max_integrity)
 			else
 				if(prob(20 - user.STALUC)) //Unlucky here!
 					I.take_damage(150, BRUTE, "slash")
-					user.visible_message(span_info("[user] was extremely unlucky and ruined [I] while trying to unskillfuly repair it!"))
+					user.visible_message(span_info("[user] неудачно рвет [I], пытаясь починить без должных умений!"))
 					playsound(src, 'sound/foley/cloth_rip.ogg', 50, TRUE)
 				else if(prob(user.STALUC)) //Lucky here!
 					I.obj_integrity = min(I.obj_integrity + 50, I.max_integrity)
 					playsound(src, 'sound/magic/ahh2.ogg', 50, TRUE)
-					user.visible_message(span_info("A miracle! [user] somehow managed to repair [I] while not having a single clue what he was doing!"))
+					user.visible_message(span_info("Чудеса! [user] каким-то образом зашивает [I], даже не понимая, что делает!"))
 				else
 					I.take_damage(50, BRUTE, "slash")
-					user.visible_message(span_info("[user] damaged [I] due to a lack of skill!"))
+					user.visible_message(span_info("[user] лишь повреждает [I] из-за отсутствия умения!"))
 					playsound(src, 'sound/foley/cloth_rip.ogg', 50, TRUE)
 				user.mind.add_sleep_experience(/datum/skill/misc/sewing, (user.STAINT) / 2) // Only failing if we have no idea what we're doing
 		return
@@ -119,25 +119,25 @@
 	var/mob/living/doctor = user
 	var/mob/living/carbon/human/patient = target
 	if(stringamt < 1)
-		to_chat(user, span_warning("The needle has no thread left!"))
+		to_chat(user, span_warning("В игле не осталось нитей!"))
 		return
 	var/list/sewable
 	var/obj/item/bodypart/affecting
 	if(iscarbon(patient))
 		affecting = patient.get_bodypart(check_zone(doctor.zone_selected))
 		if(!affecting)
-			to_chat(doctor, span_warning("That limb is missing."))
+			to_chat(doctor, span_warning("Этой конечности нет."))
 			return FALSE
 		if(affecting.bandage)
-			to_chat(doctor, span_warning("There is a bandage in the way."))
+			to_chat(doctor, span_warning("Мне мешает повязка."))
 			return FALSE
 		sewable = affecting.get_sewable_wounds()
 	else
 		sewable = patient.get_sewable_wounds()
 	if(!length(sewable))
-		to_chat(doctor, span_warning("There aren't any wounds to be sewn."))
+		to_chat(doctor, span_warning("Нет ран, которые стоит зашить."))
 		return FALSE
-	var/datum/wound/target_wound = input(doctor, "Which wound?", "[src]") as null|anything in sewable
+	var/datum/wound/target_wound = input(doctor, "Какую рану?", "[src]") as null|anything in sewable
 	if(!target_wound)
 		return FALSE
 
@@ -158,25 +158,25 @@
 		use(1)
 		target_wound.sew_wound()
 		if(patient == doctor)
-			doctor.visible_message(span_notice("[doctor] sews \a [target_wound.name] on [doctor.p_them()]self."), span_notice("I stitch \a [target_wound.name] on my [affecting]."))
+			doctor.visible_message(span_notice("[doctor] зашивает [target_wound.name] на себе!"), span_notice("Я закрываю швом [target_wound.name] на своей [affecting]."))
 		else
 			if(affecting)
-				doctor.visible_message(span_notice("[doctor] sews \a [target_wound.name] on [patient]'s [affecting]."), span_notice("I stitch \a [target_wound.name] on [patient]'s [affecting]."))
+				doctor.visible_message(span_notice("[doctor] зашивает [target_wound.name] на [affecting] [patient]."), span_notice("Я закрываю швом [target_wound.name] на [affecting] [patient]."))
 			else
-				doctor.visible_message(span_notice("[doctor] sews \a [target_wound.name] on [patient]."), span_notice("I stitch \a [target_wound.name] on [patient]."))
+				doctor.visible_message(span_notice("[doctor] зашивает [target_wound.name] на теле [patient]."), span_notice("Я закрываю швом [target_wound.name] на теле [patient]."))
 		log_combat(doctor, patient, "sew", "needle")
 		return TRUE
 	return FALSE
 
 /obj/item/needle/thorn
-	name = "needle"
+	name = "простая игла"
 	icon_state = "thornneedle"
-	desc = "This rough needle can be used to sew cloth and wounds."
+	desc = "Эту грубую иглу можно использовать для сшивания тканей и ран."
 	stringamt = 5
 	maxstring = 5
 	anvilrepair = null
 
 /obj/item/needle/pestra
-	name = "needle of pestra"
-	desc = span_green("This needle has been blessed by the goddess of medicine herself!")
+	name = "игла Пестры"
+	desc = span_green("Эту иглу благословила сама богиня медицины!")
 	infinite = TRUE

@@ -111,7 +111,7 @@
 	created_item = /obj/item/clothing/ring/quartz
 
 /datum/anvil_recipe/valuables/gold/sapphire
-	name = "Кольцо с саффиром (+1 Саффир)"
+	name = "Кольцо с саффирой (+1 Саффира)"
 	req_bar = /obj/item/ingot/gold
 	additional_items = list(/obj/item/roguegem/violet)	
 	created_item = /obj/item/clothing/ring/sapphire
@@ -149,7 +149,7 @@
 	created_item = /obj/item/clothing/ring/quartzs
 
 /datum/anvil_recipe/valuables/silver/sapphire
-	name = "Кольцо с саффиром (+1 Саффир)"
+	name = "Кольцо с саффирой (+1 Саффира)"
 	req_bar = /obj/item/ingot/silver
 	additional_items = list(/obj/item/roguegem/violet)	
 	created_item = /obj/item/clothing/ring/sapphires
@@ -187,7 +187,7 @@
 	created_item = /obj/item/clothing/ring/quartzc
 
 /datum/anvil_recipe/valuables/copper/sapphire
-	name = "Кольцо с саффиром (+1 Саффир)"
+	name = "Кольцо с саффирой (+1 Саффира)"
 	req_bar = /obj/item/ingot/copper
 	additional_items = list(/obj/item/roguegem/violet)	
 	created_item = /obj/item/clothing/ring/sapphirec

@@ -116,7 +116,7 @@
 	var/pq_warning = pick(list("Если я продолжу идти по скользкой дорожке, то моя душа попадет в...", "Я ощущаю... чье-то зловещее внимание...", "Тьма окутывает мою душу, наполняя тяжестью"))
 	to_chat(user, span_userdanger(pq_warning))
 	var/alert = alert(user, "Я, правда, хочу этого?", "Violate", "Да", "Нет")
-	if(alert != "Да!")
+	if(alert != "Да")
 		return
 	user.visible_message(span_boldwarning("[user] собирается изнасиловать [victim]!"))
 	if(!do_after(user, 5 SECONDS, target = victim))

@@ -91,7 +91,7 @@
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(!playing)
-		var/curfile = input(user, "Which song?", "Roguetown", name) as null|anything in song_list
+		var/curfile = input(user, "Какую песню играем?", "Roguetown", name) as null|anything in song_list
 		if(!user)
 			return
 		if(user.mind)
@@ -132,8 +132,8 @@
 		soundloop.stop()
 
 /obj/item/rogue/instrument/lute
-	name = "lute"
-	desc = "Its graceful curves were designed to weave joyful melodies."
+	name = "лютня"
+	desc = "Её изящные изгибы были созданы для того, чтобы сплетать радостные мелодии."
 	icon_state = "lute"
 	song_list = list("A Knight's Return" = 'sound/music/instruments/lute (1).ogg',
 	"Amongst Fare Friends" = 'sound/music/instruments/lute (2).ogg',
@@ -144,8 +144,8 @@
 	"Merchant in the Mire" = 'sound/music/instruments/lute (7).ogg')
 
 /obj/item/rogue/instrument/accord
-	name = "accordion"
-	desc = "A harmonious vessel of nostalgia and celebration."
+	name = "аккордеон"
+	desc = "Гармоничный сосуд ностальгии и праздника."
 	icon_state = "accordion"
 	song_list = list("Her Healing Tears" = 'sound/music/instruments/accord (1).ogg',
 	"Peddler's Tale" = 'sound/music/instruments/accord (2).ogg',
@@ -155,8 +155,8 @@
 	"'Ye Best Be Goin'" = 'sound/music/instruments/accord (6).ogg')
 
 /obj/item/rogue/instrument/guitar
-	name = "guitar"
-	desc = "A finely crafted instrument of string and wood."
+	name = "гитара"
+	desc = "Искусно изготовленный инструмент из дерева и шести струн."
 	icon_state = "guitar"
 	song_list = list("Fire-Cast Shadows" = 'sound/music/instruments/guitar (1).ogg',
 	"The Forced Hand" = 'sound/music/instruments/guitar (2).ogg',
@@ -166,8 +166,8 @@
 	"In His Arms Ye'll Find Me" = 'sound/music/instruments/guitar (6).ogg')
 
 /obj/item/rogue/instrument/harp
-	name = "harp"
-	desc = "A harp of elven craftsmanship, its strings soothe the heart."
+	name = "арфа"
+	desc = "Арфа эльфийского мастерства, ее струны успокаивают сердце."
 	icon_state = "harp"
 	song_list = list("Through Thine Window, He Glanced" = 'sound/music/instruments/harb (1).ogg',
 	"The Lady of Red Silks" = 'sound/music/instruments/harb (2).ogg',
@@ -178,8 +178,8 @@
 	"Nightmaiden's Lullaby" = 'sound/music/instruments/harb (7).ogg')
 
 /obj/item/rogue/instrument/flute
-	name = "flute"
-	desc = "A slender flute carefully carved from a smooth wood piece."
+	name = "флейта"
+	desc = "Тонкая флейта, аккуратно вырезанная из гладкого куска дерева."
 	icon_state = "flute"
 	song_list = list("Half-Dragon's Ten Mammon" = 'sound/music/instruments/flute (1).ogg',
 	"'The Local Favorite'" = 'sound/music/instruments/flute (2).ogg',
@@ -189,8 +189,8 @@
 	"Quest to the Ends" = 'sound/music/instruments/flute (6).ogg')
 
 /obj/item/rogue/instrument/drum
-	name = "drum"
-	desc = "Fashioned from taut skins across a sturdy frame, pulses like a giant heartbeat."
+	name = "барабан"
+	desc = "Сделанный из тугой кожи и прочного корпуса, при игре он пульсирует, как биение гигантского сердца."
 	icon_state = "drum"
 	song_list = list("Barbarian's Moot" = 'sound/music/instruments/drum (1).ogg',
 	"Muster the Wardens" = 'sound/music/instruments/drum (2).ogg',

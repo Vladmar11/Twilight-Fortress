@@ -1,6 +1,6 @@
 /obj/item/natural/poo
-	name = "nightsoil"
-	desc = "This smells bad."
+	name = "нечистоты"
+	desc = "Пахнет отвратительно."
 	icon_state = "humpoo"
 	dropshrink = 0.75
 	throwforce = 0
@@ -8,11 +8,11 @@
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/natural/poo/cow
-	name = "cow pie"
-	desc = "Smells bad, but you know it's just grass. Or is it?"
+	name = "коровья лепешка"
+	desc = "Пахнет отвратительно, но вы знаете, что это просто остатки травы. Травы ведь?"
 	icon_state = "cowpoo"
 
 /obj/item/natural/poo/horse
-	name = "droppings"
-	desc = "Smells bad, but you know it's just grass."
+	name = "навоз"
+	desc = "Пахнет отвратительно, но вы знаете, что это просто остатки травы."
 	icon_state = "horsepoo"

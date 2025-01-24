@@ -15,7 +15,8 @@
 	var/list/ammo_type
 
 /obj/item/ammo_holder/quiver
-	name = "quiver"
+	name = "колчан"
+	desc = "Крепкий колчан для стрел и арбалетных болтов. Вмещает до 20 снарядов."
 	icon_state = "quiver0"
 	item_state = "quiver"
 	lefthand_file = 'icons/mob/inhands/equipment/backpack_lefthand.dmi'
@@ -25,7 +26,8 @@
 	ammo_type = list (/obj/item/ammo_casing/caseless/rogue/arrow, /obj/item/ammo_casing/caseless/rogue/bolt)
 
 /obj/item/ammo_holder/bullet
-	name = "bullet pouch"
+	name = "мешочек для пуль"
+	desc = "Небольшой мешочек, в котором можно хранить до 10 пуль для пистолей, мушкетов и аркебуз."
 	icon_state = "pouch0"
 	item_state = "pouch"
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_NECK
@@ -34,9 +36,9 @@
 
 /obj/item/ammo_holder/quiver/attack_turf(turf/T, mob/living/user)
 	if(ammo.len >= max_storage)
-		to_chat(user, span_warning("Your [src.name] is full!"))
+		to_chat(user, span_warning("Ваш [src.name] заполнен полностью!"))
 		return
-	to_chat(user, span_notice("You begin to gather the ammunition..."))
+	to_chat(user, span_notice("Вы начинаете собирать боеприпасы..."))
 	for(var/obj/item/ammo_casing/caseless/rogue/arrow in T.contents)
 		if(do_after(user, 5))
 			if(!eatarrow(arrow))
@@ -60,7 +62,7 @@
 				ammo += A
 				update_icon()
 			else
-				to_chat(loc, span_warning("Full!"))
+				to_chat(loc, span_warning("Заполнено!"))
 			return
 	if(istype(A, /obj/item/gun/ballistic/revolver/grenadelauncher/bow))
 		var/obj/item/gun/ballistic/revolver/grenadelauncher/bow/B = A
@@ -85,7 +87,7 @@
 /obj/item/ammo_holder/examine(mob/user)
 	. = ..()
 	if(ammo.len)
-		. += span_notice("[ammo.len] inside.")
+		. += span_notice("[ammo.len] снарядов внутри.")
 
 /obj/item/ammo_holder/update_icon()
 	if(ammo.len)

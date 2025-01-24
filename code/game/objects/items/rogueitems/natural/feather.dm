@@ -1,9 +1,9 @@
 
 /obj/item/natural/feather
-	name = "feather"
+	name = "перо"
 	icon_state = "feather"
 	possible_item_intents = list(/datum/intent/use)
-	desc = "A fluffy feather."
+	desc = "Пушистое перышко."
 	force = 0
 	throwforce = 0
 	firefuel = null

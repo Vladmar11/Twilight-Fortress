@@ -84,19 +84,19 @@
 		if(!usr.canUseTopic(src, be_close=TRUE))
 			return
 		if(armor_class == ARMOR_CLASS_HEAVY)
-			to_chat(usr, "AC: <b>HEAVY</b>")
+			to_chat(usr, "КЛАСС БРОНИ: <b>ТЯЖЕЛЫЙ</b>")
 		if(armor_class == ARMOR_CLASS_MEDIUM)
-			to_chat(usr, "AC: <b>MEDIUM</b>")
+			to_chat(usr, "КЛАСС БРОНИ: <b>СРЕДНИЙ</b>")
 		if(armor_class == ARMOR_CLASS_LIGHT)
-			to_chat(usr, "AC: <b>LIGHT</b>")
+			to_chat(usr, "КЛАСС БРОНИ: <b>ЛЕГКИЙ</b>")
 
 /obj/item/clothing/examine(mob/user)
 	. = ..()
 	if(torn_sleeve_number)
 		if(torn_sleeve_number == 1)
-			. += span_notice("It has one torn sleeve.")
+			. += span_notice("Один рукав оторван по швам.")
 		else
-			. += span_notice("Both its sleeves have been torn!")
+			. += span_notice("Оба рукава оторваны, только нитки торчат!")
 
 /obj/item/proc/get_detail_tag() //this is for extra layers on clothes
 	return detail_tag
@@ -149,55 +149,55 @@
 			if(r_sleeve_status == SLEEVE_NOMOD)
 				return
 			if(r_sleeve_status == SLEEVE_TORN)
-				to_chat(user, span_info("It's torn away."))
+				to_chat(user, span_info("Правый рукав оторван."))
 				return
 			if(!do_after(user, 20, target = user))
 				return
 			if(prob(L.STASTR * 8))
 				torn_sleeve_number += 1
 				r_sleeve_status = SLEEVE_TORN
-				user.visible_message(span_notice("[user] tears [src]."))
+				user.visible_message(span_notice("[user] отрывает рукав [src] по швам."))
 				playsound(src, 'sound/foley/cloth_rip.ogg', 50, TRUE)
 				if(r_sleeve_zone == BODY_ZONE_R_ARM)
 					body_parts_covered &= ~ARM_RIGHT
 				if(r_sleeve_zone == BODY_ZONE_R_LEG)
 					body_parts_covered &= ~LEG_RIGHT
 				if(salvage_result == /obj/item/natural/hide/cured)
-					to_chat(user, span_info("You ruined a piece of leather."))
+					to_chat(user, span_info("Вы испортили кусок кожи."))
 					return
 				var/obj/item/Sr = new salvage_result(get_turf(src))
 				Sr.color = color
 				user.put_in_hands(Sr)
 				return
 			else
-				user.visible_message(span_warning("[user] tries to tear [src]."))
+				user.visible_message(span_warning("[user] пытается порвать [src]."))
 				return
 		if(user.zone_selected == l_sleeve_zone)
 			if(l_sleeve_status == SLEEVE_NOMOD)
 				return
 			if(l_sleeve_status == SLEEVE_TORN)
-				to_chat(user, span_info("It's torn away."))
+				to_chat(user, span_info("Левый рукав оторван"))
 				return
 			if(!do_after(user, 20, target = user))
 				return
 			if(prob(L.STASTR * 8))
 				torn_sleeve_number += 1
 				l_sleeve_status = SLEEVE_TORN
-				user.visible_message(span_notice("[user] tears [src]."))
+				user.visible_message(span_notice("[user] отрывает рукав [src] по швам."))
 				playsound(src, 'sound/foley/cloth_rip.ogg', 50, TRUE)
 				if(l_sleeve_zone == BODY_ZONE_L_ARM)
 					body_parts_covered &= ~ARM_LEFT
 				if(l_sleeve_zone == BODY_ZONE_L_LEG)
 					body_parts_covered &= ~LEG_LEFT
 				if(salvage_result == /obj/item/natural/hide/cured)
-					to_chat(user, span_info("You ruined a piece of leather."))
+					to_chat(user, span_info("Вы испортили кусок кожи."))
 					return
 				var/obj/item/Sr = new salvage_result(get_turf(src))
 				Sr.color = color
 				user.put_in_hands(Sr)
 				return
 			else
-				user.visible_message(span_warning("[user] tries to tear [src]."))
+				user.visible_message(span_warning("[user] пытается порвать [src]."))
 				return
 	if(loc == L)
 		L.regenerate_clothes()
@@ -280,7 +280,7 @@
 		if(user == M)
 			return
 		user.changeNext_move(CLICK_CD_MELEE)
-		M.visible_message(span_warning("[user] pats out the flames on [M] with [src]!"))
+		M.visible_message(span_warning("[user] сбивает пламя с [M] при помощи [src]!"))
 		M.adjust_fire_stacks(-2)
 		take_damage(10, BURN, "fire")
 	else
@@ -368,7 +368,7 @@
 			armor[x] = 0
 	if(ismob(loc) && brokemessage)
 		var/mob/M = loc
-		to_chat(M, "ARMOR BROKEN..!")
+		to_chat(M, "БРОНЯ СЛОМАНА..!")
 	..()
 
 /obj/item/clothing/proc/update_clothes_damaged_state(damaging = TRUE)

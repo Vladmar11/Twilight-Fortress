@@ -1,21 +1,21 @@
 
 /obj/item/gunlock
-	name = "Gun Lock"
+	name = "ружейный замок"
 	icon_state = "gunlock"
-	desc = "The 'firing' part of a gun."
+	desc = "Спусковой механизм. Это 'стреляющая' часть огнестрельного оружия."
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/roguetown/items/misc.dmi'
 
 /obj/item/gunstock
-	name = "Gun Stock"
+	name = "ружейное ложе"
 	icon_state = "gunstock"
-	desc = "The 'holding' part of a gun."
+	desc = "Деревянное ложе для всех остальных элементов. Это 'держащая' часть огнестрельного оружия."
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'icons/roguetown/items/misc.dmi'
 
 /obj/item/gunbarrel
-	name = "Gun Barrel"
+	name = "ружейный ствол"
 	icon_state = "gunbarrel"
-	desc = "The 'aiming' part of a gun."
+	desc = "Металлическая трубка из толстого металла. Это 'прицельная' часть огнестрельного оружия."
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'icons/roguetown/items/misc.dmi'

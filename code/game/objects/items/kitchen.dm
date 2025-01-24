@@ -15,8 +15,8 @@
 	righthand_file = 'icons/mob/inhands/equipment/kitchen_righthand.dmi'
 
 /obj/item/kitchen/fork
-	name = "fork"
-	desc = ""
+	name = "вилка"
+	desc = "В три раза эффективнее протыкает еду."
 	icon_state = "fork"
 	force = 5
 	w_class = WEIGHT_CLASS_TINY
@@ -30,7 +30,7 @@
 	var/datum/reagent/forkload //used to eat omelette
 
 /obj/item/kitchen/fork/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] stabs \the [src] into [user.p_their()] chest! It looks like [user.p_theyre()] trying to take a bite out of [user.p_them()]self!"))
+	user.visible_message(span_suicide("[user] втыкает [src] в свое тело! Как будто пытается откусить от себя кусочек!"))
 	playsound(src, 'sound/blank.ogg', 50, TRUE)
 	return BRUTELOSS
 
@@ -40,10 +40,10 @@
 
 	if(forkload)
 		if(M == user)
-			M.visible_message(span_notice("[user] eats a delicious forkful of food!"))
+			M.visible_message(span_notice("[user] съедает вкусную порцию еды с вилки!"))
 			M.reagents.add_reagent(forkload.type, 1)
 		else
-			M.visible_message(span_notice("[user] feeds [user] a delicious forkful of food!"))
+			M.visible_message(span_notice("[user] кормит [M] вкусной едой с вилки!"))
 			M.reagents.add_reagent(forkload.type, 1)
 		icon_state = "fork"
 		forkload = null
@@ -54,8 +54,8 @@
 		return ..()
 
 /obj/item/kitchen/rollingpin
-	name = "rolling pin"
-	desc = ""
+	name = "скалка"
+	desc = "Обычно ей раскатывают тесто. Хотя и огреть ей кого-нибудь тоже можно."
 	icon_state = "rolling_pin"
 	force = 8
 	throwforce = 5
@@ -66,5 +66,5 @@
 	custom_price = 20
 
 /obj/item/kitchen/rollingpin/suicide_act(mob/living/carbon/user)
-	user.visible_message(span_suicide("[user] begins flattening [user.p_their()] head with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
+	user.visible_message(span_suicide("[user] с силой бьет себя по голове [src]! Похоже, пытается покончить с собой!"))
 	return BRUTELOSS
