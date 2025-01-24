@@ -233,6 +233,10 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		pixel_y = rand(-5,5)
 	if(twohands_required)
 		has_inspect_verb = TRUE
+	if(grid_width <= 0)
+		grid_width = (w_class * world.icon_size)
+	if(grid_height <= 0)
+		grid_height = (w_class * world.icon_size)
 	update_transform()
 
 /obj/item/proc/step_action() //this was made to rewrite clown shoes squeaking
@@ -462,7 +466,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		if(istype(src,/obj/item/clothing))
 			var/obj/item/clothing/C = src
 			if(C.prevent_crits)
-				if(C.prevent_crits.len)
+				if(length(C.prevent_crits))
 					inspec += "\n<b>DEFENSE:</b>"
 					for(var/X in C.prevent_crits)
 						inspec += "\n<b>[X] damage</b>"

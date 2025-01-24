@@ -22,6 +22,8 @@
 	experimental_onhip = TRUE
 	nodismemsleeves = TRUE
 	flags_inv = HIDEBOOB|HIDECROTCH
+	grid_width = 64
+	grid_height = 96
 	w_class = WEIGHT_CLASS_NORMAL //Anti-pouch storage due to the weight class no longer being small.
 
 /obj/item/clothing/suit/roguetown/armor/chainmail

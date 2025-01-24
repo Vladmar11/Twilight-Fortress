@@ -14,15 +14,17 @@
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_NECK|ITEM_SLOT_MOUTH|ITEM_SLOT_WRISTS
 	drop_sound = 'sound/foley/dropsound/chain_drop.ogg'
 	anvilrepair = /datum/skill/craft/blacksmithing
+	component_type = /datum/component/storage/concrete/roguetown/keyring
 
 /obj/item/storage/keyring/Initialize()
-    . = ..()
-    if(keys.len)
-        for(var/X in keys)
-            new X(src)
-            keys -= X
-    update_icon()
-    update_desc()
+	. = ..()
+	for(var/X in keys)
+		var/obj/item/key/new_key = new X(loc)
+		if(!SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, new_key, null, TRUE, TRUE))
+			qdel(new_key)
+
+	update_icon()
+	update_desc()
 
 /obj/item/storage/keyring/ComponentInitialize()
 	. = ..()

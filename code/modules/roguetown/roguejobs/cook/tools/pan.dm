@@ -17,3 +17,5 @@
 	ingsize = 3
 	w_class = WEIGHT_CLASS_NORMAL
 	smeltresult = /obj/item/ingot/iron
+	grid_width = 32
+	grid_height = 64

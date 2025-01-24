@@ -8,7 +8,7 @@
 	density = TRUE
 	var/opened = FALSE
 
-/obj/item/roguekey/psydonkey
+/obj/item/key/psydonkey
 	icon_state = "birdkey"
 	icon = 'modular_twilight/icons/roguetown/items/keys.dmi'
 	name = "Reliquary Key"
@@ -16,7 +16,7 @@
 
 /obj/structure/reliquarybox/attackby(obj/item/W, mob/user, params)
 	if(ishuman(user))
-		if(istype(W, /obj/item/roguekey/psydonkey))
+		if(istype(W, /obj/item/key/psydonkey))
 			if(opened)
 				to_chat(user, span_info("The reliquary box has already been opened..."))
 				return

@@ -17,16 +17,18 @@
 				/obj/item/dice/d100
 				)
 
-/obj/item/storage/pill_bottle/dice/PopulateContents()
-	new /obj/item/dice/d4(src)
-	new /obj/item/dice/d6(src)
-	new /obj/item/dice/d6(src)
-	new /obj/item/dice/d8(src)
-	new /obj/item/dice/d10(src)
-	new /obj/item/dice/d12(src)
-	new /obj/item/dice/d20(src)
-//	var/picked = pick(special_die)
-//	new picked(src)
+	populate_contents = list(
+		/obj/item/dice/d4,
+		/obj/item/dice/d6,
+		/obj/item/dice/d6,
+		/obj/item/dice/d8,
+		/obj/item/dice/d10,
+		/obj/item/dice/d12,
+		/obj/item/dice/d20,
+	)
+
+	grid_height = 32
+	grid_width = 32
 
 /obj/item/storage/pill_bottle/dice/suicide_act(mob/user)
 	user.visible_message(span_suicide("[user] is gambling with death! It looks like [user.p_theyre()] trying to commit suicide!"))

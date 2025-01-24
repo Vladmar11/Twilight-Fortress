@@ -29,8 +29,8 @@
 	var/locked = FALSE								//when locked nothing can see inside or use it.
 
 	var/max_w_class = WEIGHT_CLASS_SMALL			//max size of objects that will fit.
-	var/max_combined_w_class = 14					//max combined sizes of objects that will fit.
-	var/max_items = 7								//max number of objects that will fit.
+	var/max_combined_w_class = 1000					//max combined sizes of objects that will fit.
+	var/max_items = 1000							//max number of objects that will fit.
 
 	var/emp_shielded = FALSE
 
@@ -44,6 +44,7 @@
 
 	var/collection_mode = COLLECT_EVERYTHING
 
+	var/insert_verb = "tuck"
 	var/insert_preposition = "in"					//you put things "in" a bag, but "on" a tray.
 
 	var/display_numerical_stacking = FALSE			//stack things of the same type and show as a single object with a number.
@@ -154,16 +155,6 @@
 /datum/component/storage/proc/update_actions()
 	QDEL_NULL(modeswitch_action)
 	return
-	if(!isitem(parent) || !allow_quick_gather)
-		return
-	var/obj/item/I = parent
-	modeswitch_action = new(I)
-	RegisterSignal(modeswitch_action, COMSIG_ACTION_TRIGGER, PROC_REF(action_trigger))
-	if(I.obj_flags & IN_INVENTORY)
-		var/mob/M = I.loc
-		if(!istype(M))
-			return
-		modeswitch_action.Grant(M)
 
 /datum/component/storage/proc/change_master(datum/component/storage/concrete/new_master)
 	if(new_master == src || (!isnull(new_master) && !istype(new_master)))
@@ -765,11 +756,11 @@
 		playsound(parent, "rustle", 50, TRUE, -5)
 	for(var/mob/viewing in viewers(user, null))
 		if(M == viewing)
-			to_chat(usr, span_notice("I tuck [I] [insert_preposition]to [parent]."))
+			to_chat(usr, span_notice("I [insert_verb] [I] [insert_preposition]to [parent]."))
 		else if(in_range(M, viewing)) //If someone is standing close enough, they can tell what it is...
-			viewing.show_message(span_notice("[M] tucks [I] [insert_preposition]to [parent]."), MSG_VISUAL)
+			viewing.show_message(span_notice("[M] [insert_verb]s [I] [insert_preposition]to [parent]."), MSG_VISUAL)
 		else
-			viewing.show_message(span_notice("[M] tucks something [insert_preposition]to [parent]."), MSG_VISUAL)
+			viewing.show_message(span_notice("[M] [insert_verb]s something [insert_preposition]to [parent]."), MSG_VISUAL)
 
 /datum/component/storage/proc/update_icon()
 	if(isobj(parent))
