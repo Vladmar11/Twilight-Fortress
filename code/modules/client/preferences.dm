@@ -60,6 +60,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/preferred_map = null
 	var/pda_style = MONO
 	var/pda_color = "#808000"
+	var/prefer_old_chat = FALSE
 
 	var/uses_glasses_colour = 0
 
@@ -94,6 +95,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/list/randomise = list(RANDOM_UNDERWEAR = TRUE, RANDOM_UNDERWEAR_COLOR = TRUE, RANDOM_UNDERSHIRT = TRUE, RANDOM_SOCKS = TRUE, RANDOM_BACKPACK = TRUE, RANDOM_JUMPSUIT_STYLE = FALSE, RANDOM_SKIN_TONE = TRUE, RANDOM_EYE_COLOR = TRUE)
 	var/list/friendlyGenders = list("Male" = "male", "Female" = "female")
 	var/phobia = "spiders"
+	var/spouse_ckey = null
 
 	var/list/custom_names = list()
 	var/preferred_ai_core_display = "Blue"
@@ -361,8 +363,9 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 					family_gender = list(FEMALE)
 				else
 					family_gender = list(MALE)
-				dat += " <small><a href='?_src_=prefs;preference=familypref;res=race'>Раса</a></small>"
+				dat += " <small><a href='?_src_=prefs;preference=familypref;res=race'><b>Раса</b></a></small>"
 				dat += "<BR>"
+				dat += " <small><a href='?_src_=prefs;preference=familypref;res=name'><b>Душа второй половинки: [spouse_ckey ? spouse_ckey : "(Случайная)"]</b></a></small>"
 			dat += "<b>Преобладающая рука:</b> <a href='?_src_=prefs;preference=domhand'>[domhand == 1 ? "Левша" : "Правша"]</a><BR>"
 
 /*
@@ -1231,7 +1234,12 @@ Slots: [job.spawn_positions]</span>
 							family_species -= choices[choice]
 						else
 							family_species += choices[choice]
-
+			
+			if("name")
+				var/potential_spouse_ckey = input(usr, "Add CKEY of your spouse! Check it twice! Leave the field clear to have random spouse with other parameters.", "Bloodbinding", null) as text
+				if(!potential_spouse_ckey)
+					spouse_ckey = null
+				spouse_ckey = potential_spouse_ckey
 
 	else if(href_list["preference"] == "keybinds")
 		switch(href_list["task"])

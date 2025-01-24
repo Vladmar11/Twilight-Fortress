@@ -44,7 +44,7 @@
 			H.mind.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-			shoes = /obj/item/clothing/shoes/roguetown/armor
+			shoes = /obj/item/clothing/shoes/roguetown/nobleboot/thighboots
 			belt = /obj/item/storage/belt/rogue/leather/black
 			beltr = /obj/item/flashlight/flare/torch/lantern
 			backl = /obj/item/storage/backpack/rogue/satchel
@@ -75,7 +75,7 @@
 			H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
-			shoes = /obj/item/clothing/shoes/roguetown/armor
+			shoes = /obj/item/clothing/shoes/roguetown/nobleboot/thighboots
 			belt = /obj/item/storage/belt/rogue/leather/black
 			beltr = /obj/item/flashlight/flare/torch/lantern
 			backl = /obj/item/storage/backpack/rogue/satchel
@@ -97,7 +97,7 @@
 		if("Failed Condottiero")
 			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
 			belt = /obj/item/storage/belt/rogue/leather/black
-			shoes = /obj/item/clothing/shoes/roguetown/armor/nobleboot
+			shoes = /obj/item/clothing/shoes/roguetown/nobleboot/thighboots
 			pants = /obj/item/clothing/under/roguetown/tights/black
 			cloak = /obj/item/clothing/cloak/heartfelt
 			armor = /obj/item/clothing/suit/roguetown/armor/heartfelt/lord

@@ -33,9 +33,9 @@
 		head = /obj/item/clothing/head/roguetown/hatblu
 	if(H.gender == MALE)
 		shoes = /obj/item/clothing/shoes/roguetown/armor/leather
-		shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt
+		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/artificer
 	else
-		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random
+		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/lowcut
 		shoes = /obj/item/clothing/shoes/roguetown/shortboots
 
 	if(H.mind)

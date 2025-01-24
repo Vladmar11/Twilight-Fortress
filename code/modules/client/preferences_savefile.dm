@@ -165,6 +165,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["crt"]			>> crt
 	S["mastervol"]			>> mastervol
 	S["lastclass"]			>> lastclass
+	S["prefer_old_chat"]	>> prefer_old_chat
 
 
 	S["default_slot"]		>> default_slot
@@ -292,6 +293,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["pda_style"], pda_style)
 	WRITE_FILE(S["pda_color"], pda_color)
 	WRITE_FILE(S["key_bindings"], key_bindings)
+	WRITE_FILE(S["prefer_old_chat"], prefer_old_chat)
 	WRITE_FILE(S["defiant"], defiant)
 	return TRUE
 
@@ -605,6 +607,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["update_mutant_colors"] , update_mutant_colors)
 	WRITE_FILE(S["headshot_link"] , headshot_link)
 	WRITE_FILE(S["nudeshot_link"] , nudeshot_link)
+	WRITE_FILE(S["spouse_ckey"] , spouse_ckey)
 	if(loadout)
 		WRITE_FILE(S["loadout"] , loadout.type)
 	else

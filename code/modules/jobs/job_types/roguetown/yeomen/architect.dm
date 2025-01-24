@@ -14,14 +14,15 @@
 	display_order = JDO_ARCHITECT
 	min_pq = 12
 	max_pq = null
+	give_bank_account = 25
 
 /datum/outfit/job/roguetown/architect/pre_equip(mob/living/carbon/human/H)         ///////////// fuck being a dumb virgin
 	..()
 	head = /obj/item/clothing/head/roguetown/helmet/kettle
 	mask = /obj/item/clothing/mask/rogue/spectacles/golden
 	neck = /obj/item/powderflask
-	armor = /obj/item/clothing/suit/roguetown/armor/workervest
-	shirt = /obj/item/clothing/suit/roguetown/shirt/grenzelhoft
+	armor = /obj/item/clothing/suit/roguetown/shirt/tunic/noblecoat
+	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/artificer
 	wrists = /obj/item/storage/keyring/architect
 	backr = /obj/item/gun/ballistic/firearm/blunderbuss
 	backl = /obj/item/rogueweapon/pick/drill

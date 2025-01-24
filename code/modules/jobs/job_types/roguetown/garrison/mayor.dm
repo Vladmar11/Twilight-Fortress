@@ -27,8 +27,8 @@
 	..()
 
 	r_hand = /obj/item/gun/ballistic/firearm/arquebus_pistol
-	head = /obj/item/clothing/head/roguetown/nightman //will do for now
-	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest
+	head = /obj/item/clothing/head/roguetown/stewardtophat
+	armor = /obj/item/clothing/suit/roguetown/shirt/tunic/noblecoat
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
 	pants = /obj/item/clothing/under/roguetown/tights/black
 	shoes = /obj/item/clothing/shoes/roguetown/armor

@@ -21,7 +21,7 @@
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/guard, /obj/effect/proc_holder/spell/self/convertrole/bog)
 	outfit = /datum/outfit/job/roguetown/marshal
 
-	give_bank_account = 40
+	give_bank_account = 200
 	min_pq = 4
 	max_pq = null
 
@@ -29,25 +29,29 @@
 
 /datum/outfit/job/roguetown/marshal/pre_equip(mob/living/carbon/human/H)
 	..()
+	head = /obj/item/clothing/head/roguetown/chaperon
 	neck = /obj/item/storage/belt/rogue/pouch/coins/rich
-	armor = /obj/item/clothing/suit/roguetown/armor/gambeson/lord
-	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
-	pants = /obj/item/clothing/under/roguetown/tights/black
-	shoes = /obj/item/clothing/shoes/roguetown/armor/nobleboot
+	armor = /obj/item/clothing/suit/roguetown/armor/leather/jacket/handjacket
+	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/fancy
+	pants = /obj/item/clothing/under/roguetown/trou/leather/masterwork
+	shoes = /obj/item/clothing/shoes/roguetown/nobleboot/thighboots
+	backr = /obj/item/rogueweapon/mace/steel
 	backl = /obj/item/storage/backpack/rogue/satchel
 	belt = /obj/item/storage/belt/rogue/leather/plaquegold
-	beltl = /obj/item/storage/keyring/marshal
-	beltr = /obj/item/rogueweapon/mace
-	cloak = /obj/item/clothing/cloak/stabard/surcoat/marshal
-	gloves = /obj/item/clothing/gloves/roguetown/leather/angle
+	beltl = /obj/item/ammo_holder/bullet/lead
+	beltr = /obj/item/gun/ballistic/firearm/arquebus_pistol
+	cloak = /obj/item/clothing/cloak/captain
+	gloves = /obj/item/clothing/gloves/roguetown/leather/masterwork
 	wrists = /obj/item/clothing/wrists/roguetown/bracers
-	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1)
+	id = /obj/item/clothing/ring/diamond
+	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/storage/keyring/marshal = 1, 
+	/obj/item/flashlight/flare/torch/lantern = 1, /obj/item/powderflask = 1)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/maces, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/firearms, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/firearms, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)

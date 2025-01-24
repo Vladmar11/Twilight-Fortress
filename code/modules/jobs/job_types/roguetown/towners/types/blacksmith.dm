@@ -23,7 +23,7 @@
 		shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt
 		shoes = /obj/item/clothing/shoes/roguetown/armor/leather
 	else
-		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random
+		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/lowcut
 		shoes = /obj/item/clothing/shoes/roguetown/shortboots
 
 	if(H.mind)
@@ -41,3 +41,7 @@
 		H.change_stat("constitution", 1)
 		H.change_stat("speed", -1)
 		H.change_stat("fortune", 1)
+		if(H.age == AGE_MIDDLEAGED)
+			H.mind.adjust_skillrank(/datum/skill/craft/blacksmithing, 1, TRUE)
+		if(H.age == AGE_OLD)
+			H.mind.adjust_skillrank(/datum/skill/craft/blacksmithing, 2, TRUE)

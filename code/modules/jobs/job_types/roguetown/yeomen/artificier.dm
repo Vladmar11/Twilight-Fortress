@@ -25,7 +25,7 @@
 		head = /obj/item/clothing/head/roguetown/hatblu
 	mask = /obj/item/clothing/mask/rogue/spectacles/golden
 	cloak = /obj/item/clothing/cloak/apron/waist/brown
-	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/random
+	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/artificer
 	belt = /obj/item/storage/belt/rogue/leather
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/mid
 	beltl = /obj/item/key/artificer

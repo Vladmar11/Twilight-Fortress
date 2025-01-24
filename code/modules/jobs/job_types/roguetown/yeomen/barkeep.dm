@@ -34,7 +34,7 @@
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(/obj/item/natural/cloth/)
 	if(H.gender == MALE)
-		shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/random
+		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/fancy
 		belt = /obj/item/storage/belt/rogue/leather
 		beltl = /obj/item/storage/belt/rogue/pouch/coins/mid
 		neck = /obj/item/storage/keyring/innkeep

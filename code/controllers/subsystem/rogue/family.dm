@@ -239,9 +239,11 @@ SUBSYSTEM_DEF(family)
 	if(!R)
 		R = new /datum/relation/relative(holder,target)
 	relations += R
+	if(holder.mind)
+		holder.mind.store_memory("<b>[target.real_name] ([target.job])</b> is my <b>[R.name]</b>. [target.p_they(TRUE)] is [target.age] [target.dna.species.name].")
 	if(announce)
 		spawn(1)
-			to_chat(holder,"<span class='notice'>My [R.name]. [target.real_name] ([target.dna.species.name], [target.job], [target.age]) is here alongside me.</span>")
+			to_chat(holder,"<span class='notice'><b>[target.real_name] ([target.job])</b> is my <b>[R.name]</b>. [target.p_they(TRUE)] is [target.age] [target.dna.species.name]. I remember that.</span>")
 
 		R.onConnect(holder,target) //Bit of hack to have this here. But it stops church marriages from being given rings.
 
@@ -277,6 +279,13 @@ SUBSYSTEM_DEF(family)
 
 			if(HAS_TRAIT(member, TRAIT_NOBLE) && !HAS_TRAIT(target, TRAIT_NOBLE))
 				return
+			
+			if(member.client.prefs.spouse_ckey)
+				if(target.client.ckey != lowertext(member.client.prefs.spouse_ckey))
+					return FALSE
+
+				if(member.client.ckey != lowertext(target.client.prefs.spouse_ckey))
+					return FALSE
 
 			return TRUE //suitable.
 

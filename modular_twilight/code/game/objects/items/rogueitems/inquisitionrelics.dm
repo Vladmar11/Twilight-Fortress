@@ -42,15 +42,17 @@
 	desc = ""
 	icon_state = "psydonmusicbox"
 	icon = 'modular_twilight/icons/roguetown/items/misc.dmi'
-	w_class = WEIGHT_CLASS_HUGE
+	w_class = WEIGHT_CLASS_BULKY
+	slot_flags = ITEM_SLOT_BACK
+	experimental_onback = TRUE
 	var/cranking = FALSE
 	force = 15
 	attacked_sound = 'sound/combat/hits/onwood/education2.ogg'
 	gripped_intents = list(/datum/intent/hit)
 	possible_item_intents = list(/datum/intent/hit)
-	obj_flags = CAN_BE_HIT
-	twohands_required = TRUE
+	twohands_required = FALSE
 	var/datum/looping_sound/psydonmusicboxsound/soundloop
+	sellprice = 400
 
 /obj/item/psydonmusicbox/examine(mob/user)
 	. = ..()
