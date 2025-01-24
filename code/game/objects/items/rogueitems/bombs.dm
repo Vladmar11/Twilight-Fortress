@@ -1,7 +1,7 @@
 
 /obj/item/bomb
-	name = "bottle bomb"
-	desc = "Dangerous explosion, in a bottle."
+	name = "бутылочная бомба"
+	desc = "Опасный взрыв в одном флаконе."
 	icon_state = "clear_bomb"
 	var/lit_state = "clear_bomb_lit"
 	icon = 'icons/roguetown/items/cooking.dmi'

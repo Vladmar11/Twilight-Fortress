@@ -25,8 +25,8 @@
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 
 /obj/item/clothing/gloves/roguetown/inqgloves
-	name = "inquisitorial leather gloves"
-	desc = "Leather gloves with a psycross stitched inside. The confessors call you Master."
+	name = "перчатки инквизитора"
+	desc = "Кожаные перчатки с вышитым на них крестом. Исповедники называют вас Учителем."
 	icon_state = "inqgloves"
 	item_state = "inqgloves"
 	armor = list("blunt" = 15, "slash" = 15, "stab" = 15, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
@@ -39,8 +39,8 @@
 
 
 /obj/item/clothing/gloves/roguetown/chain
-	name = "chain gauntlets"
-	desc = "Gauntlets made with interlinking rings, provides adequate protection against slashing attacks."
+	name = "кольчужные рукавицы"
+	desc = "Рукавицы из переплетенных между собой металлических колец обеспечивают отличную защиту от рубящих атак."
 	icon_state = "cgloves"
 	armor = list("blunt" = 60, "slash" = 100, "stab" = 80, "bullet" = 20, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_BLUNT)
@@ -62,8 +62,8 @@
 
 //rogtodo sprites for this
 /obj/item/clothing/gloves/roguetown/plate
-	name = "plate gauntlets"
-	desc = "A heavy set of plate gauntlets which provide excellent protection."
+	name = "латные рукавицы"
+	desc = "Пара тяжелых латных рукавиц предоставляют превосходныю защиту для рук."
 	icon_state = "gauntlets"
 	armor = list("blunt" = 90, "slash" = 100, "stab" = 80, "bullet" = 100, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CHOP, BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
@@ -78,8 +78,8 @@
 	sewrepair = FALSE
 
 /obj/item/clothing/gloves/roguetown/grenzelgloves
-	name = "grenzelhoft gloves"
-	desc = "Fancy gloves worn by foreign mercenaries."
+	name = "грензельхофтские перчатки"
+	desc = "Изысканные перчатки, распространенные среди заморских наемников."
 	icon_state = "grenzelgloves"
 	item_state = "grenzelgloves"
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/stonekeep_merc.dmi'
@@ -94,8 +94,8 @@
 	//---------------- BLACKSTEEL ---------------------
 
 /obj/item/clothing/gloves/roguetown/blacksteel/plategloves
-	name = "Blacksteel Plate Gauntlets"
-	desc = "A set of plate gauntlets forged of blacksteel."
+	name = "черные латные рукавицы"
+	desc = "Пара латных рукавиц, выкованных из черной стали."
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
 	icon_state = "bkgloves"

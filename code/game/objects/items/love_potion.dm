@@ -1,30 +1,30 @@
 //Love potion - Charged Pink
 /obj/item/lovepotion
-	name = "love potion"
-	desc = "A pink potion with a faintly sweet and fruity aroma emanating from the bottle. The label reads \"Love Potion\" and says it will make nearly anyone desire you."
+	name = "любовное снадобье"
+	desc = "Розовое зелье со слабым сладковатым фруктовым ароматом, исходящим из флакона. На этикетке написано 'Любовное зелье. Заставит желать вас практически любого'..."
 	icon = 'icons/roguetown/items/cooking.dmi'
 	icon_state = "lovebottle"
 
 /obj/item/lovepotion/attack(mob/living/carbon/human/M, mob/user)
 	if(!isliving(M) || M.stat == DEAD)
-		to_chat(user, span_warning("A love potion can only be metabolized by living beings. I'd best not waste it!"))
+		to_chat(user, span_warning("Любовное зелье может усваиваться только живыми существами. Лучше не тратить его зря!"))
 		return ..()
 	if(user == M)
-		to_chat(user, span_warning("It's too risky to consume this potion myself. Instead, I should feed it to someone I desire!"))
+		to_chat(user, span_warning("Слишком опасно принимать это зелье самому. Я должен напоить им того, кого захочу!"))
 		return ..()
 	if(M.has_status_effect(STATUS_EFFECT_INLOVE))
-		to_chat(user, span_warning("[M] is already consumed by obsession for someone else!"))
+		to_chat(user, span_warning("[M] уже под одержимостью кем-то другим!"))
 		return ..()
 
-	M.visible_message(span_danger("[user] starts to feed [M] a love potion!"),
-		span_danger("[user] starts to feed you a love potion!"))
+	M.visible_message(span_danger("[user] поит [M] любовным зельем!"),
+		span_danger("[user] поит вас любовным зельем!"))
 
 	if(!do_after(user, 50, target = M))
 		return
-	to_chat(user, span_notice("I feed [M] the love potion!"))
-	to_chat(M, span_notice("I taste strawberries as the potion pours down my throat. My heart pounds against my chest as my mind becomes clouded with thoughts of [user]. Be this true love or be this obsession, it matters not. For I will have [user]."))
+	to_chat(user, span_notice("Я напоил [M] любовным зельем!"))
+	to_chat(M, span_notice("Я чувствую вкус клубники, пока зелье льется мне в горло. Мое сердце колотится в груди, а разум затуманивается мыслями о [user]. Будь то настоящая любовь или одержимость, не имеет значения. Поскольку у меня есть [user]."))
 	if(M.mind)
-		M.mind.store_memory("You are obsessed with [user].")
+		M.mind.store_memory("Вы одержимы близостью к [user].")
 	M.faction |= "[REF(user)]"
 	M.apply_status_effect(STATUS_EFFECT_INLOVE, user)
 	qdel(src)

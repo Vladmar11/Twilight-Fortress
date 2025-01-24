@@ -1,6 +1,6 @@
 /obj/item/ash
-	name = "ash"
-	desc = "A dark remnant of decadent flames."
+	name = "пепел"
+	desc = "Темные остатки угасшего пламени."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "ash"
 	grind_results = list(/datum/reagent/ash = 15)

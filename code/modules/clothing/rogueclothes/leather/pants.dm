@@ -1,7 +1,7 @@
 
 /obj/item/clothing/under/roguetown/trou/leather
-	name = "leather trousers"
-	desc = "Trousers made of fine leather."
+	name = "кожаные брюки"
+	desc = "Брюки, сшитые из хорошей кожи."
 	icon_state = "leatherpants"
 	max_integrity = 130
 	armor = list("blunt" = 50, "slash" = 25, "stab" = 40, "bullet" = 10, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
@@ -9,8 +9,8 @@
 	salvage_result = /obj/item/natural/hide/cured
 
 /obj/item/clothing/under/roguetown/trou/leather/advanced
-	name = "hardened leather chausses"
-	desc = "Sturdy, durable, flexible. The finest leather to protect your nether regions."
+	name = "крепкие кожаные шоссы"
+	desc = "Прочная, долговечная и гибкая защита ног из крепкой кожи."
 	icon_state = "leatherpants_masterwork" //no advanced sprite
 	max_integrity = 200
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
@@ -18,7 +18,7 @@
 
 /obj/item/clothing/under/roguetown/trou/leather/masterwork
 	name = "шедевральные кожаные шоссы"
-	desc = "Эти шоссы – чудо мастерства. Сделано из лучшей кожи. Крепкие, маневренные, надежные!"
+	desc = "Эти шоссы – чудо мастерства. Сделаны из лучшей кожи, потому крепкие, легкие и надежные!"
 	max_integrity = 250
 	icon_state = "leatherpants_masterwork"
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST, BCLASS_CHOP)
@@ -26,8 +26,8 @@
 	filters = filter(type="drop_shadow", x=0, y=0, size=0.5, offset=1, color=rgb(218, 165, 32))
 
 /obj/item/clothing/under/roguetown/trou/leather/mourning
-	name = "mourning trousers"
-	desc = "Dark trousers worn by morticians while performing burial rites."
+	name = "траурные брюки"
+	desc = "Темные брюки, которые носят гробовщики при совершении погребальных обрядов."
 	icon_state = "trou"
 	color = "#151615"
 

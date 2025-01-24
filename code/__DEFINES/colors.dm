@@ -78,29 +78,29 @@
 
 #define CLOTHING_WET			"#bbbbbb"
 
-#define CLOTHING_COLOR_NAMES	list("Red","Purple","Black","Brown","Green","Blue","Yellow","Teal","White","Orange","Majenta")
+#define CLOTHING_COLOR_NAMES	list("Красный","Пурпурный","Черный","Коричневый","Зеленый","Синий","Желтый","Бирюзовый","Белый","Оранжевый","Розовый")
 
 /proc/clothing_color2hex(input)
 	switch(input)
-		if("Red")
+		if("Красный")
 			return CLOTHING_RED
-		if("Purple")
+		if("Пурпурный")
 			return CLOTHING_PURPLE
-		if("Black")
+		if("Черный")
 			return CLOTHING_BLACK
-		if("Brown")
+		if("Коричневый")
 			return CLOTHING_BROWN
-		if("Green")
+		if("Зеленый")
 			return CLOTHING_GREEN
-		if("Blue")
+		if("Синий")
 			return CLOTHING_BLUE
-		if("Yellow")
+		if("Желтый")
 			return CLOTHING_YELLOW
-		if("Teal")
+		if("Бирюзовый")
 			return CLOTHING_TEAL
-		if("White")
+		if("Белый")
 			return CLOTHING_WHITE
-		if("Orange")
+		if("Оранжевый")
 			return CLOTHING_ORANGE
-		if("Majenta")
+		if("Розовый")
 			return CLOTHING_MAJENTA
