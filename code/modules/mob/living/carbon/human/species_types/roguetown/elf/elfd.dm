@@ -60,16 +60,18 @@
 		"perception" = -1,
 		"intelligence" = 0,
 		"constitution" = 0,
-		"endurance" = 1,
+		"endurance" = 2,
 		"speed" = 1,
 		"fortune" = 0
 		)
 	specstats_m = list(
 		"strength" = -1,
-		"speed" = 1,
+		"intelligence" = 2,
+		"speed" = 2,
 	)
 	specstats_f = list(
-		"constitution" = 1,
+		"strength" = 2,
+		"constitution" = 3,
 		"intelligence" = -1,
 	)
 	enflamed_icon = "widefire"
