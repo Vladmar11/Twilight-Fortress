@@ -14,6 +14,9 @@
 	fiber_salvage = FALSE
 	salvage_amount = 1
 
+	grid_width = 64
+	grid_height = 32
+
 /obj/item/clothing/gloves/roguetown/fingerless
 	name = "беспальцевые перчатки"
 	desc = "Перчатки с отверстиями для пальцев, предпочитаемые лучниками."

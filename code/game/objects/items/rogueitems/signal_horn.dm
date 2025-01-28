@@ -8,6 +8,9 @@
 	var/last_horn
 
 
+	grid_height = 32
+	grid_width = 64
+
 /obj/item/signal_horn/attack_self(mob/living/user)
 	. = ..()
 	if(world.time < last_horn + 30 SECONDS)
