@@ -300,7 +300,7 @@
 
 /obj/item/lockpickring/attack_right(mob/user)
 	if(picks.len)
-		to_chat(user, "<span class='notice'>Я стащила отмычку со связки.</span>")
+		to_chat(user, "<span class='notice'>Я снимаю отмычку со связки.</span>")
 		var/obj/item/lockpick/K = removefromring(user)
 		user.put_in_active_hand(K)
 

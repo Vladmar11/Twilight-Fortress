@@ -1475,7 +1475,7 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 		. += span_notice("Куб в процессе перегонки.")
 		for (var/obj/item/I in active_brews)
 			var/time_left = (I.brewing_time - (world.time - I.start_time)) / 10
-			. += span_notice("[I]: [time_left] секунд до заершения.")
+			. += span_notice("[I]: [time_left] секунд до завершения.")
 
 /obj/item/reagent_containers/glass/alembic/proc/makebrew(obj/item/I)
 	if(I.reagents)
