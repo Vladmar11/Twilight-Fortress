@@ -1,7 +1,7 @@
 
 /obj/item/key
 	name = "key"
-	desc = "An unremarkable iron key."
+	desc = "Непримечательный железный ключик."
 	icon_state = "iron"
 	icon = 'icons/roguetown/items/keys.dmi'
 	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
@@ -28,8 +28,8 @@
 			GLOB.lockids[lockid] = lockhash
 
 /obj/item/lockpick
-	name = "lockpick"
-	desc = "A small, sharp piece of metal to aid opening locks in the absence of a key."
+	name = "отмычка"
+	desc = "Небольшой заостреннный кусок металла, помогающий открывать замки при отсутствии ключа."
 	icon_state = "lockpick"
 	icon = 'icons/roguetown/items/keys.dmi'
 	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
@@ -43,8 +43,8 @@
 
 //custom key
 /obj/item/key/custom
-	name = "custom key"
-	desc = "A custom key designed by a blacksmith."
+	name = "заказной ключ"
+	desc = "Ключ, выкованный в кузнице на заказ."
 	icon_state = "brownkey"
 
 /obj/item/key/custom/attackby(obj/item/I, mob/user, params)
@@ -52,18 +52,18 @@
 	if(!istype(I, /obj/item/rogueweapon/hammer))
 		return
 
-	var/input = (input(user, "What would you name this key?", "", "") as text)
+	var/input = (input(user, "Как назовете этот ключ?", "", "") as text)
 
 	if(!input)
 		return
 
 	name = input + " key"
-	to_chat(user, span_notice("You rename the key to [name]."))
+	to_chat(user, span_notice("Вы прикрепляете на [I] бирку: [name]."))
 
 //custom key blank
 /obj/item/key_custom_blank//i'd prefer not to make a seperate item for this honestly
-	name = "blank custom key"
-	desc = "A key without its teeth carved in. Endless possibilities..."
+	name = "заготовка для ключа"
+	desc = "Ключ без вырезанных зубцов. Безграничные возможности..."
 	icon = 'icons/roguetown/items/keys.dmi'
 	icon_state = "brownkey"
 	w_class = WEIGHT_CLASS_TINY
@@ -75,13 +75,13 @@
 	if(!istype(I, /obj/item/rogueweapon/hammer))
 		return
 
-	var/input = input(user, "What would you like to set the key ID to?", "", 0) as num
+	var/input = input(user, "Какой идентификатор ключа вы хотите установить?", "", 0) as num
 
 	if(!input)
 		return
 
 	input = max(0, input)
-	to_chat(user, span_notice("You set the key ID to [input]."))
+	to_chat(user, span_notice("Вы настроили идентификатор ключа для [input]."))
 	lockhash = 10000 + input //having custom lock ids start at 10000 leaves it outside the range that opens normal doors, so you can't make a key that randomly unlocks existing key ids like the church
 
 /obj/item/key_custom_blank/attack_right(mob/user)
@@ -89,22 +89,22 @@
 	if(istype(user.get_active_held_item(), /obj/item/key))
 		var/obj/item/key/held = user.get_active_held_item()
 		src.lockhash = held.lockhash
-		to_chat(user, span_notice("You trace the teeth from [held] to [src]."))
+		to_chat(user, span_notice("Вы прослеживаете зубцы от [held] до [src]."))
 	else if(istype(user.get_active_held_item(), /obj/item/customlock))
 		var/obj/item/customlock/held = user.get_active_held_item()
 		src.lockhash = held.lockhash
-		to_chat(user, span_notice("You fine-tune [src] to the lock's internals."))
+		to_chat(user, span_notice("Вы растаиваете [src] так, чтобы тот подходил к замку."))
 	else if(istype(user.get_active_held_item(), /obj/item/rogueweapon/hammer) && src.lockhash != 0)
 		var/obj/item/key/custom/F = new (get_turf(src))
 		F.lockhash = src.lockhash
 		F.lockid = lockhash
-		to_chat(user, span_notice("You finish [F]."))
+		to_chat(user, span_notice("Вы закончили [F]."))
 		qdel(src)
 
 
 /obj/item/key/lord
-	name = "master key"
-	desc = "The Lord's key."
+	name = "Величественный Ключ"
+	desc = "Ключ Его Величества."
 	icon_state = "bosskey"
 	lockid = "lord"
 
@@ -120,62 +120,62 @@
 			lockhash = D.lockhash
 
 /obj/item/key/royal
-	name = "Royal Key"
-	desc = "The Key to the royal chambers. It even feels pretentious."
+	name = "Королевский Ключ"
+	desc = "Ключ от королевских покоев. Он даже чувствуется притязательным."
 	icon_state = "ekey"
 	lockid = "royal"
 
 /obj/item/key/prince_rooms
-	name = "Princely Key"
-	desc = "The Key to the heirs chambers."
+	name = "Княжеский Ключ"
+	desc = "Ключ от покоев наследников."
 	icon_state = "ekey"
 	lockid = "prince"
 
 /obj/item/key/vault
-	name = "vault key"
-	desc = "This key opens the mighty vault."
+	name = "Ключ от казны"
+	desc = "Этот ключ открывает могучую королевскую казну."
 	icon_state = "cheesekey"
 	lockid = "vault"
 
 /obj/item/key/councillor_rooms
-	name = "councillor rooms key"
-	desc = "This key opens the councillor's rooms."
+	name = "Ключ от комнаты советника"
+	desc = "Этот ключ открывает комнаты советника."
 	icon_state = "cheesekey"
 	lockid = "councillor"
 
 /obj/item/key/noble_guest_rooms
-	name = "noble guest rooms key"
-	desc = "This key opens the noble guest rooms."
+	name = "Ключ от гостевых покоев"
+	desc = "Этот ключ открывает покои благородных гостей Его Величества."
 	icon_state = "cheesekey"
 	lockid = "guestroom"
 
 /obj/item/key/merchant
-	name = "merchant's key"
-	desc = "A merchant's key."
+	name = "Ключ торговца"
+	desc = "Ключ от лавки торговца."
 	icon_state = "cheesekey"
 	lockid = "merchant"
 
 /obj/item/key/shop
-	name = "shop key"
-	desc = "This key opens and closes a shop door."
+	name = "Ключ от магазина"
+	desc = "Этот ключ открывает и закрывает дверь лавки."
 	icon_state = "ekey"
 	lockid = "shop"
 
 /obj/item/key/townie // For use in round-start available houses in town. Do not use default lockID.
-	name = "town dwelling Key"
-	desc = "The key of some townie's home. Hope it's not lost."
+	name = "Ключ горожанина"
+	desc = "Ключ от дома какого-то горожанина. Постарайтесь не потерять."
 	icon_state ="brownkey"
 	lockid = "townie"
 
 /obj/item/key/tavern
-	name = "tavern key"
-	desc = "This key should open and close any tavern door."
+	name = "Ключ от тварены"
+	desc = "Универсальный ключ, открывающий любую дверь в таверне."
 	icon_state = "hornkey"
 	lockid = "tavern"
 
 /obj/item/key/mayor
-	name = "mayor's key"
-	desc = "This key should open and close the townhall and the mayor's home."
+	name = "Ключ городского мэра"
+	desc = "Этот ключ должен открывать и закрывать ратушу и дом мэра."
 	icon_state = "brownkey"
 	lockid = "mayor"
 
@@ -201,59 +201,60 @@
 	lockid = "vroomvi"
 
 /obj/item/key/roomi
-	name = "room I key"
-	desc = "The key to the first room."
+	name = "Ключ от комнаты I"
+	desc = "Открывает комнату #1 в городской таверне."
 	icon_state = "brownkey"
 	lockid = "roomi"
 
 /obj/item/key/roomii
-	name = "room II key"
-	desc = "The key to the second room."
+	name = "Ключ от комнаты II"
+	desc = "Открывает комнату #2 в городской таверне"
 	icon_state = "brownkey"
 	lockid = "roomii"
 
 /obj/item/key/roomiii
-	name = "room III key"
-	desc = "The key to the third room."
+	name = "Ключ от комнаты III"
+	desc = "Открывает комнату #3 в городской таверне."
 	icon_state = "brownkey"
 	lockid = "roomiii"
 
 /obj/item/key/roomiv
-	name = "room IV key"
-	desc = "The key to the fourth room."
+	name = "Ключ от комнаты IV"
+	desc = "Открывает комнату #4 в городской таверне."
 	icon_state = "brownkey"
 	lockid = "roomiv"
 
 /obj/item/key/roomv
-	name = "room V key"
-	desc = "The key to the fifth room."
+	name = "Ключ от комнаты V"
+	desc = "Открывает комнату #5 в городской таверне."
 	icon_state = "brownkey"
 	lockid = "roomv"
 
 /obj/item/key/roomvi
-	name = "room VI key"
-	desc = "The key to the sixth room."
+	name = "Ключ от комнаты VI"
+	desc = "Открывает комнату #6 в городской таверне."
 	icon_state = "brownkey"
 	lockid = "roomvi"
 
 /obj/item/key/fancyroomi
-	name = "fancy room I key"
-	desc = "The key to the fancy room I."
+	name = "Ключ от большой комнаты I"
+	desc = "Открывает роскошную комнату #1 в городской таверне."
 	icon_state = "brownkey"
 	lockid = "fancyroomi"
 
 /obj/item/key/fancyroomii
-	name = "fancy room II key"
-	desc = "The key to the fancy room II."
+	name = "Ключ от большой комнаты II"
+	desc = "Открывает роскошную комнату #2 в городской таверне."
 	icon_state = "brownkey"
 	lockid = "fancyroomii"
 
 /obj/item/key/fancyroomiii
-	name = "fancy room III key"
-	desc = "The key to the fancy room III."
+	name = "Ключ от большой комнаты III"
+	desc = "Открывает роскошную комнату #3 в городской таверне."
 	icon_state = "brownkey"
 	lockid = "fancyroomiii"
 
+//wth is this from??
 /obj/item/key/roomhunt
 	name = "room HUNT key"
 	desc = "This is the HUNT key!"
@@ -262,276 +263,318 @@
 
 //vampire mansion//
 /obj/item/key/vampire
-	name = "mansion key"
-	desc = "The key to a vampire lord's castle."
+	name = "Ключ от особняка"
+	desc = "Ключ от замка лорда-вампира."
 	icon_state = "vampkey"
 	lockid = "mansionvampire"
 //
 
 /obj/item/key/blacksmith
-	name = "blacksmith key"
-	desc = "This key opens a blacksmith's workshop."
+	name = "Ключ от кузницы"
+	desc = "Этот ключ открывает кузницу."
 	icon_state = "brownkey"
 	lockid = "blacksmith"
 
 /obj/item/key/blacksmith/town
-	name = "town blacksmith key"
+	name = "Ключ от городской кузницы"
 	lockid = "townblacksmith"
 
 /obj/item/key/seamster
-	name = "workshop key"
-	desc = "This key opens the door to the tailor workshop."
+	name = "Ключ от ателье"
+	desc = "Этот ключ открывает дверь в мастерскую портного."
 	icon_state = "brownkey"
 	lockid = "seamster"
 
 /obj/item/key/walls
-	name = "walls key"
-	desc = "This is a rusty key."
+	name = "Ржавый ключ"
+	desc = "Это старый ржавый ключ."
 	icon_state = "rustkey"
 	lockid = "walls"
 
 /obj/item/key/farm
-	name = "farm key"
-	desc = "This is a rusty key that'll open farm doors."
+	name = "Фермерский ключ"
+	desc = "Этот ржавый ключ открывает двери фермы."
 	icon_state = "rustkey"
 	lockid = "farm"
 
 /obj/item/key/butcher
-	name = "butcher key"
-	desc = "This is a rusty key that'll open butcher doors."
+	name = "Ключ мясника"
+	desc = "Этот ржавый ключ, открывает двери дома мясника."
 	icon_state = "rustkey"
 	lockid = "butcher"
 
 /obj/item/key/church
-	name = "church key"
-	desc = "This bronze key should open almost all doors in the church."
+	name = "Церковный ключ"
+	desc = "Этот бронзовый ключ должен открывать почти все двери в церкви."
 	icon_state = "brownkey"
 	lockid = "church"
 
 /obj/item/key/priest
-	name = "priest's key"
-	desc = "This is the master key of the church."
+	name = "Ключ священника"
+	desc = "Это главный ключ церкви."
 	icon_state = "cheesekey"
 	lockid = "priest"
 
 /obj/item/key/tower
-	name = "tower key"
-	desc = "This key should open anything within the tower."
+	name = "Ключ от башни"
+	desc = "Этот ключ должен открыть все, что находится внутри башни."
 	icon_state = "greenkey"
 	lockid = "tower"
 
 /obj/item/key/mage
-	name = "magicians's key"
-	desc = "This is the court wizard's key. It watches you..."
+	name = "Ключ придворного мага"
+	desc = "Это ключ придворного волшебника. Он наблюдает за тобой..."
 	icon_state = "eyekey"
 	lockid = "mage"
 
 /obj/item/key/graveyard
-	name = "crypt key"
-	desc = "This rusty key belongs to the gravekeeper."
+	name = "Ключ от кладбища"
+	desc = "Этот ржавый ключ принадлежит могильщику."
 	icon_state = "rustkey"
 	lockid = "graveyard"
 
 /obj/item/key/artificer
-	name = "artificer's key"
-	desc = "This bronze key should open the Artificer's guild."
+	name = "Ключ ремесленника"
+	desc = "Этот бронзовый ключ должен открыть гильдию ремесленников."
 	icon_state = "brownkey"
 	lockid = "artificer"
 
 /obj/item/key/nightman
-	name = "nightmaster's key"
-	desc = "This rusted key opens the brothel."
+	name = "Ключ сутенера"
+	desc = "Этот ржавый ключ открывает бордель."
 	icon_state = "greenkey"
 	lockid = "nightman"
 
 /obj/item/key/mercenary
-	name = "mercenary key"
-	desc = "Why, a mercenary would not kick doors down."
+	name = "Ключ наемника"
+	desc = "Да, ведь наемник не станет выбивать двери, верно?"
 	icon_state = "greenkey"
 	lockid = "merc"
 
 /obj/item/key/mercenary_boss
-	name = "mercenary captain key"
-	desc = "Why, a mercenary would not kick doors down."
+	name = "Ключ капитана наемников"
+	desc = "Да, ведь наемник не станет выбивать двери, верно?"
 	icon_state = "greenkey"
 	lockid = "merc_boss"
 
 /obj/item/key/physician
-	name = "physician key"
-	desc = "The key smells of herbs, feeling soothing to the touch."
+	name = "Ключ лекаря"
+	desc = "Ключ пахнет травами. Приятный на ощупь."
 	icon_state = "greenkey"
 	lockid = "physician"
 
 /obj/item/key/puritan
-	name = "puritan's key"
-	desc = "This is an intricate key." // i have no idea what is this key about
+	name = "Инквизиторский ключ"
+	desc = "Это ключ сложной формы." // i have no idea what is this key about
 	icon_state = "mazekey"
 	lockid = "puritan"
 
 /obj/item/key/confession
-	name = "confessional key"
-	desc = "This key opens the doors of the confessional."
+	name = "Ключ от исповедальни"
+	desc = "Этот ключ открывает двери исповедальни."
 	icon_state = "brownkey"
 	lockid = "confession"
 
 /obj/item/key/hand
-	name = "hand's key"
-	desc = "This regal key belongs to the Duke's Right Hand."
+	name = "Ключ Десницы"
+	desc = "Этот королевский ключ принадлежит правой руке герцога."
 	icon_state = "cheesekey"
 	lockid = "hand"
 
 /obj/item/key/steward
-	name = "steward's key"
-	desc = "This key belongs to the court's greedy steward."
+	name = "Ключ Казначея"
+	desc = "Этот ключ принадлежит жадному королевскому казначею."
 	icon_state = "cheesekey"
 	lockid = "steward"
 
 /obj/item/key/archive
-	name = "archive key"
-	desc = "This key looks barely used."
+	name = "Ключ от архивов"
+	desc = "Похоже, этот ключ редко используют..."
 	icon_state = "ekey"
 	lockid = "archive"
 
 /obj/item/key/manor
-	name = "manor key"
-	desc = "This key will open any manor doors."
+	name = "Ключ от поместья"
+	desc = "Этот ключ открывает большинство дверей в поместье герцога."
 	icon_state = "mazekey"
 	lockid = "manor"
 
 /obj/item/key/bog_gatehouse
-	name = "bog gatehouse key"
-	desc = "This key opens the bog gatehouse."
+	name = "Ключ от Бастиона"
+	desc = "Этот ключ открывает двери Бастиона у городских стен."
 	icon_state = "spikekey"
 	lockid = "bog_gatehouse"
 
 /obj/item/key/bog_master
-	name = "Warden's key"
-	desc = "This key opens the Warden's office."
+	name = "Ключ смотрителя"
+	desc = "Этот ключ открывает кабинет смотрителя Бастиона."
 	icon_state = "spikekey"
 	lockid = "bog_master"
 
 /obj/item/key/town_barracks
-	name = "town barracks key"
-	desc = "This key opens the town barracks."
+	name = "Ключ от городских казарм"
+	desc = "Этот ключ открывает городские казармы."
 	icon_state = "spikekey"
 	lockid = "town_barracks"
 
 /obj/item/key/town_dungeon
-	name = "town dungeon key"
-	desc = "This key opens the town dungeon."
+	name = "Ключ от городской темницы"
+	desc = "Этот ключ открывает городскую темницу."
 	icon_state = "spikekey"
 	lockid = "town_dungeon"
 
 /obj/item/key/town_armory
-	name = "town armory key"
-	desc = "This key opens the town armory."
+	name = "Ключ от городского арсенала"
+	desc = "Этот ключ открывает городской арсенал."
 	icon_state = "spikekey"
 	lockid = "town_armory"
 
 /obj/item/key/sheriff_office
-	name = "sheriff's office key"
-	desc = "This key opens the sheriff's office."
+	name = "Ключ от офиса шерифа"
+	desc = "Этот ключ открывает офис шерифа городской стражи."
 	icon_state = "spikekey"
 	lockid = "sheriff_office"
 
 /obj/item/key/keep_gatehouse
-	name = "keep gatehouse key"
-	desc = "This key opens the keep gatehouse."
+	name = "Ключ от крепостной сторожки"
+	desc = "Этот ключ открывает двери в сторожке крепости."
 	icon_state = "spikekey"
 	lockid = "keep_gatehouse"
 
 /obj/item/key/keep_barracks
-	name = "keep barracks key"
-	desc = "This key opens the keep barracks."
+	name = "Ключ от крепостных казарм"
+	desc = "Этот ключ открывает двери в казармах крепости."
 	icon_state = "spikekey"
 	lockid = "keep_barracks"
 
 /obj/item/key/keep_dungeon
-	name = "keep dungeon key"
-	desc = "This key opens the keep dungeon."
+	name = "Ключ от крепостной темницы"
+	desc = "Ключ открывает двери в темнице под крепостью."
 	icon_state = "spikekey"
 	lockid = "keep_dungeon"
 
 /obj/item/key/keep_dungeon_torture
-	name = "keep dungeon torture room key"
-	desc = "This key opens the keep dungeon torture room."
+	name = "Ключ от пыточной"
+	desc = "Этот ключ открывает комнату для пыток в крепостной темнице."
 	icon_state = "spikekey"
 	lockid = "keep_dungeon_torture"
 
 /obj/item/key/keep_armory
-	name = "keep armory key"
-	desc = "This key opens the keep armory."
+	name = "Ключ от крепостного арсенала"
+	desc = "Этот ключ открывает арсенал внутри крепости."
 	icon_state = "spikekey"
 	lockid = "keep_armory"
 
 //grenchensnacker
 /obj/item/key/porta
-	name = "strange key"
-	desc = "Was this key enchanted by a wizard locksmith...?"//what is grenchensnacker.
+	name = "Странный ключ"
+	desc = "Был ли этот ключ зачарован волшебником-слесарем...?"//what is grenchensnacker.
 	icon_state = "eyekey"
 	lockid = "porta"
 
 //Goblins
 /obj/item/key/goblin
-	name = "goblin key"
-	desc = "This key opens the fort's basic interior doors."
+	name = "Гоблинский ключ"
+	desc = "Этот ключ открывает обычные двери в форте."
 	icon_state = "mazekey"
 	lockid = "gobbo"
 
 /obj/item/key/goblinguard
-	name = "goblin guard key"
-	desc = "This key opens the fort barracks."
+	name = "Ключ гоблина-стражника"
+	desc = "Этот ключ открывает казармы форта."
 	icon_state = "spikekey"
 	lockid = "gobbo_guards"
 
 /obj/item/key/goblinchief
-	name = "goblin chief key"
-	desc = "This key opens the Chief's room and the vault."
+	name = "Ключ гоблина-вожака"
+	desc = "Этот ключ открывает комнату главаря и его хранилище."
 	icon_state = "spikekey"
 	lockid = "gobbo_chief"
 
 //grenchensnacker
 /obj/item/key/porta
-	name = "strange key"
-	desc = "Was this key enchanted by a wizard locksmith...?"//what is grenchensnacker.
+	name = "странный ключ"
+	desc = "Был ли этот ключ зачарован волшебником-слесарем...?"//what is grenchensnacker.
 	icon_state = "eyekey"
 	lockid = "porta"
 
 // Ship key
 /obj/item/key/ship
-	name = "ship key"
-	desc = "This rusty key should open the lower dock of the harbor ship."
+	name = "Корабельный ключ"
+	desc = "Этот ржавый ключ должен открыть нижний док корабля в портовой гавани."
 	icon_state = "rustkey"
 	lockid = "ship"
 
 // Harbor key
 /obj/item/key/harbor
-	name = "harbor key"
-	desc = "This iron key should open harbor office, barracks and the watchtower."
+	name = "Ключ от гавани"
+	desc = "Этот железный ключ должен открыть портовый офис, казармы и сторожевую башню.."
 	icon_state = "spikekey"
 	lockid = "harbor"
 
 //Shop Keys
 /obj/item/key/portshop
-	name = "port shop key"
-	desc = "This old key opens shop in port area."
+	name = "ключ от портового магазина"
+	desc = "Этот старый ключ открывает магазин в портовом районе."
 	icon_state = "rustkey"
 	lockid = "portshop"
 
 /obj/item/key/street_smithshop01
-	name = "Street smithery key"
-	desc = "This old key opens shop in merchant street area."
+	name = "Ключ от кузнечной мастерской"
+	desc = "Этот старый ключ открывает магазин на торговой улице."
 	icon_state = "rustkey"
 	lockid = "street_smithshop01"
 
 /obj/item/key/street_shop01
-	name = "Street shop key #1"
-	desc = "This old key opens shop #1 in merchant street area."
+	name = "Ключ от лавки #1"
+	desc = "Этот старый ключ открывает магазин на торговой улице."
 	icon_state = "rustkey"
 	lockid = "street_shop01"
 
 /obj/item/key/street_shop02
-	name = "Street shop key #2"
-	desc = "This old key opens shop #2 behind the mayor's house."
+	name = "Ключ от лавки #1"
+	desc = "Этот старый ключ открывает магазин за домом мэра."
 	icon_state = "rustkey"
 	lockid = "street_shop02"
+
+/obj/item/key/smallstreet_shop01
+	name = "Stall shop key #1"
+	desc = "This key opens peddler #1 at the market square."
+	icon_state = "rustkey"
+	lockid = "smallstreet_shop01"
+
+/obj/item/key/smallstreet_shop02
+	name = "Stall shop key #2"
+	desc = "This key opens stall peddler #2 at the market square."
+	icon_state = "rustkey"
+	lockid = "smallstreet_shop02"
+
+/obj/item/key/smallstreet_shop03
+	name = "Stall shop key #3"
+	desc = "This key opens stall peddler #3 at the market square."
+	icon_state = "rustkey"
+	lockid = "smallstreet_shop03"
+
+/obj/item/key/smallstreet_shop04
+	name = "Stall shop key #4"
+	desc = "This key opens stall peddler #4 at the market square."
+	icon_state = "rustkey"
+	lockid = "smallstreet_shop04"
+
+/obj/item/key/smallstreet_shop05
+	name = "Stall shop key #5"
+	desc = "This key opens stall peddler #5 at the market square."
+	icon_state = "rustkey"
+	lockid = "smallstreet_shop05"
+
+/obj/item/key/smallstreet_shop06
+	name = "Stall shop key #6"
+	desc = "This key opens stall peddler #6 at the market square."
+	icon_state = "rustkey"
+	lockid = "smallstreet_shop06"
+
+/obj/item/key/smallstreet_master01
+	name = "Stall shop master key"
+	desc = "This key opens peddler selling shop keys."
+	icon_state = "rustkey"
+	lockid = "smallstreet_master01"

@@ -1,133 +1,133 @@
 GLOBAL_LIST_INIT(stone_sharpness_names, list(
-	"Sharp",
-	"Vicious",
-	"Cutthroat",
-	"Keen",
-	"Acute",
-	"Edged",
-	"Fierce",
-	"Stinging",
+	"Острый",
+	"Беспощадный",
+	"Бритвенный",
+	"Резкий",
+	"Проницательный",
+	"Заостренный",
+	"Жестокий",
+	"Жалящий",
 ))
 
 GLOBAL_LIST_INIT(stone_sharpness_descs, list(
-	"It has a vicious edge.",
-	"This stone is akin to a knife.",
-	"It has a pointed side.",
-	"It has a serrated edge.",
+	"У этого камня бритвенно-острая грань.",
+	"Этот камень острый, как нож.",
+	"У этого есть острый кончик.",
+	"Края этого камня зазубренны.",
 ))
 
 GLOBAL_LIST_INIT(stone_bluntness_names, list(
-	"Blunt",
-	"Rotund",
-	"Heavy",
-	"Solid",
-	"Chubby",
-	"Portly",
-	"Meaty",
-	"Dumpy",
-	"Stout",
-	"Plump",
+	"Грубый",
+	"Пухлый",
+	"Тяжелый",
+	"Твердый",
+	"Округлый",
+	"Крупный",
+	"Мясистый",
+	"Горбатый",
+	"Стойкий",
+	"Пухлый",
 ))
 
 GLOBAL_LIST_INIT(stone_bluntness_descs, list(
-	"It is very blunt.",
-	"It is kinda hefty.",
-	"It fills the hand.",
-	"It is quite a handfull",
-	"This stone feels like it was made for ME!",
+	"Обладает тупыми гранями.",
+	"Закруглен почти со всех сторон.",
+	"Он удобно ложится в руку.",
+	"Его приятно держать в руках.",
+	"Кажется, что этот камень создан для одного МЕНЯ!",
 ))
 
 GLOBAL_LIST_INIT(stone_magic_names, list(
-	"Shimmering",
-	"Glowing",
-	"Enchanted",
-	"Ancient",
-	"Mystic",
-	"Enhanced",
-	"Magic",
-	"Mysterious",
-	"Radiant",
-	"Singing",
-	"Beautiful",
-	"Tantalizing",
-	"Allurring",
-	"Wicked",
-	"Mythical",
-	"Baleful",
-	"Heavenly",
-	"Angelic",
-	"Demonic",
-	"Devilish",
-	"Mischievous",
+	"Мерцающий",
+	"Сияющий",
+	"Очаровывающый",
+	"Древний",
+	"Мистический",
+	"Совершенный",
+	"Волшебный",
+	"Таинственный",
+	"Сияющий",
+	"Поющий",
+	"Красивый",
+	"Дразнящий",
+	"Очаровательный",
+	"Злой",
+	"Мифический",
+	"Зловещий",
+	"Небесный",
+	"Ангельский",
+	"Демонический",
+	"Дьявольский",
+	"Озорной",
 ))
 
 GLOBAL_LIST_INIT(stone_magic_descs, list(
-	"It hums with internal energy.",
-	"It has a faint aura.",
-	"It has an odd sigil on it.",
-	"It has a small red stone pressed into it.",
-	"It is covered in tiny cracks.",
-	"It looks unsafe.",
+	"Он гудит от внутренней энергии.",
+	"Этот камень имеет слабую ауру.",
+	"На этом камне есть странный знак.",
+	"На нем что... красная кнопка?",
+	"Он покрыт паутинкой из мелких трещин.",
+	"Не выглядит безопасным.",
 ))
 
 GLOBAL_LIST_INIT(stone_personalities, list(
-	"Hatred",
-	"Idiocy",
-	"Mourning",
-	"Glory",
-	"Rock-Solidness",
-	"Calmness",
-	"Anger",
-	"Rage",
-	"Vainglory",
-	"Risk-aversedness",
-	"Daredevil",
-	"Barbarics",
-	"Fanciness",
-	"Relaxing",	
-	"Blacked",
-	"Greed",
-	"Evil",
-	"Good",
-	"Neutrality",
-	"Pride",
-	"Lust",
-	"Sloth",
-	"Victory",
-	"Defeat",
-	"Recoil",
-	"Impact",
-	"Goring",
-	"Destruction",
-	"Hell",
-	"Zizo",
-	"Flames",
-	"Darkness",
-	"Light",
-	"Heroism",
-	"Heaven",
-	"Cowards",
-	"Conquerors",
-	"Conquest",
-	"Horripilation",
-	"Terror",
-	"Earthquakes",
-	"Thunder",
+	"Ненависти",
+	"Идиотизма",
+	"Траура",
+	"Славы",
+	"Надежности",
+	"Спокойствия",
+	"Злобы",
+	"Ярости",
+	"Тщеславия",
+	"Легкомыслия",
+	"Безрассудства",
+	"Варварства",
+	"Изящности",
+	"Умиротворения",	
+	"Черноты",
+	"Жадности",
+	"Зла",
+	"Добра",
+	"Нейтральности",
+	"Гордости",
+	"Похоти",
+	"Лени",
+	"Победы",
+	"Поражения",
+	"Отдачи",
+	"Влияния",
+	"Жестокости",
+	"Разрушения",
+	"Ада",
+	"Зизо",
+	"Пламени",
+	"Тьмы",
+	"Света",
+	"Героизма",
+	"Рая",
+	"Трусости",
+	"Завоевателей",
+	"Покорителей",
+	"Ужаса",
+	"Страха",
+	"Землетрясений",
+	"Грома",
 ))
 
 GLOBAL_LIST_INIT(stone_personality_descs, list(
-	"This stone is full of personality!",
-	"They say the intelligent races built their foundations with stones.",
-	"One must think, where did this stone come from?",
-	"If all stones were like this, then they would be some pretty great stones.",
-	"I wish my personality was like this stone's...",
-	"I could sure do a whole lot with this stone.", 
-	"I love stones!",
+	"Этот камень полон индивидуальности!",
+	"По слухам, все разумные расы строили свои цивилизации из камней.",
+	"Надо задуматься, откуда взялся этот камень?",
+	"Если бы все камни были такими, то это были бы отличные камни.",
+	"Я бы хотел, чтобы моя личность была похожа на этот камень...",
+	"Я мог бы многое сделать с этим камнем.", 
+	"Обожаю камни!",
 ))
 
 /obj/item/natural/stone
-	name = "stone"
-	desc = "A piece of rough ground stone."
+	name = "камень"
+	desc = "Кусок камня."
 	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
 	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	icon_state = "stone1"
@@ -151,7 +151,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 	Yakub from BBC lore has inspired me
 */
 /obj/item/natural/stone/proc/stone_lore()
-	var/stone_title = "stone" // Our stones title
+	var/stone_title = "камень" // Our stones title
 	var/stone_desc = "[desc]" // Total Bonus desc the stone will be getting
 
 	icon_state = "stone[rand(1,5)]" 
@@ -208,11 +208,11 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 	switch(stone_personality_rating)
 		if(10 to 23)
 			if(prob(2)) // Stone has a 2 percent chance to have a personality despite missing its roll
-				stone_title = "[stone_title] of [pick(GLOB.stone_personalities)]"
+				stone_title = "[stone_title] [pick(GLOB.stone_personalities)]"
 				stone_desc += " [pick(GLOB.stone_personality_descs)]"
 				bonus_force += rand(1,5) // Personality gives a stone some more power too
 		if(24 to 25)
-			stone_title = "[stone_title] of [pick(GLOB.stone_personalities)]"
+			stone_title = "[stone_title] [pick(GLOB.stone_personalities)]"
 			stone_desc += " [pick(GLOB.stone_personality_descs)]"
 			bonus_force += rand(1,5) // Personality gives a stone some more power too
 
@@ -250,7 +250,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 	var/work_time = (35 - (skill_level * 5))
 	if(istype(W, /obj/item/natural/stone))
 		playsound(src.loc, pick('sound/items/stonestone.ogg'), 100)
-		user.visible_message(span_info("[user] strikes the stones together."))
+		user.visible_message(span_info("[user] с силой стучит камнем о камень."))
 		if(prob(10))
 			var/datum/effect_system/spark_spread/S = new()
 			var/turf/front = get_step(user,user.dir)
@@ -258,7 +258,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 			S.start()
 	if( user.used_intent.type == /datum/intent/chisel )
 		playsound(src.loc, pick('sound/combat/hits/onrock/onrock (1).ogg', 'sound/combat/hits/onrock/onrock (2).ogg', 'sound/combat/hits/onrock/onrock (3).ogg', 'sound/combat/hits/onrock/onrock (4).ogg'), 100)
-		user.visible_message("<span class='info'>[user] chisels the stone into a block.</span>")
+		user.visible_message("<span class='info'>[user] вырезает из камня ровный блок.</span>")
 		if(do_after(user, work_time))
 			new /obj/item/natural/stoneblock(get_turf(src.loc))
 			new /obj/effect/decal/cleanable/debris/stony(get_turf(src))
@@ -267,13 +267,13 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 			user.mind.add_sleep_experience(/datum/skill/craft/masonry, (user.STAINT*0.2))
 		return
 	else if(istype(W, /obj/item/rogueweapon/chisel/assembly))
-		to_chat(user, span_warning("You most use both hands to chisel blocks."))
+		to_chat(user, span_warning("Для резки каменных блоков нужны обе свободные руки."))
 	else
 		..()
 
 /obj/item/natural/rock
-	name = "rock"
-	desc = "A rock protudes from the ground."
+	name = "булыжник"
+	desc = "Камень, выступающий из земли."
 	icon_state = "stonebig1"
 	dropshrink = 0
 	throwforce = 25
@@ -300,7 +300,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 /obj/item/natural/rock/Crossed(mob/living/L)
 	if(istype(L) && !L.throwing)
 		if(L.m_intent == MOVE_INTENT_RUN)
-			L.visible_message(span_warning("[L] trips over the rock!"),span_warning("I trip over the rock!"))
+			L.visible_message(span_warning("[L] спотыкается о кусок булыжника!"),span_warning("Я споткнулся о булыжник!"))
 			L.Knockdown(10)
 			L.consider_ambush()
 	..()
@@ -330,7 +330,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 	var/skill_level = user.mind.get_skill_level(/datum/skill/craft/masonry)
 	var/work_time = (120 - (skill_level * 15))
 	if(istype(W, /obj/item/natural/stone))
-		user.visible_message(span_info("[user] strikes the stone against the rock."))
+		user.visible_message(span_info("[user] бьет камнем по булыжнику."))
 		playsound(src.loc, 'sound/items/stonestone.ogg', 100)
 		if(prob(35))
 			var/datum/effect_system/spark_spread/S = new()
@@ -340,7 +340,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 		return
 	if(istype(W, /obj/item/natural/rock))
 		playsound(src.loc, pick('sound/items/stonestone.ogg'), 100)
-		user.visible_message(span_info("[user] strikes the rocks together."))
+		user.visible_message(span_info("[user] соударяет два булыжника."))
 		if(prob(10))
 			var/datum/effect_system/spark_spread/S = new()
 			var/turf/front = get_turf(src)
@@ -349,7 +349,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 		return
 	if( user.used_intent.type == /datum/intent/chisel )
 		playsound(src.loc, pick('sound/combat/hits/onrock/onrock (1).ogg', 'sound/combat/hits/onrock/onrock (2).ogg', 'sound/combat/hits/onrock/onrock (3).ogg', 'sound/combat/hits/onrock/onrock (4).ogg'), 100)
-		user.visible_message("<span class='info'>[user] chisels the rock into blocks.</span>")
+		user.visible_message("<span class='info'>[user] вырезает из булыжника ровные блоки.</span>")
 		if(do_after(user, work_time))
 			new /obj/item/natural/stoneblock(get_turf(src.loc))
 			new /obj/item/natural/stoneblock(get_turf(src.loc))
@@ -360,14 +360,14 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 			qdel(src)
 		return
 	else if(istype(W, /obj/item/rogueweapon/chisel/assembly))
-		to_chat(user, span_warning("You most use both hands to chisel blocks."))
+		to_chat(user, span_warning("Для резки каменных блоков нужны обе свободные руки."))
 	..()
 
 
 /obj/item/natural/whet
-	name = "whet stone"
+	name = "точильнй камень"
 	icon_state = "whet"
-	desc = "A piece of rough smoothed down stone, better blade maintenance"
+	desc = "Кусок грубо отшлифованного камня, необходимого для ухода за лезвием."
 	gripped_intents = null
 	dropshrink = 0.75
 	possible_item_intents = list(INTENT_GENERIC)
@@ -382,11 +382,11 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 	if(max_blade_int)
 		if(istype(I, /obj/item/natural/whet))
 			playsound(src.loc, pick('sound/items/sharpen_long1.ogg','sound/items/sharpen_long2.ogg'), 100)
-			user.visible_message(span_notice("[user] sharpens [src]!"))
+			user.visible_message(span_notice("[user] точит [src]!"))
 			degrade_bintegrity(0.5)
 			add_bintegrity(max_blade_int * 0.3) 
 			if(blade_int >= max_blade_int)
-				to_chat(user, span_info("Fully sharpened."))
+				to_chat(user, span_info("Полностью заточено."))
 			if(prob(35))
 				var/datum/effect_system/spark_spread/S = new()
 				var/turf/front = get_step(user,user.dir)
@@ -426,8 +426,8 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 
 //................	Stone blocks	............... //
 /obj/item/natural/stoneblock
-	name = "stone block"
-	desc = "A rectangular stone block for building."
+	name = "каменный блок"
+	desc = "Блок прямоугольной формы из камня, используемый в строительстве."
 	icon = 'icons/roguetown/items/crafting.dmi'
 	icon_state = "stoneblock"
 	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
@@ -450,7 +450,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 	. = ..()
 	if(user.get_active_held_item())
 		return
-	to_chat(user, span_warning("I start to collect [src]..."))
+	to_chat(user, span_warning("Я собираю [src]..."))
 	if(move_after(user, 4 SECONDS, target = src))
 		var/stackcount = 0
 		for(var/obj/item/natural/stoneblock/F in get_turf(src))
@@ -472,8 +472,8 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 
 //................ Stone block stack	............... //
 /obj/item/natural/bundle/stoneblock
-	name = "stack of stone blocks"
-	desc = "A stack of stone blocks."
+	name = "стопка каменных блоков"
+	desc = "Ровная стопка готовых каменных блоков."
 	icon_state = "stoneblockbundle1"
 	icon = 'icons/roguetown/items/crafting.dmi'
 	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
@@ -488,7 +488,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 	throwforce = 0	// useless for throwing unless solo
 	throw_range = 2
 	w_class = WEIGHT_CLASS_NORMAL
-	stackname = "stone blocks"
+	stackname = "блоков"
 	stacktype = /obj/item/natural/stoneblock
 	maxamount = 4
 	icon1 = "stoneblockbundle2"
@@ -500,7 +500,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 	. = ..()
 	if( user.used_intent.type == /datum/intent/chisel )
 		playsound(src.loc, pick('sound/combat/hits/onrock/onrock (1).ogg', 'sound/combat/hits/onrock/onrock (2).ogg', 'sound/combat/hits/onrock/onrock (3).ogg', 'sound/combat/hits/onrock/onrock (4).ogg'), 100)
-		user.visible_message("<span class='info'>[user] chisels the rock into blocks.</span>")
+		user.visible_message("<span class='info'>[user] вырезает из булыжника ровные блоки...</span>")
 		if(do_after(user, 10 SECONDS))
 			new /obj/item/natural/stoneblock(get_turf(src.loc))
 			new /obj/item/natural/stoneblock(get_turf(src.loc))
@@ -512,5 +512,5 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 			qdel(src)
 		return
 	else if(istype(W, /obj/item/rogueweapon/chisel/assembly))
-		to_chat(user, span_warning("You most use both hands to chisel blocks."))
+		to_chat(user, span_warning("Для резки каменных блоков нужны обе свободные руки."))
 

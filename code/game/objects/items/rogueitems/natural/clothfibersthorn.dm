@@ -2,7 +2,7 @@
 	name = "волокно"
 	icon_state = "fibers"
 	possible_item_intents = list(/datum/intent/use)
-	desc = "Растительное волокно. Крестьяне зарабатывают на жизнь изготовлением из него одежды."
+	desc = "Растительное волокно. Крестьяне зарабатывают на жизнь ткачеством и изготовлением одежды из таких волокон."
 	force = 0
 	throwforce = 0
 	color = "#534d3e"
@@ -18,7 +18,7 @@
 /obj/item/natural/fibers/attack_right(mob/user)
 	if(user.get_active_held_item())
 		return
-	to_chat(user, span_warning("I start to collect [src]..."))
+	to_chat(user, span_warning("Я собираю [src]..."))
 	if(move_after(user, bundling_time, target = src))
 		var/fibercount = 0
 		for(var/obj/item/natural/fibers/F in get_turf(src))
@@ -40,7 +40,7 @@
 	name = "шелк"
 	icon_state = "fibers"
 	possible_item_intents = list(/datum/intent/use)
-	desc = "Шелковые пряди. Их используют для изготовления экзотической и дорогой одежды, которая годится куда угодно кроме подземья."
+	desc = "Шелковые пряди. Их используют для изготовления экзотической и дорогой одежды, которая годится куда угодно, кроме подземья."
 	force = 0
 	throwforce = 0
 	color = "#e6e3db"
@@ -56,7 +56,7 @@
 /obj/item/natural/silk/attack_right(mob/user)
 	if(user.get_active_held_item())
 		return
-	to_chat(user, span_warning("I start to collect [src]..."))
+	to_chat(user, span_warning("Я собираю [src]..."))
 	if(move_after(user, bundling_time, target = src))
 		var/silkcount = 0
 		for(var/obj/item/natural/silk/F in get_turf(src))
@@ -108,6 +108,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	spitoutmouth = FALSE
 	bundletype = /obj/item/natural/bundle/cloth
+
 	var/wet = 0
 	/// Effectiveness when used as a bandage, how much bloodloss we can tampon
 	var/bandage_effectiveness = 0.9
@@ -124,7 +125,7 @@
 /obj/item/natural/cloth/attack_right(mob/user)
 	if(user.get_active_held_item())
 		return
-	to_chat(user, span_warning("I start to collect [src]..."))
+	to_chat(user, span_warning("Я собираю [src]..."))
 	if(move_after(user, bundling_time, target = src))
 		var/clothcount = 0
 		for(var/obj/item/natural/cloth/F in get_turf(src))
@@ -146,14 +147,14 @@
 /obj/item/natural/cloth/examine(mob/user)
 	. = ..()
 	if(wet)
-		. += span_notice("It's wet!")
+		. += span_notice("Она мокрая!")
 
 // CLEANING
 
 /obj/item/natural/cloth/attack_obj(obj/O, mob/living/user)
 	testing("attackobj")
 	if(user.client && ((O in user.client.screen) && !user.is_holding(O)))
-		to_chat(user, span_warning("I need to take that [O.name] off before cleaning it!"))
+		to_chat(user, span_warning("Мне нужно снять [O.name], прежде чем я смогу приступить к очистке!"))
 		return
 	if(istype(O, /obj/effect/decal/cleanable))
 		var/cleanme = TRUE
@@ -164,7 +165,7 @@
 		if(prob(33 + (wet*10)) && cleanme)
 			wet = max(wet-1, 0)
 			qdel(O)
-		to_chat(user, span_info("I wipe \the [O.name] with [src]."))
+		to_chat(user, span_info("Я вытираю [O.name] при помощи [src]."))
 		playsound(user, "clothwipe", 100, TRUE)
 	else
 		if(prob(30 + (wet*10)))
@@ -177,7 +178,7 @@
 			else
 				SEND_SIGNAL(O, COMSIG_COMPONENT_CLEAN_ACT, CLEAN_STRONG)
 			wet = max(wet-1, 0)
-		to_chat(user, span_info("I wipe \the [O.name] with [src]."))
+		to_chat(user, span_info("Я вытираю [O.name] при помощи [src]."))
 		playsound(user, "clothwipe", 100, TRUE)
 
 /obj/item/natural/cloth/attack_turf(turf/T, mob/living/user)
@@ -189,7 +190,7 @@
 				qdel(C)
 			wet = max(wet-1, 0)
 	
-	to_chat(user, span_info("I wipe \the [T.name] with [src]."))
+	to_chat(user, span_info("Я протираю [T.name] при помощи [src]."))
 	playsound(user, "clothwipe", 100, TRUE)
 
 
@@ -212,7 +213,7 @@
 	if(!affecting)
 		return
 	if(affecting.bandage)
-		to_chat(user, span_warning("There is already a bandage."))
+		to_chat(user, span_warning("Повязка уже есть."))
 		return
 	var/used_time = 70
 	if(H.mind)
@@ -227,14 +228,14 @@
 	H.update_damage_overlays()
 
 	if(M == user)
-		user.visible_message(span_notice("[user] bandages [user.p_their()] [affecting]."), span_notice("I bandage my [affecting]."))
+		user.visible_message(span_notice("[user] перевязывает свою [affecting]."), span_notice("Я перевязываю [affecting]."))
 	else
-		user.visible_message(span_notice("[user] bandages [M]'s [affecting]."), span_notice("I bandage [M]'s [affecting]."))
+		user.visible_message(span_notice("[user] перевязывает [affecting] [M]."), span_notice("Я перевязываю [affecting] [M]."))
 
 /obj/item/natural/thorn
-	name = "thorn"
+	name = "шип"
 	icon_state = "thorn"
-	desc = "This bog-grown thorn is sharp and resistant like a needle."
+	desc = "Этот растительный шип остр и устойчив, как игла."
 	force = 10
 	throwforce = 0
 	possible_item_intents = list(/datum/intent/stab)
@@ -243,7 +244,7 @@
 	resistance_flags = FLAMMABLE
 	max_integrity = 20
 /obj/item/natural/thorn/attack_self(mob/living/user)
-	user.visible_message(span_warning("[user] snaps [src]."))
+	user.visible_message(span_warning("[user] ломает [src]."))
 	playsound(user,'sound/items/seedextract.ogg', 100, FALSE)
 	qdel(src)
 
@@ -263,10 +264,10 @@
 			L.consider_ambush()
 
 /obj/item/natural/bundle/fibers
-	name = "моток волокна"
+	name = "моток волокон"
 	icon_state = "fibersroll1"
 	possible_item_intents = list(/datum/intent/use)
-	desc = "Волокна, связанные вместе."
+	desc = "Волокна, собранные в единый моток."
 	force = 0
 	throwforce = 0
 	maxamount = 6
@@ -279,6 +280,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	spitoutmouth = FALSE
 	stacktype = /obj/item/natural/fibers
+	stackname = "волокон"
 	icon1step = 3
 	icon2step = 6
 
@@ -291,7 +293,7 @@
 	name = "моток шелка"
 	icon_state = "fibersroll1"
 	possible_item_intents = list(/datum/intent/use)
-	desc = "Пучок нежного шелка. Он аккурастно соткан и смотан. Кропотливая работа."
+	desc = "Моток нежного шелка. Он аккуратно соткан и смотан. Кропотливая работа."
 	force = 0
 	throwforce = 0
 	maxamount = 6
@@ -304,6 +306,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	spitoutmouth = FALSE
 	stacktype = /obj/item/natural/silk
+	stackname = "волокон шелка"
 	icon1step = 3
 	icon2step = 6
 
@@ -320,21 +323,21 @@
 	w_class = WEIGHT_CLASS_TINY
 	spitoutmouth = FALSE
 	stacktype = /obj/item/natural/cloth
-	stackname = "cloth"
+	stackname = "полотен ткани"
 	icon1 = "clothroll1"
 	icon1step = 5
 	icon2 = "clothroll2"
 	icon2step = 10
 
 /obj/item/natural/bundle/stick
-	name = "bundle of sticks"
+	name = "связка палок"
 	icon_state = "stickbundle1"
 	item_state = "stickbundle"
 	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
 	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	experimental_inhand = FALSE
 	possible_item_intents = list(/datum/intent/use)
-	desc = "Stick alone.. Weak. Stick together.. Strong."
+	desc = "Одна палка... хрупка. Связка палок... крепка."
 	maxamount = 6
 	force = 0
 	throwforce = 0
@@ -343,7 +346,7 @@
 	w_class = WEIGHT_CLASS_TINY
 	spitoutmouth = FALSE
 	stacktype = /obj/item/grown/log/tree/stick
-	stackname = "sticks"
+	stackname = "палок"
 	icon1 = "stickbundle1"
 	icon1step = 4
 	icon2 = "stickbundle2"
@@ -355,7 +358,7 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(user.used_intent?.blade_class == BCLASS_CUT)
 		playsound(get_turf(src.loc), 'sound/items/wood_sharpen.ogg', 100)
-		user.visible_message(span_info("[user] starts sharpening the sticks in [src]..."), span_info("I start sharpening the sticks in [src]...."))
+		user.visible_message(span_info("[user] точит палки из [src]..."), span_info("Я затачиваю палки из [src]...."))
 		for(var/i in 1 to (amount - 1))
 			if(!do_after(user, 20))
 				break
@@ -385,8 +388,8 @@
 		return
 
 /obj/item/natural/bowstring
-	name = "fibre bowstring"
-	desc = "A simple cord of bowstring."
+	name = "тетива"
+	desc = "Простой шнур из волокон, используемый в качестве тетивы для лука."
 	icon_state = "fibers"
 	possible_item_intents = list(/datum/intent/use)
 	force = 0
@@ -401,8 +404,8 @@
 	spitoutmouth = FALSE
 
 /obj/item/natural/bundle/worms
-	name = "worms"
-	desc = "Multiple wriggly worms."
+	name = "кучка червей"
+	desc = "Множество извивающихся мясистых червей."
 	color = "#964B00"
 	maxamount = 12
 	icon_state = "worm2"
@@ -412,12 +415,12 @@
 	icon2step = 6
 	icon3 = "worm6"
 	stacktype = /obj/item/natural/worms
-	stackname = "worms"
+	stackname = "червей"
 
 /obj/item/natural/worms/attack_right(mob/user)
 	if(user.get_active_held_item())
 		return
-	to_chat(user, span_warning("I start to collect [src]..."))
+	to_chat(user, span_warning("Я собираю [src]..."))
 	if(move_after(user, bundling_time, target = src))
 		var/wormcount = 0
 		for(var/obj/item/natural/worms/F in get_turf(src))

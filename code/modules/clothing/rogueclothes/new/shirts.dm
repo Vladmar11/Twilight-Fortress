@@ -1,7 +1,7 @@
 /obj/item/clothing/suit/roguetown/shirt/steward
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
-	name = "steward's tunic"
-	desc = "A more formal tunic made specially for the steward to wear when he isn't using his other garments."
+	name = "пиджак казначея"
+	desc = "Более официальный пиджак казначея, сшитый специально для носки отдельно от повседневных одеяний."
 	body_parts_covered = CHEST|GROIN|VITALS|LEGS|ARMS
 	boobed = FALSE
 	icon = 'icons/roguetown/clothing/newclothes/stewardshirts.dmi'
@@ -14,8 +14,8 @@
 	l_sleeve_status = SLEEVE_NORMAL
 
 /obj/item/clothing/suit/roguetown/shirt/steward/dress
-	name = "steward's dress"
-	desc = "A more formal dress made specially for the steward to wear when she isn't using her other garments."
+	name = "платье казначея"
+	desc = "Более официальное платье казначея, сшитое специально для носки отдельно от повседневных одеяний."
 	icon_state = "stewarddress"
 	item_state = "stewarddress"
 

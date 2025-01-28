@@ -1,6 +1,6 @@
 /obj/item/clothing/suit/roguetown/armor/leather/bikini
-	name = "leather bikini"
-	desc = "Flexible cowhide armor. Lightweight, better than nothing. Now in tasteful bikini shape."
+	name = "кожаное бикини"
+	desc = "Гибкая броня из кожи вола. Легкая, защищает чуть лучше, чем ничего. Зато в красивой форме бикини."
 	icon = 'icons/roguetown/clothing/donator.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/donator.dmi'
 	body_parts_covered = CHEST|GROIN
@@ -10,8 +10,8 @@
 	allowed_race = CLOTHED_RACES_TYPES
 
 /obj/item/clothing/suit/roguetown/armor/leather/studded/bikini
-	name = "studded leather bikini"
-	desc = "Studded leather is the most durable of all hides and leathers and about as light. This one is in bikini form."
+	name = "клепаное кожаное бикини"
+	desc = "Броня из клепаной кожи прочнее и долговечнее обычной, притом почти такая же легкая. Эта в красивой форме бикини."
 	icon = 'icons/roguetown/clothing/donator.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/donator.dmi'
 	body_parts_covered = CHEST|GROIN
@@ -21,7 +21,7 @@
 	allowed_race = CLOTHED_RACES_TYPES
 
 /obj/item/clothing/neck/roguetown/fencerguard
-	name = "fencer neckguard"
+	name = "горжет фехтовальщика"
 	icon = 'icons/roguetown/clothing/donator.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/donator.dmi'
 	icon_state = "fencercollar"
@@ -35,25 +35,25 @@
 	allowed_race = NON_DWARVEN_RACE_TYPES
 
 /obj/item/clothing/mask/rogue/lordmask/naledi
-	name = "war scholar's mask"
+	name = "маска военного инструктора"
 	icon = 'icons/roguetown/clothing/donator.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/donator.dmi'
 	item_state = "naledimask"
 	icon_state = "naledimask"
-	desc = "Runes and wards, meant for daemons; the gold has somehow rusted in unnatural, impossible agony. The most prominent of these etchings is in the shape of the Naledian psycross."
+	desc = "Руны и обереги, предназначенные для демонов; золото каким-то образом заржавело в неестественной, невозможной агонии. Самая известная из этих гравюр имеет форму наледианского креста."
 	sellprice = 0
 
 /obj/item/clothing/head/roguetown/archercap
-	name = "archer's cap"
+	name = "колпак лучника"
 	icon = 'icons/roguetown/clothing/donator.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/donator.dmi'
-	desc = "For the merry men."
+	desc = "Для веселых мужчин."
 	icon_state = "archercap"
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/otavan
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
-	name = "fencer gambeson"
-	desc = "A large shirt with heavy padding meant to be used below armor."
+	name = "гамбезон фехтовальщика"
+	desc = "Большая рубашка с толстой подкладкой, предназначенная для ношения под доспехами."
 	icon = 'icons/roguetown/clothing/donator.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/donator.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/donator.dmi'
@@ -72,13 +72,13 @@
 	allowed_race = NON_DWARVEN_RACE_TYPES
 
 /datum/crafting_recipe/roguetown/hunting/bikini
-	name = "leather bikini armor"
+	name = "кожаное бикини"
 	result = /obj/item/clothing/suit/roguetown/armor/leather/bikini
 	reqs = list(/obj/item/natural/hide/cured = 2)
 	sellprice = 26
 
 /datum/anvil_recipe/armor/studdedbikini
-	name = "Клёпанное кожаное бикини (+кожаное бикини)"
+	name = "клёпанное кожаное бикини (+кожаное бикини)"
 	req_bar = /obj/item/ingot/iron
 	additional_items = list(/obj/item/clothing/suit/roguetown/armor/leather)
 	created_item = /obj/item/clothing/suit/roguetown/armor/leather/studded/bikini

@@ -1,5 +1,5 @@
 /obj/effect/proc_holder/spell/invoked/diagnose/secular
-	name = "Secular Diagnosis"
+	name = "Мирской диагноз"
 	overlay_state = "diagnose"
 	range = 1
 	associated_skill = /datum/skill/misc/treatment
@@ -8,7 +8,7 @@
 
 /obj/effect/proc_holder/spell/targeted/docheal  //miracle but 1 tile range
 	action_icon = 'icons/mob/actions/roguespells.dmi'
-	name = "Rapid Treatment"
+	name = "Стремительное исцеление"
 	overlay_state = "doc"
 	range = 1
 	include_user = TRUE
@@ -21,7 +21,7 @@
 
 /obj/effect/proc_holder/spell/targeted/stable // gamerfuel intravenously
 	action_icon = 'icons/mob/actions/roguespells.dmi'
-	name = "Stabilising Syringe"
+	name = "Стабилизирующая сыворотка"
 	overlay_state = "stable"
 	range = 1
 	sound = 'modular/Smoker/sound/inject.ogg'
@@ -47,7 +47,7 @@
 
 /obj/effect/proc_holder/spell/targeted/purge // Purges all reagents and clears all toxin damage while lowering blood levels and hitting with brute (makes an artery wound)
 	action_icon = 'icons/mob/actions/roguespells.dmi'
-	name = "Purifying Blood Draw"
+	name = "Очищающее кровопускание"
 	overlay_state = "snek"
 	range = 1
 	include_user = TRUE
@@ -60,7 +60,7 @@
 
 /obj/effect/proc_holder/spell/targeted/debride // Cure rot if has weak liver debuff (achieved by surgery)
 	action_icon = 'icons/mob/actions/roguespells.dmi'
-	name = "Tissue Debridement"
+	name = "Очищение тканей"
 	overlay_state = "unrot"
 	range = 1
 	include_user = FALSE
@@ -75,7 +75,7 @@
 
 /obj/effect/proc_holder/spell/targeted/cpr // Revive if has weak heart debuff (achieved by surgery)
 	action_icon = 'icons/mob/actions/roguespells.dmi'
-	name = "Cardiac Massage"
+	name = "Массаж сердца"
 	overlay_state = "cpr"
 	range = 1
 	include_user = FALSE
@@ -97,15 +97,15 @@
 			revert_cast()
 			return FALSE
 		if(target.stat < DEAD)
-			to_chat(user, span_warning("Nothing happens."))
+			to_chat(user, span_warning("Ничего не произошло."))
 			revert_cast()
 			return FALSE
 		if(target.mob_biotypes & MOB_UNDEAD)
-			to_chat(user, span_warning("It's undead, I can't."))
+			to_chat(user, span_warning("Не подействует на нежить."))
 			revert_cast()
 			return FALSE
 		if(!target.revive(full_heal = FALSE))
-			to_chat(user, span_warning("They need to be mended more."))
+			to_chat(user, span_warning("Тело еще сильно повреждено."))
 			revert_cast()
 			return FALSE
 		if(target.mobility_flags & MOBILITY_STAND)
@@ -131,14 +131,14 @@
 				var/obj/item/organ/wings/seelie/new_wings = new wing_type()
 				new_wings.Insert(fairy_target)
 		target.update_body()
-		target.visible_message(span_notice("[target] starts to twitch violently!"), span_green("My ears are ringing with a sound!"))
+		target.visible_message(span_notice("[target] начинает сильно дергаться!"), span_green("В моих ушах звенит!"))
 		if(target.mind)
 			if(revive_pq && !HAS_TRAIT(target, TRAIT_IWASREVIVED) && user?.ckey)
 				adjust_playerquality(revive_pq, user.ckey)
 				ADD_TRAIT(target, TRAIT_IWASREVIVED, "[type]")
 			target.mind.remove_antag_datum(/datum/antagonist/zombie)
 		return TRUE
-	to_chat(user, span_warning("I need to prime their heart first."))
+	to_chat(user, span_warning("Сперва нужно вылечить сердце."))
 	revert_cast()
 	return FALSE
 
@@ -151,23 +151,23 @@
 		revert_cast()
 		return FALSE
 	if(target.stat < DEAD)
-		to_chat(user, span_warning("Nothing happens."))
+		to_chat(user, span_warning("Ничего не произошло."))
 		revert_cast()
 		return FALSE
 	if(HAS_TRAIT(target, TRAIT_RITUALIZED))
-		to_chat(user, span_warning("The life essence was sucked out of this body."))
+		to_chat(user, span_warning("Эссенция жизни была высосана из этого тела."))
 		revert_cast()
 		return FALSE
 	if(world.time > target.mob_timers["lastdied"] + 10 MINUTES)
-		to_chat(user, span_warning("It's too late."))
+		to_chat(user, span_warning("Слишком поздно."))
 		revert_cast()
 		return FALSE
 	if(target.mob_biotypes & MOB_UNDEAD)
-		to_chat(user, span_warning("It's undead, I can't."))
+		to_chat(user, span_warning("Не подействует на нежить."))
 		revert_cast()
 		return FALSE
 	if(!target.revive(full_heal = FALSE))
-		to_chat(user, span_warning("They need to be mended more."))
+		to_chat(user, span_warning("Тело еще сильно повреждено."))
 		revert_cast()
 		return FALSE
 	
@@ -189,7 +189,7 @@
 			var/obj/item/organ/wings/seelie/new_wings = new wing_type()
 			new_wings.Insert(fairy_target)
 	target.update_body()
-	target.visible_message(span_notice("[target] is revived by holy light!"), span_green("I awake from the void."))
+	target.visible_message(span_notice("[target] оживляется священным светом!"), span_green("Я пробуждаюсь из тьмы."))
 	target.mind?.remove_antag_datum(/datum/antagonist/zombie)
 	return TRUE
 
@@ -206,7 +206,7 @@
 		return FALSE
 
 	if(!targets[1].has_status_effect(/datum/status_effect/debuff/wliver))
-		to_chat(user, span_warning("I need to prime their liver first"))
+		to_chat(user, span_warning("Сперва нужно вылечить печень."))
 		revert_cast() // No need to consume the spell if it isn't properly cast.
 		return FALSE
 
@@ -218,7 +218,7 @@
 
 	// If, for whatever reason, someone manages to capture a vampire with (somehow) rot??? This prevents them from losing their undead biotype.
 	if(target.mind?.has_antag_datum(/datum/antagonist/vampire) || target.mind?.has_antag_datum(/datum/antagonist/vampire/lesser) || target.mind?.has_antag_datum(/datum/antagonist/vampirelord))
-		to_chat(user, span_warning("It's of an incurable evil, I can't."))
+		to_chat(user, span_warning("Это неизлечимое зло, я не могу ничего с этим сделать."))
 		revert_cast()
 		return FALSE
 
@@ -269,7 +269,7 @@
 	target.grab_ghost(force = TRUE) // even suicides
 
 	target.update_body()
-	target.visible_message(span_notice("The rot leaves [target]'s body!"), span_green("I feel the rot leave my body!"))
+	target.visible_message(span_notice("Гниль выходит из тела [target]!"), span_green("Я чувствую, как гниль покидает мое тело!"))
 
 	return TRUE
 
@@ -284,7 +284,7 @@
 	. = ..()
 	if(iscarbon(targets[1]))
 		var/mob/living/carbon/target = targets[1]
-		target.visible_message(span_green("[user] tends to [target]'s wounds."), span_notice("I feel better already."))
+		target.visible_message(span_green("[user] излечивает раны [target]."), span_notice("Я чувствую себя лучше!"))
 		if(iscarbon(target))
 			var/mob/living/carbon/C = target
 			var/obj/item/bodypart/affecting = C.get_bodypart(check_zone(user.zone_selected))
@@ -332,7 +332,7 @@
 		var/mob/living/carbon/target = targets[1]
 		var/obj/item/bodypart/BPA = target.get_bodypart(user.zone_selected)
 		if(!BPA)
-			to_chat(user, span_warning("They're missing that part!"))
+			to_chat(user, span_warning("Этой конечности нет!"))
 			revert_cast()
 			return FALSE
 		if(target.mobility_flags & MOBILITY_STAND)
@@ -340,7 +340,7 @@
 			revert_cast()
 			return FALSE
 		BPA.add_wound(/datum/wound/artery/)
-		target.visible_message(span_danger("[user] drains the reagents and toxins from [target]."))
+		target.visible_message(span_danger("[user] выводит реагенты и токсины из тела [target]."))
 		target.adjustToxLoss(-999)
 		target.reagents.remove_all_type(/datum/reagent, 9999)
 		target.emote("scream")
@@ -355,8 +355,8 @@
 	return TRUE
 
 /obj/item/organ/heart/weak
-	name = "weakened heart"
-	desc = "This seems hardly functional."
+	name = "ослабленное сердце"
+	desc = "Похоже, оно едва способно качать кровь."
 
 /datum/status_effect/debuff/wheart
 	id = "wheart"
@@ -364,8 +364,8 @@
 	effectedstats = list("strength" = -3, "constitution" = -3, "endurance" = -3, "speed" = -3)
 
 /atom/movable/screen/alert/status_effect/debuff/wheart
-	name = "Weak Heart"
-	desc = "I feel drained and sluggish. My heart beats painfully."
+	name = "Слабое сердце"
+	desc = "Я чувствую себя опустошенно и вяло. Моё сердце болезненно стучит."
 
 /obj/item/organ/heart/weak/Insert(mob/living/carbon/M)
 	..()
@@ -377,8 +377,8 @@
 		M.remove_status_effect(/datum/status_effect/debuff/wheart)
 
 /obj/item/organ/liver/weak
-	name = "weakened liver"
-	desc = "This seems hardly functional."
+	name = "ослабленная печень"
+	desc = "Кажется, она едва функционирует."
 
 /datum/status_effect/debuff/wliver
 	id = "wliver"
@@ -386,8 +386,8 @@
 	effectedstats = list("strength" = -3, "constitution" = -3, "endurance" = -3, "speed" = -3)
 
 /atom/movable/screen/alert/status_effect/debuff/wliver
-	name = "Weak Liver"
-	desc = "I feel drained and sluggish. I'm feeling abdominal pain from my liver."
+	name = "Слабая печень"
+	desc = "Я чувствую себя опустошенно и вяло. Меня мучают боли в животе."
 
 /obj/item/organ/liver/weak/Insert(mob/living/carbon/M)
 	..()
@@ -400,7 +400,7 @@
 		M.remove_status_effect(/datum/status_effect/debuff/wliver)
 
 /datum/surgery/hepa
-	name = "Hepatectomy"
+	name = "Гепатэктомия"
 	target_mobtypes = list(/mob/living/carbon/human, /mob/living/carbon/monkey)
 	possible_locs = list(BODY_ZONE_PRECISE_STOMACH)
 	steps = list(
@@ -413,7 +413,7 @@
 	)
 
 /datum/surgery_step/resection
-	name = "Perform Liver Rejuvination"
+	name = "Оживление печени"
 	time = 20 SECONDS
 	accept_hand = FALSE
 	possible_locs = list(BODY_ZONE_PRECISE_STOMACH)
@@ -428,18 +428,18 @@
 
 /datum/surgery_step/resection/preop(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent)
 	if(target.has_status_effect(/datum/status_effect/debuff/wliver))
-		to_chat(user, "Their liver is too weak")
+		to_chat(user, "Печень пациента слишком слабая!")
 		return FALSE
 	else
-		display_results(user, target, span_notice("I begin a resection on [target]'s liver..."),
-			span_notice("[user] begins to carve into [target]'s liver."),
-			span_notice("[user] begins to carve into [target]'s liver."))
+		display_results(user, target, span_notice("Я начинаю вырезать часть печени [target]..."),
+			span_notice("[user] начинает вырезать часть печени [target]."),
+			span_notice("[user] начинает вырезать часть печени [target]."))
 		return TRUE
 
 /datum/surgery_step/resection/success(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent)
-	display_results(user, target, span_notice("I successfully resect damaged and infected portions of [target]'s liver."),
-		span_notice("[user] successfully carves out chunks of [target]'s liver, restoring its function!"),
-		span_notice("[user] successfully carves out chunks of [target]'s liver, restoring its function!"))
+	display_results(user, target, span_notice("Я успешно срезаю поврежденные и инфицированные участки с печени [target]."),
+		span_notice("[user] успешно вырезает куски печени [target], восстанавливая её работу!"),
+		span_notice("[user] успешно вырезает куски печени [target], восстанавливая её работу!"))
 	var/obj/item/organ/liver/liver = target.getorganslot(ORGAN_SLOT_LIVER)
 	if(liver)
 		liver.Remove(target)
@@ -449,7 +449,7 @@
 		return TRUE
 
 /datum/surgery/bypass
-	name = "Coronary Artery Bypass Surgery"
+	name = "Коронарное шунтирование"
 	target_mobtypes = list(/mob/living/carbon/human, /mob/living/carbon/monkey)
 	possible_locs = list(BODY_ZONE_CHEST)
 	steps = list(
@@ -462,7 +462,7 @@
 	)
 
 /datum/surgery_step/bypass
-	name = "Perform Heart Rejuvination"
+	name = "Оживление сердца"
 	time = 20 SECONDS
 	accept_hand = TRUE
 	implements = list(
@@ -477,18 +477,18 @@
 
 /datum/surgery_step/bypass/preop(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent)
 	if(target.has_status_effect(/datum/status_effect/debuff/wheart))
-		to_chat(user, "Their heart is too weak")
+		to_chat(user, "Сердце пациента слишком слабое!")
 		return FALSE
 	else
-		display_results(user, target, span_notice("I begin to bypass the arteries in [target]'s heart...."),
-			span_notice("[user] begins to bypass the arteries in [target]'s heart."),
-			span_notice("[user] begins to bypass the arteries in [target]'s heart."))
+		display_results(user, target, span_notice("Я начинаю восстанавливать кровоток из артерий в сердце [target]..."),
+			span_notice("[user] начинает восстанавливать кровоток из артерий в сердце [target]."),
+			span_notice("[user] начинает восстанавливать кровоток из артерий в сердце [target]."))
 		return TRUE
 
 /datum/surgery_step/bypass/success(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent)
-	display_results(user, target, span_notice("I successfully bypass the arteries in [target]'s heart."),
-		span_notice("[user] successfully bypassess the arteries in [target]'s heart, restoring its function!"),
-		span_notice("[user] successfully bypassess the arteries in [target]'s heart, restoring its function!"))
+	display_results(user, target, span_notice("Мне удалось восстановить кровоток из артерий в сердце [target]."),
+		span_notice("[user] восстанавливает кровоток из артерий в сердце [target], восстанавливая его работу!"),
+		span_notice("[user] восстанавливает кровоток из артерий в сердце [target], восстанавливая его работу!"))
 	var/obj/item/organ/heart/heart = target.getorganslot(ORGAN_SLOT_HEART)
 	if(heart)
 		heart.Remove(target)
@@ -500,8 +500,8 @@
 //------------------------------------------------reagents--------------------------------------------//
 
 /obj/item/reagent_containers/powder/alch
-	name = "essence"
-	desc = "powderized and ready to brew"
+	name = "эссенция"
+	desc = "Порошок, готовый к перегонке."
 	gender = PLURAL
 	icon_state = "salt"
 	can_brew = TRUE
@@ -510,7 +510,7 @@
 	volume = 24
 
 /obj/item/reagent_containers/powder/alch/berry
-	name = "essence of berry"
+	name = "эссенция ягоды"
 	gender = PLURAL
 	icon_state = "salt"
 	color = "#4682b4"
@@ -522,7 +522,7 @@
 	volume = 24
 
 /obj/item/reagent_containers/powder/alch/berryp
-	name = "essence of poison berry"
+	name = "эссенция ядовитой ягоды"
 	gender = PLURAL
 	icon_state = "salt"
 	color = "#61DE2A"
@@ -534,7 +534,7 @@
 	volume = 10
 
 /obj/item/reagent_containers/powder/alch/mincem
-	name = "essence of flesh"
+	name = "эссенция плоти"
 	gender = PLURAL
 	icon_state = "salt"
 	color = "#ff7f7f"
@@ -546,7 +546,7 @@
 	volume = 10
 
 /obj/item/reagent_containers/powder/alch/mincef
-	name = "essence of fish"
+	name = "эссенция рыбы"
 	gender = PLURAL
 	icon_state = "salt"
 	color = "#ff7f7f"
@@ -558,7 +558,7 @@
 	volume = 10
 
 /obj/item/reagent_containers/powder/alch/stone
-	name = "essence of earth"
+	name = "эссенция земли"
 	gender = PLURAL
 	icon_state = "salt"
 	brew_reagent = /datum/reagent/alch/syrum_stone
@@ -570,7 +570,7 @@
 	volume = 10
 
 /obj/item/reagent_containers/powder/alch/pipe
-	name = "essence of addiction"
+	name = "эссенция зависимости"
 	gender = PLURAL
 	icon_state = "salt"
 	brew_reagent = /datum/reagent/alch/syrum_westleach_leaf
@@ -582,7 +582,7 @@
 	volume = 10
 
 /obj/item/reagent_containers/powder/alch/swamp
-	name = "essence of clarity"
+	name = "эссенция чистоты"
 	gender = PLURAL
 	icon_state = "salt"
 	brew_reagent = /datum/reagent/alch/syrum_swamp_weed
@@ -594,88 +594,88 @@
 	volume = 10
 
 /datum/reagent/alch
-	name = "hmm"
-	description = "shouldnt see this"
+	name = "???"
+	description = "Вы не должны это видеть..."
 	reagent_state = LIQUID
 	color = "#808080"
 	metabolization_rate = 0.25 * REAGENTS_METABOLISM
 	overdose_threshold = null
 
 /datum/reagent/alch/syrum_ash
-	name = "syrum of fire"
-	description = "refined viscous ash"
+	name = "сыворотка пламени"
+	description = "Очищенная вязкая пепельная сыворотка."
 	reagent_state = LIQUID
 	color = "#808080"
 	metabolization_rate = 1 * REAGENTS_METABOLISM
 	overdose_threshold = null
 
 /datum/reagent/alch/syrum_westleach_leaf
-	name = "west syrum"
-	description = "refined west essence"
+	name = "сыворотка из курительного листа"
+	description = "Очищенная эссенция курительного листа."
 	reagent_state = LIQUID
 	color = "#808080"
 	metabolization_rate = 0.25 * REAGENTS_METABOLISM
 	overdose_threshold = null
 
 /datum/reagent/alch/syrum_swamp_weed
-	name = "swamp syrum"
-	description = "refined berry poison"
+	name = "сыворотка из болотника"
+	description = "Очищенная сыворотка из свежей болотной травы."
 	reagent_state = LIQUID
 	color = "#61DE2A"
 	metabolization_rate = 0.25 * REAGENTS_METABOLISM
 	overdose_threshold = null
 
 /datum/reagent/alch/syrum_meat
-	name = "meaty syrum"
-	description = "refined viscous slop"
+	name = "мясная сыворотка"
+	description = "Очищенные густые помои с запахом крови."
 	reagent_state = LIQUID
 	color = "#ff7f7f"
 	metabolization_rate = 1 * REAGENTS_METABOLISM
 	overdose_threshold = null
 
 /datum/reagent/alch/syrum_fish
-	name = "fishy syrum"
-	description = "refined viscous fishy smelling gunk"
+	name = "рыбная сыворотка"
+	description = "Очищенные вязкие помои с рыбным запахом."
 	reagent_state = LIQUID
 	color = "#ff7f7f"
 	metabolization_rate = 1 * REAGENTS_METABOLISM
 	overdose_threshold = null
 
 /datum/reagent/alch/syrum_stone
-	name = "earthy syrum"
-	description = "refined liquid state stone"
+	name = "землистая сыворотка"
+	description = "Очищенный сжиженный камень."
 	reagent_state = LIQUID
 	color = "#E2E5DE"
 	metabolization_rate = 0.25 * REAGENTS_METABOLISM
 	overdose_threshold = null
 
 /datum/reagent/alch/syrum_salt
-	name = "salty syrum"
-	description = "refined liquid state salt"
+	name = "соленая сыворотка"
+	description = "Очищенный раствор соли."
 	reagent_state = LIQUID
 	color = "#E2E5DE"
 	metabolization_rate = 0.25 * REAGENTS_METABOLISM
 	overdose_threshold = null
 
 /datum/reagent/alch/syrum_poison_berry
-	name = "poison syrum"
-	description = "refined berry poison"
+	name = "ядовитая сыворотка"
+	description = "Очищенная сыворотка из яда дикой ягоды."
 	reagent_state = LIQUID
 	color = "#61DE2A"
 	metabolization_rate = 0.25 * REAGENTS_METABOLISM
 	overdose_threshold = null
 
 /datum/reagent/alch/syrum_berry
-	name = "berry syrum"
-	description = "refined berry essence"
+	name = "ягодная сывороотка"
+	description = "Очищенная эссенция из дикой ягоды"
 	reagent_state = LIQUID
 	color = "#61DE2A"
 	metabolization_rate = 0.25 * REAGENTS_METABOLISM
 	overdose_threshold = null
 
 /datum/reagent/medicine/caffeine
-	name = "caffeine"
-	description = "No Sleep"
+	name = "кофеин"
+	description = "Не спать!"
 	reagent_state = LIQUID
 	color = "#D2FFFA"
 	metabolization_rate = 20 * REAGENTS_METABOLISM
@@ -706,16 +706,16 @@
 		M.mind.sleep_adv.advance_cycle()
 
 /datum/reagent/medicine/caffeine
-	name = "caffeine"
-	description = "No Sleep"
+	name = "кофеин"
+	description = "Не спать!"
 	reagent_state = LIQUID
 	color = "#D2FFFA"
 	metabolization_rate = 20 * REAGENTS_METABOLISM
 	overdose_threshold = null
 
 /datum/reagent/medicine/stimu
-	name = "Stimu"
-	description = "Blood refueler"
+	name = "Стимул"
+	description = "Мощное лекарство, восполняющее объем крови."
 	reagent_state = LIQUID
 	color = "#D2FFFA"
 	metabolization_rate = 0.25 * REAGENTS_METABOLISM
@@ -732,8 +732,8 @@
 	..()
 
 /datum/reagent/medicine/berserkium
-	name = "Berserkium"
-	description = "Makes you REALLY mad"
+	name = "Берсеркий"
+	description = "Приводит вас в НАСТОЯЩЕЕ бешенство."
 	reagent_state = LIQUID
 	color = "#ff0000"
 	metabolization_rate = 0.25 * REAGENTS_METABOLISM
@@ -746,8 +746,8 @@
 	duration = 1
 
 /atom/movable/screen/alert/status_effect/buff/berserkium_buff
-	name = "ABNORMAL RAGE"
-	desc = "I CAN'T DENY THE VOICES INSIDE MY BRAIN!"
+	name = "АНОМАЛЬНАЯ ЯРОСТЬ"
+	desc = "Я НЕ МОГУ ОТБРОСИТЬ ЭТИ ГОЛОСА В ГОЛОВЕ!"
 	icon_state = "acid"
 
 /datum/status_effect/buff/berserkium_crash
@@ -757,8 +757,8 @@
 	duration = 10 MINUTES
 
 /atom/movable/screen/alert/status_effect/debuff/berserkium_crash
-	name = "Abnormal Fatigue"
-	desc = "For all our righteous crimes we compensate."
+	name = "Аномальная усталость"
+	desc = "За все наши праведные преступления мы платим цену."
 	icon_state = "muscles"
 
 /datum/reagent/medicine/berserkium/on_mob_metabolize(mob/living/carbon/M)
@@ -816,17 +816,17 @@
 		M.remove_stress(/datum/stressevent/sleepytime)
 		M.mind.sleep_adv.advance_cycle()
 	if(prob(25))
-		M.say("RA-A-A-AH!!", forced = /datum/reagent/medicine/berserkium)
+		M.say("А-А-А-АРГХ!!!", forced = /datum/reagent/medicine/berserkium)
 		M.emote("rage")
 	..()
 
 /datum/reagent/medicine/purify
-	name = "PURIFY"
+	name = "Очиститель"
 	reagent_state = LIQUID
 	color = "#808080"
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
 	overdose_threshold = null
-	description = "A powerful drug that purifies the blood and seals wounds painfully on the body."
+	description = "Мощный препарат, очищающий кровь и болезненно заживляющий раны на теле."
 
 /datum/reagent/medicine/purify/on_mob_life(mob/living/carbon/human/M)
 	M.adjustFireLoss(0.5*REM, 0)
@@ -840,12 +840,12 @@
 			if (W.zombie_infection_timer)
 				deltimer(W.zombie_infection_timer)
 				W.zombie_infection_timer = null
-				to_chat(M, "You feel the drugs burning intensely in [B.name].")
+				to_chat(M, "Вы чувствуете, как препараты интенсивно горят внутри [B.name].")
 			// Check for and remove werewolf infection
 			if (W.werewolf_infection_timer)
 				deltimer(W.werewolf_infection_timer)
 				W.werewolf_infection_timer = null
-				to_chat(M, "You feel the drugs burning intensely in [B.name].")
+				to_chat(M, "Вы чувствуете, как препараты интенсивно горят внутри [B.name].")
 
 			// Handle destruction of the wound
 			W.Destroy(0)
@@ -856,14 +856,14 @@
 //---------------------------------------alch reactions----------------------------------------------//
 
 /datum/chemical_reaction/alch/lesserhealth
-	name = "lesser health pot"
+	name = "Слабое зелье здоровья"
 	mix_sound = 'sound/items/fillbottle.ogg'
 	id = /datum/reagent/medicine/lesserhealthpot
 	results = list(/datum/reagent/medicine/lesserhealthpot = 45) //15 oz
 	required_reagents = list(/datum/reagent/alch/syrum_meat = 24, /datum/reagent/alch/syrum_ash = 24)
 
 /datum/chemical_reaction/alch/health //purify minor health pot into half a bottle by using essence of clarity (swampweed)
-	name = "health pot purification"
+	name = "Очищенное зелье здоровья"
 	mix_sound = 'sound/items/fillbottle.ogg'
 	id = /datum/reagent/medicine/healthpot
 	results = list(/datum/reagent/medicine/healthpot = 22.5) //about 7.5 oz
@@ -871,7 +871,7 @@
 
 
 /datum/chemical_reaction/alch/greaterhealth //purify health pot into half a bottle of super by using essence of poison (poison berry) which used to be in the old red recipe
-	name = "greater health pot purification"
+	name = "Усиленное зелье здоровья"
 	mix_sound = 'sound/items/fillbottle.ogg'
 	id = /datum/reagent/medicine/greaterhealthpot
 	results = list(/datum/reagent/medicine/greaterhealthpot = 22.5) //about 7.5 oz
@@ -884,13 +884,13 @@ you need 4 lesser bottles to make 2 health to make 1 half bottle of greater
 end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bottle of greater*/
 
 /datum/chemical_reaction/alch/mana
-	name = "mana pot"
+	name = "Зелье маны"
 	id = /datum/reagent/medicine/manapot
 	results = list(/datum/reagent/medicine/manapot = 45)
 	required_reagents = list(/datum/reagent/alch/syrum_fish = 24, /datum/reagent/alch/syrum_ash = 24)
 
 /datum/chemical_reaction/alch/salt
-	name = "saltify"
+	name = "Солеварение"
 	id = "saltify"
 	required_reagents = list(/datum/reagent/alch/syrum_stone = 24, /datum/reagent/alch/syrum_ash = 24)
 
@@ -900,7 +900,7 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 		new /obj/item/reagent_containers/powder/salt(location)
 
 /datum/chemical_reaction/alch/ozium
-	name = "oziumify"
+	name = "Опиумоварение"
 	id = "oziumify"
 	required_reagents = list(/datum/reagent/alch/syrum_poison_berry = 24, /datum/reagent/alch/syrum_swamp_weed = 24)
 
@@ -910,7 +910,7 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 		new /obj/item/reagent_containers/powder/ozium(location)
 
 /datum/chemical_reaction/alch/moon
-	name = "moondustify"
+	name = "Варка лунной пыли"
 	id = "moondustify"
 	required_reagents = list(/datum/reagent/alch/syrum_poison_berry = 24, /datum/reagent/alch/syrum_westleach_leaf = 24)
 
@@ -920,7 +920,7 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 		new /obj/item/reagent_containers/powder/moondust(location)
 
 /datum/chemical_reaction/alch/spice
-	name = "spiceify"
+	name = "Варка специи"
 	id = "spiceify"
 	required_reagents = list(/datum/reagent/alch/syrum_swamp_weed = 24, /datum/reagent/alch/syrum_westleach_leaf = 24)
 
@@ -930,7 +930,7 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 		new /obj/item/reagent_containers/powder/spice(location)
 
 /datum/chemical_reaction/alch/pure
-	name = "clean moondustify"
+	name = "Очищение лунной пыли"
 	id = "clean moondustify"
 	required_reagents = list(/datum/reagent/ozium = 15, /datum/reagent/moondust = 15)
 
@@ -942,8 +942,8 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 //------------------------------------tools and pre made bottles-----------------------------------------//
 
 /obj/item/storage/backpack/rogue/backpack/rucksack
-	name = "rucksack"
-	desc = "A bulky backpack worn on the back which can store many items."
+	name = "рюкзак"
+	desc = "Объемный рюкзак на спине, в котором можно хранить множество вещей."
 	icon_state = "rucksack"
 	item_state = "rucksack"
 	icon = 'icons/roguetown/clothing/storage.dmi'
@@ -965,8 +965,8 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 		STR.not_while_equipped = TRUE
 
 /obj/item/rogueweapon/surgery/saw/improv
-	name = "improvised saw"
-	desc = "A tool used to carve through bone... poorly, but better than nothing."
+	name = "примитивная пила"
+	desc = "Инструмент, используемый для разрезания костей... Пилит плохо, но лучше, чем ничего."
 	icon_state = "bonesaw_wood"
 	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/chop/cleaver)
 	slot_flags = ITEM_SLOT_HIP
@@ -982,8 +982,8 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	tool_behaviour = TOOL_IMPROVSAW
 
 /obj/item/rogueweapon/surgery/hemostat/improv
-	name = "improvised clamp"
-	desc = "A tool used to clamp down on soft tissue. A poor alternative to metal but, better than nothing."
+	name = "примитивный зажим"
+	desc = "Инструмент, используемый для зажима мягких тканей. Плохая альтернатива металлическим инструментам."
 	icon_state = "forceps_wood"
 	possible_item_intents = list(/datum/intent/use)
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_MOUTH
@@ -993,8 +993,8 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	tool_behaviour = TOOL_IMPROVHEMOSTAT
 
 /obj/item/rogueweapon/surgery/retractor/improv
-	name = "improvised retractor"
-	desc = "A tool used to spread tissue open for surgical access. hopefully it will hold."
+	name = "примитивный расширитель"
+	desc = "Инструмент, используемый для раскрытия ткани во время хирургической операции. Надеюсь, выдержит..."
 	icon_state = "speculum_wood"
 	possible_item_intents = list(/datum/intent/use)
 	slot_flags = ITEM_SLOT_HIP
@@ -1008,8 +1008,8 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	tool_behaviour = TOOL_IMPROVRETRACTOR
 
 /obj/item/storage/fancy/pilltin
-	name = "pill tin"
-	desc = "A tin for all your pill needs."
+	name = "баночка для таблеток"
+	desc = "Банка для всех необходимых таблеток."
 	icon = 'icons/roguetown/items/surgery.dmi'
 	icon_state = "pilltin"
 	w_class = WEIGHT_CLASS_TINY
@@ -1033,7 +1033,7 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 /obj/item/storage/fancy/pilltin/MiddleClick(mob/user, params)
 	fancy_open = !fancy_open
 	update_icon()
-	to_chat(user, span_notice("[src] is now [fancy_open ? "open" : "closed"]."))
+	to_chat(user, span_notice("[src] [fancy_open ? "открыта" : "закрыта"]."))
 
 /obj/item/storage/fancy/pilltin/ComponentInitialize()
 	. = ..()
@@ -1045,7 +1045,7 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 		STR.set_holdable(list(/obj/item/reagent_containers/pill))
 
 /obj/item/storage/fancy/pilltin/wake
-	name = "pill tin (wake)"
+	name = "баночка для таблеток (тонизирующие)"
 
 /obj/item/storage/fancy/pilltin/wake/PopulateContents()
 	new /obj/item/reagent_containers/pill/caffpill(src)
@@ -1053,8 +1053,8 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	new /obj/item/reagent_containers/pill/caffpill(src)
 
 /obj/item/storage/fancy/skit
-	name = "surgery kit"
-	desc = "portable and compact"
+	name = "хирургический набор"
+	desc = "Легкий и компактный."
 	icon = 'icons/roguetown/items/surgery.dmi'
 	icon_state = "skit"
 	w_class = WEIGHT_CLASS_SMALL
@@ -1074,9 +1074,9 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	. = ..()
 	if(fancy_open)
 		if(length(contents) == 1)
-			. += "There is one item left."
+			. += "В нём остался один предмет."
 		else
-			. += "There are [contents.len <= 0 ? "no" : "[contents.len]"] items left."
+			. += "В нём [contents.len <= 0 ? "не осталось" : "осталось [contents.len]"] предметов."
 
 /obj/item/storage/fancy/skit/attack_self(mob/user)
 	fancy_open = !fancy_open
@@ -1085,7 +1085,7 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 
 /obj/item/storage/fancy/skit/Entered(mob/user)
 	if(!fancy_open)
-		to_chat(user, span_notice("[src] needs to be opened first."))
+		to_chat(user, span_notice("Нужно открыть [src], чтобы достать предметы."))
 		return
 	fancy_open = TRUE
 	update_icon()
@@ -1099,7 +1099,7 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 /obj/item/storage/fancy/skit/MiddleClick(mob/user, params)
 	fancy_open = !fancy_open
 	update_icon()
-	to_chat(user, span_notice("[src] is now [fancy_open ? "open" : "closed"]."))
+	to_chat(user, span_notice("[src] [fancy_open ? "открыт" : "закрыт"]."))
 
 /obj/item/storage/fancy/skit/ComponentInitialize()
 	..()
@@ -1132,8 +1132,8 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	new /obj/item/needle/pestra(src)
 
 /obj/item/storage/fancy/ifak
-	name = "personal patch kit"
-	desc = "Personal treatment pouch; has all you need to stop you or someone else from meeting Necra. It even comes with a little guide scroll for the slow minded."
+	name = "личный перевязочный набор"
+	desc = "Персональный лечебный мешочек, в котором есть все, чтобы помешать вам или кому-то еще встретиться с Некрой. В комплект поставки даже входит небольшой справочник для медлительных."
 	icon = 'icons/roguetown/items/surgery.dmi'
 	icon_state = "ifak"
 	w_class = WEIGHT_CLASS_SMALL
@@ -1158,9 +1158,9 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	. = ..()
 	if(fancy_open)
 		if(length(contents) == 1)
-			. += "There is one item left."
+			. += "В нём остался один предмет."
 		else
-			. += "There are [contents.len <= 0 ? "no" : "[contents.len]"] items left."
+			. += "В нём [contents.len <= 0 ? "не осталось" : "осталось [contents.len]"] предметов."
 
 /obj/item/storage/fancy/ifak/attack_self(mob/user)
 	fancy_open = !fancy_open
@@ -1169,7 +1169,7 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 
 /obj/item/storage/fancy/ifak/Entered(mob/user)
 	if(!fancy_open)
-		to_chat(user, span_notice("[src] needs to be opened first."))
+		to_chat(user, span_notice("Нужно открыть [src], чтобы достать предметы."))
 		return
 	fancy_open = TRUE
 	update_icon()
@@ -1183,7 +1183,7 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 /obj/item/storage/fancy/ifak/MiddleClick(mob/user, params)
 	fancy_open = !fancy_open
 	update_icon()
-	to_chat(user, span_notice("[src] is now [fancy_open ? "open" : "closed"]."))
+	to_chat(user, span_notice("[src] [fancy_open ? "открыт" : "закрыт"]."))
 
 /obj/item/storage/fancy/ifak/ComponentInitialize()
 	. = ..()
@@ -1223,10 +1223,10 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	if(has_cap)
 		has_cap = FALSE
 		icon_state = "[icon_state]_nocap"  // Update icon state for no cap
-		to_chat(user, span_notice("You thumb off the cork from [src]."))
+		to_chat(user, span_notice("Вы срываете пробку с горлышка [src]."))
 		playsound(src, 'modular/Smoker/sound/corkpop.ogg', 100, TRUE)
 	else
-		to_chat(user, span_warning("[src] doesn't have a cork."))
+		to_chat(user, span_warning("[src] не имеет пробки."))
 
 /obj/item/reagent_containers/hypospray/medipen/sealbottle/update_icon()
 	if(reagents.total_volume > 0)
@@ -1240,9 +1240,9 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	if(!M)
 		return FALSE
 	if(user == M)
-		to_chat(user, span_danger("You chug [src]!"))
+		to_chat(user, span_danger("Вы пьете [src]!"))
 	else
-		to_chat(user, span_danger("You force [M] to swallow [src]."))
+		to_chat(user, span_danger("Вы заставляете [M] выпить [src]."))
 	reagents.trans_to(M, reagents.total_volume, transfered_by = user)  // Transfer all remaining reagents
 	reagents.maximum_volume = 0  // Makes them useless afterwards
 	reagents.flags = NONE  // Ensure reagents are deactivated
@@ -1253,14 +1253,14 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 /obj/item/reagent_containers/hypospray/medipen/sealbottle/attack(mob/user)
 	if(user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		if(has_cap)
-			to_chat(user, span_warning("[src] has a cork still! You need to remove it first."))
+			to_chat(user, span_warning("Горлышко [src] запечатано пробкой. Нужно сначала её снять."))
 			return
 		inject(user, user)
 
 /obj/item/reagent_containers/hypospray/medipen/sealbottle/attack(mob/user)
 	if(user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		if(has_cap)
-			to_chat(user, span_warning("[src] has a cork still! You need to remove it first."))
+			to_chat(user, span_warning("Горлышко [src] запечатано пробкой. Нужно сначала её снять."))
 			return
 		inject(user, user)
 
@@ -1274,10 +1274,10 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	if(has_cap)
 		has_cap = FALSE
 		icon_state = "[icon_state]_nocap"  // Update icon state for no cap
-		to_chat(user, span_notice("You bite the cap off [src] and spit it out."))
+		to_chat(user, span_notice("Вы срываете зубами колпачок с [src] и выплевываете его."))
 		playsound(src, 'modular/Smoker/sound/capoff.ogg', 100, TRUE)
 	else
-		to_chat(user, span_warning("[src] doesn't have a cap."))
+		to_chat(user, span_warning("[src] не имеет колпачка."))
 
 /obj/item/reagent_containers/hypospray/medipen/sty/update_icon()
 	if(reagents.total_volume > 0)
@@ -1291,9 +1291,9 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	if(!M)
 		return FALSE
 	if(user == M)
-		to_chat(user, span_danger("You inject yourself with [src]."))
+		to_chat(user, span_danger("Вы делаете себе укол [src]."))
 	else
-		to_chat(user, span_danger("You inject [M] with [src]!"))
+		to_chat(user, span_danger("Вы делате [M] укол [src]!"))
 	reagents.trans_to(M, reagents.total_volume, transfered_by = user)  // Transfer all remaining reagents
 	reagents.maximum_volume = 0  // Makes them useless afterwards
 	reagents.flags = NONE  // Ensure reagents are deactivated
@@ -1304,13 +1304,13 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 /obj/item/reagent_containers/hypospray/medipen/sty/attack(mob/user)
 	if(user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
 		if(has_cap)
-			to_chat(user, span_warning("[src] has a cap still! You need to remove it first."))
+			to_chat(user, span_warning("Колпачок на [src] еще не сорван. Нужно избавиться от колпачка."))
 			return
 		inject(user, user)
 
 /obj/item/reagent_containers/pill/caffpill
-	name = "WAKE-UP"
-	desc = "Pep-pills. A promise to make you alert."
+	name = "Энергия Дендора"
+	desc = "Таблетки от сонливости и для повышения бдительности."
 	icon_state = "pillg"
 	icon = 'icons/roguetown/items/surgery.dmi'
 	list_reagents = list(/datum/reagent/medicine/caffeine = 1, /datum/reagent/medicine/antihol = 10, /datum/reagent/consumable/coffee = 81) //coffee OD is safe. causes jitters for awhile.
@@ -1318,8 +1318,8 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	grind_results = null
 
 /obj/item/reagent_containers/pill/pnkpill
-	name = "PNKBAWLS"
-	desc = "Little pink balls. From a cursory glance, you can be pretty certain this is watered down red and ash."
+	name = "Pозовые исцеляющие таблетки"
+	desc = "Маленькие розовые шарики. С беглого взгляда вы можете быть уверены, что это разбавленные красный и пепельный цвета."
 	icon_state = "pinkb"
 	icon = 'icons/roguetown/items/surgery.dmi'
 	list_reagents = list(/datum/reagent/ash = 15, /datum/reagent/iron = 15, /datum/reagent/medicine/healthpot = 15)
@@ -1327,31 +1327,31 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	grind_results = null
 
 /obj/item/reagent_containers/hypospray/medipen/sty/detox
-	name = "DETOX"
-	desc = "Purges the body of all that is not natural."
+	name = "Антитоксин"
+	desc = "Очищает организм от всего неестественного."
 	volume = 34
 	amount_per_transfer_from_this = 34
 	list_reagents = list(/datum/reagent/medicine/antihol = 10, /datum/reagent/medicine/pen_acid = 24)
 
 /obj/item/reagent_containers/hypospray/medipen/sealbottle/reju
-	name = "rejuv elixer"
-	desc = "Restores blood, seals wounds, helps to stabalize breathing and lightly numbs pain."
+	name = "Элексир омоложения"
+	desc = "Восстанавливает кровь, заживляет раны, помогает стабилизировать дыхание и слегка притупляет боль."
 	icon_state = "THEbottle"
 	volume = 16
 	amount_per_transfer_from_this = 16
 	list_reagents = list(/datum/reagent/medicine/stimu = 15, /datum/reagent/medicine/caffeine = 1)
 
 /obj/item/reagent_containers/hypospray/medipen/sealbottle/purify
-	name = "purifying elixer"
-	desc = "A powerful drug that purifies the blood and seals wounds on the body. Painfully."
+	name = "элексир очищения"
+	desc = "Мощный препарат, очищающий кровь и заживляющий раны на теле. Очень больно."
 	icon_state = "THEbottle"
 	volume = 30
 	amount_per_transfer_from_this = 30
 	list_reagents = list(/datum/reagent/medicine/purify = 20, /datum/reagent/ozium = 5, /datum/reagent/consumable/ethanol/hooch = 5) // lil laudanum for your troubles
 
 /obj/item/natural/cloth/bandage
-	name = "bandage"
-	desc = "A simple bandage used to bind wounds. takes longer to apply but is more effective than just cloth. Slowly heals wounds and binded fractures."
+	name = "повязка"
+	desc = "Простая повязка, используемая для перевязки ран. Наложение повязки занимает больше времени, но такая перевязь более эффективна, чем простая тряпка. Также медленно заживляет раны и сращивает переломы."
 	icon_state = "bandageroll"
 	icon = 'icons/roguetown/items/surgery.dmi'
 	possible_item_intents = list(/datum/intent/use)
@@ -1376,7 +1376,7 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	var/obj/item/bodypart/affecting = H.get_bodypart(check_zone(user.zone_selected))
 	if (!affecting) return
 	if (affecting.bandage)
-		to_chat(user, "There is already a bandage.")
+		to_chat(user, "Повязка уже наложена на эту часть тела.")
 		return
 	var/used_time = 100
 	if (H.mind)
@@ -1391,9 +1391,9 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	// Heal the specific body part every second while bandaged and manage wound pain and disabling effects
 	addtimer(CALLBACK(src, /proc/heal_and_manage_pain_disabling, H, affecting), 10, 1, TRUE)
 	if (M == user)
-		user.visible_message("You bandage your [affecting].")
+		user.visible_message("Вы перевязываете [affecting].")
 	else
-		user.visible_message("You bandage [M]'s [affecting].")
+		user.visible_message("Вы помогаете [M] и перевязываете [affecting] .")
 
 /proc/heal_and_manage_pain_disabling(var/mob/living/carbon/human/H, var/obj/item/bodypart/affecting)
 	if (!affecting) return
@@ -1403,8 +1403,8 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 			W.woundpain = 30
 
 /obj/item/natural/bundle/cloth/bandage
-	name = "roll of bandages"
-	desc = "A bundle of bandages used to bind wounds. More effective than just cloth."
+	name = "набор повязок"
+	desc = "Связка бинтов, используемых для перевязки ран. Эффективнее останавливает кровь, чем простая ткань"
 	icon = 'icons/roguetown/items/surgery.dmi'
 	icon_state = "bandageroll1"
 	possible_item_intents = list(/datum/intent/use)
@@ -1422,8 +1422,8 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	icon2step = 3
 
 /obj/item/book/rogue/medical_notebook
-	name = "Medical Notebook"
-	desc = "A quick rundown on medical works."
+	name = "Медицинский блокнот"
+	desc = "Краткий обзор медицинских работ."
 	icon_state ="book6_0"
 	base_icon_state = "book6"
 	bookfile = "medical.json"
@@ -1441,9 +1441,9 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 // *cry. agony.
 
 /obj/item/reagent_containers/glass/alembic
-	name = "metal alembic"
+	name = "перегонный куб"
 	possible_item_intents = list(INTENT_POUR, INTENT_SPLASH)
-	desc = "so you're an alchemist then?"
+	desc = "Так значит, вы теперь алхимик?"
 	icon = 'icons/roguetown/items/surgery.dmi'
 	icon_state = "alembic_empty"
 	volume = 120
@@ -1470,12 +1470,12 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 /obj/item/reagent_containers/glass/alembic/examine(mob/user)
 	. = ..()
 	if (active_brews.len == 0)
-		. += span_notice("The alembic is not brewing.")
+		. += span_notice("Куб простаивает.")
 	else
-		. += span_notice("The alembic is brewing.")
+		. += span_notice("Куб в процессе перегонки.")
 		for (var/obj/item/I in active_brews)
 			var/time_left = (I.brewing_time - (world.time - I.start_time)) / 10
-			. += span_notice("[I]: [time_left] seconds left until completion.")
+			. += span_notice("[I]: [time_left] секунд до заершения.")
 
 /obj/item/reagent_containers/glass/alembic/proc/makebrew(obj/item/I)
 	if(I.reagents)
@@ -1496,18 +1496,18 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 /obj/item/reagent_containers/glass/alembic/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item))
 		if(user.mind.get_skill_level(/datum/skill/misc/treatment) <= 2)
-			to_chat(user, span_warning("I don't know how this works."))
+			to_chat(user, span_warning("Я без понятия, как этим пользоваться."))
 			return TRUE
 		if(!I.can_brew)
-			to_chat(user, span_warning("I can't brew this into anything."))
+			to_chat(user, span_warning("Из этого ничего не сварить."))
 			return TRUE
 		else if(active_brews.len >= 2 || reagents.total_volume >= 99)
-			to_chat(user, span_warning("I can only brew two items at a time or it is too full."))
+			to_chat(user, span_warning("Я могу одновременно перегонять до двух предметов. Возможно, установка забита до отказа."))
 			return TRUE
 		else if(!user.transferItemToLoc(I, src))
-			to_chat(user, span_warning("[I] is stuck to my hand!"))
+			to_chat(user, span_warning("[I] прилипло к моей руке!"))
 			return TRUE
-		to_chat(user, span_info("I place [I] into [src]."))
+		to_chat(user, span_info("Я помещаю [I] внутрь [src]."))
 		I.start_time = world.time
 		I.brewing_time = 600
 		active_brews += I
@@ -1519,19 +1519,19 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 
 /obj/item/reagent_containers/glass/alembic/attack_self(mob/user)
 	if(brewing_started)
-		to_chat(user, span_warning("Brewing has started, you cannot remove items now."))
+		to_chat(user, span_warning("Перегонка началась. Больше предметы нельзя вернуть."))
 		return TRUE
 	for(var/obj/item/I in active_brews)
 		I.forceMove(drop_location())
 	active_brews.Cut()
 	icon_state = "alembic_empty"
-	to_chat(user, span_notice("I remove the items inside."))
+	to_chat(user, span_notice("Я вытаскиваю предметы, лежащие внутри куба."))
 
 
 
 /obj/item/reagent_containers/glass/mortar
-	name = "mortar"
-	desc = "A small, thick-walled stone bowl made for grinding things up inside."
+	name = "ступка"
+	desc = "Небольшая каменная чаша с толстыми стенками. Её используют для измельчения продуктов."
 	icon = 'icons/roguetown/items/surgery.dmi'
 	icon_state = "mortar_empty"
 	volume = 100
@@ -1542,18 +1542,18 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 
 /obj/item/reagent_containers/glass/mortar/attack_self(mob/user)
 	if(grinding_started)
-		to_chat(user, "Grinding has started, you cannot remove items now.")
+		to_chat(user, "Перемолка началась, я больше не смогу вернуть исходные предметы.")
 		return TRUE
 	if(grinded)
 		grinded.forceMove(drop_location())
 		grinded = null
 		icon_state = "mortar_empty"
-		to_chat(user, "I eject the item inside.")
+		to_chat(user, "Я вытаскиваю предметы, лежащие внутри ступки.")
 
 /obj/item/reagent_containers/glass/mortar/MiddleClick(mob/user, params)
 	if(grinded)
 		grinding_started = TRUE // Mark grinding as started
-		to_chat(user, "I start grinding...")
+		to_chat(user, "Я начинаю перемолку...")
 		if((do_after(user, 25, target = src)) && grinded)
 			if(grinded.mill_result && !istype(user.rmb_intent, /datum/rmb_intent/strong)) // This goes first. Strong intent to bypass.
 				new grinded.mill_result(get_turf(src))
@@ -1564,11 +1564,11 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 			if(grinded.juice_results)
 				grinded.on_juice()
 				reagents.add_reagent_list(grinded.juice_results)
-				to_chat(user, "I juice [grinded] into a fine liquid.")
+				to_chat(user, "Я выжал [grinded] до однородной жидкости.")
 			if(grinded.grind_results && !isemptylist(grinded.grind_results))
 				grinded.on_grind()
 				reagents.add_reagent_list(grinded.grind_results)
-				to_chat(user, "I break [grinded] into powder.")
+				to_chat(user, "Я перетер [grinded] в однородный порошок.")
 				QDEL_NULL(grinded)
 				icon_state = reagents.total_volume > 0 ? "mortar_full" : "mortar_empty"
 				grinding_started = FALSE // Reset grinding status
@@ -1576,29 +1576,29 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 			if(grinded.reagents) // Other stuff that might have reagents in them, let's not cause a runtime shall we?
 				grinded.reagents.trans_to(src, grinded.reagents.total_volume, transfered_by = user)
 				icon_state = reagents.total_volume > 0 ? "mortar_full" : "mortar_empty"
-				to_chat(user, "I pound [grinded] into mush.")
+				to_chat(user, "Я растолкал [grinded] в бесформенную кашицу.")
 				QDEL_NULL(grinded)
 				grinding_started = FALSE // Reset grinding status
 				return
 			grinding_started = FALSE // Reset grinding status
 			return
 		else
-			to_chat(user, "There is nothing to grind!")
+			to_chat(user, "Здесь нечего перемалывать!")
 			return
 
 /obj/item/reagent_containers/glass/mortar/attackby(obj/item/I, mob/living/carbon/human/user)
 	if(grinded)
-		to_chat(user, "There is something inside already!")
+		to_chat(user, "Внутри уже что-то есть!")
 		return TRUE
 	if(istype(I, /obj/item/reagent_containers/glass))
 		if(user.used_intent.type == INTENT_POUR)
 			if(!I.reagents.total_volume)
-				to_chat(user, "[I] is empty!")
+				to_chat(user, "[I] пуста!")
 				return TRUE
 			if(reagents.holder_full())
-				to_chat(user, "[src] is full.")
+				to_chat(user, "[src] заполнена.")
 				return TRUE
-			user.visible_message(span_notice("Starting the transfer"), span_notice("Completing the transfer"))
+			user.visible_message(span_notice("Переливание начинается."), span_notice("Переливание окончено."))
 			if(user.m_intent != MOVE_INTENT_SNEAK)
 				if(poursounds)
 					playsound(user.loc, pick(poursounds), 100, TRUE)
@@ -1612,15 +1612,15 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 			return
 		if(is_drainable() && (user.used_intent.type == /datum/intent/fill))
 			if(!reagents.total_volume)
-				to_chat(user, "[src] is empty!")
+				to_chat(user, "[src] пуст!")
 				return
 			if(I.reagents.holder_full())
-				to_chat(user, "[I] is full.")
+				to_chat(user, "[I] полон.")
 				return
 			if(user.m_intent != MOVE_INTENT_SNEAK)
 				if(fillsounds)
 					playsound(user.loc, pick(fillsounds), 100, TRUE)
-			user.visible_message(span_notice("Starting the transfer"), span_notice("Completing the transfer"))
+			user.visible_message(span_notice("Переливание начинается."), span_notice("Переливание окончено."))
 			for(var/i in 1 to 10)
 				if(do_after(user, 8, target = src))
 					if(I.reagents.holder_full()) break
@@ -1633,7 +1633,7 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 		grinded = I
 		icon_state = "mortar_grind"
 		return
-	to_chat(user, "I can't grind this!")
+	to_chat(user, "Я не могу перемолоть это!")
 
 
 
@@ -1641,48 +1641,48 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 //-----------------------------------crafts----------------------------------------//
 
 /datum/anvil_recipe/tools/alembic
-	name = "Alembic"
+	name = "Перегонный куб - (1 железо)"
 	req_bar = /obj/item/ingot/iron
 	created_item = /obj/item/reagent_containers/glass/alembic
 	i_type = "Tools"
 
 /datum/crafting_recipe/roguetown/mortar
-	name = "mortar and pestle"
+	name = "Ступка и пестик - (1 полено, 1 палка)"
 	result = /obj/item/reagent_containers/glass/mortar
 	reqs = list(/obj/item/grown/log/tree/stick = 1, /obj/item/grown/log/tree/small = 1,)
 	skill_level = 1
 	skillcraft = /datum/skill/craft/crafting
 
 /datum/crafting_recipe/roguetown/bandage
-	name = "roll of bandages"
+	name = "Набор повязок - (3 ткани, 1 пепел)"
 	result = /obj/item/natural/bundle/cloth/bandage/full
 	reqs = list(/obj/item/natural/cloth = 3, /obj/item/ash = 1,)
 	skill_level = 2
 	skillcraft = /datum/skill/misc/treatment
 
 /datum/crafting_recipe/roguetown/impsaw
-	name = "improvised saw"
+	name = "примитивная пила - (1 волокно, 1 камень, 1 палка)"
 	result = /obj/item/rogueweapon/surgery/saw/improv
 	reqs = list(/obj/item/natural/fibers = 1, /obj/item/natural/stone = 1, /obj/item/grown/log/tree/stick = 1,)
 	skill_level = 1
 	skillcraft = /datum/skill/craft/crafting
 
 /datum/crafting_recipe/roguetown/impretra
-	name = "improvised clamp"
+	name = "примитивный зажим - (1 волокно, 2 палки)"
 	result = /obj/item/rogueweapon/surgery/hemostat/improv
 	reqs = list(/obj/item/natural/fibers = 1, /obj/item/grown/log/tree/stick = 2,)
 	skill_level = 1
 	skillcraft = /datum/skill/craft/crafting
 
 /datum/crafting_recipe/roguetown/imphemo
-	name = "improvised retractor"
+	name = "примитивный расширитель - (1 волокно, 2 палки)"
 	result = /obj/item/rogueweapon/surgery/retractor/improv
 	reqs = list(/obj/item/natural/fibers = 1, /obj/item/grown/log/tree/stick = 2,)
 	skill_level = 1
 	skillcraft = /datum/skill/craft/crafting
 
 /datum/crafting_recipe/roguetown/rucksack
-	name = "Rucksack"
+	name = "рюкзак - (1 веревка, 1 мешок)"
 	result = /obj/item/storage/backpack/rogue/backpack/rucksack
 	reqs = list(/obj/item/rope = 1, /obj/item/storage/roguebag/crafted = 1,)
 	skill_level = 0

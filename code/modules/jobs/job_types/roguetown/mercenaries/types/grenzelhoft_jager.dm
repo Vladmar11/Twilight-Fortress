@@ -5,23 +5,10 @@
 	fill the Auxiliary ranks, however you are one of the lucky few that was allowed to join the Free Corps. \
 	You are expected to provide the Guild with your expertise in tracking, and scouting. Alongside your marksmanship."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		/datum/species/axian,
-		/datum/species/vulpkanin,
-		/datum/species/lupian,
-		/datum/species/moth, //grenzelmoft?
-		/datum/species/dwarf/mountain,
-		/datum/species/human/northern,
-		/datum/species/demihuman,
-		/datum/species/anthromorph,
-		/datum/species/tabaxi,
-		/datum/species/kobold,
-		/datum/species/elf/wood,
-		/datum/species/elf/dark,
-	)
+	allowed_races = RACES_TOLERATED_UP
 	outfit = /datum/outfit/job/roguetown/mercenary/grenzelhoft_jager
 	maximum_possible_slots = 4
-	min_pq = 18
+	min_pq = 20
 	torch = FALSE
 	cmode_music = 'sound/music/combat_grenzelhoft.ogg'
 	category_tags = list(CTAG_MERCENARY)

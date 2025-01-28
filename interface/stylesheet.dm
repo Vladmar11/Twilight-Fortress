@@ -138,7 +138,7 @@ h1.alert, h2.alert	{color: #c9c1ba;font-family: Mookmania, TrueType;}
 .reptile				{font-family: "Kautiva Cyrillic Black", Kautiva Cyrillic Black; font-size: 120%;}
 .faexin					{font-family: "shakyhands", shakyhands;}
 .lupian					{font-family: "ALOT Gutenberg B Normal", ALOT Gutenberg B Normal; font-size: 120%;}
-.felid					{font-family: "Satyr SP", Satyr SP; font-size: 120%;}
+.felid          {font-family: "Satyr SP", Satyr SP; font-size: 120%;}
 
 .torture				{color: #42ff20}
 

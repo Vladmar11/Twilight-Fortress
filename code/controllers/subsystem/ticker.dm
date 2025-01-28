@@ -210,6 +210,11 @@ SUBSYSTEM_DEF(ticker)
 				else
 					current_state = GAME_STATE_SETTING_UP
 					Master.SetRunLevel(RUNLEVEL_SETUP)
+					for(var/client/C in GLOB.clients)
+						if(C.mob)
+							for(var/music in GLOB.ambience_files)
+								C.mob.playsound_local(C.mob, music, 0.1, channel = 1010)
+								
 					if(start_immediately)
 						fire()
 

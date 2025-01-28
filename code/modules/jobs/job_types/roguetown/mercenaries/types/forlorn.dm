@@ -7,7 +7,7 @@
 	allowed_races = RACES_TOLERATED_UP
 	outfit = /datum/outfit/job/roguetown/mercenary/forlorn
 	maximum_possible_slots = 10
-	min_pq = 20
+	min_pq = 15
 	torch = FALSE
 	cmode_music = 'sound/music/combat_forlorn.ogg'
 	category_tags = list(CTAG_MERCENARY)

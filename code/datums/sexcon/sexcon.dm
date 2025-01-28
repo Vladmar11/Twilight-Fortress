@@ -18,6 +18,7 @@
 	/// Our charge gauge
 	var/charge = SEX_MAX_CHARGE
 	/// Whether we want to screw until finished, or non stop
+	var/arousal_frozen = FALSE
 	var/do_until_finished = TRUE
 	var/last_arousal_increase_time = 0
 	var/last_ejaculation_time = 0
@@ -116,7 +117,7 @@
 	var/pq_warning = pick(list("Если я продолжу идти по скользкой дорожке, то моя душа попадет в...", "Я ощущаю... чье-то зловещее внимание...", "Тьма окутывает мою душу, наполняя тяжестью"))
 	to_chat(user, span_userdanger(pq_warning))
 	var/alert = alert(user, "Я, правда, хочу этого?", "Violate", "Да", "Нет")
-	if(alert != "Да!")
+	if(alert != "Да")
 		return
 	user.visible_message(span_boldwarning("[user] собирается изнасиловать [victim]!"))
 	if(!do_after(user, 5 SECONDS, target = victim))
@@ -204,14 +205,14 @@
 
 /datum/sex_controller/proc/ejaculate()
 	log_combat(user, user, "Кончает!")
-	user.visible_message(span_lovebold("[user] пачкает все вокруг любовными соками!"))
+	user.visible_message(span_lovebold("[user] пачкает все вокруг своими выделениями!"))
 	playsound(user, 'sound/misc/mat/endout.ogg', 50, TRUE, ignore_walls = FALSE)
 	add_cum_floor(get_turf(user))
 	after_ejaculation()
 
 /datum/sex_controller/proc/ejaculate_container(obj/item/reagent_containers/glass/C)
 	log_combat(user, user, "Кончает в емкость")
-	user.visible_message(span_lovebold("[user] наполняет любовными соками [C]!"))
+	user.visible_message(span_lovebold("[user] наполняет семенем [C]!"))
 	playsound(user, 'sound/misc/mat/endout.ogg', 50, TRUE, ignore_walls = FALSE)
 	C.reagents.add_reagent(/datum/reagent/erpjuice/cum, 3)
 	after_ejaculation()
@@ -322,7 +323,8 @@
 		arousal_amt = 0
 		pain_amt = 0
 
-	adjust_arousal(arousal_amt)
+	if(!arousal_frozen) 
+		adjust_arousal(arousal_amt)
 
 	damage_from_pain(pain_amt)
 	try_do_moan(arousal_amt, pain_amt, applied_force, giving)
@@ -384,7 +386,7 @@
 		return
 	last_pain = world.time
 	if(pain_amt >= PAIN_HIGH_EFFECT)
-		var/pain_msg = pick(list("БОЛЬНО!!!", "НУЖНО ПРЕКРАТИТЬ!!!", "Я БОЛЬШЕ НЕ МОГУ!!!"))
+		var/pain_msg = pick(list("БОЛЬНО!!!", "Я ХОЧУ ПРЕКРАТИТЬ!!!", "Я БОЛЬШЕ НЕ МОГУ!!!"))
 		to_chat(user, span_boldwarning(pain_msg))
 		user.flash_fullscreen("redflash2")
 		if(prob(70) && user.stat == CONSCIOUS)
@@ -487,7 +489,8 @@
 		dat += "<center><a href='?src=[REF(src)];task=speed_down'>\<</a> [speed_name] <a href='?src=[REF(src)];task=speed_up'>\></a> ~|~ <a href='?src=[REF(src)];task=force_down'>\<</a> [force_name] <a href='?src=[REF(src)];task=force_up'>\></a></center>"
 	else
 		dat += "<center><a href='?src=[REF(src)];task=speed_down'>\<</a> [speed_name] <a href='?src=[REF(src)];task=speed_up'>\></a> ~|~ <a href='?src=[REF(src)];task=force_down'>\<</a> [force_name] <a href='?src=[REF(src)];task=force_up'>\></a> ~|~ <a href='?src=[REF(src)];task=manual_arousal_down'>\<</a> [manual_arousal_name] <a href='?src=[REF(src)];task=manual_arousal_up'>\></a></center>"
-	dat += "<center>| <a href='?src=[REF(src)];task=toggle_finished'>[do_until_finished ? "ПОКА НЕ КОНЧУ" : "ПОКА НЕ ОСТАНОВЛЮСЬ"]</a> |</center>"
+  dat += "<center>| <a href='?src=[REF(src)];task=toggle_finished'>[do_until_finished ? "ПОКА НЕ КОНЧУ" : "ПОКА НЕ ОСТАНОВЛЮСЬ"]</a> |</center>"
+  dat += "<center><a href='?src=[REF(src)];task=set_arousal'>SET AROUSAL</a> | <a href='?src=[REF(src)];task=freeze_arousal'>[arousal_frozen ? "UNFREEZE AROUSAL" : "FREEZE AROUSAL"]</a></center>"
 	if(target == user)
 		dat += "<center>Doing unto yourself</center>"
 	else
@@ -547,6 +550,11 @@
 			adjust_arousal_manual(-1)
 		if("toggle_finished")
 			do_until_finished = !do_until_finished
+		if("set_arousal")
+			var/amount = input(user, "Value above 120 will immediately cause orgasm!", "Set Arousal", arousal) as num
+			set_arousal(amount)
+		if("freeze_arousal")
+			arousal_frozen = !arousal_frozen
 	show_ui()
 
 /datum/sex_controller/proc/try_stop_current_action()

@@ -13,7 +13,7 @@
  * Trays - Agouri
  *///wip
 /obj/item/storage/bag/tray
-	name = "tray"
+	name = "поднос"
 	icon = 'icons/obj/food/containers.dmi'
 	icon_state = "tray"
 	desc = ""
@@ -25,7 +25,7 @@
 	flags_1 = CONDUCT_1
 
 /obj/item/storage/bag/tray/psy
-	name = "tray"
+	name = "поднос"
 	icon = 'icons/obj/food/containers.dmi'
 	icon_state = "tray_psy"
 	desc = ""

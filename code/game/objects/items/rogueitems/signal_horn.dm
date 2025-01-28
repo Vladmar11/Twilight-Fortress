@@ -1,6 +1,6 @@
 /obj/item/signal_horn
-	name = "signal horn"
-	desc = "Used to rally troops and sound alarms."
+	name = "сигнальный рог"
+	desc = "Используется для сбора войск и подачи сигналов тревоги."
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "signal_horn"
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_NECK
@@ -11,15 +11,15 @@
 /obj/item/signal_horn/attack_self(mob/living/user)
 	. = ..()
 	if(world.time < last_horn + 30 SECONDS)
-		to_chat(user, "My lungs must rest before I can blow the [src]")
+		to_chat(user, "Мои легкие должны отдохнуть, прежде чем я смогу дуть в [src]!")
 		return
-	user.visible_message("<span class='warning'>[user] is about to sound the [src]!</span>")
+	user.visible_message("<span class='warning'>[user] вот-вот дунет в [src]!</span>")
 	if(do_after(user, 15))
 		last_horn = world.time
 		sound_horn(user)
 
 /obj/item/signal_horn/proc/sound_horn(mob/living/user)
-	user.visible_message("<span class='warning'>[user] blows the horn!</span>")
+	user.visible_message("<span class='warning'>[user] дует в рог!</span>")
 	playsound(src, 'sound/items/signalhorn.ogg', 100, TRUE)
 	var/turf/origin_turf = get_turf(src)
 
@@ -32,40 +32,40 @@
 		var/distance = get_dist(player, origin_turf)
 		if(distance <= 7)
 			continue
-		var/dirtext = " to the "
+		var/dirtext = " к "
 		var/direction = get_dir(player, origin_turf)
 		switch(direction)
 			if(NORTH)
-				dirtext += "north"
+				dirtext += "северу"
 			if(SOUTH)
-				dirtext += "south"
+				dirtext += "югу"
 			if(EAST)
-				dirtext += "east"
+				dirtext += "востоку"
 			if(WEST)
-				dirtext += "west"
+				dirtext += "западу"
 			if(NORTHWEST)
-				dirtext += "northwest"
+				dirtext += "северозападу"
 			if(NORTHEAST)
-				dirtext += "northeast"
+				dirtext += "северовостоку"
 			if(SOUTHWEST)
-				dirtext += "southwest"
+				dirtext += "югозападу"
 			if(SOUTHEAST)
-				dirtext += "southeast"
+				dirtext += "юговостоку"
 			else //Where ARE you.
-				dirtext = ", although I cannot make out a direction"
+				dirtext = ", но я не могу определить, откуда он раздался"
 		var/disttext
 		switch(distance)
 			if(0 to 20)
-				disttext = " very close"
+				disttext = " очень близко"
 			if(20 to 40)
-				disttext = " close"
+				disttext = " близко"
 			if(40 to 80)
 				disttext = ""
 			if(80 to 160)
-				disttext = " far"
+				disttext = " далеко"
 			else
-				disttext = " very far"
+				disttext = " очень далеко"
 
 		//sound played for other players
 		player.playsound_local(get_turf(player), 'sound/items/signalhorn.ogg', 35, FALSE, pressure_affected = FALSE)
-		to_chat(player, "<span class='warning'>I hear the horn alarm somewhere[disttext][dirtext]!</span>")
+		to_chat(player, "<span class='warning'>Я слышу рёв сигнального рога где-то[disttext][dirtext]!</span>")

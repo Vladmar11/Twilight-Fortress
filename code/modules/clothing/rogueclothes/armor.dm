@@ -26,8 +26,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/chainmail
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
-	name = "haubergeon"
-	desc = "A steel maille shirt also known as the little coat of mail, composed of interwoven metal rings, that absorb arrow impacts decently enough while being also comfortable enough to sleep in covering the torso and arms."
+	name = "хаубержон"
+	desc = "Стальная кольчужная рубашка, состоящая из переплетенных металлических колец. Хорошо защищает от попаданий стрел, закрывая туловище и руки, а также достаточно удобна для сна."
 	body_parts_covered = CHEST|GROIN|ARMS|VITALS
 	icon_state = "haubergeon"
 	armor = list("blunt" = 60, "slash" = 100, "stab" = 80, "bullet" = 20, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
@@ -41,8 +41,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/iron
 	icon_state = "ichainmail"
-	name = "chainmaille"
-	desc = "A iron chain vest composed of interwoven metal rings, that absorb arrow impacts decently enough while being also comfortable enough to sleep in covering just the torso."
+	name = "кольчужный жилет"
+	desc = "Железный кольчужный жилет, состоящий из переплетенных металлических колец. Хорошо защищает от попаданий стрел, закрывая лишь туловище. Довольно удобен для сна."
 	body_parts_covered = CHEST|GROIN|VITALS
 	anvilrepair = /datum/skill/craft/blacksmithing
 	smeltresult = /obj/item/ingot/iron
@@ -50,8 +50,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
-	name = "hauberk"
-	desc = "A longer steel maille also known as coat of mail, composed of interwoven metal rings that absorb arrow impacts decently enough while being also comfortable enough to sleep in covering the torso, arms and legs."
+	name = "хауберк"
+	desc = "Длинная стальная кольчуга на все тело, он же кольчатый доспех, состоит из переплетенных металлических колец. Хорошо защищает от попадания стрел, закрывая тело, руки и ноги. При этом в нем довольно удобно спать."
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS|VITALS
 	icon_state = "hauberk"
 	item_state = "hauberk"
@@ -64,8 +64,8 @@
 	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/chainkini
-	name = "chainmail bikini"
-	desc = "Not very comfortable against the skin."
+	name = "кольчужное бикини"
+	desc = "Вряд ли коже будет приятно такое носить."
 	icon_state = "chainkini"
 	item_state = "chainkini"
 	allowed_sex = list(FEMALE)
@@ -78,8 +78,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/plate
 	slot_flags = ITEM_SLOT_ARMOR
-	name = "steel half-plate"
-	desc = "\'refugee-fit\' plate armor with pauldrons."
+	name = "стальной полулатник"
+	desc = "Популярный среди переселенцев латный доспех с наплечниками."
 	body_parts_covered = CHEST|GROIN|VITALS
 	icon_state = "halfplate"
 	item_state = "halfplate"
@@ -99,8 +99,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/plate/scale/inqcoat
 	slot_flags = ITEM_SLOT_ARMOR
-	name = "inquisitorial duster"
-	desc = "Metal plates reinforce this heavy coat. You live, die, and live again."
+	name = "пальто инквизитора"
+	desc = "Тяжелый плащ, усиленный металлическими пластинками. Живи, умри, и повтори."
 	body_parts_covered = CHEST|VITALS|GROIN|LEGS|ARMS
 	allowed_sex = list(MALE, FEMALE)
 	icon_state = "inqcoat"
@@ -114,8 +114,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/plate/half
 	slot_flags = ITEM_SLOT_ARMOR
-	name = "steel cuirass"
-	desc = "A basic cuirass of steel. Lightweight and durable."
+	name = "стальная кираса"
+	desc = "Простая кираса из стали. Легкая и долговечная."
 	body_parts_covered = CHEST|VITALS
 	icon_state = "cuirass"
 	item_state = "cuirass"
@@ -130,8 +130,8 @@
 	armor_class = ARMOR_CLASS_MEDIUM
 
 /obj/item/clothing/suit/roguetown/armor/plate/full
-	name = "plate armor"
-	desc = "Full plate. Leg protecting tassets, groin cup, armored vambraces."
+	name = "стальные латы"
+	desc = "Полный латный доспех. В комплекте накладки для защиты ног, набрюшник, крепкие наручи."
 	icon_state = "plate"
 	max_integrity = 520
 	body_parts_covered = CHEST|GROIN|VITALS|LEGS|ARMS
@@ -141,8 +141,8 @@
 	strip_delay = 60
 
 /obj/item/clothing/suit/roguetown/armor/plate/half/iron
-	name = "iron breastplate"
-	desc = "Solid iron to protect the chest."
+	name = "железный нагрудник"
+	desc = "Твердый слой железа для защиты груди."
 	icon_state = "ibreastplate"
 	max_integrity = 235
 	smeltresult = /obj/item/ingot/iron
@@ -150,8 +150,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/plate/scale
 	slot_flags = ITEM_SLOT_ARMOR
-	name = "scalemail"
-	desc = "Steel metal scales interwoven intricately to form flexible protection that ends up covering the torso and legs."
+	name = "чешуйчатая броня"
+	desc = "Костюм из переплетенных друг с другом стальных чешуек, образующих гибкую защиту, закрывающую туловище и ноги владельца."
 	body_parts_covered = CHEST|VITALS|GROIN|LEGS
 	allowed_sex = list(MALE, FEMALE)
 	icon_state = "lamellar"
@@ -163,8 +163,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/heartfelt/lord
 	slot_flags = ITEM_SLOT_ARMOR
-	name = "coat of armor"
-	desc = "A lordly coat of armor."
+	name = "боевой доспех"
+	desc = "Величественная защита для господ."
 	body_parts_covered = CHEST|GROIN|VITALS|LEGS|ARMS
 	icon_state = "heartfelt"
 	item_state = "heartfelt"
@@ -182,8 +182,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/heartfelt/hand
 	slot_flags = ITEM_SLOT_ARMOR
-	name = "coat of armor"
-	desc = "A lordly coat of armor."
+	name = "боевой доспех"
+	desc = "Величественная защита для знати."
 	body_parts_covered = CHEST|GROIN|VITALS|LEGS|ARMS
 	icon_state = "heartfelt_hand"
 	item_state = "heartfelt_hand"
@@ -201,8 +201,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/brigandine
 	slot_flags = ITEM_SLOT_ARMOR
-	name = "brigandine"
-	desc = "A coat with plates concealed inside an exterior fabric."
+	name = "бригантина"
+	desc = "Длинное пальто со стальными пластинами, сокрытыми под внешней тканью."
 	icon_state = "brigandine"
 	blocksound = SOFTHIT
 	body_parts_covered = CHEST|GROIN|VITALS|LEGS|ARMS
@@ -230,7 +230,7 @@
 	if(detail_tag)
 		return
 	var/the_time = world.time
-	var/pickedcolor = input(user, "Select a color.","Brigandine Color") as null|anything in CLOTHING_COLOR_NAMES
+	var/pickedcolor = input(user, "Выберите цвет:","Цвет бригантины") as null|anything in CLOTHING_COLOR_NAMES
 	if(!pickedcolor)
 		return
 	if(world.time > (the_time + 30 SECONDS))
@@ -272,8 +272,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/brigandine/coatplates
 	slot_flags = ITEM_SLOT_ARMOR
-	name = "coat of plates"
-	desc = "A leather coat with plates attached to it to increase protection while retaining mobility"
+	name = "пластинчатый доспех"
+	desc = "Кожаное пальто с плотными рядами металлических пластин для максимальной защиты ценой низкой подвижности."
 	icon_state = "coat_of_plates"
 	blocksound = PLATEHIT
 	body_parts_covered = CHEST|GROIN|VITALS|ARMS
@@ -284,8 +284,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/brigandine/light
 	slot_flags = ITEM_SLOT_ARMOR
-	name = "lightweight brigandine"
-	desc = "A light riveted coat with plates concealed inside an exterior fabric."
+	name = "облегченная бригантина"
+	desc = "Легкое клепаное пальто, накрытое длинным рядом железных полос."
 	icon_state = "light_brigandine"
 	blocksound = SOFTHIT
 	body_parts_covered = CHEST|GROIN|VITALS
@@ -322,7 +322,7 @@
 /obj/item/clothing/suit/roguetown/armor/gambeson
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
 	name = "гамбезон"
-	desc = "Большая защитная куртка с утеплителем, которая отличается низкой стоимостью, ее можно шить повторно и носить как самостоятельную броню или под броней. Она защищает туловище, руки и ноги."
+	desc = "Большая защитная куртка с утеплителем, которая отличается низкой стоимостью. Можно шить повторно, а также носить как самостоятельную броню или под броней. Защищает туловище, руки и ноги."
 	icon_state = "gambeson"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS|VITALS
 	armor = list("blunt" = 45, "slash" = 30, "stab" = 35, "bullet" = 15, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
@@ -338,7 +338,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/light
 	name = "облегченный гамбезон"
-	desc = "Гамбезон с едва заметной подкладкой, который обычно носили крестьяне в качестве дешевой, но хоть какой-то брони."
+	desc = "Гамбезон с едва заметной подкладкой, который обычно носили крестьяне в качестве дешевой, но хоть какой-то брони. Прорубается так же легко, как и шьется."
 	icon_state = "gambesonl"
 	armor = list("blunt" = 30, "slash" = 15, "stab" = 20, "bullet" = 10, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	prevent_crits = null // It won't help, like, at all.
@@ -346,7 +346,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy
 	name = "стёганый гамбезон"
-	desc = "Гамбезон с дополнительными слоями набивки, укрепленный для большей прочности. Он все равно не может сравниться с настоящей броней."
+	desc = "Гамбезон с дополнительными слоями набивки, укрепленный для большей прочности. Он все равно не может сравниться с настоящей броней, однако как недорогой поддоспешник - отличный вариант."
 	icon_state = "gambesonp"
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST, BCLASS_SMASH)
 	armor = list("blunt" = 60, "slash" = 40, "stab" = 50, "bullet" = 20, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
@@ -354,7 +354,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/lord
 	name = "гамбезон рыцаря"
-	desc = "Подобно гамбезону, он предназначен для использования под более тяжелыми доспехами и выступает в роли хорошего поддоспешника."
+	desc = "Предназначен для использования под более тяжелыми доспехами и выступает в роли хорошего поддоспешника."
 	icon_state = "dgamb"
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_SMASH)
 	allowed_sex = list(MALE, FEMALE)
@@ -382,7 +382,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/silkcoat
 	name = "шелковое пальто"
-	desc = "Стеганое одеяние сшитое из тончайшего, но прочного шелка."
+	desc = "Стеганое одеяние, сшитое из тончайшего, но прочного шелка."
 	icon_state = "bliaut"
 	color = null
 	armor = list("blunt" = 70, "slash" = 35, "stab" = 60, "bullet" = 7, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
@@ -408,8 +408,8 @@
 	color = pick(CLOTHING_PURPLE, null,CLOTHING_GREEN, CLOTHING_RED)
 
 /obj/item/clothing/suit/roguetown/armor/leather/cult_robe
-	name = "cultist robes"
-	desc = " "
+	name = "роба культиста"
+	desc = "Довольно подозрительные на вид одеяния. От ткани явно несет ересью."
 	icon_state = "warlock"
 	item_state = "warlock"
 	armor = list("blunt" = 30, "slash" = 10, "stab" = 20, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
@@ -426,8 +426,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/blacksteel/platechest
 	slot_flags = ITEM_SLOT_ARMOR
-	name = "blacksteel plate armor"
-	desc = "A suit of Full Plate smithed of durable blacksteel."
+	name = "латы из черной стали"
+	desc = "Полный комплект латных доспехов из особо прочной черной стали."
 	body_parts_covered = CHEST|GROIN|VITALS|LEGS|ARMS
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
@@ -450,8 +450,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/blacksteel/cuirass
 	slot_flags = ITEM_SLOT_ARMOR
-	name = "blacksteel cuirass"
-	desc = "A basic cuirass forged from blacksteel. It's somewhat more durable than regular steel."
+	name = "кираса из черной стали"
+	desc = "Обычная кираса, но выкованная из черной стали. Гораздо прочнее обычной стальной."
 	body_parts_covered = CHEST|VITALS
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	icon_state = "grenzelcuirass"
@@ -467,8 +467,8 @@
 	armor_class = ARMOR_CLASS_MEDIUM
 
 /obj/item/clothing/suit/roguetown/armor/blacksteel/cuirass/hardened
-	name = "hardened blacksteel cuirass"
-	desc = "A hardened cuirass forged from blacksteel, personally issued to high-ranking officers of the Emperiate. It's somewhat more durable than regular steel. "
+	name = "закаленная кираса из черной стали"
+	desc = "Кирасы, выкованные из черной стали, подвергали тщательной закалке и лично выдавали высокопоставленным офицерам Империата. Гораздо прочнее, чем обычная сталь. "
 	max_integrity = 550 // Hardened to Replace the chainmaille they got before.
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_ASSASSIN, BCLASS_TWIST)
 	body_parts_covered = CHEST|GROIN|VITALS
@@ -508,7 +508,7 @@
 
 /obj/item/clothing/suit/roguetown/armor/leather/newmoon_jacket
 	name = "куртка Новолуния"
-	desc = "Это легкое, нарядное, но при этом достаточно защищенное пальто цвета бирюзы является отличительным знаком Священного Ордена Новолуния с амулетом Нок в центре нагрудника. "
+	desc = "Легкое, нарядное, но при этом достаточно защищенное пальто цвета бирюзы. Является отличительным знаком Священного Ордена Новолуния с амулетом Нок в центре нагрудника. "
 	icon_state = "newmoon_jacket"
 	item_state = "newmoon_jacket"
 	blocksound = SOFTHIT

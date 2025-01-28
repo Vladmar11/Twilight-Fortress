@@ -31,7 +31,7 @@
 
 /datum/sex_action/masturbate_other_breasts/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	..()
-	user.visible_message(span_warning("[user] выпускает из хватата сиськи [target]."))
+	user.visible_message(span_warning("[user] выпускает из хвата сиськи [target]."))
 
 /datum/sex_action/masturbate_other_breasts/is_finished(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(target.sexcon.finished_check())

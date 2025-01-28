@@ -308,7 +308,7 @@
 		var/obj/P = new X(src)
 		held_items[P] = list()
 		held_items[P]["NAME"] = P.name
-		held_items[P]["PRICE"] = 7
+		held_items[P]["PRICE"] = 10
 
 /obj/structure/roguemachine/vendor/street_shop01
 	lockid = "steward"
@@ -321,7 +321,7 @@
 		var/obj/P = new X(src)
 		held_items[P] = list()
 		held_items[P]["NAME"] = P.name
-		held_items[P]["PRICE"] = 7
+		held_items[P]["PRICE"] = 10
 
 /obj/structure/roguemachine/vendor/street_shop02
 	lockid = "steward"
@@ -334,4 +334,23 @@
 		var/obj/P = new X(src)
 		held_items[P] = list()
 		held_items[P]["NAME"] = P.name
-		held_items[P]["PRICE"] = 7
+		held_items[P]["PRICE"] = 10
+
+/obj/structure/roguemachine/vendor/smallstreet_master01
+	lockid = "steward"
+	name = "Stall Shop Key Seller"
+	desc = "Get the key for a stall here!"
+
+/obj/structure/roguemachine/vendor/smallstreet_master01/Initialize()
+	. = ..()
+	for(var/X in list(
+		/obj/item/key/smallstreet_shop01,
+		/obj/item/key/smallstreet_shop02,
+		/obj/item/key/smallstreet_shop03,
+		/obj/item/key/smallstreet_shop04,
+		/obj/item/key/smallstreet_shop05,
+		/obj/item/key/smallstreet_shop06))
+		var/obj/P = new X(src)
+		held_items[P] = list()
+		held_items[P]["NAME"] = P.name
+		held_items[P]["PRICE"] = 10

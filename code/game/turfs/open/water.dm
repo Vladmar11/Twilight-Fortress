@@ -40,6 +40,7 @@
 	var/swim_skill = FALSE
 	nomouseover = FALSE
 	var/swimdir = FALSE
+	shine = SHINE_SHINY
 
 /turf/open/water/Initialize()
 	.  = ..()

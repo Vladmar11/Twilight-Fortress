@@ -6,7 +6,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	"Sadist"=/datum/charflaw/addiction/sadist,
 	"Isolationist"=/datum/charflaw/isolationist,
 	"Colorblind"=/datum/charflaw/colorblind,
-	"Bad Sight"=/datum/charflaw/badsight,
+	"Bad Eyesight"=/datum/charflaw/badsight,
 	"Clingy"=/datum/charflaw/clingy,
 	"Fire Servant"=/datum/charflaw/addiction/pyromaniac,
 	"Junkie"=/datum/charflaw/addiction/junkie,
@@ -18,7 +18,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	"Cyclops (L)"=/datum/charflaw/noeyel,
 	"Wood Arm (R)"=/datum/charflaw/limbloss/arm_r,
 	"Wood Arm (L)"=/datum/charflaw/limbloss/arm_l,
-	//"Hunted"=/datum/charflaw/dead_or_alive,
+	"Hunted"=/datum/charflaw/dead_or_alive,
 	"Random or No Flaw"=/datum/charflaw/randflaw,
 	"No Flaw (3 TRIUMPHS)"=/datum/charflaw/noflaw
 	))
@@ -121,12 +121,6 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	name = "Bad Eyesight"
 	desc = "I need spectacles to see normally from my years spent reading books."
 
-/datum/charflaw/badsight/on_mob_creation(mob/user)
-	. = ..()
-	var/mob/living/carbon/human/H = user
-	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-
 /datum/charflaw/badsight/flaw_on_life(mob/user)
 	if(!ishuman(user))
 		return
@@ -144,15 +138,24 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	id = "badvision"
 	alert_type = null
 	effectedstats = list("perception" = -20, "speed" = -5)
-	duration = 100
+	duration = 10 SECONDS
 
-/datum/charflaw/badsight/apply_post_equipment(mob/user)
+/datum/charflaw/badsight/on_mob_creation(mob/user)
+	..()
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user
-	var/obj/item/glasses = new /obj/item/clothing/mask/rogue/spectacles(get_turf(H))
-	H.put_in_hands(glasses, forced = TRUE)
-	H.equip_to_slot_if_possible(glasses, SLOT_WEAR_MASK, FALSE, TRUE, FALSE, TRUE, TRUE)
+	if(!H.wear_mask)
+		H.equip_to_slot_or_del(new /obj/item/clothing/mask/rogue/spectacles(H), SLOT_WEAR_MASK)
+	else
+		new /obj/item/clothing/mask/rogue/spectacles(get_turf(H))
+	
+	// we don't seem to have a mind when on_mob_creation fires, so set up a timer to check when we probably will
+	addtimer(CALLBACK(src, PROC_REF(apply_reading_skill), H), 5 SECONDS)
+
+/datum/charflaw/badsight/proc/apply_reading_skill(mob/living/carbon/human/H)
+	if(H.mind)
+		H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 
 /datum/charflaw/paranoid
 	name = "Paranoid"
@@ -464,45 +467,6 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	var/mob/living/carbon/P = user
 	if(cnt > 2)
 		P.add_stress(/datum/stressevent/crowd)
-
-/datum/charflaw/badsight
-	name = "Bad Eyesight"
-	desc = "I need spectacles to see normally from my years spent reading books."
-
-/datum/charflaw/badsight/on_mob_creation(mob/user)
-	. = ..()
-	var/mob/living/carbon/human/H = user
-	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-
-/datum/charflaw/badsight/flaw_on_life(mob/user)
-	if(!ishuman(user))
-		return
-	var/mob/living/carbon/human/H = user
-	if(H.wear_mask)
-		if(isclothing(H.wear_mask))
-			if(istype(H.wear_mask, /obj/item/clothing/mask/rogue/spectacles))
-				var/obj/item/I = H.wear_mask
-				if(!I.obj_broken)
-					return
-	H.blur_eyes(2)
-	H.apply_status_effect(/datum/status_effect/debuff/badvision)
-
-/datum/status_effect/debuff/badvision
-	id = "badvision"
-	alert_type = null
-	effectedstats = list("perception" = -20, "speed" = -5,"fortune" = -20)
-	duration = 100
-
-/datum/charflaw/badsight/on_mob_creation(mob/user)
-	..()
-	if(!ishuman(user))
-		return
-	var/mob/living/carbon/human/H = user
-	if(!H.wear_mask)
-		H.equip_to_slot_or_del(new /obj/item/clothing/mask/rogue/spectacles(H), SLOT_WEAR_MASK)
-	else
-		new /obj/item/clothing/mask/rogue/spectacles(get_turf(H))
 
 /datum/charflaw/clingy
 	name = "Clingy"

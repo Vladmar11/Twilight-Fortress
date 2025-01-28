@@ -1,7 +1,7 @@
 /obj/item/grown/log/tree
 	icon = 'icons/roguetown/items/natural.dmi'
-	name = "log"
-	desc = "A big tree log. It's very heavy and cumbersome, best cut into pieces for more uses."
+	name = "бревно"
+	desc = "Большое бревно. Слишком тяжелое и громоздкое, его лучше разрубить на несколько частей, чтобы древесину можно было использовать."
 	icon_state = "log"
 	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
 	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
@@ -27,7 +27,7 @@
 	var/planking_time = (40 - (skill_level * 5))
 	if(lumber_amount && I.tool_behaviour == TOOL_SAW || I.tool_behaviour == TOOL_IMPROVSAW)
 		playsound(get_turf(src.loc), 'sound/foley/sawing.ogg', 100)
-		user.visible_message("<span class='notice'>[user] starts sawing [src] to smaller pieces.</span>")
+		user.visible_message("<span class='notice'>[user] начинает распиливать [src] на меньшие части.</span>")
 		if(do_after(user, planking_time))
 			new /obj/item/grown/log/tree/small(get_turf(src.loc))
 			new /obj/item/grown/log/tree/small(get_turf(src.loc))
@@ -52,12 +52,12 @@
 				new /obj/item/grown/log/tree/small/essence(get_turf(src))
 				if(!essence_sound_played)
 					essence_sound_played = TRUE
-					to_chat(user, span_warning("Dendor watches over us..."))
+					to_chat(user, span_warning("Дендор наблюдает за нами..."))
 					playsound(src,pick('sound/items/gem.ogg'), 100, FALSE)
 			else
 				new lumber(get_turf(src))
 		if(!skill_level)
-			to_chat(user, span_info("I could have gotten more timber were I more skilled..."))
+			to_chat(user, span_info("С большим опытом я мог бы получить больше древесины..."))
 		user.mind.add_sleep_experience(/datum/skill/labor/lumberjacking, (user.STAINT*0.5))
 		playsound(src, destroy_sound, 100, TRUE)
 		qdel(src)
@@ -66,8 +66,8 @@
 
 //................	Small log	............... //
 /obj/item/grown/log/tree/small
-	name = "small log"
-	desc = "Piece of lumber cut from a larger log. Suitable for building."
+	name = "полено"
+	desc = "Кусок дерева, отрезанный от большого бревна. Подходит для строительства и ремесла."
 	icon_state = "logsmall"
 	max_integrity = 30
 	static_debris = list(/obj/item/grown/log/tree/stick = 3)
@@ -88,7 +88,7 @@
 	var/planking_time = (45 - (skill_level * 5))
 	if(I.tool_behaviour == TOOL_SAW || I.tool_behaviour == TOOL_IMPROVSAW)
 		playsound(get_turf(src.loc), 'sound/foley/sawing.ogg', 100)
-		user.visible_message("<span class='notice'>[user] starts sawing planks from [src].</span>")
+		user.visible_message("<span class='notice'>[user] начинает распиливать [src] на доски.</span>")
 		if(do_after(user, planking_time))
 			var/obj/item/natural/wood/plank/S = new /obj/item/natural/wood/plank(get_turf(src.loc))
 			if(user.is_holding(src))
@@ -103,8 +103,8 @@
 
 //................	Lumber essence	............... //
 /obj/item/grown/log/tree/small/essence
-	name = "essence of lumber"
-	desc = "A mystical essence embued with the power of Dendor. Very good source of fuel."
+	name = "эссенция леса"
+	desc = "Мистическая сущность, наполненная силой Дендора. Очень хороший источник топлива."
 	icon_state = "lessence"
 	static_debris = null
 	firefuel = 60 MINUTES // Extremely poweful fuel.
@@ -113,8 +113,8 @@
 
 //................	Unstrung bow	............... //
 /obj/item/grown/log/tree/bowpartial
-	name = "unstrung bow"
-	desc = "A partially completed bow, still waiting to be strung."
+	name = "ненатянутый лук"
+	desc = "Неполный лук, на который еще нужно натянуть тетиву"
 	icon_state = "bowpartial"
 	max_integrity = 30
 	firefuel = 10 MINUTES
@@ -127,10 +127,10 @@
 
 //................	Stick	............... //
 /obj/item/grown/log/tree/stick
-	name = "stick"
+	name = "палка"
 	icon_state = "stick1"
 	item_state = "stick"
-	desc = "A tree branch perhaps."
+	desc = "Ветка дерева. Или её часть."
 	blade_dulling = 0
 	max_integrity = 20
 	static_debris = null
@@ -162,7 +162,7 @@
 	. = ..()
 
 /obj/item/grown/log/tree/stick/attack_self(mob/living/user)
-	user.visible_message(span_warning("[user] snaps [src]."))
+	user.visible_message(span_warning("[user] ломает [src]."))
 	playsound(user,'sound/items/seedextract.ogg', 100, FALSE)
 	qdel(src)
 
@@ -170,7 +170,7 @@
 	. = ..()
 	if(user.get_active_held_item())
 		return
-	to_chat(user, span_warning("I start to collect [src]..."))
+	to_chat(user, span_warning("Я собираю [src]..."))
 	if(move_after(user, 4 SECONDS, target = src))
 		var/stackcount = 0
 		for(var/obj/item/grown/log/tree/stick/F in get_turf(src))
@@ -195,7 +195,7 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(user.used_intent?.blade_class == BCLASS_CUT)
 		playsound(get_turf(src.loc), 'sound/items/wood_sharpen.ogg', 100)
-		user.visible_message(span_notice("[user] starts sharpening [src]."))
+		user.visible_message(span_notice("[user] затачивает [src]."))
 		if(do_after(user, 4 SECONDS))
 			var/obj/item/grown/log/tree/stake/S = new /obj/item/grown/log/tree/stake(get_turf(src.loc))
 			if(user.is_holding(src))
@@ -207,12 +207,12 @@
 		var/obj/item/natural/bundle/stick/F = new(src.loc)
 		qdel(I)
 		H.put_in_hands(F)
-		H.visible_message("[user] ties the sticks into a bundle.")
+		H.visible_message("[user] связывает палки в одну связку.")
 		qdel(src)
 	if(istype(I, /obj/item/natural/bundle/stick))
 		var/obj/item/natural/bundle/stick/B = I
 		if(B.amount < B.maxamount)
-			H.visible_message("[user] adds the [src] to the bundle.")
+			H.visible_message("[user] добавляет [src] в связку.")
 			B.amount += 1
 			B.update_bundle()
 			qdel(src)
@@ -220,9 +220,9 @@
 
 //................	Stake	............... //
 /obj/item/grown/log/tree/stake
-	name = "stake"
+	name = "колышек"
 	icon_state = "stake"
-	desc = "A sharpened piece of wood, fantastic for piercing"
+	desc = "Заточенный кусок дерева, хорошо проникает в мягкие ткани."
 	force = 10
 	throwforce = 5
 	possible_item_intents = list(/datum/intent/stab, /datum/intent/pick)
@@ -242,8 +242,8 @@
 
 //................	Wooden planks	............... //
 /obj/item/natural/wood/plank
-	name = "wooden plank"
-	desc = "A flat piece of wood, useful for flooring."
+	name = "доска"
+	desc = "Плоский кусок дерева, который можно использовать для укладки пола."
 	icon = 'icons/roguetown/items/crafting.dmi'
 	icon_state = "plank"
 	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
@@ -265,7 +265,7 @@
 /obj/item/natural/wood/plank/attack_right(mob/living/user)
 	if(user.get_active_held_item())
 		return
-	to_chat(user, span_warning("I start to collect [src]..."))
+	to_chat(user, span_warning("Я собираю [src]..."))
 	if(move_after(user, 4 SECONDS, target = src))
 		var/stackcount = 0
 		for(var/obj/item/natural/wood/plank/F in get_turf(src))
@@ -287,8 +287,8 @@
 
 //................	Wooden plan stack	............... //
 /obj/item/natural/bundle/plank
-	name = "stack of wooden planks"
-	desc = "Several planks in a neat pile."
+	name = "связка досок"
+	desc = "Множество досок в одной стопке, свзанной воедино."
 	icon_state = "plankbundle1"
 	item_state = "plankbundle"
 	icon = 'icons/roguetown/items/crafting.dmi'
@@ -302,7 +302,7 @@
 	throw_range = 2
 	firefuel = 10 MINUTES
 	w_class = WEIGHT_CLASS_BULKY
-	stackname = "plank"
+	stackname = "досок"
 	stacktype = /obj/item/natural/wood/plank
 	maxamount = 6
 	icon1 = "plankbundle2"

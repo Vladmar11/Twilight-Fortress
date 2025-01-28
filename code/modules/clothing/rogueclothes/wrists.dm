@@ -9,8 +9,8 @@
 	fiber_salvage = FALSE
 
 /obj/item/clothing/wrists/roguetown/bracers
-	name = "bracers"
-	desc = ""
+	name = "наручи"
+	desc = "Крепкие металлические наручи, отлично защищающие запястья."
 	body_parts_covered = ARMS
 	icon_state = "bracers"
 	item_state = "bracers"
@@ -23,8 +23,8 @@
 	sewrepair = FALSE
 
 /obj/item/clothing/wrists/roguetown/bracers/leather
-	name = "leather bracers"
-	desc = "Leather bracers worn on the wrists."
+	name = "кожаные наручи"
+	desc = "Наручи из кожи, защищающие запястья."
 	icon_state = "lbracers"
 	item_state = "lbracers"
 	armor = list("blunt" = 32, "slash" = 12, "stab" = 22, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
@@ -41,8 +41,8 @@
 	salvage_result = /obj/item/natural/hide/cured
 
 /obj/item/clothing/wrists/roguetown/bracers/leather/advanced
-	name = "укрепленные кожаные наручи"
-	desc = "Hаручи из прочной кожи, которые защитят ваши запяться от ударов."
+	name = "крепкие кожаные наручи"
+	desc = "Hаручи из прочной кожи, которые еще больше защитят ваши запястья от ударов."
 	icon_state = "albracers"
 	armor = list("blunt" = 60, "slash" = 40, "stab" = 20, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST) //We're losing stab here
@@ -50,25 +50,25 @@
 
 /obj/item/clothing/wrists/roguetown/bracers/leather/masterwork
 	name = "шедевральные кожаные наручи"
-	desc = "Эти наручи — чудо мастерства. Сделано из лучшей кожи. Прочные, маневренные, надежные!"
+	desc = "Эти наручи — чудо мастерства. Сделаны из лучшей кожи, потому прочные, легкие и надежные!"
 	armor = list("blunt" = 80, "slash" = 60, "stab" = 40, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CUT, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST) //We're getting chop here
 	max_integrity = 300
 	filters = filter(type="drop_shadow", x=0, y=0, size=0.5, offset=1, color=rgb(218, 165, 32))
 
 /obj/item/clothing/wrists/roguetown/wrappings
-	name = "solar wrappings"
+	name = "солнечные обмотки"
 	icon_state = "wrappings"
 	item_state = "wrappings"
 
 /obj/item/clothing/wrists/roguetown/nocwrappings
-	name = "lunar wrappings"
+	name = "лунные обмотки"
 	icon_state = "nocwrappings"
 	item_state = "nocwrappings"
 
 /obj/item/clothing/wrists/roguetown/splintarms
-	name = "brigandine rerebraces"
-	desc = "Brigandine bracers, pauldrons and a set of metal couters, designed to protect the arms while still providing almost complete free range of movement."
+	name = "бригантинные рукава"
+	desc = "Металлические наручи, наплечники и набор накладок. Предназначены для защиты рук, при этом обеспечивая почти полную свободу движений."
 	body_parts_covered = ARMS
 	icon_state = "splintarms"
 	item_state = "splintarms"

@@ -17,7 +17,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt
-	name = "shirt"
+	name = "нижняя рубаха"
 	desc = ""
 	icon_state = "undershirt"
 	item_state = "undershirt"
@@ -26,7 +26,7 @@
 	body_parts_covered = CHEST|ARMS|VITALS
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/priest
-	name = "undervestments"
+	name = "рубаха священника"
 	desc = ""
 	icon_state = "priestunder"
 	sleeved = null
@@ -87,7 +87,7 @@
 	return ..()
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/puritan
-	name = "formal silks"
+	name = "церемониальные шелка"
 	icon_state = "puritan_shirt"
 	allowed_race = CLOTHED_RACES_TYPES
 	salvage_result = /obj/item/natural/silk
@@ -113,8 +113,8 @@
 	return ..()
 
 /obj/item/clothing/suit/roguetown/shirt/shortshirt
-	name = "shirt"
-	desc = "A simple shirt."
+	name = "рубаха"
+	desc = "Простая рубаха."
 	icon_state = "shortshirt"
 	item_state = "shortshirt"
 	r_sleeve_status = SLEEVE_NORMAL
@@ -125,8 +125,8 @@
 	return ..()
 
 /obj/item/clothing/suit/roguetown/shirt/shortshirt/merc
-	name = "shirt"
-	desc = ""
+	name = "короткая рубаха"
+	desc = "Рубаха с короткими рукавами."
 	icon_state = "shortshirt"
 	item_state = "shortshirt"
 	r_sleeve_status = SLEEVE_TORN
@@ -139,8 +139,8 @@
 
 /obj/item/clothing/suit/roguetown/shirt/rags
 	slot_flags = ITEM_SLOT_ARMOR
-	name = "rags"
-	desc = "Better than going naked? You be the judge."
+	name = "тряпье"
+	desc = "Лучше, чем совсем в наготе? Вам судить."
 	body_parts_covered = CHEST|GROIN|VITALS
 	color = "#b0b0b0"
 	icon_state = "rags"
@@ -224,8 +224,8 @@
 
 /obj/item/clothing/suit/roguetown/shirt/dress/silkdress
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
-	name = "chemise"
-	desc = "Comfortable yet elegant, it offers both style and comfort for everyday wear"
+	name = "платье-сорочка"
+	desc = "Удобное и элегантное платье, предоставляющее стиль и комфорт для повседневного ношения."
 	body_parts_covered = CHEST|GROIN|LEGS|VITALS
 	icon_state = "silkdress"
 	item_state = "silkdress"
@@ -248,7 +248,7 @@
 /obj/item/clothing/suit/roguetown/shirt/dress/velvetdress
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
 	name = "бархатное платье"
-	desc = "Платье сшитое из тончайшего бархата, достойное особы высокого положения."
+	desc = "Платье, сшитое из тончайшего бархата, достойное особы высокого положения."
 	body_parts_covered = CHEST|GROIN|LEGS|VITALS
 	icon = 'icons/roguetown/clothing/nobledresses/shirts.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/nobledresses/onmob/shirts.dmi'
@@ -309,8 +309,8 @@
 	color = CLOTHING_BLACK
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/webs
-	name = "рубаха паутинка"
-	desc = "Экзотический шелк, тонко вплетенный в... это? С таким же успехом можно носить паутину. Должно быть она очень легкая и удобная?"
+	name = "рубаха-паутинка"
+	desc = "Экзотический шелк, тонко вплетенный в... это? С таким же успехом можно носить паутину. Должно быть, она очень легкая и удобная?"
 	icon_state = "webs"
 	item_state = "webs"
 	r_sleeve_status = SLEEVE_NORMAL
@@ -322,8 +322,8 @@
 
 /obj/item/clothing/suit/roguetown/shirt/jester
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
-	name = "jester's tunick"
-	desc = ""
+	name = "одеяния шута"
+	desc = "Выглядят так же смехотворно, как тот, кто её носит."
 	body_parts_covered = CHEST|GROIN|ARMS|VITALS
 	icon_state = "jestershirt"
 	do_sound_bell = FALSE
@@ -354,19 +354,19 @@
 	..()
 	if(!picked)
 		var/list/colors = list(
-		"PURPLE"="#865c9c",
-		"RED"="#933030",
-		"BROWN"="#685542",
-		"GREEN"="#79763f",
-		"BLUE"="#395480",
-		"YELLOW"="#b5b004",
-		"TEAL"="#249589",
-		"WHITE"="#ffffff",
-		"ORANGE"="#b86f0c",
-		"MAJENTA"="#962e5c")
+		"Пурпурный"="#865c9c",
+		"Красный"="#933030",
+		"Коричневый"="#685542",
+		"Зеленый"="#79763f",
+		"Синий"="#395480",
+		"Желтый"="#b5b004",
+		"Бирюзовый"="#249589",
+		"Белый"="#ffffff",
+		"Оранжевый"="#b86f0c",
+		"Розовый"="#962e5c")
 
 		var/mob/living/carbon/human/L = loc
-		var/choice = input(L, "Choose a color.", "GRENZELHOFTIAN COLORPLEX") as anything in colors
+		var/choice = input(L, "Выберите цвет:", "Набор для покраски") as anything in colors
 		var/playerchoice = colors[choice]
 		picked = TRUE
 		detail_color = playerchoice

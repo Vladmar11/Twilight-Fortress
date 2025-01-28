@@ -22,7 +22,7 @@
 
 /obj/item/clothing/head/roguetown/roguehood
 	name = "капюшон"
-	desc = "Обычный и ни чем невыдающийся капюшон, который может хоть немного скрыть вашу личность и защитить голову от дождя."
+	desc = "Обычный и ничем не выдающийся капюшон, который может частично скрыть вашу личность и защитить голову от дождя."
 	color = CLOTHING_BROWN
 	icon_state = "basichood"
 	item_state = "basichood"
@@ -42,6 +42,7 @@
 
 /obj/item/clothing/head/roguetown/roguehood/reinforced
 	name = "капюшон"
+	desc = "Обычный и ничем не выдающийся капюшон, который может частично скрыть вашу личность и защитить голову от дождя. Выглядит заметно крепче и плотнее обычного."
 	body_parts_covered = HEAD|HAIR|EARS|NOSE
 	armor = list("blunt" = 47, "slash" = 27, "stab" = 37, "bullet" = 20, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
@@ -55,8 +56,8 @@
 
 
 /obj/item/clothing/head/roguetown/roguehood/shalal
-	name = "keffiyeh"
-	desc = "A protective covering worn by those native to the desert."
+	name = "куфия"
+	desc = "Защитный головной убор, который носят жители пустыни."
 	color = null
 	icon_state = "shalal"
 	item_state = "shalal"
@@ -92,8 +93,8 @@
 			ResetAdjust(user)
 
 /obj/item/clothing/head/roguetown/roguehood/shalalz
-	name = "zybantine keffiyeh"
-	desc = "A protective covering worn by those native to the deserts of Zybantine."
+	name = "зибантинская куфия"
+	desc = "Защитный головной убор, который носят жители пустынь Зибантинской империи."
 	color = null
 	icon_state = "shalal_z"
 	item_state = "shalal_z"
@@ -129,8 +130,8 @@
 			ResetAdjust(user)
 
 /obj/item/clothing/head/roguetown/roguehood/astrata
-	name = "капюшон солнца"
-	desc = "Капюшон тех, кто предпочитает Астрату. Хвала перворожденному солнцу!"
+	name = "солнечный капюшон"
+	desc = "Капюшон тех, кто поклоняется Астрате. Хвала перворожденному Солнцу!"
 	color = null
 	icon_state = "astratahood"
 	item_state = "astratahood"
@@ -144,7 +145,7 @@
 	max_integrity = 100
 
 /obj/item/clothing/head/roguetown/roguehood/nochood
-	name = "капюшон луны"
+	name = "лунный капюшон"
 	desc = "Капюшон с маской в форме полумесяца, который носят сторонники Богини Луны, ночи, тайн и знаний - Нок."
 	color = null
 	icon_state = "nochood"
@@ -161,7 +162,7 @@
 
 /obj/item/clothing/head/roguetown/necrahood
 	name = "вуаль смерти"
-	desc = "одеяние для покойников и тех кто служит Некре - богине смерти, разложения, цикла и загробной жизни."
+	desc = "Одеяние для покойников и тех кто служит Некре - Богине смерти, разложения, цикла и загробной жизни."
 	color = null
 	icon_state = "necrahood"
 	item_state = "necrahood"
@@ -169,8 +170,8 @@
 	dynamic_hair_suffix = ""
 
 /obj/item/clothing/head/roguetown/dendormask
-	name = "briarmask"
-	desc = "A mask of wood worn by druids in service to Dendor."
+	name = "маска с шипами"
+	desc = "Маска из дерева, которую носят друиды, служащие Дендору."
 	color = null
 	icon_state = "dendormask"
 	item_state = "dendormask"
@@ -178,7 +179,8 @@
 	dynamic_hair_suffix = ""
 
 /obj/item/clothing/head/roguetown/necromhood
-	name = "necromancers hood"
+	name = "капюшон некроманта"
+	desc = "Запах смерти, нежити и темной магии сопровождает владельца на его пути."
 	color = null
 	icon_state = "necromhood"
 	item_state = "necromhood"
@@ -187,8 +189,8 @@
 	dynamic_hair_suffix = ""
 
 /obj/item/clothing/head/roguetown/priestmask
-	name = "solar visage"
-	desc = "The sanctified helm of the most devoted. Thieves beware."
+	name = "солнечный лик"
+	desc = "Освященный шлем самых преданных последователей. Воры, будьте осторожны."
 	color = null
 	icon_state = "priesthead"
 	item_state = "priesthead"
@@ -201,7 +203,7 @@
 
 /obj/item/clothing/head/roguetown/priestmask/pickup(mob/living/user)
 	if(!HAS_TRAIT(user, TRAIT_CHOSEN))
-		to_chat(user, "<font color='yellow'>UNWORTHY HANDS TOUCH THE VISAGE, CEASE OR BE PUNISHED</font>")
+		to_chat(user, "<font color='yellow'>НЕДОСТОЙНЫЙ! ОСТАВЬ ОДЕЯНИЕ СИЕ ИЛИ УЗРИ БОЖЕСТВЕННЫЙ ГНЕВ!</font>")
 		spawn(30)
 			if(loc == user)
 				user.adjust_fire_stacks(5)
@@ -247,7 +249,7 @@
 
 /obj/item/clothing/head/roguetown/menacing
 	name = "мешок-капюшон"
-	desc = "Капюшон, который обычно носят палачи. Скрывает лицо, клеймо, связанное с нажатием на этот рычаг, делает многих палачей изгоями сами по себе."
+	desc = "Капюшон, который обычно носят палачи. Скрывает лицо, однако клеймо, связанное с казнями и пытками, делает многих палачей изгоями само по себе."
 	icon_state = "menacing"
 	item_state = "menacing"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
@@ -255,8 +257,8 @@
 	fiber_salvage = FALSE
 
 /obj/item/clothing/head/roguetown/menacing/bandit
-	icon_state = "bandithood"
-	desc = "A hood worn by the freemen of the wood. It is lined with extra padding, offering modest protection."
+	icon_state = "капюшон разбойника"
+	desc = "Капюшон, который носят вольные жители леса. Он имеет дополнительную подкладку, обеспечивающую скромную защиту."
 	body_parts_covered = HEAD|HAIR|EARS|NECK|EYES|NOSE|MOUTH
 	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_NECK
 	armor = list("blunt" = 50, "slash" = 30, "stab" = 40, "bullet" = 20, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
@@ -266,8 +268,8 @@
 	blocksound = SOFTHIT
 
 /obj/item/clothing/head/roguetown/jester
-	name = "jester's hat"
-	desc = "A funny looking hat with jingly bells attached to it."
+	name = "шутовской колпак"
+	desc = "Забавная шляпа с прикрепленными к ней звенящими колокольчиками."
 	icon_state = "jester"
 	item_state = "jester"
 	do_sound_bell = TRUE
@@ -282,17 +284,17 @@
 	salvage_result = /obj/item/natural/fibers
 
 /obj/item/clothing/head/roguetown/puritan
-	name = "buckled hat"
+	name = "шляпа с пряжкой"
 	icon_state = "puritan_hat"
 
 /obj/item/clothing/head/roguetown/nightman
-	name = "teller's hat"
+	name = "цилиндр"
 	icon_state = "tophat"
 	color = CLOTHING_BLACK
 
 /obj/item/clothing/head/roguetown/bardhat
-	name = "головной убор барда"
-	desc = "Этой шляпке будет рад каждый бард."
+	name = "шляпа барда"
+	desc = "Этой шляпке будет рад каждый бард. И песню за это спеть вам он рад."
 	icon_state = "bardhat"
 
 /obj/item/clothing/head/roguetown/fancyhat
@@ -302,23 +304,24 @@
 	item_state = "fancyhat"
 
 /obj/item/clothing/head/roguetown/hatfur
-	name = "fur hat"
-	desc = "A comfortable warm hat lined with fur."
+	name = "меховая шапка"
+	desc = "Удобная теплая шапка с меховой подкладкой."
 	icon_state = "hatfur"
 
 /obj/item/clothing/head/roguetown/hatblu
-	name = "fur hat"
-	desc = "A blue hat lined with fur."
+	name = "меховая шапка"
+	desc = "Синяя шапка с подкладкой из меха."
 	icon_state = "hatblu"
 
 /obj/item/clothing/head/roguetown/fisherhat
-	name = "straw hat"
-	desc = "A hat worn by fishermen to protect from the sun."
+	name = "рыбацкая шляпа"
+	desc = "Шапка, которую носят рыбаки для защиты от солнца."
 	icon_state = "fisherhat"
 	item_state = "fisherhat"
 
 /obj/item/clothing/head/roguetown/flathat
-	name = "flat hat"
+	name = "широкая шляпа"
+	desc = "Хорошая шляпа с широкими полями."
 	icon_state = "flathat"
 	item_state = "flathat"
 
@@ -329,8 +332,8 @@
 	item_state = "chaperon"
 
 /obj/item/clothing/head/roguetown/cookhat
-	name = "cook hat"
-	desc = "A hat which signifies one as well versed in the arts of cooking."
+	name = "поварской колпак"
+	desc = "Шляпа, обозначающая человека, хорошо разбирающегося в кулинарии."
 	icon_state = "chef"
 	item_state = "chef"
 
@@ -340,28 +343,28 @@
 	color = "#cf99e3"
 
 /obj/item/clothing/head/roguetown/chef
-	name = "chef's hat"
-	desc = "A hat which signifies one as well versed in the arts of cooking."
+	name = "поварской колпак"
+	desc = "Шляпа, обозначающая человека, хорошо разбирающегося в кулинарии."
 	icon_state = "chef"
 
 /obj/item/clothing/head/roguetown/armingcap
-	name = "cap"
-	desc = "A light cap made of leather, usually worn under a helmet."
+	name = "колпак"
+	desc = "Легкий колпак из кожи. Обычно носится, как подшлемник."
 	icon_state = "armingcap"
 	item_state = "armingcap"
 	flags_inv = HIDEEARS
 
 /obj/item/clothing/head/roguetown/knitcap
-	name = "вязанная кепка"
-	desc = "Простая вязанная кепка."
+	name = "вязанная шапка"
+	desc = "Простая вязанная шапочка."
 	icon_state = "knitcap"
 
 /obj/item/clothing/head/roguetown/armingcap/dwarf
 	color = "#cb3434"
 
 /obj/item/clothing/head/roguetown/headband
-	name = "headband"
-	desc = "A simple headband to keep sweat out of your eyes."
+	name = "головная повязка"
+	desc = "Простая повязка, обвязанная вокруг головы, чтобы пот не заливал глаза."
 	icon_state = "headband"
 	item_state = "headband"
 	fiber_salvage = FALSE
@@ -372,8 +375,8 @@
 	color = CLOTHING_RED
 
 /obj/item/clothing/head/roguetown/crown //Holds vars for children
-	name = "crown of rockhill"
-	desc = ""
+	name = "корона Рокхилла"
+	desc = "Тяжелый вес короны не передаст всю тяжесть ответственности, которую она возлагает на своего владельца."
 	icon_state = "rockhillcrown"
 	dynamic_hair_suffix = null
 	sellprice = 200
@@ -390,29 +393,29 @@
 	visual_replacement = /obj/item/clothing/head/roguetown/crown/fakecrown
 
 /obj/item/clothing/head/roguetown/crown/serpcrown/proc/anti_stall()
-	src.visible_message(span_warning("The Crown of Rockhill crumbles to dust, the ashes spiriting away in the direction of the Keep."))
+	src.visible_message(span_warning("Корона Рокхилла рассыпается в пыль, её пепел уносится в направлении крепости."))
 	SSroguemachine.crown = null //Do not harddel.
 	qdel(src) //Anti-stall
 
 /obj/item/clothing/head/roguetown/crown/fakecrown
-	name = "fake crown"
-	desc = "You shouldn't be seeing this."
-	icon_state = "serpcrown"
+	name = "ложная корона"
+	desc = "Этого не должно тут быть."
+	icon_state = "rockhillcrown"
 
 /obj/item/clothing/head/roguetown/crown/surplus
-	name = "crown"
+	name = "корона"
 	icon_state = "serpcrowno"
 	sellprice = 100
 	allowed_race = list(/datum/species/goblinp)
 
 /obj/item/clothing/head/roguetown/crown/sparrowcrown
-	name = "champion's circlet"
+	name = "обруч чемпиона"
 	icon_state = "sparrowcrown"
 	sellprice = 50
 
 /obj/item/clothing/head/roguetown/priesthat
-	name = "priest's hat"
-	desc = ""
+	name = "митра священника"
+	desc = "Головной убор, являющийся частью богослужебного облачения церкви Десяти."
 	icon_state = "priest"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
 	dynamic_hair_suffix = "+generic"
@@ -421,7 +424,7 @@
 	worn_y_dimension = 64
 
 /obj/item/clothing/head/roguetown/reqhat
-	name = "serpent crown"
+	name = "змеиная корона"
 	desc = ""
 	icon_state = "reqhat"
 	sellprice = 100
@@ -429,8 +432,8 @@
 	sewrepair = FALSE
 
 /obj/item/clothing/head/roguetown/headdress
-	name = "foreign headdress"
-	desc = ""
+	name = "заморский головной убор"
+	desc = "Вы не видели таких прежде... или видели?"
 	icon_state = "headdress"
 	sellprice = 10
 
@@ -438,20 +441,20 @@
 	icon_state = "headdressalt"
 
 /obj/item/clothing/head/roguetown/nun
-	name = "nun's habit"
+	name = "монашеская ряса"
 	icon_state = "nun"
 	sellprice = 5
 
 /obj/item/clothing/head/roguetown/hennin
-	name = "hennin"
-	desc = "A hat typically worn by women in nobility."
+	name = "геннин"
+	desc = "Он же атур, сложный головной убор для женщин из высокого сословия."
 	icon_state = "hennin"
 	sellprice = 19
 	dynamic_hair_suffix = "+generic"
 
 /obj/item/clothing/head/roguetown/paddedcap
-	name = "padded cap"
-	desc = "A modest arming cap"
+	name = "стеганый колпак"
+	desc = "Скромный на вид защитный колпак."
 	icon_state = "armingcap"
 	item_state = "armingcap"
 	sleevetype = null
@@ -468,8 +471,8 @@
 	icon = 'icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/head.dmi'
 	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_HIP
-	name = "helmet"
-	desc = "A helmet that doesn't get any more simple in design."
+	name = "шлем"
+	desc = "Шлем, конструкция которого не может быть еще проще."
 	body_parts_covered = HEAD|HAIR|NOSE
 	icon_state = "nasal"
 	sleevetype = null
@@ -489,23 +492,23 @@
 	sewrepair = FALSE
 
 /obj/item/clothing/head/roguetown/helmet/skullcap
-	name = "skull cap"
-	desc = "A helmet which covers the top of the head."
+	name = "железный колпак"
+	desc = "Шлем из железа, который прикрывает собой лишь макушку."
 	icon_state = "skullcap"
 	body_parts_covered = HEAD|HAIR
 	max_integrity = 200
 	smeltresult = /obj/item/ingot/iron
 
 /obj/item/clothing/head/roguetown/helmet/horned
-	name = "horned cap"
-	desc = "A helmet with two horns poking out of the sides."
+	name = "рогатый шлем"
+	desc = "Шлем с двумя рогами, торчащими по бокам."
 	icon_state = "hornedcap"
 	max_integrity = 225
 	body_parts_covered = HEAD|HAIR
 
 /obj/item/clothing/head/roguetown/helmet/winged
-	name = "winged cap"
-	desc = "A helmet with two wings on its sides."
+	name = "крылатый шлем"
+	desc = "Шлем с двумя крыльями, торчащими по бокам."
 	icon_state = "wingedcap"
 	max_integrity = 225
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
@@ -514,7 +517,8 @@
 	body_parts_covered = HEAD|HAIR
 
 /obj/item/clothing/head/roguetown/helmet/kettle
-	desc = "A steel helmet which protects the whole of the head."
+	name = "котелок"
+	desc = "Стальной шлем, защищающий всю голову."
 	icon_state = "kettle"
 	body_parts_covered = HEAD|HAIR|EARS
 	flags_inv = HIDEEARS
@@ -524,24 +528,24 @@
 	..()
 	if(istype(W, /obj/item/natural/cloth) && !detail_tag)
 		var/list/colors = list(
-		"Swan White"="#ffffff",
-		"Lavender"="#865c9c",
-		"Royal Purple"="#5E4687",
-		"Wine Rouge"="#752B55",
-		"Sow's skin"="#CE929F",
-		"Knight's Red"="#933030",
-		"Madroot Red"="#AD4545",
-		"Marigold Orange"="#E2A844",
-		"Politely, Yuck"="#685542",
-		"Astrata's Yellow"="#FFFD8D",
-		"Bog Green"="#375B48",
-		"Seafoam Green"="#49938B",
-		"Woad Blue"="#395480",
-		"Cornflower Blue"="#749EE8",
-		"Blacksteel Grey"="#404040",)
+		"Лебединый белый"="#ffffff",
+		"Лавандовый"="#865c9c",
+		"Королевский пурпурный"="#5E4687",
+		"Винно-красный"="#752B55",
+		"Кожа свиноматки"="#CE929F",
+		"Королевский красный"="#933030",
+		"Свекольный красный"="#AD4545",
+		"Бархатцевый оранжевый"="#E2A844",
+		"Вежливо мерзкий"="#685542",
+		"Солнечный желтый"="#FFFD8D",
+		"Болотистый зеленый"="#375B48",
+		"Морская пена"="#49938B",
+		"Металлический синий"="#395480",
+		"Синий василек"="#749EE8",
+		"Металлический серый"="#404040",)
 
-		var/choice = input(user, "Choose a color.", "Orle") as anything in colors
-		user.visible_message(span_warning("[user] adds [W] to [src]."))
+		var/choice = input(user, "Выберите цвет:", "Отделка тканью") as anything in colors
+		user.visible_message(span_warning("[user] дополняет [src] при помощи [W]."))
 		qdel(W)
 		detail_color = colors[choice]
 		detail_tag = "_detail"
@@ -561,8 +565,8 @@
 
 //................ CULTIST HOOD ............... //
 /obj/item/clothing/head/roguetown/helmet/leather/cult_hood
-	name = "cultist hood"
-	desc = "It echoes with ominous laughter."
+	name = "капюшон культиста"
+	desc = "Зловещий смех отдается эхом в голове."
 	icon_state = "warlockhood"
 	dynamic_hair_suffix = ""
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
@@ -570,9 +574,9 @@
 
 //................ Sallet ............... //
 /obj/item/clothing/head/roguetown/helmet/sallet
-	name = "sallet"
+	name = "салад"
 	icon_state = "sallet"
-	desc = "A steel helmet which protects the ears."
+	desc = "Стальной шлем, защищающий уши. Обладает длинным назатыльником."
 	smeltresult = /obj/item/ingot/steel
 	body_parts_covered = HEAD|HAIR|EARS
 	flags_inv = HIDEEARS
@@ -581,24 +585,24 @@
 	..()
 	if(istype(W, /obj/item/natural/cloth) && !detail_tag)
 		var/list/colors = list(
-		"Swan White"="#ffffff",
-		"Lavender"="#865c9c",
-		"Royal Purple"="#5E4687",
-		"Wine Rouge"="#752B55",
-		"Sow's skin"="#CE929F",
-		"Knight's Red"="#933030",
-		"Madroot Red"="#AD4545",
-		"Marigold Orange"="#E2A844",
-		"Politely, Yuck"="#685542",
-		"Astrata's Yellow"="#FFFD8D",
-		"Bog Green"="#375B48",
-		"Seafoam Green"="#49938B",
-		"Woad Blue"="#395480",
-		"Cornflower Blue"="#749EE8",
-		"Blacksteel Grey"="#404040",)
+		"Лебединый белый"="#ffffff",
+		"Лавандовый"="#865c9c",
+		"Королевский пурпурный"="#5E4687",
+		"Винно-красный"="#752B55",
+		"Кожа свиноматки"="#CE929F",
+		"Королевский красный"="#933030",
+		"Свекольный красный"="#AD4545",
+		"Бархатцевый оранжевый"="#E2A844",
+		"Вежливо мерзкий"="#685542",
+		"Солнечный желтый"="#FFFD8D",
+		"Болотистый зеленый"="#375B48",
+		"Морская пена"="#49938B",
+		"Металлический синий"="#395480",
+		"Синий василек"="#749EE8",
+		"Металлический серый"="#404040",)
 
-		var/choice = input(user, "Choose a color.", "Orle") as anything in colors
-		user.visible_message(span_warning("[user] adds [W] to [src]."))
+		var/choice = input(user, "Выберите цвет:", "Отделка тканью") as anything in colors
+		user.visible_message(span_warning("[user] дополняет [src] при помощи [W]."))
 		qdel(W)
 		detail_color = colors[choice]
 		detail_tag = "_detail"
@@ -617,8 +621,8 @@
 		add_overlay(pic)
 
 /obj/item/clothing/head/roguetown/helmet/sallet/visored
-	name = "visored sallet"
-	desc = "A steel helmet which protects the ears, eyes and nose."
+	name = "салад с забралом"
+	desc = "Стальной шлем, защищающий уши. Обладает длинным назатыльником и забралом, закрывающим глаза и нос."
 	icon_state = "sallet_visor"
 	max_integrity = 275
 	adjustable = CAN_CADJUST
@@ -632,24 +636,24 @@
 	..()
 	if(istype(W, /obj/item/natural/cloth) && !detail_tag)
 		var/list/colors = list(
-		"Swan White"="#ffffff",
-		"Lavender"="#865c9c",
-		"Royal Purple"="#5E4687",
-		"Wine Rouge"="#752B55",
-		"Sow's skin"="#CE929F",
-		"Knight's Red"="#933030",
-		"Madroot Red"="#AD4545",
-		"Marigold Orange"="#E2A844",
-		"Politely, Yuck"="#685542",
-		"Astrata's Yellow"="#FFFD8D",
-		"Bog Green"="#375B48",
-		"Seafoam Green"="#49938B",
-		"Woad Blue"="#395480",
-		"Cornflower Blue"="#749EE8",
-		"Blacksteel Grey"="#404040",)
+		"Лебединый белый"="#ffffff",
+		"Лавандовый"="#865c9c",
+		"Королевский пурпурный"="#5E4687",
+		"Винно-красный"="#752B55",
+		"Кожа свиноматки"="#CE929F",
+		"Королевский красный"="#933030",
+		"Свекольный красный"="#AD4545",
+		"Бархатцевый оранжевый"="#E2A844",
+		"Вежливо мерзкий"="#685542",
+		"Солнечный желтый"="#FFFD8D",
+		"Болотистый зеленый"="#375B48",
+		"Морская пена"="#49938B",
+		"Металлический синий"="#395480",
+		"Синий василек"="#749EE8",
+		"Металлический серый"="#404040",)
 
-		var/choice = input(user, "Choose a color.", "Orle") as anything in colors
-		user.visible_message(span_warning("[user] adds [W] to [src]."))
+		var/choice = input(user, "Выберите цвет:", "Отделка тканью") as anything in colors
+		user.visible_message(span_warning("[user] дополняет [src] при помощи [W]."))
 		qdel(W)
 		detail_color = colors[choice]
 		detail_tag = "_detail"
@@ -692,8 +696,8 @@
 //................ Volf Helm ............... //
 
 /obj/item/clothing/head/roguetown/helmet/volfplate // Was originally a heavy helm, but now mercs can only use medium armor
-	name = "volf-face helm"
-	desc = "A steel bascinet helmet with a volfish visor protecting the head, ears, eyes, nose and mouth."
+	name = "волчий шлем"
+	desc = "Стальной бацинетный шлем с волчьим забралом-маской, защищающим голову, уши, глаза, нос и рот."
 	body_parts_covered = FULL_HEAD
 	icon_state = "volfplate"
 	item_state = "volfplate"
@@ -728,8 +732,8 @@
 		user.update_fov_angles()
 
 /obj/item/clothing/head/roguetown/helmet/heavy
-	name = "barbute"
-	desc = "A simple helmet with a visor in the shape of a Y."
+	name = "барбют"
+	desc = "Простой шлем с нащечниками и Y-образным вырезом."
 	body_parts_covered = FULL_HEAD
 	icon_state = "barbute"
 	item_state = "barbute"
@@ -742,8 +746,8 @@
 	max_integrity = 400
 
 /obj/item/clothing/head/roguetown/helmet/heavy/guard
-	name = "savoyard"
-	desc = "A helmet with a menacing visage."
+	name = "савойский шлем"
+	desc = "Шлем с угрожающим видом."
 	icon_state = "guardhelm"
 	emote_environment = 3
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
@@ -751,8 +755,8 @@
 	smeltresult = /obj/item/ingot/iron
 
 /obj/item/clothing/head/roguetown/helmet/heavy/gate
-	name = "barred helmet"
-	desc = "A helmet which offers good protection to the face. The bars resemble the gates of the manor, closed and protecting the gatemaster's identity."
+	name = "шлем с решеткой"
+	desc = "Стальной шлем, обеспечивающий хорошую защиту лица. Решетки напоминают ворота поместья, закрытые и защищающие личность привратника."
 	icon_state = "gatehelm"
 	emote_environment = 3
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
@@ -761,8 +765,8 @@
 	smeltresult = /obj/item/ingot/steel
 
 /obj/item/clothing/head/roguetown/helmet/heavy/knight
-	name = "knight's helmet"
-	desc = "A noble knight's helmet."
+	name = "рыцарский шлем"
+	desc = "Шлем благородного рыцаря. С пером выглядит еще лучше."
 	icon_state = "knight"
 	item_state = "knight"
 	adjustable = CAN_CADJUST
@@ -774,25 +778,25 @@
 	..()
 	if(istype(W, /obj/item/natural/feather) && !detail_tag)
 		var/list/colors = list(
-		"Swan White"="#ffffff",
-		"Lavender"="#865c9c",
-		"Royal Purple"="#5E4687",
-		"Wine Rouge"="#752B55",
-		"Sow's skin"="#CE929F",
-		"Knight's Red"="#933030",
-		"Madroot Red"="#AD4545",
-		"Marigold Orange"="#E2A844",
-		"Politely, Yuck"="#685542",
-		"Astrata's Yellow"="#FFFD8D",
-		"Bog Green"="#375B48",
-		"Seafoam Green"="#49938B",
-		"Woad Blue"="#395480",
-		"Cornflower Blue"="#749EE8",
-		"Blacksteel Grey"="#404040",)
-		var/choice = input(user, "Choose a color.", "Plume") as anything in colors
+		"Лебединый белый"="#ffffff",
+		"Лавандовый"="#865c9c",
+		"Королевский пурпурный"="#5E4687",
+		"Винно-красный"="#752B55",
+		"Кожа свиноматки"="#CE929F",
+		"Королевский красный"="#933030",
+		"Свекольный красный"="#AD4545",
+		"Бархатцевый оранжевый"="#E2A844",
+		"Вежливо мерзкий"="#685542",
+		"Солнечный желтый"="#FFFD8D",
+		"Болотистый зеленый"="#375B48",
+		"Морская пена"="#49938B",
+		"Металлический синий"="#395480",
+		"Синий василек"="#749EE8",
+		"Металлический серый"="#404040",)
+		var/choice = input(user, "Выберите цвет:", "Вставляем перо") as anything in colors
 		detail_color = colors[choice]
 		detail_tag = "_detail"
-		user.visible_message(span_warning("[user] adds [W] to [src]."))
+		user.visible_message(span_warning("[user] вставляет [W] в [src]."))
 		qdel(W)
 		update_icon()
 		if(loc == user && ishuman(user))
@@ -834,8 +838,8 @@
 		user.update_fov_angles()
 
 /obj/item/clothing/head/roguetown/helmet/heavy/bucket
-	name = "bucket helmet"
-	desc = "A helmet which covers the whole of the head. Offers excellent protection."
+	name = "топфхелм"
+	desc = "Кавалерийский шлем, закрывающий всю голову. Обеспечивает превосходную защиту."
 	icon_state = "topfhelm"
 	item_state = "topfhelm"
 	max_integrity = 435
@@ -848,23 +852,23 @@
 	..()
 	if(istype(W, /obj/item/natural/cloth) && !detail_tag)
 		var/list/colors = list(
-		"Swan White"="#ffffff",
-		"Lavender"="#865c9c",
-		"Royal Purple"="#5E4687",
-		"Wine Rouge"="#752B55",
-		"Sow's skin"="#CE929F",
-		"Knight's Red"="#933030",
-		"Madroot Red"="#AD4545",
-		"Marigold Orange"="#E2A844",
-		"Politely, Yuck"="#685542",
-		"Astrata's Yellow"="#FFFD8D",
-		"Bog Green"="#375B48",
-		"Seafoam Green"="#49938B",
-		"Woad Blue"="#395480",
-		"Cornflower Blue"="#749EE8",
-		"Blacksteel Grey"="#404040",)
-		var/choice = input(user, "Choose a color.", "Orle") as anything in colors
-		user.visible_message(span_warning("[user] adds [W] to [src]."))
+		"Лебединый белый"="#ffffff",
+		"Лавандовый"="#865c9c",
+		"Королевский пурпурный"="#5E4687",
+		"Винно-красный"="#752B55",
+		"Кожа свиноматки"="#CE929F",
+		"Королевский красный"="#933030",
+		"Свекольный красный"="#AD4545",
+		"Бархатцевый оранжевый"="#E2A844",
+		"Вежливо мерзкий"="#685542",
+		"Солнечный желтый"="#FFFD8D",
+		"Болотистый зеленый"="#375B48",
+		"Морская пена"="#49938B",
+		"Металлический синий"="#395480",
+		"Синий василек"="#749EE8",
+		"Металлический серый"="#404040",)
+		var/choice = input(user, "Выберите цвет:", "Отделка тканью") as anything in colors
+		user.visible_message(span_warning("[user] дополняет [src] при помощи [W]."))
 		qdel(W)
 		detail_color = colors[choice]
 		detail_tag = "_detail"
@@ -882,13 +886,13 @@
 		add_overlay(pic)
 
 /obj/item/clothing/head/roguetown/helmet/heavy/bucket/gold
-	desc = "A helmet which covers the whole of the head. Offers excellent protection. This one has a golden cross-shaped brow."
+	desc = "Кавалерийский шлем, закрывающий всю голову. Обеспечивает отличную защиту. У этого золотистая крестообразная бровь. DEUS VULT!"
 	icon_state = "topfhelm_gold"
 	item_state = "topfhelm_gold"
 
 /obj/item/clothing/head/roguetown/helmet/heavy/pigface
-	name = "pigface bascinet"
-	desc = "A steel bascinet helmet with a pigface visor protecting the head, ears, nose, mouth, and eyes. Add a feather to show the colors of your family or allegiance."
+	name = "свинолицый бацинет"
+	desc = "Стальной бацинетный шлем со свиным козырьком, защищающим голову, уши, нос, рот и глаза. Добавьте перо, чтобы показать цвета вашей семьи или вассала."
 	icon_state = "hounskull"
 	item_state = "hounskull"
 	adjustable = CAN_CADJUST
@@ -923,25 +927,25 @@
 	..()
 	if(istype(W, /obj/item/natural/feather) && !detail_tag)
 		var/list/colors = list(
-		"Swan White"="#ffffff",
-		"Lavender"="#865c9c",
-		"Royal Purple"="#5E4687",
-		"Wine Rouge"="#752B55",
-		"Sow's skin"="#CE929F",
-		"Knight's Red"="#933030",
-		"Madroot Red"="#AD4545",
-		"Marigold Orange"="#E2A844",
-		"Politely, Yuck"="#685542",
-		"Astrata's Yellow"="#FFFD8D",
-		"Bog Green"="#375B48",
-		"Seafoam Green"="#49938B",
-		"Woad Blue"="#395480",
-		"Cornflower Blue"="#749EE8",
-		"Blacksteel Grey"="#404040",)
-		var/choice = input(user, "Choose a color.", "Plume") as anything in colors
+		"Лебединый белый"="#ffffff",
+		"Лавандовый"="#865c9c",
+		"Королевский пурпурный"="#5E4687",
+		"Винно-красный"="#752B55",
+		"Кожа свиноматки"="#CE929F",
+		"Королевский красный"="#933030",
+		"Свекольный красный"="#AD4545",
+		"Бархатцевый оранжевый"="#E2A844",
+		"Вежливо мерзкий"="#685542",
+		"Солнечный желтый"="#FFFD8D",
+		"Болотистый зеленый"="#375B48",
+		"Морская пена"="#49938B",
+		"Металлический синий"="#395480",
+		"Синий василек"="#749EE8",
+		"Металлический серый"="#404040",)
+		var/choice = input(user, "Выберите цвет:", "Вставляем перо") as anything in colors
 		detail_color = colors[choice]
 		detail_tag = "_detail"
-		user.visible_message(span_warning("[user] adds [W] to [src]."))
+		user.visible_message(span_warning("[user] вставляет [W] в [src]."))
 		qdel(W)
 		update_icon()
 		if(loc == user && ishuman(user))
@@ -957,8 +961,8 @@
 		add_overlay(pic)
 
 /obj/item/clothing/head/roguetown/helmet/heavy/frogmouth
-	name = "froggemund helmet"
-	desc = "A tall and imposing frogmouth-style helm popular in the highest plateaus of Otava. Covers not just the head, but the neck as well. Add a cloth to show the colors of your family or allegiance."
+	name = "штеххелм"
+	desc = "Высокий и внушительный шлем в виде лягушачьей пасти, популярный на самых высоких плато Отавы. Закрывает не только голову, но и шею. Добавьте ткань, чтобы показать цвета вашей семьи или вассала."
 	icon_state = "frogmouth"
 	item_state = "frogmouth"
 	emote_environment = 3
@@ -970,23 +974,23 @@
 	..()
 	if(istype(W, /obj/item/natural/cloth) && !detail_tag)
 		var/list/colors = list(
-		"Swan White"="#ffffff",
-		"Lavender"="#865c9c",
-		"Royal Purple"="#5E4687",
-		"Wine Rouge"="#752B55",
-		"Sow's skin"="#CE929F",
-		"Knight's Red"="#933030",
-		"Madroot Red"="#AD4545",
-		"Marigold Orange"="#E2A844",
-		"Politely, Yuck"="#685542",
-		"Astrata's Yellow"="#FFFD8D",
-		"Bog Green"="#375B48",
-		"Seafoam Green"="#49938B",
-		"Woad Blue"="#395480",
-		"Cornflower Blue"="#749EE8",
-		"Blacksteel Grey"="#404040",)
-		var/choice = input(user, "Choose a color.", "Orle") as anything in colors
-		user.visible_message(span_warning("[user] adds [W] to [src]."))
+		"Лебединый белый"="#ffffff",
+		"Лавандовый"="#865c9c",
+		"Королевский пурпурный"="#5E4687",
+		"Винно-красный"="#752B55",
+		"Кожа свиноматки"="#CE929F",
+		"Королевский красный"="#933030",
+		"Свекольный красный"="#AD4545",
+		"Бархатцевый оранжевый"="#E2A844",
+		"Вежливо мерзкий"="#685542",
+		"Солнечный желтый"="#FFFD8D",
+		"Болотистый зеленый"="#375B48",
+		"Морская пена"="#49938B",
+		"Металлический синий"="#395480",
+		"Синий василек"="#749EE8",
+		"Металлический серый"="#404040",)
+		var/choice = input(user, "Выберите цвет:", "Отделка тканью") as anything in colors
+		user.visible_message(span_warning("[user] дополняет [src] при помощи [W]."))
 		qdel(W)
 		detail_color = colors[choice]
 		detail_tag = "_detail"
@@ -1004,8 +1008,8 @@
 		add_overlay(pic)
 
 /obj/item/clothing/head/roguetown/helmet/bascinet
-	name = "bascinet"
-	desc = "A steel bascinet helmet without a visor protecting the the head and ears."
+	name = "бацинет"
+	desc = "Стальной шлем-бацинет без козырька, защищающий голову и уши."
 	icon_state = "bascinet_novisor"
 	item_state = "bascinet_novisor"
 	max_integrity = 235
@@ -1017,8 +1021,8 @@
 
 /obj/item/clothing/head/roguetown/helmet/leather
 	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_HIP
-	name = "leather helmet"
-	desc = "A helmet made of leather."
+	name = "кожаный шлем"
+	desc = "Шлем, сделанный из кожи."
 	body_parts_covered = HEAD|HAIR|EARS|NOSE
 	icon_state = "leatherhelm"
 	armor = list("blunt" = 47, "slash" = 27, "stab" = 37, "bullet" = 20, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
@@ -1032,7 +1036,7 @@
 	salvage_result = /obj/item/natural/hide/cured
 
 /obj/item/clothing/head/roguetown/helmet/leather/advanced
-	name = "укрепленный кожаный шлем"
+	name = "крепкий кожаный шлем"
 	desc = "Прочный, долговечный, гибкий. Удобный и надежный шлем из прочной кожи."
 	icon_state = "alhelmet"
 	max_integrity = 250
@@ -1042,7 +1046,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/leather/masterwork
 	name = "шедевральный кожаный шлем"
-	desc = "Этот шлем – чудо мастерства. Сделано из лучшей кожи. Прочный, маневренный, надежный!"
+	desc = "Этот шлем – чудо мастерства. Сделан из лучшей кожи, потому прочный, легкий, надежный!"
 	max_integrity = 300
 	body_parts_covered = HEAD|EARS|HAIR|NOSE|EYES|MOUTH
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST, BCLASS_CHOP) //we're adding chop here!
@@ -1051,8 +1055,8 @@
 
 /obj/item/clothing/head/roguetown/helmet/leather/volfhelm
 	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_HIP
-	name = "volf helmet"
-	desc = "Bandit initiation rites involve the slaying of a volf."
+	name = "волчий шлем"
+	desc = "Обряды инициации разбойников часто включают в себя убийство волка."
 	body_parts_covered = HEAD|HAIR|EARS
 	icon_state = "volfhead"
 	item_state = "volfhead"
@@ -1063,8 +1067,8 @@
 	clothing_flags = null
 
 /obj/item/clothing/head/roguetown/wizhat
-	name = "wizard hat"
-	desc = "Used to distinguish dangerous wizards from senile old men."
+	name = "шляпа волшебника"
+	desc = "Используется, чтобы отличить опасных волшебников от дряхлых стариков."
 	icon_state = "wizardhat"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
 	dynamic_hair_suffix = "+generic"
@@ -1096,7 +1100,7 @@
 	else if(hat_count == 5)
 		icon_state = "wizardhat"
 		hat_count = 0
-	to_chat(user, span_info("The wizard hat magically changes it's colours!"))
+	to_chat(user, span_info("Шляпа волшебника магическим образом меняет свой цвет!"))
 	playsound(src, 'sound/magic/swap.ogg', 50, TRUE)
 
 /obj/item/clothing/head/roguetown/wizhat/red
@@ -1115,9 +1119,9 @@
 	icon_state = "wizardhatgen"
 
 /obj/item/clothing/head/roguetown/wizhat/gen/wise
-	name = "wise hat"
+	name = "шляпа мудрости"
 	sellprice = 100
-	desc = "Only the wisest of nimrods wear this."
+	desc = "Только самые мудрые носят эту шляпу."
 
 /obj/item/clothing/head/roguetown/wizhat/gen/wise/equipped(mob/user, slot)
 	. = ..()
@@ -1126,7 +1130,7 @@
 	var/mob/living/carbon/wise = user
 	if(slot == SLOT_HEAD)
 		wise.change_stat("intelligence", 2, "wisehat")
-		to_chat(wise, span_green("I gain wisdom."))
+		to_chat(wise, span_green("Похоже, я обрел великую мудрость."))
 
 /obj/item/clothing/head/roguetown/wizhat/gen/wise/dropped(mob/user)
 	. = ..()
@@ -1135,15 +1139,15 @@
 	var/mob/living/carbon/human/wise = user
 	if(wise.get_item_by_slot(SLOT_HEAD) == src)
 		wise.change_stat("intelligence", -2, "wisehat")
-		to_chat(wise, span_red("I lose wisdom."))
+		to_chat(wise, span_red("Великая мудрость покидает мой разум."))
 
 /obj/item/clothing/head/roguetown/physician
-	name = "doctor's hat"
-	desc = "My cure is most effective."
+	name = "шляпа целителя"
+	desc = "Мое лечение наиболее эффективно."
 	icon_state = "physhat"
 
 /obj/item/clothing/head/roguetown/nyle
-	name = "jewel of nyle"
+	name = "Жемчужина Нила"
 	icon_state = "nile"
 	body_parts_covered = null
 	slot_flags = ITEM_SLOT_HEAD
@@ -1154,8 +1158,8 @@
 	sewrepair = FALSE
 
 /obj/item/clothing/head/roguetown/grenzelhofthat
-	name = "grenzelhoft plume hat"
-	desc = "Slaying monsters or fair maidens: Grenzelhoft stands."
+	name = "грензельхофтская шляпа с пером"
+	desc = "Убивая монстров или прекрасных девиц: выстоит Грензельхофт."
 	icon_state = "grenzelhat"
 	item_state = "grenzelhat"
 	icon = 'icons/roguetown/clothing/head.dmi'
@@ -1176,8 +1180,8 @@
 		add_overlay(pic)
 
 /obj/item/clothing/head/peaceflower
-	name = "eoran bud"
-	desc = "A flower of gentle petals, associated with Eora or Necra. Usually adorned as a headress or laid at graves as a symbol of love or peace."
+	name = "бутон Эоры"
+	desc = "Цветок с нежными лепестками, ассоциирующийся с Эорой, иногда - с Некрой. Обычно носят на голове или же кладут на могилы как символ любви и мира."
 	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "peaceflower"
 	item_state = "peaceflower"
@@ -1208,7 +1212,7 @@
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
 		if(src == C.head)
-			to_chat(user, span_warning("I feel at peace. <b style='color:pink'>Why would I want anything else?</b>"))
+			to_chat(user, span_warning("Я чувствую умиротворение. <b style='color:pink'>Зачем желать что-то еще?</b>"))
 			return TRUE
 	return FALSE
 
@@ -1222,8 +1226,8 @@
 
 /obj/item/clothing/head/roguetown/helmet/tricorn
 	slot_flags = ITEM_SLOT_HEAD
-	name = "tricorn"
-	desc = ""
+	name = "шляпа-треуголка"
+	desc = "Кожаная шляпа треугольной формы, особо популярная среди мореходов."
 	body_parts_covered = HEAD|HAIR|EARS|NOSE
 	icon_state = "tricorn"
 	armor = list("blunt" = 47, "slash" = 27, "stab" = 37, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
@@ -1237,17 +1241,17 @@
 
 /obj/item/clothing/head/roguetown/helmet/tricorn/skull
 	icon_state = "tricorn_skull"
-	desc = "It has a skull sewn onto it. Clear sign of piracy"
+	desc = "Кожаная шляпа треугольной формы. На одной из сторон вышит череп - яркий символ пиратства."
 
 /obj/item/clothing/head/roguetown/helmet/tricorn/lucky
-	name = "lucky tricorn"
-	desc = "A weathered tricorn that has seen many skirmishes. You'd feel lucky with this on your head."
+	name = "счастливая треуголка"
+	desc = "Обветренная треуголка, повидавшая множество сражений. С ней на голове тебе обязательно повезет."
 	armor = list("blunt" = 60, "slash" = 40, "stab" = 45, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 
 /obj/item/clothing/head/roguetown/helmet/bandana
 	slot_flags = ITEM_SLOT_HEAD
-	name = "bandana"
-	desc = ""
+	name = "бандана"
+	desc = "Простая бандана из кожи, закрывающая голову, нос и уши."
 	body_parts_covered = HEAD|HAIR|EARS|NOSE
 	icon_state = "bandana"
 	armor = list("blunt" = 47, "slash" = 27, "stab" = 37, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
@@ -1260,8 +1264,8 @@
 	salvage_result = /obj/item/natural/hide/cured
 
 /obj/item/clothing/head/roguetown/inqhat
-	name = "inquisitorial hat"
-	desc = "Redemption is your currency."
+	name = "шляпа инквизитора"
+	desc = "Твоя валюта - искупление."
 	icon_state = "inqhat"
 	item_state = "inqhat"
 	sewrepair = TRUE
@@ -1283,8 +1287,8 @@
 //----------------- BLACKSTEEL ---------------------
 
 /obj/item/clothing/head/roguetown/helmet/blacksteel/bucket
-	name = "Blacksteel Bucket Helm"
-	desc = "A bucket helmet forged of durable blacksteel. None shall pass.."
+	name = "топфхелм из черной стали"
+	desc = "Кавалерийский шлем из прочной черной стали. Никто не пройдет.."
 	body_parts_covered = FULL_HEAD
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
@@ -1299,7 +1303,8 @@
 	smeltresult = /obj/item/ingot/blacksteel
 
 /obj/item/clothing/head/roguetown/helmet/heavy/crusader
-	name = "bucket helm"
+	name = "топфхелм"
+	desc = "Шлем крестоносца, позволяющий нести божье слово, не беспокоясь за свою голову."
 	icon_state = "crusader_helm"
 	icon = 'icons/roguetown/clothing/special/crusader.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/crusader.dmi'

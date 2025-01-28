@@ -105,6 +105,7 @@
 
 		switch(job)
 			if("Duke")
+				addomen(OMEN_NOLORD)
 				//omen gets added separately, after a few minutes
 				for(var/mob/living/carbon/human/HU in GLOB.player_list)
 					if(!HU.stat && is_in_roguetown(HU))

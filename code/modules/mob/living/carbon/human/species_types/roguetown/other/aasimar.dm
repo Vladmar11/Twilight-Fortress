@@ -44,12 +44,12 @@
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,0), \
 		)
 	specstats = list(
-        "strength" = -1,
-        "perception" = 0,
+        "strength" = 0,
+        "perception" = 1,
         "intelligence" = 2,
         "constitution" = -2,
-        "endurance" = 0,
-        "speed" = 0,
+        "endurance" = -1,
+        "speed" = -1,
         "fortune" = 2,
         )
 	enflamed_icon = "widefire"
@@ -63,6 +63,7 @@
 		/datum/customizer/organ/penis/human,
 		/datum/customizer/organ/breasts/human,
 		/datum/customizer/organ/vagina/human,
+		/datum/customizer/organ/wings/aasimar
 		)
 	body_markings = list(
 		/datum/body_marking/flushed_cheeks,
@@ -89,6 +90,7 @@
 
 /datum/species/aasimar/get_skin_list()
 	return list(
+		"Archon" = SKIN_COLOR_ARCHON,
 		"Planetar" = SKIN_COLOR_PLANETAR,
 		"Deva"	   = SKIN_COLOR_DEVA,
 		"Solar" = SKIN_COLOR_SOLAR,
