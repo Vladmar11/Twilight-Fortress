@@ -160,6 +160,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/list/custom_descriptors = list()
 	var/defiant = TRUE
 	var/virginity = FALSE
+	var/drift = TRUE
 	var/char_accent = "No accent"
 	var/datum/loadout_item/loadout
 	/// Tracker to whether the person has ever spawned into the round, for purposes of applying the respawn ban
@@ -714,6 +715,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	dat += "<td width='33%' align='right'>"
 	dat += "<b>Be defiant:</b> <a href='?_src_=prefs;preference=be_defiant'>[(defiant) ? "Yes":"No"]</a><br>"
 	dat += "<b>Be a virgin:</b> <a href='?_src_=prefs;preference=be_virgin'>[(virginity) ? "Yes":"No"]</a><br>"
+	dat += "<b>Stat drift:</b> <a href='?_src_=prefs;preference=stat_drift'>[(drift) ? "Enabled":"Disabled"]</a><br>"
 	dat += "<b>Be voice:</b> <a href='?_src_=prefs;preference=schizo_voice'>[(toggles & SCHIZO_VOICE) ? "Enabled":"Disabled"]</a>"
 	dat += "</td>"
 	dat += "</tr>"
@@ -1959,6 +1961,13 @@ Slots: [job.spawn_positions]</span>
 					else
 						to_chat(user, span_notice("You have. In a word. Fucked before.")) //Someone word this better please kitty is high and words are hard
 
+				if("stat_drift")
+					drift = !drift
+					if(drift)
+						to_chat(user, span_notice("Позволь воле случая вершить твою историю и, возможно, окажешься в плюсе."))
+					else
+						to_chat(user, span_notice("Ты можешь быть слабаком, но какая разница, если залог победы - не дать богам бросить кости?"))
+
 				if("schizo_voice")
 					toggles ^= SCHIZO_VOICE
 					if(toggles & SCHIZO_VOICE)
@@ -2102,6 +2111,7 @@ Slots: [job.spawn_positions]</span>
 	character.backpack = backpack
 	character.defiant = defiant
 	character.virginity = virginity
+	character.drift = drift
 
 	character.jumpsuit_style = jumpsuit_style
 

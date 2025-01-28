@@ -364,6 +364,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["feature_mcolor3"]					>> features["mcolor3"]
 	S["feature_ethcolor"]					>> features["ethcolor"]
 	S["virginity"]							>> virginity
+	S["drift"]								>> drift
 
 /datum/preferences/proc/load_character(slot)
 	if(!path)
@@ -501,6 +502,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	validate_body_markings()
 
 	virginity = sanitize_integer(virginity, FALSE, TRUE, FALSE)
+	drift = sanitize_integer(drift, FALSE, TRUE, TRUE)
 	if(!family_species)
 		family_species = list()
 	if(isnull(family))
@@ -574,6 +576,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	//virginity
 	WRITE_FILE(S["virginity"], virginity)
+
+	WRITE_FILE(S["drift"], drift)
 	
 	WRITE_FILE(S["family"]							, family)
 	WRITE_FILE(S["family_species"]					, family_species)
