@@ -27,8 +27,8 @@
 		shoes = /obj/item/clothing/shoes/roguetown/shortboots
 
 	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE) 
-		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE) 
+		H.mind.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE) // okish fists now(used to be four when the last note was written lmao)
 		H.mind.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
