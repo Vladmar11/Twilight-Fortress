@@ -46,6 +46,7 @@ All foods are distributed among various categories. Use common sense.
 	var/slices_num
 	var/slice_batch = TRUE
 	var/eatverb
+	var/eatverb_me // 1st person verbs, for localization purposes
 	var/dried_type = null
 	var/dry = 0
 	var/dunkable = FALSE // for dunkable food, make true
@@ -97,10 +98,10 @@ All foods are distributed among various categories. Use common sense.
 	if(ismob(target))
 		var/mob/M = target
 		var/list/targetl = list(target)
-		user.visible_message(span_green("[user] beckons [M] with [masteritem]."), span_green("I beckon [M] with [masteritem]."), ignored_mobs = targetl)
+		user.visible_message(span_green("[user] подманивает [M] с помощью [masteritem]."), span_green("Я подманиваю [M], используя [masteritem]."), ignored_mobs = targetl)
 		if(M.client)
 			if(M.can_see_cone(user))
-				to_chat(M, span_green("[user] beckons me with [masteritem]."))
+				to_chat(M, span_green("[user] подманивает меня с [masteritem] в руке."))
 		M.food_tempted(masteritem, user)
 	return
 
@@ -145,7 +146,7 @@ All foods are distributed among various categories. Use common sense.
 		color = "#6c6897"
 		var/mutable_appearance/rotflies = mutable_appearance('icons/roguetown/mob/rotten.dmi', "rotten")
 		add_overlay(rotflies)
-		name = "rotten [initial(name)]"
+		name = "гнилое [initial(name)]"
 		eat_effect = /datum/status_effect/debuff/rotfood
 		slices_num = 0
 		slice_path = null
@@ -275,11 +276,11 @@ All foods are distributed among various categories. Use common sense.
 				M.changeNext_move(CLICK_CD_MELEE * 0.5)*/
 			switch(M.nutrition)
 				if(NUTRITION_LEVEL_FAT to INFINITY)
-					user.visible_message(span_notice("[user] forces [M.p_them()]self to eat \the [src]."), span_notice("I force myself to eat \the [src]."))
+					user.visible_message(span_notice("[user] кормит себя [src] через силу."), span_notice("Я заставляю себя съесть [src]."))
 				if(NUTRITION_LEVEL_STARVING to NUTRITION_LEVEL_FAT)
-					user.visible_message(span_notice("[user] [eatverb]s \the [src]."), span_notice("I [eatverb] \the [src]."))
+					user.visible_message(span_notice("[user] [eatverb] [src]."), span_notice("I [eatverb_me] [src]."))
 				if(0 to NUTRITION_LEVEL_STARVING)
-					user.visible_message(span_notice("[user] hungrily [eatverb]s \the [src], gobbling it down!"), span_notice("I hungrily [eatverb] \the [src], gobbling it down!"))
+					user.visible_message(span_notice("[user] жадно [eatverb] [src], быстро проглатывая!"), span_notice("Я жадно [eatverb_me] [src] и тут же глотаю!"))
 					M.changeNext_move(CLICK_CD_MELEE * 0.5)
 /*			if(M.energy <= 50)
 				user.visible_message(span_notice("[user] hungrily [eatverb]s \the [src], gobbling it down!"), span_notice("I hungrily [eatverb] \the [src], gobbling it down!"))
@@ -293,12 +294,12 @@ All foods are distributed among various categories. Use common sense.
 			if(!isbrain(M))		//If you're feeding it to someone else.
 //				if(fullness <= (600 * (1 + M.overeatduration / 1000)))
 				if(M.nutrition in NUTRITION_LEVEL_FAT to INFINITY)
-					M.visible_message(span_warning("[user] cannot force any more of [src] down [M]'s throat!"), \
-										span_warning("[user] cannot force any more of [src] down your throat!"))
+					M.visible_message(span_warning("[user] не может протолкнуть ни кусочка [src] в рот [M]!"), \
+										span_warning("[user] не может протолкнуть ни кусочка [src] в ваш рот!"))
 					return FALSE
 				else
-					M.visible_message(span_danger("[user] tries to feed [M] [src]."), \
-										span_danger("[user] tries to feed me [src]."))
+					M.visible_message(span_danger("[user] пытается накормить [M] [src]."), \
+										span_danger("[user] пытается накормить меня [src]."))
 				if(iscarbon(M))
 					var/mob/living/carbon/C = M
 					var/obj/item/bodypart/CH = C.get_bodypart(BODY_ZONE_HEAD)
@@ -311,7 +312,7 @@ All foods are distributed among various categories. Use common sense.
 				log_combat(user, M, "fed", reagents.log_list())
 //				M.visible_message(span_danger("[user] forces [M] to eat [src]!"), span_danger("[user] forces you to eat [src]!"))
 			else
-				to_chat(user, span_warning("[M] doesn't seem to have a mouth!"))
+				to_chat(user, span_warning("У [M] нет рта!"))
 				return
 
 		if(reagents)								//Handle ingestion of the reagent.
@@ -344,11 +345,11 @@ All foods are distributed among various categories. Use common sense.
 			if (0)
 				return
 			if(1)
-				. += "[src] was bitten by someone!"
+				. += "[src] уже кем-то покусано!"
 			if(2,3)
-				. += "[src] was bitten [bitecount] times!"
+				. += "[src] уже покусано [bitecount] раза!"
 			else
-				. += "[src] was bitten multiple times!"
+				. += "[src] уже покусано множество раз!"
 
 /obj/item/reagent_containers/food/snacks/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/storage))
@@ -358,10 +359,10 @@ All foods are distributed among various categories. Use common sense.
 		if(slice_bclass == BCLASS_CHOP)
 			//	RTD meat chopping noise
 			if(prob(66))
-				user.visible_message(span_warning("[user] chops [src]!"))
+				user.visible_message(span_warning("[user] рубит [src]!"))
 				return 0
 			else
-				user.visible_message(span_notice("[user] chops [src]!"))
+				user.visible_message(span_notice("[user] рубит [src]!"))
 				slice(W, user)
 				return 1
 		else if(slice(W, user))
@@ -402,7 +403,7 @@ All foods are distributed among various categories. Use common sense.
 			!(locate(/obj/structure/table/optable) in src.loc) && \
 			!(locate(/obj/item/storage/bag/tray) in src.loc) \
 		)
-		to_chat(user, span_warning("I need to use a table."))
+		to_chat(user, span_warning("Для этого мне нужен стол."))
 		return FALSE
 
 	if(slice_batch)
@@ -499,11 +500,11 @@ All foods are distributed among various categories. Use common sense.
 		if(isdog(M))
 			var/mob/living/L = M
 			if(bitecount == 0 || prob(50))
-				M.emote("me", 1, "nibbles away at \the [src]")
+				M.emote("me", 1, "проглатывает [src]")
 			bitecount++
 			L.taste(reagents) // why should carbons get all the fun?
 			if(bitecount >= 5)
-				var/sattisfaction_text = pick("burps from enjoyment", "yaps for more", "woofs twice", "looks at the area where \the [src] was")
+				var/sattisfaction_text = pick("рыгает от удовольствия", "просит еще", "дважды тявкает", "смотрит на место, где лежало [src]")
 				if(sattisfaction_text)
 					M.emote("me", 1, "[sattisfaction_text]")
 				qdel(src)
@@ -514,15 +515,15 @@ All foods are distributed among various categories. Use common sense.
 		return
 	if(istype(M, /obj/item/reagent_containers/glass))	//you can dunk dunkable snacks into beakers or drinks
 		if(!M.is_drainable())
-			to_chat(user, span_warning("[M] is unable to be dunked in!"))
+			to_chat(user, span_warning("В [M] нельзя ничего окунуть!"))
 			return
 		if(M.reagents.trans_to(src, dunk_amount, transfered_by = user))	//if reagents were transfered, show the message
-			to_chat(user, span_notice("I dunk \the [src] into \the [M]."))
+			to_chat(user, span_notice("Я окунаю [src] в [M]."))
 			return
 		if(!M.reagents.total_volume)
-			to_chat(user, span_warning("[M] is empty!"))
+			to_chat(user, span_warning("[M] пусто!"))
 		else
-			to_chat(user, span_warning("[src] is full!"))
+			to_chat(user, span_warning("[src] уже полон!"))
 
 // //////////////////////////////////////////////Store////////////////////////////////////////
 /// All the food items that can store an item inside itself, like bread or cake.
@@ -540,9 +541,9 @@ All foods are distributed among various categories. Use common sense.
 		if(!iscarbon(user))
 			return 0
 		if(contents.len >= 20)
-			to_chat(user, span_warning("[src] is full."))
+			to_chat(user, span_warning("[src] полон."))
 			return 0
-		to_chat(user, span_notice("I slip [W] inside [src]."))
+		to_chat(user, span_notice("Я подкладываю [W] внутрь [src]."))
 		user.transferItemToLoc(W, src)
 		add_fingerprint(user)
 		contents += W
@@ -561,7 +562,7 @@ All foods are distributed among various categories. Use common sense.
 
 
 /obj/item/reagent_containers/food/snacks/badrecipe
-	name = "burned mess"
+	name = "горелое месиво"
 	desc = ""
 	icon_state = "badrecipe"
 	list_reagents = list(/datum/reagent/toxin/bad_food = 30)

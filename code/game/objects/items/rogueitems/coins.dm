@@ -23,6 +23,7 @@
 	var/base_type //used for compares
 	var/quantity = 1
 	var/plural_name
+	var/plural_name_alert
 
 /obj/item/roguecoin/Initialize(mapload, coin_amount)
 	. = ..()
@@ -98,7 +99,7 @@
 		var/amt_text = " (от 1 до [quantity])"
 		if(quantity == 1)
 			amt_text = ""
-		var/amount = input(user, "Сколько [plural_name] взять?[amt_text]", null, round(quantity/2, 1)) as null|num
+		var/amount = input(user, "Сколько [plural_name_alert] взять?[amt_text]", null, round(quantity/2, 1)) as null|num
 		amount = clamp(amount, 0, quantity)
 		amount = round(amount, 1) // no taking non-integer coins
 		if(!amount)
@@ -182,7 +183,8 @@
 	icon_state = "g1"
 	sellprice = 10
 	base_type = CTYPE_GOLD
-	plural_name = "зенариев"
+	plural_name = "зенарии"
+	plural_name_alert = "зенариев"
 
 
 // SILVER
@@ -192,7 +194,8 @@
 	icon_state = "s1"
 	sellprice = 5
 	base_type = CTYPE_SILV
-	plural_name = "зелик"
+	plural_name = "зелики"
+	plural_name_alert = "зелик"
 
 // COPPER
 /obj/item/roguecoin/copper
@@ -202,6 +205,7 @@
 	sellprice = 1
 	base_type = CTYPE_COPP
 	plural_name = "зенни"
+	plural_name_alert = "зенни"
 
 /obj/item/roguecoin/copper/pile/Initialize()
 	. = ..()
