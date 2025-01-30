@@ -35,6 +35,9 @@
 	new_patron.on_gain(src)
 	return TRUE
 
+/mob/living
+	var/drift = TRUE
+
 /mob/living/proc/roll_stats()
 	STASTR = 10
 	STAPER = 10
@@ -43,9 +46,10 @@
 	STAEND = 10
 	STASPD = 10
 	STALUC = 10
-	for(var/S in MOBSTATS)
-		var/how_much = pick(-1, 0, 1)
-		change_stat(S, how_much)
+	if(drift)
+		for(var/S in MOBSTATS)
+			var/how_much = pick(-1, 0, 1)
+			change_stat(S, how_much)
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
 		if(H.dna.species)
