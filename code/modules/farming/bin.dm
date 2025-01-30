@@ -1,6 +1,6 @@
 /obj/item/roguebin
-	name = "wood bin"
-	desc = "A washbin, a trashbin, a bloodbin... Your choices are limitless."
+	name = "деревянная бадья"
+	desc = "Бадья, мусорная корзина, ящик... Выбор безграничен."
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "washbin1"
 	var/base_state
@@ -61,13 +61,13 @@
 		var/mob/living/L = user
 		if(kover)
 			playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
-			user.visible_message(span_warning("[user] kicks [src]!"), \
-				span_warning("I kick [src]!"))
+			user.visible_message(span_warning("[user] пинает [src]!"), \
+				span_warning("Я пинаю [src]!"))
 			return
 		if(prob(L.STASTR * 8))
 			playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
-			user.visible_message(span_warning("[user] kicks over [src]!"), \
-				span_warning("I kick over [src]!"))
+			user.visible_message(span_warning("[user] опрокидывает [src]!"), \
+				span_warning("Я опрокидываю [src]!"))
 			kover = TRUE
 			chem_splash(loc, 2, list(reagents))
 			var/datum/component/storage/STR = GetComponent(/datum/component/storage)
@@ -78,8 +78,8 @@
 			update_icon()
 		else
 			playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
-			user.visible_message(span_warning("[user] kicks [src]!"), \
-				span_warning("I kick [src]!"))
+			user.visible_message(span_warning("[user] пинает [src]!"), \
+				span_warning("Я пинаю [src]!"))
 
 /obj/item/roguebin/attack_hand(mob/user)
 	var/datum/component/storage/CP = GetComponent(/datum/component/storage)
@@ -93,8 +93,8 @@
 		return
 	if(kover)
 		if(kover)
-			user.visible_message(span_notice("[user] starts to pick up [src]..."), \
-				span_notice("I start to pick up [src]..."))
+			user.visible_message(span_notice("[user] поднимает [src]..."), \
+				span_notice("Я поднимаю [src]..."))
 			if(do_after(user, 30, target = src))
 				kover = FALSE
 				update_icon()
@@ -110,19 +110,19 @@
 			if(!reagents.has_reagent(/datum/reagent/water, 5))
 				removereg = /datum/reagent/water/gross
 				if(!reagents.has_reagent(/datum/reagent/water/gross, 5))
-					to_chat(user, span_warning("No water to wash these stains."))
+					to_chat(user, span_warning("Нет воды, чтобы отстирать эти пятна."))
 					return
 			reagents.remove_reagent(removereg, 5)
 			var/list/wash = list('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg')
 			playsound(user, pick_n_take(wash), 100, FALSE)
 			var/item2wash = user.get_active_held_item()
 			if(!item2wash)
-				user.visible_message(span_info("[user] starts to wash in [src]."))
+				user.visible_message(span_info("[user] умывается в [src], как может."))
 				if(do_after(L, 30, target = src))
 					wash_atom(user, CLEAN_STRONG)
 					playsound(user, pick(wash), 100, FALSE)
 			else
-				user.visible_message(span_info("[user] starts to wash [item2wash] in [src]."))
+				user.visible_message(span_info("[user] моет [item2wash] в [src]."))
 				if(do_after(L, 30, target = src))
 					wash_atom(item2wash, CLEAN_STRONG)
 					playsound(user, pick(wash), 100, FALSE)
@@ -155,16 +155,16 @@
 			if(!reagents.has_reagent(/datum/reagent/water, 5))
 				removereg = /datum/reagent/water/gross
 				if(!reagents.has_reagent(/datum/reagent/water/gross, 5))
-					to_chat(user, span_warning("Need more water to quench in."))
+					to_chat(user, span_warning("Нужно больше воды для остужения металла."))
 					return
 			if(!T.hingot.currecipe)
-				to_chat(user, span_warning("Huh?"))
+				to_chat(user, span_warning("Ха?"))
 				return
 			if(T.hingot.currecipe.progress != 100)
-				to_chat(user, span_warning("It's not finished yet."))
+				to_chat(user, span_warning("Изделие еще не готово."))
 				return
 			if(!T.hott)
-				to_chat(user, span_warning("I need to heat it to temper the metal."))
+				to_chat(user, span_warning("Мне нужно нагреть заготовку, чтобы закалить металл."))
 				return
 			var/used_turf = user.loc
 			if(!isturf(used_turf))
@@ -191,8 +191,8 @@
 	. = ..()
 
 /obj/item/roguebin/trash
-	name = "trash bin"
-	desc = "An eyesore that is meant to make things look cleaner."
+	name = "мусорный бак"
+	desc = "Бельмо на глазу, призванное сделать мир чище."
 	icon_state = "trashbin"
 	base_state = "trashbin"
 

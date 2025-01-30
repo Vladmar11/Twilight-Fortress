@@ -1,5 +1,5 @@
 /obj/item/trash/applecore
-	name = "apple core"
+	name = "сердцевина яблока"
 	icon_state = "applecore"
 	icon = 'icons/roguetown/items/produce.dmi'
 	baitchance = 75
@@ -8,7 +8,7 @@
 					/obj/item/reagent_containers/food/snacks/fish/angler = 1)
 
 /obj/item/trash/pearcore
-	name = "pear core"
+	name = "сердцевина груши"
 	icon_state = "pearcore"
 	icon = 'icons/roguetown/items/produce.dmi'
 	baitchance = 75
