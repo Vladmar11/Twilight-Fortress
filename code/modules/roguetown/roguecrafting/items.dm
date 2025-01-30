@@ -273,7 +273,7 @@
 	req_table = TRUE
 
 /datum/crafting_recipe/roguetown/poisonarrow
-	name = "отравленная стрела - (1 стрела, 5oz яда)"
+	name = "отравленная стрела - (1 стрела, 1.7oz яда)"
 	result = /obj/item/ammo_casing/caseless/rogue/arrow/poison
 	reqs = list(
 				/obj/item/ammo_casing/caseless/rogue/arrow/iron = 1,
@@ -282,7 +282,7 @@
 	req_table = TRUE
 
 /datum/crafting_recipe/roguetown/poisonarrow_stone
-	name = "отравленная каменная стрела - (1 стрела, 5oz яда)"
+	name = "отравленная каменная стрела - (1 стрела, 1.7oz яда)"
 	result = /obj/item/ammo_casing/caseless/rogue/arrow/stone/poison
 	reqs = list(
 				/obj/item/ammo_casing/caseless/rogue/arrow/stone = 1,
@@ -300,7 +300,7 @@
 	req_table = TRUE
 */
 /datum/crafting_recipe/roguetown/poisonarrow_five //Arrows and bolts can be smithed in batches of five. Makes sense for them to be dipped in batches of five, too
-	name = "отравленные стрелы (x5) - (5 стрел, 25oz яда)"
+	name = "отравленные стрелы (x5) - (5 стрел, 8.3oz яда)"
 	result = list(
 				/obj/item/ammo_casing/caseless/rogue/arrow/poison,
 				/obj/item/ammo_casing/caseless/rogue/arrow/poison,
@@ -324,7 +324,7 @@
 	req_table = TRUE
 */
 /datum/crafting_recipe/roguetown/poisonarrow_five_stone
-	name = "отравленные каменные стрелы (x5) - (5 стрел, 25oz яда)"
+	name = "отравленные каменные стрелы (x5) - (5 стрел, 8.3oz яда)"
 	result = list(
 				/obj/item/ammo_casing/caseless/rogue/arrow/stone/poison,
 				/obj/item/ammo_casing/caseless/rogue/arrow/stone/poison,
