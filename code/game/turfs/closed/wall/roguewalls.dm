@@ -18,8 +18,8 @@
 
 
 /turf/closed/wall/mineral/rogue/stone
-	name = "stone wall"
-	desc = "A wall of smooth, unyielding stone."
+	name = "каменная стена"
+	desc = "Стена из гладкого, неподатливого камня."
 	icon = 'icons/turf/walls/stone_wall.dmi'
 	icon_state = "stone"
 	smooth = SMOOTH_MORE
@@ -37,8 +37,8 @@
 	hardness = 3
 
 /turf/closed/wall/mineral/rogue/stone/window
-	name = "stone window"
-	desc = "A window with solid and sturdy stone frame."
+	name = "каменное окно"
+	desc = "Окно-бойница с твердой и прочной каменной рамой."
 	opacity = FALSE
 	explosion_block = 2
 	max_integrity = 1300
@@ -63,8 +63,8 @@
 	climbdiff = 4
 
 /turf/closed/wall/mineral/rogue/craftstone
-	name = "stone wall"
-	desc = "A durable wall made from specially crafted stone."
+	name = "каменная стена"
+	desc = "Прочная стена из специально обработанного камня."
 	icon = 'icons/turf/walls/craftstone.dmi'
 	icon_state = "box"
 	smooth = SMOOTH_MORE
@@ -83,8 +83,8 @@
 
 
 /turf/closed/wall/mineral/rogue/stonebrick
-	name = "brick wall"
-	desc = "Several rows of bricks form this wall."
+	name = "кирпичная стена"
+	desc = "Несколько рядов каменных кирпичей, собранных в стену."
 	icon = 'icons/turf/walls/stonebrick.dmi'
 	icon_state = "stonebrick"
 	smooth = SMOOTH_MORE
@@ -103,8 +103,8 @@
 	hardness = 2
 
 /turf/closed/wall/mineral/rogue/wood
-	name = "wooden wall"
-	desc = "A rough-hewn wall of wood."
+	name = "деревянная стена"
+	desc = "Грубо обтесанная деревянная стена."
 	icon = 'icons/turf/walls/roguewood.dmi'
 	icon_state = "wood"
 	smooth = SMOOTH_MORE
@@ -121,8 +121,8 @@
 	hardness = 7
 
 /turf/closed/wall/mineral/rogue/wood/window
-	name = "wooden window"
-	desc = "A window with rough hewn wood frame."
+	name = "деревянное окно"
+	desc = "Небольшое окно-бойница с рамой из грубо отесанного дерева."
 	opacity = FALSE
 	explosion_block = 1
 	max_integrity = 550
@@ -138,8 +138,8 @@
 	add_overlay(M)
 
 /turf/closed/wall/mineral/rogue/tent
-	name = "tent"
-	desc = "Made from durable fabric and wooden branches."
+	name = "палатка"
+	desc = "Изготовлена из прочной ткани и деревянных веток."
 	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "tent"
 	smooth = SMOOTH_FALSE
@@ -156,8 +156,8 @@
 	hardness = 70
 
 /turf/closed/wall/mineral/rogue/wooddark
-	name = "dark wood wall"
-	desc = "Made from durable, somewhat darker wood." // i am not sure if the wood is really dark
+	name = "темная деревянная стена"
+	desc = "Изготовлена из прочного, немного темного дерева." // i am not sure if the wood is really dark
 	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "corner"
 	smooth = SMOOTH_FALSE
@@ -185,7 +185,7 @@
 	icon_state = "slittedwooddark"
 
 /turf/closed/wall/mineral/rogue/wooddark/window
-	name = "dark wood window"
+	name = "темная деревянная бойница"
 	icon_state = "subwindow"
 	opacity = FALSE
 	explosion_block = 1
@@ -197,7 +197,7 @@
 	return ..()
 
 /turf/closed/wall/mineral/rogue/roofwall
-	name = "wooden wall"
+	name = "деревянная стена"
 	icon = 'icons/turf/roguewall.dmi'
 	icon_state = ""
 	smooth = SMOOTH_FALSE
@@ -224,8 +224,8 @@
 	icon_state = "roofTurf_IC"
 
 /turf/closed/wall/mineral/rogue/decowood
-	name = "decorated wooden wall"
-	desc = "Meticulously designed by an professional carpenter."
+	name = "украшенная деревянная стена"
+	desc = "Тщательно спроектирована профессиональным плотником."
 	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "decowood"
 	smooth = SMOOTH_FALSE
@@ -245,12 +245,12 @@
 	dir = pick(GLOB.cardinals)
 
 /turf/closed/wall/mineral/rogue/decowood/vert
-	name = "decorated wooden wall"
+	name = "украшенная деревянная стена"
 	icon_state = "decowood-vert"
 
 /turf/closed/wall/mineral/rogue/decostone
-	name = "decorated stone wall"
-	desc = "The mason did an excellent job etching details into this wall."
+	name = "украшенная каменная стена"
+	desc = "Каменщик проделал отличную работу, вытравив детали на этой стене."
 	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "decostone-b"
 	smooth = SMOOTH_MORE
@@ -270,7 +270,7 @@
 	icon_state = "decostone-l"
 
 /obj/structure/thronething
-	name = "decorated stone wall" // what is thronething??
+	name = "украшенная каменная стена" // what is thronething??
 	icon = 'icons/turf/roguewall.dmi'
 	max_integrity = 0
 	opacity = 0
@@ -292,8 +292,8 @@
 
 
 /turf/closed/wall/shroud //vines
-	name = "thick treetop"
-	desc = "All the birds flew away before I could see one!"
+	name = "верхушка дерева"
+	desc = "Все птицы улетели, прежде чем я увидел хоть одну!"
 	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "shroud1"
 	var/smooth_icon = 'icons/turf/smoothrocks.dmi'
@@ -329,11 +329,11 @@
 					res_replenish = world.time + 8 MINUTES
 				var/obj/item/B = new /obj/item/grown/log/tree/stick(user.loc)
 				user.put_in_hands(B)
-				user.visible_message(span_notice("[user] finds [B] in [src]."))
+				user.visible_message(span_notice("[user] находит [B] в [src]."))
 				return
-			user.visible_message(span_warning("[user] searches through [src]."))
+			user.visible_message(span_warning("[user] ищет что-то в [src]."))
 			if(!res)
-				to_chat(user, span_warning("Picked clean... I should try later."))
+				to_chat(user, span_warning("Верхушка обобрана... Стоит позже попробовать."))
 	..()
 
 /turf/closed/wall/shroud/Initialize()
@@ -346,8 +346,8 @@
 		target.ChangeTurf(/turf/open/floor/rogue/dirt/road)
 
 /turf/closed/wall/mineral/rogue/pipe
-	name = "metal wall"
-	desc = "Solid steel made into an impenetrable obstacle."
+	name = "металлическая стена"
+	desc = "Непреодолимое препятствие из твердой стали."
 	icon = 'icons/turf/pipewall.dmi'
 	icon_state = "iron_box"
 	smooth = SMOOTH_MORE
@@ -375,8 +375,8 @@
 /turf/closed/wall/mineral/rogue/stone/red_moss
     icon = 'icons/turf/walls/red_mossy.dmi'
 /turf/closed/wall/mineral/rogue/decostone/mossy
-    name = "decorated mossy stone wall"
-    desc = "There was much effort put into this wall a long time ago."
+    name = "замшелая каменная стена"
+    desc = "Давным-давно в эту стену было вложено много усилий."
     icon = 'icons/turf/Rougewall_mossy.dmi'
     icon_state = "decostone-b-green"
     climbdiff = 4

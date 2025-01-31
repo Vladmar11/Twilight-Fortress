@@ -5,8 +5,8 @@
 /datum/crafting_recipe/roguetown/sewing
 	tools = list(/obj/item/needle)
 	skillcraft = /datum/skill/misc/sewing
-	verbage_simple = "sew"
-	verbage = "sews"
+	verbage_simple = "сшиваю"
+	verbage = "сшивает"
 
 /* craftdif of 0 = NONE */
 

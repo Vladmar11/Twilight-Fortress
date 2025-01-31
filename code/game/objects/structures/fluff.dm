@@ -28,7 +28,7 @@
 	icon_state = "paperstack"
 
 /obj/structure/fluff/big_chain
-	name = "giant chain"
+	name = "гигантская цепь"
 	desc = ""
 	icon = 'icons/effects/32x96.dmi'
 	icon_state = "chain"
@@ -38,7 +38,7 @@
 	deconstructible = FALSE
 
 /obj/structure/fluff/railing
-	name = "railing"
+	name = "перила"
 	desc = ""
 	icon = 'icons/obj/railing.dmi'
 	icon_state = "railing"
@@ -151,13 +151,13 @@
 	layer = ABOVE_MOB_LAYER
 
 /obj/structure/fluff/railing/border
-	name = "border"
+	name = "ограда"
 	desc = ""
 	icon_state = "border"
 	passcrawl = FALSE
 
 /obj/structure/fluff/railing/fence
-	name = "palisade"
+	name = "частокол"
 	desc = ""
 	icon = 'icons/roguetown/misc/structure.dmi'
 	attacked_sound = 'sound/misc/woodhit.ogg'
@@ -221,7 +221,7 @@
 	return 1
 
 /obj/structure/bars
-	name = "bars"
+	name = "решетка"
 	desc = ""
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "bars"
@@ -253,7 +253,7 @@
 	icon_state = "chainlink"
 
 obj/structure/bars/steel
-	name = "steel bars"
+	name = "стальная решетка"
 	max_integrity = 2000
 
 /obj/structure/bars/tough
@@ -274,7 +274,7 @@ obj/structure/bars/steel
 	max_integrity = 1500
 
 /obj/structure/bars/passage/steel
-	name = "steel bars"
+	name = "стальная решетка"
 	max_integrity = 2000
 
 /obj/structure/bars/passage/redstone_triggered()
@@ -310,7 +310,7 @@ obj/structure/bars/steel
 	opacity = FALSE
 
 /obj/structure/bars/grille
-	name = "grille"
+	name = "напольная решетка"
 	desc = ""
 	icon_state = "floorgrille"
 	density = FALSE
@@ -352,7 +352,7 @@ obj/structure/bars/steel
 
 
 /obj/structure/bars/pipe
-	name = "bronze pipe"
+	name = "бронзовая труба"
 	desc = ""
 	icon_state = "pipe"
 	density = FALSE
@@ -366,7 +366,7 @@ obj/structure/bars/steel
 	smeltresult = /obj/item/ingot/bronze
 
 /obj/structure/bars/pipe/left
-	name = "bronze pipe"
+	name = "бронзовая труба"
 	desc = ""
 	icon_state = "pipe2"
 	dir = WEST
@@ -375,7 +375,7 @@ obj/structure/bars/steel
 //===========================
 
 /obj/structure/fluff/clock
-	name = "clock"
+	name = "часы"
 	desc = ""
 	icon = 'icons/roguetown/misc/tallstructure.dmi'
 	icon_state = "clock"
@@ -417,7 +417,7 @@ obj/structure/bars/steel
 /obj/structure/fluff/clock/attack_right(mob/user)
 	if(user.mind && isliving(user))
 		if(user.mind.special_items && user.mind.special_items.len)
-			var/item = input(user, "What will I take?", "STASH") as null|anything in user.mind.special_items
+			var/item = input(user, "Что я возьму?", "ТАЙНИК") as null|anything in user.mind.special_items
 			if(item)
 				if(user.Adjacent(src))
 					if(user.mind.special_items[item])
@@ -446,7 +446,7 @@ obj/structure/bars/steel
 				day = "Saturn's dae."
 			if(7)
 				day = "Sun's dae."
-		. += "Oh no, it's [station_time_timestamp("hh:mm")] on a [day]"
+		. += "Сейчас [station_time_timestamp("hh:mm")], [day]"
 
 /obj/structure/fluff/clock/CanPass(atom/movable/mover, turf/target)
 	if(get_dir(loc, mover) == dir)
@@ -459,7 +459,7 @@ obj/structure/bars/steel
 	return 1
 
 /obj/structure/fluff/wallclock
-	name = "clock"
+	name = "часы"
 	desc = ""
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "wallclock"
@@ -501,7 +501,7 @@ obj/structure/bars/steel
 				day = "Saturn's dae."
 			if(7)
 				day = "Sun's dae."
-		. += "Oh no, it's [station_time_timestamp("hh:mm")] on a [day]"
+		. += "Сейчас [station_time_timestamp("hh:mm")], [day]"
 
 /obj/structure/fluff/wallclock/Initialize()
 	soundloop = new(src, FALSE)
@@ -525,7 +525,7 @@ obj/structure/bars/steel
 	pixel_x = 32
 //vampire
 /obj/structure/fluff/wallclock/vampire
-	name = "ancient clock"
+	name = "старинные часы"
 	desc = ""
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "wallclockvampire"
@@ -545,7 +545,7 @@ obj/structure/bars/steel
 	pixel_x = 32
 
 /obj/structure/fluff/signage
-	name = "sign"
+	name = "указатель"
 	desc = ""
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "shitsign"
@@ -561,37 +561,37 @@ obj/structure/bars/steel
 /obj/structure/fluff/signage/examine(mob/user)
 	. = ..()
 	if(!user.is_literate())
-		. += "I have no idea what it says."
+		. += "Я не могу разобрать, что тут написано."
 	else
-		. += "It says \"TOWN ON ROCKHILL\""
+		. += "Здесь написано: \"ГРАД РОКХИЛЛ\""
 
 /obj/structure/fluff/buysign
 	icon_state = "signwrote"
-	name = "sign"
+	name = "табличка"
 	desc = ""
 	icon = 'icons/roguetown/misc/structure.dmi'
 /obj/structure/fluff/buysign/examine(mob/user)
 	. = ..()
 	if(!user.is_literate())
-		. += "I have no idea what it says."
+		. += "Я не могу разобрать, что тут написано."
 	else
-		. += "It says \"IMPORTS\""
+		. += "Здесь написано: \"ИМПОРТ\""
 
 /obj/structure/fluff/sellsign
 	icon_state = "signwrote"
-	name = "sign"
+	name = "табличка"
 	desc = ""
 	icon = 'icons/roguetown/misc/structure.dmi'
 /obj/structure/fluff/sellsign/examine(mob/user)
 	. = ..()
 	if(!user.is_literate())
-		. += "I have no idea what it says."
+		. += "Я не могу разобрать, что тут написано."
 	else
-		. += "It says \"EXPORTS\""
+		. += "Здесь написано: \"ЭКСПОРТ\""
 
 
 /obj/structure/fluff/customsign
-	name = "sign"
+	name = "табличка"
 	desc = ""
 	icon_state = "sign"
 	var/wrotesign
@@ -603,28 +603,28 @@ obj/structure/bars/steel
 	. = ..()
 	if(wrotesign)
 		if(!user.is_literate())
-			. += "I have no idea what it says."
+			. += "Я не могу разобрать, что тут написано."
 		else
-			. += "It says \"[wrotesign]\"."
+			. += "Здесь написано: \"[wrotesign]\"."
 
 /obj/structure/fluff/customsign/attackby(obj/item/W, mob/user, params)
 	if(!user.cmode)
 		if(!user.is_literate())
-			to_chat(user, span_warning("I don't know any verba."))
+			to_chat(user, span_warning("Я не умею писать!"))
 			return
 		if((user.used_intent.blade_class == BCLASS_STAB) && (W.wlength == WLENGTH_SHORT))
 			if(wrotesign)
-				to_chat(user, span_warning("Something is already carved here."))
+				to_chat(user, span_warning("Здесь уже что-то вырезано."))
 				return
 			else
-				var/inputty = stripped_input(user, "What would you like to carve here?", "", null, 200)
+				var/inputty = stripped_input(user, "Что вы хотите вырезать на табличке?", "", null, 200)
 				if(inputty && !wrotesign)
 					wrotesign = inputty
 					icon_state = "signwrote"
 	..()
 
 /obj/structure/fluff/statue
-	name = "statue"
+	name = "статуя"
 	desc = ""
 	icon = 'icons/roguetown/misc/tallstructure.dmi'
 	icon_state = "bstatue"
@@ -643,7 +643,7 @@ obj/structure/bars/steel
 /obj/structure/fluff/statue/attack_right(mob/user)
 	if(user.mind && isliving(user))
 		if(user.mind.special_items && user.mind.special_items.len)
-			var/item = input(user, "What will I take?", "STASH") as null|anything in user.mind.special_items
+			var/item = input(user, "Что я возьму?", "ТАЙНИК") as null|anything in user.mind.special_items
 			if(item)
 				if(user.Adjacent(src))
 					if(user.mind.special_items[item])
@@ -680,14 +680,14 @@ obj/structure/bars/steel
 	icon_state = "knightstatue_l"
 
 /obj/structure/fluff/statue/astrata
-	name = "astrata statue"
-	desc = "A stone statue of the sun Goddess Astrata. Bless."
+	name = "статуя Астраты"
+	desc = "Каменная статуя богини солнца Астраты. Помолитесь."
 	icon_state = "astrata"
 	icon = 'icons/roguetown/misc/tallandwide.dmi'
 
 /obj/structure/fluff/statue/astrata/gold
-	name = "ornamental astrata statue"
-	desc = "An ornamental stone statue of the sun Goddess Astrata, decorated with golden jewelry. Bless."
+	name = "украшенная статуя Астраты"
+	desc = "Каменная статуя богини солнца Астраты, украшенная золотыми украшениями. Помолитесь."
 	icon_state = "astrata_bling"
 
 /obj/structure/fluff/statue/knight/r

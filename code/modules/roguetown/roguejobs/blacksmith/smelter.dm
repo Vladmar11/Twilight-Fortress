@@ -49,7 +49,7 @@
 		cooking = 0
 		return
 	else
-		to_chat(user, span_warning("[W.name] не может быть переплавлен."))
+		to_chat(user, span_warning("[W.name] не может быть переплавлен или внутри нет места."))
 	return ..()
 
 

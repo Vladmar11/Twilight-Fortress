@@ -425,7 +425,7 @@
 	pixel_x = -32
 
 /obj/machinery/light/rogue/torchholder
-	name = "бра"
+	name = "держатель для факела"
 	icon_state = "torchwall1"
 	base_state = "torchwall"
 	brightness = 5

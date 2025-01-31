@@ -248,7 +248,8 @@ All foods are distributed among various categories. Use common sense.
 	if(user.used_intent.type == INTENT_HARM)
 		return ..()
 	if(!eatverb)
-		eatverb = pick("bite","chew","nibble","gnaw","gobble","chomp")
+		eatverb = pick("откусывает","жует","грызет","глодает","пожирает","ест")
+		eatverb_me = pick("откусываю","жую","грызет","глодаю","пожираю","ем")
 	if(iscarbon(M))
 		if(!canconsume(M, user))
 			return FALSE
@@ -278,7 +279,7 @@ All foods are distributed among various categories. Use common sense.
 				if(NUTRITION_LEVEL_FAT to INFINITY)
 					user.visible_message(span_notice("[user] кормит себя [src] через силу."), span_notice("Я заставляю себя съесть [src]."))
 				if(NUTRITION_LEVEL_STARVING to NUTRITION_LEVEL_FAT)
-					user.visible_message(span_notice("[user] [eatverb] [src]."), span_notice("I [eatverb_me] [src]."))
+					user.visible_message(span_notice("[user] [eatverb] [src]."), span_notice("Я [eatverb_me] [src]."))
 				if(0 to NUTRITION_LEVEL_STARVING)
 					user.visible_message(span_notice("[user] жадно [eatverb] [src], быстро проглатывая!"), span_notice("Я жадно [eatverb_me] [src] и тут же глотаю!"))
 					M.changeNext_move(CLICK_CD_MELEE * 0.5)
