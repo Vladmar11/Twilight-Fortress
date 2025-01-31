@@ -97,12 +97,14 @@
 			shoes = /obj/item/clothing/shoes/roguetown/sandals
 			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
 			pants = /obj/item/clothing/under/roguetown/trou/leather/mourning
+			cloak = /obj/item/clothing/cloak/tabard/crusader/ravox
 		if(/datum/patron/divine/xylix)
 			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
 			head = /obj/item/clothing/head/roguetown/roguehood/black
 			neck = /obj/item/clothing/neck/roguetown/psicross/xylix
 			shoes = /obj/item/clothing/shoes/roguetown/sandals
 			pants = /obj/item/clothing/under/roguetown/trou/leather/mourning
+			cloak = /obj/item/clothing/cloak/tabard/crusader/xylix
 		else
 			head = /obj/item/clothing/head/roguetown/roguehood/astrata
 			neck = /obj/item/clothing/neck/roguetown/psicross/astrata

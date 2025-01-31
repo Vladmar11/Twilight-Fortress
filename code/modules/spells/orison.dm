@@ -37,19 +37,6 @@
 /obj/item/melee/touch_attack/orison/attack_self()
 	qdel(src)
 
-/obj/item/melee/touch_attack/orison/proc/handle_xp(mob/living/carbon/human/user, fatigue, ignore_cooldown = FALSE)
-	if (!ignore_cooldown)
-		if (world.time < xp_cooldown + xp_interval)
-			return
-
-	xp_cooldown = world.time
-
-	var/obj/effect/proc_holder/spell/targeted/touch/orison/base_spell = attached_spell
-	if (user)
-		var/skill_level = user.mind?.get_skill_level(attached_spell.associated_skill)
-		if (skill_level <= SKILL_LEVEL_EXPERT)
-			adjust_experience(user, base_spell.associated_skill, fatigue+attached_spell.devotion_cost)
-
 /obj/item/melee/touch_attack/orison/MiddleClick(mob/living/user, params)
 	. = ..()
 	if (user.has_status_effect(/datum/status_effect/light_buff))
@@ -63,18 +50,15 @@
 		if (/datum/intent/fill)
 			fatigue_used = create_water(target, user)
 			if (fatigue_used)
-				handle_xp(user, fatigue_used)
 				qdel(src)
 		if (INTENT_HELP)
 			fatigue_used = thaumaturgy(target, user)
 			if (fatigue_used)
-				handle_xp(user, fatigue_used)
 				user.devotion?.update_devotion(-fatigue_used)
 				qdel(src)
 		if (/datum/intent/use)
 			fatigue_used = cast_light(target, user)
 			if (fatigue_used)
-				handle_xp(user, fatigue_used)
 				user.devotion?.update_devotion(-fatigue_used)
 				qdel(src)
 
