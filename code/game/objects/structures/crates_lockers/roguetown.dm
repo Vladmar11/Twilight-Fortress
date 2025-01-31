@@ -1,5 +1,5 @@
 /obj/structure/closet/crate/chest
-	name = "chest"
+	name = "сундук"
 	desc = ""
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "chest3s"
@@ -61,7 +61,7 @@
 		new I(src)
 
 /obj/structure/closet/crate/roguecloset
-	name = "closet"
+	name = "шкаф"
 	desc = ""
 	icon = 'icons/roguetown/misc/structure.dmi'
 	base_icon_state = "closet"
@@ -103,8 +103,8 @@
 	icon_state = "closetlord"
 
 /obj/structure/closet/crate/drawer
-	name = "drawer"
-	desc = "A wooden drawer."
+	name = "комод"
+	desc = "Деревянный комод."
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "drawer5"
 	base_icon_state = "drawer5"
@@ -120,8 +120,8 @@
 	allow_dense = FALSE
 
 /obj/structure/closet/crate/drawer/inn
-	name = "drawer"
-	desc = "A wooden drawer."
+	name = "прикроватная тумбочка"
+	desc = "Деревянная тумбочка."
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "drawer5"
 	base_icon_state = "drawer5"

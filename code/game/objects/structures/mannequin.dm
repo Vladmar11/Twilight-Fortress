@@ -503,7 +503,7 @@
 	tipped_over = FALSE
 	var/matrix/mat = transform
 	transform = mat.Turn(-90)
-	to_chat(L, "You pull [src] off the ground.")
+	to_chat(L, "Вы поднимаете [src] с земли.")
 
 /*
 * Procs at creation or mapload. If no items_to_wear then it will equip
@@ -545,7 +545,7 @@
 */
 /obj/structure/mannequin/proc/makeStrippingButton(obj/item/I)
 	if(!istype(I))
-		return "<font color=grey>Empty</font>"
+		return "<font color=grey>Пусто</font>"
 	else
 		return I
 /*
@@ -631,8 +631,8 @@
 
 ////Subtypes/////
 /obj/structure/mannequin/male
-	name = "mannequin"
-	desc = "Its unsettlingly still."
+	name = "манекен"
+	desc = "Тревожно неподвижен."
 	icon_state = "man"
 
 /*
@@ -640,12 +640,12 @@
 * or unequipped of their clothing.
 */
 /obj/structure/mannequin/male/decorative
-	name = "decorative display"
-	desc = "Due to magic or fragile material the clothing on this one cannot be taken off."
+	name = "декоративный манекен"
+	desc = "Из-за магии или хрупкого материала одежду на этом предмете невозможно снять."
 	unchangeable = TRUE
 
 /obj/structure/mannequin/male/female
-	name = "mannequin"
+	name = "манекен"
 	icon_state = "woman"
 	gender = FEMALE
 
@@ -665,9 +665,9 @@
 
 /obj/structure/mannequin/male/EquippableSlots()
 	. = ..()
-	. += "<BR><B>Gloves:</B> <A href='?src=\ref[src];item=[BODY_ZONE_PRECISE_L_HAND]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_GLOVES])]</A>"
-	. += "<BR><B>Shoes:</B> <A href='?src=\ref[src];item=[BODY_ZONE_PRECISE_L_FOOT]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_FEET])]</A>"
-	. += "<BR><B>Pants:</B> <A href='?src=\ref[src];item=[BODY_ZONE_L_LEG]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_PANTS])]</A>"
+	. += "<BR><B>Перчатки:</B> <A href='?src=\ref[src];item=[BODY_ZONE_PRECISE_L_HAND]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_GLOVES])]</A>"
+	. += "<BR><B>Обувь:</B> <A href='?src=\ref[src];item=[BODY_ZONE_PRECISE_L_FOOT]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_FEET])]</A>"
+	. += "<BR><B>Штаны:</B> <A href='?src=\ref[src];item=[BODY_ZONE_L_LEG]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_PANTS])]</A>"
 
 /obj/structure/mannequin/male/bodypartsNightmare()
 	var/isfemale = (gender == FEMALE ? "f" : "m")

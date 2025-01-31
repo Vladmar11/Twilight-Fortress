@@ -1,5 +1,5 @@
 /obj/structure/chair/bench
-	name = "bench"
+	name = "скамья"
 	icon_state = "bench"
 	icon = 'icons/roguetown/misc/structure.dmi'
 	buildstackamount = 1
@@ -54,6 +54,7 @@
 	return !density
 
 /obj/structure/chair/bench/couch
+	name = "диван"
 	icon_state = "redcouch"
 
 /obj/structure/chair/bench/church/smallbench
@@ -63,18 +64,21 @@
 	icon_state = "redcouch2"
 
 /obj/structure/chair/bench/ultimacouch
+	name = "роскошный диван"
 	icon_state = "ultimacouchleft"
 
 /obj/structure/chair/bench/ultimacouch/r
 	icon_state = "ultimacouchright"
 
 /obj/structure/chair/bench/coucha
+	name = "роскошный диван"
 	icon_state = "couchaleft"
 
 /obj/structure/chair/bench/coucha/r
 	icon_state = "coucharight"
 
 /obj/structure/chair/bench/couchablack
+	name = "роскошный диван"
 	icon_state = "couchablackaleft"
 
 /obj/structure/chair/bench/couchablack/r
@@ -101,6 +105,7 @@
 	GLOB.lordcolor -= src
 
 /obj/structure/chair/wood/rogue
+	name = "стул"
 	icon_state = "chair2"
 	icon = 'icons/roguetown/misc/structure.dmi'
 	item_chair = /obj/item/chair/rogue
@@ -118,6 +123,7 @@
 	attacked_sound = "woodimpact"
 
 /obj/structure/chair/wood/rogue/throne
+	name = "Трон Его Величества"
 	icon_state = "thronechair"
 	icon = 'icons/roguetown/misc/structure.dmi'
 	blade_dulling = DULLING_BASHCHOP
@@ -126,7 +132,7 @@
 	item_chair = null
 
 /obj/item/chair/rogue
-	name = "chair"
+	name = "стул"
 	icon = 'icons/roguetown/items/chairs.dmi'
 	icon_state = "chair2"
 	origin_type = /obj/structure/chair/wood/rogue
@@ -205,10 +211,12 @@
 
 
 /obj/structure/chair/wood/rogue/fancy
+	name = "роскошный стул"
 	icon_state = "chair1"
 	item_chair = /obj/item/chair/rogue/fancy
 
 /obj/item/chair/rogue/fancy
+	name = "роскошный стул"
 	icon_state = "chair1"
 	origin_type = /obj/structure/chair/wood/rogue/fancy
 
@@ -232,7 +240,7 @@
 
 
 /obj/structure/chair/stool/rogue
-	name = "stool"
+	name = "табурет"
 	desc = ""
 	icon_state = "barstool"
 	icon = 'icons/roguetown/misc/structure.dmi'
@@ -244,7 +252,7 @@
 	metalizer_result = /obj/item/cooking/pan
 
 /obj/item/chair/stool/bar/rogue
-	name = "stool"
+	name = "табурет"
 	icon_state = "baritem"
 	icon = 'icons/roguetown/misc/structure.dmi'
 	origin_type = /obj/structure/chair/stool/rogue
@@ -267,6 +275,7 @@
 				return list("shrink" = 0.8,"sx" = -20,"sy" = -6,"nx" = 0,"ny" = -7,"wx" = -18,"wy" = -5,"ex" = -4,"ey" = -8,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = -42,"sturn" = 33,"wturn" = 33,"eturn" = -21,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
 
 /obj/structure/bed/rogue
+	name = "кровать"
 	icon_state = "bed"
 	icon = 'icons/roguetown/misc/structure.dmi'
 	anchored = TRUE
@@ -278,6 +287,7 @@
 	metalizer_result = /obj/machinery/anvil/crafted
 
 /obj/structure/bed/rogue/shit
+	name = "лежанка"
 	icon_state = "shitbed"
 	sleepy = 1.5
 	metalizer_result = null
@@ -293,7 +303,7 @@
 
 /obj/structure/bed/rogue/sleepingbag/attack_hand(mob/user, params)
 	..()
-	user.visible_message("<span class='notice'>[user] begins rolling up \the [src].</span>")
+	user.visible_message("<span class='notice'>[user] скручивает [src].</span>")
 	if(do_after(user, 2 SECONDS, TRUE, src))
 		var/obj/item/sleepingbag/new_sleepingbag = new /obj/item/sleepingbag(get_turf(src))
 		new_sleepingbag.color = src.color
@@ -310,16 +320,16 @@
 	..()
 	var/turf/T = get_turf(loc)
 	if(!isfloorturf(T))
-		to_chat(user, "<span class='warning'>I need ground to plant this on!</span>")
+		to_chat(user, "<span class='warning'>Можно разложить только на ровной поверхности!</span>")
 		return
 	for(var/obj/A in T)
 		if(istype(A, /obj/structure))
-			to_chat(user, "<span class='warning'>I need some free space to deploy a [src] here!</span>")
+			to_chat(user, "<span class='warning'>Мне нужно немного свободного места, чтобы разложить [src]!</span>")
 			return
 		if(A.density && !(A.flags_1 & ON_BORDER_1))
-			to_chat(user, "<span class='warning'>There is already something here!</span>")
+			to_chat(user, "<span class='warning'>Здесь уже что-то есть!</span>")
 			return
-	user.visible_message("<span class='notice'>[user] begins placing \the [src] down on the ground.</span>")
+	user.visible_message("<span class='notice'>[user] раскладывает [src] на земле.</span>")
 	if(do_after(user, 2 SECONDS, TRUE, src))
 		var/obj/structure/bed/rogue/sleepingbag/new_sleepingbag = new /obj/structure/bed/rogue/sleepingbag(get_turf(src))
 		new_sleepingbag.color = src.color
@@ -334,8 +344,8 @@
 	M.reset_offsets("bed_buckle")
 
 /obj/structure/bed/rogue/bedroll
-	name = "bedroll"
-	desc = "So you can sleep on the ground more comfortable."
+	name = "полевая кровать"
+	desc = "В ней вам будет еще удобнее спать на земле."
 	icon_state = "bedroll"
 	attacked_sound = 'sound/foley/cloth_rip.ogg'
 	break_sound = 'sound/foley/cloth_rip.ogg'
@@ -343,14 +353,14 @@
 
 /obj/structure/bed/rogue/bedroll/attack_hand(mob/user, params)
 	..()
-	user.visible_message("<span class='notice'>[user] begins rolling up \the [src].</span>")
+	user.visible_message("<span class='notice'>[user] скручивает [src].</span>")
 	if(do_after(user, 2 SECONDS, TRUE, src))
 		var/obj/item/bedroll/new_bedroll = new /obj/item/bedroll(get_turf(src))
 		new_bedroll.color = src.color
 		qdel(src)
 
 /obj/item/bedroll
-	name = "rolled bedroll"
+	name = "полевая кровать"
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "bedroll_r"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -360,16 +370,16 @@
 	..()
 	var/turf/T = get_turf(loc)
 	if(!isfloorturf(T))
-		to_chat(user, "<span class='warning'>I need ground to plant this on!</span>")
+		to_chat(user, "<span class='warning'>Можно разложить только на ровной поверхности!</span>")
 		return
 	for(var/obj/A in T)
 		if(istype(A, /obj/structure))
-			to_chat(user, "<span class='warning'>I need some free space to deploy a [src] here!</span>")
+			to_chat(user, "<span class='warning'>Мне нужно немного свободного места, чтобы разложить [src]!</span>")
 			return
 		if(A.density && !(A.flags_1 & ON_BORDER_1))
-			to_chat(user, "<span class='warning'>There is already something here!</span>")
+			to_chat(user, "<span class='warning'>Здесь уже что-то есть!</span>")
 			return
-	user.visible_message("<span class='notice'>[user] begins placing \the [src] down on the ground.</span>")
+	user.visible_message("<span class='notice'>[user] раскладывает [src] на земле.</span>")
 	if(do_after(user, 2 SECONDS, TRUE, src))
 		var/obj/structure/bed/rogue/bedroll/new_bedroll = new /obj/structure/bed/rogue/bedroll(get_turf(src))
 		new_bedroll.color = src.color
