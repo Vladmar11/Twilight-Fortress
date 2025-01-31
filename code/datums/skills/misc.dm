@@ -1,38 +1,38 @@
 /datum/skill/misc
 	abstract_type = /datum/skill/misc
-	name = "Misc"
+	name = "Разное"
 	desc = ""
 
 /datum/skill/misc/athletics
-	name = "Athletics"
+	name = "Атлетика"
 
 /datum/skill/misc/climbing
-	name = "Climbing"
+	name = "Верхолазание"
 
 /datum/skill/misc/reading
-	name = "Reading"
+	name = "Чтение"
 	randomable_dream_xp = FALSE
 
 /datum/skill/misc/swimming
-	name = "Swimming"
+	name = "Плавание"
 
 /datum/skill/misc/stealing
-	name = "Pickpocketing"
+	name = "Кража"
 
 /datum/skill/misc/sneaking
-	name = "Sneaking"
+	name = "Скрытность"
 
 /datum/skill/misc/lockpicking
-	name = "Lockpicking"
+	name = "Взлом"
 
 /datum/skill/misc/riding
-	name = "Riding"
+	name = "Верховая езда"
 
 /datum/skill/misc/music
-	name = "Music"
+	name = "Музыка"
 
 /datum/skill/misc/treatment
-	name = "Treatment"
+	name = "Лечение"
 
 /datum/skill/misc/sewing
-	name = "Sewing"
+	name = "Портное дело"
