@@ -123,7 +123,7 @@
 	attacked_sound = "woodimpact"
 
 /obj/structure/chair/wood/rogue/throne
-	name = "Трон Его Величества"
+	name = "трон Рокхилла"
 	icon_state = "thronechair"
 	icon = 'icons/roguetown/misc/structure.dmi'
 	blade_dulling = DULLING_BASHCHOP

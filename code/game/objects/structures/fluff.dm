@@ -1087,7 +1087,7 @@ obj/structure/bars/steel
 
 /obj/structure/fluff/statue/shisha
 	name = "кальян"
-	desc = "Традиционный прибор дял курения с восточных земель. Этот, к сожалению, сломан."
+	desc = "Традиционный прибор для курения с земель Зибантии. Этот, к сожалению, сломан."
 	icon = 'icons/roguetown/misc/64x64.dmi'
 	icon_state = "zbuski"
 	density = FALSE
