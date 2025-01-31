@@ -1978,6 +1978,7 @@
 #include "modular\code\modules\maturity-prompt\code\maturity_prompt.dm"
 #include "modular\code\modules\maturity-prompt\code\maturity_subsystem.dm"
 #include "modular\Neu_Food\code\NeuFood.dm"
+#include "modular\Neu_Food\code\cooked\NeuFood_fancypies.dm"
 #include "modular\Neu_Food\code\cooked\NeuFood_meals.dm"
 #include "modular\Neu_Food\code\cooked\NeuFood_pies.dm"
 #include "modular\Neu_Food\code\cooked\NeuFood_snacks.dm"
