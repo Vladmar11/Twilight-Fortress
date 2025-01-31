@@ -31,10 +31,11 @@
 		pants =	/obj/item/clothing/under/roguetown/loincloth
 		belt =	/obj/item/storage/belt/rogue/leather/cloth
 	else
-		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
-		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen/sexy
+		mask = /obj/item/clothing/mask/rogue/exoticsilkmask
+		shirt = /obj/item/clothing/suit/roguetown/shirt/exoticsilkbra
 		pants =	/obj/item/clothing/under/roguetown/tights/stockings/fishnet/random
-		belt =	/obj/item/storage/belt/rogue/leather/cloth
+		belt =	/obj/item/storage/belt/rogue/leather/exoticsilkbelt
+		shoes = /obj/item/clothing/shoes/roguetown/goldanklets
 
 	beltr = /obj/item/storage/keyring/nightman
 	if(H.mind)

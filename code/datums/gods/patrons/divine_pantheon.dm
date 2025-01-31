@@ -63,7 +63,7 @@
 	domain = "Бог Войны, Справедливости и Силы"
 	desc = "Самый сильный из детей Псайдона, он наблюдает за людьми издалека."
 	worshippers = "Войны, Наёмники и те, кто ищет справедливости"
-	t1 = /obj/effect/proc_holder/spell/invoked/burden
+	//t0 = /obj/effect/proc_holder/spell/invoked/lesser_heal
 	confess_lines = list(
 		"РАВОКС - ЭТО СПРАВЕДЛИВОСТЬ!",
 		"ЧЕРЕЗ РАЗДОРЫ - К БЛАГОДАТИ!",

@@ -364,6 +364,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["feature_mcolor3"]					>> features["mcolor3"]
 	S["feature_ethcolor"]					>> features["ethcolor"]
 	S["virginity"]							>> virginity
+	S["spouse_ckey"]		>> spouse_ckey
 
 /datum/preferences/proc/load_character(slot)
 	if(!path)

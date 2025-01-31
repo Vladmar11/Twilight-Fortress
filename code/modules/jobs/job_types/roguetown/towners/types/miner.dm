@@ -20,8 +20,8 @@
 	backl = /obj/item/storage/backpack/rogue/backpack
 	backpack_contents = list(/obj/item/flint = 1)
 	if(H.gender == FEMALE)
-		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen
-		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/brown
+		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/lowcut
+		pants = /obj/item/clothing/under/roguetown/shortskirt
 	if(H.gender == MALE)
 		armor = /obj/item/clothing/suit/roguetown/armor/workervest
 		pants = /obj/item/clothing/under/roguetown/trou

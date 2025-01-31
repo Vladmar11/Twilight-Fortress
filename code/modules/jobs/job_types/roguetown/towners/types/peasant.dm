@@ -32,9 +32,8 @@
 	beltr = /obj/item/flint
 	backr = /obj/item/rogueweapon/hoe
 	if(H.gender == FEMALE)
-		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random
-		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
-		pants = null
+		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/lowcut
+		pants = /obj/item/clothing/under/roguetown/shortskirt
 	backpack_contents = list(/obj/item/seeds/wheat=1,/obj/item/seeds/apple=1,/obj/item/ash=1)
 	H.change_stat("strength", 1)
 	H.change_stat("endurance", 1)

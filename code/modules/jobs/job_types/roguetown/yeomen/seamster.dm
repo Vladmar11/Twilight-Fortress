@@ -33,6 +33,7 @@
 	else
 		belt = /obj/item/storage/belt/rogue/leather/cloth/lady
 		armor = /obj/item/clothing/suit/roguetown/armor/armordress
+		pants = /obj/item/clothing/under/roguetown/tights/stockings/silk
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)

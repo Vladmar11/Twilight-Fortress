@@ -1,5 +1,5 @@
 /datum/job/roguetown/churchling
-	title = "Churchling"
+	title = "Novitiate"
 	flag = CHURCHLING
 	department_flag = YOUNGFOLK
 	faction = "Station"
@@ -22,31 +22,34 @@
 
 /datum/outfit/job/roguetown/churchling/pre_equip(mob/living/carbon/human/H)
 	..()
-	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/treatment, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/magic/holy, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 	neck = /obj/item/clothing/neck/roguetown/psicross
 	if(H.gender == MALE)
 		armor = /obj/item/clothing/suit/roguetown/shirt/robe
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
+		pants = /obj/item/clothing/under/roguetown/tights
 	else
 		head = /obj/item/clothing/head/roguetown/armingcap
-		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random
-		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
-	pants = /obj/item/clothing/under/roguetown/tights
+		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/lowcut
+		pants = /obj/item/clothing/under/roguetown/shortskirt
 	belt = /obj/item/storage/belt/rogue/leather/rope
 	beltl = /obj/item/key/church
 	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
 	backl = /obj/item/storage/backpack/rogue/satchel
 
-	H.change_stat("perception", 1)
-	H.change_stat("speed", 2)
+	if(H.mind)
+		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/treatment, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/magic/holy, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/craft/cooking, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
+		H.change_stat("perception", 1)
+		H.change_stat("speed", 2)
+		H.change_stat("endurance", 1)
 
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
 	C.grant_spells_churchling(H)

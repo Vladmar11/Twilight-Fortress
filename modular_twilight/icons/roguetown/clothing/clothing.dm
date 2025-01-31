@@ -283,7 +283,7 @@
 	flags_inv = HIDEBOOB
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/lowcut
-	name = "low cut tunic"
+	name = "топик"
 	desc = "A tunic exposing much of the shoulders and neck. Shoulders?! How scandalous..."
 	icon = 'modular_twilight/icons/roguetown/clothing/shirts.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/shirts.dmi'
@@ -291,8 +291,8 @@
 	icon_state = "lowcut"
 	flags_inv = HIDEBOOB
 
-/obj/item/clothing/under/roguetown/skirt
-	name = "юбка"
+/obj/item/clothing/under/roguetown/shortskirt
+	name = "обычная юбка"
 	desc = "Long, flowing, and modest."
 	icon = 'modular_twilight/icons/roguetown/clothing/pants.dmi'
 	icon_state = "skirt"
@@ -300,23 +300,23 @@
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/pants.dmi'
 	color = "#6b5445"
 
-/obj/item/clothing/under/roguetown/skirt/random
+/obj/item/clothing/under/roguetown/shortskirt/random
 	name = "skirt"
 
-/obj/item/clothing/under/roguetown/skirt/random/Initialize()
+/obj/item/clothing/under/roguetown/shortskirt/random/Initialize()
 	color = pick("#6b5445", "#435436", "#704542", "#79763f")
 	return ..()
 
-/obj/item/clothing/under/roguetown/skirt/black
+/obj/item/clothing/under/roguetown/shortskirt/black
 	color = CLOTHING_BLACK
 
-/obj/item/clothing/under/roguetown/skirt/green
+/obj/item/clothing/under/roguetown/shortskirt/green
 	color = CLOTHING_DARK_GREEN
 
-/obj/item/clothing/under/roguetown/skirt/blue
+/obj/item/clothing/under/roguetown/shortskirt/blue
 	color = CLOTHING_BLUE
 
-/obj/item/clothing/under/roguetown/skirt/red
+/obj/item/clothing/under/roguetown/shortskirt/red
 	color = CLOTHING_RED
 
 /obj/item/clothing/head/roguetown/crownheart //Holds vars for children
@@ -332,3 +332,42 @@
 /obj/item/clothing/head/roguetown/crown //Holds vars for children
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/head.dmi'
+
+/obj/item/clothing/shoes/roguetown/goldanklets
+	name = "gold anklets"
+	desc = "Delicate golden hoops worn around the ankle."
+	gender = PLURAL
+	icon = 'modular_twilight/icons/roguetown/clothing/feet.dmi'
+	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/feet.dmi'
+	icon_state = "anklets"
+	item_state = "anklets"
+	sewrepair = TRUE
+
+/obj/item/clothing/mask/rogue/exoticsilkmask
+	name = "exotic silk mask"
+	icon = 'modular_twilight/icons/roguetown/clothing/masks.dmi'
+	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/masks.dmi'
+	icon_state = "exoticsilkmask"
+	flags_inv = HIDEFACE|HIDEFACIALHAIR
+	body_parts_covered = NECK|MOUTH
+	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
+	sewrepair = TRUE
+
+/obj/item/clothing/suit/roguetown/shirt/exoticsilkbra
+	name = "exotic silks"
+	desc = "Fanciful gold laced silks barely able to conceal what little it covers."
+	icon = 'modular_twilight/icons/roguetown/clothing/shirts.dmi'
+	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/shirts.dmi'
+	icon_state = "exoticsilkbra"
+	item_state = "exoticsilkbra"
+	gender = PLURAL
+	body_parts_covered = CHEST|ARMS|VITALS
+	sewrepair = TRUE
+
+/obj/item/storage/belt/rogue/leather/exoticsilkbelt
+	name = "exotic silk belt"
+	desc = "A gold adorned belt with the softest of silks barely concealing one's bits."
+	icon = 'modular_twilight/icons/roguetown/clothing/belts.dmi'
+	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/belts.dmi'
+	icon_state = "exoticsilkbelt"
+	sewrepair = TRUE

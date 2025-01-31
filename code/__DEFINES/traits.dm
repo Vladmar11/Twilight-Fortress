@@ -64,6 +64,7 @@
 #define TRAIT_CHOSEN "Consecrated Priest"
 #define TRAIT_NOCTURNAL "Noc's Moonlight" //Grants weak darkvision- lighting alpha 145, amplified for mages using the DV spell- alpha 200
 #define TRAIT_FORGEBLESSED "Malum's Devout" //Reduces the fatigue cost of smithing a bit.
+#define TRAIT_XYLIX "Blessing of Xylix"
 
 #define TRAIT_KNEESTINGER_IMMUNITY "Kneestinger Immunity"
 #define TRAIT_BASHDOORS "bashdoors"
@@ -76,6 +77,7 @@
 #define TRAIT_GOBLINCAMP "goblincamp"
 #define TRAIT_VAMPMANSION "vampiremansion"
 #define TRAIT_VAMP_DREAMS "vamp_dreams"
+#define TRAIT_SPECIALUNDEAD "specdead" //Prevents necromancers from instakilling vampires and liches by turning them into skeletons. Any new undead faction should either get this trait or a similar trait
 #define TRAIT_LIMPDICK "limp_dick"
 #define TRAIT_SEXPASS "sexpass"
 #define TRAIT_STEELHEARTED "steelhearted" //no bad mood from dismembering or seeing this
@@ -169,6 +171,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_STUDENT = span_info("The scholar has taught me new skills!"),
 	TRAIT_DARKLING = span_info("I am a creature of the dark and am sensitive to the light. The hateful sun is especially harsh on my eyes, and I prefer to sleep during the dae."),
 	TRAIT_INQUISITION = span_info("I am a member of the Inquisition. I can easily identify others of my cadre at a glance."),
+	TRAIT_XYLIX = span_info("I know how to speak in code that only fellow tricksters can understand.")
 ))
 
 // trait accessor defines

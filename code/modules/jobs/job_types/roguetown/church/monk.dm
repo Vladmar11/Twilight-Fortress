@@ -35,7 +35,7 @@
 /datum/outfit/job/roguetown/monk
 	name = "Acolyte"
 	jobtype = /datum/job/roguetown/monk
-	allowed_patrons = list(/datum/patron/divine/pestra, /datum/patron/divine/astrata, /datum/patron/divine/malum, /datum/patron/divine/eora)
+	allowed_patrons = list(/datum/patron/divine/pestra, /datum/patron/divine/astrata, /datum/patron/divine/malum, /datum/patron/divine/eora, /datum/patron/divine/abyssor, /datum/patron/divine/ravox, /datum/patron/divine/xylix)
 	
 /datum/outfit/job/roguetown/monk/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -60,6 +60,13 @@
 			head = /obj/item/clothing/head/roguetown/dendormask
 			neck = /obj/item/clothing/neck/roguetown/psicross/dendor
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/dendor
+		if(/datum/patron/divine/abyssor) // the deep calls!
+			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
+			shoes = /obj/item/clothing/shoes/roguetown/sandals
+			pants = /obj/item/clothing/under/roguetown/tights
+			neck = /obj/item/clothing/neck/roguetown/psicross/abyssor
+			armor = /obj/item/clothing/suit/roguetown/shirt/robe/abyssor
+			head = /obj/item/clothing/head/roguetown/roguehood/abyssor		
 		if(/datum/patron/divine/necra) //disabled and moved unto gravedigger, but code supports it
 			head = /obj/item/clothing/head/roguetown/necrahood
 			neck = /obj/item/clothing/neck/roguetown/psicross/necra
@@ -84,6 +91,18 @@
 			neck = /obj/item/clothing/neck/roguetown/psicross/eora
 			shoes = /obj/item/clothing/shoes/roguetown/sandals
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/eora
+		if(/datum/patron/divine/ravox)
+			head = /obj/item/clothing/head/roguetown/roguehood/black
+			neck = /obj/item/clothing/neck/roguetown/psicross/ravox
+			shoes = /obj/item/clothing/shoes/roguetown/sandals
+			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
+			pants = /obj/item/clothing/under/roguetown/trou/leather/mourning
+		if(/datum/patron/divine/xylix)
+			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
+			head = /obj/item/clothing/head/roguetown/roguehood/black
+			neck = /obj/item/clothing/neck/roguetown/psicross/xylix
+			shoes = /obj/item/clothing/shoes/roguetown/sandals
+			pants = /obj/item/clothing/under/roguetown/trou/leather/mourning
 		else
 			head = /obj/item/clothing/head/roguetown/roguehood/astrata
 			neck = /obj/item/clothing/neck/roguetown/psicross/astrata

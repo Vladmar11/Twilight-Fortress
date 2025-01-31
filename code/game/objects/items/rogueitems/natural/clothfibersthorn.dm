@@ -313,6 +313,8 @@
 /obj/item/natural/bundle/cloth
 	name = "рулон ткани"
 	icon_state = "clothroll1"
+	grid_width = 64
+	grid_height = 32
 	possible_item_intents = list(/datum/intent/use)
 	desc = "Целый рулон из нескольких кусков ткани."
 	force = 0
@@ -341,6 +343,10 @@
 	maxamount = 6
 	force = 0
 	throwforce = 0
+	grid_width = 32
+	grid_height = 64
+	base_width = 32
+	base_height = 64
 	firefuel = 5 MINUTES
 	resistance_flags = FLAMMABLE
 	w_class = WEIGHT_CLASS_TINY
