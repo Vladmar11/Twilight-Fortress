@@ -6,9 +6,9 @@
 		/obj/item/natural/fibers = 1,)
 	skill_level = 1
 
-/datum/crafting_recipe/roguetown/sewing/skirt
-	name = "юбка - (2 ткань, 1 волокно; APPRENTICE)"
-	result = list(/obj/item/clothing/under/roguetown/skirt)
+/datum/crafting_recipe/roguetown/sewing/shortskirt
+	name = "обычная юбка - (2 ткань, 1 волокно; APPRENTICE)"
+	result = list(/obj/item/clothing/under/roguetown/shortskirt)
 	reqs = list(
 		/obj/item/natural/cloth = 2,
 		/obj/item/natural/fibers = 1,)
@@ -39,3 +39,35 @@
 		/obj/item/natural/fibers = 1,
 		/obj/item/natural/silk = 1,)
 	skill_level = 4
+
+/datum/crafting_recipe/roguetown/sewing/exoticsilkbra
+	name = "exotic silk bra - (3 шёлк, 1 золотое кольцо; MASTER)"
+	result = list (/obj/item/clothing/suit/roguetown/shirt/exoticsilkbra)
+	reqs = list(/obj/item/natural/silk = 3,
+				/obj/item/clothing/ring/gold = 1)
+	skill_level = 5
+	sellprice = 150
+
+/datum/crafting_recipe/roguetown/sewing/exoticsilkmask
+	name = "exotic silk mask - (1 шёлк, 1 золотое кольцо; MASTER)"
+	result = list (/obj/item/clothing/mask/rogue/exoticsilkmask)
+	reqs = list(/obj/item/natural/silk = 1,
+				/obj/item/clothing/ring/gold = 1)
+	skill_level = 5
+	sellprice = 100
+
+/datum/crafting_recipe/roguetown/sewing/exoticsilkbelt
+	name = "exotic silk belt - (2 шёлк, 1 золотое кольцо; MASTER)"
+	result = list (/obj/item/storage/belt/rogue/leather/exoticsilkbelt)
+	reqs = list(/obj/item/natural/silk = 2,
+				/obj/item/clothing/ring/gold = 1)
+	skill_level = 5
+	sellprice = 130
+
+/datum/crafting_recipe/roguetown/sewing/goldanklet
+	name = "exotic silk anklets - (2 шёлк, 1 золотое кольцо; MASTER)"
+	result = list (/obj/item/clothing/shoes/roguetown/goldanklets)
+	reqs = list(/obj/item/natural/silk = 2,
+				/obj/item/clothing/ring/gold = 1)
+	skill_level = 5
+	sellprice = 100

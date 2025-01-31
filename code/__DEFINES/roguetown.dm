@@ -191,6 +191,8 @@
 	/datum/patron/divine/malum,\
 	/datum/patron/divine/ravox,\
 	/datum/patron/divine/eora,\
+	/datum/patron/divine/abyssor,\
+	/datum/patron/divine/xylix,\
 )
 
 #define ALL_ACOLYTE_PATRONS list(\
@@ -200,6 +202,9 @@
 	/datum/patron/divine/pestra,\
 	/datum/patron/divine/malum,\
 	/datum/patron/divine/eora,\
+	/datum/patron/divine/abyssor,\
+	/datum/patron/divine/ravox,\
+	/datum/patron/divine/xylix,\
 )
 
 #define ALL_DIVINE_PATRONS list(\
@@ -324,9 +329,17 @@ GLOBAL_LIST_EMPTY(job_respawn_delays)
 #define CTAG_MERCENARY		"CAT_MERCENARY"		// Mercs
 #define CTAG_HENCH			"CAT_HENCH"			// Whitevein Guards
 
+//Courtiers
+#define CTAG_SERVANT		"CAT_SERVANT"		// Maids and butlers
+#define CTAG_CLERK			"CAT_CLERK"			// Clerks
+
 //Garrison
-#define CTAG_BOG			"CAT_BOG"			//Vanguard
+#define CTAG_BOG			"CAT_BOG"			// Vanguard
+#define CTAG_SQUIRE			"CAT_SQUIRE"		// Squires
 #define CTAG_MAA			"CAT_MAA"			// Man-At-Arms
+
+//Nobles			Eventually all of them will get their subclasses
+#define CTAG_HEIR			"CAT_HEIR"			// Heirs
 
 //Antags
 #define CTAG_BANDIT			"CAT_BANDIT"		// Bandit class - Tied to the bandit antag really

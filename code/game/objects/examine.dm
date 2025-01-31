@@ -50,5 +50,9 @@
 			. += "[src] is made of fire-retardant materials."
 */
 
+	if(HAS_TRAIT(user, TRAIT_FORGEBLESSED) && !isnull(smeltresult))
+		var/obj/item/smelt_result = smeltresult
+		. += span_info("Это [span_green("можно переплавить")]. Получится: [span_blue(smelt_result.name)].")
+
 	for(var/datum/examine_effect/E in examine_effects)
 		E.trigger(user)

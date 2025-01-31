@@ -102,6 +102,14 @@
 		soundloop.stop()
 		user.remove_status_effect(/datum/status_effect/buff/cranking_soulchurner)
 
+/obj/item/psydonmusicbox/equipped(mob/living/user, silent)
+	..()
+	cranking = FALSE
+	update_icon()
+	if(soundloop)
+		soundloop.stop()
+		user.remove_status_effect(/datum/status_effect/buff/cranking_soulchurner)
+
 /obj/item/psydonmusicbox/getonmobprop(tag)
 	. = ..()
 	if(tag)

@@ -45,6 +45,8 @@
 		H.change_stat("speed", 1)
 
 	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
+	backr = /obj/item/storage/backpack/rogue/satchel
+	neck = /obj/item/storage/belt/rogue/pouch/coins/poor
 	belt = /obj/item/storage/belt/rogue/leather/rope
 	beltr = /obj/item/key/farm
 	if(H.gender == MALE)
@@ -56,5 +58,5 @@
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/random
 	else
 		head = /obj/item/clothing/head/roguetown/armingcap
-		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random
-		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
+		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/lowcut
+		pants = /obj/item/clothing/under/roguetown/shortskirt

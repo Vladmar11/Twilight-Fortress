@@ -82,7 +82,7 @@
 			backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel)
 			neck = /obj/item/storage/belt/rogue/pouch/coins/rich
 			id = /obj/item/clothing/ring/silver
-			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/purple
+			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/fancy
 			r_hand = /obj/item/rogueweapon/woodstaff
 			pants = /obj/item/clothing/under/roguetown/tights/stockings/silk/white
 			armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen/purple

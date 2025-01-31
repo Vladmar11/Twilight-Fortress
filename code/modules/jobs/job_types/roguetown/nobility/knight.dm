@@ -55,12 +55,8 @@
 	beltl = /obj/item/storage/keyring/knight
 	belt = /obj/item/storage/belt/rogue/leather/steel
 	backr = /obj/item/storage/backpack/rogue/satchel/black
+	r_hand = /obj/item/rogueweapon/mace/goden/steel
 	backpack_contents = list(/obj/item/rope/chain = 1, /obj/item/natural/feather = 1)
-
-	if(prob(50))
-		r_hand = /obj/item/rogueweapon/eaglebeak/lucerne
-	else
-		r_hand = /obj/item/rogueweapon/mace/goden/steel
 
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 5, TRUE)

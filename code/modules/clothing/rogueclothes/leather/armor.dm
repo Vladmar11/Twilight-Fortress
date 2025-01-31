@@ -17,6 +17,10 @@
 	armor_class = ARMOR_CLASS_LIGHT
 	salvage_result = /obj/item/natural/hide/cured
 
+/obj/item/clothing/suit/roguetown/armor/leather/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/storage/concrete/roguetown/cloak)
+
 /obj/item/clothing/suit/roguetown/armor/leather/advanced
 	name = "крепкая кожаная куртка"
 	desc = "Прочная, долговечная, гибкая. Поможет сохранить ваш стиль."
@@ -25,6 +29,7 @@
 	body_parts_covered = CHEST|GROIN|VITALS|LEGS|ARMS
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
 	armor = list("blunt" = 75, "slash" = 60, "stab" = 30, "bullet" = 10, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	// MAKE USE "leather"'s SLEEVE
 
 /obj/item/clothing/suit/roguetown/armor/leather/masterwork
 	name = "шедевральное кожаное пальто"
@@ -33,6 +38,7 @@
 	max_integrity = 300
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST, BCLASS_CHOP) //we're adding chop here!
 	armor = list("blunt" = 100, "slash" = 70, "stab" = 40, "bullet" = 10, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	// MAKE USE "leather"'s SLEEVE
 
 /obj/item/clothing/suit/roguetown/armor/leather/hide
 	name = "меховая куртка"
@@ -83,23 +89,6 @@
 	slot_flags = ITEM_SLOT_ARMOR
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
 	sleevetype = "shirt"
-
-/obj/item/clothing/suit/roguetown/armor/leather/vest/sailor/ComponentInitialize()
-	. = ..()
-	AddComponent(/datum/component/storage/concrete)
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR)
-		STR.max_combined_w_class = 2
-		STR.max_w_class = WEIGHT_CLASS_NORMAL
-		STR.max_items = 1
-
-/obj/item/clothing/suit/roguetown/armor/leather/vest/sailor/dropped(mob/living/carbon/human/user)
-	..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR)
-		var/list/things = STR.contents()
-		for(var/obj/item/I in things)
-			STR.remove_from_storage(I, get_turf(src))
 
 /obj/item/clothing/suit/roguetown/armor/leather/vest/sailor/nightman
 	name = "шелковая кофта"
@@ -210,4 +199,4 @@
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	sewrepair = TRUE
 	armor_class = ARMOR_CLASS_LIGHT
-	salvage_res
+	salvage_result = /obj/item/natural/hide/cured

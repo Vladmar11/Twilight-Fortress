@@ -102,7 +102,7 @@
 /datum/devotion/proc/grant_spells(mob/living/carbon/human/H)
 	if(!H || !H.mind || !patron)
 		return
-	var/list/spelllist = list()
+	var/list/spelllist = list(/obj/effect/proc_holder/spell/targeted/touch/orison)
 	if(islist(patron.t0)) // Snowflake code to check if T0 is a list, necessary for pestra
 		spelllist += patron.t0
 	else if (patron.t0)
@@ -121,7 +121,7 @@
 	if(!H || !H.mind || !patron)
 		return
 
-	var/list/spelllist = list(/obj/effect/proc_holder/spell/targeted/churn)
+	var/list/spelllist = list(/obj/effect/proc_holder/spell/targeted/touch/orison, /obj/effect/proc_holder/spell/targeted/churn)
 	if(islist(patron.t0))
 		spelllist += patron.t0
 	else if (patron.t0)
@@ -141,7 +141,7 @@
 	if(!H || !H.mind || !patron)
 		return
 
-	var/list/spelllist = list(/obj/effect/proc_holder/spell/invoked/lesser_heal, /obj/effect/proc_holder/spell/invoked/diagnose) //This would have caused jank.
+	var/list/spelllist = list(/obj/effect/proc_holder/spell/targeted/touch/orison, /obj/effect/proc_holder/spell/invoked/lesser_heal, /obj/effect/proc_holder/spell/invoked/diagnose) //This would have caused jank.
 	for(var/spell_type in spelllist)
 		if(!spell_type || H.mind.has_spell(spell_type))
 			continue
@@ -157,7 +157,24 @@
 		return
 
 	granted_spells = list()
-	var/list/spelllist = list(patron.t0, patron.t1, patron.t2, patron.t3, patron.t4, /obj/effect/proc_holder/spell/invoked/solar_smite)
+	var/list/spelllist = list(/obj/effect/proc_holder/spell/targeted/touch/orison, patron.t0, patron.t1, patron.t2, patron.t3, patron.t4, /obj/effect/proc_holder/spell/invoked/solar_smite)
+	for(var/spell_type in spelllist)
+		if(!spell_type || H.mind.has_spell(spell_type))
+			continue
+		var/newspell = new spell_type
+		H.mind.AddSpell(newspell)
+		LAZYADD(granted_spells, newspell)
+	level = CLERIC_T4
+	passive_devotion_gain = 1
+	update_devotion(300, CLERIC_REQ_4, silent = TRUE)
+	START_PROCESSING(SSobj, src)
+
+/datum/devotion/proc/grant_spells_monk(mob/living/carbon/human/H) //added to give acolytes passive regen like priests
+	if(!H || !H.mind || !patron)
+		return
+
+	granted_spells = list()
+	var/list/spelllist = list(/obj/effect/proc_holder/spell/targeted/touch/orison, patron.t0, patron.t1, patron.t2, patron.t3, patron.t4)
 	for(var/spell_type in spelllist)
 		if(!spell_type || H.mind.has_spell(spell_type))
 			continue

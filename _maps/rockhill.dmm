@@ -3185,7 +3185,7 @@
 "bLc" = (
 /obj/structure/mineral_door/wood/fancywood{
 	locked = 1;
-	lockid = "councillor";
+	lockid = "royal";
 	name = "Bath Chamber"
 	},
 /turf/open/floor/rogue/tile/bath,

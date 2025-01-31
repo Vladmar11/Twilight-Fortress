@@ -43,7 +43,8 @@
 		pants = /obj/item/clothing/under/roguetown/trou
 		wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	else
-		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random	
+		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/lowcut
+		pants = /obj/item/clothing/under/roguetown/shortskirt
 	if(H.mind)
 		H.change_stat("strength", 2)
 		H.change_stat("endurance", 1)

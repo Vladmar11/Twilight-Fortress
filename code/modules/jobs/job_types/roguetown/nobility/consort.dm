@@ -90,13 +90,11 @@
 		
 	else
 		belt = /obj/item/storage/belt/rogue/leather
-		beltr = /obj/item/gun/ballistic/firearm/arquebus_pistol
-		beltl = /obj/item/ammo_holder/bullet/lead
 		r_hand = /obj/item/storage/keyring/royal
 		head = /obj/item/clothing/head/roguetown/crown/consortcrown
 		neck = /obj/item/storage/belt/rogue/pouch/coins/rich
 		backr = /obj/item/storage/backpack/rogue/satchel
-		id = /obj/item/clothing/ring/active/nomag
+		id = /obj/item/clothing/ring/silver
 		pants = /obj/item/clothing/under/roguetown/tights/black
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
 		armor = /obj/item/clothing/suit/roguetown/armor/leather/duke

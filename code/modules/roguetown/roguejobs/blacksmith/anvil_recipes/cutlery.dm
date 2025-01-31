@@ -10,7 +10,7 @@
   name = "Оловянная миска 3x"
   req_bar = /obj/item/ingot/tin
   created_item = list(/obj/item/reagent_containers/glass/bowl/pewter, /obj/item/reagent_containers/glass/bowl/pewter, /obj/item/reagent_containers/glass/bowl/pewter)
-  skill_level = 1 // Pewter is v. easy to work with
+  skill_level = 0 // Pewter is v. easy to work with
 
 /datum/anvil_recipe/cutlery/tin/plate
   name = "Оловянное блюдо 3x"
@@ -39,7 +39,7 @@
   name = "Серебряная миска 3x"
   req_bar = /obj/item/ingot/silver
   created_item = list(/obj/item/reagent_containers/glass/bowl/silver, /obj/item/reagent_containers/glass/bowl/silver, /obj/item/reagent_containers/glass/bowl/silver)
-  skill_level = 2
+  skill_level = 4
 
 /datum/anvil_recipe/cutlery/silver/plate
   name = "Серебряное блюдо 3x"
@@ -101,9 +101,11 @@
 	name = "Стальные кубки 3x"
 	req_bar = /obj/item/ingot/steel
 	created_item = list(/obj/item/reagent_containers/glass/cup/steel, /obj/item/reagent_containers/glass/cup/steel, /obj/item/reagent_containers/glass/cup/steel)
+	skill_level = 3
 
 // Gold
-/datum/anvil_recipe/cutlery/cupsgold
+/datum/anvil_recipe/cutlery/gold/cupsgold
 	name = "Золотые кубки 3x"
 	req_bar = /obj/item/ingot/gold
 	created_item = list(/obj/item/reagent_containers/glass/cup/golden, /obj/item/reagent_containers/glass/cup/golden, /obj/item/reagent_containers/glass/cup/golden)
+	skill_level = 5

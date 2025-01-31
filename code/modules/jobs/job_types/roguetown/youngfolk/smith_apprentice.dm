@@ -33,8 +33,8 @@
 		armor = /obj/item/clothing/suit/roguetown/armor/leather/vest
 		wrists = /obj/item/clothing/wrists/roguetown/bracers/leather
 	else
-		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
+		pants = /obj/item/clothing/under/roguetown/shortskirt
 		cloak = /obj/item/clothing/cloak/apron/brown
 
 	if(H.mind)

@@ -40,10 +40,6 @@ GLOBAL_LIST_EMPTY(loadout_items)
 	name = "Tabard"
 	path = /obj/item/clothing/cloak/tabard
 
-/datum/loadout_item/captain
-	name = "captain's cape"
-	path = /obj/item/clothing/cloak/captain
-
 /datum/loadout_item/surcoat
 	name = "Surcoat"
 	path = /obj/item/clothing/cloak/stabard
@@ -59,6 +55,10 @@ GLOBAL_LIST_EMPTY(loadout_items)
 /datum/loadout_item/halfcloak
 	name = "Полуплащ"
 	path = /obj/item/clothing/cloak/half
+
+/datum/loadout_item/matron
+	name = "Плащ матроны"
+	path = /obj/item/clothing/cloak/matron
 
 //RINGS 
 /datum/loadout_item/copperring
@@ -78,10 +78,18 @@ GLOBAL_LIST_EMPTY(loadout_items)
 	name = "Riding Boots"
 	path = /obj/item/clothing/shoes/roguetown/ridingboots
 
+/datum/loadout_item/thighboots
+	name = "Thigh boots"
+	path = /obj/item/clothing/shoes/roguetown/nobleboot/thighboots
+
 //SHIRTS
 /datum/loadout_item/robe
 	name = "Robe"
 	path = /obj/item/clothing/suit/roguetown/shirt/robe
+
+/datum/loadout_item/grenzelhoftshirt
+	name = "Грензельхофтская рубашка"
+	path = /obj/item/clothing/suit/roguetown/shirt/grenzelhoft
 
 /datum/loadout_item/formalsilks
 	name = "Официальная рубашка"
@@ -94,6 +102,10 @@ GLOBAL_LIST_EMPTY(loadout_items)
 /datum/loadout_item/dress
 	name = "Dress"
 	path = /obj/item/clothing/suit/roguetown/shirt/dress/gen
+
+/datum/loadout_item/noblecoat
+	name = "Элегантное одеяние"
+	path = /obj/item/clothing/suit/roguetown/shirt/tunic/noblecoat
 
 /datum/loadout_item/nobledress
 	name = "noble dress"
@@ -118,6 +130,10 @@ GLOBAL_LIST_EMPTY(loadout_items)
 /datum/loadout_item/straplessdress
 	name = "Платье без бретелек"
 	path = /obj/item/clothing/suit/roguetown/shirt/dress/gen/strapless
+
+/datum/loadout_item/shortskirt
+	name = "Обычная юбка"
+	path = /obj/item/clothing/under/roguetown/shortskirt
 
 /datum/loadout_item/battleskirt
 	name = "Battle Skirt"
@@ -152,6 +168,30 @@ GLOBAL_LIST_EMPTY(loadout_items)
 /datum/loadout_item/dwarvenmusicbox
 	name = "dwarven music box"
 	path = /obj/item/dmusicbox
+
+/datum/loadout_item/lute
+	name = "Лютня"
+	path = /obj/item/rogue/instrument/lute
+
+/datum/loadout_item/accord
+	name = "Аккордеон"
+	path = /obj/item/rogue/instrument/accord
+
+/datum/loadout_item/guitar
+	name = "Гитара"
+	path = /obj/item/rogue/instrument/guitar
+
+/datum/loadout_item/harp
+	name = "Арфа"
+	path = /obj/item/rogue/instrument/harp
+
+/datum/loadout_item/flute
+	name = "Флейта"
+	path = /obj/item/rogue/instrument/flute
+
+/datum/loadout_item/drum
+	name = "Барабан"
+	path = /obj/item/rogue/instrument/drum
 
 // Collars
 /datum/loadout_item/leathercollar

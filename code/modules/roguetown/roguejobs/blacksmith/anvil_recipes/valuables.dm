@@ -1,7 +1,6 @@
 /datum/anvil_recipe/valuables
 	i_type = "Драгоценности"
-	appro_skill = /datum/skill/craft/blacksmithing
-	skill_level = 2
+	skill_level = 4
 
 /datum/anvil_recipe/valuables/special/ringf
 	name = "Пылающее кольцо (+1 Жир, +1 Камень, +1 Волокно)"
@@ -17,14 +16,13 @@
 	name = "Благословлённое кольцо (+1 Псикрест)"
 	req_bar = /obj/item/ingot/iron
 	created_item = /obj/item/clothing/ringP
-	additional_items = list(
-		/obj/item/clothing/neck/roguetown/psicross
-		)
+	additional_items = list(/obj/item/clothing/neck/roguetown/psicross)
 
 /datum/anvil_recipe/valuables/gold
 	name = "Статуя"
 	req_bar = /obj/item/ingot/gold
 	created_item = /obj/item/roguestatue/gold
+	skill_level = 5
 
 /datum/anvil_recipe/valuables/silver
 	name = "Статуя"
@@ -35,6 +33,7 @@
 	name = "Статуя"
 	req_bar = /obj/item/ingot/iron
 	created_item = /obj/item/roguestatue/iron
+	skill_level = 3
 
 /datum/anvil_recipe/valuables/steel
 	name = "Статуя"
@@ -79,11 +78,8 @@
 /datum/anvil_recipe/valuables/copper/rings
 	name = "Кольца 3x"
 	req_bar = /obj/item/ingot/copper
-	created_item = list(
-		/obj/item/clothing/ring/copper, 
-        /obj/item/clothing/ring/copper,
-        /obj/item/clothing/ring/copper
-		)
+	created_item = list(/obj/item/clothing/ring/copper, /obj/item/clothing/ring/copper, /obj/item/clothing/ring/copper)
+	skill_level = 3
 
 //Gold Rings
 /datum/anvil_recipe/valuables/gold/emering
@@ -161,6 +157,8 @@
 	created_item = /obj/item/clothing/ring/diamonds
 
 // Copper rings
+/datum/anvil_recipe/valuables/copper
+	skill_level = 3
 
 /datum/anvil_recipe/valuables/copper/emering
 	name = "Кольцо с гемеральдом (+1 Гемеральд)"
@@ -209,3 +207,4 @@
 			/obj/item/clothing/neck/roguetown/psicross
 		)	
 	created_item = /obj/item/clothing/ring/dragon_ring
+	skill_level = 6

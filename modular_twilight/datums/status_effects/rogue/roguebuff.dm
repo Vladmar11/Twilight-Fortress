@@ -40,3 +40,68 @@
 
 /atom/movable/screen/alert/status_effect/debuff/breedable
 	name = "Psydon's Music"
+
+/atom/movable/screen/alert/status_effect/buff/healing
+	name = "Healing Miracle"
+	desc = "Divine intervention relieves me of my ailments."
+	icon_state = "buff"
+
+#define MIRACLE_HEALING_FILTER "miracle_heal_glow"
+
+/datum/status_effect/buff/healing
+	id = "healing"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/healing
+	duration = 10 SECONDS
+	examine_text = "SUBJECTPRONOUN is bathed in a restorative aura!"
+	var/healing_on_tick = 1
+	var/outline_colour = "#c42424"
+
+/datum/status_effect/buff/healing/on_creation(mob/living/new_owner, new_healing_on_tick)
+	healing_on_tick = new_healing_on_tick
+	return ..()
+
+/datum/status_effect/buff/healing/on_apply()
+	var/filter = owner.get_filter(MIRACLE_HEALING_FILTER)
+	if (!filter)
+		owner.add_filter(MIRACLE_HEALING_FILTER, 2, list("type" = "outline", "color" = outline_colour, "alpha" = 60, "size" = 1))
+	return TRUE
+
+/datum/status_effect/buff/healing/tick()
+	var/obj/effect/temp_visual/heal/H = new /obj/effect/temp_visual/heal_rogue(get_turf(owner))
+	H.color = "#FF0000"
+	var/list/wCount = owner.get_wounds()
+	if(owner.blood_volume < BLOOD_VOLUME_NORMAL)
+		owner.blood_volume = min(owner.blood_volume+10, BLOOD_VOLUME_NORMAL)
+	if(wCount.len > 0)
+		owner.heal_wounds(healing_on_tick)
+		owner.update_damage_overlays()
+	owner.adjustBruteLoss(-healing_on_tick, 0)
+	owner.adjustFireLoss(-healing_on_tick, 0)
+	owner.adjustOxyLoss(-healing_on_tick, 0)
+	owner.adjustToxLoss(-healing_on_tick, 0)
+	owner.adjustOrganLoss(ORGAN_SLOT_BRAIN, -healing_on_tick)
+	owner.adjustCloneLoss(-healing_on_tick, 0)
+
+/datum/status_effect/buff/healing/on_remove()
+	owner.remove_filter(MIRACLE_HEALING_FILTER)
+
+/atom/movable/screen/alert/status_effect/buff/fortify
+	name = "Fortifying Miracle"
+	desc = "Divine intervention bolsters me and aids my recovery."
+	icon_state = "buff"
+
+/datum/status_effect/buff/fortify //Increases all healing while it lasts.
+	id = "fortify"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/fortify
+	duration = 1 MINUTES
+
+/datum/status_effect/buff/call_to_arms
+	id = "call_to_arms"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/call_to_arms
+	duration = 2.5 MINUTES
+	effectedstats = list("strength" = 1, "endurance" = 2, "constitution" = 2)
+
+/atom/movable/screen/alert/status_effect/buff/call_to_arms
+	name = "Call to Arms"
+	desc = span_bloody("THE FIGHT WILL BE BLOODY!")
+	icon_state = "call_to_arms"

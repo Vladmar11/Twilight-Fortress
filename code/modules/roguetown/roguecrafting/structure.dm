@@ -159,12 +159,13 @@
 	sellprice = 6
 
 /datum/crafting_recipe/roguetown/structure/anvil
-	name = "наковальня - (1 слиток железа; NOVICE)"
+	name = "наковальня - (1 слиток железа; APPRENTICE)"
 	result = /obj/machinery/anvil
 	reqs = list(/obj/item/ingot/iron = 1)
 	skillcraft = /datum/skill/craft/blacksmithing
 	verbage_simple = "кую"
 	verbage = "кует"
+	skill_level = 2
 
 /datum/crafting_recipe/roguetown/structure/smelter
 	name = "каменная плавильня - (4 камня, 1 уголь)"
