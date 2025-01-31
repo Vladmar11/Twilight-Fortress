@@ -157,7 +157,7 @@
 
 /turf/closed/wall/mineral/rogue/wooddark
 	name = "темная деревянная стена"
-	desc = "Изготовлена из прочного, немного темного дерева." // i am not sure if the wood is really dark
+	desc = "Стена изготовлена из прочного, немного темного дерева." // i am not sure if the wood is really dark
 	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "corner"
 	smooth = SMOOTH_FALSE
@@ -185,7 +185,7 @@
 	icon_state = "slittedwooddark"
 
 /turf/closed/wall/mineral/rogue/wooddark/window
-	name = "темная деревянная бойница"
+	name = "темное деревянное окно"
 	icon_state = "subwindow"
 	opacity = FALSE
 	explosion_block = 1

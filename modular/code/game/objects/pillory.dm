@@ -155,7 +155,7 @@
 			else
 				playsound(loc, 'sound/items/pickbad.ogg', 40, TRUE)
 				I.take_damage(1)
-				to_chat(user, "<span class='warning'>Треск.</span>")
+				to_chat(user, "<span class='warning'>Звяк.</span>")
 				continue
 		return
 

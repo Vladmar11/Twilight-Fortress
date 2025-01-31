@@ -226,8 +226,8 @@
 	* some clothing will be invisible on the mannequin.
 	*/
 	msg += "У этого манекена [gender == FEMALE ? "женственное" : "маскулинное"] тело.<br>"
-	msg += ":Нацельтесь на то место, куда подходит одежда, перетащите манекен на себя, открыть менее иммерсивную панель.:"
-	to_chat(user, msg)
+	msg += "Нацельтесь на то место, куда подходит одежда, перетащите манекен на себя, чтобы открыть менее иммерсивную панель."
+	to_chat(user, "<span class='info'>[msg]</span>")
 
 //Tries to equip the mannequin. Part of attack_hand() reflection of Topic()
 /obj/structure/mannequin/proc/tryEquip(mob/user, equipment_slot)

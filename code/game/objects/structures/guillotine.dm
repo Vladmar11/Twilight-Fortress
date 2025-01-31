@@ -36,8 +36,7 @@
 	. = ..()
 
 /obj/structure/guillotine/examine(mob/user)
-	. = ..()
-
+	..()
 	var/msg = "Лезвие "
 
 	if (blade_status == GUILLOTINE_BLADE_RAISED)
@@ -49,7 +48,7 @@
 			msg += " выглядит не особенно острым. Возможно, для его заточки можно использовать камень."
 	else
 		msg += "упало вниз."
-	. += msg
+	to_chat(user, "<span class='info'>[msg]</span>")
 
 /obj/structure/guillotine/attack_hand(mob/user)
 	add_fingerprint(user)

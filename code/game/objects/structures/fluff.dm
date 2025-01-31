@@ -288,6 +288,7 @@ obj/structure/bars/steel
 		density = TRUE
 
 /obj/structure/bars/passage/shutter
+	name = "ставни"
 	icon_state = "shutter0"
 	density = TRUE
 	opacity = TRUE
@@ -720,6 +721,7 @@ obj/structure/bars/steel
 	icon_state = "elfs"
 
 /obj/structure/fluff/statue/pillar
+	name = "шест для танцев"
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "pillar"
 

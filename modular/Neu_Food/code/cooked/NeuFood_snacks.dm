@@ -33,7 +33,7 @@
 			to_chat(user, "Не хватает черного перца, чтобы что-нибудь приготовить.")
 			return TRUE
 		mill.icon_state = "peppermill_grind"
-		to_chat(user, "Вы начинаете натирать стейк черным перцем..")
+		to_chat(user, "Вы начинаете натирать стейк черным перцем...")
 		playsound(get_turf(user), 'modular/Neu_Food/sound/peppermill.ogg', 100, TRUE, -1)
 		if(do_after(user,long_cooktime, target = src))
 			if(!mill.reagents.has_reagent(/datum/reagent/consumable/blackpepper, 1))
@@ -43,6 +43,8 @@
 			mill.reagents.remove_reagent(/datum/reagent/consumable/blackpepper, 1)
 			new /obj/item/reagent_containers/food/snacks/rogue/peppersteak(loc)
 			qdel(src)
+		else
+			to_chat(user, "<span class='warning'>Нужно положить [src] на стол, чтобы втереть специи.</span>")
 
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/preserved/onion_fried))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
@@ -52,9 +54,6 @@
 			new /obj/item/reagent_containers/food/snacks/rogue/onionsteak(loc)
 			qdel(I)
 			qdel(src)
-
-	else
-		to_chat(user, "<span class='warning'>Нужно положить [src] на стол, чтобы втереть специи.</span>")
 
 
 /*	.............   Grenzelbun   ................ */
