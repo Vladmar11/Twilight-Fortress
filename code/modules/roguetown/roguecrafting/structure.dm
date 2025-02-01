@@ -11,7 +11,7 @@
 	return ..()
 
 /datum/crafting_recipe/roguetown/structure/pillory
-	name = "позорный столб - (1 полено, 1 слиток железа; APPRENTICE)"
+	name = "позорный столб - (1 полено, 1 слиток железа; УЧЕНИК)"
 	result = /obj/structure/pillory/double/custom
 	reqs = list(/obj/item/grown/log/tree/small = 1,
 				/obj/item/ingot/iron = 1,)
@@ -62,7 +62,7 @@
 	verbage = "устанавливает"
 
 /datum/crafting_recipe/roguetown/structure/swing_door
-	name = "распашная дверь - (2 полена; NOVICE)"
+	name = "распашная дверь - (2 полена; НОВИЧОК)"
 	result = /obj/structure/mineral_door/swing_door
 	reqs = list(/obj/item/grown/log/tree/small = 2)
 	verbage_simple = "устанавливаю"
@@ -70,7 +70,7 @@
 	skillcraft = /datum/skill/craft/carpentry
 
 /datum/crafting_recipe/roguetown/structure/door
-	name = "деревянная дверь - (2 полена; NOVICE)"
+	name = "деревянная дверь - (2 полена; НОВИЧОК)"
 	result = /obj/structure/mineral_door/wood
 	reqs = list(/obj/item/grown/log/tree/small = 2)
 	verbage_simple = "устанавливаю"
@@ -78,7 +78,7 @@
 	skillcraft = /datum/skill/craft/carpentry
 
 /datum/crafting_recipe/roguetown/structure/stonedoor
-	name = "каменная дверь - (2 камня; NOVICE)"
+	name = "каменная дверь - (2 камня; НОВИЧОК)"
 	result = /obj/structure/mineral_door/wood/donjon/stone
 	reqs = list(/obj/item/natural/stone = 2)
 	verbage_simple = "строю"
@@ -86,7 +86,7 @@
 	skillcraft = /datum/skill/craft/masonry
 
 /datum/crafting_recipe/roguetown/structure/doorbolt
-	name = "дверь c засовом - (2 полена, 1 палка; APPRENTICE)"
+	name = "дверь c засовом - (2 полена, 1 палка; УЧЕНИК)"
 	result = /obj/structure/mineral_door/wood/deadbolt
 	reqs = list(/obj/item/grown/log/tree/small = 2,
 				/obj/item/grown/log/tree/stick = 1)
@@ -96,7 +96,7 @@
 	skill_level = 2
 
 /datum/crafting_recipe/roguetown/structure/fancydoor
-	name = "изысканная дверь - (2 полена; JOURNEYMAN)"
+	name = "изысканная дверь - (2 полена; УМЕЛЕЦ)"
 	result = /obj/structure/mineral_door/wood/fancywood
 	reqs = list(/obj/item/grown/log/tree/small = 2)
 	verbage_simple = "устанавливаю"
@@ -105,7 +105,7 @@
 	skill_level = 3
 
 /datum/crafting_recipe/roguetown/structure/barrel
-	name = "деревянная бочка - (1 полено; NOVICE)"
+	name = "деревянная бочка - (1 полено; НОВИЧОК)"
 	result = /obj/structure/fermenting_barrel/crafted
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 	verbage_simple = "собираю"
@@ -125,7 +125,7 @@
 	skill_level = 0
 
 /datum/crafting_recipe/roguetown/structure/chair
-	name = "стул из дерева - (1 полено; NOVICE)"
+	name = "стул из дерева - (1 полено; НОВИЧОК)"
 	result = /obj/item/chair/rogue/crafted
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 	verbage_simple = "собираю"
@@ -136,7 +136,7 @@
 	sellprice = 6
 
 /datum/crafting_recipe/roguetown/structure/fancychair
-	name = "роскошный стул - (1 полено, 1 шелк; NOVICE)"
+	name = "роскошный стул - (1 полено, 1 шелк; НОВИЧОК)"
 	result = /obj/item/chair/rogue/fancy/crafted
 	reqs = list(/obj/item/grown/log/tree/small = 1,
 				/obj/item/natural/silk = 1)
@@ -148,7 +148,7 @@
 	sellprice = 12
 
 /datum/crafting_recipe/roguetown/structure/stool
-	name = "табурет из дерева - (1 полено; NOVICE)"
+	name = "табурет из дерева - (1 полено; НОВИЧОК)"
 	result = /obj/item/chair/stool/bar/rogue/crafted
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 	skillcraft = /datum/skill/craft/carpentry
@@ -159,7 +159,7 @@
 	sellprice = 6
 
 /datum/crafting_recipe/roguetown/structure/anvil
-	name = "наковальня - (1 слиток железа; APPRENTICE)"
+	name = "наковальня - (1 слиток железа; УЧЕНИК)"
 	result = /obj/machinery/anvil
 	reqs = list(/obj/item/ingot/iron = 1)
 	skillcraft = /datum/skill/craft/blacksmithing
@@ -177,7 +177,7 @@
 	craftsound = null
 
 /datum/crafting_recipe/roguetown/structure/greatsmelter
-	name = "большая плавильня - (1 Загадка Стали, 2 слитка железа, 1 уголь; APPRENTICE)"
+	name = "большая плавильня - (1 Загадка Стали, 2 слитка железа, 1 уголь; УЧЕНИК)"
 	result = /obj/machinery/light/rogue/smelter/great
 	reqs = list(/obj/item/ingot/iron = 2,
 				/obj/item/riddleofsteel = 1,
@@ -197,7 +197,7 @@
 	craftsound = null
 
 /datum/crafting_recipe/roguetown/structure/treatingfurnace
-	name = "печь для термообработки - (4 камня, 2 слитка железа, 1 уголь; APPRENTICE)"
+	name = "печь для термообработки - (4 камня, 2 слитка железа, 1 уголь; УЧЕНИК)"
 	result = /obj/structure/treating_furnace
 	reqs = list(/obj/item/natural/stone = 4,
 				/obj/item/ingot/steel = 2,
@@ -209,7 +209,7 @@
 	skill_level = 2
 
 /datum/crafting_recipe/roguetown/structure/sharpwheel
-	name = "точильный круг - (1 слиток железа, 1 камень; NOVICE)"
+	name = "точильный круг - (1 слиток железа, 1 камень; НОВИЧОК)"
 	result = /obj/structure/fluff/grindwheel
 	reqs = list(/obj/item/ingot/iron = 1,
 				/obj/item/natural/stone = 1)
@@ -219,7 +219,7 @@
 	craftsound = null
 
 /datum/crafting_recipe/roguetown/structure/art_table
-	name = "стол изобретателя - (1 доска; NOVICE)"
+	name = "стол изобретателя - (1 доска; НОВИЧОК)"
 	result = /obj/machinery/artificer_table
 	reqs = list(/obj/item/natural/wood/plank = 1)
 	skillcraft = /datum/skill/craft/engineering
@@ -227,7 +227,7 @@
 	verbage = "создает"
 
 /datum/crafting_recipe/roguetown/structure/loom
-	name = "ткацкий станок - (2 полена, 2 палки, 2 волокна; APPRENTICE)"
+	name = "ткацкий станок - (2 полена, 2 палки, 2 волокна; УЧЕНИК)"
 	result = /obj/machinery/loom
 	reqs = list(/obj/item/grown/log/tree/small = 2,
 				/obj/item/grown/log/tree/stick = 2,
@@ -276,7 +276,7 @@
 	return TRUE
 */
 /datum/crafting_recipe/roguetown/structure/stairsd
-	name = "ступени из дерева (вниз) - (2 полена; APPRENTICE)"
+	name = "ступени из дерева (вниз) - (2 полена; УЧЕНИК)"
 	result = /obj/structure/stairs/d
 	reqs = list(/obj/item/grown/log/tree/small = 2)
 	skillcraft = /datum/skill/craft/carpentry
@@ -306,7 +306,7 @@
 	return TRUE
 
 /datum/crafting_recipe/roguetown/structure/stonestairsd
-	name = "ступени из камня (вниз) - (2 камня; APPRENTICE)"
+	name = "ступени из камня (вниз) - (2 камня; УЧЕНИК)"
 	result = /obj/structure/stairs/stone/d
 	reqs = list(/obj/item/natural/stone = 2)
 	skillcraft = /datum/skill/craft/masonry
@@ -336,7 +336,7 @@
 	return TRUE
 
 /datum/crafting_recipe/roguetown/structure/railing
-	name = "перила - (2 палки; NOVICE)"
+	name = "перила - (2 палки; НОВИЧОК)"
 	result = /obj/structure/fluff/railing/wood
 	reqs = list(/obj/item/grown/log/tree/stick = 2)
 	ontile = TRUE
@@ -407,7 +407,7 @@
 	skillcraft = /datum/skill/craft/carpentry
 
 /datum/crafting_recipe/roguetown/structure/coffin
-	name = "деревянный гроб - (2 полена; NOVICE)"
+	name = "деревянный гроб - (2 полена; НОВИЧОК)"
 	result = /obj/structure/closet/crate/coffin
 	reqs = list(/obj/item/grown/log/tree/small = 2)
 	verbage_simple = "сколачиваю"
@@ -459,7 +459,7 @@
 	verbage = "собирает"
 
 /datum/crafting_recipe/roguetown/structure/oven
-	name = "каменная печь - (3 камня, 1 полено; NOVICE)"
+	name = "каменная печь - (3 камня, 1 полено; НОВИЧОК)"
 	result = /obj/machinery/light/rogue/oven
 	reqs = list(/obj/item/grown/log/tree/small = 1,
 				/obj/item/natural/stone = 3)
@@ -484,7 +484,7 @@
 	verbage = "собирает"
 
 /datum/crafting_recipe/roguetown/structure/nicebed
-	name = "хорошая кровать - (2 полена, 1 ткань; APPRENTICE)"
+	name = "хорошая кровать - (2 полена, 1 ткань; УЧЕНИК)"
 	result = /obj/structure/bed/rogue/inn
 	reqs = list(/obj/item/grown/log/tree/small = 2,
 				/obj/item/natural/cloth = 1)
@@ -495,7 +495,7 @@
 	skill_level = 2
 	
 /datum/crafting_recipe/roguetown/structure/doublebed
-	name = "двуспальная кровать - (4 полена, 2 ткани, 1 волокно; JOURNEYMAN)"
+	name = "двуспальная кровать - (4 полена, 2 ткани, 1 волокно; УМЕЛЕЦ)"
 	result = /obj/structure/bed/rogue/inn/wooldouble
 	reqs = list(/obj/item/grown/log/tree/small = 4,
 				/obj/item/natural/cloth = 2,
@@ -507,7 +507,7 @@
 	skill_level = 3
 
 /datum/crafting_recipe/roguetown/structure/nicedoublebed
-	name = "хорошая двуспальная кровать - (4 полена, 2 ткани, 2 шелка; EXPERT)"
+	name = "хорошая двуспальная кровать - (4 полена, 2 ткани, 2 шелка; ПРОФЕССИОНАЛ)"
 	result = /obj/structure/bed/rogue/inn/double
 	reqs = list(/obj/item/grown/log/tree/small = 4,
 				/obj/item/natural/cloth = 2,
@@ -519,7 +519,7 @@
 	skill_level = 4
 
 /datum/crafting_recipe/roguetown/structure/table
-	name = "стол из дерева - (1 полено; NOVICE)"
+	name = "стол из дерева - (1 полено; НОВИЧОК)"
 	result = /obj/structure/table/wood/crafted
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 	verbage_simple = "собираю"
@@ -527,7 +527,7 @@
 	skillcraft = /datum/skill/craft/carpentry
 
 /datum/crafting_recipe/roguetown/structure/stonetable
-	name = "стол из камня - (1 камень; NOVICE)"
+	name = "стол из камня - (1 камень; НОВИЧОК)"
 	result = /obj/structure/table/church
 	reqs = list(/obj/item/natural/stone = 1)
 	verbage_simple = "строю"
@@ -546,7 +546,7 @@
 	skill_level = 0
 
 /datum/crafting_recipe/roguetown/structure/grindstone
-	name = "перетирающие жернова - (3 камня, NOVICE)"
+	name = "перетирающие жернова - (3 камня, НОВИЧОК)"
 	result = /obj/structure/fluff/grindstone
 	reqs = list(/obj/item/natural/stone = 3)
 	verbage_simple = "собираю"
@@ -556,7 +556,7 @@
 	skillcraft = /datum/skill/craft/masonry
 
 /datum/crafting_recipe/roguetown/structure/lever
-	name = "рычаг - (1 бронзовая шестерня; NOVICE)"
+	name = "рычаг - (1 бронзовая шестерня; НОВИЧОК)"
 	result = /obj/structure/lever
 	reqs = list(/obj/item/roguegear/bronze = 1)
 	verbage_simple = "конструирую"
@@ -564,7 +564,7 @@
 	skillcraft = /datum/skill/craft/engineering
 
 /datum/crafting_recipe/roguetown/structure/trapdoor
-	name = "люк - (1 бронзовая шестерня, 1 полено; APPRENTICE)"
+	name = "люк - (1 бронзовая шестерня, 1 полено; УЧЕНИК)"
 	result = /obj/structure/floordoor
 	reqs = list(/obj/item/grown/log/tree/small = 1,
 					/obj/item/roguegear/bronze = 1)
@@ -581,7 +581,7 @@
 	return ..()
 
 /datum/crafting_recipe/roguetown/structure/sign
-	name = "табличка - (1 полено; NOVICE)"
+	name = "табличка - (1 полено; НОВИЧОК)"
 	result = /obj/structure/fluff/customsign
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 	verbage_simple = "собираю"
@@ -590,7 +590,7 @@
 	skill_level = 1
 
 /datum/crafting_recipe/roguetown/structure/dummy
-	name = "тренировочный манекен - (1 полено, 1 палка, 1 волокно; NOVICE)"
+	name = "тренировочный манекен - (1 полено, 1 палка, 1 волокно; НОВИЧОК)"
 	result = /obj/structure/fluff/statue/tdummy
 	reqs = list(/obj/item/grown/log/tree/small = 1,
 				/obj/item/grown/log/tree/stick = 1,
@@ -601,7 +601,7 @@
 	skill_level = 1
 
 /datum/crafting_recipe/roguetown/structure/display_stand
-	name = "витринный стенд - (1 полено, 3 палки; APPRENTICE)"
+	name = "витринный стенд - (1 полено, 3 палки; УЧЕНИК)"
 	result = /obj/structure/mannequin
 	reqs = list(/obj/item/grown/log/tree/small = 1,
 				/obj/item/grown/log/tree/stick = 3)
@@ -612,7 +612,7 @@
 	skill_level = 2
 
 /datum/crafting_recipe/roguetown/structure/mannequin
-	name = "мужской манекен - (1 слиток железа, 1 полено, 1 ткань; APPRENTICE)"
+	name = "мужской манекен - (1 слиток железа, 1 полено, 1 ткань; УЧЕНИК)"
 	result = /obj/structure/mannequin/male
 	reqs = list(/obj/item/grown/log/tree/small = 1,
 				/obj/item/natural/cloth = 1,
@@ -624,7 +624,7 @@
 	skill_level = 2
 
 /datum/crafting_recipe/roguetown/structure/mannequin_f
-	name = "женский манекен - (1 слиток железа, 1 полено, 1 ткань; APPRENTICE)"
+	name = "женский манекен - (1 слиток железа, 1 полено, 1 ткань; УЧЕНИК)"
 	result = /obj/structure/mannequin/male/female
 	reqs = list(/obj/item/grown/log/tree/small = 1,
 				/obj/item/natural/cloth = 1,
@@ -636,7 +636,7 @@
 	skill_level = 2
 
 /datum/crafting_recipe/roguetown/structure/passage
-	name = "проходные ворота - (1 слиток железа, 1 бронзовая шестерня; APPRENTICE)"
+	name = "проходные ворота - (1 слиток железа, 1 бронзовая шестерня; УЧЕНИК)"
 	result = /obj/structure/bars/passage
 	reqs = list(/obj/item/ingot/iron = 1,
 					/obj/item/roguegear/bronze = 1)
@@ -655,7 +655,7 @@
 	return ..()
 
 /datum/crafting_recipe/roguetown/structure/wallladder
-	name = "настенная лестница - (1 полено; APPRENTICE)"
+	name = "настенная лестница - (1 полено; УЧЕНИК)"
 	result = /obj/structure/wallladder
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 	verbage_simple = "строю"
@@ -685,7 +685,7 @@
 	skill_level = 0
 
 /datum/crafting_recipe/roguetown/structure/stonewalldeco
-	name = "каменная отделка стены - (1 камень; APPRENTICE)"
+	name = "каменная отделка стены - (1 камень; УЧЕНИК)"
 	result = /obj/structure/fluff/walldeco/stone
 	reqs = list(/obj/item/natural/stone = 1)
 	verbage_simple = "создаю"
@@ -695,7 +695,7 @@
 	skill_level = 2
 
 /datum/crafting_recipe/roguetown/structure/statue
-	name = "статуя - (3 камня; JOURNEYMAN)"
+	name = "статуя - (3 камня; УМЕЛЕЦ)"
 	result = /obj/structure/fluff/statue/femalestatue //TODO: Add sculpting
 	reqs = list(/obj/item/natural/stone = 3)
 	verbage_simple = "создаю"

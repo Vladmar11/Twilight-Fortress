@@ -7,13 +7,13 @@
 	subtype_reqs = TRUE
 
 /datum/crafting_recipe/roguetown/alchemy/thermometer
-	name = "термоскоп - (1 бутылка, 1.7oz ртути; APPRENTICE)"
+	name = "термоскоп - (1 бутылка, 1.7oz ртути; УЧЕНИК)"
 	result = list(/obj/item/thermometer)
 	reqs = list(/obj/item/reagent_containers/glass/bottle = 1, /datum/reagent/mercury = 5)
 	skill_level = 2
 
 /datum/crafting_recipe/roguetown/alchemy/bbomb
-	name = "бутылочная бомба - (1 бутылка, 2 пепла, 1 уголь, 1 ткань; APPRENTICE)"
+	name = "бутылочная бомба - (1 бутылка, 2 пепла, 1 уголь, 1 ткань; УЧЕНИК)"
 	result = list(/obj/item/bomb)
 	reqs = list(/obj/item/reagent_containers/glass/bottle = 1, /obj/item/ash = 2, /obj/item/rogueore/coal = 1, /obj/item/natural/cloth = 1)
 	skill_level = 2

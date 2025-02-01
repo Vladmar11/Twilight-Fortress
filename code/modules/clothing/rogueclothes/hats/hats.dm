@@ -184,7 +184,7 @@
 	dynamic_hair_suffix = ""
 
 /obj/item/clothing/head/roguetown/dendormask
-	name = "маска с шипами"
+	name = "маска друидов"
 	desc = "Маска из дерева, которую носят друиды, служащие Дендору."
 	color = null
 	icon_state = "dendormask"

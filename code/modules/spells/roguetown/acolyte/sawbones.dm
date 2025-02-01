@@ -1567,35 +1567,35 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	i_type = "Tools"
 
 /datum/crafting_recipe/roguetown/mortar
-	name = "Ступка и пестик - (1 полено, 1 палка)"
+	name = "Ступка и пестик - (1 полено, 1 палка; НОВИЧОК)"
 	result = /obj/item/reagent_containers/glass/mortar
 	reqs = list(/obj/item/grown/log/tree/stick = 1, /obj/item/grown/log/tree/small = 1,)
 	skill_level = 1
 	skillcraft = /datum/skill/craft/crafting
 
 /datum/crafting_recipe/roguetown/bandage
-	name = "Набор повязок - (3 ткани, 1 пепел)"
+	name = "Набор повязок - (3 ткани, 1 пепел; УЧЕНИК)"
 	result = /obj/item/natural/bundle/cloth/bandage/full
 	reqs = list(/obj/item/natural/cloth = 3, /obj/item/ash = 1,)
 	skill_level = 2
 	skillcraft = /datum/skill/misc/treatment
 
 /datum/crafting_recipe/roguetown/impsaw
-	name = "примитивная пила - (1 волокно, 1 камень, 1 палка)"
+	name = "примитивная пила - (1 волокно, 1 камень, 1 палка; НОВИЧОК)"
 	result = /obj/item/rogueweapon/surgery/saw/improv
 	reqs = list(/obj/item/natural/fibers = 1, /obj/item/natural/stone = 1, /obj/item/grown/log/tree/stick = 1,)
 	skill_level = 1
 	skillcraft = /datum/skill/craft/crafting
 
 /datum/crafting_recipe/roguetown/impretra
-	name = "примитивный зажим - (1 волокно, 2 палки)"
+	name = "примитивный зажим - (1 волокно, 2 палки; НОВИЧОК)"
 	result = /obj/item/rogueweapon/surgery/hemostat/improv
 	reqs = list(/obj/item/natural/fibers = 1, /obj/item/grown/log/tree/stick = 2,)
 	skill_level = 1
 	skillcraft = /datum/skill/craft/crafting
 
 /datum/crafting_recipe/roguetown/imphemo
-	name = "примитивный расширитель - (1 волокно, 2 палки)"
+	name = "примитивный расширитель - (1 волокно, 2 палки; НОВИЧОК)"
 	result = /obj/item/rogueweapon/surgery/retractor/improv
 	reqs = list(/obj/item/natural/fibers = 1, /obj/item/grown/log/tree/stick = 2,)
 	skill_level = 1

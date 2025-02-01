@@ -755,7 +755,7 @@
 // -------------- CHEESECAKE -----------------
 
 /obj/item/reagent_containers/food/snacks/rogue/ccakeuncooked
-	name = "сырой сырный торт"
+	name = "сырой чизкейк"
 	icon_state = "cheesecakeuncook"
 	slices_num = 0
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/ccake
@@ -766,7 +766,7 @@
 	rotprocess = SHELFLIFE_DECENT
 
 /obj/item/reagent_containers/food/snacks/rogue/ccake
-	name = "сырный торт"
+	name = "чизкейк"
 	desc = "Лучшее изобретение человечества."
 	icon_state = "cheesecake"
 	slices_num = 8
@@ -782,7 +782,7 @@
 	bitesize = 16
 
 /obj/item/reagent_containers/food/snacks/rogue/ccakeslice
-	name = "кусок сырного торта"
+	name = "кусок чизкейка"
 	icon_state = "cheesecake_slice"
 	slices_num = 0
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)

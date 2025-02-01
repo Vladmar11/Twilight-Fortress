@@ -1,10 +1,10 @@
 /datum/crafting_recipe/roguetown/gravemarker
-	name = "надгробие"
+	name = "надгробие (1 палка)"
 	result = /obj/structure/gravemarker
 	reqs = list(/obj/item/grown/log/tree/stick = 1)
 	time = 10 SECONDS
-	verbage_simple = "пытается поставить"
-	verbage = "поставлено"
+	verbage_simple = "ставлю"
+	verbage = "ставит"
 	craftsound = 'sound/foley/Building-01.ogg'
 	structurecraft = /obj/structure/closet/dirthole
 	skill_level = 0
