@@ -1,6 +1,6 @@
 /obj/item/clothing/head/roguetown/roguehood/abyssor
-	name = "depths hood"
-	desc = "A hood worn by the followers of Abyssor, with a unique, coral-shaped mask. How do they even see out of this?"
+	name = "капюшон глубин"
+	desc = "Капюшон, который носят последователи Абиссора, с уникальной маской в форме коралла. Как они вообще в нем видят?"
 	color = null
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/head.dmi'
@@ -15,8 +15,8 @@
 	max_integrity = 100
 
 /obj/item/clothing/head/roguetown/helmet/heavy/abyssorgreathelm
-	name = "abyssorite helmet"
-	desc = "A helmet commonly worn by Templars in service to Abyssor. It evokes imagery of the sea with a menacing crustacean visage."
+	name = "Абиссоритский шлем"
+	desc = "Шлем, который обычно носят храмовники, служащие Абиссору. Он пробуждает образы моря и угрожающих видов ракообразных."
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/head.dmi'
 	icon_state = "abyssorgreathelm"

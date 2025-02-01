@@ -6,7 +6,7 @@
 	skill_level = 3
 
 /datum/crafting_recipe/roguetown/sewing/abyssorrobe
-	name = "одеяния Абиссора - (3 ткани, 1 шелк; ПРОФЕССИОНАЛ)"
+	name = "одеяние Абиссора - (3 ткани, 1 шелк; ПРОФЕССИОНАЛ)"
 	result = list(/obj/item/clothing/suit/roguetown/shirt/robe/abyssor)
 	reqs = list(/obj/item/natural/cloth = 3,
 				/obj/item/natural/silk = 1)

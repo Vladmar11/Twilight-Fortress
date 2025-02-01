@@ -1,6 +1,6 @@
 /obj/item/clothing/suit/roguetown/armor/captain
-	name = "captain's brigandine"
-	desc = "A coat with plates specifically tailored and forged for the captain of Rockhill."
+	name = "бригантина капитана"
+	desc = "Латная куртка с крепкими пластинами на все тело, сшитая и выкованная специально для капитана Рокхилла."
 	icon_state = "capplate"
 	icon = 'modular_twilight/icons/roguetown/clothing/captain.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/captain.dmi'
@@ -48,16 +48,16 @@
 	return ..()
 
 /obj/item/clothing/under/roguetown/platelegs/captain
-	name = "captain's chausses"
-	desc = "Cuisses made of plated steel, offering additional protection against blunt force. These are specially fitted for the captain."
+	name = "шоссы капитана"
+	desc = "Поножи со стальными пластинами, обеспечивающими дополнительную защиту ног от тупых ударов. Они специально подогнаны под капитана."
 	icon_state = "capplateleg"
 	item_state = "capplateleg"
 	icon = 'modular_twilight/icons/roguetown/clothing/captain.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/captain.dmi'
 
 /obj/item/clothing/head/roguetown/helmet/heavy/captain
-	name = "captain's helmet"
-	desc = "An elegant barbute, fitted with the gold trim and polished metal of nobility."
+	name = "шлем капитана"
+	desc = "Элегантный барбют с золотой отделкой и благородным полированным металлом."
 	icon = 'modular_twilight/icons/roguetown/clothing/captain.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/captain.dmi'
 	icon_state = "capbarbute"
@@ -106,5 +106,5 @@
 					H.update_inv_head()
 		user.update_fov_angles()
 	else // Failsafe.
-		to_chat(user, "<span class='warning'>Wear the helmet on your head to open and close the visor.</span>")
+		to_chat(user, "<span class='warning'>Наденьте шлем на голову, чтобы открыть/закрыть забрало.</span>")
 		return

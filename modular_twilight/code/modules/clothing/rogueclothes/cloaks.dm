@@ -1,6 +1,6 @@
 /obj/item/clothing/cloak/abyssortabard
-	name = "abyssorite tabard"
-	desc = "A tabard worn by Abyssorite devouts."
+	name = "табард рыцаря Абиссора"
+	desc = "Плащ-накидка, которую носят набожные храмовники Абиссора."
 	color = null
 	icon = 'modular_twilight/icons/roguetown/clothing/cloak.dmi'
 	icon_state = "abyssortabard"
