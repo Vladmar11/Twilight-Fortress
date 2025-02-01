@@ -1,6 +1,6 @@
 /obj/item/clothing/mask/rogue/kaizoku
-	icon = 'icons/roguetown/kaizoku/clothingicon/masks.dmi'
-	mob_overlay_icon = 'icons/roguetown/kaizoku/clothing/masks.dmi'
+	icon = 'modular_twilight/icons/roguetown/clothing/masks.dmi'
+	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/masks.dmi'
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	body_parts_covered = FACE
@@ -162,8 +162,8 @@
 	max_integrity = 20
 	integrity_failure = 0.5
 	body_parts_covered = EYES
-	icon = 'icons/roguetown/kaizoku/clothingicon/masks.dmi'
-	mob_overlay_icon = 'icons/roguetown/kaizoku/clothing/masks.dmi'
+	icon = 'modular_twilight/icons/roguetown/clothing/neck.dmi'
+	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/masks.dmi'
 
 /obj/item/clothing/mask/rogue/kaizoku/eyeband/random/Initialize()
 	color = pick("#a32121", "#8747b1", "#3d3a36", "#414143", "#685542", "#428138", "#264d26", "#537bc6", "#b5b004", "#249589", "#ffffff", "#bd6606", "#962e5c")

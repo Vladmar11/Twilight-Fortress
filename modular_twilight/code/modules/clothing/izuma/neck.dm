@@ -4,8 +4,8 @@
 	defense while remaining flexible."
 	icon_state = "karuta_zukin"
 	item_state = "karuta_zukin"
-	icon = 'icons/roguetown/kaizoku/clothingicon/neck.dmi'
-	mob_overlay_icon = 'icons/roguetown/kaizoku/clothing/neck.dmi'
+	icon = 'modular_twilight/icons/roguetown/clothing/neck.dmi'
+	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/neck.dmi'
 	adjustable = CAN_CADJUST
 
 /obj/item/clothing/neck/roguetown/chaincoif/karuta_zukin/random/Initialize()
@@ -45,14 +45,14 @@
 	desc = "A hood made of riveted iron rings usually worn beneath or alongside a Kabuto. \
 	It protects against cuts and slashes - but cannot spread blunt damage as efficiently."
 	icon_state = "kusari_zukin"
-	icon = 'icons/roguetown/kaizoku/clothingicon/neck.dmi'
-	mob_overlay_icon = 'icons/roguetown/kaizoku/clothing/neck.dmi'
+	icon = 'modular_twilight/icons/roguetown/clothing/neck.dmi'
+	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/neck.dmi'
 
 /obj/item/clothing/neck/roguetown/psycross/silver/abyssanctum
 	name = "reformist abyssanctum amulet"
 	desc = "Despair thee not at the abyssal depths, for where light doth fade, vessels of might shall be therein carved, as Abyssor and the Weeper guide their own."
-	icon = 'icons/roguetown/kaizoku/clothingicon/neck.dmi'
-	mob_overlay_icon = 'icons/roguetown/kaizoku/clothing/neck.dmi'
+	icon = 'modular_twilight/icons/roguetown/clothing/neck.dmi'
+	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/neck.dmi'
 	icon_state = "abyssanctum"
 	resistance_flags = FIRE_PROOF
 	slot_flags = ITEM_SLOT_NECK|ITEM_SLOT_HIP|ITEM_SLOT_WRISTS
@@ -60,13 +60,13 @@
 /obj/item/clothing/neck/roguetown/mercmedal/toweryakko
 	name = "soul compressor"
 	desc = "A metallic device of Tower-Yakko legacy used to shackle criminal souls and demons to eternity. The once-feared power ceased when Tower-Yakko's moral decay led to their disgrace in the eyes of the emperor. "
-	icon = 'icons/roguetown/kaizoku/clothingicon/neck.dmi'
-	mob_overlay_icon = 'icons/roguetown/kaizoku/clothing/neck.dmi'
+	icon = 'modular_twilight/icons/roguetown/clothing/neck.dmi'
+	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/neck.dmi'
 	icon_state = "soul_compressor"
 
 /obj/item/clothing/neck/roguetown/mercmedal/kabukimaru
 	name = "hihiirokane beads"
 	desc = "Hihiirokane, or 'Mythril', is a luminous, rare metal drawn from the abyssal depths where the pressure is hostile to most life. The Abyssariads holds the key to its mystery, a secret that dwarves would covet at any cost."
-	icon = 'icons/roguetown/kaizoku/clothingicon/neck.dmi'
-	mob_overlay_icon = 'icons/roguetown/kaizoku/clothing/neck.dmi'
+	icon = 'modular_twilight/icons/roguetown/clothing/neck.dmi'
+	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/neck.dmi'
 	icon_state = "mythrilbeads"
