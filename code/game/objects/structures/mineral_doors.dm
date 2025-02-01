@@ -864,7 +864,7 @@
 		to_chat(user, span_warning("Дверь не запирается с этой стороны."))
 
 /obj/structure/mineral_door/wood/donjon
-	desc = "тяжелая дверь"
+	desc = "Тяжелая дверь со смотровым окошком."
 	icon_state = "donjondir"
 	base_state = "donjon"
 	keylock = TRUE
