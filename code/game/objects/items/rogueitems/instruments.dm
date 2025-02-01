@@ -204,12 +204,12 @@
 	lefthand_file = 'modular_twilight/icons/roguetown/misc/lefthand_music.dmi'
 	righthand_file = 'modular_twilight/icons/roguetown/misc/righthand_music.dmi'
 	song_list = list(
-	"Cursed Apple" = 'modular_twilight/sound/music/shamisen1.ogg', 
-	"Fire Dance" = 'modular_twilight/sound/music/shamisen2.ogg', 
-	"Lute" = 'modular_twilight/sound/music/shamisen3.ogg', 
-	"Tsugaru Ripple" = 'modular_twilight/sound/music/shamisen4.ogg', 
-	"Tsugaru" = 'modular_twilight/sound/music/shamisen5.ogg', 
-	"Season" = 'modular_twilight/sound/music/shamisen6.ogg', 
-	"Parade" = 'modular_twilight/sound/music/shamisen7.ogg', 
-	"Koshiro" = 'modular_twilight/sound/music/shamisen8.ogg' 
+	"Cursed Apple" = 'modular_twilight/sound/izuma/instrument/shamisen1.ogg', 
+	"Fire Dance" = 'modular_twilight/sound/izuma/instrument/shamisen2.ogg', 
+	"Lute" = 'modular_twilight/sound/izuma/instrument/shamisen3.ogg', 
+	"Tsugaru Ripple" = 'modular_twilight/sound/izuma/instrument/shamisen4.ogg', 
+	"Tsugaru" = 'modular_twilight/sound/izuma/instrument/shamisen5.ogg', 
+	"Season" = 'modular_twilight/sound/izuma/instrument/shamisen6.ogg', 
+	"Parade" = 'modular_twilight/sound/izuma/instrument/shamisen7.ogg', 
+	"Koshiro" = 'modular_twilight/sound/izuma/instrument/shamisen8.ogg' 
 	)
