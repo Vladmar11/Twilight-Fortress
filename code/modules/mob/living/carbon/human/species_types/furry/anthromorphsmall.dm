@@ -104,7 +104,7 @@
 		/datum/body_marking/small/spotted,
 	)
 	stress_examine = TRUE
-	stress_desc = span_red("Filthy vermin...")
+	stress_desc = span_red("Грязная тварь...")
 	descriptor_choices = list(
 		/datum/descriptor_choice/height,
 		/datum/descriptor_choice/body,

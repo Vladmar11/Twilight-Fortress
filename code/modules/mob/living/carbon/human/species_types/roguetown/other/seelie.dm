@@ -143,7 +143,7 @@
 		/datum/language/faexin,	//seelie speak here
 	)
 	stress_examine = TRUE
-	stress_desc = span_red("A tiny seelie, mischievous in nature.")
+	stress_desc = span_red("Крохотная, добродушная, озорная по натуре.")
 
 /datum/species/seelie/on_species_gain(mob/living/carbon/C, datum/species/old_species)
 	..()
@@ -159,7 +159,7 @@
 
 /datum/species/seelie/after_creation(mob/living/carbon/C)
 	..()
-	to_chat(C, "<span class='info'>I can speak Faexin with ,p before my speech.</span>")
+	to_chat(C, "<span class='info'>Я могу говорить на языке Фей, используя ключ <b>,p</b> перед моей речью.</span>")
 	C.verbs |= (/mob/living/carbon/human/proc/Turnlight)
 	C.verbs |= (/mob/living/carbon/proc/switchaura)
 
