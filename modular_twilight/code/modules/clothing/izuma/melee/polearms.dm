@@ -3,8 +3,8 @@
 	force_wielded = 20
 	possible_item_intents = list(/datum/intent/spear/bash)
 	gripped_intents = list(/datum/intent/spear/bash, /datum/intent/polearm/thrust/mancatcher)
-	name = "sasumata"
-	desc = "A unique polearm featuring a spring-action pincer on the end, lined with spikes designed to cause extreme pain, rather than extreme injury. Referred to as a man-catcher in the Humen tongue due to coastal kidnappings performed by abyssariad Wokous."
+	name = "сасумата"
+	desc = "Уникальный шестопер с пружинящими клещами на конце, утыканными шипами, призванными причинять сильную боль, а не ранить."
 	icon_state = "sasumata"
 	icon = 'modular_twilight/icons/roguetown/weapons/64.dmi'
 	wlength = WLENGTH_GREAT
@@ -44,8 +44,9 @@
 	misscost = 10
 
 /obj/item/rogueweapon/polearm/spear/yari
-	name = "su yari"
-	desc = "A long, straight-headed spear of Abyssariad design, often used by sea raiders to fend off light cavalry on in-land offensives. Well know for the 'Yari wall' strategy and for being 'Yarimazing' among Abyssariads."
+	name = "су яри"
+	desc = "Длинное копье с прямым наконечником, часто используемое морскими рейдерами для отражения атак легкой кавалерии на суше. \
+	Хорошо известно благодаря стратегии «Яримазингу» среди изумийцев."
 	icon_state = "suyari"
 	icon = 'modular_twilight/icons/roguetown/weapons/64.dmi'
 	pixel_y = -16
@@ -59,8 +60,8 @@
 	blade_dulling = DULLING_BASHCHOP
 
 /obj/item/rogueweapon/polearm/spear/yari/katakama
-	name = "katakama yari"
-	desc = "An evolution of the su yari, recognizable for a single scythe-like tang perpendicular to the main point that allows for better defense against the likes of naginata."
+	name = "катакама яри"
+	desc = "Эволюция су-яри, узнаваемая благодаря одному косому наконечнику, расположенному перпендикулярно основному острию, что позволяет лучше защищаться от нагинаты."
 	icon_state = "katakamayari"
 	wdefense = 5
 	smeltresult = /obj/item/ingot/iron
@@ -68,29 +69,23 @@
 	max_integrity = 400
 
 /obj/item/rogueweapon/polearm/spear/billhook/jumonji
-	name = "jumonji yari"
-	desc = "The design of the katakama yari taken to its logical conclusion, the jumonji yari features an elongated tang on each side that is the same length as the forward point. There is no polearms that offers better defense without harming efficiency."
+	name = "джумонджи яри"
+	desc = "Доведенный до логического завершения дизайн катакама-яри, дзюмондзи-яри имеет удлиненный хвостовик с каждой стороны, \
+	длина которого равна длине переднего острия. Нет такого шестового оружия, которое обеспечивало бы лучшую защиту без ущерба для эффективности."
 	icon_state = "jumonjiyari"
 
 /obj/item/rogueweapon/polearm/halberd/bardiche/naginata
-	name = "naginata"
-	desc = "Its earliest form being a tachi blade mounted upon a long wooden pole, the naginata was the first polearm to come into widespread use by the Abyssariad, who developed the weapon in order to better combat Humen and Elven cavalry."
+	name = "нагината"
+	desc = "В самом начале своего существования нагината представляла собой клинок тачи, закрепленный на длинном деревянном шесте,\
+	и стала первым шестовым оружием, получившим широкое распространение в Изуме."
 	icon = 'modular_twilight/icons/roguetown/weapons/64.dmi'
 	icon_state = "naginata"
 	dropshrink = 0.8
 
-/obj/item/rogueweapon/polearm/halberd/bardiche/naginata/dustcurse/dropped()
-	. = ..()
-	name = "Dustcurse naginata"
-	minstr = 0 //asset solely to be used by NPCs. This will not be found on the hands of players.
-	to_chat(src, "<span class='warning'>A haunting wind scatters [usr] into dust, sweeping it back to the ocean!</span>")
-	if(QDELETED(src))
-		return
-	qdel(src)
-
 /obj/item/rogueweapon/polearm/halberd/bardiche/naginata/tsukushi //make two instead of only one
-	name = "tsukushi naginata"
-	desc = "A cheaper, easier to construct iron Naginata with a blade held by its guard instead of its tang. Likely developed from a scythe, the blade is easily found on poor, wandering monks."
+	name = "цукуси нагината"
+	desc = "Более дешевая и простая в изготовлении железная нагината с клинком, удерживаемым за гарду, а не за острие. \
+	Этот клинок, вероятно, произошел от косы, и его легко найти у бедных странствующих монахов."
 	force_wielded = 28
 	icon_state = "surplusnaginata"
 	smeltresult = /obj/item/ingot/iron
@@ -99,27 +94,18 @@
 	slot_flags = ITEM_SLOT_BACK
 
 /obj/item/rogueweapon/polearm/halberd/bisento //Giving the Bisento storeable 'back' because, otherwise, people will SUFFER spawning with it. Too bugged for my taste.
-	name = "bisento"
-	desc = "The Bisento is the direct evolution of the old, outdated Champion Guandao. Akin to a large cleaver or a broad axe."
+	name = "бисенто"
+	desc = "Сродни большому тесаку или широкому топору."
 	icon_state = "bisento"
 	dropshrink = 0.8
 	icon = 'modular_twilight/icons/roguetown/weapons/64.dmi'
-
-/obj/item/rogueweapon/polearm/halberd/bisento/dustcurse/dropped()
-	. = ..()
-	name = "Dustcurse bisento"
-	minstr = 0 //asset solely to be used by NPCs. This will not be found on the hands of players.
-	to_chat(src, "<span class='warning'>A haunting wind scatters [usr] into dust, sweeping it back to the ocean!</span>")
-	if(QDELETED(src))
-		return
-	qdel(src)
 
 /obj/item/rogueweapon/polearm/spear/stone/obsidian //direct upgrade to the stone one.
 	force = 17
 	force_wielded = 19
 	throwforce = 15
-	name = "obsidian spear"
-	desc = "A spear with a surprisingly sharp edge from vulcanic glass. Used by Undine tribes."
+	name = "обсидиановое копье"
+	desc = "Копье с удивительно острым острием из вулканического стекла."
 	icon_state = "obsidian_spear"
 	icon = 'modular_twilight/icons/roguetown/weapons/64.dmi'
 	pixel_y = -16
@@ -130,8 +116,8 @@
 	max_blade_int = 100
 
 /obj/item/rogueweapon/polearm/woodstaff/quarterstaff/bostaff
-	name = "bo staff"
-	desc = "the bo, or 'abyssariad quarterstaff', is a simple weapon used in martial arts to entrap, strike and sweep the enemy."
+	name = "посох бо"
+	desc = "Бо, или «четвертьстолб», - простое оружие, используемое в боевых искусствах для заманивания, нанесения ударов и зачистки противника."
 	icon_state = "bostaff"
 	icon = 'modular_twilight/icons/roguetown/weapons/64.dmi'
 	bigboy = TRUE

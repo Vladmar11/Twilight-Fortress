@@ -1,6 +1,6 @@
 obj/item/clothing/wrists/roguetown/bracers/kote
-	name = "kote"
-	desc = "A sashinuki kote, the armored sleeves and gloves knitted into a jacketed layer. It belongs as one of the armor component of sangu, together with suneate and haidate."
+	name = "котэ"
+	desc = "Сасинуки-котэ - бронированные рукава, связанные в куртку. Является одним из компонентов доспехов сангу, наряду с сунате и хайдате."
 	icon = 'modular_twilight/icons/roguetown/clothing/wrists.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/wrists.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/wrists.dmi'
@@ -14,15 +14,15 @@ obj/item/clothing/wrists/roguetown/bracers/kote
 	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
 
 /obj/item/clothing/wrists/roguetown/bracers/mountainstar
-	name = "weeping god-patterned bracers"
-	desc = "Y-shaped steel plates marks this bracer everywhere it is looked upon, most proper for the Weeping God."
+	name = "браслеты с божественным узором"
+	desc = "Y-образные стальные пластины отмечают этот браслет везде, где на него обращают внимание, что особенно уместно для Псайдона."
 	icon = 'modular_twilight/icons/roguetown/clothing/wrists.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/wrists.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/wrists.dmi'
 	icon_state = "mountainstar"
 	item_state = "mountainstar"
 
-/obj/item/clothing/wrists/roguetown/kaizoku/dragonwrap
+/obj/item/clothing/wrists/roguetown/izuma/dragonwrap
 	name = "dragon wrappings"
 	desc = "fireproof cloth wrappings to cover the arms and hands. It is completely made of asbestos and resin keeping its toxicity in place. For now."
 	slot_flags = ITEM_SLOT_WRISTS
@@ -36,8 +36,8 @@ obj/item/clothing/wrists/roguetown/bracers/kote
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
 /obj/item/clothing/wrists/roguetown/bracers/leather/khudagach
-	name = "khudagach bracers"
-	desc = "Oil-boiled leather bracers made to protect the forearms and wrists of abyssariad archers, light cavalry and farming folk."
+	name = "браслеты кхудагач"
+	desc = "Вываренные в масле кожаные браслеты, предназначенные для защиты предплечий и запястий абиссариадских лучников, легкой кавалерии и земледельцев."
 	icon_state = "khudagach"
 	item_state = "khudagach"
 	icon = 'modular_twilight/icons/roguetown/clothing/wrists.dmi'
@@ -65,8 +65,8 @@ obj/item/clothing/wrists/roguetown/bracers/kote
 
 /obj/item/clothing/wrists/roguetown/shrinekeeper
 	slot_flags = ITEM_SLOT_WRISTS
-	name = "purificators"
-	desc = "Blessed gauntlets for those who believes they can punch spirits."
+	name = "очистители"
+	desc = "Благословенные перчатки для тех, кто верит, что может бить духов."
 	icon = 'modular_twilight/icons/roguetown/clothing/wrists.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/wrists.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/wrists.dmi'

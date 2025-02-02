@@ -77,24 +77,26 @@
 	misscost = 5
 
 /obj/item/rogueweapon/flail/sflail/kusarifundo
-	name = "kusari fundo"
+	name = "кусари-фундо"
 	icon = 'modular_twilight/icons/roguetown/weapons/32.dmi'
-	desc = "A pair of heavy steel weights connected by a long chain. Originally a self-defense weapon during the Blood Apotheosis when iron was running low - so lead balls were used as weight."
+	desc = "Пара тяжелых стальных гирь, соединенных длинной цепью. Изначально это было оружие самообороны во смутные времена, \
+	когда железо было на исходе, поэтому в качестве утяжелителя использовались свинцовые шарики."
 	icon_state = "kusarifundo"
 
 /obj/item/rogueweapon/flail/nunchaku
 	force = 20
 	w_class = WEIGHT_CLASS_SMALL
-	name = "nunchaku"
+	name = "нунчаки"
 	icon = 'modular_twilight/icons/roguetown/weapons/32.dmi'
-	desc = "A pair of wooden rods linked by a short chain, designed for concealment and often used by Abyssariad Plowmen- for where swords was only on the hands of the Zamurai caste."
+	desc = "Пара деревянных прутьев, соединенных короткой цепью, предназначенных для маскировки и часто используемых изуминскими пахарями \
+	- там, где мечи были только у самураев."
 	icon_state = "nunchaku"
 
 /obj/item/rogueweapon/flail/kusarigama
 	force = 15
 	possible_item_intents = list(/datum/intent/flail/strike/ranged, /datum/intent/flail/strike/ranged/smash, /datum/intent/flail/cut, /datum/intent/flail/cut/chop)
-	name = "kusarigama"
-	desc = "A handle with a sickle-like blade, featuring a chain that ends in a spiked ball. Versatile weapon adapted to defeat sword-wielding foes."
+	name = "кусаригама"
+	desc = "Рукоять с серповидным лезвием, украшенная цепью, заканчивающейся шипом. Универсальное оружие, приспособленное для поражения врагов с мечами."
 	icon_state = "kusarigama"
 	icon = 'modular_twilight/icons/roguetown/weapons/32.dmi'
 	sharpness = IS_SHARP

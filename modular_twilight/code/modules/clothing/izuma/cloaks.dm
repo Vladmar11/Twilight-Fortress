@@ -1,6 +1,6 @@
 /obj/item/clothing/cloak/raincloak/mino
-	name = "mino cloak"
-	desc = "An abyssariad raincoat made out of straw that covers the entire body."
+	name = "плащ мино"
+	desc = "Изуминский плащ из соломы, закрывающий все тело."
 	icon_state = "mino"
 	inhand_mod = FALSE
 	hoodtype = null
@@ -11,8 +11,8 @@
 	body_parts_covered = CHEST|GROIN|VITALS|ARMS
 
 /obj/item/clothing/cloak/raincloak/guardiancloak
-	name = "guardian cloak"
-	desc = "The design of cloaks from Guardians of old. The symbol of the Eternity Eagle remains binding the cloth on the user, for those who protects the skies and oceans."
+	name = "плащ хранителя"
+	desc = "Дизайн плащей от Хранителей древности. Символ Орла Вечности по-прежнему связывает ткань с пользователем, для тех, кто защищает небеса и океаны."
 	icon_state = "guardiancloak"
 	inhand_mod = FALSE
 	hoodtype = null
@@ -53,8 +53,8 @@
 	return ..()
 
 /obj/item/clothing/cloak/raincloak/horocloak
-	name = "horo cloak"
-	desc = "A billowing cloak of war designed to catch the wind and scatter arrows that hit its user from the back."
+	name = "плащ хоро"
+	desc = "Военный плащ, способный ловить попутный ветер и разбрасывать стрелы, попавшие в него со спины."
 	icon_state = "horocloak"
 	inhand_mod = FALSE
 	hoodtype = null
@@ -74,8 +74,8 @@
 	color = "#9b874f"
 
 /obj/item/clothing/cloak/odoshisohei
-	name = "senior sohei odoshi"
-	desc = "Tightly packed lacing patterns usually used for binding leather and metal scales, now used to show affiliation to clans or shrines."
+	name = "старший сохэй одоси"
+	desc = "Туго набитые шнурки, обычно используемые для скрепления кожаных и металлических чешуек, теперь используются для демонстрации принадлежности к кланам или святыням."
 	icon_state = "odoshisohei"
 	icon = 'modular_twilight/icons/roguetown/clothing/cloak.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/cloak.dmi'
@@ -86,8 +86,8 @@
 	flags_inv = HIDECROTCH|HIDEBOOB
 
 /obj/item/clothing/cloak/newheartfelt
-	name = "heartfelt cloak"
-	desc = "Luxurious silk cloak adorned in regal red, the protective garment that has long portrayed the fiery spirit of the Heartfelt people, and their dutiful lords."
+	name = "изуминский плащ"
+	desc = "Роскошный шелковый плащ, украшенный царственным красным цветом, защитное одеяние, которое издавна олицетворяет дух народа Изумы и их лордов."
 	icon_state = "heartfelt_cloak"
 	body_parts_covered = CHEST|GROIN|VITALS|ARMS
 	icon = 'modular_twilight/icons/roguetown/clothing/cloak.dmi'
@@ -103,8 +103,8 @@
 //modular tabards. Requires bugfixing.
 
 /obj/item/clothing/cloak/stabard/haramaki
-	name = "haramaki"
-	desc = "Tightly packed lacing patterns usually used for binding leather and metal scales."
+	name = "харамаки"
+	desc = "Плотно прилегающие друг к другу шнурки, обычно используемые для скрепления кожаных и металлических чешуек."
 	icon_state = "haramaki"
 	item_state = "haramaki"
 	icon = 'modular_twilight/icons/roguetown/clothing/cloak.dmi'
@@ -112,24 +112,24 @@
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/cloak.dmi'
 
 /obj/item/clothing/cloak/stabard/haramaki/odoshi
-	name = "odoshi"
+	name = "одоси"
 	icon_state = "odoshi"
 	item_state = "odoshi"
 
 /obj/item/clothing/cloak/stabard/haramaki/jinbaori
-	name = "jinbaori"
+	name = "чинбаори"
 	desc = "Cloth piece meant to portray the user's loyalty to an lord."
 	icon_state = "jinbaori"
 	item_state = "jinbaori"
 
 /obj/item/clothing/cloak/stabard/haramaki/jinbaori/jizamurai
-	desc = "The odoshi used by Foglander Zamurais bond to Rockhill's lords. It uses said lord's heraldic colors."
+	desc = "Одоси, используемые самураями, связаны с лордами Рокхилла. В нем используются геральдические цвета лордов."
 	color = CLOTHING_BLACK
 	detail_tag = "_spl"
 	detail_color = CLOTHING_RED
 
 /obj/item/clothing/cloak/stabard/haramaki/jinbaori/guard
-	desc = "A jinbaori with the lord's heraldic colors. This one is worn typically by ashigarus retainers adquired by the lords of rockhill from a pact with the Fog Islands."
+	desc = "Чинбаори с геральдическими цветами лорда. Такой обычно носят асигарусы, приобретенные лордами Рокхилла по договору с Туманными Островами."
 	color = CLOTHING_RED
 	detail_tag = "_spl"
 	detail_color = CLOTHING_PURPLE
@@ -154,14 +154,14 @@
 	return ..()
 
 /obj/item/clothing/cloak/stabard/haramaki/jinbaori/raider
-	name = "raider jinbaori"
-	desc = "A jinbaori used by the traditional abyssanctum ashigaru retainers. Relentless as the ocean who brew them."
+	name = "рейдерский чинбаори"
+	desc = "Чинбаори, используемый традиционными асигару - хранителями Абиссора. Неумолимы, как океан, который их уносит вдаль."
 	color = CLOTHING_BLACK
 	detail_tag = "_spl"
 	detail_color = CLOTHING_PURPLE
 
 /obj/item/clothing/cloak/stabard/haramaki/odoshi/zamurai
-	desc = "The odoshi used by Foglander Zamurais bond to Rockhill's lords. It uses said lord's heraldic colors."
+	desc = "Одоси, используемые самурями, связаны с лордами Рокхилла. В нем используются геральдические цвета лордов."
 	color = CLOTHING_RED
 	detail_tag = "_spl"
 	detail_color = CLOTHING_PURPLE
@@ -187,16 +187,16 @@
 	return
 
 /obj/item/clothing/cloak/stabard/haramaki/odoshi/raider
-	name = "raider odoshi"
-	desc = "A odoshi used by the traditional abyssanctum zamurai retainers. Relentless as the ocean who brew them."
+	name = "рейдерский одоси"
+	desc = "Одоси, используемый традиционными самураями. Неумолимы, как океан, который их уносит вдаль."
 	color = CLOTHING_BLACK
 	detail_tag = "_spl"
 	detail_color = CLOTHING_PURPLE
 
 /obj/item/clothing/cloak/raincloak/dragonslayer
-	name = "dragonslayer guardian cloak"
-	desc = "Fireproof asbestos cloak processed in copal and frankincense resin, enclosed within dragonscales to prevent direct contact with asbestos fibers. \
-	The cloak almost completely prevents warmth from reaching the user."
+	name = "плащ драконоборца-хранителя"
+	desc = "Огнеупорный асбестовый плащ, обработанный копаловой и ладанной смолой, заключенный в драконью чешую, чтобы предотвратить прямой контакт с асбестовыми волокнами. \
+	Плащ почти полностью предотвращает от горения."
 	heat_protection = FULL_BODY
 	body_parts_covered = FULL_BODY
 	resistance_flags = FIRE_PROOF | LAVA_PROOF

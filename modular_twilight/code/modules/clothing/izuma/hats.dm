@@ -1,7 +1,7 @@
 /obj/item/clothing/head/roguetown/takuhatsugasa
-	name = "takuhatsugasa"
+	name = "такухацугаса"
 	icon_state = "takuhatsugasa"
-	desc = "A type of hat worn by monks during their begging rounds - or when punching demons into submission."
+	desc = "Шляпа, которую носят монахи из Изумы во время поломничества или когда убивают демонов."
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/head.dmi'
 	flags_inv = HIDEEARS|HIDEHAIR
@@ -11,10 +11,10 @@
 	max_integrity = 150
 
 /obj/item/clothing/head/roguetown/tengai
-	name = "tengai"
+	name = "тенгай"
 	icon_state = "tengai"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
-	desc = "A wide-brimmed hat traditionally worn by wandering monks of the Abyssanctum fold."
+	desc = "Широкополая шляпа, которую традиционно носят странствующие монахи Изумы."
 	bloody_icon = 'icons/effects/blood.dmi'
 	bloody_icon_state = "helmetblood"
 	worn_x_dimension = 64
@@ -27,63 +27,63 @@
 	max_integrity = 150
 
 /obj/item/clothing/head/roguetown/tengai/yamabushi
-	name = "yamabushi tengai"
+	name = "ямабуси тэнгай"
 	icon_state = "stengai"
-	desc = "A tengai painted in black tar traditionally worn by Abyssanctum yamabushis."
+	desc = "Тенгай, окрашенный в черный цвет смолы, традиционно носят ямабуши."
 	bloody_icon_state = "helmetblood"
 
 /obj/item/clothing/head/roguetown/tengai/gasa
-	name = "gasa"
-	icon_state = "gasa"
-	desc = "A conical straw hat used to protect from the sun and rain. Commonly used by commoners, or casually by the Zamurais and their retainers."
+	name = "гаса"
+	icon_state = "гаса"
+	desc = "Коническая соломенная шляпа для защиты от солнца и дождя. Обычно используется простолюдинами, а также самураями и их приближенными."
 	flags_inv = HIDEEARS
 
 /obj/item/clothing/head/roguetown/lilly
-	name = "small lilypad gasa"
+	name = "маленькая лилипутка гаса"
 	icon_state = "lilypad_small"
-	desc = "a small lilypad used by Undines to protect from sun and rain. This comes as a intercultural exchange mimicking Abyssariad's gasas."
+	desc = "Маленькая лилия, используемая ундинами для защиты от солнца и дождя. Эта лиллия используется в рамках межкультурного обмена, подражая гасам Изумы."
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/head.dmi'
 
 /obj/item/clothing/head/roguetown/lilly/medium
-	name = "medium lilypad gasa"
+	name = "средняя лилипутка гаса"
 	icon_state = "lilypad_medium"
-	desc = "a medium lilypad used by Undines to protect from sun and rain. This comes as a intercultural exchange mimicking Abyssariad's gasas."
+	desc = "Средняя лилия, используемая ундинами для защиты от солнца и дождя. Эта лиллия используется в рамках межкультурного обмена, подражая гасам Изумы."
 
 /obj/item/clothing/head/roguetown/lilly/big
-	name = "big lilypad gasa"
+	name = "большая лилипутка гаса"
 	icon_state = "lilypad_big"
-	desc = "a big lilypad used by Undines to protect from sun and rain. This comes as a intercultural exchange mimicking Abyssariad's gasas."
+	desc = "Большая лилия, используемая ундинами для защиты от солнца и дождя. Эта лиллия используется в рамках межкультурного обмена, подражая гасам Изумы."
 
 /obj/item/clothing/head/roguetown/tengai/roningasa
-	name = "roningasa"
+	name = "ронингаса"
 	icon_state = "roningasa"
 	flags_inv = HIDEEARS|HIDEFACE
-	desc = "A hat typically worn by the masterless zamurais - the ronins."
+	desc = "Шляпа, которую обычно носили бесхитростные самураи - ронины."
 	bloody_icon_state = null
 
 /obj/item/clothing/head/roguetown/tengai/torioigasa
-	name = "torioigasa"
+	name = "ториоигаса"
 	icon_state = "torioigasa"
-	desc = "A traditional Abyssariad hat designed for long travels on the murklands. Most used by commoners."
+	desc = "Традиционный головной убор, предназначенный для долгих путешествий по туманным землям. Чаще всего используется простолюдинами."
 	bloody_icon_state = null
 
 /obj/item/clothing/head/roguetown/tengai/sandogasa
-	name = "sandogasa"
+	name = "сандогаса"
 	icon_state = "sandogasa"
 	flags_inv = HIDEEARS
-	desc = "A large hat providing ample shade and protection from the elements, including rain."
+	desc = "Большой головной убор, обеспечивающий достаточную защиту от стихий, в том числе от дождя."
 	bloody_icon_state = null
 
 /obj/item/clothing/head/roguetown/tengai/sandogasa/yamabushi
-	name = "yamabushi sandogasa"
+	name = "ямабуси сандогаса"
 	icon_state = "ssandogasa"
-	desc = "A sandogasa painted in black tar traditionally worn by Abyssanctum yamabushis."
+	desc = "Сандогаса, выкрашенная в черный цвет смолы, которую традиционно носят ямабуши."
 	bloody_icon_state = null
 
 /obj/item/clothing/head/roguetown/soheicloth
-	name = "sohei coverings"
-	desc = "Blessed fabric bathed in holy water, keeping a sohei protected from corruptive gases - and providing anonymity. Their symbol of devotion that manifests their humbleness."
+	name = "покрытия сохей"
+	desc = "Освященная ткань, омываемая святой водой, защищает сохей от тлетворных запахов и обеспечивает анонимность. Символ преданности, демонстрирующий их смирение."
 	icon_state = "soheicloth"
 	body_parts_covered = HEAD|HAIR
 	body_parts_covered = HEAD|HAIR|EARS|MOUTH
@@ -109,16 +109,16 @@
 	color = CLOTHING_BROWN
 
 /obj/item/clothing/head/roguetown/shinobi_zukin
-	name = "shinobi hood"
+	name = "капюшон шиноби"
 	icon_state = "shinobi_zukin"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
-	desc = "A hood worn by members of Shinobi clans to conceal their identity and blend into the shadows. Unsuitable for espionage for being too obvious."
+	desc = "Капюшон, который носят члены кланов шиноби, чтобы скрыть свою личность и слиться с тенью. Не подходит для шпионажа, так как слишком заметен."
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/head.dmi'
 
 /obj/item/clothing/head/roguetown/helmet/skullcap/hachigane
-	name = "hachi-gane"
-	desc = "Simple, lamellar head protection made for humble monks, ronins and the poor - with the material often gathered from iron panning."
+	name = "хати-ганэ"
+	desc = "Простой пластинчатый головный убор, который изготавливался для скромных монахов, ронинов и бедняков - материал для них часто собирали из железной панировки."
 	icon_state = "hachi-gane"
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/head.dmi'
@@ -144,10 +144,10 @@
 	color = CLOTHING_BROWN
 
 /obj/item/clothing/head/roguetown/helmet/zijinguan
-	name = "zijinguan" //This is actually a ming dynasty helmet
-	desc = "A cheaper version of the Myrmidon helmet that dates back to the age of guardianship,\
-	yet still remains efficient. This helmet has became the symbol of abyssariad military culture\
-	of the commoner class alongside the jingasa."
+	name = "цзыцзиньгуань" //This is actually a ming dynasty helmet
+	desc = "Более дешевая версия шлема Мирмидона, который относится к другой эпохе,\
+	но все еще остается эффективным. Этот шлем стал символом военной культуры Изумы.\
+	наряду с дзингаса."
 	icon_state = "zijinguan"
 	flags_inv = HIDEEARS|HIDEHAIR
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
@@ -169,10 +169,10 @@
 		add_overlay(pic)
 
 /obj/item/clothing/head/roguetown/helmet/jingasa //the same as a Kettle. Just don't want the 64x64 bits.
-	name = "jingasa"
-	desc = "A metal gasa in conical shape. Mainly worn by Ashigarus, it protects against\
-	arrows and direct blow. Most efficient together with padding underneath due to the\
-	large space for the helmet to move after hit, easing impact."
+	name = "дзингаса"
+	desc = "Металлическая гаса конической формы. Носится в основном ашигарусами, защищает от стрел и прямых ударов.\
+	стрел и прямых ударов. Наиболее эффективна вместе с подкладкой, так как\
+	большое пространство для движения шлема после удара, что облегчает удар."
 	icon_state = "jingasa"
 	body_parts_covered = HEAD|HAIR|EARS
 	flags_inv = HIDEEARS
@@ -184,10 +184,10 @@
 	sellprice = 25
 
 /obj/item/clothing/head/roguetown/helmet/sallet/tosei_kabuto
-	name = "tosei kabuto"
-	desc = "Made from multiple steel plates riveted together, arranged in a radial pattern,\
-	having great balance and weight distribution - protecting even against round balls from firearms.\
-	Often used by the Zamurai class, this helmet is no rare find on a battlefield."
+	name = "тосэй кабуто"
+	desc = "Изготовлен из нескольких стальных пластин, скрепленных заклепками, расположенных в радиальном направлении,\
+	имеет прекрасный баланс и распределение веса, защищая даже от круглых шариков из огнестрельного оружия.\
+	Часто используемый самураями, этот шлем не редкость на поле боя."
 	icon_state = "tosei_kabuto"
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/64x64/head.dmi'
@@ -197,9 +197,9 @@
 	worn_y_dimension = 64
 
 /obj/item/clothing/head/roguetown/helmet/sallet/visored/tosei_kabuto
-	name = "masked tosei kabuto"
-	desc = "Made from multiple steel plates riveted together, arranged in a radial pattern.\
-	This one has a mask to protect the face of whoever uses it, albeit it does make sight difficult."
+	name = "тосэй кабуто с маской"
+	desc = "Изготовлен из нескольких стальных пластин, скрепленных заклепками, расположенных в радиальном порядке.\
+	Маска защищает лицо того, кто ее использует, но затрудняет обзор."
 	icon_state = "toseikabuto_visor"
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/64x64/head.dmi'
@@ -213,10 +213,10 @@
 	body_parts_covered = HEAD|HAIR|NOSE|EARS|EYES
 
 /obj/item/clothing/head/roguetown/helmet/heavy/knight/zunari //knight helmet.
-	name = "zunari kabuto"
-	desc = "An Etchu Zunari Kabuto with the front end of its longitudinal plate\
-	overlapping the brows, over the eyes, rather than being riveted beneath it\
-	to efficiently reflect blows and arrows - and protect against the sun and sweat."
+	name = "дзунари кабуто"
+	desc = "Этчу дзунари кабуто с передним концом продольной пластины\
+	накладывается на брови, над глазами, а не приклепывается под ними\
+	чтобы эффективно отражать удары и стрелы, а также защищать от солнца и воды."
 	icon_state = "zunari_kabuto"
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/head.dmi'
@@ -228,10 +228,10 @@
 	body_parts_covered = HEAD|HAIR|NOSE|EARS|EYES
 
 /obj/item/clothing/head/roguetown/zurarikabutonew
-	name = "izuma's zunari kabuto"
-	desc = "An Etchu Zunari kabuto with Heartfelt markings. It lacks a demonic\
-	mask for intimidation purposes - yet remains just as effective, besides showing\
-	the incredible artistic value that upholds Heartfelt's culture."
+	name = "зунари кабуто Изумы"
+	desc = "Кабуто этчу дзунари с маркировкой Изумы. У него нет демонической\
+	маски для устрашения - но она остается такой же эффективной, к тому же демонстрирует\
+	невероятную художественную ценность, которая поддерживает культуру Изумы."
 	icon_state = "heartfelt_kabuto"
 	body_parts_covered = HEAD|HAIR|EARS //maskless, protects less of the face.
 	flags_inv = HIDEEARS
@@ -250,17 +250,16 @@
 	max_integrity = 250
 
 /obj/item/clothing/head/roguetown/helmet/leather/malgai
-	name = "leather malgai"
-	desc = "A abyssariad leather helmet usually used by those who dwells\
-	on the center of Fog islands, where great steppes exists, or your common hunter."
+	name = "кожаный малгай"
+	desc = "Кожаный шлем абиссариадцев, обычно используемый теми, кто обитает\
+	в центре Туманных Островов, где есть большие степи, или обычный охотник."
 	icon_state = "malgai"
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/head.dmi'
 
 /obj/item/clothing/head/roguetown/helmet/leather/malgai/duulga //same changes of 'leather' to 'hide' has been brought over to this hat + mouth protection, because Mongol hat go brrtt
-	name = "arisan duulga"
-	desc = "The thick, oil-boiled layered leather helmet used by Abyssariads Dustriders\
-	from the arid, steppelands on the heart of the Fog Islands."
+	name = "арисан дуулга"
+	desc = "Шлем из толстой, промасленной кожи, используемый абиссарийцами в центре Туманных Островов."
 	icon_state = "arisan_duulga"
 	armor = list("melee" = 40, "bullet" = 15, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_BLUNT, BCLASS_TWIST)
@@ -276,10 +275,10 @@
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/head.dmi'
 
 /obj/item/clothing/head/roguetown/helmet/skullcap/rattan
-	name = "tengpai dou"
+	name = "тэнпай доу"
 	icon_state = "rattan_helmet"
-	desc = "A cheap abyssariad helmet made from stripped, oil boiled rattan and iron.\
-	Used only by militia and the humble LinYou raiders. Less protective, but can be easily repaired."
+	desc = "Дешевый изуминский шлем, сделанный из ободранного, проваренного в масле ротанга и железа.\
+	Используется только ополченцами и рейдерами Линьоу. Защищает хуже, но легко ремонтируется."
 	flags_inv = HIDEEARS
 	armor = list("melee" = 60, "bullet" = 40, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	body_parts_covered = HEAD|HAIR|EARS
@@ -294,11 +293,9 @@
 	sewrepair = TRUE
 
 /obj/item/clothing/head/roguetown/helmet/heavy/bronzepot //hopefully asking someone to draw this helmet.
-	name = "relic of urn"
+	name = "реликвия Изумы"
 	icon_state = "bronzeb"
-	desc = "The eternal relic of the Champions of the Urn, used by Eidolon Skylancers,\
-	the Demonslayers of the Abyssal order. It cannot be removed, forever one with the user\
-	- molten and grafted into skin, but the infused arcane bends light upon itself for clear sight."
+	desc = "Вечная реликвия избранных из Изумы, используемая для войны."
 	smeltresult = /obj/item/ingot/steel //Intentional. The helmet is not actually made of bronze. It is just a lingering apotheosis-age term for that internal-mirror design.
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
@@ -356,16 +353,16 @@
 	qdel(src)
 
 /obj/item/clothing/head/roguetown/helmet/leather/malgai/izuma
-	name = "izuma's hat"
-	desc = "A distinguished hat with three sides of the brim turned up and laced,\
-	forming a triangle. Usually used by the Fog Island's privateer navy - or rich fellows on Heartfelt."
+	name = "изуминская шляпа"
+	desc = "Шляпа с тремя сторонами околыша, поднятыми вверх и зашнурованными,\
+	образуя треугольник. Обычно используется флотом Туманного Острова или богатыми людьми в Изуме."
 	icon_state = "tricorn"
 
 /obj/item/clothing/head/roguetown/sallet/visored/abyssalchampion //hounskull tier.
-	name = "winged abyssal helmet"
-	desc = "The traditional winged helmet of ancient design with a protective mask covering it.\
-	It has foundations on the ancient myrmidon guardian helmets.\
-	The mask can be lifted internally for higher visibility, but it leaves the eyes exposed."
+	name = "Крылатый шлем бездны"
+	desc = "Традиционный крылатый шлем античного дизайна с защитной маской.\
+	Его основой послужили древние шлемы стражников-мирмидонов из Изумы.\
+	Маска может быть поднята внутрь для большего обзора, но при этом остаются открытыми глаза."
 	icon_state = "abyssal_champion"
 	item_state = "abyssal_champion"
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
@@ -375,9 +372,9 @@
 	armor = list("blunt" = 90, "slash" = 100, "stab" = 80, "bullet" = 100, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 
 /obj/item/clothing/head/roguetown/helmet/heavy/bucket/soheidemon
-	name = "armored sohei cowl"
-	desc = "A fabric blessed both in holy water and steel. A mask-like metal reinforcement\
-	covered with yellow silk protects the skull of these Sohei warriors."
+	name = "бронированный колпак сохэй"
+	desc = "Ткань, освященная святой водой и сталью. Металлическое усиление в виде маски\
+	покрытая желтым шелком, защищает череп."
 	icon_state = "soheidemon"
 	item_state = "soheidemon"
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
@@ -390,8 +387,8 @@
 // 'bone-tier' Undine equipments.
 
 /obj/item/clothing/head/roguetown/wizhat/onmyoji
-	name = "onmyoji warhat"
-	desc = "Surprisingly huge hats used by Onmyojis whom take part of the abyssal championage in warfare. The hat shadows hides the eyes from the lower castes."
+	name = "онмёдзи вархат"
+	desc = "Удивительно огромные шапки используют онмёдзи, которые участвуют в войне. Тени от шляпы скрывают глаза у представителей низших каст."
 	icon_state = "abyssalhat"
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/64x64/head.dmi'
@@ -425,8 +422,8 @@
 	color = CLOTHING_BLACK
 
 /obj/item/clothing/head/roguetown/wizhat/onmyoji/eboshi
-	name = "eboshi hat"
-	desc = "traditional Onmyoji hats for those who desires to practice natural sciences and divinations rather than warfare."
+	name = "шляпа эбоси"
+	desc = "Традиционные головные уборы онмёдзи для тех, кто желает заниматься не военным делом, а естественными науками или ремеслом."
 	icon_state = "eboshihat"
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/64x64/head.dmi'
@@ -442,9 +439,9 @@
 	..()
 
 /obj/item/clothing/head/roguetown/helmet/heavy/myrmidon
-	name = "myrmidon helmet"
-	desc = "The warrior-priests bound to divine oath, consecrated to fight in the abyss as\
-	extensions of the Heavenly Emperor. It became reference for the current day zijinguan and winged helmets."
+	name = "шлем мирмидона"
+	desc = "Жрецы-воины, связанные божественной клятвой, посвященные для сражения.\
+	Они стали образцом для современных цзыцзиньгуань и крылатых шлемов."
 	icon_state = "myrmidon"
 	item_state = "myrmidon"
 	allowed_sex = list(MALE, FEMALE)
@@ -463,8 +460,7 @@
 	name = "dragonslayer helmet"
 	icon_state = "dragonslayer"
 	item_state = "dragonslayer"
-	desc = "The hallmark of the Dragonslayers, those born to endure the blazing infernos from\
-	the sons of magma. The asbestos materials excels in resisting the intense heat of dragonfire and wizardry."
+	desc = "Отличительная черта Драконоборцев, тех, кто рожден, чтобы выдержать пылающий ад. Асбестовые материалы отлично противостоят сильному жару драконьего огня и чародейства."
 	heat_protection = HEAD|EARS|HAIR|FACE
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 	resistance_flags = FIRE_PROOF | ACID_PROOF
@@ -476,16 +472,16 @@
 	bloody_icon_state = "helmetblood"
 
 /obj/item/clothing/head/roguetown/bardhat/bloodhunter
-	name = "scrapped hat"
-	desc = "A heartfeltean hat that has been scrapped with sharp tools and hardened in oil,\
-	meant to convey one's status to not only destroy such expensive piece - but to keep it raised like thorns."
+	name = "изуминская шляпа"
+	desc = "Изуминская шляпа, выскобленная острыми инструментами и закаленная в масле,\
+	призвана передать статус человека, который не только уничтожает такую дорогую вещь, но и держит ее поднятой, как шипы."
 	icon_state = "bloodhunter"
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/head.dmi'
 
 /obj/item/clothing/head/roguetown/helmet/leather/malgai/izuma/female
-	name = "lady hat"
-	desc = "A hat produced by abyssariad and heartfeltean hands for the most beautiful of ladies. Or rich, that is."
+	name = "изуминская шляпа леди"
+	desc = "Шляпа, созданная руками жителей Туманных Островов или Изумы для самых прекрасных дам. Или богатых."
 	icon_state = "heartfelthandf"
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/head.dmi'

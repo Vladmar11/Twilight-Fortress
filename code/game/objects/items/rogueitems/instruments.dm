@@ -197,8 +197,8 @@
 	"The Earth That Quakes" = 'sound/music/instruments/drum (3).ogg')
 
 /obj/item/rogue/instrument/shamisen 
-	name = "shamisen"
-	desc = "shamisen, or just 'three-stings' is a abyssariad puckled stringed musical instrument, usually played using a Bachi."
+	name = "cямисэн"
+	desc = "cямисэн, или просто «три струны», - это изуминский струнный инструмент с шайбой, на котором обычно играют с помощью бачи."
 	icon = 'modular_twilight/icons/roguetown/misc/music.dmi'
 	icon_state = "shamisen"
 	lefthand_file = 'modular_twilight/icons/roguetown/misc/lefthand_music.dmi'

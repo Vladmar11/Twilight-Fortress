@@ -1,15 +1,15 @@
 /obj/item/clothing/shoes/roguetown/boots/armor/light/kusaritabi
-	name = "kusari tabi"
+	name = "кусари таби"
 	icon_state = "kusaritabi"
 	item_state = "kusaritabi"
-	desc = "The riveted chainmail version of the unarmored Tabi footwear."
+	desc = "Клепаная цепная защита для небронированной обуви таби."
 	icon = 'modular_twilight/icons/roguetown/clothing/feet.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/feet.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/feet.dmi'
 
 /obj/item/clothing/shoes/roguetown/boots/armor/suneate
-	name = "suneate boots"
-	desc = "Armored suneate made from steel offering heavy protection against both melee and ranged attacks."
+	name = "сабатоны сунэат"
+	desc = "Бронированный сунэат из стали, обеспечивающий надежную защиту от атак как ближнего, так и дальнего боя."
 	icon = 'modular_twilight/icons/roguetown/clothing/feet.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/feet.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/feet.dmi'
@@ -17,8 +17,9 @@
 	item_state = "suneate"
 
 /obj/item/clothing/shoes/roguetown/boots/jikatabi
-	name = "jikatabi"
-	desc = "A standard tabi that keeps the toes flexible and healthy, avoiding calluses of long expeditions. However, it looks rather goofy for the non-islanders."
+	name = "чикатаби"
+	desc = "Стандартные таби, которые сохраняют гибкость и здоровье пальцев ног, предотвращая появление мозолей от длительных экспедиций.\
+	Однако для жителей других островов она выглядит довольно глупо."
 	icon = 'modular_twilight/icons/roguetown/clothing/feet.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/feet.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/feet.dmi'
@@ -29,7 +30,7 @@
 	color = CLOTHING_BLACK
 
 /obj/item/clothing/shoes/roguetown/boots/jikatabi/dragontabi
-	name = "dragontabi"
+	name = "драконтаби"
 	icon_state = "dragontabi"
 	item_state = "dragontabi"
 	icon = 'modular_twilight/icons/roguetown/clothing/feet.dmi'
@@ -45,8 +46,8 @@
 	resistance_flags = FIRE_PROOF|ACID_PROOF
 
 /obj/item/clothing/shoes/roguetown/sandals/geta
-	name = "geta"
-	desc = "A normal wooden geta most suitable for those who need to wander where the mud absorbs pressure."
+	name = "гета"
+	desc = "Обычная деревянная гета, наиболее подходящая для тех, кому нужно бродить там, где грязь поглощает всех."
 	icon = 'modular_twilight/icons/roguetown/clothing/feet.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/feet.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/feet.dmi'
@@ -54,8 +55,8 @@
 	item_state = "geta"
 
 /obj/item/clothing/shoes/roguetown/shortboots/cloudhead
-	name = "cloudhead shoes"
-	desc = "A traditional shoes with distinctive upturned toe design that resembles the shape of clouds, to symbolize connection to the skies."
+	name = "облачная обувь"
+	desc = "Традиционная обувь с характерным вздернутым носком, напоминающим форму облаков, символизирующих связь с небом."
 	icon = 'modular_twilight/icons/roguetown/clothing/feet.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/feet.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/feet.dmi'
@@ -63,8 +64,9 @@
 	item_state = "cloudhead_shoes"
 
 /obj/item/clothing/shoes/roguetown/shortboots/cloudhead/kabukimono
-	name = "kabuki-maru cloudhead shoes"
-	desc = "The same traditional cloudhead shoes of the Abyssariads, but colored in rich yellow tone and with intense implication of being used by a lowly burakumin whom belongs to an armed gang."
+	name = "облачные туфли кабуки-мару"
+	desc = "Все те же традиционные туфли Изумы, но окрашенные в насыщенный желтый цвет и с сильным намеком на то, \
+	что их использует низкий буракумин, принадлежащий к вооруженной банде."
 	color = "#9b874f"
 
 /obj/item/clothing/shoes/roguetown/shortboots/cloudhead/toweryakkos
@@ -73,8 +75,8 @@
 	color = "#804d97"
 
 /obj/item/clothing/shoes/roguetown/ridingboots/gutal
-	name = "leather gutal"
-	desc = "The boots used by Abyssariad cavalry with upturned toes and durable, oil-boiled leather."
+	name = "кожаный гутал"
+	desc = "Сапоги, используемые кавалерией Изумы, с загнутыми носками и прочной, вываренной в масле кожей."
 	icon_state = "leathergutal"
 	item_state = "leathergutal"
 	icon = 'modular_twilight/icons/roguetown/clothing/feet.dmi'

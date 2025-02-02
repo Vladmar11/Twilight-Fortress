@@ -1,12 +1,12 @@
 /obj/projectile/bullet/reusable/arrow/poison/fog
-	name = "fog arrow"
+	name = "туманная стрела"
 	desc = "An arrow with it's tip drenched in a powerful sedative."
 	icon = 'modular_twilight/icons/roguetown/weapons/ammo.dmi'
 	icon_state = "arrowfog_proj"
 	ammo_type = /obj/item/ammo_casing/caseless/rogue/arrow
 
 /obj/item/ammo_casing/caseless/rogue/arrow/poison/fog
-	name = "fog arrow"
+	name = "туманная стрела"
 	desc = "An arrow with it's tip drenched in a powerful sedative."
 	projectile_type = /obj/projectile/bullet/reusable/arrow/poison/fog
 	icon = 'modular_twilight/icons/roguetown/weapons/ammo.dmi'
@@ -40,7 +40,7 @@
 	reagents.add_reagent(/datum/reagent/fogblight, 5)
 
 /obj/item/ammo_casing/caseless/rogue/bolt/poison/fog
-	name = "fog bolt"
+	name = "туманный болт"
 	desc = "A bolt dipped with a potent sedative."
 	projectile_type = /obj/projectile/bullet/reusable/bolt/poison/fog
 	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust)
@@ -48,7 +48,7 @@
 	icon_state = "bolt_fog"
 
 /obj/projectile/bullet/reusable/bolt/poison/fog
-	name = "fog bolt"
+	name = "туманный болт"
 	desc = "A bolt dipped with a potent sedative."
 	damage = 35
 	damage_type = BRUTE

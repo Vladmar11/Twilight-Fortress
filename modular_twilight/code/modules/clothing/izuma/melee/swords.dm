@@ -1,6 +1,7 @@
 /obj/item/rogueweapon/sword/uchigatana
-	name = "uchigatana"
-	desc = "Shorter and simpler than the Tachi, the Uchigatana is the primary sidearm for the Abyssariad and Heartfelt footsoldiers. As a Zatana, the curved blade favor powerfull chopping strikes - but lacks a protective crossguard and the curve makes it less efficient in thrusting."
+	name = "учигатана"
+	desc = "Более короткая и простая, чем тачи, учигатана является основным оружием пехотинцев Изумы и Туманных островов. \
+	Как и у дзатаны, изогнутый клинок позволяет наносить мощные рубящие удары, но не имеет защитной перекладины, а изгиб делает его менее эффективным при нанесении ударов."
 	icon = 'modular_twilight/icons/roguetown/weapons/64.dmi'
 	icon_state = "uchigatana"
 	pixel_y = -16
@@ -32,35 +33,29 @@
 	return
 
 /obj/item/rogueweapon/sword/long/tachi //this sword is all fucked. Oh God. Help me.
-	name = "tachi"
-	desc = "A long, curved Zatana of Abyssariad make, introduced when Wokou raiders returned to the Fog Isles with captured horses and began developing their own cavalry tactics."
+	name = "тачи"
+	desc = "Длинный, изогнутый затан, появившийся после того, как рейдеры Вокоу вернулись на Туманные Острова с захваченными лошадьми и \
+	начали разрабатывать собственную кавалерийскую тактику."
 	icon = 'modular_twilight/icons/roguetown/weapons/64.dmi'
 	icon_state = "tachi"
 	item_state = "tachi"
 	pixel_y = -16
 	pixel_x = -18
 
-/obj/item/rogueweapon/sword/long/tachi/dustcurse/dropped()
-	. = ..()
-	name = "Dustcurse tachi"
-	minstr = 0 //asset solely to be used by NPCs. This will not be found on the hands of players.
-	to_chat(src, "<span class='warning'>A haunting wind scatters [usr] into dust, sweeping it back to the ocean!</span>")
-	if(QDELETED(src))
-		return
-	qdel(src)
-
 /obj/item/rogueweapon/sword/long/greatsword/odachi
-	name = "odachi"
-	desc = "Greatsword traditionally wielded in open battlefields just as it is a ceremonial blade. Though impractical for duels, it breaks spearlines and shields on a whim, requiring momentum with each slash."
+	name = "одати"
+	desc = "Большой меч традиционно используется на открытых полях сражений, как и церемониальный клинок. \
+	Непрактичный для дуэлей, он прихотливо ломает копья и щиты, требуя импульса при каждом ударе."
 	icon_state = "odachi"
 	icon = 'modular_twilight/icons/roguetown/weapons/64.dmi'
 	parrysound = "bladedlarge"
 
 /obj/item/rogueweapon/sword/iron/jian
-	name = "iron jian"
+	name = "железный цзянь"
 	icon_state = "jian1"
 	icon = 'modular_twilight/icons/roguetown/weapons/64.dmi'
 
+  //Хуйня для всех, похуй Twilight Fortress//
 /obj/item/rogueweapon/sword/iron/jian/Initialize()
 	. = ..()
 	var/design = rand(1, 6) //This system will be standardized to other weapons.
@@ -73,38 +68,38 @@
 			desc = "A simple, double-edged iron sword. With a thicker pommel and stretched guard, it becomes more proper as sideweapons during sieges for overhead attacks."
 		if(3)
 			name = "guardsman jian"
-			desc = "A simple, double-edged iron sword of abyssariad with parrying hooks at cost of slashing effectiveness."
+			desc = "A simple, double-edged iron sword with parrying hooks at cost of slashing effectiveness."
 		if(4)
 			name = "foreigner jian"
-			desc = "A simple, double-edged iron sword of abyssariad design with heartfelt influence, taking smithing standards from Zweihanders."
+			desc = "A simple, double-edged iron sword with heartfelt influence, taking smithing standards from Zweihanders."
 		if(5)
-			name = "heartfelt jian"
-			desc = "A simple, double-edged iron sword of abyssariad design with heartfelt influence. Keeping a rather imperial style of guard."
+			name = "izuma's jian"
+			desc = "A simple, double-edged iron sword with heartfelt influence. Keeping a rather imperial style of guard."
 		if(6)
 			name = "duelist jian"
-			desc = "A simple, double-edged iron sword of abyssariad design with hand protection that resembles one side of the firelance apparatus. Usually used for training."
+			desc = "A simple, double-edged iron sword with hand protection that resembles one side of the firelance apparatus. Usually used for training."
 	icon_state = "jian[design]"
 
 /obj/item/rogueweapon/sword/scimitar/messer/dao
-	name = "iron dao"
-	desc = "A single edged iron saber of Abyssariad making for horseback use. Suitable for chopping."
+	name = "железный дао"
+	desc = "Одноострая железная сабля для верховой езды. Подходит для рубки."
 	icon_state = "dao"
 	icon = 'modular_twilight/icons/roguetown/weapons/32.dmi'
 
 /obj/item/rogueweapon/sword/scimitar/falchion/yuntoudao //this sprite disappeared by reasons unknown
-	name = "Yuntoudao"
-	desc = "A expensive Abyssariad saber with wide middle and tapered ends in a 'willow-leaf' shape, it concentrates the force of a strike in an axe-like blow, while retaining the swiftness of a saber."
+	name = "юньтоудао"
+	desc = "Дорогая сабля с широкой серединой и сужающимися концами в форме «ивового листа», она концентрирует силу удара в подобие топора, сохраняя при этом стремительность сабли."
 	icon_state = "yuntoudao"
 	icon = 'modular_twilight/icons/roguetown/weapons/32.dmi'
 
 /obj/item/rogueweapon/sword/short/jian
-	name = "short steel jian"
-	desc = "A simple, shortened version of the double-edged Jian. This is usually given to Abyssariad citizens as a right for self-defense by the emperor's will."
+	name = "короткая стальная цзянь"
+	desc = "Простая, укороченная версия обоюдоострого цзяня. Обычно выдается гражданам Изумы в качестве права на самооборону по воле императора."
 	icon = 'modular_twilight/icons/roguetown/weapons/32.dmi'
 	icon_state = "shortjian"
 
 /obj/item/rogueweapon/sword/short/wakizashi
-	name = "wakizashi"
+	name = "вакидзаси"
 	icon_state = "wakizashi1"
 	icon = 'modular_twilight/icons/roguetown/weapons/32.dmi'
 	possible_item_intents = list(/datum/intent/sword/cut/sorii, /datum/intent/sword/thrust/sorii)
@@ -114,11 +109,12 @@
 	var/design = rand(1, 3) //This system will be standardized to other weapons.
 	switch(design)
 		if(1)
-			name = "wakizashi zatana"
-			desc = "A shorter zatana design with circular handguard and heartfelt-influenced pommel. The curveness of the blade makes it better at cutting than thrusting."
+			name = "wakizashi katana"
+			desc = "A shorter katana design with circular handguard. The curveness of the blade makes it better at cutting than thrusting."
 		if(2)
 			name = "traditional wakizashi"
-			desc = "The traditional wakizashi used by abyssariads for centuries, with a lack of a pommel and a broader handguard for hand protection. The sorii of the blade improves the cutting power."
+			desc = "The traditional wakizashi used by abyssariads for centuries, with a lack of a pommel and a broader handguard for hand protection. \
+			The sorii of the blade improves the cutting power."
 		if(3)
 			name = "shirasaya wakizashi"
 			desc = "The cheaper adaptation of the Wakizashi with an complete lack of handguard and no tsuka ito covering the "
@@ -133,14 +129,14 @@
 	damfactor = 0.85
 
 /obj/item/rogueweapon/sword/sabre/piandao
-	name = "piandao"
-	desc = "An curved abyssariad sword with a broad, single-edged blade that ends in a heavier curve for powerful and fast sweeping strikes."
+	name = "пиандао"
+	desc = "Изогнутый меч с широким одноострым клинком, который заканчивается более тяжелым изгибом для мощных и быстрых разящих ударов."
 	icon_state = "piandao"
 	icon = 'modular_twilight/icons/roguetown/weapons/32.dmi'
 
 /obj/item/rogueweapon/sword/sabre/piandao/dec
-	name = "decorated piandao"
-	desc = "The Abyssariad saber with the hilt covered in gold and letters reflecting the user's family lineage."
+	name = "украшенный пиандао"
+	desc = "Сабля с рукоятью, покрытой золотом и буквами, отражающими родословную пользователя."
 	icon_state = "piandaodec"
 	max_integrity = 550
 	sellprice = 140

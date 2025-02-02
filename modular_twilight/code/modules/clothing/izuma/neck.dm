@@ -1,7 +1,6 @@
 /obj/item/clothing/neck/roguetown/chaincoif/karuta_zukin
-	name = "karuta zukin"
-	desc = "A protective hood composed of rectangular plates sewn onto a fabric backing, offering a more solid \
-	defense while remaining flexible."
+	name = "карута цукин"
+	desc = "Защитный капюшон, состоящий из прямоугольных пластин, пришитых к тканевой основе, обеспечивает более надежную защиту, оставаясь при этом гибким."
 	icon_state = "karuta_zukin"
 	item_state = "karuta_zukin"
 	icon = 'modular_twilight/icons/roguetown/clothing/neck.dmi'
@@ -41,16 +40,16 @@
 					H.update_inv_head()
 
 /obj/item/clothing/neck/roguetown/chaincoif/iron/kusari_zukin
-	name = "iron kusari zukin"
-	desc = "A hood made of riveted iron rings usually worn beneath or alongside a Kabuto. \
-	It protects against cuts and slashes - but cannot spread blunt damage as efficiently."
+	name = "железный кусари цукин"
+	desc = "Капюшон из клепаных железных колец, обычно надеваемый под кабуто или вместе с ним. \
+	Защищает от порезов и рассечений, но не может так же эффективно отражать тупой урон."
 	icon_state = "kusari_zukin"
 	icon = 'modular_twilight/icons/roguetown/clothing/neck.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/neck.dmi'
 
 /obj/item/clothing/neck/roguetown/psycross/silver/abyssanctum
-	name = "reformist abyssanctum amulet"
-	desc = "Despair thee not at the abyssal depths, for where light doth fade, vessels of might shall be therein carved, as Abyssor and the Weeper guide their own."
+	name = "амулет абиссанктум"
+	desc = "Не отчаивайся в бездонных глубинах, ибо там, где меркнет свет, высекаются корабли могущества, как Абиссор и Псайдон ведут своих."
 	icon = 'modular_twilight/icons/roguetown/clothing/neck.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/neck.dmi'
 	icon_state = "abyssanctum"
@@ -58,15 +57,17 @@
 	slot_flags = ITEM_SLOT_NECK|ITEM_SLOT_HIP|ITEM_SLOT_WRISTS
 
 /obj/item/clothing/neck/roguetown/mercmedal/toweryakko
-	name = "soul compressor"
-	desc = "A metallic device of Tower-Yakko legacy used to shackle criminal souls and demons to eternity. The once-feared power ceased when Tower-Yakko's moral decay led to their disgrace in the eyes of the emperor. "
+	name = "компрессор душ"
+	desc = "Металлическое устройство из наследия Башни-Якко, использовавшееся для вечного заточения душ преступников и демонов. \
+	Некогда страшная сила исчезла, когда моральное разложение Башни-Якко привело к их позору в глазах императора. "
 	icon = 'modular_twilight/icons/roguetown/clothing/neck.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/neck.dmi'
 	icon_state = "soul_compressor"
 
 /obj/item/clothing/neck/roguetown/mercmedal/kabukimaru
-	name = "hihiirokane beads"
-	desc = "Hihiirokane, or 'Mythril', is a luminous, rare metal drawn from the abyssal depths where the pressure is hostile to most life. The Abyssariads holds the key to its mystery, a secret that dwarves would covet at any cost."
+	name = "бусины хихироканэ"
+	desc = "Хихироканэ, или «Мифрил», - светящийся редкий металл, добываемый из бездонных глубин, где давление враждебно для большинства живых существ. \
+	Изумианцы хранят ключ к его тайне, секрет, который гномы хотели бы заполучить любой ценой."
 	icon = 'modular_twilight/icons/roguetown/clothing/neck.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/neck.dmi'
 	icon_state = "mythrilbeads"

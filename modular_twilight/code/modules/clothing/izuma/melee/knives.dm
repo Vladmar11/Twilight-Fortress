@@ -1,13 +1,13 @@
 /obj/item/rogueweapon/huntingknife/kunai //Practically a villager knife with more utility. It helps others to climb walls.
-	name = "kunai"
-	desc = "A simple stabbing weapon made of iron which originated as a masonry or gardening tool, useful for climbing walls in similar ways to pitons."
+	name = "кунай"
+	desc = "Простое колющее оружие из железа, которое возникло как инструмент для кладки или садоводства, полезный для лазания по стенам, подобно питонам."
 	icon = 'modular_twilight/icons/roguetown/weapons/32.dmi'
 	icon_state = "kunai"
 	force = 8
 
 /obj/item/rogueweapon/knife/kaiken
-	name = "iron kaiken"
-	desc = "The weapon laws in colonized Abyssariad islands, with high humen or elven population, forbade non-warriors from carrying blades in public, so abyssariad colonists made weapons such as this."
+	name = "железный кайкен"
+	desc = "Это оружие когда-то было запрещено в Изуме, однако времена меняются."
 	icon = 'modular_twilight/icons/roguetown/weapons/32.dmi'
 	icon_state = "kaiken"
 	possible_item_intents = list(/datum/intent/dagger/thrust, /datum/intent/dagger/cut)
@@ -16,8 +16,8 @@
 	sellprice = 15
 
 /obj/item/rogueweapon/huntingknife/idagger/tanto
-	name = "steel tanto"
-	desc = "Initially a companion blade to the tachi in a zamurai's daisho, the tanto was later replaced by the wakizashi with the shift to infantry tactics after the Bloody Apotheosis."
+	name = "стальной танто"
+	desc = "Изначально танто был клинком-компаньоном тачи в дайсё самурая, но затем был заменен вакидзаси с переходом к пехотной тактике."
 	icon = 'modular_twilight/icons/roguetown/weapons/32.dmi'
 	icon_state = "tanto"
 	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust, /datum/intent/dagger/chop)
@@ -28,8 +28,9 @@
 	sellprice = 20
 
 /obj/item/rogueweapon/huntingknife/sai //I love gundam for helping me on my request on this sai. I love HIM!!!!!!!!!!!!! -Monochrome
-	name = "sai"
-	desc = "Recognizable by its uniqueness and typically carried in pairs, the sai features a sharply-tapered central rod with two prongs at the cross-guards. It lacks blade for cutting, but it excels in jabbing and defending against other weapons."
+	name = "сай"
+	desc = "Узнаваемый по своей уникальности и обычно носимый в паре, саи имеет остроконечный центральный стержень с двумя зубцами на поперечных гардах. \
+	У него нет лезвия для рубки, но он отлично подходит для нанесения ударов и защиты от других видов оружия."
 	icon = 'modular_twilight/icons/roguetown/weapons/32.dmi'
 	icon_state = "sai"
 	possible_item_intents = list(/datum/intent/dagger/thrust,/datum/intent/dagger/thrust/pick)

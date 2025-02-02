@@ -1,6 +1,6 @@
 /obj/item/clothing/suit/roguetown/armor/leather/vest/muneate //exists only for the drip.
-	name = "muneate"
-	desc = "A simple leather chest protector for casual archers. Barely protective- almost useless."
+	name = "мунаатэ"
+	desc = "Простая кожаная защита груди для обычных лучников. Едва ли защищает - почти бесполезен."
 	icon_state = "muneate"
 	item_state = "muneate"
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
@@ -15,8 +15,9 @@
 	color = CLOTHING_DARK_GREEN
 
 /obj/item/clothing/suit/roguetown/armor/plate/nanbando
-	name = "nanban-dou-sode"
-	desc = "Abyssariad steel cuirass, refined and with additional sode for protection. Rare and prized by High-ranking zamurais, this design has been acquired from raided humen settlements."
+	name = "нанбан-доу-содэ"
+	desc = "Стальная кираса из Изумы, усовершенствованный и с дополнительным укреплением для защиты. \
+	Редкий и ценимый высокопоставленными самураями."
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
@@ -24,8 +25,8 @@
 	item_state = "nanbando"
 
 /obj/item/clothing/suit/roguetown/armor/plate/half/nanbando
-	name = "nanban-dou"
-	desc = "The Abyssariad steel cuirass that only protects the chest. Relatively common among the ones from the lower Zamurai caste."
+	name = "нанбан-доу"
+	desc = "Стальная кираса из Изумы, защищающий только грудь. Относительно часто встречается у выходцев из низшей касты самураев."
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
@@ -33,36 +34,36 @@
 	item_state = "nanbandoc"
 
 /obj/item/clothing/suit/roguetown/armor/plate/full/nanbando
-	name = "nanban-do-gusoku"
-	desc = "A complete set of abyssariad steel armor, refined and with additional auxiliary parts for protection."
+	name = "нанбан-до-гусоку"
+	desc = "Полный комплект стального доспеха из Изумы, усовершенствованный и с дополнительными вспомогательными частями для защиты."
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
 	icon_state = "nanbandofull"
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/tatami
-	name = "lamellae-tatami do"
-	desc = "a foldable, lightweight armor for convenient motion and manufacturing ease.\
-	It is made of rectangular steel lamellae sewn into chainmail and is a massforged armor.\
-	Considered the backbone of abyssariad military armor, often used below mirror-armor and o-yoroi."
+	name = "ламеллаэ-татами до"
+	desc = "Складной, легкий доспех для удобства перемещения и простоты изготовления.\
+	Изготовлен из прямоугольных стальных ламелей, вшитых в цепную броню, и является массовым доспехом в Сёгунате Изумы.\
+	Считается основой военной брони Изумы, часто используется вместо зеркальной брони и о-йорои."
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
 	icon_state = "laminartatami"
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/iron/tatami
-	name = "tatami karuta-gane"
-	desc = "a foldable, lightweight armor for convenient motion and manufacturing ease.\
-	It is made of lacquered, card-like iron squares sewn into a padded cloth or leather backing."
+	name = "татами карута-ганэ"
+	desc = "Складной, легкий доспех для удобства перемещения и простоты изготовления.\
+	Он сделан из лакированных железных квадратов, похожих на карты, вшитых в мягкую тканевую или кожаную основу."
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
 	icon_state = "tatami"
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/kusari
-	name = "kusari katabira"
-	desc = "Or simply 'single-layer chainmail robe', this armor is made of riveted steel rings \
-	patched together with slim plates protecting elbows. The armor reaches down to the legs and arms."
+	name = "кусари катабира"
+	desc = "Или просто «однослойная цепная мантия», эти доспехи сделаны из клепаных стальных колец \
+	скрепленных между собой тонкими пластинами, защищающими локти. Доспехи доходят до ног и рук."
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
@@ -70,8 +71,9 @@
 	item_state = "kusari"
 
 /obj/item/clothing/suit/roguetown/armor/plate/mirror/iron
-	name = "iron mirror armor"
-	desc = "Polished iron plates defines the frame of this armor with a metal disk at its center. This is the armor design used by the Islander army together with a kusari katabira."
+	name = "железные зеркальные доспехи"
+	desc = "Полированные железные пластины определяют каркас этого доспеха с металлическим диском в центре.\
+	Такой доспех используется на Туманных Островах вместе с кусари-катабирой."
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
@@ -82,17 +84,17 @@
 	armor_class = ARMOR_CLASS_MEDIUM
 
 /obj/item/clothing/suit/roguetown/armor/plate/mirror
-	name = "steel mirror armor"
+	name = "стальная зеркальная броня"
 	icon_state = "mirrorarmor"
-	desc = "Polished steel plates defines the frame of this armor with a metal disk at its center. This is the armor design used by the Islander army together with a kusari katabira."
+	desc = "Полированные стальные пластины определяют каркас этого доспеха с металлическим диском в центре. Такой доспех используется на Туманных Островах вместе с кусари-катабирой."
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
 	icon_state = "mirrorarmor"
 
 /obj/item/clothing/suit/roguetown/armor/brigandine/oyoroi //I did everything I could to fix this shit. I couldn't. So the entire 'colourscheme overlay' ordeal went to hell.
-	name = "o-yoroi"
-	desc = "Heavy-duty lamellar armor esteemed high-ranking zamurais on horseback or on land."
+	name = "о-йорои"
+	desc = "Сверхпрочные пластинчатые доспехи почитались высокопоставленными самураями как на коне, так и на земле."
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
@@ -138,38 +140,39 @@
 	return ..()
 
 /obj/item/clothing/suit/roguetown/armor/brigandine/oyoroi/oyoroigusoku
-	name = "o-yoroi gusoku"
-	desc = "Heavy-duty, complete set of lamellar armor esteemed by high-ranking zamurais on horseback or on land."
+	name = "о-йорои гусоку"
+	desc = "Сверхпрочный полный комплект ламеллярных доспехов, которые высокопоставленные самураи почитают как на коне, так и на земле."
 	icon_state = "oyoroi"
 	body_parts_covered = CHEST|GROIN|VITALS|LEGS|ARMS
 
 /obj/item/clothing/suit/roguetown/armor/plate/half/iron/sanmaido
-	name = "san mai-do"
-	desc = "A cheap cuirass with three main plates riveted together with cloth. Flexible and dynamic, integral for many poor footsoldiers"
+	name = "сан май-до"
+	desc = "Дешевая кираса с тремя основными пластинами, скрепленными между собой тканью. Гибкий и достаточно прочный, неотъемлемая часть многих бедных пехотинцев из Изумы."
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
 	icon_state = "sanmaido"
 
 /obj/item/clothing/suit/roguetown/armor/leather/abyssal
-	name = "leather lamellar armor"
-	desc = "Also know as 'Tiejia', this islander leather armor features small rectangular leather plates laced together to cover vital organs."
+	name = "кожаные ламеллярные доспехи"
+	desc = "Эта кожаная броня из Туманных Островов, известная также под названием «Тийоджиа», имеет небольшие прямоугольные кожаные пластины, \
+	скрепленные между собой, чтобы закрыть жизненно важные органы."
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
 	icon_state = "tiejia"
 
 /obj/item/clothing/suit/roguetown/armor/leather/hide/dustwalker
-	name = "leather cavalry armor"
-	desc = "The Khatag Teghelgah designed to be used by abyssariad light cavalry and horse archers on the heart of Fog Island."
+	name = "кожаные кавалерийские доспехи"
+	desc = "Хатагский тегелгах предназначен для использования абиссариадской легкой кавалерией и конными лучниками в центре Туманного острова."
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
 	icon_state = "arisan_khuyag"
 
 /obj/item/clothing/suit/roguetown/armor/leather/splint/kikko //This one is more realistic than Studded Leather armor. A reminder that Studded leather armor is a misinterpretation of a Brigandine.
-	name = "kikko jacket"
-	desc = "A cheaper and lighter version of Kikko Tatami, a leather jacket with metal hexagon plates in a turtle-shell pattern."
+	name = "куртка кикко"
+	desc = "Более дешевая и легкая версия кикко татами, кожаная куртка с металлическими шестиугольными пластинами в виде черепашьего панциря."
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
@@ -202,8 +205,8 @@
 					H.update_inv_armor()
 
 /obj/item/clothing/suit/roguetown/armor/leather/hide/shozoku
-	name = "shozoku"
-	desc = "The main garment used by Ninjas and Kunoichis to blend into the night. Not viable during daylight, but it is easy to store anywhere, and any time."
+	name = "сёдзоку"
+	desc = "Основная одежда, используемая ниндзя и куноичи, чтобы слиться с тенью. Непригоден для использования при дневном свете, но его легко хранить где угодно и когда угодно."
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
@@ -213,8 +216,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/iron/rattan //New armor; Iron-to-steel tier.
 	slot_flags = ITEM_SLOT_ARMOR
-	name = "rattan armor"
-	desc = "A flexible and durable full body coat made from oil-boiled rattan and layered iron wires. Used by LinYou Raiders, it can be easily repaired."
+	name = "ротанговые доспехи"
+	desc = "Гибкий и прочный плащ для всего тела, изготовленный из проваренного в масле ротанга и многослойной железной проволоки. Используется рейдерами Линь Ю, легко ремонтируется."
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
@@ -226,8 +229,8 @@
 	sewrepair = TRUE //this armor's utility.
 
 /obj/item/clothing/suit/roguetown/armor/leather/jacket/haori
-	name = "haori"
-	desc = "a traditional jacket meant to be worn over a kimono."
+	name = "хаори"
+	desc = "Традиционный жакет, который надевают поверх кимоно."
 	icon_state = "haori"
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
@@ -242,19 +245,19 @@
 
 //New Rare Heartfelt equipment
 /obj/item/clothing/suit/roguetown/armor/medium/surcoat/heartfelt/abyssariad
-	name = "izuma kikko gusoku"
-	desc = "The Heartfelt design reforged in the ways of Fog Islands to better supply quick-moving zamurai cavalry, replacing the heavier and costier O-Yoroi lamellar."
+	name = "изума кикко гусоку"
+	desc = "Доспехи, которые были изготовлены для высокопостапленных лиц, чтобы лучше снабжать быстроходную кавалерию самураев, заменив более тяжелые и дорогие пластинчатые о-йорои."
 	body_parts_covered = CHEST|GROIN|VITALS|LEGS //does not protect the arms. Countering the Brigandine that protects the arms, but not legs.
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
 	sellprice = 65 //not unique.
 
-/obj/item/clothing/suit/roguetown/armor/leather/vest/kaizoku
-	name = "izuma's waitao"
+/obj/item/clothing/suit/roguetown/armor/leather/vest/izuma
+	name = "вайтао Изумы"
 	icon_state = "waitao_coat"
 	color = null
-	desc = "A silken coat of Heartfelt making used by the Abyssariad Kaizoku, those who brought the name of Fog Islands to the outsiders by accident. Or just artistic folk."
+	desc = "Шелковый плащ, сделанный в Изуме, используется жителями Изумы, теми, кто случайно принес это название чужакам на Туманные Острова. Или просто творческие люди."
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
@@ -263,8 +266,8 @@
 
 /obj/item/clothing/suit/roguetown/armor/brigandine/shanwenkai //I dislike overused armor in unique roles. so I just made an "Officer" armor based on the chinese actual officer armor. Brigadine.
 	slot_flags = ITEM_SLOT_ARMOR
-	name = "weeper-patterned championage armor" //This is the Shan Wen Kia armor, but the downwards 'Y' is upwards now, so I can't name it <mountain patterned armor>
-	desc = "The ancient godwenkai, a heavy armor made with overlapping arrangement of armor plates, assembled with the symbol of the Weeping God. This is used by Abyssariad Champions who still lingers on this world, honoring the Weeper who fed Abyssor."
+	name = "шанвенкай" //This is the Shan Wen Kia armor, but the downwards 'Y' is upwards now, so I can't name it <mountain patterned armor>
+	desc = "Древний богвенкай - тяжелый доспех с накладными пластинами, украшенный символом Псайдоном. Ее используют избранные Туманных Островов, которые все еще остаются в этом мире, почитая Псайдона, вскормившего Абиссора."
 	icon_state = "shanwenkai"
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
@@ -275,16 +278,17 @@
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/ruankai
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
-	name = "padded ruankai"
-	desc = "made of layered cotton or silk, it is quilted together to absorb shock from blows to protect wearer as a cushioning layer. Enough to survive a horse's kick."
+	name = "укрепленный руанкай"
+	desc = "Из многослойного хлопка или шелка, простеганные вместе, они поглощают удары и защищают владельца как амортизирующий слой. Достаточно, чтобы пережить удар сайги."
 	icon_state = "ruankai"
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/light/hitatare
-	name = "yoroi hitatare"
-	desc = "A traditional Abyssariad padded robe with wide sleeves, made to be worn beneath armor. It is comfortable and thick, but not very protective compared to a ruankai, but can be used all the time without raising suspicion."
+	name = "йорои хитатаре"
+	desc = "Традиционный изуминский халат с широкими рукавами, предназначенный для ношения под доспехами. \
+	Удобный и плотный, но не очень защищающий по сравнению с руанкай, зато его можно использовать постоянно, не вызывая подозрений."
 	icon_state = "yoroihitatare"
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
@@ -338,7 +342,7 @@
 	color = RANDOM_COLOUR
 	..()
 
-// Randomized color Hitatare
+// Randomized //Тwilight Fоrtress// color Hitatare
 /obj/item/clothing/suit/roguetown/armor/gambeson/light/hitatare/rich/Initialize()
 	color = RANDOM_COLOUR
 	..()
@@ -352,16 +356,17 @@
 	color = CLOTHING_TEAL
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/heavy/deelcoat
-	name = "reinforced deel coat"
-	desc = "A loose-fitting abyssariad tunic usually made with horse leather, traditionally used by the Dustwalkers. The dense padding greatly protects the user against blunt trauma."
+	name = "укрепленная туника островитян"
+	desc = "Свободно облегающая туника из Туманных Островов, обычно из конской кожи, традиционно используемая охотниками. Плотная подкладка надежно защищает от тупых ударов."
 	icon_state = "deel"
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
 
 /obj/item/clothing/suit/roguetown/armor/leather/splint/ninjakappa //same as studded leather armor
-	name = "tribalistic bronze cuirass"
-	desc = "A layered armor with oil-boiled leather reinforced with bronze plates sew into the fabric. Light and flexible, it is used by Undines who became part of underground shinobi operations to destroy illegal gangs, drugdealers and centers of prostitution."
+	name = "бронзовая кираса"
+	desc = "Многослойный доспех из промасленной кожи, усиленный бронзовыми пластинами, вшитыми в ткань. \
+	Легкая и гибкая, она используется жителями Изумы, которые стали частью подпольных операций шиноби по уничтожению незаконных банд, наркоторговцев и центров проституции."
 	icon_state = "ninjakappa"
 	item_state = "ninjakappa"
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
@@ -369,10 +374,10 @@
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
 
 /obj/item/clothing/suit/roguetown/armor/rare/myrmidon
-	name = "myrmidon mingguang kai" // that's "明光铠", not the genshin character.
-	desc = "Ocean-blessed overlapping steel plates joined by butchered demonhide threads and orichalcum infusion, \
-	long purified with abyssor sigils and symbols of the Weeper. Each steel layer is engraved:\
-	By the Heavenly Emperor's command. For the abyss against all odds."
+	name = "мирмидон минггуан кай" // that's "明光铠", not the genshin character.
+	desc = "Наложенные друг на друга стальные пластины, омытые океаном, соединенные нитями из шкуры убитого монстра и вкраплениями орихалка,\
+	нанесенными эмблемами Абиссора и символами Псайдона. На каждом стальном слое выгравировано:\
+	По приказу Небесного Императора. Для бездны вопреки всему."
 	icon_state = "myrmidon"
 	item_state = "myrmidon"
 	sleevetype = null
@@ -397,9 +402,11 @@
 												'sound/foley/footsteps/armor/fullplate (2).ogg',\
 												'sound/foley/footsteps/armor/fullplate (3).ogg'), 80)
 
+//Тwilight Fоrtress//
+
 /obj/item/clothing/suit/roguetown/armor/ceramic
-	name = "tribal coverings"
-	desc = "A more well-designed armor made with sturdy animal bones. Suitable for tribals whom uses little mettalurgy."
+	name = "племенные покрытия"
+	desc = "Более проработанная броня, изготовленная из прочных костей животных. Подходит для племен, не использующих металлургию."
 	icon_state = "nacre_covering"
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
@@ -417,8 +424,9 @@
 	slot_flags = ITEM_SLOT_ARMOR
 
 /obj/item/clothing/suit/roguetown/armor/ceramic/reinforced
-	name = "marauder trollhunter armor"
-	desc = "The heavy armor used by the tribalistic Undine marauder forces under the flag of Abyssariads from the Fog Islands. Made of ceramic-like material from lava forges."
+	name = "Доспехи охотника на троллей"
+	desc = "Тяжелая броня, используемая племенными силами мародеров Ундины под флагом Абиссариады с Туманных Островов. \
+	Изготовлена из материала, похожего на керамику, добываемую на островах."
 	icon_state = "marauder_chest"
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
@@ -432,8 +440,9 @@
 	armor_class = ARMOR_CLASS_MEDIUM
 
 /obj/item/clothing/suit/roguetown/armor/ceramic/light
-	name = "bone coverings"
-	desc = "An simple, primitive armor made of chiseled bones bound with fibers and sinews. Stronger than gambesons, but requires conquering tough dendor's creatures to make."
+	name = "костные покрытия"
+	desc = "Простая, примитивная броня, сделанная из выточенных костей, скрепленных волокнами и сухожилиями. \
+	Прочнее гамбезонов, но для их изготовления требуется победить жестоких дендорских существ."
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'

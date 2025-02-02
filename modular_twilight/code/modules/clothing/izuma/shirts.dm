@@ -1,6 +1,6 @@
 /obj/item/clothing/suit/roguetown/shirt/tunic/kimono
-	name = "traditional kimono"
-	desc = "A front-wrapped garment with long sleeves made from a long, narrow bolt of cloth used as a formal garment by the poor and rich alike."
+	name = "традиционное кимоно"
+	desc = "Одежда с длинными рукавами, сшитая из длинного узкого куска ткани, использовавшаяся в качестве официального одеяния как бедными, так и богатыми."
 	icon = 'modular_twilight/icons/roguetown/clothing/shirts.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/shirts.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_shirts.dmi'
@@ -25,8 +25,8 @@
 	color = CLOTHING_BLUE
 
 /obj/item/clothing/suit/roguetown/shirt/rags/monkgarb
-	name = "monk samue"
-	desc = "The Samue is the clothing used by Abyssanctum monks engaged on the act of Samu, most proper for those performing temple maintenance and mountain hiking."
+	name = "одеяние самуэ"
+	desc = "Самуэ - это одежда, используемая монахами Изумы, которые занимаются Саму, в основном для тех, кто занимается обслуживанием храмов и ходит в походы в горы."
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
 	icon = 'modular_twilight/icons/roguetown/clothing/shirts.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/shirts.dmi'
@@ -42,8 +42,9 @@
 	..()
 
 /obj/item/clothing/suit/roguetown/shirt/tunic/kamishimo //I know this is actually a Kataginu, but it is know more as 'Kamishimo', even if lacking a Hakama. Because HAKAMA is its own thing here.
-	name = "kataginu"
-	desc = "A formal kimono used by men, a short sleeveless garment made of hemp which usually comes together with a hakama, and worn on top of a kosode or kimono. To use one without cloth underneath, conveys a ronin nature."
+	name = "катагиину"
+	desc = "Официальное кимоно, используемое мужчинами, - короткая одежда без рукавов из конопли, которая обычно сочетается с хакама и надевается поверх косодэ или кимоно. \
+	Использование такого одеяния без ткани под ним выдает характер ронина."
 	icon = 'modular_twilight/icons/roguetown/clothing/shirts.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/shirts.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_shirts.dmi'
@@ -65,8 +66,8 @@
 	color = CLOTHING_TEAL
 
 /obj/item/clothing/suit/roguetown/shirt/looseshirt
-	name = "kimono jinbei"
-	desc = "A summer shirt that goes along with a tobi, used during the hot summers on Fog islands."
+	name = "кимоно дзинбэй"
+	desc = "Летняя рубашка, которая сочетается с тоби, используется жарким летом."
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
 	icon = 'modular_twilight/icons/roguetown/clothing/shirts.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/shirts.dmi'
@@ -89,7 +90,7 @@
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
 /obj/item/clothing/suit/roguetown/shirt/rags/tribal
-	name = "tribal garbs"
+	name = "племенные лохмотья"
 	desc = "Tribal clothings made from plant fiber commonly used by Undine tribesmen."
 	icon = 'modular_twilight/icons/roguetown/clothing/shirts.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/shirts.dmi'
@@ -102,7 +103,7 @@
 	body_parts_covered = CHEST|VITALS
 
 /obj/item/clothing/suit/roguetown/shirt/robe/wizard/guardian
-	name = "onmyoji's warfare garb"
+	name = "военное одеяние онмёдзи"
 	desc = "The garbs used by Abyssariad magicians during times of warfare, holding the marks of Abyssor upon the cloth."
 	icon_state = "abyssaltunic"
 	icon = 'modular_twilight/icons/roguetown/clothing/shirts.dmi'
@@ -143,9 +144,9 @@
 	desc = "The garbs used by Abyssariad magicians during times of warfare. Marked in red for the soilgazers of Abyssanctum's faith, those bent in ensuring no plague shall reach their blessed islands. "
 	color = CLOTHING_DARK_GREEN
 
-/obj/item/clothing/suit/roguetown/shirt/kaizoku/robe
+/obj/item/clothing/suit/roguetown/shirt/izuma/robe
 	slot_flags = ITEM_SLOT_ARMOR
-	name = "onmyoji's garb"
+	name = "лохмотья онмёдзи"
 	desc = "Casual abyssariad garbs usually used by magicians, or those living on the frigid, treacherous mountains on the edges of the Fog islands."
 	icon_state = "loosetunic"
 	icon = 'modular_twilight/icons/roguetown/clothing/shirts.dmi'
@@ -158,13 +159,13 @@
 	allowed_sex = list(MALE)
 	color = null
 
-/obj/item/clothing/suit/roguetown/shirt/kaizoku/robe/Initialize()
+/obj/item/clothing/suit/roguetown/shirt/izuma/robe/Initialize()
 	color = RANDOM_COLOUR
 	..()
 
 /obj/item/clothing/suit/roguetown/shirt/robe/shrinekeeper
-	name = "shrinekeeper robe"
-	desc = "Silk-woven and shimmering like tides at dusk, for those who honors the will of the abyss."
+	name = "роба хранителя святынь"
+	desc = "Шелковые и переливающиеся, как приливы в сумерках, для тех, кто чтит волю бездны."
 	icon_state = "shrinekeeper"
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL

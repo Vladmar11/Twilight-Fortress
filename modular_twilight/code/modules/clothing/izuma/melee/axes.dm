@@ -3,8 +3,9 @@
 	force = 15
 	force_wielded = 25
 	possible_item_intents = list(/datum/intent/axe/cut)
-	name = "nagai ono"
-	desc = "A battleaxe of Abyssariad design with a longer handle and shorter blade than its Humen counterpart. The increased leverage, reduced weight, and smaller striking area give it greater use against armor, while the longer handle makes it easier to parry with."
+	name = "нагай оно"
+	desc = "Боевой топор с более длинной рукоятью и коротким клинком. Уменьшенный вес и \
+	меньшая площадь поражения позволяют использовать его против доспехов, а более длинная рукоять облегчает парирование."
 	icon_state = "ono"
 	max_blade_int = 500
 	smeltresult = /obj/item/ingot/steel
@@ -33,8 +34,9 @@
 	slot_flags = ITEM_SLOT_HIP
 	force = 15
 	possible_item_intents = list(/datum/intent/axe/cut, /datum/intent/axe/chop) //Added chop because the throwing Ono is still suitable for woodcutting. It's a hatchet.
-	name = "nage ono"
-	desc = "A well-balanced, short-handled Abyssariad axe designed for throwing. Traditionally used as a hunting weapon as an alternative to archery, as bow wood is scarce on the Fog Isles."
+	name = "нагэ оно"
+	desc = "Хорошо сбалансированный топор с короткой рукоятью, предназначенный для метания. \
+	Традиционно используется в качестве охотничьего оружия как альтернатива стрельбе из лука, поскольку древесина для луков на Туманных островах в дефиците."
 	icon = 'modular_twilight/icons/roguetown/weapons/32.dmi'
 	icon_state = "throwing_ono"
 	max_blade_int = 500
@@ -51,8 +53,8 @@
 	embedding = list("embedded_pain_multiplier" = 3, "embed_chance" = 20, "embedded_fall_chance" = 60)
 
 /obj/item/rogueweapon/woodcut/changfu
-	name = "iron changfu"
-	desc = "The tool of justice, hardwork and destruction, all in one."
+	name = "железный чанфу"
+	desc = "Инструмент справедливости, трудолюбия и разрушения - все в одном."
 	icon_state = "changfu"
 	icon = 'modular_twilight/icons/roguetown/weapons/32.dmi'
 	wdefense = 4 //Battle designed.

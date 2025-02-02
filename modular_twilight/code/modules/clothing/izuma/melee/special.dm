@@ -1,6 +1,6 @@
 /obj/item/rogueweapon/tetsubishi //I humbly request someone to cook the 'jump' not causing damage.
-	name = "tetsubishi"
-	desc = "a sharp spike object used to slow down pursuer, often used by abyssariad shinobis, it has been massproduced and shipped to Heartfell."
+	name = "тецубиси"
+	desc = "Острый шипообразный предмет, используемый для замедления преследователя, часто используется шиноби."
 	icon_state = "tetsubishi"
 	icon = 'modular_twilight/icons/roguetown/weapons/32.dmi'
 	force = 5
@@ -31,13 +31,13 @@
 
 /obj/item/rogueweapon/tetsubishi/Initialize()
 	. = ..()
-	AddComponent(/datum/component/kaizoku/caltrop, 20, 30, 100, CALTROP_BYPASS_SHOES)
+	AddComponent(/datum/component/izuma/caltrop, 20, 30, 100, CALTROP_BYPASS_SHOES)
 
 /obj/item/rogueweapon/tetsubishi/Crossed(mob/living/L)
 	playsound(loc, 'sound/foley/flesh_rem2.ogg', TRUE)
 	return ..()
 
-/datum/component/kaizoku/caltrop //Less laggy alternative for the server-destroying OG caltrops.
+/datum/component/izuma/caltrop //Less laggy alternative for the server-destroying OG caltrops.
 	var/min_damage
 	var/max_damage
 	var/probability
@@ -45,7 +45,7 @@
 
 	var/cooldown = 0
 
-/datum/component/kaizoku/caltrop/Initialize(_min_damage = 0, _max_damage = 0, _probability = 100,  _flags = NONE)
+/datum/component/izuma/caltrop/Initialize(_min_damage = 0, _max_damage = 0, _probability = 100,  _flags = NONE)
 	min_damage = _min_damage
 	max_damage = max(_min_damage, _max_damage)
 	probability = _probability
@@ -53,7 +53,7 @@
 
 	RegisterSignal(parent, list(COMSIG_MOVABLE_CROSSED), PROC_REF(Crossed))
 
-/datum/component/kaizoku/caltrop/proc/Crossed(datum/source, atom/movable/AM)
+/datum/component/izuma/caltrop/proc/Crossed(datum/source, atom/movable/AM)
 	var/atom/A = parent
 	if(!prob(probability))
 		return
@@ -92,7 +92,7 @@
 		H.Stun(60)
 
 /obj/item/throwing_star/ninja
-	name = "throwing star"
-	desc = "a simple distracting tool used to cause a commotion and bleeding so its user can scramble."
+	name = "сюрикэн"
+	desc = "Простой отвлекающий инструмент, используемый для создания суматохи и кровотечения, чтобы его пользователь мог разбежаться."
 	icon_state = "shuriken"
 	icon = 'modular_twilight/icons/roguetown/weapons/32.dmi'
