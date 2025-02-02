@@ -56,6 +56,7 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("tmp/iconCache.sav")) //Cache of ico
 	stuff.send(owner)
 
 	owner << browse(file('code/modules/goon/browserassets/html/browserOutput.html'), "window=browseroutput")
+	owner << browse(file('code/modules/stat_panel/html/html/statpanel.html'), "window=outputwindow.browser;")
 
 /datum/chatOutput/Topic(href, list/href_list)
 	if(usr.client != owner)
