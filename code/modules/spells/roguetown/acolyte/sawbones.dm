@@ -1311,9 +1311,9 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	// Heal the specific body part every second while bandaged and manage wound pain and disabling effects
 	addtimer(CALLBACK(src, /proc/heal_and_manage_pain_disabling, H, affecting), 10, 1, TRUE)
 	if (M == user)
-		user.visible_message("Вы перевязываете [affecting].")
+		to_chat(user, "Вы перевязываете [affecting].")
 	else
-		user.visible_message("Вы помогаете [M] и перевязываете [affecting] .")
+		to_chat(user, "Вы помогаете [M] и перевязываете [affecting].")
 
 /proc/heal_and_manage_pain_disabling(var/mob/living/carbon/human/H, var/obj/item/bodypart/affecting)
 	if (!affecting) return
