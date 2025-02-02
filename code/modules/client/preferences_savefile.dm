@@ -447,6 +447,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["family_species"] >> family_species
 	S["family_gender"] >> family_gender
 
+	S["sexual_pref"] >> sexual_pref
+	if(!sexual_pref)
+		sexual_pref = SEXUAL_PREF_HETERO
+
 	//try to fix any outdated data if necessary
 	if(needs_update >= 0)
 		update_character(needs_update, S)		//needs_update == savefile_version if we need an update (positive integer)
@@ -614,6 +618,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	else
 		WRITE_FILE(S["loadout"] , null)
 
+	WRITE_FILE(S["sexual_pref"]	, sexual_pref)
 	return TRUE
 
 
