@@ -66,7 +66,7 @@
 #define TRAIT_FORGEBLESSED "Благочестивость Маллума" //Reduces the fatigue cost of smithing a bit.
 #define TRAIT_XYLIX "Благословение Ксайликса"
 
-#define TRAIT_KNEESTINGER_IMMUNITY "Иммунитет к жальникам"
+#define TRAIT_KNEESTINGER_IMMUNITY "Иммунитет к шоковым грибам"
 #define TRAIT_BASHDOORS "bashdoors"
 #define TRAIT_NOMOOD "no_mood"
 #define TRAIT_BAD_MOOD "Плохое настроение"
