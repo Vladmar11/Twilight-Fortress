@@ -1577,6 +1577,7 @@ Slots: [job.spawn_positions]</span>
 						result = coom[result]
 						var/datum/charflaw/C = new result()
 						charflaw = C
+						to_chat(user, "<span class='notice'>Новый изъян: [C]</span>")
 						if(charflaw.desc)
 							to_chat(user, "<span class='info'>[charflaw.desc]</span>")
 
