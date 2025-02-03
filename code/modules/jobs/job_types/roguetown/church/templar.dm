@@ -132,7 +132,7 @@
 			if("Malum")
 				H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 				H.mind.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
-				H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+				H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 				beltr = /obj/item/rogueweapon/mace/warhammer/steel
 				H.change_stat("strength", 3)
 				H.change_stat("perception", 2)
@@ -158,7 +158,7 @@
 			else
 				H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
 				H.mind.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
-				H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+				H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 				beltr = /obj/item/rogueweapon/sword/long
 				H.change_stat("strength", 3)
 				H.change_stat("perception", 2)
