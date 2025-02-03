@@ -446,7 +446,7 @@
 		return
 	user.visible_message(span_notice("[user] загружает [target] в [src]."), \
 	span_notice("Я загружаю [target] в [src]..."), null, null, target)
-	to_chat(target, span_danger("[user] загружает вас в [user.rus_their()] [name]!"))
+	to_chat(target, span_danger("[user] загружает вас в [user.rus_them()] [name]!"))
 	if(!do_mob(user, target, 30))
 		return
 	if(target in occupants)
