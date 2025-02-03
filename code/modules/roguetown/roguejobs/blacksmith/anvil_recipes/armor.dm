@@ -290,62 +290,62 @@
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/ingot/steel)
 	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/templar/astrata
-	skill_level = 5
+	skill_level = 4
 
 /datum/anvil_recipe/armor/steel/astratahelm_alt
 	name = "Астратанский шлем (Альтернативный) (+1 Сталь)"
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/ingot/steel)
 	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/templar/astrata/alt
-	skill_level = 5
+	skill_level = 4
 
 /datum/anvil_recipe/armor/steel/malumhelm
 	name = "Малуммитский шлем (+1 Сталь)"
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/ingot/steel)
 	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/templar/malum
-	skill_level = 5
+	skill_level = 4
 
 /datum/anvil_recipe/armor/steel/necrahelm
 	name = "Некранский шлем (+1 Сталь)"
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/ingot/steel)
 	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/templar/necra
-	skill_level = 5
+	skill_level = 4
 
 /datum/anvil_recipe/armor/steel/necrahelm_alt
 	name = "Некранский шлем (Альтернативный) (+1 Сталь)"
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/ingot/steel)
 	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/templar/necra/alt
-	skill_level = 5
+	skill_level = 4
 
 /datum/anvil_recipe/armor/steel/nochelm
 	name = "Ноктианский шлем (+1 Сталь)"
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/ingot/steel)
 	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/templar/noc
-	skill_level = 5
+	skill_level = 4
 
 /datum/anvil_recipe/armor/steel/dendorhelm
 	name = "Дендоритский шлем (+1 Сталь)"
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/ingot/steel)
 	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/templar/dendor
-	skill_level = 5
+	skill_level = 4
 
 /datum/anvil_recipe/armor/steel/ravoxian
 	name = "Равоксианский шлем (+1 Сталь)"
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/ingot/steel)
 	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/templar/ravox
-	skill_level = 5
+	skill_level = 4
 
 /datum/anvil_recipe/armor/steel/eoran
 	name = "Эоранский шлем"
 	req_bar = /obj/item/ingot/steel
 	created_item = /obj/item/clothing/head/roguetown/helmet/sallet/eoran
-	skill_level = 5
+	skill_level = 4
 
 /datum/anvil_recipe/armor/steel/belt_steel
 	name = "Стальной пояс"

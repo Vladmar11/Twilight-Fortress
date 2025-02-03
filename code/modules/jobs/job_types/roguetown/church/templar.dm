@@ -24,7 +24,7 @@
 
 /datum/outfit/job/roguetown/templar/pre_equip(mob/living/carbon/human/H)
 	..()
-	head = /obj/item/clothing/head/roguetown/helmet/heavy/bucket
+	head = /obj/item/clothing/head/roguetown/helmet/heavy/decoratedgbucket
 	cloak = /obj/item/clothing/cloak/tabard/crusader/tief
 	switch(H.patron.name)
 		if("Astrata")
@@ -59,6 +59,7 @@
 			pants = /obj/item/clothing/under/roguetown/chainlegs
 		if("Pestra")
 			wrists = /obj/item/clothing/neck/roguetown/psicross/pestra
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/pestrahelm
 			cloak = /obj/item/clothing/cloak/tabard/crusader/pestra
 			armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
 			pants = /obj/item/clothing/under/roguetown/chainlegs

@@ -2026,6 +2026,7 @@
 #include "modular_twilight\code\modules\clothing\rogueclothes\armor.dm"
 #include "modular_twilight\code\modules\clothing\rogueclothes\cloaks.dm"
 #include "modular_twilight\code\modules\clothing\rogueclothes\hats.dm"
+#include "modular_twilight\code\modules\clothing\rogueclothes\mask.dm"
 #include "modular_twilight\code\modules\clothing\rogueclothes\neck.dm"
 #include "modular_twilight\code\modules\clothing\rogueclothes\robes.dm"
 #include "modular_twilight\code\modules\druid_overhaul\main.dm"

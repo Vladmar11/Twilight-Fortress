@@ -20,10 +20,8 @@
 
 /datum/outfit/job/roguetown/artificer/pre_equip(mob/living/carbon/human/H)
 	..()
-	head = /obj/item/clothing/head/roguetown/hatfur
-	if(prob(50))
-		head = /obj/item/clothing/head/roguetown/hatblu
-	mask = /obj/item/clothing/mask/rogue/spectacles/golden
+	head = /obj/item/clothing/head/roguetown/articap
+	mask = /obj/item/clothing/mask/rogue/goggles
 	cloak = /obj/item/clothing/cloak/apron/waist/brown
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/artificer
 	belt = /obj/item/storage/belt/rogue/leather
