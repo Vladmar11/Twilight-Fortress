@@ -1,6 +1,6 @@
 /obj/structure/handcart
-	name = "cart"
-	desc = "A wooden cart that will help you carry many things."
+	name = "тележка"
+	desc = "Деревянная тележка, которая поможет вам перевезти множество вещей."
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "cart-empty"
 	density = TRUE
@@ -23,7 +23,7 @@
 /obj/structure/handcart/examine(mob/user)
 	. = ..()
 	if(upgrade)
-		. += span_notice("This cart has a [upgrade.name] instaled.")
+		. += span_notice("На эту тележку установлена [upgrade.name].")
 
 /obj/structure/handcart/Initialize(mapload)
 	if(mapload)		// if closed, any item at the crate's loc is put in the contents
@@ -87,7 +87,7 @@
 		qdel(cog)
 		playsound(src, pick('sound/combat/hits/onwood/fence_hit1.ogg', 'sound/combat/hits/onwood/fence_hit2.ogg', 'sound/combat/hits/onwood/fence_hit3.ogg'), 100, FALSE)
 		shake_camera(user, 1, 1)
-		to_chat(user, "<span class='warning'>[cog.name] inserted!</span>")
+		to_chat(user, "<span class='warning'>[cog.name] установлена!</span>")
 		return
 	if(!user.cmode)
 		if(!insertion_allowed(I))

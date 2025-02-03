@@ -94,7 +94,7 @@
 		/datum/language/hellspeak,
 	)
 	stress_examine = TRUE
-	stress_desc = span_red("Helldweller... better stay away.")
+	stress_desc = span_red("Обитатель ада... лучше держаться подальше.")
 
 /datum/species/tieberian/on_species_gain(mob/living/carbon/C, datum/species/old_species)
 	..()
@@ -102,7 +102,7 @@
 
 /datum/species/tieberian/after_creation(mob/living/carbon/C)
 	..()
-	to_chat(C, "<span class='info'>I can speak Infernal with ,h before my speech.</span>")
+	to_chat(C, "<span class='info'>Я могу говорить на Инфернальном, используя ключ <b>,h</b> перед моей речью.</span>")
 
 /datum/species/tieberian/on_species_loss(mob/living/carbon/C)
 	. = ..()

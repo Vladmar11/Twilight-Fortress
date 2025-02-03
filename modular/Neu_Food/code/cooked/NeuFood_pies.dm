@@ -9,8 +9,8 @@
 
 /*	........   Pie making   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/piebottom
-	name = "pie bottom"
-	desc = "The foundation of the fantastical.."
+	name = "корзинка для пирога"
+	desc = "Основа для чего-то фантастического..."
 	icon_state = "piebottom"
 	w_class = WEIGHT_CLASS_NORMAL
 	eat_effect = /datum/status_effect/debuff/uncookedfood
@@ -19,8 +19,12 @@
 	var/fishy
 	var/meaty
 	var/potpie
+	var/eggpie
+	var/fatty
+	var/cheesetato
+	var/onionpie
 	var/berrypie
-	var/poisoning	
+	var/poisoning
 
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/piebottom/update_icon()
 	. = ..()
@@ -95,8 +99,8 @@
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 30, TRUE, -1)
 		if(process_step == 1 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			to_chat(user, "<span class='notice'>Starting on a fish pie...</span>")
-			name = "unfinished fish pie"
+			to_chat(user, "<span class='notice'>Начинаю делать рыбный пирог...</span>")
+			name = "незавершенный рыбный пирог"
 			process_step += 1
 			fishy = TRUE
 			update_icon()
@@ -104,14 +108,14 @@
 			return
 		if(fishy && process_step == 2 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			to_chat(user, "<span class='notice'>Adding filling to the fish pie. Needs more.</span>")
+			to_chat(user, "<span class='notice'>Добавляю начинку в рыбный пирог. Нужно больше.</span>")
 			process_step += 1
 			update_icon()
 			qdel(I)
 			return
 		if(fishy && process_step == 3 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			to_chat(user, "<span class='notice'>Filling the fish pie to the brim. Still lacks a pie roof.</span>")
+			to_chat(user, "<span class='notice'>Наполняю рыбный пирог до краев. Не хватает крышки из теста.</span>")
 			process_step += 1
 			update_icon()
 			qdel(I)
@@ -123,8 +127,8 @@
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 30, TRUE, -1)
 		if(process_step == 1 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			to_chat(user, "<span class='notice'>Starting on a meat pie...</span>")
-			name = "unfinished meat pie"
+			to_chat(user, "<span class='notice'>Начинаю делать мясной пирог...</span>")
+			name = "незавершенный мясной пирог"
 			process_step += 1
 			meaty = TRUE
 			update_icon()
@@ -132,14 +136,14 @@
 			return
 		if(meaty && process_step == 2 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			to_chat(user, "<span class='notice'>Adding filling to the meat pie. Needs more.</span>")
+			to_chat(user, "<span class='notice'>Добавляю начинку в мясной пирог. Нужно больше.</span>")
 			process_step += 1
 			update_icon()
 			qdel(I)
 			return
 		if(meaty && process_step == 3 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			to_chat(user, "<span class='notice'>Filling the meat pie to the brim. Still lacks a pie roof.</span>")
+			to_chat(user, "<span class='notice'>Наполняю мясной пирог до краев. Не хватает крышки из теста.</span>")
 			process_step += 1
 			update_icon()
 			qdel(I)
@@ -151,25 +155,56 @@
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 30, TRUE, -1)
 		if(process_step == 1 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			to_chat(user, "<span class='notice'>Starting on a pot pie...</span>")
-			name = "unfinished pot pie"
+			to_chat(user, "<span class='notice'>Начинаю делать сытный пирог...</span>")
+			name = "незавершенный сытный пирог"
 			process_step += 1
-			potpie = TRUE
+			cheesetato = TRUE
 			var/mutable_appearance/pot1 = mutable_appearance(icon, "fill_pot1")
 			add_overlay(pot1)
 			qdel(I)
 			return
-		if(potpie && process_step == 2 && do_after(user,short_cooktime, target = src))
+		if(cheesetato && process_step == 2 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			to_chat(user, "<span class='notice'>Adding filling to the pot pie. Needs more.</span>")
+			to_chat(user, "<span class='notice'>Добавляю начинку в сытный пирог. Нужно больше.</span>")
 			process_step += 1
 			var/mutable_appearance/pot2 = mutable_appearance(icon, "fill_pot2")
 			add_overlay(pot2)
 			qdel(I)
 			return
-		if(potpie && process_step == 3 && do_after(user,short_cooktime, target = src))
+		if(cheesetato && process_step == 3 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			to_chat(user, "<span class='notice'>Filling the pot pie to the brim. Still lacks a pie roof.</span>")
+			to_chat(user, "<span class='notice'>Наполняю сытный пирог до краев. Не хватает крышки из теста.</span>")
+			process_step += 1
+			var/mutable_appearance/pot3 = mutable_appearance(icon, "fill_pot3")
+			add_overlay(pot3)
+			qdel(I)
+			return
+
+	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/veg/onion_sliced) || istype(I, /obj/item/reagent_containers/food/snacks/rogue/preserved/onion_fried) )
+		if (process_step > 4)
+			return
+		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 30, TRUE, -1)
+		if(process_step == 1 && do_after(user,short_cooktime, target = src))
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
+			to_chat(user, "<span class='notice'>Начинаю делать луковый пирог...</span>")
+			name = "незавершенный луковый пирог"
+			process_step += 1
+			onionpie = TRUE
+			var/mutable_appearance/pot1 = mutable_appearance(icon, "fill_pot1")
+			add_overlay(pot1)
+			qdel(I)
+			return
+		if(onionpie && process_step == 2 && do_after(user,short_cooktime, target = src))
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
+			to_chat(user, "<span class='notice'>Добавляю начинку в луковый пирог. Нужно больше.</span>")
+			process_step += 1
+			var/mutable_appearance/pot2 = mutable_appearance(icon, "fill_pot2")
+			add_overlay(pot2)
+			qdel(I)
+			return
+		if(onionpie && process_step == 3 && do_after(user,short_cooktime, target = src))
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
+			to_chat(user, "<span class='notice'>Наполняю луковый пирог до краев. Не хватает крышки из теста.</span>")
 			process_step += 1
 			var/mutable_appearance/pot3 = mutable_appearance(icon, "fill_pot3")
 			add_overlay(pot3)
@@ -182,25 +217,25 @@
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 30, TRUE, -1)
 		if(process_step == 1 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			to_chat(user, "<span class='notice'>Starting on a pot pie...</span>")
-			name = "unfinished pot pie"
+			to_chat(user, "<span class='notice'>Начинаю делать яичный пирог...</span>")
+			name = "незавершенный яичный пирог"
 			process_step += 1
-			potpie = TRUE
+			eggpie = TRUE
 			var/mutable_appearance/egg1 = mutable_appearance(icon, "fill_egg1")
 			add_overlay(egg1)
 			qdel(I)
 			return
-		if(potpie && process_step == 2 && do_after(user,short_cooktime, target = src))
+		if(eggpie && process_step == 2 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			to_chat(user, "<span class='notice'>Adding filling to the pot pie. Needs more.</span>")
+			to_chat(user, "<span class='notice'>Добавляю начинку в яичный пирог. Нужно больше.</span>")
 			process_step += 1
 			var/mutable_appearance/egg2 = mutable_appearance(icon, "fill_egg2")
 			add_overlay(egg2)
 			qdel(I)
 			return
-		if(potpie && process_step == 3 && do_after(user,short_cooktime, target = src))
+		if(eggpie && process_step == 3 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			to_chat(user, "<span class='notice'>Filling the pot pie to the brim. Still lacks a pie roof.</span>")
+			to_chat(user, "<span class='notice'>Наполняю яичный пирог до краев. Не хватает крышки из теста.</span>")
 			process_step += 1
 			var/mutable_appearance/egg3 = mutable_appearance(icon, "fill_egg3")
 			add_overlay(egg3)
@@ -213,25 +248,25 @@
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 30, TRUE, -1)
 		if(process_step == 1 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			to_chat(user, "<span class='notice'>Starting on a pot pie...</span>")
-			name = "unfinished pot pie"
+			to_chat(user, "<span class='notice'>Начинаю делать жирный пирог...</span>")
+			name = "незавершенный жирный пирог"
 			process_step += 1
-			potpie = TRUE
+			fatty = TRUE
 			var/mutable_appearance/animal1 = mutable_appearance(icon, "fill_fish1")
 			add_overlay(animal1)
 			qdel(I)
 			return
-		if(potpie && process_step == 2 && do_after(user,short_cooktime, target = src))
+		if(fatty && process_step == 2 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			to_chat(user, "<span class='notice'>Adding filling to the pot pie. Needs more.</span>")
+			to_chat(user, "<span class='notice'>Добавляю начинку в жирный пирог. Нужно больше.</span>")
 			process_step += 1
 			var/mutable_appearance/animal2 = mutable_appearance(icon, "fill_fish2")
 			add_overlay(animal2)
 			qdel(I)
 			return
-		if(potpie && process_step == 3 && do_after(user,short_cooktime, target = src))
+		if(fatty && process_step == 3 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			to_chat(user, "<span class='notice'>Filling the pot pie to the brim. Still lacks a pie roof.</span>")
+			to_chat(user, "<span class='notice'>Наполняю жирный пирог до краев. Не хватает крышки из теста.</span>")
 			process_step += 1
 			var/mutable_appearance/animal3 = mutable_appearance(icon, "fill_fish3")
 			add_overlay(animal3)
@@ -251,8 +286,8 @@
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 30, TRUE, -1)
 		if(process_step == 1 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			to_chat(user, "<span class='notice'>Starting on a applepie...</span>")
-			name = "unfinished applepie"
+			to_chat(user, "<span class='notice'>Начинаю делать яблочный пирог...</span>")
+			name = "незавершенный яблочный пирог"
 			process_step += 1
 			applepie = TRUE
 			update_icon()
@@ -260,14 +295,14 @@
 			return
 		if(applepie && process_step == 2 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			to_chat(user, "<span class='notice'>Adding filling to the applepie. Needs more.</span>")
+			to_chat(user, "<span class='notice'>Добавляю начинку в яблочный пирог. Нужно больше.</span>")
 			process_step += 1
 			update_icon()
 			qdel(I)
 			return
 		if(applepie && process_step == 3 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			to_chat(user, "<span class='notice'>Filling the applepie to the brim. Still lacks a pie roof.</span>")
+			to_chat(user, "<span class='notice'>Наполняю яблочный пирог до краев. Не хватает крышки из теста.</span>")
 			process_step += 1
 			update_icon()
 			qdel(I)
@@ -279,8 +314,8 @@
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 30, TRUE, -1)
 		if(process_step == 1 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			to_chat(user, "<span class='notice'>Starting on a berrypie...</span>")
-			name = "unfinished berrypie"
+			to_chat(user, "<span class='notice'>Начинаю делать ягодный пирог...</span>")
+			name = "незавершенный ягодный пирог"
 			process_step += 1
 			berrypie = TRUE
 			poisoning = TRUE	
@@ -289,7 +324,7 @@
 			return
 		if(berrypie && process_step == 2 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			to_chat(user, "<span class='notice'>Adding filling to the applepie. Needs more.</span>")
+			to_chat(user, "<span class='notice'>Добавляю начинку в ягодный пирог. Нужно больше.</span>")
 			process_step += 1
 			poisoning = TRUE	
 			update_icon()
@@ -297,7 +332,7 @@
 			return
 		if(berrypie && process_step == 3 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			to_chat(user, "<span class='notice'>Filling the applepie to the brim. Still lacks a pie roof.</span>")
+			to_chat(user, "<span class='notice'>Наполняю ягодный пирог до краев. Не хватает крышки из теста.</span>")
 			process_step += 1
 			poisoning = TRUE	
 			update_icon()
@@ -310,8 +345,8 @@
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 30, TRUE, -1)
 		if(process_step == 1 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			to_chat(user, "<span class='notice'>Starting on a berrypie...</span>")
-			name = "unfinished berrypie"
+			to_chat(user, "<span class='notice'>Начинаю делать ягодный пирог...</span>")
+			name = "незавершенный ягодный пирог"
 			process_step += 1
 			berrypie = TRUE
 			update_icon()
@@ -319,14 +354,14 @@
 			return
 		if(berrypie && process_step == 2 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			to_chat(user, "<span class='notice'>Adding filling to the berrypie. Needs more.</span>")
+			to_chat(user, "<span class='notice'>Добавляю начинку в ягодный пирог. Нужно больше.</span>")
 			process_step += 1
 			update_icon()
 			qdel(I)
 			return
 		if(berrypie && process_step == 3 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			to_chat(user, "<span class='notice'>Filling the berrypie to the brim. Still lacks a pie roof.</span>")
+			to_chat(user, "<span class='notice'>Наполняю ягодный пирог до краев. Не хватает крышки из теста.</span>")
 			process_step += 1
 			update_icon()
 			qdel(I)
@@ -336,7 +371,7 @@
 		playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
 		if(fishy && process_step == 4 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			name = "uncooked fish pie"
+			name = "сырой рыбный пирог"
 			icon_state = "fishpie_raw"
 			cooked_type = /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/fish
 			cooked_smell = /datum/pollutant/food/fish_pie
@@ -346,7 +381,7 @@
 			qdel(I)
 		if(meaty && process_step == 4 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			name = "uncooked meat pie"
+			name = "сырой мясной пирог"
 			icon_state = "meatpie_raw"
 			cooked_type = /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/meat
 			cooked_smell = /datum/pollutant/food/meat_pie
@@ -356,16 +391,52 @@
 			qdel(I)
 		if(potpie && process_step == 4 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			name = "uncooked pot pie"
+			name = "сырой деревенский пирог"
 			filling_color = "#755430"
 			cooked_type = /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/pot
 			cooked_smell = /datum/pollutant/food/pot_pie
 			process_step += 1
 			update_icon()
 			qdel(I)
+		if(eggpie && process_step == 4 && do_after(user,short_cooktime, target = src))
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
+			name = "сырой яичный пирог"
+			filling_color = "#755430"
+			cooked_type = /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/egg
+			cooked_smell = /datum/pollutant/food/pot_pie
+			process_step += 1
+			update_icon()
+			qdel(I)
+		if(cheesetato && process_step == 4 && do_after(user,short_cooktime, target = src))
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
+			name = "сырой сытный пирог"
+			filling_color = "#755430"
+			cooked_type = /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/cheesetato
+			cooked_smell = /datum/pollutant/food/pot_pie
+			process_step += 1
+			update_icon()
+			qdel(I)
+		if(fatty && process_step == 4 && do_after(user,short_cooktime, target = src))
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
+			name = "сырой жирный пирог"
+			filling_color = "#755430"
+			cooked_type = /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/fatty
+			cooked_smell = /datum/pollutant/food/pot_pie
+			process_step += 1
+			update_icon()
+			qdel(I)
+		if(onionpie && process_step == 4 && do_after(user,short_cooktime, target = src))
+			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
+			name = "сырой луковый пирог"
+			filling_color = "#755430"
+			cooked_type = /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/onion
+			cooked_smell = /datum/pollutant/food/pot_pie
+			process_step += 1
+			update_icon()
+			qdel(I)
 		if(applepie && process_step == 4 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			name = "uncooked applepie"
+			name = "сырой яблочный пирог"
 			cooked_type = /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/apple
 			cooked_smell = /datum/pollutant/food/apple_pie
 			process_step += 1
@@ -373,7 +444,7 @@
 			qdel(I)
 		if(berrypie && process_step == 4 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			name = "uncooked berrypie"
+			name = "сырой ягодный пирог"
 			filling_color = "#4a62cf"
 			cooked_type = /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/berry
 			cooked_smell = /datum/pollutant/food/berry_pie
@@ -382,7 +453,7 @@
 			qdel(I)
 		if(poisoning && process_step == 4 && do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-			name = "uncooked berrypie"
+			name = "сырой ягодный пирог"
 			filling_color = "#4a62cf"
 			cooked_type = /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/poison
 			cooked_smell = /datum/pollutant/food/berry_pie
@@ -432,7 +503,7 @@
 		if(stunning)
 			L.Paralyze(20) //splat!
 		L.adjust_blurriness(1)
-		L.visible_message("<span class='warning'>[L] is hit by [src]!</span>", "<span class='danger'>I'm hit by [src]!</span>")
+		L.visible_message("<span class='warning'>[L] получил [src] в лицо!</span>", "<span class='danger'>В меня прилетел [src]!</span>")
 	if(is_type_in_typecache(hit_atom, GLOB.creamable))
 		hit_atom.AddComponent(/datum/component/creamed, src)
 	qdel(src)
@@ -450,9 +521,9 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/pieslice
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
-	tastes = list("pie" = 1)
-	name = "pie slice"
-	desc = ""
+	tastes = list("пирог" = 1)
+	name = "кусок пирога"
+	desc = "Кусочек "
 	icon_state = "slice"
 	filling_color = "#FFFFFF"
 	foodtype = GRAIN | DAIRY
@@ -464,63 +535,63 @@
 
 // -------------- MEAT PIE -----------------
 /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat // bae item
-	name = "meat pie"
-	desc = ""
+	name = "мясной пирог"
+	desc = "Богатый животными белками пирог с плотной начинкой."
 	eat_effect = /datum/status_effect/buff/foodbuff
 	foodtype = GRAIN | DAIRY | MEAT
 
 /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/meat
 	icon_state = "meatpie"
-	tastes = list("succulent meat and crispy butterdough" = 1)
+	tastes = list("сочное мясо и хрустящее тесто" = 1)
 	filling_color = "#b43628"
 
 // -------------- FISH PIE -----------------
 /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/meat/fish
-	name = "fish pie"
+	name = "рыбный пирог"
 	icon_state = "fishpie"
-	tastes = list("baked fish and crispy butterdough" = 1)
+	tastes = list("запеченная рыба и хрустящее тесто" = 1)
 	filling_color = "#d44197"
 
 
 // -------------- POT PIE -----------------
 /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/pot
-	name = "pot pie"
-	desc = ""
+	name = "деревенский пирог"
+	desc = "В начинке смешано все вкусное, что нашлось в закромах. Попробуйте сами"
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_GOOD)
-	tastes = list("succulent filling and crispy butterdough" = 1)
+	tastes = list("сочная начинка и хрустящее тесто" = 1)
 	filling_color = "#755430"
 	foodtype = GRAIN | DAIRY | MEAT
 
 // -------------- BERRY PIE -----------------
 /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/berry
-	name = "berry pie"
+	name = "ягодный пирог"
 	desc = ""
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_GOOD)
 	slices_num = 4
-	tastes = list("crispy butterdough" = 1, "sweet berries" = 1)
+	tastes = list("хрустящее тесто" = 1, "сладкие ягоды" = 1)
 	filling_color = "#4a62cf"
 
 // -------------- POISON PIE -----------------
 /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/poison
-	name = "berry pie"
+	name = "ягодный пирог"
 	slices_num = 4
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_GOOD, /datum/reagent/berrypoison = 12)
-	tastes = list("crispy butterdough" = 1, "bitter berries" =1)
+	tastes = list("хрустящее тесто" = 1, "горькие ягоды" =1)
 	filling_color = "#4a62cf"
 
 // -------------- APPLE PIE -----------------
 /obj/item/reagent_containers/food/snacks/rogue/pie/cooked/apple
-	name = "apple pie"
+	name = "яблочный пирог"
 	desc = ""
 	slices_num = 4
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_GOOD)
-	tastes = list("baked apples and crispy butterdough" = 1)
+	tastes = list("печеные яблоки и хрустящее сливочное тесто" = 1)
 
 
 // -------------- HANDPIE (dwarven pie on the go, good shelflife until bitten, made from pie dough and mince, truffles or jacksberries) -----------------
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw
-	name = "raw Donk-E-Pie"
-	desc = "The dwarven take on pies, called pierogi in their dialect. A fistfull of food to stand the test of time."
+	name = "сырой пирожок"
+	desc = "Дворфы едят небольшие пироги, которые на их диалекте называются пирожками. Пригоршня еды, которая выдержит испытание временем."
 	icon_state = "handpie_raw"
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/handpie
 	fried_type = /obj/item/reagent_containers/food/snacks/rogue/handpie
@@ -532,32 +603,32 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = GRAIN | VEGETABLES
-	tastes = list("meat" = 1)
+	tastes = list("грибы" = 1)
 
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/mince
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = GRAIN | MEAT
-	tastes = list("mushrooms" = 1)
+	tastes = list("мясо" = 1)
 
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/berry
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = GRAIN | FRUIT
-	tastes = list("berry" = 1)
+	tastes = list("ягоды" = 1)
 
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/poison
 	list_reagents = list(/datum/reagent/berrypoison = 5)
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = GRAIN | FRUIT
-	tastes = list("bitter berry" = 1)
+	tastes = list("горькие ягоды" = 1)
 
 /obj/item/reagent_containers/food/snacks/rogue/handpie
-	name = "Donk-E-Pie"
-	desc = "The dwarven take on pies, called pierogi in their dialect. A fistfull of food to stand the test of time."
+	name = "пирожок"
+	desc = "Дворфы едят небольшие пироги, которые на их диалекте называются пирожками. Пригоршня еды, которая выдержит испытание временем."
 	icon_state = "handpie"
 	eat_effect = /datum/status_effect/buff/foodbuff
 	bitesize = 4
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = BUTTERDOUGHSLICE_NUTRITION+MINCE_NUTRITION, /datum/reagent/medicine/omnizine = 5) // donkpocket
-	tastes = list("crispy dough" = 1)
+	tastes = list("хрустящее тесто" = 1)
 	rotprocess = null
 	dropshrink = 0.8
 

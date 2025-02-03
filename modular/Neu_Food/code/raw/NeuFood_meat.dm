@@ -10,8 +10,8 @@
 /obj/item/reagent_containers/food/snacks/rogue/meat
 	eat_effect = /datum/status_effect/debuff/uncookedfood
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
-	name = "meat"
-	desc = "Chop to create mince, bake or fry to make frysteak"
+	name = "мясо"
+	desc = "Разрубите, чтобы приготовить фарш; запеките или обжарьте, чтобы приготовить стейк."
 	icon_state = "meatslab"
 	slice_batch = TRUE // so it takes more time, changed from FALSE
 	filling_color = "#8f433a"
@@ -23,7 +23,7 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/steak
 	ingredient_size = 2
-	name = "raw meat"
+	name = "сырое мясо"
 	icon_state = "meatcutlet"
 	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried
@@ -35,9 +35,9 @@
 
 /*	.............   Minced meat & stuffing sausages   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince
-	name = "mince"
+	name = "фарш"
 	icon_state = "meatmince"
-	desc = "Use in stew, pie or alchemy or use with fat or more mince to make a Sausage"
+	desc = "Используйте в рагу, как начинку для пирога или в алхимии; смешайте с жиром или большим количеством фарша для приготовления колбасы."
 	ingredient_size = 2
 	slice_path = null
 	filling_color = "#8a0000"
@@ -55,7 +55,7 @@
 		long_cooktime = (100 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*10))
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/meat/mince))
 		if(isturf(loc)&& (found_table))
-			to_chat(user, "<span class='notice'>Stuffing a wiener...</span>")
+			to_chat(user, "<span class='notice'>Начиняю колбаску фаршем...</span>")
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 			if(do_after(user,long_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
@@ -63,10 +63,10 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	if(istype(I, /obj/item/reagent_containers/food/snacks/fat))
 		if(isturf(loc)&& (found_table))
-			to_chat(user, "<span class='notice'>Stuffing a wiener...</span>")
+			to_chat(user, "<span class='notice'>Начиняю колбаску жиром...</span>")
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 			if(do_after(user,long_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
@@ -74,20 +74,20 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	else
 		return ..()
 
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/beef
-	name = "minced meat"
+	name = "мясной фарш"
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/fish
-	name = "minced fish"
+	name = "рыбный фарш"
 	icon_state = "fishmince"
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry
-	name = "mince"
+	name = "фарш из птицы"
 	icon_state = "meatmince"
 
 
@@ -98,7 +98,7 @@
 	chopping_sound = TRUE
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/bacon
-	name = "raw bacon"
+	name = "сырой бекон"
 	icon_state = "bacon"
 	slice_path = null
 	slices_num = 0
@@ -108,7 +108,7 @@
 
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/spider // Low-nutrient, kind of gross. Survival food.
-	name = "spidermeat"
+	name = "паучье мясо"
 	icon_state = "spidermeat"
 	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/spider/fried
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/spider/fried
@@ -117,7 +117,7 @@
 
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/poultry
-	name = "plucked bird"
+	name = "ощипанная птица"
 	icon_state = "halfchicken"
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked
@@ -127,7 +127,7 @@
 	ingredient_size = 4
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet
-	name = "bird meat"
+	name = "мясо птицы"
 	icon_state = "chickencutlet"
 	ingredient_size = 2
 	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet/fried
@@ -139,7 +139,7 @@
 
 /*	..................   Sausage & Wiener   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/meat/sausage
-	name = "raw sausage"
+	name = "сырая колбаса"
 	icon_state = "raw_wiener"
 	ingredient_size = 1
 	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/sausage/cooked
@@ -147,7 +147,7 @@
 	cooked_smell = /datum/pollutant/food/sausage
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/wiener
-	name = "raw wiener"
+	name = "сырая сосиска"
 	icon_state = "raw_wiener"
 	ingredient_size = 1
 	fried_type = /obj/item/reagent_containers/food/snacks/rogue/meat/sausage/cooked/wiener

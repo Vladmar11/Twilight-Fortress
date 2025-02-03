@@ -1,7 +1,7 @@
 // Royal cloaks:
 /obj/item/clothing/cloak/lordcloak/ladycloak
-	name = "ladylike shortcloak"
-	desc = "Ermine trimmed, handed down."
+	name = "женственный короткий плащ"
+	desc = "Отделанный горностаем и передаваемый по наследству предмет королевского гардероба."
 	color = null
 	icon = 'modular_twilight/icons/roguetown/clothing/cloak.dmi'
 	icon_state = "shortcloak"
@@ -15,8 +15,8 @@
 	detail_tag = "_detail"
 
 /obj/item/clothing/cloak/matron
-	name = "matron cloak"
-	desc = "A cloak that only the meanest of old crones bother to wear."
+	name = "плащ матроны"
+	desc = "Плащ, который носят только самые дрянные старухи."
 	icon_state = "matroncloak"
 	icon = 'modular_twilight/icons/roguetown/clothing/cloak.dmi'
 	mob_overlay_icon ='modular_twilight/icons/roguetown/clothing/onmob/cloak.dmi'
@@ -28,8 +28,8 @@
 	nodismemsleeves = TRUE
 
 /obj/item/clothing/cloak/captain
-	name = "captain's cape"
-	desc = "A cape with a gold embroided heraldry of Rockhill."
+	name = "плащ капитана"
+	desc = "Плащ-накидка с вышитой золотом геральдикой Рокхилла."
 	icon = 'modular_twilight/icons/roguetown/clothing/captain.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/captain.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/captain.dmi'
@@ -70,8 +70,8 @@
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
 	icon = 'modular_twilight/icons/roguetown/clothing/shirts_royalty.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/shirts_royalty.dmi'
-	name = "royal gown"
-	desc = "An elaborate ball gown, a favoured fashion of queens and elevated nobility in Enigma."
+	name = "королевское платье"
+	desc = "Изысканное бальное платье, излюбленная мода королев и высшей знати в Энигме."
 	body_parts_covered = CHEST|GROIN|ARMS|VITALS
 	icon_state = "royaldress"
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/sleeves_shirts_royalty.dmi'
@@ -107,8 +107,8 @@
 
 //Queensleeves
 /obj/item/clothing/wrists/roguetown/royalsleeves
-	name = "royal sleeves"
-	desc = "Sleeves befitting an elaborate gown."
+	name = "королевские рукава"
+	desc = "Рукава, подходящие к изысканному платью."
 	slot_flags = ITEM_SLOT_WRISTS
 	icon = 'modular_twilight/icons/roguetown/clothing/wrists.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/wrists.dmi'
@@ -143,7 +143,8 @@
 	return ..()
 
 /obj/item/clothing/head/roguetown/crown/consortcrown
-	name = "jewel of Rockhill"
+	name = "жемчужина Рокхилла"
+	desc = "Вы призваны разделить ношу, возложенную на плечи правителя."
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/head.dmi'
 	icon_state = "consortcrown"
@@ -151,8 +152,8 @@
 //................ Princess Dress ............... //
 /obj/item/clothing/suit/roguetown/shirt/dress/royal/princess
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
-	name = "pristine dress"
-	desc = "A flowy, intricate dress made by the finest tailors in the land for the monarch's children."
+	name = "свежее парадное платье"
+	desc = "Струящееся, замысловатое платье, сшитое лучшими портными для наследниц монарха."
 	icon = 'modular_twilight/icons/roguetown/clothing/shirts_royalty.dmi'
 	icon_state = "princess"
 	boobed = TRUE
@@ -161,8 +162,8 @@
 //................ Prince Shirt   ............... //
 /obj/item/clothing/suit/roguetown/shirt/dress/royal/prince
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
-	name = "gilded dress shirt"
-	desc = "A gold-embroidered dress shirt specially tailored for the monarch's children."
+	name = "позолоченная парадная рубашка"
+	desc = "Парадная рубашка, расшитая золотом, изготовленная специально для наследников монарха."
 	icon_state = "prince"
 	boobed = TRUE
 	detail_color = CLOTHING_BLUE
@@ -170,7 +171,7 @@
 // End royal clothes
 
 /obj/item/clothing/suit/roguetown/armor/leather/jacket/handjacket
-	name = "noble jacket"
+	name = "благородный пиджак"
 	icon_state = "handcoat"
 	icon = 'modular_twilight/icons/roguetown/clothing/noble.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/noble.dmi'
@@ -204,8 +205,8 @@
 	return ..()
 
 /obj/item/clothing/suit/roguetown/shirt/robe/archivist
-	name = "archivist's robe"
-	desc = "Robes belonging to seekers of knowledge."
+	name = "мантия архивариуса"
+	desc = "Одеяния, принадлежащие искателям знаний."
 	icon_state = "archivist"
 	icon = 'modular_twilight/icons/roguetown/clothing/shirts.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/shirts.dmi'
@@ -219,7 +220,8 @@
 	sellprice = 100
 
 /obj/item/clothing/head/roguetown/stewardtophat
-	name = "top hat"
+	name = "украшенный цилиндр"
+	desc = "Шляпа-цилиндр из крепкой, промасленной кожи, украшенная бронзовым обручем."
 	icon_state = "stewardtophat"
 	icon = 'modular_twilight/icons/roguetown/clothing/noble.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/64x64/head.dmi'
@@ -229,8 +231,8 @@
 	bloody_icon_state = "helmetblood"
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/steward
-	name = "steward tailcoat"
-	desc = "A thick, pristine leather tailcoat adorned with polished bronze buttons."
+	name = "черный фрак казначея"
+	desc = "Плотный, безупречно чистый кожаный фрак казначея, украшенный отполированными бронзовыми пуговицами."
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/noble.dmi'
 	icon_state = "stewardtailcoat"
 	item_state = "stewardtailcoat"
@@ -238,8 +240,8 @@
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/noble.dmi'
 
 /obj/item/clothing/suit/roguetown/shirt/dress/stewarddress
-	name = "steward's dress"
-	desc = "A victorian-styled black dress with shining bronze buttons."
+	name = "черное платье казначея"
+	desc = "Черное платье казначея в викторианском стиле с блестящими бронзовыми пуговицами."
 	icon = 'modular_twilight/icons/roguetown/clothing/noble.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/noble.dmi'
 	icon_state = "stewarddress"
@@ -247,7 +249,8 @@
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
 
 /obj/item/clothing/shoes/roguetown/nobleboot/thighboots
-	name = "thigh boots"
+	name = "высокие сапоги"
+	desc = "Стильные сапоги, достающие до самых бедер. "
 	icon_state = "thighboot"
 	icon = 'modular_twilight/icons/roguetown/clothing/noble.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/noble.dmi'
@@ -255,7 +258,7 @@
 
 /obj/item/clothing/suit/roguetown/shirt/tunic/noblecoat
 	name = "элегантное одеяние"
-	desc = "A fancy tunic and coat combo. How elegant."
+	desc = "Модное сочетание туники и пальто. Как элегантно."
 	icon = 'modular_twilight/icons/roguetown/clothing/shirts.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/shirts.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/sleeves_shirts.dmi'
@@ -267,7 +270,7 @@
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/fancy
 	name = "элегантная туника"
-	desc = "A button-down shirt woven from fine sliks with a decorated front and cuffs."
+	desc = "Рубашка на пуговицах из тонкого шелка, декорированная жабо и манжетами."
 	icon_state = "fancyshirt"
 	icon = 'modular_twilight/icons/roguetown/clothing/noble.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/noble.dmi'
@@ -275,7 +278,7 @@
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/artificer
 	name = "рубашка ремесленника"
-	desc = "Typical fashion of the best Heartfelt engineers."
+	desc = "Прижившаяся мода лучших ремесленников, мастеров и инженеров."
 	icon = 'modular_twilight/icons/roguetown/clothing/shirts.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/shirts.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/sleeves_shirts.dmi'
@@ -284,7 +287,7 @@
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/lowcut
 	name = "топик"
-	desc = "A tunic exposing much of the shoulders and neck. Shoulders?! How scandalous..."
+	desc = "Туника, обнажающая шею и большую часть плеч. Плечи?! Какой скандал..."
 	icon = 'modular_twilight/icons/roguetown/clothing/shirts.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/shirts.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/sleeves_shirts.dmi'
@@ -293,7 +296,7 @@
 
 /obj/item/clothing/under/roguetown/shortskirt
 	name = "обычная юбка"
-	desc = "Long, flowing, and modest."
+	desc = "Длинная, гладкая и весьма скромная."
 	icon = 'modular_twilight/icons/roguetown/clothing/pants.dmi'
 	icon_state = "skirt"
 	item_state = "skirt"
@@ -320,8 +323,8 @@
 	color = CLOTHING_RED
 
 /obj/item/clothing/head/roguetown/crownheart //Holds vars for children
-	name = "crown of Heartfelt"
-	desc = "Heavy is the weight of the crown, and even heavier the responsability it infers to its wearer."
+	name = "корона Хартфелта"
+	desc = "Тяжелый вес короны не передаст всю тяжесть ответственности, которую она возлагает на своего владельца."
 	icon_state = "serpcrown"
 	dynamic_hair_suffix = null
 	sellprice = 200
@@ -334,8 +337,8 @@
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/head.dmi'
 
 /obj/item/clothing/shoes/roguetown/goldanklets
-	name = "gold anklets"
-	desc = "Delicate golden hoops worn around the ankle."
+	name = "золотые браслеты"
+	desc = "Изящные золотые обручи, которые надеваются на лодыжки."
 	gender = PLURAL
 	icon = 'modular_twilight/icons/roguetown/clothing/feet.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/feet.dmi'
@@ -344,7 +347,7 @@
 	sewrepair = TRUE
 
 /obj/item/clothing/mask/rogue/exoticsilkmask
-	name = "exotic silk mask"
+	name = "экзотичная шелковая маска"
 	icon = 'modular_twilight/icons/roguetown/clothing/masks.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/masks.dmi'
 	icon_state = "exoticsilkmask"
@@ -354,8 +357,8 @@
 	sewrepair = TRUE
 
 /obj/item/clothing/suit/roguetown/shirt/exoticsilkbra
-	name = "exotic silks"
-	desc = "Fanciful gold laced silks barely able to conceal what little it covers."
+	name = "экзотичные шелка"
+	desc = "Причудливые шелка с золотым шитьем едва способны скрыть то немногое, что они прикрывают."
 	icon = 'modular_twilight/icons/roguetown/clothing/shirts.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/shirts.dmi'
 	icon_state = "exoticsilkbra"
@@ -365,8 +368,8 @@
 	sewrepair = TRUE
 
 /obj/item/storage/belt/rogue/leather/exoticsilkbelt
-	name = "exotic silk belt"
-	desc = "A gold adorned belt with the softest of silks barely concealing one's bits."
+	name = "экзотичный шелковый пояс"
+	desc = "Украшенный золотом пояс из тончайшего шелка едва скрывает достоинства фигуры."
 	icon = 'modular_twilight/icons/roguetown/clothing/belts.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/belts.dmi'
 	icon_state = "exoticsilkbelt"

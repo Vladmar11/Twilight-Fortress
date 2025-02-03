@@ -76,13 +76,13 @@
 	var/datum/skill/skillref = GetSkillRef(skill)
 	if(!can_advance_pre && can_advance_post && !silent)
 		to_chat(mind.current, span_nicegreen(pick(list(
-			"I'm getting a better grasp at [lowertext(skillref.name)]...",
-			"With some rest, I feel like I can get better at [lowertext(skillref.name)]...",
-			"[skillref.name] starts making more sense to me...",
+			"Я начинаю лучше разбираться в [lowertext(skillref.name)]...",
+			"Немного отдохнув, я чувствую, что могу стать лучше в [lowertext(skillref.name)]...",
+			"[skillref.name] становится для меня еще более понятным делом...",
 		))))
 	if(!capped_pre && capped_post && !silent)
 		to_chat(mind.current, span_nicegreen(pick(list(
-			"My [lowertext(skillref.name)] is not gonna get any better without some rest...",
+			"Мой навык [lowertext(skillref.name)] не станет лучше без хорошего, долгого отдыха...",
 		))))
 
 /datum/sleep_adv/proc/advance_cycle()
@@ -92,7 +92,7 @@
 	if(prob(0)) //TODO SLEEP ADV SPECIALS
 		rolled_specials++
 	var/inspirations = 1
-	to_chat(mind.current, span_notice("My consciousness slips and I start dreaming..."))
+	to_chat(mind.current, span_notice("Мое сознание ускальзывает, и я начинаю видеть сны..."))
 
 	var/dream_dust = retained_dust
 	dream_dust += BASE_DREAM_DUST
@@ -100,20 +100,20 @@
 	var/int = mind.current.STAINT
 	dream_dust += mind.current.STAINT * DREAM_DUST_PER_INT //25% dream points for each int
 	if(int < 10)
-		to_chat(mind.current, span_boldwarning("My shallow imagination makes them dull..."))
+		to_chat(mind.current, span_boldwarning("Моё поверхностное воображение делает сны очень скучными..."))
 	else if (int > 10)
-		to_chat(mind.current, span_notice("My creative thinking enhances them..."))
+		to_chat(mind.current, span_notice("Мое творческое мышление усиливает мои сны..."))
 
 	var/stress_median = stress_amount / stress_cycles
 
 	if(stress_median <= -1)
 		// Unstressed, happy
-		to_chat(mind.current, span_notice("With no stresses throughout the day I dream vividly..."))
+		to_chat(mind.current, span_notice("Почти не беспокоясь в течение дня, я вижу яркие сны..."))
 		dream_dust += 100
 		inspirations++
 	else if (stress_median >= 5.0)
 		// Stressed, unhappy
-		to_chat(mind.current, span_boldwarning("Bothered by the stresses of the day my dreams are short..."))
+		to_chat(mind.current, span_boldwarning("Меня слишком беспокоили дневные заботы, потому мои сны коротки..."))
 		dream_dust -= 100
 
 	grant_inspiration_xp(inspirations)
@@ -133,8 +133,8 @@
 
 /datum/sleep_adv/proc/show_ui(mob/living/user)
 	var/list/dat = list()
-	dat += "<center>Cycle \Roman[sleep_adv_cycle]</center>"
-	dat += "<br><center>Dream, for those who dream may reach higher heights</center><br>"
+	dat += "<center>Цикл \Roman[sleep_adv_cycle]</center>"
+	dat += "<br><center>Вы спите. Те, кто видит сны, могут достичь больших высот</center><br>"
 	dat += "<center>\Roman[sleep_adv_points]</center>"
 	for(var/skill_type in SSskills.all_skills)
 		var/datum/skill/skill = GetSkillRef(skill_type)
@@ -147,10 +147,10 @@
 	dat += "<br>"
 	if(rolled_specials > 0)
 		var/can_buy = can_buy_special()
-		dat += "<br><a [can_buy ? "" : "class='linkOff'"] href='?src=[REF(src)];task=buy_special'>Dream something <b>special</b></a> - \Roman[get_special_cost()]"
-		dat += "<br>Specials can have negative or positive effects"
-	dat += "<br><br><center>Your points will be retained<br><a href='?src=[REF(src)];task=continue'>Continue</a></center>"
-	var/datum/browser/popup = new(user, "dreams", "<center>Dreams</center>", 350, 450)
+		dat += "<br><a [can_buy ? "" : "class='linkOff'"] href='?src=[REF(src)];task=buy_special'>Увидеть <b>особенный</b> сон</a> - \Roman[get_special_cost()]"
+		dat += "<br>Особенные могут получить во сне как положительный, так и отрицательный эффект"
+	dat += "<br><br><center>Ваши очки сновидений сохранятся<br><a href='?src=[REF(src)];task=continue'>Продолжить</a></center>"
+	var/datum/browser/popup = new(user, "dreams", "<center>Сновидения</center>", 350, 450)
 	popup.set_window_options("can_close=0")
 	popup.set_content(dat.Join())
 	popup.open(FALSE)
@@ -238,11 +238,11 @@
 	for(var/i in 1 to inspired_skill_names.len)
 		var/skill_name = inspired_skill_names[i]
 		if(i > 1 && i == inspired_skill_names.len)
-			skill_string += " and "
+			skill_string += " и "
 		else if(i != 1)
 			skill_string += ", "
 		skill_string += lowertext(skill_name)
-	to_chat(mind.current, span_notice("I feel inspired about [skill_string]..."))
+	to_chat(mind.current, span_notice("Я замечаю, как меня [inspired_skill_names.len > 1 ? "вдохновляет" : "вдохновляют"] [skill_string]..."))
 
 
 /datum/sleep_adv/proc/buy_special()
@@ -255,7 +255,7 @@
 /datum/sleep_adv/proc/finish()
 	if(!mind.current)
 		return
-	to_chat(mind.current, span_notice("..and that's all I dreamt of"))
+	to_chat(mind.current, span_notice("...и это все, что мне сегодня приснилось"))
 	close_ui()
 
 /datum/sleep_adv/Topic(href, list/href_list)

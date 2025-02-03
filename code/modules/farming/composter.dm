@@ -2,8 +2,8 @@
 #define COMPOST_PER_PRODUCED_ITEM 100
 
 /obj/structure/composter
-	name = "composter"
-	desc = "A wooden fencing with space for discarded produce to turn into compost."
+	name = "компостер"
+	desc = "Деревянное ограждение с лотком для выброшенных продуктов, превращаемых в компост."
 	icon = 'icons/obj/structures/composter.dmi'
 	icon_state = "composter"
 	density = FALSE
@@ -23,9 +23,9 @@
 	. = ..()
 	var/show_dry = (unflipped_compost > flipped_compost)
 	if(ready_compost > COMPOST_PER_PRODUCED_ITEM)
-		. += span_info("There is some ready compost.")
+		. += span_info("Внутри есть готовый компост.")
 	if(show_dry && unflipped_compost >= COMPOST_PER_PRODUCED_ITEM)
-		. += span_warning("The compost requires flipping!")
+		. += span_warning("Компост нужно перевернуть!")
 
 /obj/structure/composter/update_icon()
 	. = ..()
@@ -62,7 +62,7 @@
 	var/fatigue = using_tool ? 10 : 20
 	if(do_after(user, get_farming_do_time(user, do_time), target = src))
 		apply_farming_fatigue(user, fatigue)
-		to_chat(user, span_notice("I flip the compost."))
+		to_chat(user, span_notice("Я переворачиваю компост."))
 		if(using_tool)
 			playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
 		flip_compost()
@@ -85,11 +85,11 @@
 	if(compost_value > 0)
 		if(get_total_compost() >= MAXIMUM_TOTAL_COMPOST)
 			if(!batch_process)
-				to_chat(user, span_warning("There's too much compost!"))
+				to_chat(user, span_warning("В куче слишком много компоста!"))
 			return FALSE
 		unflipped_compost += min(compost_value, MAXIMUM_TOTAL_COMPOST - get_total_compost())
 		if(!batch_process)
-			to_chat(user, span_notice("I add \the [attacking_item] to \the [src]"))
+			to_chat(user, span_notice("Я бросаю [attacking_item] в [src]"))
 		qdel(attacking_item)
 		update_icon()
 		return TRUE
@@ -97,10 +97,10 @@
 
 /obj/structure/composter/proc/try_handle_removing_compost(obj/item/attacking_item, mob/living/user)
 	if(ready_compost < COMPOST_PER_PRODUCED_ITEM)
-		to_chat(user, span_warning("There's not enough processed compost!"))
+		to_chat(user, span_warning("Не хватает обработанного компоста!"))
 		return TRUE
 	apply_farming_fatigue(user, 5)
-	to_chat(user, span_notice("I take out some ready compost."))
+	to_chat(user, span_notice("Я достаю готовый компост."))
 	var/obj/item/compost/compost = take_out_compost()
 	if(compost)
 		user.put_in_active_hand(compost)
@@ -117,7 +117,7 @@
 	user.changeNext_move(CLICK_CD_FAST)
 	if(istype(attacking_item,/obj/item/storage/roguebag) && attacking_item.contents.len)
 		if(get_total_compost() >= MAXIMUM_TOTAL_COMPOST)
-			to_chat(user, span_warning("There's too much compost!"))
+			to_chat(user, span_warning("В куче слишком много компоста!"))
 			return
 		var/success
 		for(var/obj/item/bagged_item in attacking_item.contents)
@@ -126,10 +126,10 @@
 				if(get_total_compost() >= MAXIMUM_TOTAL_COMPOST)
 					break
 		if(success)
-			to_chat(user, span_info("I dump all the compostables inside [attacking_item] into [src]."))
+			to_chat(user, span_info("Я выбрасываю все компостируемые материалы из [attacking_item] в [src]."))
 			attacking_item.update_icon()
 		else
-			to_chat(user, span_warning("There's nothing in [attacking_item] that can be composted."))
+			to_chat(user, span_warning("В [attacking_item] нет ничего подходящего для компостирования."))
 		return TRUE
 	if(try_handle_adding_compost(attacking_item, user, params))
 		return
@@ -178,8 +178,8 @@
 		. += "post_compost_low"
 
 /obj/item/compost
-	name = "compost"
-	desc = "Decomposed produce ready to give life to plants."
+	name = "компост"
+	desc = "Разложившиеся продукты готовы дать жизнь растениям."
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "ash"
 	color = "#ffac38"

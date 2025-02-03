@@ -1,8 +1,8 @@
 //separate dm since hydro is getting bloated already
 
 /obj/structure/glowshroom
-	name = "kneestingers"
-	desc = ""
+	name = "шоковый гриб"
+	desc = "К кожице этого растения лучше не прикасаться"
 	anchored = TRUE
 	opacity = 0
 	density = FALSE
@@ -14,7 +14,7 @@
 	resistance_flags = FLAMMABLE
 
 /obj/structure/glowshroom/fire_act(added, maxstacks)
-	visible_message(span_warning("[src] catches fire!"))
+	visible_message(span_warning("[src] загорается!"))
 	var/turf/T = get_turf(src)
 	qdel(src)
 	new /obj/effect/hotspot(T)
@@ -80,7 +80,7 @@
 
 /obj/structure/glowshroom/acid_act(acidpwr, acid_volume)
 	. = 1
-	visible_message(span_danger("[src] melts away!"))
+	visible_message(span_danger("[src] плавится!"))
 	var/obj/effect/decal/cleanable/molten_object/I = new (get_turf(src))
 	I.desc = ""
 	qdel(src)

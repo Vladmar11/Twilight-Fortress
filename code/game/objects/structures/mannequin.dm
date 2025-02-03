@@ -25,8 +25,8 @@
 */
 
 /obj/structure/mannequin
-	name = "display stand"
-	desc = "It looks like a decorative training dummy."
+	name = "витринный стенд"
+	desc = "Выглядит, как украшенный тренировочный манекен."
 	icon = 'icons/obj/mannequin.dmi'
 	icon_state = "coat_hanger"
 	density = TRUE
@@ -134,7 +134,7 @@
 				MannequinUnequip(null,targ_to_slot)
 				user.put_in_hand(I)
 				add_fingerprint(user)
-				to_chat(user, "You pick up \the [I] from \the [src].")
+				to_chat(user, "Вы снимаете [I] с [src].")
 		else
 			FinalEquipCheck(user, item_in_hand, item_slot)
 
@@ -159,11 +159,11 @@
 
 	dat += EquippableSlots()
 	dat += "<BR>---"
-	dat += "<BR>Turn Mannequin:<B><A href='?src=\ref[src];turn=turn'>[dir2text(dir)]</A></B>"
+	dat += "<BR>Повернуть манекен:<B><A href='?src=\ref[src];turn=turn'>[dir2text(dir)]</A></B>"
 	dat += "<BR>"
 	dat += {"
 	<BR>
-	<BR><A href='?src=\ref[user];mach_close=mob\ref[src]'>Close</A>
+	<BR><A href='?src=\ref[user];mach_close=mob\ref[src]'>Закрыть</A>
 	"}
 
 	var/datum/browser/popup = new(user, "mannequin\ref[src]", "[src]", 340, 500)
@@ -173,12 +173,12 @@
 //UI SLOTS
 /obj/structure/mannequin/proc/EquippableSlots()
 	. = ""
-	. += "<BR><B>Head:</B> <A href='?src=\ref[src];item=[BODY_ZONE_HEAD]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_HEAD])]</A>"
-	. += "<BR><B>Neck:</B> <A href='?src=\ref[src];item=[BODY_ZONE_PRECISE_NECK]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_CLOAK])]</A>"
-	. += "<BR><B>Mask:</B> <A href='?src=\ref[src];item=[BODY_ZONE_PRECISE_MOUTH]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_MASK])]</A>"
-	. += "<BR><B>Armor:</B> <A href='?src=\ref[src];item=[BODY_ZONE_CHEST]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_ARMOR])]</A>"
-	. += "<BR><B>Shirt:</B> <A href='?src=\ref[src];item=[BODY_ZONE_PRECISE_STOMACH]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_SHIRT])]</A>"
-	. += "<BR><B>Belt:</B> <A href='?src=\ref[src];item=[BODY_ZONE_PRECISE_GROIN]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_BELT])]</A>"
+	. += "<BR><B>Голова:</B> <A href='?src=\ref[src];item=[BODY_ZONE_HEAD]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_HEAD])]</A>"
+	. += "<BR><B>Шея:</B> <A href='?src=\ref[src];item=[BODY_ZONE_PRECISE_NECK]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_CLOAK])]</A>"
+	. += "<BR><B>Маска:</B> <A href='?src=\ref[src];item=[BODY_ZONE_PRECISE_MOUTH]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_MASK])]</A>"
+	. += "<BR><B>Броня:</B> <A href='?src=\ref[src];item=[BODY_ZONE_CHEST]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_ARMOR])]</A>"
+	. += "<BR><B>Одежда:</B> <A href='?src=\ref[src];item=[BODY_ZONE_PRECISE_STOMACH]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_SHIRT])]</A>"
+	. += "<BR><B>Пояс:</B> <A href='?src=\ref[src];item=[BODY_ZONE_PRECISE_GROIN]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_BELT])]</A>"
 
 /obj/structure/mannequin/attackby(obj/item/I, mob/user)
 	if(user.cmode || user.a_intent == INTENT_HARM || user.a_intent == INTENT_DISARM)
@@ -203,31 +203,31 @@
 		if(cloth_to_examine)
 			switch(slot_cloth)
 				if(SLOT_MANNEQUIN_HEAD)
-					slot_examine = " on its head"
+					slot_examine = "На его голове "
 				if(SLOT_MANNEQUIN_GLOVES)
-					slot_examine = " on its hands"
+					slot_examine = "На его руках "
 				if(SLOT_MANNEQUIN_BELT)
-					slot_examine = " about its waist"
+					slot_examine = "На его талии "
 				if(SLOT_MANNEQUIN_SHIRT)
-					slot_examine = " close to its skin"
+					slot_examine = "На его теле "
 				if(SLOT_MANNEQUIN_ARMOR)
-					slot_examine = " over its body"
+					slot_examine = "Поверх манекена "
 				if(SLOT_MANNEQUIN_FEET)
-					slot_examine = " on its feet"
+					slot_examine = "На его ногах "
 				if(SLOT_MANNEQUIN_MASK)
-					slot_examine = " on its face"
+					slot_examine = "На его лицо "
 				if(SLOT_MANNEQUIN_CLOAK)
-					slot_examine = " around its neck"
-			msg += "Wearing [cloth_to_examine][slot_examine].<br>"
+					slot_examine = "На его шее "
+			msg += "[slot_examine] надет [cloth_to_examine].<br>"
 	/*
 	* This is placed here due to the fact
 	* that some clothing is gender locked.
 	* Very annoying that without this consideration
 	* some clothing will be invisible on the mannequin.
 	*/
-	msg += "This mannequin has a [gender == FEMALE ? "feminine" : "masculine"] body.<br>"
-	msg += ":Aim for the place where the clothing fits, drag the mannequin onto yourself for a less immersive panel:"
-	to_chat(user, msg)
+	msg += "У этого манекена [gender == FEMALE ? "женственное" : "маскулинное"] тело.<br>"
+	msg += "Нацельтесь на то место, куда подходит одежда, перетащите манекен на себя, чтобы открыть менее иммерсивную панель."
+	to_chat(user, "<span class='info'>[msg]</span>")
 
 //Tries to equip the mannequin. Part of attack_hand() reflection of Topic()
 /obj/structure/mannequin/proc/tryEquip(mob/user, equipment_slot)
@@ -240,7 +240,7 @@
 			var/obj/item/I = clothing[item_slot]
 			MannequinUnequip(I, MannequinEquipHelper(item_slot))
 			add_fingerprint(user)
-			to_chat(user, "<span class='info'>You pick up \the [I] from \the [src].</span>")
+			to_chat(user, "<span class='info'>Вы снимаете [I] с [src].</span>")
 	else
 		FinalEquipCheck(user, item_in_hand, item_slot)
 
@@ -254,13 +254,13 @@
 	if(canEquip(user ,item_thing, EquipHelper(slot_placement)))
 		if(user.dropItemToGround(item_thing))
 			if(clothing[slot_placement])
-				to_chat(user, "<span class='info'>You switch \the [item_thing] and \the [clothing[slot_placement]] on the [src].</span>")
+				to_chat(user, "<span class='info'>Вы меняете [item_thing] и [clothing[slot_placement]] на [src].</span>")
 				MannequinEquip(item_thing, MannequinEquipHelper(slot_placement))
 				add_fingerprint(user)
 			else
 				MannequinEquip(item_thing, MannequinEquipHelper(slot_placement))
 				add_fingerprint(user)
-				to_chat(user, "<span class='info'>You place \the [item_thing] on \the [src].</span>")
+				to_chat(user, "<span class='info'>Вы вешаете [item_thing] на [src].</span>")
 		//If drop to ground proc fails
 		else
 			to_chat(user, "<span class='warning'>You can't drop that!</span>")
@@ -277,14 +277,14 @@
 		var/obj/item/clothing/C = item_to_check
 		//Thank you DM Refrence website for telling me how to find out negative if in arguments.
 		if(!(gender in C.allowed_sex))
-			to_chat(user, "<span class='warning'>This clothing wont fit this mannequins frame.</span>")
+			to_chat(user, "<span class='warning'>Эту одежду нельзя навесить на раму манекена.</span>")
 			return FALSE
 
 	if(item_to_check.slot_flags & selected_area)
 		return TRUE
 
 	if(user)
-		to_chat(user, "<span class='warning'>\The [item_to_check] doesn't fit on the mannequins [PlacementDescriber(selected_area)].</span>")
+		to_chat(user, "<span class='warning'>Кажется, [item_to_check] не подходит на [PlacementDescriber(selected_area)] манекена.</span>")
 	return FALSE
 
 /*
@@ -503,7 +503,7 @@
 	tipped_over = FALSE
 	var/matrix/mat = transform
 	transform = mat.Turn(-90)
-	to_chat(L, "You pull [src] off the ground.")
+	to_chat(L, "Вы поднимаете [src] с земли.")
 
 /*
 * Procs at creation or mapload. If no items_to_wear then it will equip
@@ -545,7 +545,7 @@
 */
 /obj/structure/mannequin/proc/makeStrippingButton(obj/item/I)
 	if(!istype(I))
-		return "<font color=grey>Empty</font>"
+		return "<font color=grey>Пусто</font>"
 	else
 		return I
 /*
@@ -631,8 +631,8 @@
 
 ////Subtypes/////
 /obj/structure/mannequin/male
-	name = "mannequin"
-	desc = "Its unsettlingly still."
+	name = "манекен"
+	desc = "Тревожно неподвижен."
 	icon_state = "man"
 
 /*
@@ -640,12 +640,12 @@
 * or unequipped of their clothing.
 */
 /obj/structure/mannequin/male/decorative
-	name = "decorative display"
-	desc = "Due to magic or fragile material the clothing on this one cannot be taken off."
+	name = "декоративный манекен"
+	desc = "Из-за магии или хрупкого материала одежду на этом предмете невозможно снять."
 	unchangeable = TRUE
 
 /obj/structure/mannequin/male/female
-	name = "mannequin"
+	name = "манекен"
 	icon_state = "woman"
 	gender = FEMALE
 
@@ -665,9 +665,9 @@
 
 /obj/structure/mannequin/male/EquippableSlots()
 	. = ..()
-	. += "<BR><B>Gloves:</B> <A href='?src=\ref[src];item=[BODY_ZONE_PRECISE_L_HAND]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_GLOVES])]</A>"
-	. += "<BR><B>Shoes:</B> <A href='?src=\ref[src];item=[BODY_ZONE_PRECISE_L_FOOT]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_FEET])]</A>"
-	. += "<BR><B>Pants:</B> <A href='?src=\ref[src];item=[BODY_ZONE_L_LEG]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_PANTS])]</A>"
+	. += "<BR><B>Перчатки:</B> <A href='?src=\ref[src];item=[BODY_ZONE_PRECISE_L_HAND]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_GLOVES])]</A>"
+	. += "<BR><B>Обувь:</B> <A href='?src=\ref[src];item=[BODY_ZONE_PRECISE_L_FOOT]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_FEET])]</A>"
+	. += "<BR><B>Штаны:</B> <A href='?src=\ref[src];item=[BODY_ZONE_L_LEG]'>[makeStrippingButton(clothing[SLOT_MANNEQUIN_PANTS])]</A>"
 
 /obj/structure/mannequin/male/bodypartsNightmare()
 	var/isfemale = (gender == FEMALE ? "f" : "m")

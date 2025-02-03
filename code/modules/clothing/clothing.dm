@@ -94,9 +94,9 @@
 	. = ..()
 	if(torn_sleeve_number)
 		if(torn_sleeve_number == 1)
-			. += span_notice("Один рукав оторван по швам.")
+			. += span_notice("Частично порвано, но можно получить еще немного тряпок.")
 		else
-			. += span_notice("Оба рукава оторваны, только нитки торчат!")
+			. += span_notice("Разорвано на тряпки, только нитки торчат!")
 
 /obj/item/proc/get_detail_tag() //this is for extra layers on clothes
 	return detail_tag
@@ -149,19 +149,23 @@
 			if(r_sleeve_status == SLEEVE_NOMOD)
 				return
 			if(r_sleeve_status == SLEEVE_TORN)
-				to_chat(user, span_info("Правый рукав оторван."))
+				if (r_sleeve_zone == BODY_ZONE_R_LEG)
+					to_chat(user, span_info("Правая штанина оторвана."))
+				if (r_sleeve_zone == BODY_ZONE_R_ARM)
+					to_chat(user, span_info("Правый рукав оторван."))
 				return
 			if(!do_after(user, 20, target = user))
 				return
 			if(prob(L.STASTR * 8))
 				torn_sleeve_number += 1
 				r_sleeve_status = SLEEVE_TORN
-				user.visible_message(span_notice("[user] отрывает рукав [src] по швам."))
-				playsound(src, 'sound/foley/cloth_rip.ogg', 50, TRUE)
 				if(r_sleeve_zone == BODY_ZONE_R_ARM)
 					body_parts_covered &= ~ARM_RIGHT
+					user.visible_message(span_notice("[user] отрывает правый рукав [src] по швам."))
 				if(r_sleeve_zone == BODY_ZONE_R_LEG)
 					body_parts_covered &= ~LEG_RIGHT
+					user.visible_message(span_notice("[user] отрывает правую штанину [src] по швам."))
+				playsound(src, 'sound/foley/cloth_rip.ogg', 50, TRUE)
 				if(salvage_result == /obj/item/natural/hide/cured)
 					to_chat(user, span_info("Вы испортили кусок кожи."))
 					return
@@ -170,25 +174,29 @@
 				user.put_in_hands(Sr)
 				return
 			else
-				user.visible_message(span_warning("[user] пытается порвать [src]."))
+				user.visible_message(span_warning("[user] пытается порвать [src] на тряпки."))
 				return
 		if(user.zone_selected == l_sleeve_zone)
 			if(l_sleeve_status == SLEEVE_NOMOD)
 				return
 			if(l_sleeve_status == SLEEVE_TORN)
-				to_chat(user, span_info("Левый рукав оторван"))
+				if (l_sleeve_zone == BODY_ZONE_L_LEG)
+					to_chat(user, span_info("Левая штанина оторвана."))
+				if (l_sleeve_zone == BODY_ZONE_L_ARM)
+					to_chat(user, span_info("Левый рукав оторван."))
 				return
 			if(!do_after(user, 20, target = user))
 				return
 			if(prob(L.STASTR * 8))
 				torn_sleeve_number += 1
 				l_sleeve_status = SLEEVE_TORN
-				user.visible_message(span_notice("[user] отрывает рукав [src] по швам."))
-				playsound(src, 'sound/foley/cloth_rip.ogg', 50, TRUE)
 				if(l_sleeve_zone == BODY_ZONE_L_ARM)
 					body_parts_covered &= ~ARM_LEFT
+					user.visible_message(span_notice("[user] отрывает левый рукав [src] по швам."))
 				if(l_sleeve_zone == BODY_ZONE_L_LEG)
 					body_parts_covered &= ~LEG_LEFT
+					user.visible_message(span_notice("[user] отрывает левую штанину [src] по швам."))
+				playsound(src, 'sound/foley/cloth_rip.ogg', 50, TRUE)
 				if(salvage_result == /obj/item/natural/hide/cured)
 					to_chat(user, span_info("Вы испортили кусок кожи."))
 					return
@@ -197,7 +205,7 @@
 				user.put_in_hands(Sr)
 				return
 			else
-				user.visible_message(span_warning("[user] пытается порвать [src]."))
+				user.visible_message(span_warning("[user] пытается порвать [src] на тряпки."))
 				return
 	if(loc == L)
 		L.regenerate_clothes()

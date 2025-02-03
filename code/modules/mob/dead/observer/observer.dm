@@ -257,7 +257,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	. = ..()
 	if(mind?.funeral)
 		if(CONFIG_GET(flag/force_respawn_on_funeral))
-			to_chat(src, span_rose("With my body buried in creation, my soul passes on in peace..."))
+			to_chat(src, span_rose("Мое тело похоронено в земле, и моя душа уходит с миром..."))
 			burial_rite_return_ghost_to_lobby(src)
 			return
 /mob/dead/observer/rogue/CanPass(atom/movable/mover, turf/target)
@@ -479,16 +479,16 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	if(!client)
 		return
 	if(!mind || QDELETED(mind.current))
-		to_chat(src, span_warning("I have no body."))
+		to_chat(src, span_warning("У меня нет тела."))
 		return
 	if(!can_reenter_corpse)
-		to_chat(src, span_warning("I cannot re-enter my body."))
+		to_chat(src, span_warning("Я не могу снова войти в свое тело."))
 		return
 	if(mind.current.key && copytext(mind.current.key,1,2)!="@")	//makes sure we don't accidentally kick any clients
-		to_chat(usr, span_warning("Another consciousness is in my body... It is resisting me."))
+		to_chat(usr, span_warning("В моем теле другое сознание... И оно мне сопротивляется."))
 		return
 	if("undead" in mind.current.faction)
-		to_chat(usr, span_warning("ZIZO has puppeted my body."))
+		to_chat(usr, span_warning("ЗИЗО управляет моим телом, как марионеткой."))
 		return
 //	stop_all_loops()
 	SSdroning.kill_rain(src.client)
@@ -881,9 +881,9 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return
 	var/bt = world.time
 	SEND_SOUND(src, sound('sound/misc/notice (2).ogg'))
-	if(alert(src, "A lich has summoned you to destroy ROGUETOWN!", "Join the Horde", "Yes", "No") == "Yes")
+	if(alert(src, "Лич призывает вас в поход!", "Присоединиться к орде?", "Да", "Нет") == "Да")
 		if(world.time > bt + 5 MINUTES)
-			to_chat(src, span_warning("Too late."))
+			to_chat(src, span_warning("Слишком поздно."))
 			return FALSE
 		returntolobby(RESPAWNTIME*-1)
 
@@ -942,7 +942,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/dead/observer/pointed(atom/A as mob|obj|turf in view(client.view, src))
 	if(!..())
 		return FALSE
-	usr.visible_message(span_deadsay("<b>[src]</b> points to [A]."))
+	usr.visible_message(span_deadsay("<b>[src]</b> показывает на [A]."))
 	return TRUE
 
 /mob/dead/observer/verb/view_manifest()

@@ -112,7 +112,7 @@
 
 	gender_swapping = TRUE
 	stress_examine = TRUE
-	stress_desc = span_red("A loathesome dark elf.")
+	stress_desc = span_red("Отвратительный темный эльф.")
 
 /datum/species/elf/dark/get_skin_list()
 	return list(

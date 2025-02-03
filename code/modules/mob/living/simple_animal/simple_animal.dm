@@ -214,7 +214,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 		return
 	else
 		if(!stat)
-			user.visible_message(span_info("[user] hand-feeds [O] to [src]."), span_notice("I hand-feed [O] to [src]."))
+			user.visible_message(span_info("[user] кормит [src] с руки, держа в ней [O]."), span_notice("Я кормлю [src], держа в руке [O]."))
 			playsound(loc,'sound/misc/eat.ogg', rand(30,60), TRUE)
 			qdel(O)
 			food = min(food + 30, 100)
@@ -371,7 +371,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 				var/used_time = 210
 				if(user.mind)
 					used_time -= (user.mind.get_skill_level(/datum/skill/craft/hunting) * 30)
-				visible_message("[user] begins to butcher [src].")
+				visible_message("[user] приступает к разделке [src].")
 				playsound(src, 'sound/foley/gross.ogg', 100, FALSE)
 				var/amt2raise = user.STAINT // this is due to the fact that butchering is not as spammable as training a sword because you cant just spam click
 				if(do_after(user, used_time, target = src))
@@ -529,13 +529,13 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 
 /mob/living/simple_animal/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=FALSE, no_tk=FALSE)
 	if(incapacitated())
-		to_chat(src, span_warning("I can't do that right now!"))
+		to_chat(src, span_warning("Я не могу сделать это прямо сейчас!"))
 		return FALSE
 	if(be_close && !in_range(M, src))
-		to_chat(src, span_warning("I are too far away!"))
+		to_chat(src, span_warning("Я слишком далеко!"))
 		return FALSE
 	if(!(no_dexterity || dextrous))
-		to_chat(src, span_warning("I don't have the dexterity to do this!"))
+		to_chat(src, span_warning("У меня не хватит сноровки, чтобы это сделать!"))
 		return FALSE
 	return TRUE
 
@@ -683,7 +683,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 			M.Paralyze(50)
 			M.Stun(50)
 			playsound(src.loc, 'sound/foley/zfall.ogg', 100, FALSE)
-			M.visible_message("<span class='danger'>[M] falls off [src]!</span>")
+			M.visible_message("<span class='danger'>[M] падает с [src]!</span>")
 		else
 			return
 	..()
@@ -764,7 +764,7 @@ GLOBAL_VAR_INIT(farm_animals, FALSE)
 							L.Paralyze(50)
 							L.Stun(50)
 							playsound(L.loc, 'sound/foley/zfall.ogg', 100, FALSE)
-							L.visible_message(span_danger("[L] falls off [src]!"))
+							L.visible_message(span_danger("[L] падает с [src]!"))
 
 /mob/living/simple_animal/buckle_mob(mob/living/buckled_mob, force = 0, check_loc = 1)
 	. = ..()

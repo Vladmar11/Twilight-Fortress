@@ -136,7 +136,7 @@
 	color = "#c1b144"
 
 /obj/item/clothing/suit/roguetown/shirt/robe/merchant
-	name = "гильдейские одеяния"
+	name = "гильдейское одеяние"
 	desc = "Изысканная одежда, популярная среди купцов."
 	icon_state = "merrobe"
 	sellprice = 30

@@ -1311,9 +1311,9 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	// Heal the specific body part every second while bandaged and manage wound pain and disabling effects
 	addtimer(CALLBACK(src, /proc/heal_and_manage_pain_disabling, H, affecting), 10, 1, TRUE)
 	if (M == user)
-		user.visible_message("Вы перевязываете [affecting].")
+		to_chat(user, "Вы перевязываете [affecting].")
 	else
-		user.visible_message("Вы помогаете [M] и перевязываете [affecting] .")
+		to_chat(user, "Вы помогаете [M] и перевязываете [affecting].")
 
 /proc/heal_and_manage_pain_disabling(var/mob/living/carbon/human/H, var/obj/item/bodypart/affecting)
 	if (!affecting) return
@@ -1395,7 +1395,7 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 		. += span_notice("Куб в процессе перегонки.")
 		for (var/obj/item/I in active_brews)
 			var/time_left = (I.brewing_time - (world.time - I.start_time)) / 10
-			. += span_notice("[I]: [time_left] секунд до заершения.")
+			. += span_notice("[I]: [time_left] секунд до завершения.")
 
 /obj/item/reagent_containers/glass/alembic/proc/makebrew(obj/item/I)
 	if(I.reagents)
@@ -1567,35 +1567,35 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	i_type = "Tools"
 
 /datum/crafting_recipe/roguetown/mortar
-	name = "Ступка и пестик - (1 полено, 1 палка)"
+	name = "Ступка и пестик - (1 полено, 1 палка; НОВИЧОК)"
 	result = /obj/item/reagent_containers/glass/mortar
 	reqs = list(/obj/item/grown/log/tree/stick = 1, /obj/item/grown/log/tree/small = 1,)
 	skill_level = 1
 	skillcraft = /datum/skill/craft/crafting
 
 /datum/crafting_recipe/roguetown/bandage
-	name = "Набор повязок - (3 ткани, 1 пепел)"
+	name = "Набор повязок - (3 ткани, 1 пепел; УЧЕНИК)"
 	result = /obj/item/natural/bundle/cloth/bandage/full
 	reqs = list(/obj/item/natural/cloth = 3, /obj/item/ash = 1,)
 	skill_level = 2
 	skillcraft = /datum/skill/misc/treatment
 
 /datum/crafting_recipe/roguetown/impsaw
-	name = "примитивная пила - (1 волокно, 1 камень, 1 палка)"
+	name = "примитивная пила - (1 волокно, 1 камень, 1 палка; НОВИЧОК)"
 	result = /obj/item/rogueweapon/surgery/saw/improv
 	reqs = list(/obj/item/natural/fibers = 1, /obj/item/natural/stone = 1, /obj/item/grown/log/tree/stick = 1,)
 	skill_level = 1
 	skillcraft = /datum/skill/craft/crafting
 
 /datum/crafting_recipe/roguetown/impretra
-	name = "примитивный зажим - (1 волокно, 2 палки)"
+	name = "примитивный зажим - (1 волокно, 2 палки; НОВИЧОК)"
 	result = /obj/item/rogueweapon/surgery/hemostat/improv
 	reqs = list(/obj/item/natural/fibers = 1, /obj/item/grown/log/tree/stick = 2,)
 	skill_level = 1
 	skillcraft = /datum/skill/craft/crafting
 
 /datum/crafting_recipe/roguetown/imphemo
-	name = "примитивный расширитель - (1 волокно, 2 палки)"
+	name = "примитивный расширитель - (1 волокно, 2 палки; НОВИЧОК)"
 	result = /obj/item/rogueweapon/surgery/retractor/improv
 	reqs = list(/obj/item/natural/fibers = 1, /obj/item/grown/log/tree/stick = 2,)
 	skill_level = 1

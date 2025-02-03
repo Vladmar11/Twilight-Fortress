@@ -1,5 +1,5 @@
 /datum/language/beast
-	name = "Beastish"
+	name = "Звериный"
 	desc = ""
 	speech_verb = "growls"
 	ask_verb = "grrs"
