@@ -93,7 +93,7 @@
 
 /datum/spacevine_mutation/toxicity/on_cross(obj/structure/spacevine/holder, mob/living/crosser)
 	if(prob(severity) && istype(crosser) && !isvineimmune(crosser))
-		to_chat(crosser, span_alert("I accidentally touch the vine and feel a strange sensation."))
+		to_chat(crosser, span_alert("Я случайно дотрагиваюсь до лозы и ощущаю странное чувство."))
 		crosser.adjustToxLoss(5)
 
 /datum/spacevine_mutation/toxicity/on_eat(obj/structure/spacevine/holder, mob/living/eater)
@@ -171,13 +171,13 @@
 	if(prob(severity) && istype(crosser) && !isvineimmune(holder))
 		var/mob/living/M = crosser
 		M.adjustBruteLoss(5)
-		to_chat(M, span_alert("I cut myself on the thorny vines."))
+		to_chat(M, span_alert("Я пореза[crosser.rus_sya()] об тернистую лозу."))
 
 /datum/spacevine_mutation/thorns/on_hit(obj/structure/spacevine/holder, mob/living/hitter, obj/item/I, expected_damage)
 	if(prob(severity) && istype(hitter) && !isvineimmune(holder))
 		var/mob/living/M = hitter
 		M.adjustBruteLoss(5)
-		to_chat(M, span_alert("I cut myself on the thorny vines."))
+		to_chat(M, span_alert("Я пореза[crosser.rus_sya()] об тернистую лозу."))
 	. =	expected_damage
 
 /datum/spacevine_mutation/woodening
@@ -199,7 +199,7 @@
 
 // SPACE VINES (Note that this code is very similar to Biomass code)
 /obj/structure/spacevine
-	name = "weepvine"
+	name = "тернистая лоза"
 	desc = ""
 	icon = 'icons/effects/spacevines.dmi'
 	icon_state = "Light1"
@@ -229,11 +229,11 @@
 		holder.entangle(crosser)
 	if(!isvineimmune(crosser))
 		if(crosser.apply_damage(5, BRUTE))
-			to_chat(crosser, span_alert("I cut myself on the thorny vines."))
+			to_chat(crosser, span_alert("Я пореза[crosser.rus_sya()] о тернистые лозы."))
 
 /datum/spacevine_mutation/earthy/can_cross(obj/structure/spacevine/holder, mob/living/crosser)
 	if((prob(30) && !isvineimmune(crosser)) || (prob(5)))
-		to_chat(crosser, span_warning("I feel stuck on the vines."))
+		to_chat(crosser, span_warning("Кажется, я застрял[crosser.rus_a()] в лозах."))
 		return FALSE
 	else
 		return TRUE	
@@ -313,7 +313,7 @@
 	if(prob(23) && istype(crosser) && !isvineimmune(crosser))
 		var/mob/living/M = crosser
 		M.adjustBruteLoss(5)
-		to_chat(M, span_warning("I nick myself on the thorny vines."))
+		to_chat(M, span_warning("Я пореза[crosser.rus_sya()] на тернистых лозах."))
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
 /obj/structure/spacevine/attack_hand(mob/user)
@@ -480,7 +480,7 @@
 	for(var/datum/spacevine_mutation/SM in mutations)
 		SM.on_buckle(src, V)
 	if((V.stat != DEAD) && (V.buckled != src)) //not dead or captured
-		to_chat(V, span_danger("The vines [pick("wind", "tangle", "tighten")] around me!"))
+		to_chat(V, span_danger("Лозы [pick("обвиваются", "опутываются", "затягиваются")] вокруг меня!"))
 		buckle_mob(V, 1)
 	V.adjustOxyLoss(10)
 
