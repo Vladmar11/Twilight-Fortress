@@ -1,4 +1,4 @@
-/obj/item/rogueweapon/polearm/mancatcher
+/obj/item/rogueweapon/mancatcher
 	force = 10
 	force_wielded = 20
 	possible_item_intents = list(/datum/intent/spear/bash)
@@ -43,7 +43,7 @@
 	swingdelay = 1
 	misscost = 10
 
-/obj/item/rogueweapon/polearm/spear/yari
+/obj/item/rogueweapon/spear/yari
 	name = "су яри"
 	desc = "Длинное копье с прямым наконечником, часто используемое морскими рейдерами для отражения атак легкой кавалерии на суше. \
 	Хорошо известно благодаря стратегии «Яримазингу» среди изумийцев."
@@ -59,7 +59,7 @@
 	dropshrink = 0.8
 	blade_dulling = DULLING_BASHCHOP
 
-/obj/item/rogueweapon/polearm/spear/yari/katakama
+/obj/item/rogueweapon/spear/yari/katakama
 	name = "катакама яри"
 	desc = "Эволюция су-яри, узнаваемая благодаря одному косому наконечнику, расположенному перпендикулярно основному острию, что позволяет лучше защищаться от нагинаты."
 	icon_state = "katakamayari"
@@ -68,13 +68,13 @@
 	max_blade_int = 150
 	max_integrity = 400
 
-/obj/item/rogueweapon/polearm/spear/billhook/jumonji
+/obj/item/rogueweapon/spear/billhook/jumonji
 	name = "джумонджи яри"
 	desc = "Доведенный до логического завершения дизайн катакама-яри, дзюмондзи-яри имеет удлиненный хвостовик с каждой стороны, \
 	длина которого равна длине переднего острия. Нет такого шестового оружия, которое обеспечивало бы лучшую защиту без ущерба для эффективности."
 	icon_state = "jumonjiyari"
 
-/obj/item/rogueweapon/polearm/halberd/bardiche/naginata
+/obj/item/rogueweapon/halberd/bardiche/naginata
 	name = "нагината"
 	desc = "В самом начале своего существования нагината представляла собой клинок тачи, закрепленный на длинном деревянном шесте,\
 	и стала первым шестовым оружием, получившим широкое распространение в Изуме."
@@ -82,7 +82,7 @@
 	icon_state = "naginata"
 	dropshrink = 0.8
 
-/obj/item/rogueweapon/polearm/halberd/bardiche/naginata/tsukushi //make two instead of only one
+/obj/item/rogueweapon/halberd/bardiche/naginata/tsukushi //make two instead of only one
 	name = "цукуси нагината"
 	desc = "Более дешевая и простая в изготовлении железная нагината с клинком, удерживаемым за гарду, а не за острие. \
 	Этот клинок, вероятно, произошел от косы, и его легко найти у бедных странствующих монахов."
@@ -93,14 +93,14 @@
 	wdefense = 4
 	slot_flags = ITEM_SLOT_BACK
 
-/obj/item/rogueweapon/polearm/halberd/bisento //Giving the Bisento storeable 'back' because, otherwise, people will SUFFER spawning with it. Too bugged for my taste.
+/obj/item/rogueweapon/halberd/bisento //Giving the Bisento storeable 'back' because, otherwise, people will SUFFER spawning with it. Too bugged for my taste.
 	name = "бисенто"
 	desc = "Сродни большому тесаку или широкому топору."
 	icon_state = "bisento"
 	dropshrink = 0.8
 	icon = 'modular_twilight/icons/roguetown/weapons/64.dmi'
 
-/obj/item/rogueweapon/polearm/spear/stone/obsidian //direct upgrade to the stone one.
+/obj/item/rogueweapon/spear/stone/obsidian //direct upgrade to the stone one.
 	force = 17
 	force_wielded = 19
 	throwforce = 15
@@ -115,14 +115,14 @@
 	smeltresult = /obj/item/ash
 	max_blade_int = 100
 
-/obj/item/rogueweapon/polearm/woodstaff/quarterstaff/bostaff
+/obj/item/rogueweapon/woodstaff/quarterstaff/bostaff
 	name = "посох бо"
 	desc = "Бо, или «четвертьстолб», - простое оружие, используемое в боевых искусствах для заманивания, нанесения ударов и зачистки противника."
 	icon_state = "bostaff"
 	icon = 'modular_twilight/icons/roguetown/weapons/64.dmi'
 	bigboy = TRUE
 
-/obj/item/rogueweapon/polearm/firelance
+/obj/item/rogueweapon/firelance
 	name = "sanctiflux firelance"
 	desc = "The new iteration of the ancient abyssariad 'Widowmaker', the harbinger of purification against zizodemons, tieflings and grezelhoft. \
 	Used safely by the hundred thousand march, by hands whom holds purifying intentions from the abyss." //Hundred thousand march is the definition of champions. But after bloody apotheosis, its just anyone islander-cultured.
@@ -155,7 +155,7 @@
 	var/fuel_source = FALSE
 	var/fuze = 30
 
-/obj/item/rogueweapon/polearm/firelance/proc/ignite(mob/living/user)
+/obj/item/rogueweapon/firelance/proc/ignite(mob/living/user)
 	if(lit)
 		to_chat(user.loc, "<span class='warning'>The Firelance's fuse is already ignited and fierce as a bull.</span>")
 		return
@@ -180,7 +180,7 @@
 			lit = FALSE
 			update_icon()
 
-/obj/item/rogueweapon/polearm/firelance/proc/flamefire(mob/living/user)
+/obj/item/rogueweapon/firelance/proc/flamefire(mob/living/user)
 	if(!user)
 		return
 
@@ -219,7 +219,7 @@
 	fuel_source = FALSE // Consume  fuel after use
 	update_icon()
 
-/obj/item/rogueweapon/polearm/firelance/dropped(mob/living/user)
+/obj/item/rogueweapon/firelance/dropped(mob/living/user)
 	. = ..()
 	if(fuel_source)
 		to_chat(src, "<span class='info'>[user] lowered the [usr] with care, sensing the potential calamity bound within, aware of the cost from underestimating it.</span>")
@@ -230,7 +230,7 @@
 		user.IgniteMob()
 		flamefire(user)
 
-/obj/item/rogueweapon/polearm/firelance/attack_self(mob/living/user)
+/obj/item/rogueweapon/firelance/attack_self(mob/living/user)
 	if(lit) // safeguard
 		return
 	else
@@ -273,7 +273,7 @@
 			fuel_source = FALSE
 			update_icon()
 
-/obj/item/rogueweapon/polearm/firelance/attackby(obj/item/I, mob/living/user)
+/obj/item/rogueweapon/firelance/attackby(obj/item/I, mob/living/user)
 	if(!istype(I, /obj/item/sanctiflux))
 		to_chat(user, "<span class='warning'>[I] is not a valid fuel source!</span>")
 		return
@@ -291,13 +291,13 @@
 			to_chat(user, "<span class='info'>I press the gourd against the insertion hole. I just need to adjust the mechanisms so the automata within do the rest of the job.</span>")
 			..()
 
-/obj/item/rogueweapon/polearm/firelance/spark_act()
+/obj/item/rogueweapon/firelance/spark_act()
 	ignite(usr)
 
-/obj/item/rogueweapon/polearm/firelance/fire_act()
+/obj/item/rogueweapon/firelance/fire_act()
 	ignite(usr)
 
-/obj/item/rogueweapon/polearm/firelance/update_icon()
+/obj/item/rogueweapon/firelance/update_icon()
 	if(lit)
 		icon_state = "firelance_lit"
 	else

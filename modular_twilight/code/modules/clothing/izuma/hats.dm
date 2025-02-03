@@ -115,6 +115,7 @@
 	desc = "Капюшон, который носят члены кланов шиноби, чтобы скрыть свою личность и слиться с тенью. Не подходит для шпионажа, так как слишком заметен."
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/head.dmi'
+	color = "#6a6896"
 
 /obj/item/clothing/head/roguetown/helmet/skullcap/hachigane
 	name = "хати-ганэ"
@@ -149,7 +150,7 @@
 	но все еще остается эффективным. Этот шлем стал символом военной культуры Изумы.\
 	наряду с дзингаса."
 	icon_state = "zijinguan"
-	flags_inv = HIDEEARS|HIDEHAIR
+	flags_inv = HIDEEARS
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/64x64/head.dmi'
 	bloody_icon = 'icons/effects/blood.dmi'
@@ -244,7 +245,7 @@
 	emote_environment = 3
 	sellprice = 50
 	clothing_flags = CANT_SLEEP_IN
-	armor_class = ARMOR_CLASS_HEAVY
+	armor_class = ARMOR_CLASS_MEDIUM
 	armor = list("blunt" = 90, "slash" = 100, "stab" = 80, "bullet" = 100, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	max_integrity = 250

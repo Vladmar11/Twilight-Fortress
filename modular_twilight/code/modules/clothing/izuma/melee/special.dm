@@ -20,6 +20,8 @@
 	wdefense = 3
 	experimental_onhip = TRUE
 	experimental_onback = TRUE
+	grid_height = 32
+	grid_width = 32
 	embedding = list(
 		"embed_chance" = 60,
 		"embedded_pain_multiplier" = 1,

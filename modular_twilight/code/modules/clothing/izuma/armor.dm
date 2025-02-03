@@ -213,6 +213,7 @@
 	icon_state = "shinobi"
 	item_state = "shinobi"
 	blocksound = SOFTHIT
+	color = "#6a6896"
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/iron/rattan //New armor; Iron-to-steel tier.
 	slot_flags = ITEM_SLOT_ARMOR

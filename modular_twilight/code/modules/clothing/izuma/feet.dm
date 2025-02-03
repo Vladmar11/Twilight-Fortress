@@ -27,7 +27,7 @@
 	item_state = "jikatabi"
 
 /obj/item/clothing/shoes/roguetown/boots/jikatabi/shinobi
-	color = CLOTHING_BLACK
+	color = "#6a6896"
 
 /obj/item/clothing/shoes/roguetown/boots/jikatabi/dragontabi
 	name = "драконтаби"

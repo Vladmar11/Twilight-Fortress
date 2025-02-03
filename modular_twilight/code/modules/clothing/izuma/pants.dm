@@ -122,6 +122,7 @@
 	blade_dulling = DULLING_BASHCHOP
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
+	color = "#6a6896"
 
 /obj/item/clothing/under/roguetown/izuma/ceramic
 	name = "поножи марадера"

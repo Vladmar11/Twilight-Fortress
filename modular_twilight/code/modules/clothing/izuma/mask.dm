@@ -49,6 +49,10 @@
 	body_parts_covered = NECK|MOUTH
 	flags_cover = HEADCOVERSMOUTH | MASKCOVERSMOUTH
 
+/obj/item/clothing/mask/rogue/izuma/menpo/steel/half/jade 
+	name = "джейд менпо"
+	icon_state = "jademask"
+
 /obj/item/clothing/mask/rogue/izuma/menpo/facemask
 	name = "железная маска мерккина"
 	icon_state = "irontribal"
@@ -162,7 +166,7 @@
 	max_integrity = 20
 	integrity_failure = 0.5
 	body_parts_covered = EYES
-	icon = 'modular_twilight/icons/roguetown/clothing/neck.dmi'
+	icon = 'modular_twilight/icons/roguetown/clothing/masks.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/masks.dmi'
 
 /obj/item/clothing/mask/rogue/izuma/eyeband/random/Initialize()
@@ -180,3 +184,6 @@
 
 /obj/item/clothing/mask/rogue/izuma/eyeband/raphael //sais
 	color = "#8a2d2d"
+
+/obj/item/clothing/mask/rogue/izuma/eyeband/black
+	color = "#6a6896"

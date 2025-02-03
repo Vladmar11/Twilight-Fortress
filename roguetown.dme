@@ -2040,5 +2040,7 @@
 #include "modular_twilight\datums\status_effects\rogue\roguebuff.dm"
 #include "modular_twilight\datums\stress\negative_events.dm"
 #include "modular_twilight\datums\wardrobe\TF_wardrobe.dm"
+#include "modular_twilight\code\modules\clothing\izuma\mercenary\samurai.dm"
+#include "modular_twilight\code\modules\clothing\izuma\mercenary\ninja.dm"
 #include "modular_twilight\modular\NeuFood\code\NeuFood.dm"
 // END_INCLUDE

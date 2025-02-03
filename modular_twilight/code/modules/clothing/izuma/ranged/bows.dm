@@ -4,6 +4,7 @@
 	icon = 'modular_twilight/icons/roguetown/weapons/bows.dmi'
 	icon_state = "hankyubow"
 	item_state = "hankyubow"
+	experimental_onback = TRUE
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/long/yumi
 	name = "лук юми"
@@ -11,3 +12,4 @@
 	icon = 'modular_twilight/icons/roguetown/weapons/bows.dmi'
 	icon_state = "yumibow"
 	item_state = "yumibow"
+	experimental_onback = TRUE

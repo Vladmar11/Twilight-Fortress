@@ -78,13 +78,10 @@
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	body_parts_covered = CHEST|ARMS|VITALS
-
-/obj/item/clothing/suit/roguetown/shirt/looseshirt/Initialize()
-	color = RANDOM_COLOUR
-	..()
+	color = "#6a6896"
 
 /obj/item/clothing/suit/roguetown/shirt/looseshirt/shinobi
-	color = CLOTHING_BLACK
+	color = "#6a6896"
 
 /obj/item/clothing/suit/roguetown/shirt/looseshirt/dragonslayer
 	resistance_flags = FIRE_PROOF | ACID_PROOF
