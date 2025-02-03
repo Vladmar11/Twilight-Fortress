@@ -123,3 +123,61 @@
 		to_chat(user, span_warning("I need a holy cross."))
 		return FALSE
 	return TRUE
+
+/obj/effect/proc_holder/spell/invoked/projectile/fireballAST
+	name = "Small fireball"
+	clothes_req = FALSE
+	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
+	range = 8
+	projectile_type = /obj/projectile/magic/aoe/rogueAST
+	overlay_state = "fireball"
+	sound = list('sound/magic/whiteflame.ogg')
+	invocation = "Feel the power of the sun!"
+	invocation_type = "shout"
+	active = FALSE
+	releasedrain = 30
+	chargedrain = 0
+	chargetime = 30
+	charge_max = 40 SECONDS
+	warnie = "spellwarning"
+	projectiles_per_fire = 1
+	no_early_release = TRUE
+	movement_interrupt = FALSE
+	miracle = TRUE
+	charging_slowdown = 3
+	chargedloop = /datum/looping_sound/invokeholy
+	associated_skill = /datum/skill/magic/holy
+	devotion_cost = 50
+
+/obj/projectile/magic/aoe/rogueAST
+	name = "Small fireball"
+	icon_state = "fireball"
+	var/exp_heavy = 0
+	var/exp_light = 1
+	var/exp_flash = 1
+	var/exp_fire = 1
+	damage = 25	//no armor really has burn protection. So assuming all three connect, 45 burn damage- average damage of fireball with firestacks nerfed. Thats a big 'if' however. Notably, won't cause wounds,
+	damage_type = BURN
+	homing = TRUE
+	nodamage = FALSE
+	flag = "magic"
+	hitsound = 'sound/blank.ogg'
+	aoe_range = 0
+	speed = 3.5
+	light_color = "#f8af07"
+	light_range = 3
+
+/obj/projectile/magic/aoe/rogueAST/on_hit(target)
+	if(ismob(target))
+		var/mob/M = target
+		if(M.anti_magic_check())
+			visible_message(span_warning("[src] fizzles on contact with [target]!"))
+			playsound(get_turf(target), 'sound/magic/magic_nulled.ogg', 100)
+			qdel(src)
+			return BULLET_ACT_BLOCK
+	var/turf/T
+	if(isturf(target))
+		T = target
+	else
+		T = get_turf(target)
+	explosion(T, -1, exp_heavy, exp_light, exp_flash, 0, flame_range = exp_fire, soundin = explode_sound)
