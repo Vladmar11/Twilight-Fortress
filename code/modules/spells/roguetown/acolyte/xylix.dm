@@ -31,12 +31,12 @@
 			return ..()
 	to_chat(victim, span_userdanger("Ваши уста произносят слова сами по себе!"))
 	victim.say(forced_speak, forced = "spell")
-	victim.log_message("[user] заставляет [victim] сказать '[forced_speak]' с помощью чуда Ксиликса!")
-	user.log_message("[user] заставил [victim] сказать '[forced_speak]' с помощью чуда Ксиликса!")
+	victim.log_message("[user] заставляет [victim] сказать '[forced_speak]' с помощью чуда Ксайликса!")
+	user.log_message("[user] заставил [victim] сказать '[forced_speak]' с помощью чуда Ксайликса!")
 	return ..()
 
 /obj/effect/proc_holder/spell/invoked/wheel
-	name = "Wheel of Fortune"
+	name = "Колесо Фортуны"
 	overlay_state = "orison"
 	releasedrain = 10
 	chargedrain = 0
@@ -56,7 +56,7 @@
 	if(isliving(targets[1]))
 		var/mob/living/target = targets[1]
 		if(target.anti_magic_check(TRUE, TRUE))
-			to_chat(user, span_warning("Your manipulation of [target]'s fate failed!"))
+			to_chat(user, span_warning("Попытка повлиять на судьбу [target] провалилась!"))
 			return ..()
 		target.apply_status_effect(/datum/status_effect/wheel)
 		target.blur_eyes(1)
@@ -83,6 +83,6 @@
 	. = ..()
 
 /atom/movable/screen/alert/status_effect/buff/wheel
-	name = "The Wheel"
-	desc = "Xylix has spun your fate. You feel disorientated as if you had been rotated.\n"
+	name = "Колесо Фортуны"
+	desc = "Ксайликс изменил твою судьбу. Ты чувствуешь себя дезориентированным, словно тебя раскрутили на азартной рулетке \n"
 	icon_state = "acid"
