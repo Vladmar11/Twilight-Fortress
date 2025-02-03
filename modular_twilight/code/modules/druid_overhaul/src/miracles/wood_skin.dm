@@ -8,17 +8,17 @@
 /datum/status_effect/buff/wooden_skin
 	id = "wooden_skin"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/wooden_skin
-	effectedstats = list("constitution" = 1)
-	duration = 30 SECONDS
+	effectedstats = list("constitution" = 2, "endurance" = 1)
+	duration = 1 MINUTES
 
 // Чудо
 
 /obj/effect/proc_holder/spell/invoked/wood_skin
 	name = "Дубовая кожа"
 	range = 7
-	overlay_state = "dendor"
+	overlay_state = "blesscrop"
 	releasedrain = 30
-	charge_max = 45 SECONDS
+	charge_max = 1.5 MINUTES
 	req_items = list(
 		/obj/item/clothing/neck/roguetown/psicross/dendor,
 		/obj/item/clothing/mask/rogue/briar_mask,

@@ -41,7 +41,6 @@
 	t1 = /obj/effect/proc_holder/spell/targeted/blesscrop
 	t2 = /obj/effect/proc_holder/spell/targeted/beasttame
 	t3 = /obj/effect/proc_holder/spell/targeted/conjure_vines
-	t4 = /obj/effect/proc_holder/spell/invoked/wood_skin
 	confess_lines = list(
 		"ДЕНДОР ОБЕСПЕЧИВАЕТ ЕДОЙ!",
 		"ОТЕЦ ДЕРЕВЬЕВ ПРИНОСИТ ЩЕДРОСТЬ!",
