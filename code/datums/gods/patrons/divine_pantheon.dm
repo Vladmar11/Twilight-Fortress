@@ -74,7 +74,7 @@
 /datum/patron/divine/necra
 	name = "Necra"
 	domain = "Богиня Смерти и Загробного мира"
-	desc = "Леди в вуали - боязливая, но уважаемая богиня, который ведет души мертвых."
+	desc = "Леди в вуали - боязливая, но уважаемая богиня, которая ведет души мертвых."
 	worshippers = "Мертвецы, скорбящие, могильщики"
 	mob_traits = list(TRAIT_SOUL_EXAMINE)
 	t1 = /obj/effect/proc_holder/spell/targeted/burialrite
