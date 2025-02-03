@@ -710,7 +710,7 @@
 	skill_level = 5
 
 /datum/crafting_recipe/roguetown/sewing/leather/coat/masterwork
-	name = "шедевральное кожаное пальто - (кожаное пальто, 1 эссенция, 1 волокно; MASTER)"
+	name = "шедевральная кожаная куртка - (кожаная куртка, 1 эссенция, 1 волокно; MASTER)"
 	result = /obj/item/clothing/suit/roguetown/armor/leather/masterwork
 	reqs = list(/obj/item/clothing/suit/roguetown/armor/leather = 1,
 				/obj/item/natural/cured/essence = 1,

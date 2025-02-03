@@ -1,6 +1,6 @@
 /obj/effect/proc_holder/spell/invoked/vicious_mimicry
-	name = "Vicious Mimicry"
-	desc = "Speak as a target in range."
+	name = "Злостное Подражание"
+	desc = "Говорите устами цели в вашем поле зрения"
 	overlay_state = "mimicry"
 	invocation_type = "none"
 	associated_skill = /datum/skill/magic/holy
@@ -14,12 +14,12 @@
 		return FALSE
 	var/mob/living/victim = targets[1]
 	if(victim.anti_magic_check())
-		to_chat(user, span_warning("Your manipulation of [victim] failed!"))
+		to_chat(user, span_warning("Попытка манипулировать [victim] провалилась!"))
 		return ..()
-	var/forced_speak = input(user, "What should they say?", "Vicious Mimicry")
+	var/forced_speak = input(user, "Что должна сказать цель?", "Vicious Mimicry")
 	if(!forced_speak)
 		return FALSE
-	var/list/bannedwords = list("zizo","graggar","matthios","baotha","inhumen","heresy")
+	var/list/bannedwords = list("зизо","зизоидный","зизово","зизов","зизовец","зизоид","зизоидка","зизоиды","зизовы","граггар","граггаритский","граггороидный","граггаров","граггарец","граггаровец","граггаритка","граггара","граггариты","граггаровцы","бог негров","негры","маттиос","маттиош","маттиоситский","маттиоса","маттиосов","маттиосит","маттиоситка","маттиоситы","коммунист","ленин","баота","баоты","баотов","баотит","баотин","баоту","баотитка","баотиты","футочка","презренный","презренного","презренным","еретичный","еретичным","еретический","ересь","еретик","еритичка","еретинесса","еретики")
 	forced_speak = sanitize_hear_message(forced_speak)
 	for(var/T in bannedwords)  //astrata smites naughty xylixans
 		if(findtext(forced_speak, T))
@@ -29,14 +29,14 @@
 				L.adjust_fire_stacks(6)
 				L.IgniteMob()
 			return ..()
-	to_chat(victim, span_userdanger("Your mouth starts to move on its own!"))
+	to_chat(victim, span_userdanger("Ваши уста произносят слова сами по себе!"))
 	victim.say(forced_speak, forced = "spell")
-	victim.log_message("[user] has forced [victim] to say '[forced_speak]' with Vicious Mimicry!")
-	user.log_message("[user] has forced [victim] to say '[forced_speak]' with Vicious Mimicry!")
+	victim.log_message("[user] заставляет [victim] сказать '[forced_speak]' с помощью чуда Ксайликса!")
+	user.log_message("[user] заставил [victim] сказать '[forced_speak]' с помощью чуда Ксайликса!")
 	return ..()
 
 /obj/effect/proc_holder/spell/invoked/wheel
-	name = "Wheel of Fortune"
+	name = "Колесо Фортуны"
 	overlay_state = "orison"
 	releasedrain = 10
 	chargedrain = 0
@@ -56,7 +56,7 @@
 	if(isliving(targets[1]))
 		var/mob/living/target = targets[1]
 		if(target.anti_magic_check(TRUE, TRUE))
-			to_chat(user, span_warning("Your manipulation of [target]'s fate failed!"))
+			to_chat(user, span_warning("Попытка повлиять на судьбу [target] провалилась!"))
 			return ..()
 		target.apply_status_effect(/datum/status_effect/wheel)
 		target.blur_eyes(1)
@@ -83,6 +83,6 @@
 	. = ..()
 
 /atom/movable/screen/alert/status_effect/buff/wheel
-	name = "The Wheel"
-	desc = "Xylix has spun your fate. You feel disorientated as if you had been rotated.\n"
+	name = "Колесо Фортуны"
+	desc = "Ксайликс изменил твою судьбу. Ты чувствуешь себя дезориентированным, словно тебя раскрутили на азартной рулетке \n"
 	icon_state = "acid"
