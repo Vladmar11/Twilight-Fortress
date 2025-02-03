@@ -1,5 +1,5 @@
 /obj/effect/proc_holder/spell/invoked/vicious_mimicry
-	name = "Злостное Подражение"
+	name = "Злостное Подражание"
 	desc = "Говорите устами цели в вашем поле зрения"
 	overlay_state = "mimicry"
 	invocation_type = "none"
