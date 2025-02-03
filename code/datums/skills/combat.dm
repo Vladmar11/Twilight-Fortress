@@ -46,25 +46,25 @@
 	)
 
 /datum/skill/combat/swords
-	name = "Фехтование"
+	name = "Бой на мечах"
 	dreams = list(
 		"...сердце бешено бьется, когда ваши мечи звенят друг о друга, вы парируете удар противника и добиваете его решающим выпадом..."
 	)
 
 /datum/skill/combat/polearms
-	name = "Древковое оружие"
+	name = "Бой на древковом оружии"
 	dreams = list(
 		"...the air blows against your body in the open field, as your opponent's whole body is at range with the polearm's great length, regaining your focus you'd start to pull the polearm with a firm grip to ready up for a proper instead of a half-hearted hasty half-forced strike and thrusting it forth, keeping your opponent at a distance, striking where they move or at when close and with proper precision when they're at range, with double the said range came the advantage when chasing and tactically falling back from them, piercing through padded-cloth and leather armor like they were nothing with the spear, throwing it towards someone unarmored before rolling towards an heavier polearm and reaching for the heavens and with the added polearm range unleashed a slow but crashing blow through that plated armor making them scream for pain and slowly crawl towards and away, never being able to reach you back until they were properly subdued..."
 	)
 
 /datum/skill/combat/maces
-	name = "Булавы"
+	name = "Бой на булавах"
 	dreams = list(
 		"...булавы, булавы, булавы, они повсюду, наносят медленные удары или же мощный, заряженный удар, чтобы полностью пробить защиту, оглушая недруга на короткое время, а затем ошеломляя, делать их отступление или отчаянное наступление еще более чем бесполезными, разбивая их, когда они сломлены, и из-за этого они слишком смиренны, чтобы стоять на ногах. Какое забавное зрелище..."
 	)
 
 /datum/skill/combat/axes
-	name = "Топоры"
+	name = "Бой на топорах"
 	dreams = list(
 		"...берете случайный топор, используете его, чтобы резать и рубить, почувствовать его и, наконец, осознаете, что он неплохо управляется и одной рукой, практически не добавляя веса при использовании, будь то перед вами железный или стальной. Пока дело не доходит до боевого топора, и все меняется. Очень громоздкое оружие, чтобы держать его в одной руке, но с уверенной хваткой двумя им можно прорубать конечности так же хорошо, как разбивать щиты на щепки и сгибать латы одни за другими, доставая до ног, паха и выше. Какая удобная штука, чтобы поднять острую тему..."
 	)
@@ -82,7 +82,7 @@
 	)
 
 /datum/skill/combat/crossbows
-	name = "Арбалеты"
+	name = "Стрельба из арбалета"
 	dreams = list(
 		"..."
 	)
@@ -100,7 +100,7 @@
 	)
 
 /datum/skill/combat/firearms
-	name = "Огнестрельное оружие"
+	name = "Стрельба из огнестрельного оружия"
 	dreams = list(
 		"..."
 	)
