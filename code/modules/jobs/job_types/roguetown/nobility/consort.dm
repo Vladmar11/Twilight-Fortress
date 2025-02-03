@@ -38,11 +38,13 @@
 					return TRUE
 
 		if((player.client.prefs.sexual_pref == SEXUAL_PREF_SAME && duke.client.prefs.gender == SEXUAL_PREF_SAME) || (player.client.prefs.sexual_pref == SEXUAL_PREF_BOTH && duke.client.prefs.gender == SEXUAL_PREF_SAME) || (player.client.prefs.sexual_pref == SEXUAL_PREF_SAME && duke.client.prefs.gender == SEXUAL_PREF_BOTH))
-			if(duke.client.prefs.gender == player.client.prefs.gender)
-				return TRUE
+			if(duke.mind.assigned_role == "Duke")
+				if(duke.client.prefs.gender == player.client.prefs.gender)
+					return TRUE
 
 		if(player.client.prefs.sexual_pref == SEXUAL_PREF_BOTH && duke.client.prefs.gender == SEXUAL_PREF_BOTH)
-			return TRUE
+			if(duke.mind.assigned_role == "Duke")
+				return TRUE
 			
 
 /datum/job/roguetown/consort_dowager//just used to change the consort title
