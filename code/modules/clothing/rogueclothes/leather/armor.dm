@@ -32,8 +32,8 @@
 	// MAKE USE "leather"'s SLEEVE
 
 /obj/item/clothing/suit/roguetown/armor/leather/masterwork
-	name = "шедевральное кожаное пальто"
-	desc = "Это пальто – чудо мастерства. Сделано из лучшей кожи. Прочное, маневренное, надежное"
+	name = "шедевральная кожаная куртка"
+	desc = "Эта куртка – чудо мастерства. Сделана из лучшей кожи. Прочная, подвижная, надежная"
 	icon_state = "leather_masterwork"
 	max_integrity = 300
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST, BCLASS_CHOP) //we're adding chop here!
