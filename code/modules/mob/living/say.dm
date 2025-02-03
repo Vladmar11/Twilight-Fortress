@@ -98,12 +98,15 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 	if(!message || message == "")
 		return
 
+/*	//allow player to format their speech
+	message = replacetextEx(message, regex(@"^([/+]*)(.*?)([/+]*)$"), /proc/format_dialogue)
+*/
 	if(ic_blocked)
 		//The filter warning message shows the sanitized message though.
 		to_chat(src, span_warning("That message contained a word prohibited in IC chat! Consider reviewing the server rules.\n<span replaceRegex='show_filtered_ic_chat'>\"[message]\"</span>"))
 		SSblackbox.record_feedback("tally", "ic_blocked_words", 1, lowertext(config.ic_filter_regex.match))
 		return
-	
+
 	var/static/regex/ooc_regex = regex(@"^(?=.*[\(\)\[\]\<\>\{\}]).*$") //Yes, i know.
 	if(findtext_char(message, ooc_regex))
 		emote("me", 1, "mumbles incoherently.")
@@ -294,6 +297,20 @@ GLOBAL_LIST_INIT(department_radio_keys, list(
 		eavesdrop_range = EAVESDROP_EXTRA_RANGE
 	if(message_mode != MODE_WHISPER)
 		Zs_too = TRUE
+	if (has_status_effect(/datum/status_effect/thaumaturgy))
+		spans |= SPAN_REALLYBIG
+		var/datum/status_effect/thaumaturgy/buff = locate() in status_effects
+		message_range += (5 + buff.potency) // maximum 12 tiles extra, which is a lot!
+		for(var/obj/structure/roguemachine/scomm/S in SSroguemachine.scomm_machines)
+			if (prob(buff.potency * 3) && S.speaking) // 3% chance per holy level, per SCOM for it to shriek your message in town wherever you are
+				S.verb_say = "shrieks in terror"
+				S.verb_exclaim = "shrieks in terror"
+				S.verb_yell = "shrieks in terror"
+				S.say(message, spans = list("info", "reallybig"))
+				S.verb_say = initial(S.verb_say)
+				S.verb_exclaim = initial(S.verb_exclaim)
+				S.verb_yell = initial(S.verb_yell)
+		remove_status_effect(/datum/status_effect/thaumaturgy)
 		if(say_test(message) == "2")	//CIT CHANGE - ditto
 			message_range += 10
 			Zs_yell = TRUE

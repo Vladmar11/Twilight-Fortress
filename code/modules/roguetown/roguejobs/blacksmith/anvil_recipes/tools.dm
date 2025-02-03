@@ -1,12 +1,11 @@
 /datum/anvil_recipe/tools
 	i_type = "Инструменты"
-	appro_skill = /datum/skill/craft/blacksmithing
-	skill_level = 1
+
+/datum/anvil_recipe/tools/steel
+	skill_level = 3
 
 /datum/anvil_recipe/general
 	i_type = "Общее"
-	appro_skill = /datum/skill/craft/blacksmithing
-	skill_level = 1
 
 // --------- IRON -----------
 /datum/anvil_recipe/general/torch
@@ -142,7 +141,6 @@
 						/obj/item/lockpick,
 						/obj/item/lockpick
 						)
-	skill_level = 1
 
 /datum/anvil_recipe/tools/lockpickring
 	name = "Связка для отмычек x3"
@@ -151,7 +149,6 @@
 						/obj/item/lockpickring,
 						/obj/item/lockpickring
 						)
-	skill_level = 0
 
 // --------- Steel -----------
 

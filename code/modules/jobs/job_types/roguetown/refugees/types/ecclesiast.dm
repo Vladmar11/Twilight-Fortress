@@ -52,7 +52,13 @@
 		if(/datum/patron/psydon)
 			neck = /obj/item/clothing/neck/roguetown/psicross/silver
 			cloak = /obj/item/clothing/cloak/cape/puritan
-
+		if(/datum/patron/divine/xylix)
+			wrists = /obj/item/clothing/neck/roguetown/psicross/xylix
+			cloak = /obj/item/clothing/cloak/tabard/crusader/xylix
+		if(/datum/patron/divine/abyssor)
+			wrists = /obj/item/clothing/neck/roguetown/psicross/abyssor
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/abyssorgreathelm
+			cloak = /obj/item/clothing/cloak/abyssortabard
 
 	switch(classchoice)
 

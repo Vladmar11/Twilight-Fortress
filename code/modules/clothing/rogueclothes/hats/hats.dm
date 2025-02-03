@@ -12,6 +12,9 @@
 	w_class = WEIGHT_CLASS_SMALL
 	sewrepair = TRUE
 
+	grid_height = 64
+	grid_width = 64
+
 /obj/item/clothing/head/roguetown/equipped(mob/user, slot)
 	. = ..()
 	user.update_fov_angles()
@@ -128,6 +131,17 @@
 			block2add = null
 		else if(adjustable == CADJUSTED)
 			ResetAdjust(user)
+
+/obj/item/clothing/head/roguetown/eoramask
+	name = "eoran mask"
+	desc = "A silver opera mask worn by the faithful of Eora, usually during their rituals."
+	icon_state = "eoramask"
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
+	worn_x_dimension = 64
+	worn_y_dimension = 64
+	dynamic_hair_suffix = ""
+	flags_inv = HIDEFACE|HIDEFACIALHAIR
+	resistance_flags = FIRE_PROOF // Made of metal
 
 /obj/item/clothing/head/roguetown/roguehood/astrata
 	name = "солнечный капюшон"

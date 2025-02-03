@@ -47,8 +47,8 @@
 	shoes = /obj/item/clothing/shoes/roguetown/armor/inqboots
 	pants = /obj/item/clothing/under/roguetown/tights/black
 	cloak = /obj/item/clothing/cloak/cape/puritan
-	beltr = /obj/item/gun/ballistic/revolver/grenadelauncher/runelock
-	beltl = /obj/item/storage/belt/rogue/pouch/ammo
+	beltr = /obj/item/gun/ballistic/firearm/arquebus_pistol
+	beltl = /obj/item/ammo_holder/bullet/lead
 	head = /obj/item/clothing/head/roguetown/inqhat
 	gloves = /obj/item/clothing/gloves/roguetown/inqgloves
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/scale/inqcoat

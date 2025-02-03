@@ -92,6 +92,9 @@
 	/// Visual features of the bodypart, such as hair and accessories
 	var/list/bodypart_features
 
+	grid_width = 32
+	grid_height = 64
+
 	resistance_flags = FLAMMABLE
 
 /obj/item/bodypart/proc/adjust_marking_overlays(var/list/appearance_list)
@@ -353,7 +356,11 @@
 	update_HP()
 	if(required_status && (status != required_status)) //So we can only heal certain kinds of limbs, ie robotic vs organic.
 		return
-
+	if(owner && owner.has_status_effect(/datum/status_effect/buff/fortify))
+		brute *= 1.5
+		burn *= 1.5
+		stamina *= 1.5
+	
 	brute_dam	= round(max(brute_dam - brute, 0), DAMAGE_PRECISION)
 	burn_dam	= round(max(burn_dam - burn, 0), DAMAGE_PRECISION)
 	stamina_dam = round(max(stamina_dam - stamina, 0), DAMAGE_PRECISION)
@@ -654,6 +661,7 @@
 /obj/item/bodypart/deconstruct(disassembled = TRUE)
 	drop_organs()
 	return ..()
+
 /obj/item/bodypart/chest
 	name = "грудь"
 	desc = ""
@@ -671,6 +679,9 @@
 	offset = OFFSET_ARMOR
 	offset_f = OFFSET_ARMOR_F
 	dismemberable = FALSE
+
+	grid_width = 64
+	grid_height = 96
 
 /obj/item/bodypart/chest/set_disabled(new_disabled)
 	. = ..()

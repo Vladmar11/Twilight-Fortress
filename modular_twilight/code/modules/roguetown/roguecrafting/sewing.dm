@@ -1,3 +1,26 @@
+/datum/crafting_recipe/roguetown/sewing/abyssortemplartabard
+	name = "abyssorite templar tabard"
+	result = list(/obj/item/clothing/cloak/abyssortabard)
+	reqs = list(/obj/item/natural/cloth = 3,
+				/obj/item/natural/fibers = 1)
+	skill_level = 3
+
+/datum/crafting_recipe/roguetown/sewing/abyssorrobe
+	name = "abyssor robes"
+	result = list(/obj/item/clothing/suit/roguetown/shirt/robe/abyssor)
+	reqs = list(/obj/item/natural/cloth = 3,
+				/obj/item/natural/silk = 1)
+	skill_level = 4
+	sellprice = 25
+
+/datum/crafting_recipe/roguetown/sewing/abyssorhood
+	name = "abyssor hood"
+	result = list(/obj/item/clothing/head/roguetown/roguehood/abyssor)
+	reqs = list(/obj/item/natural/cloth = 2,
+				/obj/item/natural/silk = 1)
+	skill_level = 3
+	sellprice = 25
+
 /datum/crafting_recipe/roguetown/sewing/lowcut_shirt
 	name = "топик - (2 ткань, волокно; NOVICE)"
 	result = list(/obj/item/clothing/suit/roguetown/shirt/undershirt/lowcut)

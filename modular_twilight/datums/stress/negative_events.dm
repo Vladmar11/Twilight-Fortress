@@ -5,7 +5,7 @@
 
 /datum/stressevent/soulchurner
 	timer = 1 MINUTES
-	stressadd = 10
+	stressadd = 7
 	desc = span_red("The horrid wails of the dead call for relief!")
 
 /datum/stressevent/soulchurnerpsydon
@@ -15,5 +15,5 @@
 
 /datum/stressevent/soulchurnerheretic
 	timer = 1 MINUTES
-	stressadd = 15
+	stressadd = 11
 	desc = span_red("The horrid wails of the dead call for relief!")

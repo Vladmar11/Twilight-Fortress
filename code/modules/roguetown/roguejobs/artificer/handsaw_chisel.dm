@@ -14,6 +14,8 @@
 	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	experimental_inhand = FALSE
 	experimental_onhip = FALSE
+	grid_width = 32
+	grid_height = 96
 	sharpness = IS_SHARP
 	wdefense = 0
 	wlength = WLENGTH_LONG
@@ -36,6 +38,8 @@
 	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	experimental_inhand = FALSE
 	experimental_onhip = FALSE
+	grid_width = 32
+	grid_height = 64
 	force = 10
 	throwforce = 2
 	possible_item_intents = list(/datum/intent/stab)
@@ -103,6 +107,8 @@
 /obj/item/rogueweapon/chisel/assembly	// template
 	name = "chisel set"
 	desc = "Ready to shape stones when held in a steady grip. Can be separated easily."
+	grid_width = 64
+	grid_height = 64
 	possible_item_intents = list(/datum/intent/hit)
 	gripped_intents =  list(/datum/intent/chisel)
 

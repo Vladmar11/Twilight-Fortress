@@ -55,7 +55,7 @@
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/rings.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/rings.dmi'
 	sleevetype = "shirt"
-	desc = "Крохотное пламя по щелчку пальца"
+	desc = "Крохотное пламя по щелчку пальца. (ПКМ по кольцу и СКМ, чтобы зажечь.)"
 	light_range = 4 // standard torch range
 	on = FALSE
 	flags_1 = CONDUCT_1

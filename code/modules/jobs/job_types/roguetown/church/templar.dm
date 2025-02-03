@@ -34,14 +34,20 @@
 			else
 				head = /obj/item/clothing/head/roguetown/helmet/heavy/templar/astrata/alt
 			cloak = /obj/item/clothing/cloak/templar/astratan
+			armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
+			pants = /obj/item/clothing/under/roguetown/chainlegs
 		if("Noc")
 			wrists = /obj/item/clothing/neck/roguetown/psicross/noc
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/templar/noc
 			cloak = /obj/item/clothing/cloak/tabard/crusader/noc
+			armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
+			pants = /obj/item/clothing/under/roguetown/chainlegs
 		if("Dendor")
 			wrists = /obj/item/clothing/neck/roguetown/psicross/dendor
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/templar/dendor
 			cloak = /obj/item/clothing/cloak/tabard/crusader/dendor
+			armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
+			pants = /obj/item/clothing/under/roguetown/chainlegs
 		if("Necra")
 			wrists = /obj/item/clothing/neck/roguetown/psicross/necra
 			if(prob(50))
@@ -49,30 +55,53 @@
 			else
 				head = /obj/item/clothing/head/roguetown/helmet/heavy/templar/necra/alt
 			cloak = /obj/item/clothing/cloak/templar/necran
+			armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
+			pants = /obj/item/clothing/under/roguetown/chainlegs
 		if("Pestra")
 			wrists = /obj/item/clothing/neck/roguetown/psicross/pestra
 			cloak = /obj/item/clothing/cloak/tabard/crusader/pestra
+			armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
+			pants = /obj/item/clothing/under/roguetown/chainlegs
 		if("Malum")
 			wrists = /obj/item/clothing/neck/roguetown/psicross/malum
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/templar/malum
 			cloak = /obj/item/clothing/cloak/templar/malummite
+			armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
+			pants = /obj/item/clothing/under/roguetown/chainlegs
+		if("Abyssor")
+			wrists = /obj/item/clothing/neck/roguetown/psicross/abyssor
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/abyssorgreathelm
+			cloak = /obj/item/clothing/cloak/abyssortabard
+			armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
+			pants = /obj/item/clothing/under/roguetown/chainlegs
 		if("Ravox")
 			wrists = /obj/item/clothing/neck/roguetown/psicross/ravox
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/templar/ravox
 			cloak = /obj/item/clothing/cloak/tabard/crusader/ravox
+			armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
+			pants = /obj/item/clothing/under/roguetown/chainlegs
 		if("Eora")
 			head = /obj/item/clothing/head/roguetown/helmet/sallet/eoran
 			wrists = /obj/item/clothing/neck/roguetown/psicross/eora
 			cloak = /obj/item/clothing/cloak/tabard/crusader/eora
 			mask = /obj/item/clothing/mask/rogue/facemask/goldmask
-	armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
+			armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
+			pants = /obj/item/clothing/under/roguetown/chainlegs
+		if("Xylix")
+			wrists = /obj/item/clothing/neck/roguetown/psicross/xylix
+			cloak = /obj/item/clothing/cloak/tabard/crusader/xylix
+			head = /obj/item/clothing/head/roguetown/helmet/leather
+			armor = /obj/item/clothing/suit/roguetown/armor/leather
+			pants = /obj/item/clothing/under/roguetown/trou/leather/advanced
+			neck = /obj/item/clothing/neck/roguetown/leather
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson
-	pants = /obj/item/clothing/under/roguetown/chainlegs
 	shoes = /obj/item/clothing/shoes/roguetown/armor
 	backl = /obj/item/storage/backpack/rogue/satchel
 	switch(H.patron.name)
 		if("Necra")
 			backpack_contents = list(/obj/item/key/graveyard, /obj/item/key/church)
+		if("Xylix")
+			backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel, /obj/item/key/church)
 		else
 			backpack_contents = list(/obj/item/key/church = 1)
 	backr = /obj/item/rogueweapon/shield/tower/metal
@@ -83,14 +112,14 @@
 	neck = /obj/item/clothing/neck/roguetown/chaincoif
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
@@ -101,18 +130,43 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 		switch(H.patron.name)
 			if("Malum")
-				H.mind.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
+				H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
+				H.mind.adjust_skillrank(/datum/skill/combat/maces, 3, TRUE)
+				H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
 				beltr = /obj/item/rogueweapon/mace/warhammer/steel
+				H.change_stat("strength", 3)
+				H.change_stat("perception", 2)
+				H.change_stat("intelligence", 2)
+				H.change_stat("constitution", 2)
+				H.change_stat("endurance", 2)
+				ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+				ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+			if("Xylix")
+				H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+				H.mind.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
+				beltl = /obj/item/rogueweapon/huntingknife/idagger/steel
+				beltr = /obj/item/ammo_holder/quiver/arrows
+				backr = /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve
+				H.change_stat("strength", -2)
+				H.change_stat("perception", 3)
+				H.change_stat("intelligence", 2)
+				H.change_stat("constitution", -2)
+				H.change_stat("endurance", 2)
+				H.change_stat("speed", 3)
+				H.change_stat("fortune", 2)
+				ADD_TRAIT(H, TRAIT_DODGEEXPERT, TRAIT_GENERIC)
 			else
-				H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+				H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE)
+				H.mind.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
+				H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
 				beltr = /obj/item/rogueweapon/sword/long
-		H.change_stat("strength", 3)
-		H.change_stat("perception", 2)
-		H.change_stat("intelligence", 2)
-		H.change_stat("constitution", 2)
-		H.change_stat("endurance", 2)
-	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
-	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+				H.change_stat("strength", 3)
+				H.change_stat("perception", 2)
+				H.change_stat("intelligence", 2)
+				H.change_stat("constitution", 2)
+				H.change_stat("endurance", 2)
+				ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+				ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	H.dna.species.soundpack_m = new /datum/voicepack/male/knight()
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
 	C.grant_spells_templar(H)

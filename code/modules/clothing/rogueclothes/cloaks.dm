@@ -10,6 +10,9 @@
 	sewrepair = TRUE //Vrell - AFAIK, all cloaks are cloth ATM. Technically semi-less future-proof, but it removes a line of code from every subtype, which is worth it IMO.
 	w_class = WEIGHT_CLASS_NORMAL
 
+	grid_width = 64
+	grid_height = 64
+
 
 //////////////////////////
 /// TABARD
@@ -633,13 +636,8 @@
 
 /obj/item/clothing/cloak/lordcloak/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/storage/concrete)
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR)
-		STR.max_combined_w_class = 4
-		STR.max_w_class = WEIGHT_CLASS_BULKY
-		STR.max_items = 1
-
+	AddComponent(/datum/component/storage/concrete/roguetown/cloak/lord)
+	
 /obj/item/clothing/cloak/lordcloak/dropped(mob/living/carbon/human/user)
 	..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
@@ -702,19 +700,6 @@
 	boobed = FALSE
 	flags_inv = HIDECROTCH|HIDEBOOB
 
-/*
-/obj/item/clothing/cloak/apron/waist/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_combined_w_class = 21
-	STR.max_w_class = WEIGHT_CLASS_SMALL
-	STR.max_items = 1
-
-/obj/item/clothing/cloak/apron/waist/attack_right(mob/user)
-	var/datum/component/storage/CP = GetComponent(/datum/component/storage)
-	CP.on_attack_hand(CP, user)
-	return TRUE*/
-
 /obj/item/clothing/cloak/raincloak
 	name = "кожаный плащ"
 	desc = "Поможет не намокнуть в самую дождливую погоду. А еще в нем не так больно лежать на камнях"
@@ -740,12 +725,7 @@
 
 /obj/item/clothing/cloak/raincloak/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/storage/concrete)
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR)
-		STR.max_combined_w_class = 3
-		STR.max_w_class = WEIGHT_CLASS_NORMAL
-		STR.max_items = 1
+	AddComponent(/datum/component/storage/concrete/roguetown/cloak)
 
 /obj/item/clothing/cloak/raincloak/dropped(mob/living/carbon/human/user)
 	..()
@@ -967,12 +947,7 @@
 
 /obj/item/clothing/cloak/half/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/storage/concrete)
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR)
-		STR.max_combined_w_class = 3
-		STR.max_w_class = WEIGHT_CLASS_NORMAL
-		STR.max_items = 1
+	AddComponent(/datum/component/storage/concrete/roguetown/cloak)
 
 /obj/item/clothing/cloak/half/dropped(mob/living/carbon/human/user)
 	..()
