@@ -15,7 +15,7 @@
 			to_chat(user, span_warning("Я не умею пользоваться термоскопом..."))
 			return
 		if(!target.reagents.total_volume)
-			to_chat(user, span_warning("[target] пуст!"))
+			to_chat(user, span_warning("В [target] ничего нет!"))
 		if(user.mind.get_skill_level(/datum/skill/misc/treatment) <= 3)
 			if(target.reagents.chem_temp >= 300)
 				to_chat(user, span_notice("Температура смеси - где-то на [abs(round(target.reagents.chem_temp, 10) - 300)] градусов выше комнатной."))

@@ -462,9 +462,9 @@
 		if(reagents.flags & TRANSPARENT)
 			if(length(reagents.reagent_list))
 				if(user.can_see_reagents() || (user.Adjacent(src) && user.mind.get_skill_level(/datum/skill/misc/treatment) >= 2)) //Show each individual reagent
-					. += "It contains:"
+					. += "Внутри содержится:"
 					for(var/datum/reagent/R in reagents.reagent_list)
-						. += "[round(R.volume / 3, 0.1)] oz of <font color=[R.color]>[R.name]</font>"
+						. += "[round(R.volume / 3, 0.1)] oz <font color=[R.color]>[R.name]</font>"
 				else //Otherwise, just show the total volume
 					var/total_volume = 0
 					var/reagent_color
@@ -472,16 +472,16 @@
 						total_volume += R.volume
 					reagent_color = mix_color_from_reagents(reagents.reagent_list)
 					if(total_volume / 3 < 1)
-						. += "It contains less than 1 oz of <font color=[reagent_color]>something.</font>"
+						. += "Внутри содержится меньше 1oz <font color=[reagent_color]>жидкости.</font>"
 					else
-						. += "It contains [round(total_volume / 3)] oz of <font color=[reagent_color]>something.</font>"
+						. += "Внутри содержится [round(total_volume / 3)] oz <font color=[reagent_color]>жидкости.</font>"
 			else
-				. += "Nothing."
+				. += "Ничего."
 		else if(reagents.flags & AMOUNT_VISIBLE)
 			if(reagents.total_volume)
-				. += span_notice("It has [round(reagents.total_volume / 3)] oz left.")
+				. += span_notice("Внутри осталось [round(reagents.total_volume / 3)] oz.")
 			else
-				. += span_danger("It's empty.")
+				. += span_danger("Пусто.")
 
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 

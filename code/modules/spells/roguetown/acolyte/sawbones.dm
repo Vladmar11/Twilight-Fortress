@@ -1513,10 +1513,10 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	if(istype(I, /obj/item/reagent_containers/glass))
 		if(user.used_intent.type == INTENT_POUR)
 			if(!I.reagents.total_volume)
-				to_chat(user, "[I] пуста!")
+				to_chat(user, "В [I] ничего нет!")
 				return TRUE
 			if(reagents.holder_full())
-				to_chat(user, "[src] заполнена.")
+				to_chat(user, "В [src] нет свободного места.")
 				return TRUE
 			user.visible_message(span_notice("Переливание начинается."), span_notice("Переливание окончено."))
 			if(user.m_intent != MOVE_INTENT_SNEAK)
@@ -1532,10 +1532,10 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 			return
 		if(is_drainable() && (user.used_intent.type == /datum/intent/fill))
 			if(!reagents.total_volume)
-				to_chat(user, "[src] пуст!")
+				to_chat(user, "В [src] ничего нет!")
 				return
 			if(I.reagents.holder_full())
-				to_chat(user, "[I] полон.")
+				to_chat(user, "В [I] нет свободного места.")
 				return
 			if(user.m_intent != MOVE_INTENT_SNEAK)
 				if(fillsounds)

@@ -521,7 +521,7 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/pieslice
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
-	tastes = list("пирог" = 1)
+	tastes = list("пирога" = 1)
 	name = "кусок пирога"
 	desc = "Кусочек "
 	icon_state = "slice"
@@ -603,23 +603,23 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = GRAIN | VEGETABLES
-	tastes = list("грибы" = 1)
+	tastes = list("грибов в тесте" = 1)
 
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/mince
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = GRAIN | MEAT
-	tastes = list("мясо" = 1)
+	tastes = list("мяса в тесте" = 1)
 
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/berry
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = GRAIN | FRUIT
-	tastes = list("ягоды" = 1)
+	tastes = list("сладких ягод в тесте" = 1)
 
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/poison
 	list_reagents = list(/datum/reagent/berrypoison = 5)
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = GRAIN | FRUIT
-	tastes = list("горькие ягоды" = 1)
+	tastes = list("горьких ягод в тесте" = 1)
 
 /obj/item/reagent_containers/food/snacks/rogue/handpie
 	name = "пирожок"
@@ -628,7 +628,7 @@
 	eat_effect = /datum/status_effect/buff/foodbuff
 	bitesize = 4
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = BUTTERDOUGHSLICE_NUTRITION+MINCE_NUTRITION, /datum/reagent/medicine/omnizine = 5) // donkpocket
-	tastes = list("хрустящее тесто" = 1)
+	tastes = list("хрустящего теста" = 1)
 	rotprocess = null
 	dropshrink = 0.8
 

@@ -15,7 +15,7 @@
 	icon_state = "frysteak"
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = MEATSLAB_NUTRITION)
 	rotprocess = SHELFLIFE_DECENT
-	tastes = list("теплый стейк" = 1)
+	tastes = list("теплого стейка" = 1)
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried/attackby(obj/item/I, mob/living/user, params)
 	var/obj/item/reagent_containers/peppermill/mill = I
@@ -59,7 +59,7 @@
 /*	.............   Grenzelbun   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/bun_grenz
 	list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION+SMALLDOUGH_NUTRITION)
-	tastes = list("пикантная колбаса" = 1, "хлеб" = 1)
+	tastes = list("пикантной колбаски" = 1, "румяной булки" = 1)
 	name = "грензельдог"
 	desc = "Первоначально эльфийская кухня, состоящая из мяса и хлеба смертных рас - классическая сосиска в булочке, теперь по улучшенному рецепту. Основная еда кухни Грензельхофта."
 	icon_state = "grenzbun"
@@ -84,7 +84,7 @@
 /obj/item/reagent_containers/food/snacks/rogue/friedegg
 	trash = null
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
-	tastes = list("жареное яйцо" = 1)
+	tastes = list("жареного яйца" = 1)
 	name = "яичница"
 	desc = "Любимое блюдо Астратанцев."
 	icon_state = "friedegg"
@@ -112,9 +112,9 @@
 /*	.............   Twin fried cackleberries   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/friedegg/two
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
-	tastes = list("жареное яйцо" = 1)
-	name = "большая яичница"
-	desc = "Больше желтков, больше удовольствие."
+	tastes = list("жареного яйца" = 1)
+	name = "большая яичницы"
+	desc = "Больше желтков, больше удовольствия."
 	icon_state = "seggs"
 
 /obj/item/reagent_containers/food/snacks/rogue/friedegg/two/attackby(obj/item/I, mob/living/user, params)
@@ -138,9 +138,10 @@
 /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet/fried
 	eat_effect = null
 	slices_num = 0
-	name = "запеченая птица"
-	desc = "Птица, запеченная до идеальной хрустящей корочки."
+	name = "жареная птица"
+	desc = "Мясо птицы, зажаренное на сковороде до идеальной хрустящей корочки."
 	icon_state = "frybird"
+	tastes = list("жареной птицы" = 1)
 	fried_type = null
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	rotprocess = SHELFLIFE_DECENT
@@ -176,6 +177,7 @@
 	name = "жареный бекон"
 	desc = "Перспективы кабанчика на старость."
 	icon_state = "friedbacon"
+	tastes = list("жирного мяса" = 1)
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	rotprocess = SHELFLIFE_DECENT
 
@@ -185,6 +187,7 @@
 	name = "печеное паучье мясо"
 	desc = "Паучья ножка, побритая и обжаренная."
 	icon_state = "friedspider"
+	tastes = list("жгучего мяса" = 1)
 	eat_effect = null
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
 	rotprocess = SHELFLIFE_DECENT
@@ -193,15 +196,16 @@
 /*	.............   Sausage & Wiener   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/meat/sausage/cooked
 	eat_effect = null
-	name = "колбаска"
+	name = "жареная колбаска"
 	desc = "Вкусное мясо, уплотненное в кишечной оболочке."
 	icon_state = "wiener"
+	tastes = list("мясной колбаски" = 1)
 	fried_type = null
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	rotprocess = SHELFLIFE_EXTREME
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/sausage/cooked/wiener // wiener meant to be made from beef or maybe mince + bacon, luxury sausage, not implemented yet
-	name = "сосиска"
+	name = "жареная сосиска"
 
 
 /*	.............   Cooked cabbage   ................ */
@@ -211,7 +215,7 @@
 	desc = "Радость крестьянина."
 	bitesize = 6
 	list_reagents = list(/datum/reagent/consumable/nutriment = 6)
-	tastes = list("теплая капуста" = 1)
+	tastes = list("теплой капусты" = 1)
 	rotprocess = SHELFLIFE_LONG
 /obj/item/reagent_containers/food/snacks/rogue/preserved/cabbage_fried/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
@@ -235,6 +239,7 @@
 	name = "печеный картофель"
 	desc = "Любимое блюдо дворфов и снаряд для игры в горячую картошку."
 	icon_state = "potato_baked"
+	tastes = list("мягкого картофеля")
 	bitesize = 4
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	rotprocess = SHELFLIFE_LONG
@@ -273,7 +278,7 @@
 	icon_state = "onion_fried"
 	bitesize = 6
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
-	tastes = list("пикантные кусочки" = 1)
+	tastes = list("пикантного лука" = 1, "слёз" = 1)
 	rotprocess = SHELFLIFE_DECENT
 /obj/item/reagent_containers/food/snacks/rogue/preserved/onion_fried/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
@@ -299,7 +304,7 @@
 	icon_state = "potato_fried"
 	bitesize = 3
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
-	tastes = list("теплый картофель" = 1)
+	tastes = list("картофеля с корочкой" = 1)
 	rotprocess = SHELFLIFE_LONG
 	
 /obj/item/reagent_containers/food/snacks/rogue/preserved/potato_fried/attackby(obj/item/I, mob/living/user, params)

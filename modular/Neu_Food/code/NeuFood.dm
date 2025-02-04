@@ -397,7 +397,7 @@
 	color = "#c38553"
 	nutriment_factor = 15
 	metabolization_rate = 0.5 // half as fast as normal, last twice as long
-	taste_description = "овсянка"
+	taste_description = "овсянки"
 	taste_mult = 3
 	hydration = 2
 
@@ -411,19 +411,19 @@
 
 /datum/reagent/consumable/soup/veggie/potato
 	color = "#869256"
-	taste_description = "картофельный бульон"
+	taste_description = "картофельного бульона"
 
 /datum/reagent/consumable/soup/veggie/onion
 	color = "#a6b457"
-	taste_description = "вареный лук"
+	taste_description = "вареного лука"
 
 /datum/reagent/consumable/soup/veggie/cabbage
 	color = "#859e56"
-	taste_description = "водянистая капуста"
+	taste_description = "водянистой капусты"
 
 /datum/reagent/consumable/soup/veggie/beet
 	color = "#8E3A59"
-	taste_description = "водянистая свекла"
+	taste_description = "водянистой свеклы"
 
 /datum/reagent/consumable/soup/stew
 	name = "густое рагу"
@@ -434,19 +434,19 @@
 
 /datum/reagent/consumable/soup/stew/chicken
 	color = "#baa21c"
-	taste_description = "курица"
+	taste_description = "куриного рагу"
 
 /datum/reagent/consumable/soup/stew/meat
 	color = "#80432a"
-	taste_description = "мясное рагу"
+	taste_description = "мясного рагу"
 
 /datum/reagent/consumable/soup/stew/fish
 	color = "#c7816e"
-	taste_description = "рыба"
+	taste_description = "рыбного рагу"
 
 /datum/reagent/consumable/soup/stew/yucky
 	color = "#9e559c"
-	taste_description = "что-то прогорклое"
+	taste_description = "чего-то прогорклого"
 
 
 /* * * * * * * * * * * * * * *	*

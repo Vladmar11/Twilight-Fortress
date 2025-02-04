@@ -125,7 +125,7 @@
 	icon = 'icons/roguetown/misc/fish.dmi'
 	trash = null
 	list_reagents = list(/datum/reagent/consumable/nutriment = 10)
-	tastes = list("fish" = 1)
+	tastes = list("жареной рыбки" = 1)
 	name = "жареная рыба"
 	desc = "Обжаренная рыба с идеально хрустящей корочкой."
 	icon_state = "carpcooked"

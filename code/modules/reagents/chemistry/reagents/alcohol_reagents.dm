@@ -74,7 +74,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	color = "#8e6c06" // rgb: 102, 67, 0
 	nutriment_factor = 0.1
 	boozepwr = 25
-	taste_description = "beer"
+	taste_description = "пива"
 	glass_name = "glass of beer"
 	glass_desc = ""
 	hydration_factor = 10
@@ -82,7 +82,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
 /datum/reagent/consumable/ethanol/beer/cider
 	name = "Cider"
 	boozepwr = 40
-	taste_description = "cider"
+	taste_description = "сидра"
 	glass_name = "glass of cider"
 	color = "#d3c905"
 
@@ -213,11 +213,11 @@ All effects don't start immediately, but rather get worse over time; the rate is
 		M.playsound_local(M, 'sound/blank.ogg', 100, 0)
 
 /datum/reagent/consumable/ethanol/vodka
-	name = "Vodka"
+	name = "Водка"
 	description = "Number one drink AND fueling choice for Russians worldwide."
 	color = "#AAAAAA77" // rgb: 170, 170, 170, 77 (alpha) (clear like water)
 	boozepwr = 65
-	taste_description = "vodka"
+	taste_description = "крепкой водки"
 	glass_icon_state = "ginvodkaglass"
 	glass_name = "glass of vodka"
 	glass_desc = ""
@@ -1525,11 +1525,11 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	L.adjustBruteLoss(3 * min(5,volume)) //minimum 3 brute damage on ingestion to limit non-drink means of injury - a full 5 unit gulp of the drink trucks you for the full 15
 
 /datum/reagent/consumable/ethanol/sake
-	name = "Meejoo"
+	name = "Сакэ"
 	description = "A sweet rice wine of questionable legality and extreme potency."
 	color = "#DDDDDD"
 	boozepwr = 70
-	taste_description = "sweet rice wine"
+	taste_description = "рисового вина"
 	glass_icon_state = "sakecup"
 	glass_name = "cup of sake"
 	glass_desc = ""

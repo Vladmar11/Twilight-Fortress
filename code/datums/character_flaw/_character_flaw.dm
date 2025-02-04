@@ -307,7 +307,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 		if(ascending)
 			to_chat(user, span_warning("Всего [new_mammon_amount] маммонов.. Мне нужно еще..."))
 		else
-			to_chat(user, span_boldwarning("Нет! Мои драгоценные мамоны..."))
+			to_chat(user, span_boldwarning("Нет! Мои драгоценные маммоны..."))
 
 	last_checked_mammons = new_mammon_amount
 
