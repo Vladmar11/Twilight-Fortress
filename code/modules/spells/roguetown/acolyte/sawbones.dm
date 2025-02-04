@@ -1238,7 +1238,7 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	grind_results = null
 
 /obj/item/reagent_containers/pill/pnkpill
-	name = "Pозовые исцеляющие таблетки"
+	name = "розовые исцеляющие таблетки"
 	desc = "Маленькие розовые шарики. С беглого взгляда вы можете быть уверены, что это разбавленные красный и пепельный цвета."
 	icon_state = "pinkb"
 	icon = 'icons/roguetown/items/surgery.dmi'
@@ -1247,14 +1247,14 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	grind_results = null
 
 /obj/item/reagent_containers/hypospray/medipen/sty/detox
-	name = "Антитоксин"
+	name = "антитоксин"
 	desc = "Очищает организм от всего неестественного."
 	volume = 34
 	amount_per_transfer_from_this = 34
 	list_reagents = list(/datum/reagent/medicine/antihol = 10, /datum/reagent/medicine/pen_acid = 24)
 
 /obj/item/reagent_containers/hypospray/medipen/sealbottle/reju
-	name = "Элексир омоложения"
+	name = "эликсир омоложения"
 	desc = "Восстанавливает кровь, заживляет раны, помогает стабилизировать дыхание и слегка притупляет боль."
 	icon_state = "THEbottle"
 	volume = 16
@@ -1262,7 +1262,7 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	list_reagents = list(/datum/reagent/medicine/stimu = 15, /datum/reagent/medicine/caffeine = 1)
 
 /obj/item/reagent_containers/hypospray/medipen/sealbottle/purify
-	name = "элексир очищения"
+	name = "эликсир очищения"
 	desc = "Мощный препарат, очищающий кровь и заживляющий раны на теле. Очень больно."
 	icon_state = "THEbottle"
 	volume = 30
