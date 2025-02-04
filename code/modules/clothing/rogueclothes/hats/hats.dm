@@ -96,8 +96,8 @@
 			ResetAdjust(user)
 
 /obj/item/clothing/head/roguetown/roguehood/shalalz
-	name = "зибантинская куфия"
-	desc = "Защитный головной убор, который носят жители пустынь Зибантинской империи."
+	name = "зибантийская куфия"
+	desc = "Защитный головной убор, который носят жители пустынь Зибантийской империи."
 	color = null
 	icon_state = "shalal_z"
 	item_state = "shalal_z"

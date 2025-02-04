@@ -727,8 +727,8 @@
 	rotprocess = SHELFLIFE_DECENT
 
 /obj/item/reagent_containers/food/snacks/rogue/hcake
-	name = "зибантинский торт"
-	desc = "Торт, глазированный медом в знаменитом стиле Зибантинской империи. Восхитительное сладкое лакомство."
+	name = "йский торт"
+	desc = "Торт, глазированный медом в знаменитом стиле Зибантийской империи. Восхитительное сладкое лакомство."
 	icon_state = "honeycake"
 	slices_num = 8
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/hcakeslice
@@ -743,7 +743,7 @@
 	bitesize = 16
 
 /obj/item/reagent_containers/food/snacks/rogue/hcakeslice
-	name = "кусок зибантинского торта"
+	name = "кусок зибантийского торта"
 	icon_state = "honeycakeslice"
 	slices_num = 0
 	tastes = list("нежного бисквита" = 1, "вкусной медовой глазури" = 1)
