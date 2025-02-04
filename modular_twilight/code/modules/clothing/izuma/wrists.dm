@@ -1,4 +1,4 @@
-obj/item/clothing/wrists/roguetown/bracers/kote
+/obj/item/clothing/wrists/roguetown/bracers/kote
 	name = "котэ"
 	desc = "Сасинуки-котэ - бронированные рукава, связанные в куртку. Является одним из компонентов доспехов сангу, наряду с сунате и хайдате."
 	icon = 'modular_twilight/icons/roguetown/clothing/wrists.dmi'

@@ -1,11 +1,11 @@
 /datum/subclass/shinobii
 	name = "Shinobi"
-	tutorial = "Эксперты, профессионалы, дорогие. \
-	Это первые слова, которые приходят на ум при упоминании имперской гильдии наемников Грензельхофт. \
-	Хотя вы можете работать за монету, как любой обычный наёмник, поддержание престижа гильдии будет иметь первостепенное значение. \
-	Наемники Грензельхофта по праву боятся и уважают своего коменданта, идя на верную смерть по одному его слову."
+	tutorial = "Лазутчики, наёмные убийцы, шпионы, разведчики из Сёгуната Изума. \
+	Шиноби славятся тем, что владеют ниндзюцу и заработали себе репутацию по всему миру за успешные диверсионные скрытные операции в Грензельхофте.\
+	Они довольно преданные, но за приличную сумму."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_TOLERATED_UP
+	allowed_patrons = list(/datum/patron/divine/abyssor)
 	outfit = /datum/outfit/job/roguetown/mercenary/shinobii
 	maximum_possible_slots = 9
 	min_pq = 15
@@ -19,7 +19,7 @@
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/khudagach
 	belt = /obj/item/storage/belt/rogue/leather/black
 	beltr = /obj/item/rogueweapon/huntingknife/sai
-	beltl = /obj/item/rogueweapon/flail/sflail/kusarifundo
+	beltl = /obj/item/rogueweapon/flail/kusarigama
 	r_hand = /obj/item/rogueweapon/huntingknife/sai
 	neck = /obj/item/clothing/neck/roguetown/leather/black
 	shirt = /obj/item/clothing/suit/roguetown/shirt/looseshirt

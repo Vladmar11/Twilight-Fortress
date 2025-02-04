@@ -2044,4 +2044,8 @@
 #include "modular_twilight\datums\stress\negative_events.dm"
 #include "modular_twilight\datums\wardrobe\TF_wardrobe.dm"
 #include "modular_twilight\modular\NeuFood\code\NeuFood.dm"
+#include "modular_twilight\code\modules\clothing\izuma\migrants\izumaroles.dm"
+#include "modular_twilight\code\modules\clothing\izuma\migrants\izumawave.dm"
+#include "modular_twilight\code\modules\clothing\izuma\refuges\horosha.dm"
+#include "modular_twilight\code\modules\clothing\izuma\refuges\ronin.dm"
 // END_INCLUDE

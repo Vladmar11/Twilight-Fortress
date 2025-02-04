@@ -1,5 +1,5 @@
 /obj/item/clothing/head/roguetown/takuhatsugasa
-	name = "такухацугаса"
+	name = "такухацукаса"
 	icon_state = "takuhatsugasa"
 	desc = "Шляпа, которую носят монахи из Изумы во время поломничества или когда убивают демонов."
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
@@ -33,52 +33,52 @@
 	bloody_icon_state = "helmetblood"
 
 /obj/item/clothing/head/roguetown/tengai/gasa
-	name = "гаса"
-	icon_state = "гаса"
+	name = "каса"
+	icon_state = "каса"
 	desc = "Коническая соломенная шляпа для защиты от солнца и дождя. Обычно используется простолюдинами, а также самураями и их приближенными."
 	flags_inv = HIDEEARS
 
 /obj/item/clothing/head/roguetown/lilly
-	name = "маленькая лилипутка гаса"
+	name = "маленькая лилипутка каса"
 	icon_state = "lilypad_small"
-	desc = "Маленькая лилия, используемая ундинами для защиты от солнца и дождя. Эта лиллия используется в рамках межкультурного обмена, подражая гасам Изумы."
+	desc = "Маленькая лилия, используемая ундинами для защиты от солнца и дождя. Эта лиллия используется в рамках межкультурного обмена, подражая касам Изумы."
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/head.dmi'
 
 /obj/item/clothing/head/roguetown/lilly/medium
-	name = "средняя лилипутка гаса"
+	name = "средняя лилипутка каса"
 	icon_state = "lilypad_medium"
-	desc = "Средняя лилия, используемая ундинами для защиты от солнца и дождя. Эта лиллия используется в рамках межкультурного обмена, подражая гасам Изумы."
+	desc = "Средняя лилия, используемая ундинами для защиты от солнца и дождя. Эта лиллия используется в рамках межкультурного обмена, подражая касам Изумы."
 
 /obj/item/clothing/head/roguetown/lilly/big
-	name = "большая лилипутка гаса"
+	name = "большая лилипутка каса"
 	icon_state = "lilypad_big"
-	desc = "Большая лилия, используемая ундинами для защиты от солнца и дождя. Эта лиллия используется в рамках межкультурного обмена, подражая гасам Изумы."
+	desc = "Большая лилия, используемая ундинами для защиты от солнца и дождя. Эта лиллия используется в рамках межкультурного обмена, подражая касам Изумы."
 
 /obj/item/clothing/head/roguetown/tengai/roningasa
-	name = "ронингаса"
+	name = "ронинкаса"
 	icon_state = "roningasa"
 	flags_inv = HIDEEARS|HIDEFACE
 	desc = "Шляпа, которую обычно носили бесхитростные самураи - ронины."
 	bloody_icon_state = null
 
 /obj/item/clothing/head/roguetown/tengai/torioigasa
-	name = "ториоигаса"
+	name = "ториоикаса"
 	icon_state = "torioigasa"
 	desc = "Традиционный головной убор, предназначенный для долгих путешествий по туманным землям. Чаще всего используется простолюдинами."
 	bloody_icon_state = null
 
 /obj/item/clothing/head/roguetown/tengai/sandogasa
-	name = "сандогаса"
+	name = "сандокаса"
 	icon_state = "sandogasa"
 	flags_inv = HIDEEARS
 	desc = "Большой головной убор, обеспечивающий достаточную защиту от стихий, в том числе от дождя."
 	bloody_icon_state = null
 
 /obj/item/clothing/head/roguetown/tengai/sandogasa/yamabushi
-	name = "ямабуси сандогаса"
+	name = "ямабуси сандокаса"
 	icon_state = "ssandogasa"
-	desc = "Сандогаса, выкрашенная в черный цвет смолы, которую традиционно носят ямабуши."
+	desc = "Сандокаса, выкрашенная в черный цвет смолы, которую традиционно носят ямабуши."
 	bloody_icon_state = null
 
 /obj/item/clothing/head/roguetown/soheicloth
@@ -148,7 +148,7 @@
 	name = "цзыцзиньгуань" //This is actually a ming dynasty helmet
 	desc = "Более дешевая версия шлема Мирмидона, который относится к другой эпохе,\
 	но все еще остается эффективным. Этот шлем стал символом военной культуры Изумы.\
-	наряду с дзингаса."
+	наряду с дзинкаса."
 	icon_state = "zijinguan"
 	flags_inv = HIDEEARS
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
@@ -170,8 +170,8 @@
 		add_overlay(pic)
 
 /obj/item/clothing/head/roguetown/helmet/jingasa //the same as a Kettle. Just don't want the 64x64 bits.
-	name = "дзингаса"
-	desc = "Металлическая гаса конической формы. Носится в основном ашигарусами, защищает от стрел и прямых ударов.\
+	name = "дзинкаса"
+	desc = "Металлическая каса конической формы. Носится в основном ашигарусами, защищает от стрел и прямых ударов.\
 	стрел и прямых ударов. Наиболее эффективна вместе с подкладкой, так как\
 	большое пространство для движения шлема после удара, что облегчает удар."
 	icon_state = "jingasa"
