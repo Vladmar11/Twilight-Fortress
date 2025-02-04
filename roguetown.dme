@@ -2001,6 +2001,7 @@
 #include "modular\Smoker\code\Smoker.dm"
 #include "modular\ze_genesis_call\genesis_call.dm"
 #include "modular_twilight\code\datums\gods\patrons\divine_pantheon.dm"
+#include "modular_twilight\code\datums\stress\_stressevent.dm"
 #include "modular_twilight\code\game\objects\items\rogueitems\inquisitionrelics.dm"
 #include "modular_twilight\code\game\objects\items\rogueweapons\melee\flail.dm"
 #include "modular_twilight\code\game\objects\objects\effects\temporary_visuals\miracles.dm"

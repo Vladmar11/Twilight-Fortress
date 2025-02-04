@@ -299,11 +299,11 @@ All effects don't start immediately, but rather get worse over time; the rate is
 	shot_glass_icon_state = "shotglassclear"
 
 /datum/reagent/consumable/ethanol/wine
-	name = "Wine"
+	name = "Вино"
 	description = "A premium alcoholic beverage made from distilled grape juice."
 	color = "#7E4043" // rgb: 126, 64, 67
 	boozepwr = 35
-	taste_description = "bitter sweetness"
+	taste_description = "сладкого вина"
 	glass_icon_state = "wineglass"
 	glass_name = "glass of wine"
 	glass_desc = ""

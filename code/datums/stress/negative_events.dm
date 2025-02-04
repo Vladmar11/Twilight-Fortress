@@ -1,12 +1,12 @@
 /datum/stressevent/vice
 	timer = 5 MINUTES
 	stressadd = 5
-	desc = list(span_boldred("I don't indulge my vice."),span_boldred("I need to sate my vice."))
+	desc = list(span_boldred("Я не потворствую своему пороку."),span_boldred("Мне нужно утолить свои порочные нужды."))
 
 /datum/stressevent/miasmagas
 	timer = 10 SECONDS
 	stressadd = 2
-	desc = span_red("Smells like death here.")
+	desc = span_red("Здесь пахнет смертью.")
 
 /datum/stressevent/miasmagas/can_apply(mob/living/user)
 	if(HAS_TRAIT(user, TRAIT_ORGAN_EATER) || HAS_TRAIT(user, TRAIT_NASTY_EATER) || HAS_TRAIT(user, TRAIT_NOSTINK))
@@ -16,37 +16,43 @@
 /datum/stressevent/peckish
 	timer = 10 MINUTES
 	stressadd = 1
-	desc = span_red("I'm peckish.")
+	desc = span_red("Перекусить бы.")
 
 /datum/stressevent/hungry
 	timer = 10 MINUTES
 	stressadd = 3
-	desc = span_red("I'm hungry.")
+/datum/stressevent/hungry/add_effects(param)
+	. = ..()
+	var/mob/living/carbon/human/owner_mob = owner_mob()
+	desc = span_red("Я проголода[owner_mob.rus_sya()].")
 
 /datum/stressevent/starving
 	timer = 10 MINUTES
 	stressadd = 5
-	desc = span_boldred("I'm starving.")
+	desc = span_boldred("Я умираю с голоду.")
 
 /datum/stressevent/drym
 	timer = 10 MINUTES
 	stressadd = 1
-	desc = span_red("I'm a little thirsty.")
+/datum/stressevent/drym/add_effects(param)
+	. = ..()
+	var/mob/living/carbon/human/owner_mob = owner_mob()
+	desc = span_red("Я бы выпил[owner_mob.rus_a()] немного воды.")
 
 /datum/stressevent/thirst
 	timer = 10 MINUTES
 	stressadd = 3
-	desc = span_red("I'm thirsty.")
+	desc = span_red("Я сильно хочу пить.")
 
 /datum/stressevent/parched
 	timer = 10 MINUTES
 	stressadd = 5
-	desc = span_boldred("I'm going to die of thirst.")
+	desc = span_boldred("Я умираю от жажды.")
 
 /datum/stressevent/dismembered
 	timer = 40 MINUTES
 	stressadd = 5
-	desc = span_boldred("I've lost a limb.")
+	desc = span_boldred("Мне оторвало конечность.")
 
 /datum/stressevent/dismembered/can_apply(mob/living/user)
 	if(user.has_flaw(/datum/charflaw/masochist))
@@ -56,24 +62,24 @@
 /datum/stressevent/dwarfshaved
 	timer = 40 MINUTES
 	stressadd = 6
-	desc = span_boldred("I'd rather cut my own throat than my beard.")
+	desc = span_boldred("Я лучше перережу себе горло, чем свою бороду.")
 
 /datum/stressevent/guillotinefail
 	timer = 5 MINUTES
 	stressadd = 3
-	desc = span_red("This execution sucks!")
+	desc = span_red("Эта казнь - отстой!")
 
 /datum/stressevent/guillotineexecutorfail
 	timer = 15 MINUTES
 	stressadd = 5
-	desc = span_boldred("I have failed the guillotine execution! What a shame!")
+	desc = span_boldred("У меня не получилось нормально казнить на гильотине! Какой позор!")
 
 /datum/stressevent/viewdismember
 	timer = 15 MINUTES
 	max_stacks = 5
 	stressadd = 2
 	stressadd_per_extra_stack = 2
-	desc = span_red("Butchery.")
+	desc = span_red("Как на скотобойне...")
 
 /datum/stressevent/viewdismember/can_apply(mob/living/user)
 	if(HAS_TRAIT(user, TRAIT_ORGAN_EATER) || HAS_TRAIT(user, TRAIT_STEELHEARTED))
@@ -85,7 +91,10 @@
 	max_stacks = 10
 	stressadd = 1
 	stressadd_per_extra_stack = 1
-	desc = span_red("I saw something horrible!")
+/datum/stressevent/fviewdismember/add_effects(param)
+	. = ..()
+	var/mob/living/carbon/human/owner_mob = owner_mob()
+	desc = span_red("Я увидел[owner_mob.rus_a()] что-то ужасное!")
 
 /datum/stressevent/fviewdismember/can_apply(mob/living/user)
 	if(HAS_TRAIT(user, TRAIT_ORGAN_EATER) || HAS_TRAIT(user, TRAIT_STEELHEARTED))
@@ -95,7 +104,10 @@
 /datum/stressevent/viewgib
 	timer = 5 MINUTES
 	stressadd = 2
-	desc = span_red("I saw something ghastly.")
+/datum/stressevent/viewgib/add_effects(param)
+	. = ..()
+	var/mob/living/carbon/human/owner_mob = owner_mob()
+	desc = span_red("Я увидел[owner_mob.rus_a()] что-то отвратительное!")
 
 /datum/stressevent/viewgib/can_apply(mob/living/user)
 	if(HAS_TRAIT(user, TRAIT_ORGAN_EATER))
@@ -105,7 +117,7 @@
 /datum/stressevent/bleeding
 	timer = 2 MINUTES
 	stressadd = 2
-	desc = list(span_red("I think I'm bleeding."),span_red("I'm bleeding."))
+	desc = list(span_red("Мне кажется, я истекаю кровью."),span_red("У меня кровь течет."))
 
 /datum/stressevent/bleeding/can_apply(mob/living/user)
 	if(user.has_flaw(/datum/charflaw/masochist))
@@ -115,7 +127,7 @@
 /datum/stressevent/painmax
 	timer = 1 MINUTES
 	stressadd = 2
-	desc = span_red("THE PAIN!")
+	desc = span_red("БОЛЬНО!")
 
 /datum/stressevent/painmax/can_apply(mob/living/user)
 	if(user.has_flaw(/datum/charflaw/masochist))
@@ -125,17 +137,20 @@
 /datum/stressevent/freakout
 	timer = 15 SECONDS
 	stressadd = 2
-	desc = span_red("I'm panicking!")
+	desc = span_red("Меня охватила паника!")
 
 /datum/stressevent/felldown
 	timer = 1 MINUTES
 	stressadd = 1
-	desc = span_red("I fell. I'm a fool.")
+/datum/stressevent/felldown/add_effects(param)
+	. = ..()
+	var/mob/living/carbon/human/owner_mob = owner_mob()
+	desc = span_red("Я упал[owner_mob.rus_a()]. Какая оплошность!")
 
 /datum/stressevent/hatezizo
 	timer = 999 MINUTES
 	stressadd = 10
-	desc = "<span class='red'>ZIZOZIZOZIZO</span>"
+	desc = "<span class='red'>ЗИЗОЗИЗОЗИЗОЗИЗО</span>"
 
 /datum/stressevent/hatezizo/can_apply(mob/living/user)
 	if(HAS_TRAIT(user, TRAIT_ZIZO_MARKED))
@@ -145,7 +160,7 @@
 /datum/stressevent/burntmeal
 	timer = 2 MINUTES
 	stressadd = 2
-	desc = span_red("YUCK!")
+	desc = span_red("Меня тошнит от подгоревшей пищи!")
 
 /datum/stressevent/burntmeal/can_apply(mob/living/user)
 	if(HAS_TRAIT(user, TRAIT_NASTY_EATER))
@@ -155,7 +170,7 @@
 /datum/stressevent/rotfood
 	timer = 2 MINUTES
 	stressadd = 4
-	desc = span_red("YUCK!")
+	desc = span_red("Меня тошнит от гнилой пищи!")
 
 /datum/stressevent/rotfood/can_apply(mob/living/user)
 	if(HAS_TRAIT(user, TRAIT_NASTY_EATER))
@@ -165,17 +180,23 @@
 /datum/stressevent/psycurse
 	timer = 999 MINUTES
 	stressadd = 5
-	desc = span_boldred("Oh no! I've received divine punishment!")
+/datum/stressevent/psycurse/add_effects(param)
+	. = ..()
+	var/mob/living/carbon/human/owner_mob = owner_mob()
+	desc = span_boldred("О, нет! Я получил[owner_mob.rus_a()] божественное наказание!")
 
 /datum/stressevent/virginchurch
 	timer = 999 MINUTES
 	stressadd = 10
-	desc = span_boldred("I have broken my oath of chastity to The Gods!")
+/datum/stressevent/virginchurch/add_effects(param)
+	. = ..()
+	var/mob/living/carbon/human/owner_mob = owner_mob()
+	desc = span_boldred("Я нарушил[owner_mob.rus_a()] клятву целомудрия перед богами!")
 
 /datum/stressevent/badmeal
 	timer = 3 MINUTES
 	stressadd = 2
-	desc = span_red("It tastes VILE!")
+	desc = span_red("Какой МЕРЗКИЙ вкус!")
 
 /datum/stressevent/badmeal/can_apply(mob/living/user)
 	if(HAS_TRAIT(user, TRAIT_NASTY_EATER))
@@ -187,7 +208,7 @@
 	stressadd = 2
 	max_stacks = 3
 	stressadd_per_extra_stack = 2
-	desc = span_red("I puked!")
+	desc = span_red("Меня вырвало!")
 
 /datum/stressevent/vomit/can_apply(mob/living/user)
 	if(HAS_TRAIT(user, TRAIT_NASTY_EATER))
@@ -199,12 +220,15 @@
 	stressadd = 2
 	max_stacks = 3
 	stressadd_per_extra_stack = 2
-	desc = span_red("I puked on myself!")
+/datum/stressevent/vomitself/add_effects(param)
+	. = ..()
+	var/mob/living/carbon/human/owner_mob = owner_mob()
+	desc = span_red("Я вырвал[owner_mob.rus_a()] прямо на себя!")
 
 /datum/stressevent/cumbad
 	timer = 5 MINUTES
 	stressadd = 5
-	desc = span_boldred("I was violated.")
+	desc = span_boldred("Меня опорочили...")
 
 /datum/stressevent/cumbad/can_apply(mob/living/user)
 	if(HAS_TRAIT(user, TRAIT_CRACKHEAD))
@@ -214,7 +238,10 @@
 /datum/stressevent/cumcorpse
 	timer = 1 MINUTES
 	stressadd = 10
-	desc = span_boldred("What have I done?")
+/datum/stressevent/cumcorpse/add_effects(param)
+	. = ..()
+	var/mob/living/carbon/human/owner_mob = owner_mob()
+	desc = span_boldred("Что я наделал[owner_mob.rus_a()]..?")
 
 /datum/stressevent/cumcorpse/can_apply(mob/living/user)
 	if(HAS_TRAIT(user, TRAIT_CRACKHEAD))
@@ -224,32 +251,32 @@
 /datum/stressevent/leechcult
 	timer = 1 MINUTES
 	stressadd = 3
-	desc = list("<span class='red'>There's a little goblin in my head telling me to do things and I don't like it!</span>","<span class='red'>\"Kill your friends.\"</span>","<span class='red'>\"Make them bleed.\"</span>","<span class='red'>\"Give them no time to squeal.\"</span>","<span class='red'>\"Praise Zizo.\"</span>","<span class='red'>\"Death to the Ten.\"</span>","<span class='red'>\"The Weeper weeps his last.\"</span>")
+	desc = list("<span class='red'>В моей голове сидит маленький гоблин, который говорит мне что-то делать, и мне это не нравится!</span>","<span class='red'>\"Убей своих друзей.\"</span>","<span class='red'>\"Пусть истекают кровью.\"</span>","<span class='red'>\"Не дай им времени визжать.\"</span>","<span class='red'>\"Восславь Зизо.\"</span>","<span class='red'>\"Смерть Десяти!\"</span>","<span class='red'>\"Плачущий плачет в последний раз.\"</span>")
 
 /datum/stressevent/delf
 	timer = 1 MINUTES
 	stressadd = 1
-	desc = span_red("Better stay away.")
+	desc = span_red("Стоит держаться подальше...")
 
 /datum/stressevent/shunned_race
 	timer = 1 MINUTES
 	stressadd = 1
-	desc = span_red("Better stay away.")
+	desc = span_red("Стоит держаться подальше...")
 
 /datum/stressevent/shunned_race_xenophobic
 	timer = 2 MINUTES
 	stressadd = 5
-	desc = span_red("Disgusting lesser, get them away.")
+	desc = span_red("Отвратительные пришлые, подите прочь!")
 
 /datum/stressevent/paracrowd
 	timer = 15 SECONDS
 	stressadd = 2
-	desc = span_red("There are too many people who don't look like me here.")
+	desc = span_red("Здесь слишком много тех, кто не похож на меня.")
 
 /datum/stressevent/parablood
 	timer = 15 SECONDS
 	stressadd = 3
-	desc = span_red("There is so much blood here.. it's like a battlefield!")
+	desc = span_red("Здесь столько крови... как на поле боя!")
 
 /datum/stressevent/viewdismember/can_apply(mob/living/user)
 	if(HAS_TRAIT(user, TRAIT_ORGAN_EATER) || HAS_TRAIT(user, TRAIT_STEELHEARTED))
@@ -259,100 +286,135 @@
 /datum/stressevent/parastr
 	timer = 2 MINUTES
 	stressadd = 2
-	desc = span_red("That beast is stronger.. and might easily kill me!")
+	desc = span_red("Этот зверь сильнее меня... он может легко меня убить!")
 
 /datum/stressevent/paratalk
 	timer = 2 MINUTES
 	stressadd = 2
-	desc = span_red("They are plotting against me in evil tongues..")
+	desc = span_red("Злые языки что-то замышляют против меня...")
 
 /datum/stressevent/jesterphobia
 	timer = 4 MINUTES
 	stressadd = 5
-	desc = span_boldred("No! Get the Jester away from me!")
+	desc = span_boldred("Нет! Уберите этого шута от меня!")
 
 /datum/stressevent/coldhead
 	timer = 60 SECONDS
 	stressadd = 1
-	desc = span_red("My head is cold and ugly.")
+	desc = span_red("Моя голова ничем не покрыта.")
 
 /datum/stressevent/sleepytime
 	timer = 40 MINUTES
 	stressadd = 2
-	desc = span_red("I'm tired.")
+/datum/stressevent/sleepytime/add_effects(param)
+	. = ..()
+	var/mob/living/carbon/human/owner_mob = owner_mob()
+	desc = span_red("Я устал[owner_mob.rus_a()].")
 
 /datum/stressevent/tortured
 	stressadd = 3
 	max_stacks = 5
 	stressadd_per_extra_stack = 2
-	desc = span_boldred("I'm broken.")
 	timer = 60 SECONDS
+/datum/stressevent/tortured/add_effects(param)
+	. = ..()
+	var/mob/living/carbon/human/owner_mob = owner_mob()
+	desc = span_boldred("Я сломан[owner_mob.rus_a()]. Я так больше не могу!")
 
 /datum/stressevent/confessed
 	stressadd = 3
-	desc = span_red("I've confessed to sin.")
 	timer = 15 MINUTES
+/datum/stressevent/confessed/add_effects(param)
+	. = ..()
+	var/mob/living/carbon/human/owner_mob = owner_mob()
+	desc = span_red("Я призна[owner_mob.rus_sya()] во грехе.")
+	
 
 /datum/stressevent/confessedgood
 	stressadd = 1
-	desc = span_red("I've confessed to sin, it feels good.")
 	timer = 15 MINUTES
+/datum/stressevent/confessedgood/add_effects(param)
+	. = ..()
+	var/mob/living/carbon/human/owner_mob = owner_mob()
+	desc = span_red("Я призна[owner_mob.rus_sya()] во грехе, но мне от этого стало легче.")
+	
 
 /datum/stressevent/saw_wonder
 	stressadd = 4
-	desc = span_boldred("<B>I have seen something nightmarish, and I fear for my life!</B>")
 	timer = 999 MINUTES
+/datum/stressevent/saw_wonder/add_effects(param)
+	. = ..()
+	var/mob/living/carbon/human/owner_mob = owner_mob()
+	desc = span_boldred("<B>Я увидел[owner_mob.rus_a()] нечто кошмарное и теперь боюсь за свою жизнь.!</B>")
+	
 
 /datum/stressevent/maniac_woke_up
 	stressadd = 10
-	desc = span_boldred("No... I want to go back...")
+	desc = span_boldred("Нет... Я хочу вернуться...")
 	timer = 999 MINUTES
 
 /datum/stressevent/drankrat
 	stressadd = 1
-	desc = span_red("I drank from a lesser creature.")
 	timer = 1 MINUTES
+/datum/stressevent/drankrat/add_effects(param)
+	. = ..()
+	var/mob/living/carbon/human/owner_mob = owner_mob()
+	desc = span_red("Я пил[owner_mob.rus_a()] кровь из меньшего существа.")
+
 
 /datum/stressevent/lowvampire
 	stressadd = 1
-	desc = span_red("I'm dead... what comes next?")
+/datum/stressevent/lowvampire/add_effects(param)
+	. = ..()
+	var/mob/living/carbon/human/owner_mob = owner_mob()
+	desc = span_red("Я мертв[owner_mob.rus_a()]... что теперь?")
 
 /datum/stressevent/oziumoff
 	stressadd = 10
-	desc = span_blue("I need another hit.")
+	desc = span_blue("Мне нужна еще одна доза.")
 	timer = 1 MINUTES
 
 /datum/stressevent/ooc_ic
 	stressadd = 6
-	desc = span_boldred("Bad omen! I've broken some kind of wall...")
 	timer = 5 MINUTES
+/datum/stressevent/ooc_ic/add_effects(param)
+	. = ..()
+	var/mob/living/carbon/human/owner_mob = owner_mob()
+	desc = span_boldred("Плохое предзнаменование! Будто бы я сломал[owner_mob.rus_a()] какую-то стену...")
+
 
 /datum/stressevent/sleepfloor
 	stressadd = 3
-	desc = "I slept on the floor. It was uncomfortable."
 	timer = 1 MINUTES
+/datum/stressevent/sleepfloor/add_effects(param)
+	. = ..()
+	var/mob/living/carbon/human/owner_mob = owner_mob()
+	desc = "Я спал[owner_mob.rus_a()] на полу. Это было неудобно."
+	
 
 /datum/stressevent/sleepfloornoble
 	stressadd = 6
-	desc = "I slept on the floor! What am I?! An animal?!"
 	timer = 3 MINUTES
-
+/datum/stressevent/sleepfloornoble/add_effects(param)
+	. = ..()
+	var/mob/living/carbon/human/owner_mob = owner_mob()
+	desc = "Я спал[owner_mob.rus_a()] на полу! Я что, по-вашему, какое-то животное?!"
 
 /datum/stressevent/darkling_toobright
 	stressadd = 1
-	desc = span_red("It's too bright, the light hurts my eyes.")
+	desc = span_red("Слишком ярко, свет режет глаза.")
 	timer = 30 SECONDS
 /datum/stressevent/darkling_migraine
 	stressadd = 3
-	desc = span_red("My head is pounding, I need to rest in the darkness.")
+	desc = span_red("Голова раскалывается, мне нужно отдохнуть в темноте.")
 	timer = 1 MINUTES
   
 /datum/stressevent/crowd
 	timer = 2 MINUTES
 	stressadd = 2
-	desc = "<span class='red'>Why is everyone here...? Are they trying to kill me?!</span>"
+	desc = "<span class='red'>Почему все здесь...? Они что, пытаются меня убить?!</span>"
 
 /datum/stressevent/nopeople
 	timer = 2 MINUTES
 	stressadd = 2
-	desc = "<span class='red'>Where did everyone go? Did something happen?!</span>"
+	desc = "<span class='red'>Куда все ушли? Что-то случилось?!</span>"
