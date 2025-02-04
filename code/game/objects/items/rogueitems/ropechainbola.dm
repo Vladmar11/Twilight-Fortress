@@ -1,7 +1,7 @@
 
 /obj/item/rope
-	name = "rope"
-	desc = "A woven hemp rope."
+	name = "веревка"
+	desc = "Плетеная веревка из волокон."
 	gender = PLURAL
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "rope"
@@ -69,28 +69,28 @@
 		return
 
 	if(!(C.get_num_arms(FALSE) || C.get_arm_ignore()))
-		to_chat(user, span_warning("[C] has no arms to tie up."))
+		to_chat(user, span_warning("У [C] нет рук, чтобы [C.rus_them()] сковать."))
 		return
 
 	if(C.cmode && C.mobility_flags & MOBILITY_STAND)
-		to_chat(user, span_warning("I can't tie them, they are too tense!"))
+		to_chat(user, span_warning("м!"))
 		return
 
 	var/surrender_mod = 1
 	if(C.surrendering)
 		surrender_mod = 0.5
 
-	C.visible_message(span_warning("[user] is trying to tie [C]'s arms with [src.name]!"), \
-						span_userdanger("[user] is trying to tie my arms with [src.name]!"))
+	C.visible_message(span_warning("[user] пытается сковать руки [C] с помощью [src.name]!"), \
+						span_userdanger("[user] пытается сковать мои руки с помощью [src.name]!"))
 	playsound(loc, cuffsound, 100, TRUE, -2)
 
 	if(!(do_mob(user, C, 60 * surrender_mod) && C.get_num_arms(FALSE)))
-		to_chat(user, span_warning("I fail to tie up [C]!"))
+		to_chat(user, span_warning("Я не смог[user.gender == FEMALE ? "ла" : ""] сковать руки [C]!"))
 		return
 
 	apply_cuffs(C, user)
-	C.visible_message(span_warning("[user] ties [C] with [src.name]."), \
-						span_danger("[user] ties me up with [src.name]."))
+	C.visible_message(span_warning("[user] сковал[user.rus_a()] руки [C] с помощью [src.name]."), \
+						span_danger("[user] сковал[user.rus_a()] мои руки с помощью [src.name]."))
 	SSblackbox.record_feedback("tally", "handcuffs", 1, type)
 	log_combat(user, C, "handcuffed")
 
@@ -99,29 +99,29 @@
 		return
 
 	if(C.get_num_legs(FALSE) < 2)
-		to_chat(user, span_warning("[C] is missing two or one legs."))
+		to_chat(user, span_warning("У [C] не хватает здоровых ног."))
 		return
 
 	if(C.cmode && C.mobility_flags & MOBILITY_STAND)
-		to_chat(user, span_warning("I can't tie them, they are too tense!"))
+		to_chat(user, span_warning("Я не могу сковать, пока цель слишком напряжена!"))
 		return
 
 	var/surrender_mod = 1
 	if(C.surrendering)
 		surrender_mod = 0.5
 
-	C.visible_message(span_warning("[user] is trying to tie [C]'s legs with [src.name]!"), \
-						span_userdanger("[user] is trying to tie my legs with [src.name]!"))
+	C.visible_message(span_warning("[user] пытается сковать ноги [C] с помощью [src.name]!"), \
+						span_userdanger("[user] пытается сковать мои ноги с помощью [src.name]!"))
 
 	playsound(loc, cuffsound, 30, TRUE, -2)
 
 	if(!do_mob(user, C, 60 * surrender_mod) || C.get_num_legs(FALSE) < 2)
-		to_chat(user, span_warning("I fail to tie up [C]!"))
+		to_chat(user, span_warning("Я не смог[user.gender == FEMALE ? "ла" : ""] сковать ноги [C]!"))
 		return
 
 	apply_cuffs(C, user, TRUE)
-	C.visible_message(span_warning("[user] ties [C]'s legs with [src.name]."), \
-						span_danger("[user] ties my legs with [src.name]."))
+	C.visible_message(span_warning("[user] сковал[user.rus_a()] ноги [C] с помощью [src.name]."), \
+						span_danger("[user] сковал[C.rus_a()] мои ноги с помощью [src.name]."))
 	SSblackbox.record_feedback("tally", "legcuffs", 1, type)
 
 	log_combat(user, C, "legcuffed", TRUE)
@@ -159,8 +159,8 @@
 
 
 /datum/intent/whips/iron_chain
-	name = "chain-lash"
-	desc = "A rather slow ranged lash used for slowing down opponents for a tie up."
+	name = "цепной поводок"
+	desc = "Довольно медленный поводок, используемый для замедления противников при их связывании"
 	blade_class = BCLASS_BLUNT
 	attack_verb = list("chain-whips", "chain-lashes")
 	hitsound = list('sound/combat/hits/blunt/flailhit.ogg')
@@ -175,8 +175,8 @@
 	item_d_type = "blunt"
 
 /obj/item/rope/chain
-	name = "chain"
-	desc = "A heavy iron chain."
+	name = "цепь"
+	desc = "Тяжелая железная цепь."
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "chain"
 	force = 13
@@ -202,8 +202,8 @@
 
 
 /obj/structure/noose
-	name = "noose"
-	desc = "Abandon all hope."
+	name = "петля"
+	desc = "Оставь надежды."
 	icon = 'icons/roguetown/misc/tallstructure.dmi'
 	pixel_y = 10
 	icon_state = "noose"
@@ -222,8 +222,8 @@
 	buckleverb = "tie"
 
 /obj/structure/noose/gallows
-	name = "gallows"
-	desc = "Stranded and hanging, limp and dead."
+	name = "виселица"
+	desc = "Застрявшие и висящие, обмякшие и мертвые... Эта петля видала немало душ."
 	icon_state = "gallows"
 	pixel_y = 0
 	max_integrity = 9999
@@ -234,8 +234,8 @@
 		for(var/m in buckled_mobs)
 			var/mob/living/buckled_mob = m
 			if(buckled_mob.has_gravity())
-				buckled_mob.visible_message("<span class='danger'>[buckled_mob] falls over and hits the ground!</span>")
-				to_chat(buckled_mob, "<span class='userdanger'>You fall over and hit the ground!</span>")
+				buckled_mob.visible_message("<span class='danger'>[buckled_mob] падает и ударяется о землю!</span>")
+				to_chat(buckled_mob, "<span class='userdanger'>Вы падаете и ударяетесь о землю!</span>")
 				buckled_mob.adjustBruteLoss(10)
 				buckled_mob.Knockdown(60)
 	return ..()
@@ -245,21 +245,21 @@
 		return FALSE
 
 	if (!M.get_bodypart("head"))
-		to_chat(user, "<span class='warning'>[M] has no head!</span>")
+		to_chat(user, "<span class='warning'>У [M] нет головы!</span>")
 		return FALSE
 
-	M.visible_message("<span class='danger'>[user] attempts to tie \the [src] over [M]'s neck!</span>")
+	M.visible_message("<span class='danger'>[user] пытается обвязать петлю вокруг шеи [M]!</span>")
 	if(do_after(user, user == M ? 0:5 SECONDS, M))
 		if(buckle_mob(M))
-			user.visible_message("<span class='warning'>[user] ties \the [src] over [M]'s neck!</span>")
+			user.visible_message("<span class='warning'>[user] обвязал[user.rus_a()] вокруг шеи [M]!</span>")
 			if(user == M)
-				to_chat(M, "<span class='userdanger'>You tie \the [src] over your neck!</span>")
+				to_chat(M, "<span class='userdanger'>Я обвязал[user.rus_a()] петлю вокруг своей шеи!</span>")
 			else
-				to_chat(M, "<span class='userdanger'>[user] ties \the [src] over your neck!</span>")
+				to_chat(M, "<span class='userdanger'>[user] обвязал[user.rus_a()] вокруг моей шеи!</span>")
 			playsound(user.loc, 'sound/foley/noosed.ogg', 50, 1, -1)
 			return TRUE
-	user.visible_message("<span class='warning'>[user] fails to tie \the [src] over [M]'s neck!</span>")
-	to_chat(user, "<span class='warning'>You fail to tie \the [src] over [M]'s neck!</span>")
+	user.visible_message("<span class='warning'>[user] не смог[user.gender == FEMALE ? "ла" : ""] обвязать петлю вокруг шеи [M]!</span>")
+	to_chat(user, "<span class='warning'>Вы не смогли обвязать петлю вокруг шеи [M]!</span>")
 	return FALSE
 
 /obj/structure/noose/post_buckle_mob(mob/living/M)
@@ -287,9 +287,9 @@
 						if(prob(20))
 							buckled_mob.emote("gasp")
 					if(prob(25))
-						var/flavor_text = list("<span class='danger'>[buckled_mob]'s legs flail for anything to stand on.</span>",\
-												"<span class='danger'>[buckled_mob]'s hands are desperately clutching the noose.</span>",\
-												"<span class='danger'>[buckled_mob]'s limbs sway back and forth with diminishing strength.</span>")
+						var/flavor_text = list("<span class='danger'>Ноги [buckled_mob] трясутся, пытаясь хоть на что-нибудь встать.</span>",\
+												"<span class='danger'>Руки [buckled_mob] отчаянно сжимают петлю.</span>",\
+												"<span class='danger'>Конечности [buckled_mob] раскачиваются вперед и назад с уменьшающейся силой.</span>")
 						buckled_mob.visible_message(pick(flavor_text))
 					playsound(buckled_mob.loc, 'sound/foley/noose_idle.ogg', 30, 1, -3)
 				else
@@ -299,7 +299,7 @@
 							if(head.dismemberable)
 								head.dismember()
 			else
-				buckled_mob.visible_message("<span class='danger'>[buckled_mob] drops from the noose!</span>")
+				buckled_mob.visible_message("<span class='danger'>[buckled_mob] выпадает из петли!</span>")
 				buckled_mob.Knockdown(60)
 				buckled_mob.pixel_y = initial(buckled_mob.pixel_y)
 				buckled_mob.pixel_x = initial(buckled_mob.pixel_x)
