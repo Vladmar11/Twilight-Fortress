@@ -28,6 +28,10 @@
 
 /obj/item/clothing/shoes/roguetown/boots/jikatabi/shinobi
 	color = "#6a6896"
+	max_integrity = 200
+	sewrepair = TRUE
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
+	armor = list("blunt" = 50, "slash" = 40, "stab" = 20, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 
 /obj/item/clothing/shoes/roguetown/boots/jikatabi/dragontabi
 	name = "драконтаби"

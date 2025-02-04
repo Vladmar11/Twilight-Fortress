@@ -214,6 +214,10 @@
 	item_state = "shinobi"
 	blocksound = SOFTHIT
 	color = "#6a6896"
+	max_integrity = 200
+	body_parts_covered = CHEST|GROIN|VITALS|LEGS|ARMS
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
+	armor = list("blunt" = 75, "slash" = 60, "stab" = 30, "bullet" = 10, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/iron/rattan //New armor; Iron-to-steel tier.
 	slot_flags = ITEM_SLOT_ARMOR

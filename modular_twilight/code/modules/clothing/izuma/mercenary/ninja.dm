@@ -21,19 +21,19 @@
 	beltr = /obj/item/rogueweapon/huntingknife/sai
 	beltl = /obj/item/rogueweapon/flail/sflail/kusarifundo
 	r_hand = /obj/item/rogueweapon/huntingknife/sai
-	neck = /obj/item/clothing/neck/roguetown/gorget
+	neck = /obj/item/clothing/neck/roguetown/leather/black
 	shirt = /obj/item/clothing/suit/roguetown/shirt/looseshirt
 	head = /obj/item/clothing/head/roguetown/shinobi_zukin
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/hide/shozoku
 	pants = /obj/item/clothing/under/roguetown/trou/leather/shinobizubon
 	shoes = /obj/item/clothing/shoes/roguetown/boots/jikatabi/shinobi
-	gloves = /obj/item/clothing/gloves/roguetown/fingerless
+	gloves = /obj/item/clothing/gloves/roguetown/leather/advanced/shadowgauntlets
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	backl = /obj/item/storage/backpack/rogue/satchel/black
 	backpack_contents = list(/obj/item/throwing_star/ninja = 7, /obj/item/rogueweapon/tetsubishi = 3, /obj/item/storage/keyring/mercenary = 1, /obj/item/storage/belt/rogue/pouch/coins/poor = 1, /obj/item/smokebomb = 6)
 
 	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
@@ -42,7 +42,7 @@
 		H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/stealing, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 3, TRUE)
 		H.change_stat("strength", 1)

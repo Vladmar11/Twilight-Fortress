@@ -104,7 +104,7 @@
 	name = "ocean sohei coverings"
 	color = CLOTHING_PURPLE
 
-/obj/item/clothing/head/roguetown/soheicloth/island
+/obj/item/clothing/head/roguetown/soheicloth/islands
 	name = "island sohei coverings"
 	color = CLOTHING_BROWN
 

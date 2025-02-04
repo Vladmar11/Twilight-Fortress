@@ -71,3 +71,6 @@
 	icon = 'modular_twilight/icons/roguetown/clothing/neck.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/neck.dmi'
 	icon_state = "mythrilbeads"
+
+/obj/item/clothing/neck/roguetown/leather/black
+	color = "#6a6896"
