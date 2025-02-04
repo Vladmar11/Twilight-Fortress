@@ -35,12 +35,12 @@
 	allowed_race = NON_DWARVEN_RACE_TYPES
 
 /obj/item/clothing/mask/rogue/lordmask/naledi
-	name = "маска военного инструктора"
+	name = "равоксианская маска"
 	icon = 'icons/roguetown/clothing/donator.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/donator.dmi'
 	item_state = "naledimask"
 	icon_state = "naledimask"
-	desc = "Руны и обереги, предназначенные для демонов; золото каким-то образом заржавело в неестественной, невозможной агонии. Самая известная из этих гравюр имеет форму наледианского креста."
+	desc = "Руны и обереги, предназначенные для продвижения справедливости и силы; золото каким-то образом заржавело в неестественной, невозможной агонии. Самая известная из этих гравюр имеет форму креста."
 	sellprice = 0
 
 /obj/item/clothing/head/roguetown/archercap

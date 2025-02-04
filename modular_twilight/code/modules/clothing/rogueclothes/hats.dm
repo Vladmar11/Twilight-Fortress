@@ -452,3 +452,12 @@
 		if(get_detail_color())
 			pic.color = get_detail_color()
 		add_overlay(pic)
+
+//................ Kettle Helmet (Slitted)............... //
+/obj/item/clothing/head/roguetown/helmet/kettle/slit
+	name = "капеллина с разрезами"
+	desc = "A lightweight steel helmet generally worn by crossbowmen and garrison archers. This one has eyeslits for the paranoid."
+	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
+	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/head.dmi'
+	icon_state = "slitkettle"
+	body_parts_covered = HEAD|HAIR|EARS

@@ -5,13 +5,20 @@
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/masks.dmi'
 	desc = "Tiny drops of white dye mark its front, not unlike teeth. A smile that leers from shadow."
 
-/obj/item/clothing/mask/rogue/facemask/shadowfacemask
-	name = "anthraxi war mask"
-	desc = "A metal mask resembling a spider's face. Such a visage haunts many an older dark elf's \
-	nitemares - while the younger generation simply scoffs at such relics."
+/obj/item/clothing/mask/rogue/lordmask/shadowfacemask
+	name = "ксайлианская маска"
+	desc = "Ордер Ксайликса всегда казался загадочным и странным, и эта маска символизирует это."
 	icon = 'modular_twilight/icons/roguetown/clothing/masks.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/masks.dmi'
 	icon_state = "shadowfacemask"
+
+/obj/item/clothing/mask/rogue/facemask/psydonmask
+	name = "psydonian mask"
+	desc = "A silver mask, forever locked in a rigor of uncontestable joy. The Order of Saint Xylix can't decide on whether it's meant to represent Psydon's 'mirthfulness', 'theatricality', or the unpredictable melding of both."
+	icon = 'modular_twilight/icons/roguetown/clothing/masks.dmi'
+	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/masks.dmi'
+	icon_state = "psydonmask"
+	item_state = "psydonmask"
 
 /obj/item/clothing/mask/rogue/facemask/copper
 	name = "copper mask"

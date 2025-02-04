@@ -63,3 +63,7 @@
 	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/decoratedgbucket
 	skill_level = 4
 	
+/datum/anvil_recipe/armor/steel/kettle/slit
+	name = "Капеллина с разрезами"
+	req_bar = /obj/item/ingot/steel
+	created_item = /obj/item/clothing/head/roguetown/helmet/kettle/slit
