@@ -29,10 +29,10 @@
 			name = "легендарн[rus_aya()] [initial(name)]"
 		if("ultra")
 			sellprice = sellprice * 4
-			name = "крайне редк[rus_aya()] [initial(name)]"
+			name = "крайне редк[rus_aya2()] [initial(name)]"
 		if("rare")
 			sellprice = sellprice * 2
-			name = "редк[rus_aya()] [initial(name)]"
+			name = "редк[rus_aya2()] [initial(name)]"
 		if("com")
 			name = "обычн[rus_aya()] [initial(name)]"
 	if(!dead)
