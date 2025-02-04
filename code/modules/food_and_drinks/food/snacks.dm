@@ -251,8 +251,8 @@ All foods are distributed among various categories. Use common sense.
 	if(user.used_intent.type == INTENT_HARM)
 		return ..()
 	if(!eatverb)
-		eatverb = pick("откусывает","жует","грызет","глодает","пожирает","ест")
-		eatverb_me = pick("откусываю","жую","грызет","глодаю","пожираю","ем")
+		eatverb = pick("откусывает","жует","грызет","пробует","пожирает","ест")
+		eatverb_me = pick("откусываю","жую","грызу","пробую","пожираю","ем")
 	if(iscarbon(M))
 		if(!canconsume(M, user))
 			return FALSE

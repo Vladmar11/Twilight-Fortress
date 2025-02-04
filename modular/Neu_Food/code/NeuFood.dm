@@ -46,8 +46,8 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/Initialize()
 	. = ..()
-	eatverb = pick("откусывает","жует","грызет","глодает","пожирает","ест")
-	eatverb_me = pick("откусываю","жую","грызет","глодаю","пожираю","ем")
+	eatverb = pick("откусывает","жует","грызет","пробует","пожирает","ест")
+	eatverb_me = pick("откусываю","жую","грызу","пробую","пожираю","ем")
 	
 /obj/item/reagent_containers/food/snacks/rogue/foodbase // root item for uncooked food thats disgusting when raw
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
