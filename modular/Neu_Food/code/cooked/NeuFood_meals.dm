@@ -12,7 +12,7 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_MEAGRE)
 	tastes = list("стейк" = 1, "перец" = 1)
 	name = "стейк с перцем"
-	desc = "Жареноне мясо с щедрым слоем молотого перца для интенсивного вкуса."
+	desc = "Жареное мясо с щедрым слоем молотого перца для интенсивного вкуса."
 	icon_state = "peppersteak"
 	foodtype = MEAT
 	warming = 5 MINUTES

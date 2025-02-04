@@ -39,10 +39,10 @@
 		return TRUE
 	if(do_after(user, 8, target = src))
 		user.visible_message(span_notice("[user] использует жернова"), \
-						span_notice("Я начинаю использовать жернова"))
+						span_notice("Я использую жернова"))
 		grindUp(to_grind, usr)
-		user.visible_message(span_notice("[user] закончил использовать жернова"), \
-						span_notice("Я закончил использовать жернова"))
+		user.visible_message(span_notice("[user] прекратил[user.rus_a()] использовать жернова"), \
+						span_notice("Я прекратил[user.rus_a()] использовать жернова"))
 		return TRUE
 	..()
 
