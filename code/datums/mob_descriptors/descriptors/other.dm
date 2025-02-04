@@ -176,3 +176,22 @@
 		if(5)
 			adjective = "an enormous"
 	return "[adjective] pair of breasts"
+
+/datum/mob_descriptor/sexual
+	name = "Sexual preferences"
+	slot = MOB_DESCRIPTOR_SLOT_NOTHING
+	verbage = "looks like %THEY% is attracted to"
+
+/datum/mob_descriptor/sexual/can_describe(mob/living/described)
+	if(!ishuman(described))
+		return FALSE
+	return TRUE
+
+/datum/mob_descriptor/sexual/get_description(mob/living/described)
+	var/mob/living/carbon/human/human = described
+	if(human.client.prefs.sexual_pref == SEXUAL_PREF_HETERO)
+		return "opposite gender"
+	else if (human.client.prefs.sexual_pref == SEXUAL_PREF_SAME)
+		return "%HIS% own gender"
+	else
+		return "both genders"
