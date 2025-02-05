@@ -14,12 +14,12 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	"Нарколепсия"=/datum/charflaw/narcoleptic,
 	"Мазохизм"=/datum/charflaw/masochist,
 	"Паранойя"=/datum/charflaw/paranoid,
-	"Циклоп (Правый)"=/datum/charflaw/noeyer,
-	"Циклоп (Левый)"=/datum/charflaw/noeyel,
+	"Циклоп (Нет правого)"=/datum/charflaw/noeyer,
+	"Циклоп (Нет левого)"=/datum/charflaw/noeyel,
 	"Деревянная рука (Правая)"=/datum/charflaw/limbloss/arm_r,
 	"Деревянная рука (Левая)"=/datum/charflaw/limbloss/arm_l,
 	//"Преследуемый"=/datum/charflaw/dead_or_alive,
-	"Случайный изъян (50/50)"=/datum/charflaw/randflaw,
+	"Случайный изъян или без изъяна (50/50)"=/datum/charflaw/randflaw,
 	"Без изъяна (3 ТРИУМФА)"=/datum/charflaw/noflaw
 	))
 
