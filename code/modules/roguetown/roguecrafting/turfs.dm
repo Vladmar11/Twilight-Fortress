@@ -197,7 +197,8 @@
 	if(isclosedturf(T))
 		return
 	if(!istype(T, /turf/open/transparent/openspace))
-		return
+		if(!istype(T, /turf/open/water))
+			return
 	return TRUE
 
 /datum/crafting_recipe/roguetown/turfs/tentwall
