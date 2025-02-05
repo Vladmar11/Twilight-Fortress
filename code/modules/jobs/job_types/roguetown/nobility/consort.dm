@@ -32,9 +32,20 @@
 	if(!player.ckey)
 		return
 	for(var/mob/dead/new_player/duke in GLOB.player_list)
-		if(duke.mind.assigned_role == "Duke")
-			if(duke.client.prefs.gender != player.client.prefs.gender)
+		if((player.client.prefs.sexual_pref == SEXUAL_PREF_HETERO && duke.client.prefs.gender == SEXUAL_PREF_HETERO) || (player.client.prefs.sexual_pref == SEXUAL_PREF_BOTH && duke.client.prefs.gender == SEXUAL_PREF_HETERO) || (player.client.prefs.sexual_pref == SEXUAL_PREF_HETERO && duke.client.prefs.gender == SEXUAL_PREF_BOTH))
+			if(duke.mind.assigned_role == "Duke")
+				if(duke.client.prefs.gender != player.client.prefs.gender)
+					return TRUE
+
+		if((player.client.prefs.sexual_pref == SEXUAL_PREF_SAME && duke.client.prefs.gender == SEXUAL_PREF_SAME) || (player.client.prefs.sexual_pref == SEXUAL_PREF_BOTH && duke.client.prefs.gender == SEXUAL_PREF_SAME) || (player.client.prefs.sexual_pref == SEXUAL_PREF_SAME && duke.client.prefs.gender == SEXUAL_PREF_BOTH))
+			if(duke.mind.assigned_role == "Duke")
+				if(duke.client.prefs.gender == player.client.prefs.gender)
+					return TRUE
+
+		if(player.client.prefs.sexual_pref == SEXUAL_PREF_BOTH && duke.client.prefs.gender == SEXUAL_PREF_BOTH)
+			if(duke.mind.assigned_role == "Duke")
 				return TRUE
+			
 
 /datum/job/roguetown/consort_dowager//just used to change the consort title
 	title = "Duke Dowager"

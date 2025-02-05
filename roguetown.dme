@@ -2004,6 +2004,7 @@
 #include "modular_twilight\code\game\objects\items\rogueweapons\melee\flail.dm"
 #include "modular_twilight\code\game\objects\objects\effects\temporary_visuals\miracles.dm"
 #include "modular_twilight\code\game\objects\objects\effects\temporary_visuals\music.dm"
+#include "modular_twilight\code\modules\bathrobes\module.dm"
 #include "modular_twilight\code\modules\clothing\clothing.dm"
 #include "modular_twilight\code\modules\clothing\izuma\armor.dm"
 #include "modular_twilight\code\modules\clothing\izuma\cloaks.dm"

@@ -44014,8 +44014,8 @@
 /obj/item/seeds/wheat,
 /obj/item/seeds/wheat,
 /obj/item/seeds/wheat,
-/obj/item/seeds/wheat,
-/obj/item/seeds/wheat,
+/obj/item/seeds/wheat/oat,
+/obj/item/seeds/wheat/oat,
 /obj/item/seeds/wheat/oat,
 /obj/item/seeds/wheat/oat,
 /obj/item/seeds/wheat/oat,
@@ -211436,7 +211436,7 @@ qbG
 qbG
 qbG
 qxe
-vFU
+uaL
 uaL
 uaL
 wSn
@@ -212303,7 +212303,7 @@ qxe
 uaL
 uaL
 wSn
-wSn
+uJb
 uaL
 uaL
 uaL
