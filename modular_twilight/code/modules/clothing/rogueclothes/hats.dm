@@ -19,6 +19,22 @@
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/head.dmi'
 
+/obj/item/clothing/head/roguetown/duelhat //lifeweb sprite
+	name = "duelist's hat"
+	desc = "A feathered leather hat, to show them all your superiority."
+	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
+	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/head.dmi'
+	icon_state = "duelhat"
+	sewrepair = TRUE
+
+/obj/item/clothing/head/roguetown/redmoonsosalbrimmed
+	name = "brimmed hat"
+	desc = "A simple brimmed hat that provides some relief from the sun."
+	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
+	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/head.dmi'
+	icon_state = "brimmed"
+	sewrepair = TRUE
+
 //............... Miners Helmet ............... //
 /obj/item/clothing/head/roguetown/helmet/leather/minershelm
 	name = "miners helmet"
@@ -148,6 +164,9 @@
 	emote_environment = 3
 	block2add = FOV_BEHIND
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
+	armor_class = ARMOR_CLASS_LIGHT
+	armor = list("blunt" = 60, "slash" = 70, "stab" = 60, "bullet" = 90, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	smeltresult = /obj/item/ingot/steel
 
 /obj/item/clothing/head/roguetown/helmet/heavy/templar/pestrahelm
@@ -220,7 +239,7 @@
 		pic.appearance_flags = RESET_COLOR
 		if(get_detail_color())
 			pic.color = get_detail_color()
-		add_overlay(pic)
+		add_overlay(pic)	
 
 /obj/item/clothing/head/roguetown/helmet/heavy/decoratedhounskull
 	name = "decorated hounskull"

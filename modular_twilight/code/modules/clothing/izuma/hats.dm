@@ -4,7 +4,7 @@
 	desc = "Шляпа, которую носят монахи из Изумы во время поломничества или когда убивают демонов."
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/head.dmi'
-	flags_inv = HIDEEARS|HIDEHAIR
+	flags_inv = HIDEEARS
 	armor = list("blunt" = 25, "slash" = 25, "stab" = 15, "bullet" = 10, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	body_parts_covered = HEAD|HAIR|EARS
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
@@ -37,6 +37,9 @@
 	icon_state = "gasa"
 	desc = "Коническая соломенная шляпа для защиты от солнца и дождя. Обычно используется простолюдинами, а также самураями и их приближенными."
 	flags_inv = HIDEEARS
+	armor = list("blunt" = 25, "slash" = 25, "stab" = 15, "bullet" = 10, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	body_parts_covered = HEAD|HAIR|EARS|NOSE
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT)
 
 /obj/item/clothing/head/roguetown/lilly
 	name = "маленькая лилипутка каса"

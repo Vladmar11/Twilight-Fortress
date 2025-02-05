@@ -37,7 +37,7 @@
 			H.mind.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/music, 4, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 1, TRUE)
-			head = /obj/item/clothing/head/roguetown/bardhat/bloodhunter
+			head = /obj/item/clothing/head/roguetown/redmoonsosalbrimmed
 			pants = /obj/item/clothing/under/roguetown/tights/random
 			gloves = /obj/item/clothing/gloves/roguetown/fingerless/yugake
 			belt = /obj/item/storage/belt/rogue/leather
@@ -56,6 +56,8 @@
 
 		if("Heimin")
 			armor = /obj/item/clothing/suit/roguetown/shirt/tunic/kamishimo
+			head = /obj/item/clothing/head/roguetown/tengai/torioigasa
+			r_hand = /obj/item/rogueweapon/flail/kusarigama/peasant
 			belt = /obj/item/storage/belt/rogue/leather/rope
 			beltl = /obj/item/rogueweapon/sickle
 			beltr = /obj/item/rogueweapon/stoneaxe/woodcut

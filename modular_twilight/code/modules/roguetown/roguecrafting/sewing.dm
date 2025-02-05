@@ -35,6 +35,21 @@
 		/obj/item/natural/fibers = 2,)
 	skill_level = 3
 
+/datum/crafting_recipe/roguetown/sewing/duelhat
+	name = "duelist's hat - (2 кожи, 1 волокно, 1 перо; JOURNEYMAN)"
+	result = list(/obj/item/clothing/head/roguetown/duelhat)
+	reqs = list(/obj/item/natural/hide/cured = 2,
+				/obj/item/natural/fibers = 1,
+				/obj/item/natural/feather = 1)
+	skill_level = 3
+
+/datum/crafting_recipe/roguetown/sewing/brimmedhat
+	name = "brimmed hat - (2 кожи, 1 волокно; JOURNEYMAN)"
+	result = list(/obj/item/clothing/head/roguetown/redmoonsosalbrimmed)
+	reqs = list(/obj/item/natural/hide/cured = 2,
+				/obj/item/natural/fibers = 1)
+	skill_level = 3
+
 /datum/crafting_recipe/roguetown/sewing/abyssortemplartabard
 	name = "abyssorite templar tabard"
 	result = list(/obj/item/clothing/cloak/abyssortabard)
