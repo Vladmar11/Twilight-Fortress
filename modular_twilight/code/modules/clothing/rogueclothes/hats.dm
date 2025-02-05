@@ -138,6 +138,7 @@
 	emote_environment = 3
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 	block2add = FOV_BEHIND
+	adjustable = CANT_CADJUST
 	smeltresult = /obj/item/ingot/steel
 
 /obj/item/clothing/head/roguetown/helmet/heavy/xylixcagehelm
@@ -167,6 +168,7 @@
 	armor_class = ARMOR_CLASS_LIGHT
 	armor = list("blunt" = 60, "slash" = 70, "stab" = 60, "bullet" = 90, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
+	adjustable = CANT_CADJUST
 	smeltresult = /obj/item/ingot/steel
 
 /obj/item/clothing/head/roguetown/helmet/heavy/templar/pestrahelm
@@ -179,6 +181,7 @@
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 	emote_environment = 3
 	block2add = FOV_BEHIND
+	adjustable = CANT_CADJUST
 	smeltresult = /obj/item/ingot/steel
 
 //......................................................................................................
