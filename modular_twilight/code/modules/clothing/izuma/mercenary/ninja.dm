@@ -5,13 +5,15 @@
 	Они довольно преданные, но за приличную сумму."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_TOLERATED_UP
-	allowed_patrons = list(/datum/patron/divine/abyssor)
 	outfit = /datum/outfit/job/roguetown/mercenary/shinobii
 	maximum_possible_slots = 9
 	min_pq = 15
 	torch = FALSE
-	cmode_music = 'modular_twilight/sound/izuma/combat/combat_traditional.ogg'
+	cmode_music = 'modular_twilight/sound/izuma/combat/combat_changeling.ogg'
 	category_tags = list(CTAG_MERCENARY)
+
+/datum/outfit/job/roguetown/mercenary/shinobii
+	allowed_patrons = list(/datum/patron/divine/abyssor)
 
 /datum/outfit/job/roguetown/mercenary/shinobii/pre_equip(mob/living/carbon/human/H)
 	..()

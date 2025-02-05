@@ -46,7 +46,7 @@
 		H.change_stat("constitution", 2)
 		H.change_stat("endurance", 2)
 		H.change_stat("speed", -1)
-		H.cmode_music = 'modular_twilight/sound/izuma/combat/combat_traditional.ogg'
+		H.cmode_music = 'modular_twilight/sound/izuma/combat/combat_emperor.ogg'
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_NOSEGRAB, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)

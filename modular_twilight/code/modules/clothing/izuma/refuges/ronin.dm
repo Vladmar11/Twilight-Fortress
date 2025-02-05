@@ -1,5 +1,5 @@
-/datum/subclass/noble
-	name = "Noble"
+/datum/subclass/ronin
+	name = "Ronin"
 	tutorial = "Вы - ронин, странник и свободный воин из Изумы, потерявший покровительство своего сюзерена, либо не сумевший уберечь его от смерти, \
 				но оставшийся верным служению. Только от вас зависит ваша судьба: попробуйте вернуть себе честь, либо присягните новому \
 				сюзерену, либо опуститесь еще ниже."
@@ -10,115 +10,75 @@
 
 	maximum_possible_slots = 10
 
-	outfit = /datum/outfit/job/roguetown/refugee/noble
+	outfit = /datum/outfit/job/roguetown/refugee/ronin
 
 
-/datum/outfit/job/roguetown/refugee/noble
-	allowed_patrons = ALL_PATRONS
+/datum/outfit/job/roguetown/refugee/ronin
+	allowed_patrons = list(/datum/patron/divine/abyssor)
 
-/datum/outfit/job/roguetown/refugee/noble/pre_equip(mob/living/carbon/human/H)
+/datum/outfit/job/roguetown/refugee/ronin/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.adjust_blindness(-3)
-	var/classes
+	var/classes = list("Uchigatana", "Ono")
 	var/classchoice = input("Choose your archetypes", "Available archetypes") as anything in classes
 
 	switch(classchoice)
 
-		if("Disgraced Lord")
-			H.mind.adjust_skillrank(/datum/skill/combat/bows, 2, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/craft/crafting, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/polearms, 2, TRUE) 
-			H.mind.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-			shoes = /obj/item/clothing/shoes/roguetown/nobleboot/thighboots
-			belt = /obj/item/storage/belt/rogue/leather/black
-			beltr = /obj/item/flashlight/flare/torch/lantern
-			backl = /obj/item/storage/backpack/rogue/satchel
-			backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel)
-			neck = /obj/item/storage/belt/rogue/pouch/coins/rich
-			id = /obj/item/clothing/ring/silver
-			pants = /obj/item/clothing/under/roguetown/tights/purple
-			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/purple
-			cloak = /obj/item/clothing/cloak/half
-			head = /obj/item/clothing/head/roguetown/fancyhat
-			r_hand = /obj/item/rogueweapon/woodstaff
-			H.change_stat("intelligence", 1)
-			H.change_stat("perception", 1)
-			H.change_stat("strength", -1)
-			ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
-
-
-		if("Widowed Lady")
-			H.mind.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/sewing, 3, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/treatment, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/music, 2, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
-			shoes = /obj/item/clothing/shoes/roguetown/nobleboot/thighboots
-			belt = /obj/item/storage/belt/rogue/leather/black
-			beltr = /obj/item/flashlight/flare/torch/lantern
-			backl = /obj/item/storage/backpack/rogue/satchel
-			backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel)
-			neck = /obj/item/storage/belt/rogue/pouch/coins/rich
-			id = /obj/item/clothing/ring/silver
-			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/fancy
-			r_hand = /obj/item/rogueweapon/woodstaff
-			pants = /obj/item/clothing/under/roguetown/tights/stockings/silk/white
-			armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen/purple
-			head = /obj/item/clothing/head/roguetown/hatblu
-			cloak = /obj/item/clothing/cloak/raincloak/purple
-			beltl = /obj/item/storage/belt/rogue/pouch/food
-			H.change_stat("intelligence", 2)
-			H.change_stat("perception", 1)
-			H.change_stat("strength", -1)
-			ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-
-		if("Failed Condottiero")
-			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
-			belt = /obj/item/storage/belt/rogue/leather/black
-			shoes = /obj/item/clothing/shoes/roguetown/nobleboot/thighboots
-			pants = /obj/item/clothing/under/roguetown/tights/black
-			cloak = /obj/item/clothing/cloak/heartfelt
-			armor = /obj/item/clothing/suit/roguetown/armor/heartfelt/lord
-			neck = /obj/item/storage/belt/rogue/pouch/coins/rich
-			beltl = /obj/item/rogueweapon/sword/long/marlin
-			beltr = /obj/item/rogueweapon/huntingknife
-			gloves = /obj/item/clothing/gloves/roguetown/leather/black
-			backl = /obj/item/storage/backpack/rogue/satchel
-			id = /obj/item/clothing/ring/silver
-			H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
+		if("Uchigatana")
+			H.mind.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/axes, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/swords, 3, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
-			H.mind.adjust_skillrank(/datum/skill/misc/riding, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/treatment, 1, TRUE)
+			pants = /obj/item/clothing/under/roguetown/izuma/ceramic/light
+			shoes = /obj/item/clothing/shoes/roguetown/boots/armor/light/kusaritabi
+			belt = /obj/item/storage/belt/rogue/leather
+			neck = /obj/item/storage/belt/rogue/pouch/coins/poor
+			shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/tatami
+			armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/izuma
+			head = /obj/item/clothing/head/roguetown/tengai/gasa
+			backl = /obj/item/storage/backpack/rogue/satchel
+			backr = /obj/item/rogueweapon/sword/uchigatana
+			beltl = /obj/item/rogueweapon/huntingknife
+			beltr = /obj/item/rogueweapon/sword/short/wakizashi
 			H.change_stat("strength", 2)
 			H.change_stat("endurance", 2)
-			H.change_stat("speed", -1)
-			H.change_stat("perception", 2)
-			H.change_stat("fortune", -1)
-			ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
-			ADD_TRAIT(H, TRAIT_NOSEGRAB, TRAIT_GENERIC)
-			ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
+			H.change_stat("constitution", 1)
+			H.change_stat("speed", 1)
+			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+
+		if("Ono")
+			H.mind.adjust_skillrank(/datum/skill/combat/maces, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/axes, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/treatment, 1, TRUE)
+			pants = /obj/item/clothing/under/roguetown/izuma/ceramic/light
+			shoes = /obj/item/clothing/shoes/roguetown/boots/armor/light/kusaritabi
+			belt = /obj/item/storage/belt/rogue/leather
+			neck = /obj/item/storage/belt/rogue/pouch/coins/poor
+			shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/tatami
+			armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/izuma
+			head = /obj/item/clothing/head/roguetown/tengai/gasa
+			backl = /obj/item/storage/backpack/rogue/satchel
+			backr = /obj/item/rogueweapon/shield/tower/abyssaltower
+			beltl = /obj/item/rogueweapon/huntingknife
+			beltr = /obj/item/rogueweapon/battle/ono
+			H.change_stat("strength", 2)
+			H.change_stat("endurance", 2)
+			H.change_stat("constitution", 1)
+			H.change_stat("speed", 1)
+			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 
 	H.set_blindness(0)
+

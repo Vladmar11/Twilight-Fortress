@@ -34,7 +34,7 @@
 
 /obj/item/clothing/head/roguetown/tengai/gasa
 	name = "каса"
-	icon_state = "каса"
+	icon_state = "gasa"
 	desc = "Коническая соломенная шляпа для защиты от солнца и дождя. Обычно используется простолюдинами, а также самураями и их приближенными."
 	flags_inv = HIDEEARS
 

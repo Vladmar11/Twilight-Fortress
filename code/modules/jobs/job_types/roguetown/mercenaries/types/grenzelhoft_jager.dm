@@ -18,7 +18,7 @@
 	wrists = /obj/item/clothing/wrists/roguetown/bracers
 	belt = /obj/item/storage/belt/rogue/leather
 	beltl = /obj/item/ammo_holder/bullet/lead
-	beltr = /obj/item/rogueweapon/stoneaxe/woodcut/steel
+	beltr = /obj/item/rogueweapon/stoneaxe/battle
 	backl = /obj/item/storage/backpack/rogue/backpack
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	shirt = /obj/item/clothing/suit/roguetown/shirt/grenzelhoft
@@ -49,7 +49,7 @@
 
 
 	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/combat/firearms, 4, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/firearms, 5, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/axes, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/hunting, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/labor/lumberjacking, 3, TRUE)
@@ -70,3 +70,4 @@
 		H.change_stat("speed", 3)
 		H.change_stat("perception", 2)
 		H.change_stat("constitution", 1) // 9 Points with no armor skill.
+	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)

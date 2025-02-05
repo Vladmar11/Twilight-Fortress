@@ -69,3 +69,8 @@
 	penfactor = 70
 	swingdelay = 1
 	misscost = 10
+
+/obj/item/rogueweapon/shield/tower/abyssaltower
+	name = "abyssal tower"
+	icon_state = "abyssaltower"
+	icon = 'modular_twilight/icons/roguetown/weapons/32.dmi'

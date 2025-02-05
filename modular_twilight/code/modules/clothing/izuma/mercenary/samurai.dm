@@ -6,13 +6,15 @@
 	чтобы доказать чистоту своих действий."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_TOLERATED_UP
-	allowed_patrons = list(/datum/patron/divine/abyssor)
 	outfit = /datum/outfit/job/roguetown/mercenary/acigaru
 	maximum_possible_slots = 9
 	min_pq = 15
 	torch = FALSE
 	cmode_music = 'modular_twilight/sound/izuma/combat/combat_traditional.ogg'
 	category_tags = list(CTAG_MERCENARY)
+
+/datum/outfit/job/roguetown/mercenary/acigaru
+	allowed_patrons = list(/datum/patron/divine/abyssor)
 
 /datum/outfit/job/roguetown/mercenary/acigaru/pre_equip(mob/living/carbon/human/H)
 	..()

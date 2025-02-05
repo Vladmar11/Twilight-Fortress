@@ -166,7 +166,7 @@
 	icon_state = "shrinekeeper"
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
-	icon = 'modular_twilight/icons/roguetown/clothing/shirts.dmi'
-	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/shirts.dmi'
-	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_shirts.dmi'
+	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
+	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
+	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
 	sleevetype = "shirt"
