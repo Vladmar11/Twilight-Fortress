@@ -44,7 +44,7 @@
 #endif
 
 /obj/item/paper
-	name = "parchment"
+	name = "пергамент"
 	gender = NEUTER
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "paper"
@@ -134,9 +134,9 @@
 /obj/item/paper/examine(mob/user)
 	. = ..()
 	if(!mailer)
-		. += "<a href='?src=[REF(src)];read=1'>Read</a> (<a href='?src=[REF(src)];Help=1'>Help</a>)"
+		. += "<a href='?src=[REF(src)];read=1'>Читать</a> (<a href='?src=[REF(src)];Help=1'>Помощь</a>)"
 	else
-		. += "It's from [mailer], addressed to [mailedto].</a>"
+		. += "От: [mailer], адресовано [mailedto].</a>"
 
 /obj/item/paper/proc/read(mob/user)
 //	var/datum/asset/assets = get_asset_datum(/datum/asset/spritesheet/simple/paper)
@@ -154,7 +154,7 @@
 		//		var/obj/screen/read/R = user.hud_used.reads
 		format_browse(info, user)
 	else
-		return span_warning("I'm too far away to read it.")
+		return span_warning("Я слишком далеко, чтобы прочитать.")
 
 /obj/item/paper/proc/format_browse(t, mob/user)
 	user << browse_rsc('html/book.png')
@@ -164,7 +164,7 @@
 			<style type=\"text/css\">
 			body { background-image:url('book.png');background-repeat: repeat; }</style></head><body scroll=yes>"}
 	dat += "[t]<br>"
-	dat += "<a href='?src=[REF(src)];close=1' style='position:absolute;right:50px'>Close</a>"
+	dat += "<a href='?src=[REF(src)];close=1' style='position:absolute;right:50px'>Закрыть</a>"
 	dat += "</body></html>"
 	user << browse(dat, "window=reading;size=500x400;can_close=1;can_minimize=0;can_maximize=0;can_resize=1;titlebar=0;border=0")
 
@@ -175,7 +175,7 @@
 
 	if(usr.incapacitated() || !usr.is_literate())
 		return
-	var/n_name = stripped_input(usr, "What would you like to label the paper?", "Paper Labelling", null, MAX_NAME_LEN)
+	var/n_name = stripped_input(usr, "Как назвать эту записку?", "Смена названия", null, MAX_NAME_LEN)
 	if((loc == usr && usr.stat == CONSCIOUS))
 		name = "paper[(n_name ? text("- '[n_name]'") : null)]"
 	add_fingerprint(usr)
@@ -190,7 +190,7 @@
 
 /obj/item/paper/attack_self(mob/user)
 	if(mailer)
-		user.visible_message(span_notice("[user] opens the letter from [mailer]."))
+		user.visible_message(span_notice("[user] открывает письмо, присланное [mailer]."))
 		cached_mailer = mailer
 		cached_mailedto = mailedto
 		mailer = null
@@ -245,8 +245,8 @@
 /obj/item/paper/proc/updateinfolinks()
 	info_links = info
 	for(var/i in 1 to min(fields, 15))
-		addtofield(i, "<A href='?src=[REF(src)];write=[i]'>write</A> (<A href='?src=[REF(src)];help=1'>\[?\]</A>)", 1)
-	info_links = info_links + "<A href='?src=[REF(src)];write=end'>write</A> <A href='?src=[REF(src)];help=1'>\[?\]</A>"
+		addtofield(i, "<A href='?src=[REF(src)];write=[i]'>Написать</A> (<A href='?src=[REF(src)];help=1'>\[?\]</A>)", 1)
+	info_links = info_links + "<A href='?src=[REF(src)];write=end'>Написать</A> <A href='?src=[REF(src)];help=1'>\[?\]</A>"
 
 
 /obj/item/paper/proc/clearpaper()
@@ -337,7 +337,7 @@
 
 	if(href_list["write"])
 		var/id = href_list["write"]
-		var/t =  stripped_multiline_input("Enter what you want to write:", "Write", no_trim=TRUE)
+		var/t =  stripped_multiline_input("Вставьте текст, что вы хотите написать:", "Письмо", no_trim=TRUE)
 		if(!t || !usr.canUseTopic(src, BE_CLOSE, literate))
 			return
 		var/obj/item/i = usr.get_active_held_item()	//Check to see if he still got that darn pen, also check if he's using a crayon or pen.
@@ -353,7 +353,7 @@
 
 		if(t != null)	//No input from the user means nothing needs to be added
 			if((length(info) + length(t)) > maxlen)
-				to_chat(usr, span_warning("Too long. Try again."))
+				to_chat(usr, span_warning("Слишком длинный текст."))
 				return
 			if(id!="end")
 				addtofield(text2num(id), t) // He wants to edit a field, let him.
@@ -378,14 +378,14 @@
 
 	if(istype(P, /obj/item/natural/thorn)|| istype(P, /obj/item/natural/feather))
 		if(length(info) > maxlen)
-			to_chat(user, span_warning("[src] is full of verba."))
+			to_chat(user, span_warning("[src] весь расписан."))
 			return
 		if(user.can_read(src))
 			format_browse(info_links, user)
 			update_icon_state()
 			return
 		else
-			to_chat(user, span_warning("I can't write."))
+			to_chat(user, span_warning("Я не могу писать."))
 			return
 		return
 
@@ -407,7 +407,7 @@
 	if(!P.can_be_package_wrapped())
 		return ..()
 
-	to_chat(user, span_info("I start to wrap [P] in [src]..."))
+	to_chat(user, span_info("Я заворачиваю [P] в [src]..."))
 	if(do_after(user, 30, 0, target = src))
 		if(user.is_holding(P))
 			if(!user.dropItemToGround(P))
@@ -459,7 +459,7 @@
 	color = "#FFF5ED"
 
 /obj/item/paper/crumpled
-	name = "paper scrap"
+	name = "бумажные обрывки"
 	icon_state = "scrap"
 	slot_flags = null
 
