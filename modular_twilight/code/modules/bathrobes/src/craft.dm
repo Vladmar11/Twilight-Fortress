@@ -1,5 +1,5 @@
 /datum/crafting_recipe/roguetown/sewing/bathrobe
-	name = "Банный халат"
+	name = "банный халат"
 	result = list(/obj/item/clothing/suit/roguetown/shirt/robe/bath)
 	reqs = list(
 		/obj/item/natural/silk = 2,

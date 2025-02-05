@@ -131,7 +131,7 @@
 						break
 				if((user_skin_tone_seen == "lalvestine" && skin_tone_seen == "shalvistine") || \
 					(user_skin_tone_seen == "shalvistine" && skin_tone_seen == "lalvestine"))
-					slop_lore_string = ", <span class='danger'>A TRAITOR!</span>"
+					slop_lore_string = ", <span class='danger'>ПРЕДАТЕЛЬ!</span>"
 			. += span_info("[capitalize(m2)] [skin_tone_wording] is [skin_tone_seen][slop_lore_string]")
 
 		if(ishuman(user))
@@ -220,6 +220,13 @@
 
 	if(HAS_TRAIT(src, TRAIT_LEPROSY))
 		. += span_necrosis("A LEPER...")
+
+	if (HAS_TRAIT(src, TRAIT_BEAUTIFUL))
+		switch (gender)
+			if (MALE)
+				. += span_beautiful_masc("Он невероятно красивый!")
+			if (FEMALE)
+				. += span_beautiful_fem("Она невероятно красивая!")
 
 	if(user != src)
 		var/datum/mind/Umind = user.mind

@@ -21,7 +21,7 @@
 /datum/outfit/job/roguetown/guildsmith/pre_equip(mob/living/carbon/human/H)
 	..()
 	gloves = /obj/item/clothing/gloves/roguetown/leather
-	head = /obj/item/clothing/head/roguetown/hatfur
+	head = /obj/item/clothing/head/roguetown/articap
 	cloak = /obj/item/clothing/cloak/apron/blacksmith
 	backr = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(/obj/item/rogueweapon/hammer/iron = 1, /obj/item/rogueweapon/tongs = 1)
@@ -29,8 +29,6 @@
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 	beltr = /obj/item/key/blacksmith
 	pants = /obj/item/clothing/under/roguetown/trou
-	if(prob(50))
-		head = /obj/item/clothing/head/roguetown/hatblu
 	if(H.gender == MALE)
 		shoes = /obj/item/clothing/shoes/roguetown/armor/leather
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/artificer

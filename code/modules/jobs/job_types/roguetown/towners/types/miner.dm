@@ -10,7 +10,8 @@
 
 /datum/outfit/job/roguetown/towner/miner/pre_equip(mob/living/carbon/human/H)
 	..()
-	head = /obj/item/clothing/head/roguetown/armingcap
+	head = /obj/item/clothing/head/roguetown/helmet/leather/minershelm
+	mask = /obj/item/clothing/mask/rogue/goggles
 	mouth = /obj/item/rogueweapon/huntingknife
 	shoes = /obj/item/clothing/shoes/roguetown/armor/leather
 	belt = /obj/item/storage/belt/rogue/leather

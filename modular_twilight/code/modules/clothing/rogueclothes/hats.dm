@@ -130,7 +130,7 @@
 
 /obj/item/clothing/head/roguetown/helmet/heavy/templar/abyssorgreathelm 
 	name = "абиссоритский шлем"
-    desc = "Шлем, который обычно носят храмовники, служащие Абиссору. Он пробуждает образы моря и угрожающих видов ракообразных."
+  desc = "Шлем, который обычно носят храмовники, служащие Абиссору. Он пробуждает образы моря и угрожающих видов ракообразных."
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/head.dmi'
 	icon_state = "abyssorgreathelm"

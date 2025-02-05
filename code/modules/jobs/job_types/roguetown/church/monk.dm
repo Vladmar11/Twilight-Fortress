@@ -92,19 +92,22 @@
 			shoes = /obj/item/clothing/shoes/roguetown/sandals
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/eora
 		if(/datum/patron/divine/ravox)
-			head = /obj/item/clothing/head/roguetown/roguehood/black
+			head = /obj/item/clothing/head/roguetown/roguehood/ravox
+			mask = /obj/item/clothing/mask/rogue/lordmask/naledi
 			neck = /obj/item/clothing/neck/roguetown/psicross/ravox
 			shoes = /obj/item/clothing/shoes/roguetown/sandals
-			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
+			armor = /obj/item/clothing/suit/roguetown/shirt/robe/ravox
 			pants = /obj/item/clothing/under/roguetown/trou/leather/mourning
-			cloak = /obj/item/clothing/cloak/tabard/crusader/ravox
+			gloves = /obj/item/clothing/gloves/roguetown/leather/ravox
 		if(/datum/patron/divine/xylix)
 			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
-			head = /obj/item/clothing/head/roguetown/roguehood/black
+			gloves = /obj/item/clothing/gloves/roguetown/leather/xylix
+			armor = /obj/item/clothing/suit/roguetown/shirt/robe/pointfex
+			head = /obj/item/clothing/head/roguetown/roguehood/shalal/xylixheavyhood
+			mask = /obj/item/clothing/mask/rogue/lordmask/shadowfacemask
 			neck = /obj/item/clothing/neck/roguetown/psicross/xylix
 			shoes = /obj/item/clothing/shoes/roguetown/sandals
 			pants = /obj/item/clothing/under/roguetown/trou/leather/mourning
-			cloak = /obj/item/clothing/cloak/tabard/crusader/xylix
 		else
 			head = /obj/item/clothing/head/roguetown/roguehood/astrata
 			neck = /obj/item/clothing/neck/roguetown/psicross/astrata

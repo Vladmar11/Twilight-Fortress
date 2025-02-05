@@ -12,6 +12,9 @@
 	cmode_music = 'sound/music/combat_forlorn.ogg'
 	category_tags = list(CTAG_MERCENARY)
 
+/datum/outfit/job/roguetown/mercenary/forlorn
+	allowed_patrons = list(/datum/patron/divine/noc)
+
 /datum/outfit/job/roguetown/mercenary/forlorn/pre_equip(mob/living/carbon/human/H)
 	..()
 	shoes = /obj/item/clothing/shoes/roguetown/armor

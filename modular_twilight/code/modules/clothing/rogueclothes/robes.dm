@@ -11,3 +11,32 @@
 	color = null
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
+
+/obj/item/clothing/suit/roguetown/shirt/robe/ravox
+	name = "justice robe"
+	desc = "Red to hide the blood."
+	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
+	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
+	icon_state = "feldrobe"
+	item_state = "feldrobe"
+	sleeved = null
+
+/obj/item/clothing/suit/roguetown/shirt/robe/xylix
+	name = "trickery robe"
+	desc = ""
+	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
+	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
+	icon_state = "surgrobe"
+	item_state = "surgrobe"
+	sleeved = null
+
+/obj/item/clothing/suit/roguetown/shirt/robe/pointfex
+	name = "pointfex's qaba"
+	desc = "A slimmed down, tighter fitting robe made of fine silks and fabrics. Somehow you feel more mobile in it than in the nude."
+	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
+	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
+	icon_state = "monkcloth"
+	item_state = "monkcloth"
+	color = null
+	r_sleeve_status = SLEEVE_NOMOD
+	l_sleeve_status = SLEEVE_NOMOD

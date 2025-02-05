@@ -18,8 +18,8 @@
 
 /datum/outfit/job/roguetown/architect/pre_equip(mob/living/carbon/human/H)         ///////////// fuck being a dumb virgin
 	..()
-	head = /obj/item/clothing/head/roguetown/helmet/kettle
-	mask = /obj/item/clothing/mask/rogue/spectacles/golden
+	head = /obj/item/clothing/head/roguetown/helmet/leather/minershelm
+	mask = /obj/item/clothing/mask/rogue/goggles
 	neck = /obj/item/powderflask
 	armor = /obj/item/clothing/suit/roguetown/shirt/tunic/noblecoat
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/artificer
