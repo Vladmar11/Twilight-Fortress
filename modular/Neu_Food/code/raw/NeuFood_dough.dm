@@ -63,7 +63,7 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/raisins))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'modular/Neu_Food/sound/kneading.ogg', 100, TRUE, -1)
-			to_chat(user, "<span class='notice'>Замешиваем сливочное масло в тесто...</span>")
+			to_chat(user, "<span class='notice'>Добавляю изюм в тесто...</span>")
 			if(do_after(user,short_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 				new /obj/item/reagent_containers/food/snacks/rogue/rbread_half(loc)
@@ -143,7 +143,7 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/egg))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			to_chat(user, "<span class='notice'>Вмешиваем яйцо в тесто и формируем из него торт...</span>")
+			to_chat(user, "<span class='notice'>Вмешиваю яйцо в тесто и формирую из него торт...</span>")
 			playsound(get_turf(user), 'modular/Neu_Food/sound/eggbreak.ogg', 100, TRUE, -1)
 			if(do_after(user,long_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
@@ -195,7 +195,7 @@
 			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	if(I.get_sharpness())
 		if(!isdwarf(user))
-			to_chat(user, "<span class='warning'>У вас не хватает знаний о дварфийской выпечке!</span>")
+			to_chat(user, "<span class='warning'>У меня не хватает знаний о дварфийской выпечке!</span>")
 			return
 		else
 			if(isturf(loc)&& (found_table))
