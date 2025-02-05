@@ -9,7 +9,7 @@
 	maximum_possible_slots = 9
 	min_pq = 15
 	torch = FALSE
-	cmode_music = 'modular_twilight/sound/izuma/combat/combat_changeling.ogg'
+	cmode_music = 'modular_twilight/sound/izuma/combat/combat_shinobi.ogg'
 	category_tags = list(CTAG_MERCENARY)
 
 /datum/outfit/job/roguetown/mercenary/shinobii
@@ -29,7 +29,7 @@
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/hide/shozoku
 	pants = /obj/item/clothing/under/roguetown/trou/leather/shinobizubon
 	shoes = /obj/item/clothing/shoes/roguetown/boots/jikatabi/shinobi
-	gloves = /obj/item/clothing/gloves/roguetown/leather/advanced/shadowgauntlets
+	gloves = /obj/item/clothing/gloves/roguetown/shadow
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	backl = /obj/item/storage/backpack/rogue/satchel/black
 	backpack_contents = list(/obj/item/throwing_star/ninja = 7, /obj/item/rogueweapon/tetsubishi = 3, /obj/item/storage/keyring/mercenary = 1, /obj/item/storage/belt/rogue/pouch/coins/poor = 1, /obj/item/smokebomb = 6)

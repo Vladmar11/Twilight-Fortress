@@ -53,6 +53,7 @@
 			H.change_stat("perception", 2)
 			H.change_stat("speed", 2)
 			ADD_TRAIT(H, TRAIT_EMPATH, TRAIT_GENERIC)
+			H.cmode_music = 'modular_twilight/sound/izuma/combat/combat_horosha.ogg'
 
 		if("Heimin")
 			armor = /obj/item/clothing/suit/roguetown/shirt/tunic/kamishimo
@@ -83,6 +84,7 @@
 			H.mind.adjust_skillrank(/datum/skill/labor/lumberjacking, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/sewing, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/labor/fishing, 3, TRUE)
+			H.cmode_music = 'modular_twilight/sound/izuma/combat/combat_horosha.ogg'
 
 			H.change_stat("strength", 1)
 			H.change_stat("endurance", 1)
@@ -110,5 +112,6 @@
 			H.change_stat("constitution", 1)
 			H.change_stat("endurance", 3)
 			ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC)
+			H.cmode_music = 'modular_twilight/sound/izuma/combat/combat_horosha.ogg'
 
 	H.set_blindness(0)

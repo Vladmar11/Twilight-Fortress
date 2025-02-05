@@ -49,7 +49,8 @@
 			H.change_stat("strength", 2)
 			H.change_stat("endurance", 2)
 			H.change_stat("constitution", 1)
-			H.change_stat("speed", 1)
+			H.change_stat("speed", 2)
+			H.cmode_music = 'modular_twilight/sound/izuma/combat/combat_ronin.ogg'
 			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 
 		if("Ono")
@@ -77,7 +78,8 @@
 			H.change_stat("strength", 2)
 			H.change_stat("endurance", 2)
 			H.change_stat("constitution", 1)
-			H.change_stat("speed", 1)
+			H.change_stat("speed", 2)
+			H.cmode_music = 'modular_twilight/sound/izuma/combat/combat_ronin.ogg'
 			ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 
 	H.set_blindness(0)
