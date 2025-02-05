@@ -193,7 +193,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 
 
 /datum/charflaw/noeyer
-	name = "Циклоп (Правый)"
+	name = "Циклоп (Нет правого)"
 	desc = "Давным-давно меня лишили правого глаза."
 
 /datum/charflaw/noeyer/on_mob_creation(mob/user)
@@ -216,7 +216,7 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	H.equip_to_slot_if_possible(eyepatch, SLOT_WEAR_MASK, FALSE, TRUE, FALSE, TRUE, TRUE)
 
 /datum/charflaw/noeyel
-	name = "Циклоп (Левый)"
+	name = "Циклоп (Нет левого)"
 	desc = "Давным-давно меня лишили левого глаза."
 
 /datum/charflaw/noeyel/on_mob_creation(mob/user)

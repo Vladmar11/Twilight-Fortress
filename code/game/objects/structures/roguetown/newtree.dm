@@ -78,7 +78,7 @@
 			return
 		var/turf/target = get_step_multiz(user, UP)
 		if(!istype(target, /turf/open/transparent/openspace))
-			to_chat(user, span_warning("Я не могу отсюда забраться."))
+			to_chat(user, span_warning("Я не могу отсюда взобраться выше."))
 			return
 		if(!L.can_zTravel(target, UP))
 			to_chat(user, span_warning("Я не могу туда забраться."))

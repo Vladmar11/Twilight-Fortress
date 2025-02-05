@@ -429,8 +429,8 @@
   * COMSIG_ATOM_GET_EXAMINE_NAME signal
   */
 /atom/proc/get_examine_name(mob/user)
-	. = "\a [src]"
-	var/list/override = list(gender == PLURAL ? "some" : "a", " ", "[name]")
+	. = "[src]"
+	var/list/override = list(gender == PLURAL ? "some" : "[name]")
 	if(article)
 		. = "[article] [src]"
 		override[EXAMINE_POSITION_ARTICLE] = article
@@ -439,7 +439,7 @@
 
 ///Generate the full examine string of this atom (including icon for goonchat)
 /atom/proc/get_examine_string(mob/user, thats = FALSE)
-	return "[thats? "That's ":""][get_examine_name(user)]"
+	return "[thats? "Это ":""][get_examine_name(user)]"
 
 /atom/proc/get_inspect_button()
 	return ""
@@ -519,7 +519,7 @@
 /atom/proc/relaymove(mob/user)
 	if(buckle_message_cooldown <= world.time)
 		buckle_message_cooldown = world.time + 50
-		to_chat(user, span_warning("I should try resisting."))
+		to_chat(user, span_warning("Мне нужно сопротивляться."))
 	return
 
 /// Handle what happens when your contents are exploded by a bomb

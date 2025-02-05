@@ -103,7 +103,7 @@
 		return
 
 	if(C.cmode && C.mobility_flags & MOBILITY_STAND)
-		to_chat(user, span_warning("Я не могу сковать, пока цель слишком напряжена!"))
+		to_chat(user, span_warning("Я не могу сковать, пока цель сильно брыкается!"))
 		return
 
 	var/surrender_mod = 1
