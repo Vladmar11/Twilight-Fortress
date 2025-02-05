@@ -4,14 +4,14 @@
 	name = "Abyssorite Helmet (+1 Steel)"
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/ingot/steel)
-	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/abyssorgreathelm
+	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/templar/abyssorgreathelm
 	skill_level = 4
 
 /datum/anvil_recipe/armor/steel/xylixhelm
 	name = "Xylixian Helmet (+1 Steel)"
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/ingot/steel)
-	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/xylixhelm
+	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/templar/xylixhelm
 	skill_level = 4
 
 /datum/anvil_recipe/armor/steel/xylixcagehelm
@@ -25,7 +25,7 @@
 	name = "Pestran Helmet (+1 Steel)"
 	req_bar = /obj/item/ingot/steel
 	additional_items = list(/obj/item/ingot/steel)
-	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/pestrahelm
+	created_item = /obj/item/clothing/head/roguetown/helmet/heavy/templar/pestrahelm
 	skill_level = 4
 
 /datum/anvil_recipe/armor/steel/decoratedhelmetknight

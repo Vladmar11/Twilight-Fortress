@@ -112,7 +112,7 @@
 	item_state = "heavyhood"
 	icon_state = "heavyhood"
 
-/obj/item/clothing/head/roguetown/helmet/heavy/abyssorgreathelm
+/obj/item/clothing/head/roguetown/helmet/heavy/templar/abyssorgreathelm
 	name = "abyssorite helmet"
 	desc = "A helmet commonly worn by Templars in service to Abyssor. It evokes imagery of the sea with a menacing crustacean visage."
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
@@ -138,9 +138,9 @@
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 	smeltresult = /obj/item/ingot/steel
 
-/obj/item/clothing/head/roguetown/helmet/heavy/xylixhelm
+/obj/item/clothing/head/roguetown/helmet/heavy/templar/xylixhelm
 	name = "xylixian helmet"
-	desc = "Headwear commonly worn by templars who worship Xylix. Life is a cage and we must all do our time."
+	desc = "Стальной шлем, который обычно носят храмовники, поклоняющиеся Ксайликсу. Необычайно легкий, даже если он выглядит как стальной."
 	icon_state = "briarhelm"
 	item_state = "briarhelm"
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
@@ -150,7 +150,7 @@
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 	smeltresult = /obj/item/ingot/steel
 
-/obj/item/clothing/head/roguetown/helmet/heavy/pestrahelm
+/obj/item/clothing/head/roguetown/helmet/heavy/templar/pestrahelm
 	name = "pestran helmet"
 	desc = "A great helmet made of coarse, tainted steel. It is modeled after a plagued carrion, a blessed abomination of Pestra."
 	icon_state = "pestrahelm"

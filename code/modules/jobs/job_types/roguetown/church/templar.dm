@@ -59,7 +59,7 @@
 			pants = /obj/item/clothing/under/roguetown/chainlegs
 		if("Pestra")
 			wrists = /obj/item/clothing/neck/roguetown/psicross/pestra
-			head = /obj/item/clothing/head/roguetown/helmet/heavy/pestrahelm
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/templar/pestrahelm
 			cloak = /obj/item/clothing/cloak/tabard/crusader/pestra
 			armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
 			pants = /obj/item/clothing/under/roguetown/chainlegs
@@ -71,7 +71,7 @@
 			pants = /obj/item/clothing/under/roguetown/chainlegs
 		if("Abyssor")
 			wrists = /obj/item/clothing/neck/roguetown/psicross/abyssor
-			head = /obj/item/clothing/head/roguetown/helmet/heavy/abyssorgreathelm
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/templar/abyssorgreathelm
 			cloak = /obj/item/clothing/cloak/abyssortabard
 			armor = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
 			pants = /obj/item/clothing/under/roguetown/chainlegs
@@ -91,7 +91,7 @@
 		if("Xylix")
 			wrists = /obj/item/clothing/neck/roguetown/psicross/xylix
 			cloak = /obj/item/clothing/cloak/tabard/crusader/xylix
-			head = /obj/item/clothing/head/roguetown/helmet/leather
+			head = /obj/item/clothing/head/roguetown/helmet/heavy/templar/xylixhelm
 			armor = /obj/item/clothing/suit/roguetown/armor/leather
 			pants = /obj/item/clothing/under/roguetown/trou/leather/advanced
 			neck = /obj/item/clothing/neck/roguetown/leather
