@@ -164,6 +164,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 	var/datum/loadout_item/loadout
 	/// Tracker to whether the person has ever spawned into the round, for purposes of applying the respawn ban
 	var/has_spawned = FALSE
+	var/sexual_pref = SEXUAL_PREF_HETERO
 
 
 /datum/preferences/New(client/C)
@@ -359,10 +360,21 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 			dat += "<b>Семья:</b> <a href='?_src_=prefs;preference=family'>[family ? "Да!" : "Нет"]</a><BR>" // Disabling until its working
 			if(family != FAMILY_NONE)
 				dat += "<B>Предпочтения в семье:</B>"
-				if(gender == MALE)
-					family_gender = list(FEMALE)
-				else
-					family_gender = list(MALE)
+				if(sexual_pref == SEXUAL_PREF_HETERO)
+					if(gender == MALE)
+						family_gender = list(FEMALE)
+					else
+						family_gender = list(MALE)
+				
+				if(sexual_pref == SEXUAL_PREF_SAME)
+					if(gender == MALE)
+						family_gender = list(MALE)
+					else
+						family_gender = list(FEMALE)
+
+				if(sexual_pref == SEXUAL_PREF_BOTH)
+					family_gender = list(MALE, FEMALE)
+
 				dat += " <small><a href='?_src_=prefs;preference=familypref;res=race'><b>Раса</b></a></small>"
 				dat += "<BR>"
 				dat += " <small><a href='?_src_=prefs;preference=familypref;res=name'><b>Душа второй половинки: [spouse_ckey ? spouse_ckey : "(Случайная)"]</b></a></small>"
@@ -712,6 +724,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 
 	dat += "</td>"
 	dat += "<td width='33%' align='right'>"
+	dat += "<b style='font-size:104%'>[sexual_pref]</b><a href='?_src_=prefs;preference=sexual_pref;task=input'>	Изменить </a><br>"
 	dat += "<b>Be defiant:</b> <a href='?_src_=prefs;preference=be_defiant'>[(defiant) ? "Yes":"No"]</a><br>"
 	dat += "<b>Be a virgin:</b> <a href='?_src_=prefs;preference=be_virgin'>[(virginity) ? "Yes":"No"]</a><br>"
 	dat += "<b>Be voice:</b> <a href='?_src_=prefs;preference=schizo_voice'>[(toggles & SCHIZO_VOICE) ? "Enabled":"Disabled"]</a>"
@@ -1352,6 +1365,8 @@ Slots: [job.spawn_positions]</span>
 					jumpsuit_style = PREF_SUIT
 				if("all")
 					random_character(gender)
+				if("sexual_pref")
+					sexual_pref = SEXUAL_PREF_HETERO
 
 		if("input")
 
@@ -1713,6 +1728,12 @@ Slots: [job.spawn_positions]</span>
 					var/phobiaType = input(user, "What are you scared of?", "Character Preference", phobia) as null|anything in SStraumas.phobia_types
 					if(phobiaType)
 						phobia = phobiaType
+
+				if("sexual_pref")
+					var/listy = GLOB.sexual_prefs_list
+					var/new_sexual_pref = input(user, "Choose your character's sexual preferences:", "Sexual Prefences")  as null|anything in listy
+					if(new_sexual_pref)
+						sexual_pref = listy[new_sexual_pref]
 
 		else
 			switch(href_list["preference"])
