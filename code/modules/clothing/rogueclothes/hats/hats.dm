@@ -1212,13 +1212,15 @@
 	. = ..()
 	if(slot == SLOT_HEAD)
 		ADD_TRAIT(user, TRAIT_PACIFISM, "peaceflower_[REF(src)]")
-		ADD_TRAIT(user, TRAIT_SPELLCOCKBLOCK, "peaceflower_[REF(src)]")
+		if(!((user.mind.assigned_role == "Acolyte") && (user.patron.type == /datum/patron/divine/eora)))
+			ADD_TRAIT(user, TRAIT_SPELLCOCKBLOCK, "peaceflower_[REF(src)]")
 		user.add_stress(/datum/stressevent/eora)
 
 /obj/item/clothing/head/peaceflower/dropped(mob/living/carbon/human/user)
 	..()
 	REMOVE_TRAIT(user, TRAIT_PACIFISM, "peaceflower_[REF(src)]")
-	REMOVE_TRAIT(user, TRAIT_SPELLCOCKBLOCK, "peaceflower_[REF(src)]")
+	if(!((user.mind.assigned_role == "Acolyte") && (user.patron.type == /datum/patron/divine/eora)))
+		REMOVE_TRAIT(user, TRAIT_SPELLCOCKBLOCK, "peaceflower_[REF(src)]")
 	user.remove_stress(/datum/stressevent/eora)
 
 /obj/item/clothing/head/peaceflower/proc/peace_check(mob/living/user)

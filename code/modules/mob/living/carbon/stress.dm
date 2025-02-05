@@ -76,19 +76,16 @@
 		if(diff_abs > 1)
 			if(ascending)
 				to_chat(src, span_smallred("I gain stress."))
+				if(!rogue_sneaking || alpha >= 100)
+					play_stress_indicator()
 			else
 				to_chat(src, span_smallgreen("I gain peace."))
+				if(!rogue_sneaking || alpha >= 100)
+					play_relief_indicator()
 
 	var/old_threshold = get_stress_threshold(oldstress)
 	var/new_threshold = get_stress_threshold(new_stress)
 	if(old_threshold != new_threshold)
-		if(ascending)
-			if(!rogue_sneaking || alpha >= 100)
-				play_stress_indicator()
-		else
-			if(!rogue_sneaking || alpha >= 100)
-				play_relief_indicator()
-			
 		switch(new_threshold)
 			if(STRESS_THRESHOLD_NICE)
 				to_chat(src, span_green("I feel good"))
@@ -109,6 +106,7 @@
 					to_chat(src, span_boldred("I'm not freaking out that badly anymore..."))
 			if(STRESS_THRESHOLD_FREAKING_OUT)
 				to_chat(src, span_boldred("I'M FREAKING OUT!!!"))
+				play_mental_break_indicator()
 
 	if(new_stress >= 15)
 		change_stat("fortune", -1, "stress")

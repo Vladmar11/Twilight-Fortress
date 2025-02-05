@@ -717,6 +717,9 @@
 	hoodtype = /obj/item/clothing/head/hooded/rainhood
 	toggle_icon_state = FALSE
 	salvage_result = /obj/item/natural/hide/cured
+	flags_inv = HIDEBOOB
+	edelay_type = 1
+	equip_delay_self = 10
 
 /obj/item/clothing/wash_act(clean)
 	. = ..()

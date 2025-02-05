@@ -81,6 +81,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 0
 	throw_speed = 0.5
+	grid_height = 32
+	grid_width = 32
 
 /obj/item/smokebomb/proc/explodes(skipprob)
 	STOP_PROCESSING(SSfastprocess, src)

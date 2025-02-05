@@ -195,3 +195,21 @@
 	song_list = list("Barbarian's Moot" = 'sound/music/instruments/drum (1).ogg',
 	"Muster the Wardens" = 'sound/music/instruments/drum (2).ogg',
 	"The Earth That Quakes" = 'sound/music/instruments/drum (3).ogg')
+
+/obj/item/rogue/instrument/shamisen 
+	name = "cямисэн"
+	desc = "cямисэн, или просто «три струны», - это изуминский струнный инструмент с шайбой, на котором обычно играют с помощью бачи."
+	icon = 'modular_twilight/icons/roguetown/misc/music.dmi'
+	icon_state = "shamisen"
+	lefthand_file = 'modular_twilight/icons/roguetown/misc/lefthand_music.dmi'
+	righthand_file = 'modular_twilight/icons/roguetown/misc/righthand_music.dmi'
+	song_list = list(
+	"Cursed Apple" = 'modular_twilight/sound/izuma/instrument/shamisen1.ogg', 
+	"Fire Dance" = 'modular_twilight/sound/izuma/instrument/shamisen2.ogg', 
+	"Lute" = 'modular_twilight/sound/izuma/instrument/shamisen3.ogg', 
+	"Tsugaru Ripple" = 'modular_twilight/sound/izuma/instrument/shamisen4.ogg', 
+	"Tsugaru" = 'modular_twilight/sound/izuma/instrument/shamisen5.ogg', 
+	"Season" = 'modular_twilight/sound/izuma/instrument/shamisen6.ogg', 
+	"Parade" = 'modular_twilight/sound/izuma/instrument/shamisen7.ogg', 
+	"Koshiro" = 'modular_twilight/sound/izuma/instrument/shamisen8.ogg' 
+	)

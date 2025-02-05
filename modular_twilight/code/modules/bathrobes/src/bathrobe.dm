@@ -1,5 +1,5 @@
 /obj/item/clothing/suit/roguetown/shirt/robe/bath
-	name = "Банный халат"
+	name = "банный халат"
 	desc = "Халат с роскошной меховой отделкой."
 
 	icon = 'modular_twilight/code/modules/bathrobes/icons/object.dmi'
