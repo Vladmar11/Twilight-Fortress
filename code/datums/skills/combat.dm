@@ -40,19 +40,19 @@
 			return 300
 
 /datum/skill/combat/knives
-	name = "Бой на ножах"
+	name = "Ножи"
 	dreams = list(
 		"...ваше сердце бьется так же быстро, как ваши удары ножом достигают их ног, паха и выше. Вы бросаете кинжалы и окольным движением сбиваете недруга с пола под ноги тех, кто пытается увернуться и парировать, застав их врасплох. Как раз в нужный момент, вы атакуете их напрямую. Удары проходят, пока они не успевают от их уклоняться, медленно истекая кровью сквозь сколы в броне и дыша все медленнее. Они пытаются парировать, что еще хуже для них - вы исполняете финт, обнажая защиту противника, чтобы обрушить ярость своих ударов сквозь их кожаные доспехи, прежде чем перевернуть нож в руке, чтобы начать пробивать как кольчугу, так и пластинчатые доспехи, полностью игнорируя вражескую защиту. С вашей стремительностью, легкостью и точностью, у них нет шансов противостоять вашей быстрой и коварной мощи..."
 	)
 
 /datum/skill/combat/swords
-	name = "Фехтование"
+	name = "Мечи"
 	dreams = list(
 		"...сердце бешено бьется, когда ваши мечи звенят друг о друга, вы парируете удар противника и добиваете его решающим выпадом..."
 	)
 
 /datum/skill/combat/polearms
-	name = "Древковое оружие"
+	name = "Древковое"
 	dreams = list(
 		"...the air blows against your body in the open field, as your opponent's whole body is at range with the polearm's great length, regaining your focus you'd start to pull the polearm with a firm grip to ready up for a proper instead of a half-hearted hasty half-forced strike and thrusting it forth, keeping your opponent at a distance, striking where they move or at when close and with proper precision when they're at range, with double the said range came the advantage when chasing and tactically falling back from them, piercing through padded-cloth and leather armor like they were nothing with the spear, throwing it towards someone unarmored before rolling towards an heavier polearm and reaching for the heavens and with the added polearm range unleashed a slow but crashing blow through that plated armor making them scream for pain and slowly crawl towards and away, never being able to reach you back until they were properly subdued..."
 	)
@@ -76,7 +76,7 @@
 	)
 
 /datum/skill/combat/bows
-	name = "Стрельба из лука"
+	name = "Луки"
 	dreams = list(
 		"..вы стоите в чистом поле, держа на прицеле соломенную мишень. Достаете рукой в кожаной перчатке стрелу из колчана, прикладываете поудобнее, прицеливаетесь, выпускаете в цель и...  промахиваетесь. Этот цикл продолжается некоторое время, пока вы не прицелились как следует, а мышцы не окрепли, что облегчило натягивание лука. Навыки постепенно совершенствуются, помогая в выполнении поставленной задачи, а на ум приходит новый трюк - отвести руку назад и схватить стрелу, рукой удерживая лук, чтобы натянуть его в воздухе, прежде чем прицелиться как следует. Наклонить голову, прищурить глаз, сделать глубокий вдох и, наконец, выпустить стрелу в свободный полет. В яблочко, однако вы тут же хотите убежать от сильно ругающегося садовника..."
 	)
@@ -100,7 +100,7 @@
 	)
 
 /datum/skill/combat/firearms
-	name = "Огнестрельное оружие"
+	name = "Огнестрельное"
 	dreams = list(
 		"..."
 	)

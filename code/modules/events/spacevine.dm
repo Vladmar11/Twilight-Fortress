@@ -171,13 +171,13 @@
 	if(prob(severity) && istype(crosser) && !isvineimmune(holder))
 		var/mob/living/M = crosser
 		M.adjustBruteLoss(5)
-		to_chat(M, span_alert("Я пореза[crosser.rus_sya()] об тернистую лозу."))
+		to_chat(M, span_alert("Я пореза[M.rus_sya()] об тернистую лозу."))
 
 /datum/spacevine_mutation/thorns/on_hit(obj/structure/spacevine/holder, mob/living/hitter, obj/item/I, expected_damage)
 	if(prob(severity) && istype(hitter) && !isvineimmune(holder))
 		var/mob/living/M = hitter
 		M.adjustBruteLoss(5)
-		to_chat(M, span_alert("Я пореза[crosser.rus_sya()] об тернистую лозу."))
+		to_chat(M, span_alert("Я пореза[M.rus_sya()] об тернистую лозу."))
 	. =	expected_damage
 
 /datum/spacevine_mutation/woodening

@@ -23,7 +23,7 @@
 	scale_vol_with_severity = TRUE
 	weather_sounds = list(/datum/looping_sound/rain)
 	indoor_weather_sounds = list(/datum/looping_sound/indoor_rain)
-	weather_messages = list("The rain makes you shiver a little.")
+	weather_messages = "The rain makes you shiver a little." //Я дрожу от холода. Стоит укрыться где-нибудь от дождя...
 
 	minSeverity = 1
 	maxSeverity = 15
@@ -45,7 +45,7 @@
 	scale_vol_with_severity = TRUE
 	weather_sounds = list(/datum/looping_sound/storm)
 	indoor_weather_sounds = list(/datum/looping_sound/indoor_rain)
-	weather_messages = list("The rain makes you shiver a little.", "The storm is really picking up!")
+	weather_messages = list("The rain makes you shiver a little.", "The storm is really picking up!") //list("Я чувствую, как вся моя одежда промокла до нитки.", "Ливень быстро усиливается! Скорее под крышу!")
 
 	minSeverity = 4
 	maxSeverity = 100

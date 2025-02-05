@@ -1238,7 +1238,7 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	grind_results = null
 
 /obj/item/reagent_containers/pill/pnkpill
-	name = "Pозовые исцеляющие таблетки"
+	name = "розовые исцеляющие таблетки"
 	desc = "Маленькие розовые шарики. С беглого взгляда вы можете быть уверены, что это разбавленные красный и пепельный цвета."
 	icon_state = "pinkb"
 	icon = 'icons/roguetown/items/surgery.dmi'
@@ -1247,14 +1247,14 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	grind_results = null
 
 /obj/item/reagent_containers/hypospray/medipen/sty/detox
-	name = "Антитоксин"
+	name = "антитоксин"
 	desc = "Очищает организм от всего неестественного."
 	volume = 34
 	amount_per_transfer_from_this = 34
 	list_reagents = list(/datum/reagent/medicine/antihol = 10, /datum/reagent/medicine/pen_acid = 24)
 
 /obj/item/reagent_containers/hypospray/medipen/sealbottle/reju
-	name = "Элексир омоложения"
+	name = "эликсир омоложения"
 	desc = "Восстанавливает кровь, заживляет раны, помогает стабилизировать дыхание и слегка притупляет боль."
 	icon_state = "THEbottle"
 	volume = 16
@@ -1262,7 +1262,7 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	list_reagents = list(/datum/reagent/medicine/stimu = 15, /datum/reagent/medicine/caffeine = 1)
 
 /obj/item/reagent_containers/hypospray/medipen/sealbottle/purify
-	name = "элексир очищения"
+	name = "эликсир очищения"
 	desc = "Мощный препарат, очищающий кровь и заживляющий раны на теле. Очень больно."
 	icon_state = "THEbottle"
 	volume = 30
@@ -1513,10 +1513,10 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	if(istype(I, /obj/item/reagent_containers/glass))
 		if(user.used_intent.type == INTENT_POUR)
 			if(!I.reagents.total_volume)
-				to_chat(user, "[I] пуста!")
+				to_chat(user, "В [I] ничего нет!")
 				return TRUE
 			if(reagents.holder_full())
-				to_chat(user, "[src] заполнена.")
+				to_chat(user, "В [src] нет свободного места.")
 				return TRUE
 			user.visible_message(span_notice("Переливание начинается."), span_notice("Переливание окончено."))
 			if(user.m_intent != MOVE_INTENT_SNEAK)
@@ -1532,10 +1532,10 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 			return
 		if(is_drainable() && (user.used_intent.type == /datum/intent/fill))
 			if(!reagents.total_volume)
-				to_chat(user, "[src] пуст!")
+				to_chat(user, "В [src] ничего нет!")
 				return
 			if(I.reagents.holder_full())
-				to_chat(user, "[I] полон.")
+				to_chat(user, "В [I] нет свободного места.")
 				return
 			if(user.m_intent != MOVE_INTENT_SNEAK)
 				if(fillsounds)

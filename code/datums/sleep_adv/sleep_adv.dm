@@ -242,7 +242,7 @@
 		else if(i != 1)
 			skill_string += ", "
 		skill_string += lowertext(skill_name)
-	to_chat(mind.current, span_notice("Я замечаю, как меня [inspired_skill_names.len > 1 ? "вдохновляет" : "вдохновляют"] [skill_string]..."))
+	to_chat(mind.current, span_notice("Я замечаю, как меня [inspired_skill_names.len > 1 ? "вдохновляют" : "вдохновляет"] [skill_string]..."))
 
 
 /datum/sleep_adv/proc/buy_special()

@@ -7,7 +7,7 @@
 	name = "Атлетика"
 
 /datum/skill/misc/climbing
-	name = "Верхолазание"
+	name = "Лазание"
 
 /datum/skill/misc/reading
 	name = "Чтение"
@@ -32,7 +32,7 @@
 	name = "Музыка"
 
 /datum/skill/misc/treatment
-	name = "Лечение"
+	name = "Медицина"
 
 /datum/skill/misc/sewing
-	name = "Портное дело"
+	name = "Шитье"

@@ -7,13 +7,13 @@
 	name = "Фермерство"
 
 /datum/skill/labor/mining
-	name = "Горное дело"
+	name = "Шахтерство"
 
 /datum/skill/labor/fishing
 	name = "Рыболовство"
 
 /datum/skill/labor/lumberjacking
-	name = "Лесозаготовка"
+	name = "Лесорубство"
 	dreams = list(
 		"...щепки летят во все стороны, когда дерево падает на землю, издавая оглушительный грохот по всему лесу..."
 	)

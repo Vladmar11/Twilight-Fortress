@@ -4,7 +4,7 @@
 	desc = ""
 
 /datum/skill/craft/crafting
-	name = "Самоделие"
+	name = "Крафт"
 	desc = ""
 	dreams = list(
 		"...вы чувствуете траву под ногами, всматриваетесь в луг, готовите костер и палатку и погружаетесь в более глубокий сон.."
@@ -17,7 +17,7 @@
 	name = "Плотничество"
 
 /datum/skill/craft/masonry
-	name = "Камнеукладка"
+	name = "Зодчество"
 
 /datum/skill/craft/cooking
 	name = "Кулинария"

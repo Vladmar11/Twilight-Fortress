@@ -1,9 +1,9 @@
 /datum/reagent/blood
 	data = list("donor"=null,"blood_DNA"=null,"blood_type"=null,"resistances"=null,"trace_chem"=null,"mind"=null,"ckey"=null,"gender"=null,"real_name"=null,"cloneable"=null,"factions"=null,"quirks"=null)
-	name = "Blood"
+	name = "Кровь"
 	color = "#C80000" // rgb: 200, 0, 0
 	metabolization_rate = 5 //fast rate so it disappears fast.
-	taste_description = "iron"
+	taste_description = "железа"
 	taste_mult = 1.3
 	glass_icon_state = "glass_red"
 	glass_name = "glass of tomato juice"
@@ -49,10 +49,10 @@
 	shot_glass_icon_state = "shotglassred"
 
 /datum/reagent/water
-	name = "Water"
+	name = "Вода"
 	description = "An ubiquitous chemical substance that is composed of hydrogen and oxygen."
 	color = "#AAAAAA77" // rgb: 170, 170, 170, 77 (alpha)
-	taste_description = "water"
+	taste_description = "чистой воды"
 	var/cooling_temperature = 2
 	glass_icon_state = "glass_clear"
 	glass_name = "glass of water"
@@ -84,8 +84,8 @@
 	..()
 
 /datum/reagent/water/gross
-	name = "Gross Water"
-	taste_description = "lead"
+	name = "Грязная вода"
+	taste_description = "тошнотворной воды"
 
 /datum/reagent/water/gross/on_mob_life(mob/living/carbon/M)
 	if(!HAS_TRAIT(M, TRAIT_NASTY_EATER) && !HAS_TRAIT(M, TRAIT_WILD_EATER))
@@ -180,7 +180,7 @@
 	..()
 
 /datum/reagent/water/holywater
-	name = "Holy Water"
+	name = "Святая вода"
 	description = "Water blessed by some deity."
 	color = "#E0E8EF" // rgb: 224, 232, 239
 	glass_icon_state  = "glass_clear"

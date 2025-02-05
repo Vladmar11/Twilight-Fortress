@@ -10,10 +10,10 @@
 	name = "Чудеса"
 
 /datum/skill/magic/blood
-	name = "Кровавое колдовство"
+	name = "Магия крови"
 
 /datum/skill/magic/arcane
-	name = "Древняя магия"
+	name = "Арканная магия"
 
 /datum/skill/magic/druidic
 	name = "Друидские хитрости"

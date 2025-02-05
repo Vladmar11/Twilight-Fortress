@@ -59,7 +59,7 @@
 	component_type = /datum/component/storage/concrete/roguetown/belt/cloth
 
 /obj/item/storage/belt/rogue/leather/shalalz
-	name = "зибантинский пояс"
+	name = "зибантийский пояс"
 	icon_state = "shalal_z"
 	sellprice = 5
 	

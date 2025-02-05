@@ -10,9 +10,9 @@
 /*	..................   Pepper steak   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/peppersteak
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_MEAGRE)
-	tastes = list("стейк" = 1, "перец" = 1)
+	tastes = list("теплого стейка" = 1, "черного перца" = 1)
 	name = "стейк с перцем"
-	desc = "Жареноне мясо с щедрым слоем молотого перца для интенсивного вкуса."
+	desc = "Жареное мясо с щедрым слоем молотого перца для интенсивного вкуса."
 	icon_state = "peppersteak"
 	foodtype = MEAT
 	warming = 5 MINUTES
@@ -36,7 +36,7 @@
 	name = "стейк с луком"
 	desc = "Жареное мясо, украшенное нежным жареным луком, в ароматном и пропитанном соками обоих ингредиентов аппетитном соусе."
 	icon_state = "onionsteak"
-	tastes = list("стейк" = 1, "лук" = 1)
+	tastes = list("теплого стейка" = 1, "жареного лука" = 1)
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT+3)
 	foodtype = MEAT
 	warming = 5 MINUTES
@@ -58,7 +58,7 @@
 /*	.................   Wiener Cabbage   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/wienercabbage
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_MEAGRE)
-	tastes = list("пикантная колбаса" = 1, "капуста" = 1)
+	tastes = list("пикантной колбаски" = 1, "тушеной капусты" = 1)
 	name = "колбаска на капусте"
 	desc = "Сытная и тяжелая еда — идеальный рацион для солдата в походе."
 	icon_state = "wienercabbage"
@@ -81,7 +81,7 @@
 /*	.................   Wiener & Fried potato   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/wienerpotato
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_MEAGRE)
-	tastes = list("пикантная колбаса" = 1, "картофель" = 1)
+	tastes = list("пикантной колбаски" = 1, "жареного картофеля" = 1)
 	name = "колбаска с картофелем"
 	desc = "Плотное и питательное блюдо."
 	icon_state = "wienerpotato"
@@ -131,7 +131,7 @@
 /*	.................   Wiener & Fried onions   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/wieneronions
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_MEAGRE)
-	tastes = list("пикантная колбаса" = 1, "жареный лук" = 1)
+	tastes = list("пикантной колбаски" = 1, "жареного лука" = 1)
 	name = "колбаска с луком"
 	desc = "Крепкое и ароматное блюдо."
 	icon_state = "wieneronions"
@@ -182,7 +182,7 @@
 /*	.................   Wiener & potato & onions   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/wienerpotatonions
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_MEAGRE)
-	tastes = list("пикантная колбаса" = 1, "картофель" = 1, "лук" = 1)
+	tastes = list("пикантной колбаски" = 1, "жареного картофеля" = 1, "жареного лука" = 1)
 	name = "колбаска с овощами"
 	desc = "Плотное и питательное блюдо."
 	icon_state = "wpotonion"
@@ -204,7 +204,7 @@
 /*	.................   Frybird & Tato   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/frybirdtato
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_MEAGRE)
-	tastes = list("печеная птица" = 1, "картофель" = 1)
+	tastes = list("печеной птицы" = 1, "жареного картофеля" = 1)
 	name = "птица с картофелем"
 	desc = "Сытное, уютное и насыщенное – предположительно, любимое блюдо Равокса при смертной жизни."
 	icon_state = "frybirdtato"
@@ -227,7 +227,7 @@
 /*	.................   Valerian Omelette   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/friedegg/tiberian
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_MEAGRE)
-	tastes = list("жареное яйцо" = 1, "сыр" = 1)
+	tastes = list("жареного яйца" = 1, "сыра" = 1)
 	name = "валерианский омлет"
 	desc = "Жареное яйцо на подушке из полурасплавленного сыра, блюдо из далеких стран."
 	icon_state = "omelette"
@@ -296,12 +296,12 @@
 
 /*	.................   Chicken roast   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked
-	desc = "Пухлая птица, зажаренная до идеальной температуры и хрустящей кожицы."
+	desc = "Пухлая птица, запеченная до идеальной температуры и хрустящей кожицы."
 	eat_effect = null
 	slices_num = 0
 	name = "запеченая птица"
 	icon_state = "roastchicken"
-	tastes = list("вкусное мясо птицы" = 1)
+	tastes = list("вкусного мяса птицы" = 1)
 	cooked_type = null
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = MEAL_MEAGRE)
 	rotprocess = SHELFLIFE_DECENT
@@ -336,7 +336,7 @@
 	eat_effect = /datum/status_effect/buff/foodbuff
 	name = "spiced bird-roast"
 	color = "#ffc0c0"
-	tastes = list("приправленное мясо птицы" = 1)
+	tastes = list("вкусного мяса птицы" = 1, "черного перца" = 1)
 /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked/plated
 	icon_state = "roastchicken_plated"
 	item_state = "plate_food"
@@ -354,6 +354,7 @@
 	desc = "Праздник нищего."
 	icon_state = "cookedrat_plated"
 	item_state = "plate_food"
+	tastes = list("крысятины" = 1, "бедности" = 1)
 	lefthand_file = 'modular/Neu_Food/icons/food_lefthand.dmi'
 	righthand_file = 'modular/Neu_Food/icons/food_righthand.dmi'
 	experimental_inhand = FALSE

@@ -40,7 +40,7 @@
 	bitesize = 5
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
 	w_class = WEIGHT_CLASS_TINY
-	tastes = list("dried fruit" = 1)
+	tastes = list("сухофруктов" = 1)
 	foodtype = GRAIN
 	eat_effect = null
 	rotprocess = null
@@ -118,7 +118,7 @@
 	icon_state = "candybase"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
 	w_class = WEIGHT_CLASS_NORMAL
-	tastes = list("сладкий и липкий" = 1)
+	tastes = list("слипшегося сахара" = 1)
 	foodtype = SUGAR
 	eat_effect = /datum/status_effect/debuff/uncookedfood
 
@@ -155,7 +155,7 @@
 	icon_state = "applecandy6"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 12)
 	w_class = WEIGHT_CLASS_NORMAL
-	tastes = list("sweet, tart apple candy" = 1)
+	tastes = list("яблочной карамели" = 1)
 	foodtype = SUGAR
 	bitesize = 6
 	rotprocess = SHELFLIFE_EXTREME
@@ -181,7 +181,7 @@
 	icon_state = "berrycandy6"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 12)
 	w_class = WEIGHT_CLASS_NORMAL
-	tastes = list("sweet, tart berry candy" = 1)
+	tastes = list("ягодной карамели" = 1)
 	foodtype = SUGAR
 	bitesize = 6
 	rotprocess = SHELFLIFE_EXTREME
@@ -207,7 +207,7 @@
 	bitesize = 3
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	w_class = WEIGHT_CLASS_TINY
-	tastes = list("сладость и паутина" = 1)
+	tastes = list("сладкого сока и паутины" = 1)
 	eat_effect = null
 	rotprocess = null
 
@@ -280,7 +280,7 @@
 	slice_batch = FALSE
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/salami/slice
-	tastes = list("соленое мясо" = 1)
+	tastes = list("соленой колбасы" = 1)
 	rotprocess = null
 	slice_sound = TRUE 
 
@@ -310,7 +310,7 @@
 	fried_type = null
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
 	bitesize = 1
-	tastes = list("соленое мясо" = 1)
+	tastes = list("соленой колбасы" = 1)
 
 // -------------- COPPIETTE (dried meat) -----------------
 /obj/item/reagent_containers/food/snacks/rogue/meat/coppiette
@@ -321,7 +321,7 @@
 	fried_type = null
 	bitesize = 5
 	slice_path = null
-	tastes = list("соленое мясо" = 1)
+	tastes = list("соленого мяса" = 1)
 	rotprocess = null
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
 
@@ -346,7 +346,7 @@
 	fried_type = null
 	bitesize = 4
 	slice_path = null
-	tastes = list("salted meat" = 1)
+	tastes = list("соленой рыбы" = 1)
 	rotprocess = null
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
 	dropshrink = 0.6
@@ -362,6 +362,7 @@
 	icon_state = "salo4"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 12)
 	bitesize = 4
+	tastes = list("соленого жира" = 1)
 	slice_path = /obj/item/reagent_containers/food/snacks/fat/salo/slice
 	slices_num = 4
 	slice_batch = FALSE
@@ -387,6 +388,7 @@
 /obj/item/reagent_containers/food/snacks/fat/salo/slice
 	name = "кусочек сала"
 	icon_state = "saloslice"
+	tastes = list("соленого жира" = 1)
 	bitesize = 2
 	slices_num = FALSE
 	slice_path = null
@@ -403,7 +405,7 @@
 
 /*	........   Salting milk (for butter & cheesemaking)   ................ */
 /datum/reagent/consumable/milk/salted
-	taste_description = "соленое молоко"
+	taste_description = "соленого молока"
 
 /obj/item/reagent_containers/attackby(obj/item/I, mob/living/user, params) // add cook time to containers & salted milk for butter churning
 	..()
@@ -412,7 +414,7 @@
 		long_cooktime = (120 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*10))
 	if(istype(I, /obj/item/reagent_containers/powder/salt))
 		if(!reagents.has_reagent(/datum/reagent/consumable/milk, 12))
-			to_chat(user, "<span class='warning'>недостаточно молока.</span>")
+			to_chat(user, "<span class='warning'>Недостаточно молока.</span>")
 			return
 		to_chat(user, "<span class='warning'>Добавляю соль в молоко...</span>")
 		playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
@@ -447,6 +449,7 @@
 	icon_state = "butter6"
 	list_reagents = list(/datum/reagent/consumable/nutriment = BUTTER_NUTRITION)
 	foodtype = DAIRY
+	tastes = list("свежего масла" = 1)
 	slice_path = /obj/item/reagent_containers/food/snacks/butterslice
 	slices_num = 6
 	slice_batch = FALSE
@@ -479,6 +482,7 @@
 	name = "кусочек масла"
 	desc = ""
 	foodtype = DAIRY
+	tastes = list("свежего масла" = 1)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
 
 
@@ -618,7 +622,7 @@
 	bitesize = 1
 	list_reagents = list(/datum/reagent/consumable/nutriment = FRESHCHEESE_NUTRITION)
 	w_class = WEIGHT_CLASS_TINY
-	tastes = list("сыр" = 1)
+	tastes = list("молодого сыра" = 1)
 	foodtype = GRAIN
 	eat_effect = null
 	rotprocess = SHELFLIFE_DECENT
@@ -631,7 +635,7 @@
 	bitesize = 6
 	list_reagents = list(/datum/reagent/consumable/nutriment = FRESHCHEESE_NUTRITION*4)
 	w_class = WEIGHT_CLASS_NORMAL
-	tastes = list("сыр" = 1)
+	tastes = list("сыра" = 1)
 	eat_effect = null
 	rotprocess = SHELFLIFE_LONG
 	slices_num = 6
@@ -654,7 +658,7 @@
 	bitesize = 3
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	w_class = WEIGHT_CLASS_TINY
-	tastes = list("сыр" = 1)
+	tastes = list("сыра" = 1)
 	eat_effect = null
 	rotprocess = SHELFLIFE_LONG
 	slices_num = 3
@@ -670,6 +674,7 @@
 /obj/item/reagent_containers/food/snacks/rogue/cheddarwedge/aged
 	name = "кусок состаренного сыра"
 	icon_state = "blue_cheese_wedge"
+	tastes = list("терпкого старого сыра" = 1)
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/cheddarslice/aged
 	become_rot_type = null
 	rotprocess = null
@@ -681,7 +686,7 @@
 	bitesize = 1
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
 	w_class = WEIGHT_CLASS_TINY
-	tastes = list("cheese" = 1)
+	tastes = list("сыра" = 1)
 	eat_effect = null
 	rotprocess = 20 MINUTES
 	slices_num = null
@@ -695,6 +700,7 @@
 /obj/item/reagent_containers/food/snacks/rogue/cheddarslice/aged
 	name = "ломтик состаренного сыра"
 	icon_state = "blue_cheese_slice"
+	tastes = list("терпкого старого сыра" = 1)
 	become_rot_type = null
 	rotprocess = null
 

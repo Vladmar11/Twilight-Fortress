@@ -251,8 +251,8 @@ All foods are distributed among various categories. Use common sense.
 	if(user.used_intent.type == INTENT_HARM)
 		return ..()
 	if(!eatverb)
-		eatverb = pick("откусывает","жует","грызет","глодает","пожирает","ест")
-		eatverb_me = pick("откусываю","жую","грызет","глодаю","пожираю","ем")
+		eatverb = pick("откусывает","жует","грызет","пробует","пожирает","ест")
+		eatverb_me = pick("откусываю","жую","грызу","пробую","пожираю","ем")
 	if(iscarbon(M))
 		if(!canconsume(M, user))
 			return FALSE
@@ -525,9 +525,9 @@ All foods are distributed among various categories. Use common sense.
 			to_chat(user, span_notice("Я окунаю [src] в [M]."))
 			return
 		if(!M.reagents.total_volume)
-			to_chat(user, span_warning("[M] пусто!"))
+			to_chat(user, span_warning("В [M] ничего нет!"))
 		else
-			to_chat(user, span_warning("[src] уже полон!"))
+			to_chat(user, span_warning("[src] уже не надо макать!"))
 
 // //////////////////////////////////////////////Store////////////////////////////////////////
 /// All the food items that can store an item inside itself, like bread or cake.
@@ -545,7 +545,7 @@ All foods are distributed among various categories. Use common sense.
 		if(!iscarbon(user))
 			return 0
 		if(contents.len >= 20)
-			to_chat(user, span_warning("[src] полон."))
+			to_chat(user, span_warning("В [src] нет свободного места."))
 			return 0
 		to_chat(user, span_notice("Я подкладываю [W] внутрь [src]."))
 		user.transferItemToLoc(W, src)

@@ -145,7 +145,7 @@
 	if(user.used_intent.type == /datum/intent/fill)
 		if(C.reagents)
 			if(C.reagents.holder_full())
-				to_chat(user, span_warning("[C] заполнено."))
+				to_chat(user, span_warning("В [C] нет свободного места."))
 				return
 			if(do_after(user, 8, target = src))
 				user.changeNext_move(CLICK_CD_MELEE)
