@@ -5,7 +5,7 @@ LINEN BINS
 */
 
 /obj/item/bedsheet
-	name = "bedsheet"
+	name = "покрывало"
 	desc = ""
 	icon = 'icons/obj/bedsheets.dmi'
 	lefthand_file = 'icons/mob/inhands/misc/bedsheet_lefthand.dmi'
@@ -31,51 +31,51 @@ LINEN BINS
 		return
 	if(layer == initial(layer))
 		layer = ABOVE_MOB_LAYER
-		to_chat(user, "<span class='notice'>I cover myself with [src].</span>")
+		to_chat(user, "<span class='notice'>Я укрываю себя под [src].</span>")
 		pixel_x = 0
 		pixel_y = 0
 	else
 		layer = initial(layer)
-		to_chat(user, "<span class='notice'>I smooth [src] out beneath you.</span>")
+		to_chat(user, "<span class='notice'>Я разглаживаю [src] под тобой.</span>")
 	add_fingerprint(user)
 	return
 
 /obj/item/bedsheet/rogue/cloth
-	desc = ""
+	desc = "Простое тканное покрывало, чтобы было немного теплее и мягче спать."
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "cloth_bedsheet"
 	item_state = "cloth_bedsheet"
 	pixel_y = 5
 
 /obj/item/bedsheet/rogue/pelt
-	desc = ""
+	desc = "Покрывало из кожи и шкур. Отлично греет спящего в холодные ночи."
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "pelt_bedsheet"
 	item_state = "pelt_bedsheet"
 	pixel_y = 5
 
 /obj/item/bedsheet/rogue/wool
-	desc = ""
+	desc = "Покрывало из шерсти. Колется с непривычки, но зато как тепло под таким спать!"
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "wool_bedsheet"
 	item_state = "wool_bedsheet"
 	pixel_y = 5
 
 /obj/item/bedsheet/rogue/double_pelt
-	desc = ""
+	desc = "Широкое покрывало из кожи и шкур. Отлично греет спящих в холодные ночи. Под таким без проблем могут укрыться сразу двое."
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "double_pelt_bedsheet"
 	item_state = "double_pelt_bedsheet"
 
 /obj/item/bedsheet/rogue/fabric
-	desc = ""
+	desc = "Покрывало, сшитое на заказ из дорогих тканей. Хорошо греет не столько само по себе, сколько ценой, которая была за него уплачена."
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "fabric_bedsheet"
 	item_state = "fabric_bedsheet"
 	pixel_y = 5
 
 /obj/item/bedsheet/rogue/fabric_double
-	desc = ""
+	desc = "Широкое покрывало, сшитое на заказ из дорогих тканей. Отличное качество, тепло и возможность укрыться под ним вдвоем - все это уже оправдывает весьма немалую цену."
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "double_fabric_bedsheet"
 	item_state = "double_fabric_bedsheet"

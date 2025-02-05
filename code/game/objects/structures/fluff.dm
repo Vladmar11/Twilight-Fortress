@@ -721,7 +721,7 @@ obj/structure/bars/steel
 	icon_state = "elfs"
 
 /obj/structure/fluff/statue/pillar
-	name = "шест для танцев"
+	name = "шест"
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "pillar"
 
