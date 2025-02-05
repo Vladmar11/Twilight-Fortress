@@ -10,17 +10,21 @@
 	var/list/obj/item/to_grind = list()
 
 /obj/structure/fluff/millstone/Initialize()
-	create_reagents(900, DRAINABLE | AMOUNT_VISIBLE | REFILLABLE)
+	//create_reagents(900, DRAINABLE | AMOUNT_VISIBLE | REFILLABLE)
 	. = ..()
 
 /obj/structure/fluff/millstone/Destroy()
-	chem_splash(loc, 2, list(reagents))
-	qdel(reagents)
+//	chem_splash(loc, 2, list(reagents))
+//	qdel(reagents)
 	qdel(to_grind)
 	..()
 
 /obj/structure/fluff/millstone/examine(mob/user, obj/structure/fluff/millstone/src_object)
 	. = ..()
+	if(to_grind.len)
+		. += span_info("It has something inside!")
+	else
+		. += span_danger("It has nothing to grind.")
 
 /obj/structure/fluff/millstone/proc/grindUp(list/obj/item/to_grind, mob/user)
 	for(var/obj/item/itemtogrind in to_grind)
@@ -91,7 +95,7 @@
 					break
 			return
 	if(istype(grindable))
-		if(!grindable.grind_results)
+		if(!grindable.mill_result)
 			to_chat(user, span_warning("Я не могу это перемолоть."))
 			return TRUE
 		else if(!user.transferItemToLoc(I,src))
