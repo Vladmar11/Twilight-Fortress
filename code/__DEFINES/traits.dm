@@ -36,7 +36,7 @@
 #define TRAIT_SHOCKIMMUNE "Шоковая устойчивость"
 #define TRAIT_NOSLEEP "Тяжелая бессонница"
 #define TRAIT_FASTSLEEP "Быстрый сон"
-#define TRAIT_GOODLOVER "Легендарный любовник"
+#define TRAIT_GOODLOVER "Желанный любовник"
 #define TRAIT_SEEDKNOW "Знаток семян"
 #define TRAIT_GOODRUNNER "Хороший бегун"
 #define TRAIT_TINY "Крохотный"

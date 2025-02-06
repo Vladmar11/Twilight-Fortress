@@ -805,7 +805,7 @@
 	skill_level = 3
 
 /datum/crafting_recipe/roguetown/sewing/eoramask
-	name = "эоранская маска - (3 шелка, 1 слиток серебра; ПРОФЕССИОНАЛ)"
+	name = "эоранская маска - (3 шелка, 1 слиток серебра; УМЕЛЕЦ)"
 	result = list(/obj/item/clothing/mask/rogue/eoran_mask)
 	reqs = list(/obj/item/ingot/silver = 1,
 				/obj/item/natural/silk = 3)
@@ -813,7 +813,7 @@
 	sellprice = 75
 
 /datum/crafting_recipe/roguetown/sewing/eorarobes
-	name = "эоранская ряса - (3 ткани, 1 шелк; ПРОФЕССИОНАЛ)"
+	name = "эоранская ряса - (3 ткани, 1 шелк; УМЕЛЕЦ)"
 	result = list(/obj/item/clothing/suit/roguetown/shirt/robe/eora)
 	reqs = list(/obj/item/natural/cloth = 3,
 				/obj/item/natural/silk = 1)
@@ -835,14 +835,14 @@
 	skill_level = 4
 
 /datum/crafting_recipe/roguetown/sewing/shadowcloak
-	name = "плащ авангарда - (1 ткань, 3 шелка; УМЕЛЕЦ)"
+	name = "плащ авангарда - (1 ткань, 3 шелка; ПРОФЕССИОНАЛ)"
 	result = list(/obj/item/clothing/cloak/shadow)
 	reqs = list(/obj/item/natural/cloth = 2,
 				/obj/item/natural/silk = 3)
 	skill_level = 4
 
 /datum/crafting_recipe/roguetown/sewing/shadowrobe
-	name = "униформа авангарда - (2 ткани, 3 шелка; УМЕЛЕЦ)"
+	name = "униформа авангарда - (2 ткани, 3 шелка; ПРОФЕССИОНАЛ)"
 	result = list(/obj/item/clothing/suit/roguetown/shirt/shadow)
 	reqs = list(/obj/item/natural/cloth = 2,
 				/obj/item/natural/silk = 3)
