@@ -3,6 +3,7 @@
 
 /datum/species/demihuman
 	name = "Халфкин"
+	name_f = "Халфкинка"
 	id = "demihuman"
 	desc = "In time you will learn the history of this race"
 	skin_tone_wording = "Ancestry"

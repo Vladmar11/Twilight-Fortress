@@ -44,6 +44,11 @@
 /datum/proc/rus_oy(temp_gender)
 	. = "ой"
 
+/datum/proc/rus_my(temp_gender)
+	. = "й"
+
+/datum/proc/rus_la(temp_gender)
+	. = ""
 
 //like clients, which do have gender.
 /client/rus_they(capitalized, temp_gender)
@@ -234,6 +239,22 @@
 		. = "ена"
 	else
 		. = "ен"
+
+/atom/rus_my(temp_gender)
+	if(!temp_gender)
+		temp_gender = gender
+	if(temp_gender == FEMALE)
+		. = "я"	//моя, твоя
+	else
+		. = "й"	//мой, твой
+
+/atom/rus_la(temp_gender)
+	if(!temp_gender)
+		temp_gender = gender
+	if(temp_gender == FEMALE)
+		. = "ла"	//промокла, затекла, испекла
+	else
+		. = ""	//промок, затек, испек
 
 //humans need special handling, because they can have their gender hidden
 /mob/living/carbon/human/rus_they(capitalized, temp_gender)

@@ -52,7 +52,7 @@
 	id = "healing"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/healing
 	duration = 10 SECONDS
-	examine_text = "Тело SUBJECTPRONOUN окружено восстанавливающей аурой!"
+	examine_text = "SUBJECTPRONOUN окруженENDING восстанавливающей аурой!"
 	var/healing_on_tick = 1
 	var/outline_colour = "#c42424"
 
