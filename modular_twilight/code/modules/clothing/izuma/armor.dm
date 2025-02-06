@@ -79,7 +79,7 @@
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
 	icon_state = "imirrorarmor"
 	max_integrity = 200
-	armor = list("melee" = 80, "bullet" = 60, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 80, "slash" = 100, "stab" = 80, "bullet" = 100, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	smeltresult = /obj/item/ingot/iron
 	armor_class = ARMOR_CLASS_MEDIUM
 
@@ -398,7 +398,7 @@
 	sellprice = 40
 	clothing_flags = CANT_SLEEP_IN
 	armor_class = ARMOR_CLASS_HEAVY
-	armor = list("melee" = 90, "bullet" = 85, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 80, "slash" = 100, "stab" = 80, "bullet" = 100, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CUT, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 
 /obj/item/clothing/suit/roguetown/armor/rare/Initialize()
@@ -416,7 +416,7 @@
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
-	armor = list("melee" = 60, "bullet" = 50, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 60, "slash" = 100, "stab" = 80, "bullet" = 50, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	blocksound = SOFTHIT
 	blade_dulling = DULLING_BASHCHOP
 	body_parts_covered = CHEST|GROIN|VITALS
@@ -439,7 +439,7 @@
 	prevent_crits = list(BCLASS_CUT, BCLASS_CHOP, BCLASS_STAB) // Bones are ceramic-like. These are horrible against blunt.
 	blade_dulling = DULLING_BASHCHOP
 	body_parts_covered = CHEST|VITALS|ARMS|GROIN //Protects an acceptable large range of places for such relatively cost-y armor. I hope.
-	armor = list("melee" = 60, "bullet" = 60, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 40, "slash" = 100, "stab" = 60, "bullet" = 30, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	max_integrity = 250
 	equip_delay_self = 40
 	armor_class = ARMOR_CLASS_MEDIUM
@@ -451,7 +451,7 @@
 	icon = 'modular_twilight/icons/roguetown/clothing/armor.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/armor.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_armor.dmi'
-	armor = list("melee" = 40, "bullet" = 30, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 40, "slash" = 100, "stab" = 60, "bullet" = 20, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	icon_state = "ivory_coverings"
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
 	blocksound = SOFTHIT

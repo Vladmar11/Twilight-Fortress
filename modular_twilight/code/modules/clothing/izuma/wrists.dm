@@ -31,7 +31,7 @@
 	icon = 'modular_twilight/icons/roguetown/clothing/wrists.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/wrists.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/wrists.dmi'
-	armor = list("melee" = 20, "bullet" =20, "laser" = 0,"energy" = 0, "bomb" = 50, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 0)
+	armor = list("blunt" = 20, "slash" = 25, "stab" = 20, "bullet" = 20, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	heat_protection = ARMS|HANDS
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
@@ -47,7 +47,7 @@
 /obj/item/clothing/wrists/roguetown/bracers/bonebracer
 	name = "bone bracers"
 	desc = "the bracers made of bone, usually created and used by tribalistic Undines."
-	armor = list("melee" = 40, "bullet" = 30, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 40, "slash" = 45, "stab" = 40, "bullet" = 30, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	icon = 'modular_twilight/icons/roguetown/clothing/wrists.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/wrists.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/wrists.dmi'

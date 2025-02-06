@@ -76,7 +76,7 @@
 /obj/item/clothing/under/roguetown/trou/tobi/dragonslayer
 	desc = "Baggy pants of abyssariad design. This one is coated in asbestos, and may be just as dangerous."
 	color = "#3d4681"
-	armor = list("melee" = 20, "bullet" = 0, "laser" = 75,"energy" = 75, "bomb" = 75, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 20, "slash" = 25, "stab" = 20, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 
 /obj/item/clothing/under/roguetown/trou/leather/fur
 	name = "толстый тоби"
@@ -137,7 +137,7 @@
 	icon_state = "marauder_leg"
 	item_state = "marauder_leg"
 	sewrepair = FALSE
-	armor = list("melee" = 60, "bullet" = 60, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 60, "slash" = 100, "stab" = 60, "bullet" = 60, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	max_integrity = 200
 	prevent_crits = list(BCLASS_CUT, BCLASS_CHOP, BCLASS_BLUNT)
 	armor_class = ARMOR_CLASS_MEDIUM
@@ -167,7 +167,7 @@
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/pants.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/helpers/sleeves_pants.dmi'
 	max_integrity = 100
-	armor = list("melee" = 40, "bullet" = 40, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 40, "slash" = 25, "stab" = 40, "bullet" = 5, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CHOP, BCLASS_BLUNT)
 	body_parts_covered = LEGS|FEET
 	gender = PLURAL

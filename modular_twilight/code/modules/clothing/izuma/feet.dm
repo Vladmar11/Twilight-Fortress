@@ -41,7 +41,7 @@
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/feet.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/feet.dmi'
 	desc = "A tabi reinforced in dragon bones and asbestos, making it fire immune. Not very protective against physical damage, but still fairly durable."
-	armor = list("melee" = 40, "bullet" = 40, "laser" = 0,"energy" = 0, "bomb" = 60, "bio" = 0, "rad" = 0, "fire" = 100, "acid" = 0)
+	armor = list("blunt" = 60, "slash" = 50, "stab" = 30, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	max_integrity = 250
 	armor_class = ARMOR_CLASS_MEDIUM

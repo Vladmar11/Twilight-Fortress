@@ -228,7 +228,7 @@
 	emote_environment = 3
 	block2add = FOV_RIGHT|FOV_LEFT
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
-	armor = list("melee" = 90, "bullet" = 80, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 90, "slash" = 100, "stab" = 80, "bullet" = 100, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	body_parts_covered = HEAD|HAIR|NOSE|EARS|EYES
 
 /obj/item/clothing/head/roguetown/zurarikabutonew
@@ -265,7 +265,7 @@
 	name = "арисан дуулга"
 	desc = "Шлем из толстой, промасленной кожи, используемый абиссарийцами в центре Туманных Островов."
 	icon_state = "arisan_duulga"
-	armor = list("melee" = 40, "bullet" = 15, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 60, "slash" = 100, "stab" = 50, "bullet" = 60, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_BLUNT, BCLASS_TWIST)
 	body_parts_covered = HEAD|HAIR|EARS|NOSE|MOUTH
 	resistance_flags = FLAMMABLE // Made of leather
@@ -284,7 +284,7 @@
 	desc = "Дешевый изуминский шлем, сделанный из ободранного, проваренного в масле ротанга и железа.\
 	Используется только ополченцами и рейдерами Линьоу. Защищает хуже, но легко ремонтируется."
 	flags_inv = HIDEEARS
-	armor = list("melee" = 60, "bullet" = 40, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 60, "slash" = 100, "stab" = 60, "bullet" = 60, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	body_parts_covered = HEAD|HAIR|EARS
 	max_integrity = 125
 	sellprice = 20
@@ -512,7 +512,7 @@
 	prevent_crits = list(BCLASS_STAB) //This one is too thin to actually protect someone beyond stabbing wounds. Cut would have too much 'blunt'.
 	resistance_flags = FIRE_PROOF
 	icon_state = "ivory_head"
-	armor = list("melee" = 40, "bullet" = 30, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 40, "slash" = 100, "stab" = 40, "bullet" = 60, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	anvilrepair = null
 	smeltresult = /obj/item/ash
 	sewrepair = FALSE
@@ -531,7 +531,7 @@
 	flags_inv = HIDEEARS
 	max_integrity = 200
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
-	armor = list("melee" = 60, "bullet" = 50, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 60, "slash" = 100, "stab" = 60, "bullet" = 60, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/64x64/head.dmi'
 	bloody_icon = 'icons/effects/blood.dmi'
@@ -548,7 +548,7 @@
 	flags_inv = HIDEEARS
 	max_integrity = 250
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
-	armor = list("melee" = 60, "bullet" = 60, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list("blunt" = 60, "slash" = 100, "stab" = 60, "bullet" = 60, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	block2add = FOV_RIGHT|FOV_LEFT
 	bloody_icon_state = null
 	icon = 'modular_twilight/icons/roguetown/clothing/head.dmi'
