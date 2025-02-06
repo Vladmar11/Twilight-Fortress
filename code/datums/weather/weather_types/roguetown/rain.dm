@@ -4,7 +4,7 @@
 	desc = ""
 
 	telegraph_duration = 10 SECONDS
-	telegraph_message = span_warning("The sky begins to weep.")
+	telegraph_message = span_warning("Небо темнеет, укрываясь тяжелыми тучами. Близится непогода...")
 	telegraph_sound = 'sound/blank.ogg'
 
 	weather_message = ""

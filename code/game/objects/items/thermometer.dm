@@ -1,6 +1,6 @@
 /obj/item/thermometer
-	name = "thermoscope"
-	desc = "Used to tell how hot or cold an item is, but it's hard to read unless you're an alchemist."
+	name = "термоскоп"
+	desc = "спользуется для определения того, насколько горяч или холоден тот или иной предмет, но понять это сможет только алхимик."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "thermometer"
 	item_state = "pen"
@@ -12,20 +12,20 @@
 /obj/item/thermometer/attack_obj(obj/target, mob/living/user)
 	if(target.is_open_container())
 		if(user.mind.get_skill_level(/datum/skill/misc/treatment) < 1) //Show each individual reagent
-			to_chat(user, span_warning("I don't know how to read a thermoscope..."))
+			to_chat(user, span_warning("Я не умею пользоваться термоскопом..."))
 			return
 		if(!target.reagents.total_volume)
-			to_chat(user, span_warning("[target] is empty!"))
+			to_chat(user, span_warning("В [target] ничего нет!"))
 		if(user.mind.get_skill_level(/datum/skill/misc/treatment) <= 3)
 			if(target.reagents.chem_temp >= 300)
-				to_chat(user, span_notice("The temperature of the mixture is about [abs(round(target.reagents.chem_temp, 10) - 300)] degrees above room temperature."))
+				to_chat(user, span_notice("Температура смеси - где-то на [abs(round(target.reagents.chem_temp, 10) - 300)] градусов выше комнатной."))
 			if(target.reagents.chem_temp < 300)
-				to_chat(user, span_notice("The temperature of the mixture is about [abs(round(target.reagents.chem_temp, 10) - 300)] degrees below room temperature."))
+				to_chat(user, span_notice("Температура смеси - где-то на [abs(round(target.reagents.chem_temp, 10) - 300)] градусов ниже комнатной."))
 		else
 			if(target.reagents.chem_temp >= 300)
-				to_chat(user, span_notice("The temperature of the mixture is [abs(target.reagents.chem_temp - 300)] degrees above room temperature."))
+				to_chat(user, span_notice("Температура смеси - на [abs(target.reagents.chem_temp - 300)] градусов выше комнатной."))
 			if(target.reagents.chem_temp < 300)
-				to_chat(user, span_notice("The temperature of the mixture is [abs(target.reagents.chem_temp - 300)] degrees below room temperature."))
+				to_chat(user, span_notice("Температура смеси - на [abs(target.reagents.chem_temp - 300)] градусов ниже комнатной."))
 		return
 	return
 	

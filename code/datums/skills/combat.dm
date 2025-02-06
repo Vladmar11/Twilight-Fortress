@@ -40,67 +40,67 @@
 			return 300
 
 /datum/skill/combat/knives
-	name = "Knife-fighting"
+	name = "Ножи"
 	dreams = list(
-		"...your heart beats as swift as your knife strikes that reached their legs, groin and above, throwing daggers and in a devious move kicking them from the floor towards ones that tried to dodge and parry to catch them by surprise, at times when timed right with attacking them directly go through as they recover their parry, draining chipping slowly at their armor and making them slowly short of breathe, while dodging which made it even worse and feinting their parry attempts to begin unleashing a fury of stabs through their leather armor before flipping the knife over to start picking through chained and plated armor alike, fully ignoring its protection opponent's surface, with great haste and ease of precision little stood chance against your swift devious might..."
+		"...ваше сердце бьется так же быстро, как ваши удары ножом достигают их ног, паха и выше. Вы бросаете кинжалы и окольным движением сбиваете недруга с пола под ноги тех, кто пытается увернуться и парировать, застав их врасплох. Как раз в нужный момент, вы атакуете их напрямую. Удары проходят, пока они не успевают от их уклоняться, медленно истекая кровью сквозь сколы в броне и дыша все медленнее. Они пытаются парировать, что еще хуже для них - вы исполняете финт, обнажая защиту противника, чтобы обрушить ярость своих ударов сквозь их кожаные доспехи, прежде чем перевернуть нож в руке, чтобы начать пробивать как кольчугу, так и пластинчатые доспехи, полностью игнорируя вражескую защиту. С вашей стремительностью, легкостью и точностью, у них нет шансов противостоять вашей быстрой и коварной мощи..."
 	)
 
 /datum/skill/combat/swords
-	name = "Sword-fighting"
+	name = "Мечи"
 	dreams = list(
-		"...your heart beats wildly as your swords strike eachothers, you parry your opponent and finish him off with a decisive slash..."
+		"...сердце бешено бьется, когда ваши мечи звенят друг о друга, вы парируете удар противника и добиваете его решающим выпадом..."
 	)
 
 /datum/skill/combat/polearms
-	name = "Polearms"
+	name = "Древковое"
 	dreams = list(
 		"...the air blows against your body in the open field, as your opponent's whole body is at range with the polearm's great length, regaining your focus you'd start to pull the polearm with a firm grip to ready up for a proper instead of a half-hearted hasty half-forced strike and thrusting it forth, keeping your opponent at a distance, striking where they move or at when close and with proper precision when they're at range, with double the said range came the advantage when chasing and tactically falling back from them, piercing through padded-cloth and leather armor like they were nothing with the spear, throwing it towards someone unarmored before rolling towards an heavier polearm and reaching for the heavens and with the added polearm range unleashed a slow but crashing blow through that plated armor making them scream for pain and slowly crawl towards and away, never being able to reach you back until they were properly subdued..."
 	)
 
 /datum/skill/combat/maces
-	name = "Maces"
+	name = "Булавы"
 	dreams = list(
-		"...maces maces maces, they're all around, striking to slow, unleashing a hefty, delayed smash to fully punch though its protection, stunning them briefly and staggering them after, making their retreats and advances more than futile, smashing them when they're down, making them too meek to stand on their legs, what an amusing sight." 
+		"...булавы, булавы, булавы, они повсюду, наносят медленные удары или же мощный, заряженный удар, чтобы полностью пробить защиту, оглушая недруга на короткое время, а затем ошеломляя, делать их отступление или отчаянное наступление еще более чем бесполезными, разбивая их, когда они сломлены, и из-за этого они слишком смиренны, чтобы стоять на ногах. Какое забавное зрелище..."
 	)
 
 /datum/skill/combat/axes
-	name = "Axes"
+	name = "Топоры"
 	dreams = list(
-		"...grabbing a random axe, using it to cut and chop, getting a feel for it and finally realizing that they are not half bad one handed with barely any added heft when wielded, be it iron or steel, until picking up the battle axe and the effect inverted, what a cumbersome weapon to wield in one-hand, with a mighty fine one in two, chopping through limps like, shattering shields into splinters and bending steel one to ones will, reaching the legs, groin and above, what a handy thing to axe folk a few questions..."
+		"...берете случайный топор, используете его, чтобы резать и рубить, почувствовать его и, наконец, осознаете, что он неплохо управляется и одной рукой, практически не добавляя веса при использовании, будь то перед вами железный или стальной. Пока дело не доходит до боевого топора, и все меняется. Очень громоздкое оружие, чтобы держать его в одной руке, но с уверенной хваткой двумя им можно прорубать конечности так же хорошо, как разбивать щиты на щепки и сгибать латы одни за другими, доставая до ног, паха и выше. Какая удобная штука, чтобы поднять острую тему..."
 	)
 
 /datum/skill/combat/whipsflails
-	name = "Whips & Flails"
+	name = "Кнуты и цепы"
 	dreams = list(
 		"..."
 	)
 
 /datum/skill/combat/bows
-	name = "Archery"
+	name = "Луки"
 	dreams = list(
-		"...you stand in an open field, a straw target in your sights, pulling a arrow from your quiver with your gloved hand and loading it to aim and let it loose at the target missing, this cycle continued for a bit until your aim steadied proper, muscles building up strength making it easier to draw the bow, skills slowly refining aiding the task at hand, a new trick that pop to mind is to curl the arm back and grab the arrow with the bow holding hand to draw it in the air before aiming proper, tilting the head, squinting an eye, taking a deep breath and finally letting it loose, bullseye, probably want to run just about now, that bull looks quite angry..."
+		"..вы стоите в чистом поле, держа на прицеле соломенную мишень. Достаете рукой в кожаной перчатке стрелу из колчана, прикладываете поудобнее, прицеливаетесь, выпускаете в цель и...  промахиваетесь. Этот цикл продолжается некоторое время, пока вы не прицелились как следует, а мышцы не окрепли, что облегчило натягивание лука. Навыки постепенно совершенствуются, помогая в выполнении поставленной задачи, а на ум приходит новый трюк - отвести руку назад и схватить стрелу, рукой удерживая лук, чтобы натянуть его в воздухе, прежде чем прицелиться как следует. Наклонить голову, прищурить глаз, сделать глубокий вдох и, наконец, выпустить стрелу в свободный полет. В яблочко, однако вы тут же хотите убежать от сильно ругающегося садовника..."
 	)
 
 /datum/skill/combat/crossbows
-	name = "Crossbows"
+	name = "Арбалеты"
 	dreams = list(
 		"..."
 	)
 
 /datum/skill/combat/wrestling
-	name = "Wrestling"
+	name = "Борьба"
 	dreams = list(
 		"..."
 	)
 
 /datum/skill/combat/unarmed
-	name = "Fist-fighting"
+	name = "Кулачный бой"
 	dreams = list(
-		"...your body is bruised, your breathe haggers, but your harden fists and lower-legs refused to give in, going into actions with punches that landed furied blows from their groin to the top that managed to fractured several bones before dealing a decisive knockout that was followed up by a hefty punch that snapped the spine, refocusing your efforts towards another, deciding to use an delayed kick against the unarmored leg, avoiding the neck and above that can't be reached, knocking one by the wall, another on the table, a third against a few objects and a fourth against fifth, moving into a stomp that dislocated and later shattered bone, you stood there, gasping for air, all bruised and beaten up, yet victories..."
+		"..твое тело в синяках, дыхание затруднено, но твои закаленные кулаки и голени отказываются сдаваться, переходя к активным действиям, нанося яростные удары от паха до макушки, которыми удалось сломать несколько костей, прежде чем нанести решающий нокаут. Тут же последовал мощный удар, повредивший спину. Переводя свои усилия на другого противника, решаешь нанести заторможенный удар по незащищенной ноге, избегая ударов в шею и выше, до которых невозможно дотянуться, ударяешь одного о стену, другого - о стол, третьего - о несколько предметов, и четвертого - о пятого, начав давить так, что вывихнулась, а затем и раздробилась кость. Ты стоишь там, хватая ртом воздух, весь в синяках и побоях, но все же одержал победу..."
 	)
 
 /datum/skill/combat/firearms
-	name = "Firearms"
+	name = "Огнестрельное"
 	dreams = list(
 		"..."
 	)

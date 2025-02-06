@@ -18,8 +18,8 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 //	filters += filter(type = "blur", size = 3)
 
 /turf/open/transparent/openspace
-	name = "open space"
-	desc = "My eyes can see far down below."
+	name = "открытое пространство"
+	desc = "Мои глаза могут видеть, что происходит далеко внизу."
 	icon_state = "openspace"
 	baseturfs = /turf/open/transparent/openspace
 	CanAtmosPassVertical = ATMOS_PASS_YES
@@ -112,14 +112,14 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 			return
 		var/turf/target = get_step_multiz(src, DOWN)
 		if(!target)
-			to_chat(user, span_warning("I can't climb there."))
+			to_chat(user, span_warning("Я не могу здесь спуститься."))
 			return
 		if(!user.can_zTravel(target, DOWN, src))
-			to_chat(user, span_warning("I can't climb here."))
+			to_chat(user, span_warning("Я не могу здесь спуститься."))
 			return
 		if(user.m_intent != MOVE_INTENT_SNEAK)
 			playsound(user, 'sound/foley/climb.ogg', 100, TRUE)
-		user.visible_message(span_warning("[user] starts to climb down."), span_warning("I start to climb down."))
+		user.visible_message(span_warning("[user] спускается вниз."), span_warning("Я спускаюсь вниз."))
 		if(do_after(L, 30, target = src))
 			if(user.m_intent != MOVE_INTENT_SNEAK)
 				playsound(user, 'sound/foley/climb.ogg', 100, TRUE)
@@ -134,10 +134,10 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	if(!user.Adjacent(src))
 		return
 	if(!target)
-		to_chat(user, span_warning("I can't go there."))
+		to_chat(user, span_warning("Я не могу туда попасть."))
 		return
 	user.forceMove(target)
-	to_chat(user, span_warning("I glide down."))
+	to_chat(user, span_warning("Я скольжу вниз."))
 	. = ..()
 
 /turf/open/transparent/openspace/attackby(obj/item/C, mob/user, params)

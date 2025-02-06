@@ -1,6 +1,6 @@
 /obj/structure/telescope
-	name = "telescope"
-	desc = "A mysterious telescope pointing towards the stars."
+	name = "телескоп"
+	desc = "Таинственный телескоп, наведенный на звезды."
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "telescope"
 	density = TRUE
@@ -11,20 +11,20 @@
 		return
 
 	var/mob/living/carbon/human/H = user
-	var/random_message = pick("You can see noc rotating.", "Looking at Astrata blinds you!", "The stars smile at you.", "Blessed yellow strife.", "You see a star!")
+	var/random_message = pick("Вы на миг замечаете Нок, кружащуюся в танце...", "Свет Астраты ослепляет вас!", "Звезды улыбаются тебе.", "Приносящий удачу желтый след.", "Вы увидели звезду!")
 	to_chat(H, span_notice("[random_message]"))
 
-	if(random_message == "Looking at Astrata blinds you!")
+	if(random_message == "Свет Астраты ослепляет вас!")
 		if(do_after(H, 25, target = src))
 			var/obj/item/bodypart/affecting = H.get_bodypart("head")
-			to_chat(H, span_warning("The blinding light causes you intense pain!"))
+			to_chat(H, span_warning("Ослепительный свет причиняет вам сильную боль!"))
 			if(affecting && affecting.receive_damage(0, 5))
 				H.update_damage_overlays()
 
 
 /obj/structure/globe
-	name = "globe"
-	desc = "A mysterious globe representing the world."
+	name = "глобус"
+	desc = "Таинственный глобус, представляющий мир."
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "globe"
 	density = TRUE
@@ -35,5 +35,5 @@
 		return
 
 	var/mob/living/carbon/human/H = user
-	var/random_message = pick("you spin the globe!", "You land on Rockhill!", "You land on Zybantium!", "You land on Grenzelhoft!")
+	var/random_message = pick("Вы лениво раскручиваете глобус.", "Палец останавливается на Камнеграде!", "Палец останавливается на Зибанту!", "Палец останавливается на Грензельхофте!")
 	to_chat(H, span_notice("[random_message]"))

@@ -46,7 +46,8 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/Initialize()
 	. = ..()
-	eatverb = pick("bite","chew","nibble","gobble","chomp")
+	eatverb = pick("откусывает","жует","грызет","пробует","пожирает","ест")
+	eatverb_me = pick("откусываю","жую","грызу","пробую","пожираю","ем")
 	
 /obj/item/reagent_containers/food/snacks/rogue/foodbase // root item for uncooked food thats disgusting when raw
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
@@ -68,7 +69,7 @@
 	var/slice_sound = FALSE // does it play the slice sound when sliced?
 
 /obj/effect/decal/cleanable/food/mess // decal applied when throwing minced meat for example
-	name = "mess"
+	name = "месиво"
 	desc = ""
 	color = "#ab9d9d"
 	icon_state = "tomato_floor1"
@@ -77,7 +78,7 @@
 /obj/item/reagent_containers/food/snacks/attackby(obj/item/W, mob/user, params)
 	if(user.used_intent.blade_class == slice_bclass && W.wlength == WLENGTH_SHORT)
 		if(slice_bclass == BCLASS_CHOP)
-			user.visible_message("<span class='notice'>[user] chops [src]!</span>")
+			user.visible_message("<span class='notice'>[user] рубит [src]!</span>")
 			slice(W, user)
 			return 1
 		else if(slice(W, user))
@@ -86,59 +87,59 @@
 
 /*	........   Kitchen tools / items   ................ */
 /obj/item/kitchen/spoon
-	name = "wooden spoon"
-	desc = "Traditional utensil for shoveling soup into your mouth, or to churn butter with."
+	name = "деревянная ложка"
+	desc = "Традиционная посуда, с помощью которой можно черпать суп в рот или сбивать масло.." //орфография верна
 	icon = 'modular/Neu_Food/icons/cooking.dmi'
 	icon_state = "spoon"
 	force = 0
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/kitchen/ironspoon
-	name = "iron spoon"
-	desc = "Traditional utensil for shoveling soup into your mouth, now made with iron for that metallic taste!"
+	name = "железная ложка"
+	desc = "Традиционная посуда, с помощью которой можно черпать суп в рот, теперь еще и с характерным металлическим привкусом!"
 	icon = 'modular/Neu_Food/icons/cooking.dmi'
 	icon_state = "spoon_iron"
 	force = 0
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/kitchen/ironspoon/pewter
-	name = "pewter spoon"
-	desc = "Traditional utensil for shoveling soup into your mouth, made from Pewter alloy for fancyness."
+	name = "оловянная ложка"
+	desc = "Традиционная посуда для зачерпывания супа в рот, для изысканности изготовленная из оловянного сплава."
 	icon_state = "spoon_pewter"
 	sellprice = 10
 
 /obj/item/kitchen/ironspoon/silver
-	name = "silver spoon"
-	desc = "Traditional utensil for shoveling soup into your mouth. There are tales of noblemen growing up with these in their mouths."
+	name = "серебрянная ложка"
+	desc = "Традиционный прибор, с помощью которого можно зачерпывать суп в рот. Об успешных дворянах говорят, что те росли с такими штуками во рту."
 	icon_state = "spoon_silver"
 	sellprice = 30
 	var/last_used = 0
 
 /obj/item/kitchen/fork
-	name = "wooden fork"
-	desc = "Traditional utensil for stabbing your food in order to shove it into your mouth."
+	name = "деревянная вилка"
+	desc = "Традиционная посуда для накалывания еды, чтобы засунуть ее в рот."
 	icon = 'modular/Neu_Food/icons/cooking.dmi'
 	icon_state = "fork"
 	force = 0
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/kitchen/ironfork
-	name = "iron fork"
-	desc = "Traditional utensil for stabbing your food, now made with iron for extra stabbiness!"
+	name = "железная вилка"
+	desc = "Традиционная посуда для накалывания еды. Сделана из железа для большей остроты!"
 	icon = 'modular/Neu_Food/icons/cooking.dmi'
 	icon_state = "fork_iron"
 	force = 0
 	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/kitchen/ironfork/pewter
-	name = "pewter fork"
-	desc = "Traditional utensil for stabbing your food, this one looks fancy!"
+	name = "оловянная вилка"
+	desc = "Традиционная посуда для накалывания еды, выглядит необычно!"
 	icon_state = "fork_pewter"
 	sellprice = 10
 
 /obj/item/kitchen/ironfork/silver
-	name = "silver fork"
-	desc = "Traditional utensil for stabbing your food. The opposite of a silver spoon?"
+	name = "серебрянная вилка"
+	desc = "Традиционная посуда для накалывания еды. В дополнение к серебрянной ложке!"
 	icon_state = "fork_silver"
 	sellprice = 30
 	var/last_used = 0
@@ -158,8 +159,8 @@
 	experimental_onback = FALSE
 
 /obj/item/reagent_containers/glass/bowl
-	name = "wooden bowl"
-	desc = "It is the empty space that makes the bowl useful."
+	name = "деревянная миска"
+	desc = "Именно пустое пространство делает миску полезной."
 	icon = 'modular/Neu_Food/icons/cooking.dmi'
 	lefthand_file = 'modular/Neu_Food/icons/food_lefthand.dmi'
 	righthand_file = 'modular/Neu_Food/icons/food_righthand.dmi'
@@ -182,15 +183,15 @@
 	icon_state = "bowl_iron"
 
 /obj/item/reagent_containers/glass/bowl/silver
-	name = "silver bowl"
-	desc = "It is the empty space that makes the bowl useful. Made with fancy silver!"
+	name = "серебрянная чашка"
+	desc = "Именно пустое пространство делает чашу полезной. Сделана из чистого серебра!"
 	icon_state = "bowl_silver"
 	sellprice = 30
 	var/last_used = 0
 
 /obj/item/reagent_containers/glass/bowl/pewter
-	name = "pewter bowl"
-	desc = "It is the empty space that makes the bowl useful. Decorated and made with pewter!"
+	name = "оловянная миска"
+	desc = "Именно пустое пространство делает миску полезной. Украшена и изготовлена из олова!"
 	icon_state = "bowl_pewter"
 	sellprice = 10
 
@@ -238,7 +239,7 @@
 		if(reagents.total_volume > 0)
 			beingeaten()
 			playsound(src,'sound/misc/eat.ogg', rand(30,60), TRUE)
-			visible_message("<span class='info'>[user] eats from [src].</span>")
+			visible_message("<span class='info'>[user] ест из [src].</span>")
 			if(do_after(user,1 SECONDS, target = src))
 				addtimer(CALLBACK(reagents, TYPE_PROC_REF(/datum/reagents, trans_to), user, min(amount_per_transfer_from_this,5), TRUE, TRUE, FALSE, user, FALSE, INGEST), 5)
 		return TRUE
@@ -267,7 +268,8 @@
 	experimental_inhand = FALSE
 
 /obj/item/reagent_containers/peppermill // new with some animated art
-	name = "pepper mill"
+	name = "мельница с перцем"
+	desc = "Дорогая специя, которая используется для обогащения вкуса."
 	icon = 'modular/Neu_Food/icons/cooking.dmi'
 	icon_state = "peppermill"
 	layer = CLOSED_BLASTDOOR_LAYER // obj layer + a little, small obj layering above convenient
@@ -276,8 +278,8 @@
 	reagent_flags = TRANSPARENT
 
 /obj/item/cooking/platter
-	name = "platter"
-	desc = "Made from fired clay."
+	name = "блюдо"
+	desc = "Блюдо из обоженной глины."
 	icon = 'modular/Neu_Food/icons/cooking.dmi'
 	lefthand_file = 'modular/Neu_Food/icons/food_lefthand.dmi'
 	righthand_file = 'modular/Neu_Food/icons/food_righthand.dmi'
@@ -287,28 +289,28 @@
 	experimental_inhand = FALSE
 
 /obj/item/cooking/platter/pewter
-	name = "pewter platter"
-	desc = "Made from an alloy of tin and mercury. Rolls off the tongue quite nicely."
+	name = "оловянное блюдо"
+	desc = "Изготовлен из сплава олова и ртути. Довольно приятно скатывается с языка."
 	icon_state = "p_platter"
 	sellprice = 10
 
 /obj/item/cooking/platter/silver
-	name = "silver platter"
-	desc = "Made from polished silver. Fancy!"
+	name = "серебрянное"
+	desc = "Изготовлен из полированного серебра. Изысканно!"
 	icon_state = "s_platter"
 	sellprice = 30
 	var/last_used = 0
 
 /obj/item/book/rogue/yeoldecookingmanual // new book with some tips to learn
-	name = "Ye olde ways of cookinge"
-	desc = "Penned by Svend Fatbeard, butler in the fourth generation"
+	name = "Древнейшие методы и способы пищеприготовления"
+	desc = "Написал Свенд Толстобородый, дворецкий в четвертом поколении."
 	icon_state ="book8_0"
 	base_icon_state = "book8"
 	bookfile = "Neu_cooking.json"
 
 /obj/item/storage/foodbag
-	name = "food pouch"
-	desc = "A small pouch for carrying handfuls of food items."
+	name = "мешок для еды"
+	desc = "Небольшая сумка для переноски продуктов."
 	icon_state = "sack_rope"
 	item_state = "sack_rope"
 	icon = 'icons/roguetown/items/misc.dmi'
@@ -320,7 +322,7 @@
 /obj/item/storage/foodbag/examine(mob/user)
 	. = ..()
 	if(contents.len)
-		. += span_notice("[contents.len] thing[contents.len > 1 ? "s" : ""] in the sack.")
+		. += span_notice("[contents.len] предмет[contents.len > 1 ? "ов" : ""] в мешок.")
 
 /obj/item/storage/foodbag/attack_right(mob/user)
 	. = ..()
@@ -389,18 +391,18 @@
 	..()
 
 /datum/reagent/consumable/soup/oatmeal
-	name = "oatmeal"
-	description = "Fitting for a peasant."
+	name = "овсяная каша"
+	description = "Подходит для крестьян."
 	reagent_state = LIQUID
 	color = "#c38553"
 	nutriment_factor = 15
 	metabolization_rate = 0.5 // half as fast as normal, last twice as long
-	taste_description = "oatmeal"
+	taste_description = "овсянки"
 	taste_mult = 3
 	hydration = 2
 
 /datum/reagent/consumable/soup/veggie
-	name = "vegetable soup"
+	name = "овощной суп"
 	description = ""
 	reagent_state = LIQUID
 	nutriment_factor = 10
@@ -409,42 +411,42 @@
 
 /datum/reagent/consumable/soup/veggie/potato
 	color = "#869256"
-	taste_description = "potato broth"
+	taste_description = "картофельного бульона"
 
 /datum/reagent/consumable/soup/veggie/onion
 	color = "#a6b457"
-	taste_description = "boiled onions"
+	taste_description = "вареного лука"
 
 /datum/reagent/consumable/soup/veggie/cabbage
 	color = "#859e56"
-	taste_description = "watery cabbage"
+	taste_description = "водянистой капусты"
 
 /datum/reagent/consumable/soup/veggie/beet
 	color = "#8E3A59"
-	taste_description = "watery beets"
+	taste_description = "водянистой свеклы"
 
 /datum/reagent/consumable/soup/stew
-	name = "thick stew"
-	description = "All manners of edible bits went into this."
+	name = "густое рагу"
+	description = "В это варево пошли всевозможные съедобные кусочки."
 	reagent_state = LIQUID
 	nutriment_factor = 20
 	taste_mult = 4
 
 /datum/reagent/consumable/soup/stew/chicken
 	color = "#baa21c"
-	taste_description = "chicken"
+	taste_description = "куриного рагу"
 
 /datum/reagent/consumable/soup/stew/meat
 	color = "#80432a"
-	taste_description = "meat stew"
+	taste_description = "мясного рагу"
 
 /datum/reagent/consumable/soup/stew/fish
 	color = "#c7816e"
-	taste_description = "fish"
+	taste_description = "рыбного рагу"
 
 /datum/reagent/consumable/soup/stew/yucky
 	color = "#9e559c"
-	taste_description = "something rancid"
+	taste_description = "чего-то прогорклого"
 
 
 /* * * * * * * * * * * * * * *	*
@@ -456,8 +458,8 @@
 
 // -------------- POWDER (flour) -----------------
 /obj/item/reagent_containers/powder/flour
-	name = "powder"
-	desc = "With this ambition, we build an empire."
+	name = "мука"
+	desc = "С этими амбициями мы построим империю."
 	gender = PLURAL
 	icon_state = "flour"
 	list_reagents = list(/datum/reagent/floure = 1)
@@ -478,17 +480,17 @@
 	if(!istype(R) || (water_added))
 		return ..()
 	if(isturf(loc)&& (!found_table))
-		to_chat(user, "<span class='notice'>Need a table...</span>")
+		to_chat(user, "<span class='notice'>Нужен стол...</span>")
 		return ..()	
 	if(!R.reagents.has_reagent(/datum/reagent/water, 10))
-		to_chat(user, "<span class='notice'>Needs more water to work it.</span>")
+		to_chat(user, "<span class='notice'>Нужно больше воды.</span>")
 		return TRUE
-	to_chat(user, "<span class='notice'>Adding water, now its time to knead it...</span>")
+	to_chat(user, "<span class='notice'>Добавив воду, пора немного помесить тесто...</span>")
 	playsound(get_turf(user), 'modular/Neu_Food/sound/splishy.ogg', 100, TRUE, -1)
 	if(do_after(user,2 SECONDS, target = src))
 		user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-		name = "wet powder"
-		desc = "Destined for greatness, at your hands."
+		name = "влажная мука"
+		desc = "Предназначена для великого. Все в ваших руках."
 		R.reagents.remove_reagent(/datum/reagent/water, 10)
 		water_added = TRUE
 		color = "#d9d0cb"	
@@ -505,7 +507,7 @@
 
 // -------------- SALT -----------------
 /obj/item/reagent_containers/powder/salt
-	name = "salt"
+	name = "соль"
 	desc = ""
 	gender = PLURAL
 	icon_state = "salt"
@@ -530,7 +532,7 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/peppersteak))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
@@ -540,7 +542,7 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/onionsteak))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
@@ -550,7 +552,7 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/friedegg/tiberian))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
@@ -560,7 +562,7 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/friedrat))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
@@ -570,7 +572,7 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/hcakeslice))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
@@ -580,7 +582,7 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/ccakeslice))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
@@ -590,7 +592,7 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/bun_grenz))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
@@ -600,7 +602,7 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/fryfish/carp))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
@@ -610,7 +612,7 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/fryfish/clownfish))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
@@ -620,7 +622,7 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/fryfish/angler))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
@@ -630,7 +632,7 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/fryfish/eel))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
@@ -640,7 +642,7 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/wienercabbage))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
@@ -650,7 +652,7 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/wienerpotato))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
@@ -660,7 +662,7 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/wieneronions))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
@@ -670,7 +672,7 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/wienerpotatonions))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
@@ -680,7 +682,7 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/frybirdtato))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
@@ -690,7 +692,7 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	else
 		return ..()	
 
@@ -702,7 +704,7 @@
 // Because this is the same for all silver items, I will only comment for the platter.
 /obj/item/cooking/platter/silver/funny_attack_effects(mob/living/target, mob/living/user = usr, nodmg)
 	if(world.time < src.last_used + 12 SECONDS) // Can only be applied every 12 seconds.
-		to_chat(user, span_notice("The silver effect is on cooldown."))
+		to_chat(user, span_notice("Эффект серебра находится на перезарядке."))
 		return
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
@@ -710,7 +712,7 @@
 			if(istype(H.dna.species, /datum/species/werewolf))
 				H.adjustFireLoss(10) // 10 points of burn damage
 				H.fire_act(1,10)     // 1 stack of fire added, up to a maximum of 10?
-				to_chat(H, span_userdanger("I'm hit with my BANE!"))
+				to_chat(H, span_userdanger("Меня ударили моей ПОГИБЕЛЬЮ!"))
 				src.last_used = world.time
 				return
 		if(target.mind && target.mind.has_antag_datum(/datum/antagonist/vampirelord))
@@ -718,7 +720,7 @@
 			if(!VD.disguised)
 				H.adjustFireLoss(10)
 				H.fire_act(1,10)
-				to_chat(H, span_userdanger("I'm hit with my BANE!"))
+				to_chat(H, span_userdanger("Меня ударили моей ПОГИБЕЛЬЮ!"))
 				src.last_used = world.time
 				return
 
@@ -729,18 +731,18 @@
 	var/datum/antagonist/werewolf/W = H.mind.has_antag_datum(/datum/antagonist/werewolf/)
 	if(ishuman(H))
 		if(H.mind.has_antag_datum(/datum/antagonist/vampirelord/lesser))
-			to_chat(H, span_userdanger("I can't pick up the silver, it is my BANE!"))
+			to_chat(H, span_userdanger("Я не могу брать в руки серебро, это моя ПОГИБЕЛЬ!"))
 			H.Knockdown(10)
 			H.Paralyze(10)
 			H.adjustFireLoss(25)
 			H.fire_act(1,10)
 		if(V_lord)
 			if(V_lord.vamplevel < 4 && !H.mind.has_antag_datum(/datum/antagonist/vampirelord/lesser))
-				to_chat(H, span_userdanger("I can't pick up the silver, it is my BANE!"))
+				to_chat(H, span_userdanger("Я не могу брать в руки серебро, это моя ПОГИБЕЛЬ!"))
 				H.Knockdown(10)
 				H.adjustFireLoss(25)
 		if(W && W.transformed == TRUE)
-			to_chat(H, span_userdanger("I can't pick up the silver, it is my BANE!"))
+			to_chat(H, span_userdanger("Я не могу брать в руки серебро, это моя ПОГИБЕЛЬ!"))
 			H.Knockdown(10)
 			H.Paralyze(10)
 			H.adjustFireLoss(25)
@@ -756,17 +758,17 @@
 				M.Paralyze(10)
 				M.adjustFireLoss(25)
 				H.fire_act(1,10)
-				to_chat(H, span_userdanger("I can't pick up the silver, it is my BANE!"))
+				to_chat(H, span_userdanger("Я не могу брать в руки серебро, это моя ПОГИБЕЛЬ!"))
 				return FALSE
 	if(M.mind && M.mind.has_antag_datum(/datum/antagonist/vampirelord))
 		M.adjustFireLoss(25)
 		M.fire_act(1,10)
-		to_chat(M, span_userdanger("I can't pick up the silver, it is my BANE!"))
+		to_chat(M, span_userdanger("Я не могу брать в руки серебро, это моя ПОГИБЕЛЬ!"))
 		return FALSE
 
 /obj/item/reagent_containers/glass/bowl/silver/funny_attack_effects(mob/living/target, mob/living/user = usr, nodmg)
 	if(world.time < src.last_used + 12 SECONDS)
-		to_chat(user, span_notice("The silver effect is on cooldown."))
+		to_chat(user, span_notice("Эффект серебра находится на перезарядке."))
 		return
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
@@ -774,7 +776,7 @@
 			if(istype(H.dna.species, /datum/species/werewolf))
 				H.adjustFireLoss(10)
 				H.fire_act(1,10)
-				to_chat(H, span_userdanger("I'm hit with my BANE!"))
+				to_chat(H, span_userdanger("Меня ударили моей ПОГИБЕЛЬЮ!"))
 				src.last_used = world.time
 				return
 		if(target.mind && target.mind.has_antag_datum(/datum/antagonist/vampirelord))
@@ -782,7 +784,7 @@
 			if(!VD.disguised)
 				H.adjustFireLoss(10)
 				H.fire_act(1,10)
-				to_chat(H, span_userdanger("I'm hit with my BANE!"))
+				to_chat(H, span_userdanger("Меня ударили моей ПОГИБЕЛЬЮ!"))
 				src.last_used = world.time
 				return
 
@@ -793,18 +795,18 @@
 	var/datum/antagonist/werewolf/W = H.mind.has_antag_datum(/datum/antagonist/werewolf/)
 	if(ishuman(H))
 		if(H.mind.has_antag_datum(/datum/antagonist/vampirelord/lesser))
-			to_chat(H, span_userdanger("I can't pick up the silver, it is my BANE!"))
+			to_chat(H, span_userdanger("Я не могу брать в руки серебро, это моя ПОГИБЕЛЬ!"))
 			H.Knockdown(10)
 			H.Paralyze(10)
 			H.adjustFireLoss(25)
 			H.fire_act(1,10)
 		if(V_lord)
 			if(V_lord.vamplevel < 4 && !H.mind.has_antag_datum(/datum/antagonist/vampirelord/lesser))
-				to_chat(H, span_userdanger("I can't pick up the silver, it is my BANE!"))
+				to_chat(H, span_userdanger("Я не могу брать в руки серебро, это моя ПОГИБЕЛЬ!"))
 				H.Knockdown(10)
 				H.adjustFireLoss(25)
 		if(W && W.transformed == TRUE)
-			to_chat(H, span_userdanger("I can't pick up the silver, it is my BANE!"))
+			to_chat(H, span_userdanger("Я не могу брать в руки серебро, это моя ПОГИБЕЛЬ!"))
 			H.Knockdown(10)
 			H.Paralyze(10)
 			H.adjustFireLoss(25)
@@ -820,16 +822,16 @@
 				M.Paralyze(10)
 				M.adjustFireLoss(25)
 				H.fire_act(1,10)
-				to_chat(H, span_userdanger("I can't pick up the silver, it is my BANE!"))
+				to_chat(H, span_userdanger("Я не могу брать в руки серебро, это моя ПОГИБЕЛЬ!"))
 				return FALSE
 	if(M.mind && M.mind.has_antag_datum(/datum/antagonist/vampirelord))
 		M.adjustFireLoss(25)
 		M.fire_act(1,10)
-		to_chat(M, span_userdanger("I can't pick up the silver, it is my BANE!"))
+		to_chat(M, span_userdanger("Я не могу брать в руки серебро, это моя ПОГИБЕЛЬ!"))
 		return FALSE
 /obj/item/kitchen/ironfork/silver/funny_attack_effects(mob/living/target, mob/living/user = usr, nodmg)
 	if(world.time < src.last_used + 12 SECONDS)
-		to_chat(user, span_notice("The silver effect is on cooldown."))
+		to_chat(user, span_notice("Эффект серебра находится на перезарядке."))
 		return
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
@@ -837,7 +839,7 @@
 			if(istype(H.dna.species, /datum/species/werewolf))
 				H.adjustFireLoss(10)
 				H.fire_act(1,10)
-				to_chat(H, span_userdanger("I'm hit with my BANE!"))
+				to_chat(H, span_userdanger("Меня ударили моей ПОГИБЕЛЬЮ!"))
 				src.last_used = world.time
 				return
 		if(target.mind && target.mind.has_antag_datum(/datum/antagonist/vampirelord))
@@ -845,7 +847,7 @@
 			if(!VD.disguised)
 				H.adjustFireLoss(10)
 				H.fire_act(1,10)
-				to_chat(H, span_userdanger("I'm hit with my BANE!"))
+				to_chat(H, span_userdanger("Меня ударили моей ПОГИБЕЛЬЮ!"))
 				src.last_used = world.time
 				return
 
@@ -856,18 +858,18 @@
 	var/datum/antagonist/werewolf/W = H.mind.has_antag_datum(/datum/antagonist/werewolf/)
 	if(ishuman(H))
 		if(H.mind.has_antag_datum(/datum/antagonist/vampirelord/lesser))
-			to_chat(H, span_userdanger("I can't pick up the silver, it is my BANE!"))
+			to_chat(H, span_userdanger("Я не могу брать в руки серебро, это моя ПОГИБЕЛЬ!"))
 			H.Knockdown(10)
 			H.Paralyze(10)
 			H.adjustFireLoss(25)
 			H.fire_act(1,10)
 		if(V_lord)
 			if(V_lord.vamplevel < 4 && !H.mind.has_antag_datum(/datum/antagonist/vampirelord/lesser))
-				to_chat(H, span_userdanger("I can't pick up the silver, it is my BANE!"))
+				to_chat(H, span_userdanger("Я не могу брать в руки серебро, это моя ПОГИБЕЛЬ!"))
 				H.Knockdown(10)
 				H.adjustFireLoss(25)
 		if(W && W.transformed == TRUE)
-			to_chat(H, span_userdanger("I can't pick up the silver, it is my BANE!"))
+			to_chat(H, span_userdanger("Я не могу брать в руки серебро, это моя ПОГИБЕЛЬ!"))
 			H.Knockdown(10)
 			H.Paralyze(10)
 			H.adjustFireLoss(25)
@@ -883,17 +885,17 @@
 				M.Paralyze(10)
 				M.adjustFireLoss(25)
 				H.fire_act(1,10)
-				to_chat(H, span_userdanger("I can't pick up the silver, it is my BANE!"))
+				to_chat(H, span_userdanger("Я не могу брать в руки серебро, это моя ПОГИБЕЛЬ!"))
 				return FALSE
 	if(M.mind && M.mind.has_antag_datum(/datum/antagonist/vampirelord))
 		M.adjustFireLoss(25)
 		M.fire_act(1,10)
-		to_chat(M, span_userdanger("I can't pick up the silver, it is my BANE!"))
+		to_chat(M, span_userdanger("Я не могу брать в руки серебро, это моя ПОГИБЕЛЬ!"))
 		return FALSE
 
 /obj/item/kitchen/ironspoon/silver/funny_attack_effects(mob/living/target, mob/living/user = usr, nodmg)
 	if(world.time < src.last_used + 12 SECONDS)
-		to_chat(user, span_notice("The silver effect is on cooldown."))
+		to_chat(user, span_notice("Эффект серебра находится на перезарядке."))
 		return
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
@@ -901,7 +903,7 @@
 			if(istype(H.dna.species, /datum/species/werewolf))
 				H.adjustFireLoss(10)
 				H.fire_act(1,10)
-				to_chat(H, span_userdanger("I'm hit with my BANE!"))
+				to_chat(H, span_userdanger("Меня ударили моей ПОГИБЕЛЬЮ!"))
 				src.last_used = world.time
 				return
 		if(target.mind && target.mind.has_antag_datum(/datum/antagonist/vampirelord))
@@ -909,7 +911,7 @@
 			if(!VD.disguised)
 				H.adjustFireLoss(10)
 				H.fire_act(1,10)
-				to_chat(H, span_userdanger("I'm hit with my BANE!"))
+				to_chat(H, span_userdanger("Меня ударили моей ПОГИБЕЛЬЮ!"))
 				src.last_used = world.time
 				return
 
@@ -920,18 +922,18 @@
 	var/datum/antagonist/werewolf/W = H.mind.has_antag_datum(/datum/antagonist/werewolf/)
 	if(ishuman(H))
 		if(H.mind.has_antag_datum(/datum/antagonist/vampirelord/lesser))
-			to_chat(H, span_userdanger("I can't pick up the silver, it is my BANE!"))
+			to_chat(H, span_userdanger("Я не могу брать в руки серебро, это моя ПОГИБЕЛЬ!"))
 			H.Knockdown(10)
 			H.Paralyze(10)
 			H.adjustFireLoss(25)
 			H.fire_act(1,10)
 		if(V_lord)
 			if(V_lord.vamplevel < 4 && !H.mind.has_antag_datum(/datum/antagonist/vampirelord/lesser))
-				to_chat(H, span_userdanger("I can't pick up the silver, it is my BANE!"))
+				to_chat(H, span_userdanger("Я не могу брать в руки серебро, это моя ПОГИБЕЛЬ!"))
 				H.Knockdown(10)
 				H.adjustFireLoss(25)
 		if(W && W.transformed == TRUE)
-			to_chat(H, span_userdanger("I can't pick up the silver, it is my BANE!"))
+			to_chat(H, span_userdanger("Я не могу брать в руки серебро, это моя ПОГИБЕЛЬ!"))
 			H.Knockdown(10)
 			H.Paralyze(10)
 			H.adjustFireLoss(25)
@@ -947,12 +949,12 @@
 				M.Paralyze(10)
 				M.adjustFireLoss(25)
 				H.fire_act(1,10)
-				to_chat(H, span_userdanger("I can't pick up the silver, it is my BANE!"))
+				to_chat(H, span_userdanger("Я не могу брать в руки серебро, это моя ПОГИБЕЛЬ!"))
 				return FALSE
 	if(M.mind && M.mind.has_antag_datum(/datum/antagonist/vampirelord))
 		M.adjustFireLoss(25)
 		M.fire_act(1,10)
-		to_chat(M, span_userdanger("I can't pick up the silver, it is my BANE!"))
+		to_chat(M, span_userdanger("Я не могу брать в руки серебро, это моя ПОГИБЕЛЬ!"))
 		return FALSE
 
 /* * * * * * * * * * * **

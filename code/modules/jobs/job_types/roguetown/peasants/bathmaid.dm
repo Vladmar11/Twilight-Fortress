@@ -55,25 +55,25 @@
 // Washing Implements
 
 /obj/item/soap/bath
-	name = "herbal soap"
-	desc = "A soap made from various herbs"
+	name = "травяное мыло"
+	desc = "Мыло, приготовленное из различных трав."
 	uses = 10
 
 /obj/item/soap/bath/attack(mob/target, mob/user)
 	var/turf/bathspot = get_turf(target)
 	if(!istype(bathspot, /turf/open/water/bath))
-		to_chat(user, span_warning("They must be in the bath water!"))
+		to_chat(user, span_warning("Моющийся должен быть в купели!"))
 		return
 	if(istype(target, /mob/living/carbon/human))
-		visible_message(span_info("[user] begins scrubbing [target] with the [src]."))
+		visible_message(span_info("[user] начинает чистить тело [target] с помощью [src]."))
 		if(do_after(user, 50))
 			if(HAS_TRAIT(user, TRAIT_GOODLOVER))
-				visible_message(span_info("[user] expertly scrubs and soothes [target] with the [src]."))
-				to_chat(target, span_love("I feel so relaxed and clean!"))
+				visible_message(span_info("[user] умело очищает и ласкает кожу [target] с помощью [src]."))
+				to_chat(target, span_love("Я чувствую невероятную легкость и чистоту!"))
 				SEND_SIGNAL(target, COMSIG_ADD_MOOD_EVENT, "bathcleaned", /datum/mood_event/bathcleaned)
 			else
-				visible_message(span_info("[user] tries their best to scrub [target] with the [src]."))
-				to_chat(target, span_warning("Ouch! That hurts!"))
+				visible_message(span_info("[user] старается изо всех сил вычистить [target] с помощью [src]."))
+				to_chat(target, span_warning("Ай! Это больно!"))
 			uses -= 1
 			if(uses == 0)
 				qdel(src)

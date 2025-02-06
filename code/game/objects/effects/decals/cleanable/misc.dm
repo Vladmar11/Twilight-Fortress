@@ -6,7 +6,7 @@
 	beauty = -50
 
 /obj/effect/decal/cleanable/ash
-	name = "ashes"
+	name = "пепел"
 	desc = ""
 	icon = 'icons/obj/objects.dmi'
 	icon_state = "ash"
@@ -105,8 +105,8 @@
 
 //Vomit (sorry)
 /obj/effect/decal/cleanable/vomit
-	name = "vomit"
-	desc = ""
+	name = "рвота"
+	desc = "Мерзость..."
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "vomit_1"
 	random_icon_states = list("vomit_1", "vomit_2", "vomit_3", "vomit_4")
@@ -114,8 +114,8 @@
 	alpha = 160
 
 /obj/effect/decal/cleanable/vomit/old
-	name = "dried vomit"
-	desc = ""
+	name = "высохшая рвота"
+	desc = "Мерзость... хотя бы не останется на сапогах..."
 
 /obj/effect/decal/cleanable/vomit/old/Initialize(mapload)
 	. = ..()
@@ -129,7 +129,7 @@
 	icon_state = "ash"
 
 /obj/effect/decal/cleanable/shreds
-	name = "shreds"
+	name = "ошметки"
 	desc = ""
 	icon_state = "shreds"
 	gender = PLURAL
@@ -199,7 +199,7 @@
 	setDir(pick(GLOB.cardinals))
 
 /obj/effect/decal/cleanable/debris/glassy
-	name = "glass shards"
+	name = "стеклянная крошка"
 	icon_state = "tiny"
 	beauty = -100
 /obj/effect/decal/cleanable/debris/glassy/Crossed(mob/living/L)
@@ -207,11 +207,11 @@
 	playsound(loc,'sound/foley/glass_step.ogg', 50, FALSE)
 
 /obj/effect/decal/cleanable/debris/stony
-	name = "stone chippings"
+	name = "каменная крошка"
 	icon_state = "pebbly"
 
 /obj/effect/decal/cleanable/debris/woody	// sawdust gets cleared by weather
-	name = "sawdust"
+	name = "опилки"
 	icon_state = "woody"
 /obj/effect/decal/cleanable/debris/woody/Initialize()
 	START_PROCESSING(SSprocessing, src)

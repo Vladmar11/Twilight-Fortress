@@ -1,5 +1,5 @@
 /datum/language/elvish
-	name = "Elfish"
+	name = "Эльфийский"
 	desc = ""
 	speech_verb = "states"
 	ask_verb = "questions"

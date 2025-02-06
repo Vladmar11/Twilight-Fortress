@@ -1,77 +1,77 @@
 // ROGUETRAITS (description when right-clicking [skill] button)
-#define TRAIT_WEBWALK "Webwalker"
-#define TRAIT_NOSTINK "Dead Nose"
-#define TRAIT_ZJUMP "High Jumping"
-#define TRAIT_JESTERPHOBIA "Jesterphobic"
-#define TRAIT_XENOPHOBIC "Xenophobic"
-#define TRAIT_LEAPER "Leaper"
-#define TRAIT_NOSEGRAB "Nosey"
-#define TRAIT_NUTCRACKER "Nutcracker"
-#define TRAIT_SEEPRICES "Skilled Appraiser"
-#define TRAIT_SEEPRICES_SHITTY "Appraiser"
-#define TRAIT_STRONGBITE "Strong Bite"
-#define TRAIT_NOBLE "Noble Blooded"
-#define TRAIT_EMPATH "Empath"
-#define TRAIT_BREADY "Battleready"
-#define TRAIT_MEDIUMARMOR "Maille Training"
-#define TRAIT_HEAVYARMOR "Plate Training"
-#define TRAIT_DODGEEXPERT "Fast Reflexes"
-#define TRAIT_DECEIVING_MEEKNESS "Deceiving Meekness"
-#define TRAIT_CRITICAL_RESISTANCE "Critical Resistance"
-#define TRAIT_CRITICAL_WEAKNESS "Critical Weakness"
-#define TRAIT_MANIAC_AWOKEN "Awoken"
-#define TRAIT_NOSTAMINA "Indefatigable" //for ai
-#define TRAIT_NUDIST "Nudist" //you can't wear most clothes
-#define TRAIT_CYCLOPS_LEFT "Cyclops (Left)" //poked left eye
-#define TRAIT_CYCLOPS_RIGHT "Cyclops (Right)" //poked right eye
-#define TRAIT_INHUMEN_ANATOMY "Inhumen Anatomy" //can't wear hats and shoes
-#define TRAIT_NASTY_EATER "Inhumen Digestion" //can eat rotten food, organs, poison berries, and drink murky water
-#define TRAIT_WILD_EATER "Beastly Digestion" //can eat raw and rotten food and drink murky water
-#define TRAIT_NOFALLDAMAGE1 "Minor fall damage immunity"
-#define TRAIT_MISSING_NOSE "Missing Nose" //halved stamina regeneration
-#define TRAIT_DISFIGURED "Disfigured"
-#define TRAIT_SPELLCOCKBLOCK "Bewitched" //prevents spellcasting
-#define TRAIT_ANTIMAGIC	"Anti-Magic"
-#define TRAIT_ANTISCRYING "Non-Detection"
-#define TRAIT_SHOCKIMMUNE "Shock Immunity"
-#define TRAIT_NOSLEEP "Fatal Insomnia"
-#define TRAIT_FASTSLEEP "Fast Sleeper"
-#define TRAIT_GOODLOVER "Fabled Lover"
-#define TRAIT_SEEDKNOW "Seed Knower"
-#define TRAIT_GOODRUNNER "Good Runner"
-#define TRAIT_TINY "Tiny"
-#define TRAIT_STUDENT "Student"
+#define TRAIT_WEBWALK "Шагающий в паутине"
+#define TRAIT_NOSTINK "Отсохший нос"
+#define TRAIT_ZJUMP "Прыгун в высоту"
+#define TRAIT_JESTERPHOBIA "Шутофобия"
+#define TRAIT_XENOPHOBIC "Ксенофобия"
+#define TRAIT_LEAPER "Прыгун"
+#define TRAIT_NOSEGRAB "Пронырливый"
+#define TRAIT_NUTCRACKER "Орехокол"
+#define TRAIT_SEEPRICES "Опытный оценщик"
+#define TRAIT_SEEPRICES_SHITTY "Оценщик"
+#define TRAIT_STRONGBITE "Сильный укус"
+#define TRAIT_NOBLE "Благородная кровь"
+#define TRAIT_EMPATH "Эмпатия"
+#define TRAIT_BREADY "Готовность к бою"
+#define TRAIT_MEDIUMARMOR "Тренировки с кольчугой"
+#define TRAIT_HEAVYARMOR "Тренировки с латами"
+#define TRAIT_DODGEEXPERT "Быстрые рефлексы"
+#define TRAIT_DECEIVING_MEEKNESS "Обманчивая кроткость"
+#define TRAIT_CRITICAL_RESISTANCE "Критическая устойчивость"
+#define TRAIT_CRITICAL_WEAKNESS "Критическая слабость"
+#define TRAIT_MANIAC_AWOKEN "Пробудившийся"
+#define TRAIT_NOSTAMINA "Неутомимый" //for ai
+#define TRAIT_NUDIST "Нудист" //you can't wear most clothes
+#define TRAIT_CYCLOPS_LEFT "Циклоп (Левый)" //poked left eye
+#define TRAIT_CYCLOPS_RIGHT "Циклоп (Правый)" //poked right eye
+#define TRAIT_INHUMEN_ANATOMY "Нечеловеческая анатомия" //can't wear hats and shoes
+#define TRAIT_NASTY_EATER "Нечеловеческое пищеварение" //can eat rotten food, organs, poison berries, and drink murky water
+#define TRAIT_WILD_EATER "Звериное пищеварение" //can eat raw and rotten food and drink murky water
+#define TRAIT_NOFALLDAMAGE1 "Техника перекатов"
+#define TRAIT_MISSING_NOSE "Безносый" //halved stamina regeneration
+#define TRAIT_DISFIGURED "Изуродованный"
+#define TRAIT_SPELLCOCKBLOCK "Заколдованный" //prevents spellcasting
+#define TRAIT_ANTIMAGIC	"Иммунитет к магии"
+#define TRAIT_ANTISCRYING "Магическая невосприимчивость"
+#define TRAIT_SHOCKIMMUNE "Шоковая устойчивость"
+#define TRAIT_NOSLEEP "Тяжелая бессонница"
+#define TRAIT_FASTSLEEP "Быстрый сон"
+#define TRAIT_GOODLOVER "Желанный любовник"
+#define TRAIT_SEEDKNOW "Знаток семян"
+#define TRAIT_GOODRUNNER "Хороший бегун"
+#define TRAIT_TINY "Крохотный"
+#define TRAIT_STUDENT "Ученик"
 
-#define TRAIT_INQUISITION "Member of the Inquisition"
+#define TRAIT_INQUISITION "Член Инквизиции"
 
 // ROGUEspecialTRAITS (description when rmb skills button)
-#define TRAIT_CIVILIZEDBARBARIAN "Tavern Brawler"
-#define TRAIT_COMICSANS "Annoying Face"
-#define TRAIT_WATERBREATHING "Water Breathing"
-#define TRAIT_DARKLING "Darkling"
+#define TRAIT_CIVILIZEDBARBARIAN "Драчун"
+#define TRAIT_COMICSANS "Раздражающее лицо"
+#define TRAIT_WATERBREATHING "Подводное дыхание"
+#define TRAIT_DARKLING "Теневая сущность"
 
 ///trait determines if this mob can breed given by /datum/component/breeding
 #define TRAIT_MOB_BREEDER "mob_breeder"
 
 // PATRON GOD TRAITS
-#define TRAIT_ROT_EATER "Blessing of Pestra" //can eat rotten food
-#define TRAIT_ORGAN_EATER "Blessing of Graggar" //can eat organs
-#define TRAIT_VINE_WALKER "Blessing of Dendor"
-#define TRAIT_SOUL_EXAMINE "Blessing of Necra" //can check bodies to see if they have departed
-#define TRAIT_ZIZO_MARKED "Blessing of Zizo" //basically just here so that they can avoid a negative moodlet
-#define TRAIT_CRACKHEAD "Blessing of Baotha" //will never overdose
-#define TRAIT_COMMIE "Blessing of Matthios" //recognized by bandits as an ally
-#define TRAIT_CHOSEN "Consecrated Priest"
-#define TRAIT_NOCTURNAL "Noc's Moonlight" //Grants weak darkvision- lighting alpha 145, amplified for mages using the DV spell- alpha 200
-#define TRAIT_FORGEBLESSED "Malum's Devout" //Reduces the fatigue cost of smithing a bit.
-#define TRAIT_XYLIX "Blessing of Xylix"
+#define TRAIT_ROT_EATER "Благословение Пестры" //can eat rotten food
+#define TRAIT_ORGAN_EATER "Благословение Граггара" //can eat organs
+#define TRAIT_VINE_WALKER "Благословение Дендора"
+#define TRAIT_SOUL_EXAMINE "Благословение Некры" //can check bodies to see if they have departed
+#define TRAIT_ZIZO_MARKED "Благословение Зизо" //basically just here so that they can avoid a negative moodlet
+#define TRAIT_CRACKHEAD "Благословение Баоты" //will never overdose
+#define TRAIT_COMMIE "Благословение Маттиоса" //recognized by bandits as an ally
+#define TRAIT_CHOSEN "Посвященный священник"
+#define TRAIT_NOCTURNAL "Лунный свет Нок" //Grants weak darkvision- lighting alpha 145, amplified for mages using the DV spell- alpha 200
+#define TRAIT_FORGEBLESSED "Благочестивость Маллума" //Reduces the fatigue cost of smithing a bit.
+#define TRAIT_XYLIX "Благословение Ксайликса"
 
-#define TRAIT_KNEESTINGER_IMMUNITY "Kneestinger Immunity"
+#define TRAIT_KNEESTINGER_IMMUNITY "Иммунитет к шоковым грибам"
 #define TRAIT_BASHDOORS "bashdoors"
 #define TRAIT_NOMOOD "no_mood"
-#define TRAIT_BAD_MOOD "Bad Mood"
-#define TRAIT_NIGHT_OWL "Night Owl"
-#define TRAIT_BEAUTIFUL "Beautiful"
+#define TRAIT_BAD_MOOD "Плохое настроение"
+#define TRAIT_NIGHT_OWL "Сова"
+#define TRAIT_BEAUTIFUL "Прекрасный"
 #define TRAIT_SIMPLE_WOUNDS "simple_wounds"
 #define TRAIT_BANDITCAMP "banditcamp"
 #define TRAIT_GOBLINCAMP "goblincamp"
@@ -86,92 +86,92 @@
 #define TRAIT_IWASHAUNTED "iwashaunted" //prevents spawning a haunt from a decapitated body twice
 #define TRAIT_SCHIZO_AMBIENCE "schizo_ambience" //replaces all ambience with creepy shit
 #define TRAIT_SCREENSHAKE "screenshake" //screen will always be shaking, you cannot stop it
-#define TRAIT_NORUN "Decayed Flesh"
+#define TRAIT_NORUN "Старые суставы"
 #define TRAIT_PUNISHMENT_CURSE "PunishmentCurse"
-#define TRAIT_LEPROSY "Leprosy"
-#define TRAIT_NUDE_SLEEPER "Nude Sleeper"
+#define TRAIT_LEPROSY "Прокаженность"
+#define TRAIT_NUDE_SLEEPER "Обнаженный спящий"
 
 // PATRON CURSE TRAITS
-#define TRAIT_CURSE "Curse" //source
-#define TRAIT_ATHEISM_CURSE "Curse of Atheism"
-#define TRAIT_PSYDON_CURSE "Psydon's Curse"
-#define TRAIT_ASTRATA_CURSE "Astrata's Curse"
-#define TRAIT_NOC_CURSE "Noc's Curse"
-#define TRAIT_RAVOX_CURSE "Ravox's Curse"
-#define TRAIT_NECRA_CURSE "Necra's Curse"
-#define TRAIT_XYLIX_CURSE "Xylix's Curse"
-#define TRAIT_PESTRA_CURSE "Pestra's Curse"
-#define TRAIT_EORA_CURSE "Eora's Curse"
-#define TRAIT_ZIZO_CURSE "Zizo's Curse"
-#define TRAIT_GRAGGAR_CURSE "Graggar's Curse"
-#define TRAIT_MATTHIOS_CURSE "Matthios' Curse"
-#define TRAIT_BAOTHA_CURSE "Baotha's Curse"
+#define TRAIT_CURSE "Проклятие" //source
+#define TRAIT_ATHEISM_CURSE "Проклятие Атеизма"
+#define TRAIT_PSYDON_CURSE "Проклятие Псайдона"
+#define TRAIT_ASTRATA_CURSE "Проклятие Астраты"
+#define TRAIT_NOC_CURSE "Проклятие Нок"
+#define TRAIT_RAVOX_CURSE "Проклятие Равокса"
+#define TRAIT_NECRA_CURSE "Проклятие Некры"
+#define TRAIT_XYLIX_CURSE "Проклятие Ксайликса"
+#define TRAIT_PESTRA_CURSE "Проклятие Пестры"
+#define TRAIT_EORA_CURSE "Проклятие Эоры"
+#define TRAIT_ZIZO_CURSE "Проклятие Зизо"
+#define TRAIT_GRAGGAR_CURSE "Проклятие Граггара"
+#define TRAIT_MATTHIOS_CURSE "Проклятие Маттиоса"
+#define TRAIT_BAOTHA_CURSE "Проклятие Баоты"
 
 
 
 GLOBAL_LIST_INIT(roguetraits, list(
-	TRAIT_LEPROSY = span_necrosis("I'm a disgusting leper..."),
-	TRAIT_CHOSEN = "Appointed by the Church of the Successors, you hold authority over all spiritual matters in the City.",
-	TRAIT_WEBWALK = "I can move freely between webs.",
-	TRAIT_NOSTINK = span_dead("My nose is numb to the smell of decay."),
-	TRAIT_ZJUMP = "Time to reach a new high.",
-	TRAIT_JESTERPHOBIA = span_warning("I have a severe irrational fear of Jesters"),
-	TRAIT_XENOPHOBIC = span_warning("Lesser races pollute our land"),
-	TRAIT_NIGHT_OWL = span_info("I enjoy spending my time in the night"),
-	TRAIT_BEAUTIFUL = span_info("People love looking at my face"),
-	TRAIT_BAD_MOOD = span_warning("Everything just seems to piss me off"),
-	TRAIT_LEAPER = "I can leap like a frog.",
-	TRAIT_NOSEGRAB = "I love to grab idiots by their noses!",
-	TRAIT_NUTCRACKER = "I love kicking idiots on the nuts!",
-	TRAIT_SEEPRICES = "I can tell the prices of things down to the zenny.",
-	TRAIT_SEEPRICES_SHITTY = "I can tell the prices of things... <i>Kind of</i>.",
-	TRAIT_STRONGBITE = "Stronger bites, critical bite attacks.",
-	TRAIT_NOBLE = span_blue("I'm of noble blood."),
-	TRAIT_EMPATH = "I can notice when people are in pain.",
-	TRAIT_BREADY = "Defensive stance does not passively fatigue me.",
-	TRAIT_MEDIUMARMOR = "I can move freely in medium armor.",
-	TRAIT_HEAVYARMOR = "I can move freely in both heavy and medium armor.",
-	TRAIT_DODGEEXPERT = "I can dodge easily while only wearing light armor.",
-	TRAIT_DECEIVING_MEEKNESS = "People look at me and think I am a weakling. They are mistaken.",
-	TRAIT_CRITICAL_RESISTANCE = "I am resistant to wounds that would be life threatening to others.",
-	TRAIT_CRITICAL_WEAKNESS = span_danger("I am weak to wounds that others could survive."),
-	TRAIT_MANIAC_AWOKEN = span_danger("I am <b>WAKING UP</b> and the sheeple know this. They will resist."),
-	TRAIT_NOSTAMINA = "I have boundless energy, I will never tire.",
-	TRAIT_NUDIST = "I <b>refuse</b> to wear clothes. They are a hindrance to my freedom.",
-	TRAIT_CYCLOPS_LEFT = span_warning("My left eye has been poked out..."),
-	TRAIT_CYCLOPS_RIGHT = span_warning("My right eye has been poked out..."),
-	TRAIT_INHUMEN_ANATOMY = "My anatomy is inhumen, preventing me from wearing hats and shoes.",
-	TRAIT_NASTY_EATER = span_dead("I can eat bad food, and water that would be toxic to humen will not affect me."),
-	TRAIT_WILD_EATER = span_info("I can eat raw food and drink from dirty water."),
-	TRAIT_NOFALLDAMAGE1 = span_warning("I can easily handle minor falls."),
-	TRAIT_DISFIGURED = span_warning("No one can recognize me..."),
-	TRAIT_MISSING_NOSE = span_warning("I struggle to breathe."),
-	TRAIT_SPELLCOCKBLOCK = span_warning("I cannot cast any spells."),
-	TRAIT_ANTIMAGIC = "I am immune to most forms of magic.",
-	TRAIT_ANTISCRYING = "I am immune to most forms of magical divination.",
-	TRAIT_SHOCKIMMUNE = "I am immune to electrical shocks.",
-	TRAIT_NOSLEEP = span_warning("I can't sleep."),
-	TRAIT_ROT_EATER = span_necrosis("I can eat rotten food."),
-	TRAIT_ORGAN_EATER = span_bloody("I can eat organs and raw flesh."),
-	TRAIT_KNEESTINGER_IMMUNITY = "I am immune to the shock of kneestingers.",
-	TRAIT_VINE_WALKER = "I can gracefully cross through weepvines.",
-	TRAIT_SOUL_EXAMINE = span_deadsay("I know when someone's soul has departed."),
-	TRAIT_CRACKHEAD = span_love("I can use drugs as much as I want!"),
-	TRAIT_ZIZO_MARKED = span_info("Zizo is steering me to evil and chaos, it feels amazing"),
-	TRAIT_COMMIE = span_bloody("I can recognize other free men, and they can recognize me too."),
-	TRAIT_NORUN = span_warning("My body has atrophied in my state of decay; my leg joints just don't have the strength or durability for running anymore"),
-	TRAIT_GOODLOVER = span_love("It's a lucky thing to share my bed."),
-	TRAIT_SEEDKNOW = span_info("I know which seeds grow which crops."),
-	TRAIT_CIVILIZEDBARBARIAN = span_info("Your fists are heavier."),
-	TRAIT_COMICSANS = span_sans("I am cursed with a odd voice."),
-	TRAIT_WATERBREATHING = span_info("I do not drown in bodies of water."),
-	TRAIT_GOODRUNNER = span_info("I can run without breaking a sweat!"),
-	TRAIT_NUDE_SLEEPER = span_warning("I can't fall asleep unless I'm nude and in bed."),
-	TRAIT_TINY = span_info("I am tiny in size and quite fragile!"),
-	TRAIT_STUDENT = span_info("The scholar has taught me new skills!"),
-	TRAIT_DARKLING = span_info("I am a creature of the dark and am sensitive to the light. The hateful sun is especially harsh on my eyes, and I prefer to sleep during the dae."),
-	TRAIT_INQUISITION = span_info("I am a member of the Inquisition. I can easily identify others of my cadre at a glance."),
-	TRAIT_XYLIX = span_info("I know how to speak in code that only fellow tricksters can understand.")
+	TRAIT_LEPROSY = span_necrosis("Я отвратительный прокаженный..."),
+	TRAIT_CHOSEN = "Назначенный Церковью Преемников, вы обладаете властью над всеми духовными вопросами в Городе.",
+	TRAIT_WEBWALK = "Я могу свободно перемещаться сквозь паутину.",
+	TRAIT_NOSTINK = span_dead("Мой нос давно не чувствует запаха разложения."),
+	TRAIT_ZJUMP = "Пора покорять новые высоты.",
+	TRAIT_JESTERPHOBIA = span_warning("У меня проявляется сильный иррациональный страх при виде шута."),
+	TRAIT_XENOPHOBIC = span_warning("Мне кажется, меньшие расы загрязняют нашу землю."),
+	TRAIT_NIGHT_OWL = span_info("Мне нравится проводить ночное время с пользой."),
+	TRAIT_BEAUTIFUL = span_info("Людям нравится смотреть на мое лицо."),
+	TRAIT_BAD_MOOD = span_warning("Кажется, меня все просто бесит..."),
+	TRAIT_LEAPER = "Я могу прыгать, как лягушка или кролик.",
+	TRAIT_NOSEGRAB = "Обожаю хватать идиотов за нос!",
+	TRAIT_NUTCRACKER = "Я люблю пинать идиотов по бубенцам!",
+	TRAIT_SEEPRICES = "Я могу назвать цены на товары с точностью до зенни.",
+	TRAIT_SEEPRICES_SHITTY = "Могу назвать цены на товары... <i>Приблизительно</i>.",
+	TRAIT_STRONGBITE = "Я оставляю сильные укусы и могу нанести ими тяжелые травмы.",
+	TRAIT_NOBLE = span_blue("Я потомок благородной крови."),
+	TRAIT_EMPATH = "Я замечаю, когда людям больно.",
+	TRAIT_BREADY = "Защитная стойка почти не утомляет меня.",
+	TRAIT_MEDIUMARMOR = "Я могу свободно передвигаться в средней броне.",
+	TRAIT_HEAVYARMOR = "Я могу свободно передвигаться как в тяжелой, так и в средней броне.",
+	TRAIT_DODGEEXPERT = "Я могу легко уклоняться от атак, если ношу только легкую броню.",
+	TRAIT_DECEIVING_MEEKNESS = "Люди смотрят на меня и думают, что видят лишь слабость. Как они ошибаются.",
+	TRAIT_CRITICAL_RESISTANCE = "Я имею устойчивость к ранам, которые в обычном случае были бы опасны для жизни.",
+	TRAIT_CRITICAL_WEAKNESS = span_danger("Я обладаю слабостью перед ранами, которые другие могли бы спокойно пережить."),
+	TRAIT_MANIAC_AWOKEN = span_danger("Я <b>ПРОБУЖДАЮСЬ</b>, и мои овцы это знают. Они будут сопротивляться."),
+	TRAIT_NOSTAMINA = "У меня безграничная энергия, я никогда не устаю.",
+	TRAIT_NUDIST = "Я <b>отказываюсь</b> носить одежду. Они являются препятствием на пути к моей свободе.",
+	TRAIT_CYCLOPS_LEFT = span_warning("Мне выкололи левый глаз..."),
+	TRAIT_CYCLOPS_RIGHT = span_warning("Мне выкололи правый глаз..."),
+	TRAIT_INHUMEN_ANATOMY = "Моя нечеловеческая анатомия не позволяет мне носить шляпы и туфли.",
+	TRAIT_NASTY_EATER = span_dead("Я могу есть плохую пищу, и пить воду, которая была бы токсична для человека, отрава в них на меня не подействует."),
+	TRAIT_WILD_EATER = span_info("Я могу без последствий есть сырую пищу и пить грязную воду."),
+	TRAIT_NOFALLDAMAGE1 = span_warning("Я легко справляюсь с небольшими падениями."),
+	TRAIT_DISFIGURED = span_warning("Меня никто не узнает..."),
+	TRAIT_MISSING_NOSE = span_warning("Мне трудно дышать, и потому дольше восстанавливаю силы."),
+	TRAIT_SPELLCOCKBLOCK = span_warning("Я не могу произносить никакие заклинания."),
+	TRAIT_ANTIMAGIC = "У меня иммунитет к большинству форм магии.",
+	TRAIT_ANTISCRYING = "Я имею невосприимчивость к большинству форм магического поиска.",
+	TRAIT_SHOCKIMMUNE = "Электрический ток не проходит через мою кожу.",
+	TRAIT_NOSLEEP = span_warning("Я не могу заснуть..."),
+	TRAIT_ROT_EATER = span_necrosis("Я могу есть гнилую еду."),
+	TRAIT_ORGAN_EATER = span_bloody("Я могу поедать органы и сырую плоть."),
+	TRAIT_KNEESTINGER_IMMUNITY = "Разряды жальников меня не беспокоят.",
+	TRAIT_VINE_WALKER = "Я могу изящно пересечь заросли тернистой лозы.",
+	TRAIT_SOUL_EXAMINE = span_deadsay("Я узнаю, когда чья-то душа навсегда покинет тело."),
+	TRAIT_CRACKHEAD = span_love("Я могу долбиться шмалью столько, сколько захочу!"),
+	TRAIT_ZIZO_MARKED = span_info("Зизо ведет меня к злу и хаосу, и это потрясающе."),
+	TRAIT_COMMIE = span_bloody("Я могу узнать других свободных людей, и они тоже узнают меня."),
+	TRAIT_NORUN = span_warning("Мое тело атрофировалось в состоянии разложения. Суставам моих ног больше не хватает силы и долговечности для бега."),
+	TRAIT_GOODLOVER = span_love("Это счастье - разделить с кем-то мою постель."),
+	TRAIT_SEEDKNOW = span_info("Я точно знаю, из каких семян какой вырастет урожай."),
+	TRAIT_CIVILIZEDBARBARIAN = span_info("Мои кулаки тяжелее обычного."),
+	TRAIT_COMICSANS = span_sans("На мне лежит проклятие странного лица и... голоса."),
+	TRAIT_WATERBREATHING = span_info("Я умею долго нырять в любых водоемах."),
+	TRAIT_GOODRUNNER = span_info("Я могу бежать, даже не потея!"),
+	TRAIT_NUDE_SLEEPER = span_warning("Я не могу заснуть, если на мне есть одежда и я не лежу в постели."),
+	TRAIT_TINY = span_info("Я меньше остальных по размеру и мне легче навредить."),
+	TRAIT_STUDENT = span_info("Ученый недавно научил меня новым навыкам!"),
+	TRAIT_DARKLING = span_info("Я существо тьмы, чувствительное к свету. Ненавистное солнце особенно сильно жжет мои глаза, и во время даэ я предпочитаю спать."),
+	TRAIT_INQUISITION = span_info("Я - новый член Инквизиции. Я могу легко опознать других членов моего отряда с первого взгляда."),
+	TRAIT_XYLIX = span_info("Я знаю, как говорить кодом, понятным только моим собратьям-плутам.")
 ))
 
 // trait accessor defines
@@ -407,4 +407,4 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 // RITUALS
 
-#define TRAIT_RITUALIZED "Ritualized" //This is used to prevent cpr to work on humans that just got sacrificed
+#define TRAIT_RITUALIZED "Погребенное тело" //This is used to prevent cpr to work on humans that just got sacrificed

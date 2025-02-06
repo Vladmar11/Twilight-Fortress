@@ -1,6 +1,6 @@
 /datum/migrant_role/slaver/master
 	name = "Zybantynian Master"
-	greet_text = "Вы - предводитель зибантинской группы работорговцев. \
+	greet_text = "Вы - предводитель зибантийской группы работорговцев. \
 	Вы прибыли на остров Энигма из западных пустынь Зибантии в надежде разбогатеть за счет торговли несчастными рабочими. \
 	Некоторые называют эту практику презренной, но она, несомненно, помогает набить ваши карманы до возвращения в Зибантию."
 	outfit = /datum/outfit/job/roguetown/slaver/master
@@ -52,7 +52,7 @@
 
 /datum/migrant_role/slaver/slavemercsword
 	name = "Zybantynian Blade Mercenary"
-	greet_text = "Наемная рука для группы зибантинских рабов. Вы прибыли из западных пустынь Зибантии и наняты на неделю, которую проведете на этом острове."
+	greet_text = "Наемная рука для группы зибантийских работорговцев. Вы прибыли из западных пустынь Зибантии и наняты на неделю, которую проведете на этом острове."
 	outfit = /datum/outfit/job/roguetown/slaver/slavemercsword
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_TOLERATED_UP
@@ -104,7 +104,7 @@
 
 /datum/migrant_role/slaver/slavemercwhip
 	name = "Zybantynian Whip Mercenary"
-	greet_text = "Наемная рука для группы зибантинских рабов. Вы прибыли из западных пустынь Зибантии и наняты на неделю, которую проведете на этом острове."
+	greet_text = "Наемная рука для группы зибантийских работорговцев. Вы прибыли из западных пустынь Зибантии и наняты на неделю, которую проведете на этом острове."
 	outfit = /datum/outfit/job/roguetown/slaver/slavemercwhip
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_TOLERATED_UP
@@ -156,7 +156,7 @@
 
 /datum/migrant_role/slaver/slavemercbow
 	name = "Zybantynian Light Crossbow Mercenary"
-	greet_text = "Наемный убийца в отряде зибантинских работорговцев, а также первый помощник со скидкой. \
+	greet_text = "Наемный убийца в отряде зибантийских работорговцев, а также первый помощник со скидкой. \
 	Вы прибыли из западных пустынь Зибантии и наняты на неделю, которую проведете на этом острове."
 	outfit = /datum/outfit/job/roguetown/slaver/slavemercbow
 	allowed_sexes = list(MALE, FEMALE)

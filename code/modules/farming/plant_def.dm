@@ -39,7 +39,7 @@
 	seed_color = pick(random_colors)
 
 /datum/plant_def/wheat
-	name = "wheat stalks"
+	name = "стебли пшеницы"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "wheat"
 	produce_type = /obj/item/natural/chaff/wheat
@@ -52,7 +52,7 @@
 	produce_time = 2 MINUTES
 
 /datum/plant_def/oat
-	name = "oat stalks"
+	name = "стебли овса"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "oat"
 	produce_type = /obj/item/natural/chaff/oat
@@ -65,7 +65,7 @@
 	produce_time = 2 MINUTES
 
 /datum/plant_def/rice
-	name = "rice stalks"
+	name = "стебли риса"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "rice"
 	produce_type = /obj/item/natural/chaff/rice
@@ -78,7 +78,7 @@
 	produce_time = 2 MINUTES
 
 /datum/plant_def/apple
-	name = "apple tree"
+	name = "яблоня"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "apple"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/apple
@@ -92,19 +92,19 @@
 	produce_time = 3 MINUTES
 
 /datum/plant_def/pipeweed
-	name = "westleach leaf"
+	name = "табак"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "tobacco"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/rogue/pipeweed
 
 /datum/plant_def/sweetleaf
-	name = "swampweed"
+	name = "болотная трава"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "weed"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/rogue/sweetleaf
 
 /datum/plant_def/berry
-	name = "berry bush"
+	name = "ягодный куст"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "berry"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/berries/rogue
@@ -118,7 +118,7 @@
 	produce_time = 3 MINUTES
 
 /datum/plant_def/berry_poison
-	name = "berry bush"
+	name = "ягодный куст"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "berry"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/berries/rogue/poison
@@ -127,7 +127,7 @@
 
 
 /datum/plant_def/cabbage
-	name = "cabbage patch"
+	name = "грядка капусты"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "cabbage"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/cabbage/rogue
@@ -139,7 +139,7 @@
 	produce_time = 2 MINUTES
 
 /datum/plant_def/pear
-	name = "pear tree"
+	name = "груша"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "pear"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/pear
@@ -151,7 +151,7 @@
 	produce_time = 3 MINUTES
 
 /datum/plant_def/cherry
-	name = "cherry tree"
+	name = "вишня"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "cherry"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/cherry
@@ -163,7 +163,7 @@
 	produce_time = 3 MINUTES
 
 /datum/plant_def/olive
-	name = "olive tree"
+	name = "оливковое дерево"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "olive"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/olive
@@ -175,7 +175,7 @@
 	produce_time = 3 MINUTES
 
 /datum/plant_def/nut
-	name = "rocknut tree"
+	name = "скалистый орешник"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "nuts"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/nut
@@ -189,7 +189,7 @@
 	water_drain_rate = 1 / (2 MINUTES)
 
 /datum/plant_def/tomato
-	name = "tomato bush"
+	name = "куст томата"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "tomato"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/tomato
@@ -200,7 +200,7 @@
 	produce_time = 3 MINUTES
 
 /datum/plant_def/onion
-	name = "onion patch"
+	name = "грядка лука"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "onion"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/onion/rogue
@@ -212,7 +212,7 @@
 	produce_time = 2 MINUTES
 
 /datum/plant_def/garlic
-	name = "garlic patch"
+	name = "грядка чеснока"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "garlic"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/garlic
@@ -222,7 +222,7 @@
 	produce_time = 2 MINUTES
 
 /datum/plant_def/carrot
-	name = "carrot patch"
+	name = "грядка моркови"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "carrot"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/carrot
@@ -234,7 +234,7 @@
 	produce_time = 2 MINUTES
 
 /datum/plant_def/potato
-	name = "potato plant"
+	name = "картофельный куст"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "potato"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/potato/rogue
@@ -246,7 +246,7 @@
 	produce_time = 2 MINUTES
 
 /datum/plant_def/eggplant
-	name = "aubergine shrub"
+	name = "куст баклажана"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "eggplant"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/eggplant
@@ -257,7 +257,7 @@
 	produce_time = 3 MINUTES
 
 /datum/plant_def/bean
-	name = "bean bush"
+	name = "стебель фасоли"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "bean"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/bean
@@ -267,7 +267,7 @@
 	produce_time = 2.5 MINUTES
 
 /datum/plant_def/radish
-	name = "radish patch"
+	name = "грядка редьки"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "radish"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/radish
@@ -279,7 +279,7 @@
 	produce_time = 2 MINUTES
 
 /datum/plant_def/beet
-	name = "sugarbeet patch"
+	name = "свекольная грядка"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "beet"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/beet
@@ -291,7 +291,7 @@
 	produce_time = 2 MINUTES
 
 /datum/plant_def/bellpepper
-	name = "tiefling's egg bush"
+	name = "куст перца тифлингв"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "bellpepper"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/bellpepper
@@ -302,7 +302,7 @@
 	produce_time = 3 MINUTES
 
 /datum/plant_def/peas
-	name = "pea plant"
+	name = "стебель гороха"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "peas"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/peas
@@ -312,7 +312,7 @@
 	produce_time = 2.5 MINUTES
 
 /datum/plant_def/cucumber
-	name = "cucumber vine"
+	name = "огуречная лоза"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "cucumber"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/cucumber
@@ -323,7 +323,7 @@
 	produce_time = 3 MINUTES
 
 /datum/plant_def/tea
-	name = "tea shrub"
+	name = "чайный куст"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "tea"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/tea
@@ -334,7 +334,7 @@
 	produce_time = 3 MINUTES
 
 /datum/plant_def/plumphelmet
-	name = "plump helmet patch"
+	name = "грядка толстошляпника"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "plump"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/plumphelmet
@@ -348,7 +348,7 @@
 	can_grow_underground = TRUE
 
 /datum/plant_def/trippy
-	name = "strange blue mushroom patch"
+	name = "грядка с синими грибами"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "trippy"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/trippy
@@ -362,7 +362,7 @@
 	can_grow_underground = TRUE
 
 /datum/plant_def/amanita
-	name = "strange red mushroom patch"
+	name = "грядка с красными грибами"
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "amanita"
 	produce_type = /obj/item/reagent_containers/food/snacks/grown/amanita

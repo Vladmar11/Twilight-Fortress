@@ -55,19 +55,19 @@
 		if(isliving(user.pulling))
 			var/mob/living/pushed_mob = user.pulling
 			if(pushed_mob.buckled)
-				to_chat(user, span_warning("[pushed_mob] is on [pushed_mob.buckled]!"))
+				to_chat(user, span_warning("[pushed_mob] на [pushed_mob.buckled]!"))
 				return
 			if(user.used_intent.type == INTENT_GRAB)
 				if(user.grab_state < GRAB_AGGRESSIVE)
-					to_chat(user, span_warning("I need a better grip to do that!"))
+					to_chat(user, span_warning("Мне нужно схватить сильнее!"))
 					return
 				if(user.grab_state >= GRAB_NECK)
 					tableheadsmash(user, pushed_mob)
 				else
 					tablepush(user, pushed_mob)
 			if(user.used_intent.type == INTENT_HELP)
-				pushed_mob.visible_message(span_notice("[user] begins to place [pushed_mob] onto [src]..."), \
-									span_danger("[user] begins to place [pushed_mob] onto [src]..."))
+				pushed_mob.visible_message(span_notice("[user] затаскивает [pushed_mob] на [src]..."), \
+									span_danger("[user] затаскивает [pushed_mob] на [src]..."))
 				if(do_after(user, 35, target = pushed_mob))
 					tableplace(user, pushed_mob)
 				else
@@ -76,8 +76,8 @@
 		else if(user.pulling.pass_flags & PASSTABLE)
 			user.Move_Pulled(src)
 			if (user.pulling.loc == loc)
-				user.visible_message(span_notice("[user] places [user.pulling] onto [src]."),
-					span_notice("I place [user.pulling] onto [src]."))
+				user.visible_message(span_notice("[user] втаскивает [user.pulling] на [src]."),
+					span_notice("Я втаскиваю [user.pulling] на [src]."))
 				user.stop_pulling()
 	return ..()
 
@@ -103,13 +103,13 @@
 /obj/structure/table/proc/tableplace(mob/living/user, mob/living/pushed_mob)
 	pushed_mob.forceMove(loc)
 	pushed_mob.set_resting(TRUE, TRUE)
-	pushed_mob.visible_message(span_notice("[user] places [pushed_mob] onto [src]."), \
-								span_notice("[user] places [pushed_mob] onto [src]."))
+	pushed_mob.visible_message(span_notice("[user] кладет [pushed_mob] на [src]."), \
+								span_notice("[user] кладет [pushed_mob] на [src]."))
 	log_combat(user, pushed_mob, "places", null, "onto [src]")
 
 /obj/structure/table/proc/tablepush(mob/living/user, mob/living/pushed_mob)
 	if(HAS_TRAIT(user, TRAIT_PACIFISM))
-		to_chat(user, span_danger("Throwing [pushed_mob] onto the table might hurt them!"))
+		to_chat(user, span_danger("Если я брошу [pushed_mob] на стол, то могу нанести вред!"))
 		return
 	var/added_passtable = FALSE
 	if(!pushed_mob.pass_flags & PASSTABLE)
@@ -126,8 +126,8 @@
 	if(user.mind?.martial_art.smashes_tables && user.mind?.martial_art.can_use(user))
 		deconstruct(FALSE)
 	playsound(pushed_mob, "sound/effects/tableslam.ogg", 90, TRUE)
-	pushed_mob.visible_message(span_danger("[user] slams [pushed_mob] onto \the [src]!"), \
-								span_danger("[user] slams you onto \the [src]!"))
+	pushed_mob.visible_message(span_danger("[user] швыряет [pushed_mob] на [src]!"), \
+								span_danger("[user] швыряет вас на [src]!"))
 	log_combat(user, pushed_mob, "tabled", null, "onto [src]")
 
 /obj/structure/table/proc/tableheadsmash(mob/living/user, mob/living/pushed_mob)
@@ -138,21 +138,21 @@
 	if(user.mind?.martial_art.smashes_tables && user.mind?.martial_art.can_use(user))
 		deconstruct(FALSE)
 	playsound(pushed_mob, "sound/effects/tableheadsmash.ogg", 90, TRUE)
-	pushed_mob.visible_message(span_danger("[user] smashes [pushed_mob]'s head against \the [src]!"),
-								span_danger("[user] smashes your head against \the [src]"))
+	pushed_mob.visible_message(span_danger("[user] разбивает голову [pushed_mob] об [src]!"),
+								span_danger("[user] разбивает вашу голову об [src]"))
 	log_combat(user, pushed_mob, "head slammed", null, "against [src]")
 	SEND_SIGNAL(pushed_mob, COMSIG_ADD_MOOD_EVENT, "table", /datum/mood_event/table_headsmash)
 
 /obj/structure/table/attackby(obj/item/I, mob/user, params)
 	if(!(flags_1 & NODECONSTRUCT_1))
 		if(I.tool_behaviour == TOOL_SCREWDRIVER && deconstruction_ready)
-			to_chat(user, span_notice("I start disassembling [src]..."))
+			to_chat(user, span_notice("Я разбираю [src]..."))
 			if(I.use_tool(src, user, 20, volume=50))
 				deconstruct(TRUE)
 			return
 
 		if(I.tool_behaviour == TOOL_WRENCH && deconstruction_ready)
-			to_chat(user, span_notice("I start deconstructing [src]..."))
+			to_chat(user, span_notice("Я разбираю [src]..."))
 			if(I.use_tool(src, user, 40, volume=50))
 				playsound(src.loc, 'sound/blank.ogg', 50, TRUE)
 				deconstruct(TRUE, 1)
@@ -162,7 +162,7 @@
 		var/obj/item/storage/tray/T = I
 		if(T.contents.len > 0) // If the tray isn't empty
 			SEND_SIGNAL(I, COMSIG_TRY_STORAGE_QUICK_EMPTY, drop_location())
-			user.visible_message(span_notice("[user] empties [I] on [src]."))
+			user.visible_message(span_notice("[user] вытряхивает [I] на [src]."))
 			return
 		// If the tray IS empty, continue on (tray will be placed on the table like other items)
 
@@ -291,7 +291,7 @@
  */
 
 /obj/structure/table/wood
-	name = "wooden table"
+	name = "деревянный стол"
 	desc = ""
 	icon = 'icons/roguetown/misc/tables.dmi'
 	icon_state = "tablewood"
@@ -309,7 +309,7 @@
 		..()
 
 /obj/structure/table/church
-	name = "stone table"
+	name = "каменный стол"
 	desc = ""
 	icon = 'icons/roguetown/misc/tables.dmi'
 	icon_state = "churchtable"
@@ -327,7 +327,7 @@
 	icon_state = "churchtable_mid"
 
 /obj/structure/table/vtable
-	name = "ancient wooden table"
+	name = "старинный деревянный стол"
 	desc = ""
 	icon = 'icons/roguetown/misc/tables.dmi'
 	icon_state = "vtable"
@@ -342,7 +342,7 @@
 	debris = list(/obj/item/grown/log/tree/small = 1)
 
 /obj/structure/table/fine
-	name = "wooden table"
+	name = "резной столик"
 	desc = ""
 	icon = 'icons/roguetown/misc/tables.dmi'
 	icon_state = "tablefine"
@@ -353,7 +353,7 @@
 	climb_offset = 10
 
 /obj/structure/table/finer
-	name = "wooden table"
+	name = "резной столик"
 	desc = ""
 	icon = 'icons/roguetown/misc/tables.dmi'
 	icon_state = "tablefine2"
@@ -368,7 +368,7 @@
 	..(FALSE)
 
 /obj/structure/table/wood/fancy
-	name = "fancy table"
+	name = "роскошный стол"
 	desc = ""
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "fancy_table"
@@ -518,6 +518,7 @@
 
 
 /obj/structure/rack/rogue
+	name = "стойка"
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "rack"
 	climbable = TRUE
@@ -527,6 +528,7 @@
 	qdel(src)
 
 /obj/structure/rack/rogue/shelf
+	name = "полка"
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "shelf"
 	density = FALSE
@@ -535,6 +537,7 @@
 	pixel_y = 32
 
 /obj/structure/rack/rogue/shelf/big
+	name = "стеллаж"
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "shelf_big"
 	climbable = FALSE

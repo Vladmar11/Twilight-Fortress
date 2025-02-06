@@ -1,8 +1,8 @@
 //generic procs copied from obj/effect/alien
 /obj/structure/spider
-	name = "web"
+	name = "паутина"
 	icon = 'icons/effects/effects.dmi'
-	desc = ""
+	desc = "Её хозяин может быть поблизости."
 	anchored = TRUE
 	density = FALSE
 	max_integrity = 15
@@ -18,7 +18,7 @@
 			return TRUE
 		for(var/i = 1; i <= amount; i++)
 			new /obj/item/natural/silk (get_turf(src))
-		user.visible_message(span_notice("[user] snips [src] up into silk."))
+		user.visible_message(span_notice("[user] разрезает паутину на шелковые нити."))
 		user.mind.add_sleep_experience(/datum/skill/misc/sewing, (user.STAINT / 2)) //We're getting experience for harvesting silk!
 		playsound(src, 'sound/items/flint.ogg', 100, TRUE)
 		qdel(src)
@@ -40,7 +40,7 @@
 	. = ..()
 
 /obj/structure/spider/stickyweb
-	name = "web"
+	name = "паутина"
 	icon_state = "stickyweb1"
 	resistance_flags = FLAMMABLE
 	alpha = 109
@@ -56,14 +56,14 @@
 /obj/structure/spider/stickyweb/CanPass(atom/movable/mover, turf/target)
 	if(isliving(mover))
 		if(prob(50) && !HAS_TRAIT(mover, TRAIT_WEBWALK))
-			to_chat(mover, span_danger("I get stuck in \the [src] for a moment."))
+			to_chat(mover, span_danger("Я застреваю в [src] на мгновение."))
 			return FALSE
 	else if(istype(mover, /obj/projectile))
 		return prob(30)
 	return TRUE
 
 /obj/structure/spider/stickyweb/fire_act(added, maxstacks)
-	visible_message(span_warning("[src] catches fire!"))
+	visible_message(span_warning("[src] загорается!"))
 	var/turf/T = get_turf(src)
 	qdel(src)
 	new /obj/effect/hotspot(T)

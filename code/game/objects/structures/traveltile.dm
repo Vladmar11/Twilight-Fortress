@@ -30,7 +30,7 @@
 
 
 /obj/structure/fluff/traveltile
-	name = "travel"
+	name = "проход"
 	icon_state = "travel"
 	icon = 'icons/turf/roguefloor.dmi'
 	density = FALSE
@@ -80,7 +80,7 @@
 		return
 	var/turf/target_loc = get_other_end_turf()
 	if(!target_loc)
-		to_chat(user, "<b>It is a dead end.</b>")
+		to_chat(user, "<b>Это тупик.</b>")
 		return
 	user.forceMove(target_loc)
 
@@ -122,7 +122,7 @@
 /obj/structure/fluff/traveltile/proc/user_try_travel(mob/living/user)
 	var/obj/structure/fluff/traveltile/the_tile = get_other_end_turf(TRUE)
 	if(!get_turf(the_tile))
-		to_chat(user, "<b>I can't find the other side.</b>")
+		to_chat(user, "<b>Я не могу найти выход на другой стороне.</b>")
 		return
 	if(!can_go(user))
 		return
@@ -130,7 +130,7 @@
 	if(check_other_side && the_tile.required_trait)
 		for(var/mob/living/M in hearers(7, get_turf(the_tile)))
 			if(!HAS_TRAIT(M, the_tile.required_trait))
-				to_chat(user, span_warning("I sense something off at the end of the trail."))
+				to_chat(user, span_warning("Я чувствую, что в конце тропы что-то не так."))
 				time2go = 7 SECONDS
 				break
 	if(!do_after(user, time2go, FALSE, target = src))
@@ -156,7 +156,7 @@
 		return
 	for(var/mob/living/carbon/human/H in view(6,src))
 		if(!HAS_TRAIT(H, required_trait) && !HAS_TRAIT(H, TRAIT_BLIND))
-			to_chat(H, "<b>I discover a well hidden entrance</b>")
+			to_chat(H, "<b>Я обнаруживаю хорошо замаскированный вход...</b>")
 			ADD_TRAIT(H, required_trait, TRAIT_GENERIC)
 
 /obj/structure/fluff/traveltile/proc/show_travel_tile(mob/living/user)
@@ -202,8 +202,8 @@
 	check_other_side = TRUE
 
 /obj/structure/fluff/traveltile/dungeon
-	name = "gate"
-	desc = "This gate's enveloping darkness is so opressive you dread to step through it."
+	name = "врата"
+	desc = "Обволакивающая тьма этих врат настолько гнетущая, что вы боитесь пройти через них."
 	icon = 'icons/roguetown/misc/portal.dmi'
 	icon_state = "portal"
 	density = FALSE

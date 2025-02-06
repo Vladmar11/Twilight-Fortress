@@ -4,30 +4,30 @@
 	desc = ""
 
 /datum/skill/craft/crafting
-	name = "Crafting"
+	name = "Крафт"
 	desc = ""
 	dreams = list(
-		"...you feel grass under you feet as you peer onto a meadow, you prepare a campfire and a tent and drift off into deeper slumber.."
+		"...вы чувствуете траву под ногами, всматриваетесь в луг, готовите костер и палатку и погружаетесь в более глубокий сон.."
 	)
 
 /datum/skill/craft/blacksmithing
-	name = "Blacksmithing"
+	name = "Кузнечное дело"
 
 /datum/skill/craft/carpentry
-	name = "Carpentry"
+	name = "Плотничество"
 
 /datum/skill/craft/masonry
-	name = "Masonry"
+	name = "Зодчество"
 
 /datum/skill/craft/cooking
-	name = "Cooking"
+	name = "Кулинария"
 
 /datum/skill/craft/engineering
-	name = "Engineering"
+	name = "Изобретательство"
 
 /datum/skill/craft/hunting
-	name = "Hunting"
+	name = "Охота"
 	desc = ""
 	dreams = list(
-		"...you feel the forest's embrace as you drift into dreams, visions of stalking prey and the thrill of the hunt filling your mind.."
+		"...вы чувствуете объятия леса, погружаясь в сны, видения преследуемой добычи и азарт охоты наполняют ваш разум..."
 	)

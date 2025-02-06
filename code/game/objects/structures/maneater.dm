@@ -1,7 +1,7 @@
 
 /obj/structure/flora/roguegrass/maneater
-	name = "grass"
-	desc = "Green and vivid.. Did i see.. a tendril?"
+	name = "трава"
+	desc = "Зеленая и яркая... Я видел... шевелящийся усик?"
 	icon = 'icons/roguetown/mob/monster/maneater.dmi'
 	icon_state = "maneater-hidden"
 	max_integrity = 5
@@ -62,7 +62,7 @@
 			playsound(src.loc, list('sound/vo/mobs/plant/attack (1).ogg','sound/vo/mobs/plant/attack (2).ogg','sound/vo/mobs/plant/attack (3).ogg','sound/vo/mobs/plant/attack (4).ogg'), 100, FALSE, -1)
 			if(iscarbon(L))
 				var/mob/living/carbon/C = L
-				src.visible_message(span_danger("[src] starts to rip apart [C]!"))
+				src.visible_message(span_danger("[src] разрывает [C] на части!"))
 				spawn(50)
 					if(C && (C.buckled == src))
 						var/obj/item/bodypart/limb
@@ -86,7 +86,7 @@
 								C.gib()
 							return
 			else
-				src.visible_message(span_danger("[src] starts to rip apart [L]!"))
+				src.visible_message(span_danger("[src] разрывает [L] на части!"))
 				spawn(50)
 					if(L && (L.buckled == src))
 						L.gib()
@@ -94,15 +94,15 @@
 
 /obj/structure/flora/roguegrass/maneater/real/update_icon()
 	if(obj_broken)
-		name = "MANEATER"
-		desc = "This cunning creature is thankfully defeated." // i think this might break, dunno
+		name = "ЦВЕТОК-ЛЮДОЕД"
+		desc = "К счастью, это хитрое существо побеждено." // i think this might break, dunno
 		icon_state = "maneater-dead"
 		return
 	if(aggroed)
-		name = "MANEATER"
+		name = "ЦВЕТОК-ЛЮДОЕД"
 		icon_state = "maneater"
 	else
-		name = "grass"
+		name = "трава"
 		icon_state = "maneater-hidden"
 
 /obj/structure/flora/roguegrass/maneater/real/user_unbuckle_mob(mob/living/M, mob/user)
@@ -117,12 +117,12 @@
 			if(prob(time2mount))
 				..()
 			else
-				user.visible_message(span_warning("[user] tries to pull [M] free of [src]!"))
+				user.visible_message(span_warning("[user] пытается вытянуть [M] из хватки [src]!"))
 			return
 		if(prob(time2mount))
 			..()
 		else
-			user.visible_message(span_warning("[user] tries to break free of [src]!"))
+			user.visible_message(span_warning("[user] пытается вырваться из хватки [src]!"))
 
 /obj/structure/flora/roguegrass/maneater/real/user_buckle_mob(mob/living/M, mob/living/user) //Don't want them getting put on the rack other than by spiking
 	return
@@ -146,7 +146,7 @@
 			START_PROCESSING(SSobj, src)
 			if(!HAS_TRAIT(L, TRAIT_NOPAIN))
 				L.emote("painscream", forced = TRUE)
-			src.visible_message(span_danger("[src] snatches [L]!"))
+			src.visible_message(span_danger("[src] ловит [L]!"))
 			playsound(src.loc, list('sound/vo/mobs/plant/attack (1).ogg','sound/vo/mobs/plant/attack (2).ogg','sound/vo/mobs/plant/attack (3).ogg','sound/vo/mobs/plant/attack (4).ogg'), 100, FALSE, -1)
 		if(istype(AM, /obj/item))
 			if(is_type_in_list(AM, eatablez))

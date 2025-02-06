@@ -1,6 +1,6 @@
 // 'basic' language; spoken by default.
 /datum/language/common
-	name = "Imperial"
+	name = "Имперский"
 	desc = ""
 	speech_verb = "says"
 	whisper_verb = "whispers"

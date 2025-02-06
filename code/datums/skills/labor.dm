@@ -4,16 +4,16 @@
 	desc = ""
 
 /datum/skill/labor/farming
-	name = "Farming"
+	name = "Фермерство"
 
 /datum/skill/labor/mining
-	name = "Mining"
+	name = "Шахтерство"
 
 /datum/skill/labor/fishing
-	name = "Fishing"
+	name = "Рыболовство"
 
 /datum/skill/labor/lumberjacking
-	name = "Lumberjacking"
+	name = "Лесорубство"
 	dreams = list(
-		"...splinters fly off as a tree falls down on the ground, sending a thundering boom throughout the forest..."
+		"...щепки летят во все стороны, когда дерево падает на землю, издавая оглушительный грохот по всему лесу..."
 	)

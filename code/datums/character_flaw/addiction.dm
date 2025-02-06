@@ -23,7 +23,7 @@
 	var/time = 5 MINUTES
 	var/debuff = /datum/status_effect/debuff/addiction
 	var/needsate_text
-	var/sated_text = "That's much better..."
+	var/sated_text = "Гораздо лучше..."
 	var/unsate_time
 
 
@@ -64,7 +64,7 @@
 
 
 /atom/movable/screen/alert/status_effect/debuff/addiction
-	name = "Addiction"
+	name = "Зависимость"
 	desc = ""
 	icon_state = "debuff"
 
@@ -72,65 +72,65 @@
 /// ALCOHOLIC
 
 /datum/charflaw/addiction/alcoholic
-	name = "Alcoholic"
-	desc = "Drinking alcohol is my favorite thing."
+	name = "Алкоголизм"
+	desc = "Употребление алкоголя – мое любимое занятие."
 	time = 40 MINUTES
-	needsate_text = "Time for a drink."
+	needsate_text = "Пора выпить чего покрепче."
 
 
 /// JUNKIE
 
 /datum/charflaw/addiction/junkie
-	name = "Junkie"
-	desc = "I need a REAL high to take the pain of this rotten world away."
+	name = "Наркомания"
+	desc = "Мне нужен НАСТОЯЩИЙ кайф, чтобы избавиться от боли этого гнилого мира."
 	time = 40 MINUTES
-	needsate_text = "Time to get really high."
+	needsate_text = "Время принять немного порошка."
 
 /// Smoker
 
 /datum/charflaw/addiction/smoker
-	name = "Smoker"
-	desc = "I need to smoke something to take the edge off."
+	name = "Курильщик"
+	desc = "Мне нужно что-нибудь покурить, чтобы снять напряжение."
 	time = 40 MINUTES
-	needsate_text = "Time for a flavorful smoke."
+	needsate_text = "Курить хочется."
 
 /// GOD-FEARING
 
 /datum/charflaw/addiction/godfearing
-	name = "Devout Follower"
-	desc = "I need to pray to my Patron, their blessings are stronger."
+	name = "Преданный последователь"
+	desc = "Мне нужно помолиться своему Покровителю, их благословение сильнее."
 	time = 40 MINUTES
-	needsate_text = "Time to pray."
+	needsate_text = "Время молитвы."
 
 /// ALCOHOLIC
 
 /datum/charflaw/addiction/lovefiend
-	name = "Nymphomaniac"
-	desc = "I must make love!"
+	name = "Нимфомания"
+	desc = "Мне необходимо заниматься любовью!"
 	time = 40 MINUTES
-	needsate_text = "I'm feeling randy."
+	needsate_text = "Похоже, я завожусь все больше."
 
 /// SADIST
 
 /datum/charflaw/addiction/sadist
-	name = "Sadist"
-	desc = "There is no greater pleasure than the suffering of another."
+	name = "Садизм"
+	desc = "Нет большего удовольствия, чем страдания другого."
 	time = 30 MINUTES
 	needsate_text = "I need to hear someone whimper."
 
 /// PYROMANIAC
 
 /datum/charflaw/addiction/pyromaniac // from tf2?
-	name = "Servant of Fire"
-	desc = "The warmth and just seeing something turn to ash is so much fun!"
+	name = "Пиромания"
+	desc = "Так весело чувствовать тепло и просто видеть, как что-то превращается в пепел!"
 	time = 15 MINUTES
-	needsate_text = "I need to see something turn to ash, or be on fire. Anything!"
+	needsate_text = "Мне нужно увидеть, как что-то обращается в пепел или горит. Что-угодно!"
 
 /// KLEPTOMANIAC
 
 /datum/charflaw/addiction/kleptomaniac
-	name = "Thief-borne"
-	desc = "As a child I had to rely on theft to survive. Whether that changed or not, I just can't get over it."
+	name = "Клептомания"
+	desc = "В детстве мне приходилось полагаться на воровство, чтобы выжить. Изменилось это или нет, теперь я просто не могу остановиться."
 	time = 20 MINUTES
-	needsate_text = "I need to STEAL something! I'll die if I don't!"
+	needsate_text = "Мне нужно что-то украсть! Я умру, если не сделаю этого!"
 

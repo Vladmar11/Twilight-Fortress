@@ -1,5 +1,5 @@
 /obj/item/boulder
-	name = "boulder"
+	name = "булыжник"
 	icon = 'icons/obj/structures/siege/onager/onager.dmi'
 	icon_state = "boulder"
 	w_class = 5
@@ -62,7 +62,7 @@
 			player.playsound_local(get_turf(player), far_explosion_sound, 100, FALSE, pressure_affected = FALSE, channel = boomchannel)
 
 /obj/projectile/rock_shard
-	name = "rock shard"
+	name = "кусок камня"
 	icon_state = "bullet"
 	damage = 15
 	range = 8

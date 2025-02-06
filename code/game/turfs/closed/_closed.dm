@@ -22,7 +22,7 @@
 				H.apply_damage(15, BRUTE, "head", H.run_armor_check("head", "blunt", damage = 15))
 				H.toggle_rogmove_intent(MOVE_INTENT_WALK, TRUE)
 				playsound(src, "genblunt", 100, TRUE)
-				H.visible_message(span_warning("[H] runs into [src]!"), span_warning("I run into [src]!"))
+				H.visible_message(span_warning("[H] вреза[H.rus_sya()] в [src]!"), span_warning("Я вреза[H.rus_sya()] в [src]!"))
 				addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, Knockdown), 10), 10)
 
 /turf/closed/Initialize()
@@ -64,20 +64,20 @@
 				return
 			var/turf/target = get_step_multiz(user, UP)
 			if(!istype(target, /turf/open/transparent/openspace))
-				to_chat(user, span_warning("I can't climb here."))
+				to_chat(user, span_warning("Я не могу здесь взобраться."))
 				return
 			if(!L.can_zTravel(target, UP))
-				to_chat(user, span_warning("I can't climb there."))
+				to_chat(user, span_warning("Я не могу здесь взобраться."))
 				return
 			target = get_step_multiz(src, UP)
 			if(!target || istype(target, /turf/closed) || istype(target, /turf/open/transparent/openspace))
 				target = get_step_multiz(user.loc, UP)
 				if(!target || !istype(target, /turf/open/transparent/openspace))
-					to_chat(user, span_warning("I can't climb here."))
+					to_chat(user, span_warning("Я не могу здесь взобраться."))
 					return
 			for(var/obj/structure/F in target)
 				if(F && (F.density && !F.climbable))
-					to_chat(user, span_warning("I can't climb here."))
+					to_chat(user, span_warning("Я не могу здесь взобраться."))
 					return
 			var/used_time = 0
 			if(L.mind)
@@ -96,12 +96,12 @@
 							climbsound = 'sound/foley/ladder.ogg'
 
 				if(myskill < climbdiff)
-					to_chat(user, span_warning("I'm not capable of climbing this wall."))
+					to_chat(user, span_warning("Я не умею взбираться по таким высоким стенам."))
 					return
 				used_time = max(70 - (myskill * 10) - (L.STASPD * 3), 30)
 			if(user.m_intent != MOVE_INTENT_SNEAK)
 				playsound(user, climbsound, 100, TRUE)
-			user.visible_message(span_warning("[user] starts to climb [src]."), span_warning("I start to climb [src]..."))
+			user.visible_message(span_warning("[user] залезаю вверх по [src]."), span_warning("Я залезаю вверх по [src]..."))
 			if(do_after(L, used_time, target = src))
 				var/pulling = user.pulling
 				if(ismob(pulling))
@@ -118,13 +118,13 @@
 		return
 	var/turf/target = get_step_multiz(user, UP)
 	if(!target)
-		to_chat(user, span_warning("I can't go there."))
+		to_chat(user, span_warning("Я не могу туда попасть."))
 		return
 	if(!istype(target, /turf/open/transparent/openspace))
-		to_chat(user, span_warning("I can't go there."))
+		to_chat(user, span_warning("Я не могу туда попасть."))
 		return
 	user.forceMove(target)
-	to_chat(user, span_warning("I crawl up the wall."))
+	to_chat(user, span_warning("Я взбираюсь по стене."))
 	. = ..()
 
 /turf/closed/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)

@@ -1,6 +1,6 @@
 #define CANDLE_LUMINOSITY	3
 /obj/item/candle
-	name = "candle"
+	name = "свеча"
 	desc = ""
 	icon = 'icons/obj/candle.dmi'
 	icon_state = "candle1"
@@ -85,7 +85,7 @@
 
 /obj/item/candle/attack_self(mob/user)
 	if(put_out_candle())
-		user.visible_message(span_notice("[user] snuffs [src]."))
+		user.visible_message(span_notice("[user] задувает [src]."))
 
 /obj/item/candle/yellow
 	icon = 'icons/roguetown/items/lighting.dmi'

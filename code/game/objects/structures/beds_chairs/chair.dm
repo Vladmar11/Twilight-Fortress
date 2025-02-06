@@ -115,7 +115,7 @@
 
 /obj/structure/chair/wood
 	icon_state = "chair1"
-	name = "chair"
+	name = "стул"
 	desc = ""
 	icon = 'icons/roguetown/misc/structure.dmi'
 	resistance_flags = FLAMMABLE

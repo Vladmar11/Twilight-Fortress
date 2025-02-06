@@ -174,7 +174,7 @@
 	lockid = "townie"
 
 /obj/item/key/tavern
-	name = "ключ от тварены"
+	name = "ключ от таверны"
 	desc = "Универсальный ключ, открывающий любую дверь в таверне."
 	icon_state = "hornkey"
 	lockid = "tavern"

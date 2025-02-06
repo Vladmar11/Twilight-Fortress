@@ -191,10 +191,10 @@
 	taste_description = "grape soda"
 
 /datum/reagent/consumable/milk
-	name = "Milk"
+	name = "Молоко"
 	description = "An opaque white liquid produced by the mammary glands of mammals."
 	color = "#DFDFDF" // rgb: 223, 223, 223
-	taste_description = "milk"
+	taste_description = "молока"
 	glass_icon_state = "glass_white"
 	glass_name = "glass of milk"
 	glass_desc = ""
@@ -215,10 +215,10 @@
 	..()
 
 /datum/reagent/consumable/breastmilk
-	name = "Breast Milk"
+	name = "Грудное молоко"
 	description = "An opaque white liquid produced by the mammary glands of women. Its a bit sweeter than normal milk"
 	color = "#e9e6e6" 
-	taste_description = "breast milk"
+	taste_description = "грудного молока"
 	glass_icon_state = "glass_white"
 	glass_name = "glass of breast milk"
 	glass_desc = ""

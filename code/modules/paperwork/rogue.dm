@@ -1,5 +1,5 @@
 /obj/item/paper/scroll
-	name = "papyrus"
+	name = "папирус"
 	icon_state = "scroll"
 	var/open = FALSE
 	slot_flags = null
@@ -13,7 +13,7 @@
 /obj/item/paper/scroll/attackby(obj/item/P, mob/living/carbon/human/user, params)
 	if(istype(P, /obj/item/natural/thorn) || istype(P, /obj/item/natural/feather))
 		if(!open)
-			to_chat(user, span_warning("Open me."))
+			to_chat(user, span_warning("Открой меня."))
 			return
 	..()
 
@@ -35,7 +35,7 @@
 
 /obj/item/paper/scroll/attack_self(mob/user)
 	if(mailer)
-		user.visible_message(span_notice("[user] opens the missive from [mailer]."))
+		user.visible_message(span_notice("[user] открывает послание от [mailer]."))
 		mailer = null
 		mailedto = null
 		update_icon()
@@ -48,7 +48,7 @@
 
 /obj/item/paper/scroll/read(mob/user)
 	if(!open)
-		to_chat(user, span_info("Open me."))
+		to_chat(user, span_info("Открой меня."))
 		return
 	if(!user.client || !user.hud_used)
 		return
@@ -66,7 +66,7 @@
 		user.hud_used.reads.maptext_y = 150
 		user.hud_used.reads.maptext_x = 120
 	else
-		return span_warning("I'm too far away to read it.")
+		return span_warning("Я слишком далеко, чтобы прочитать.")
 
 /obj/item/paper/scroll/Initialize()
 	. = ..()
@@ -92,7 +92,7 @@
 	if(mailer)
 		icon_state = "scroll_prep"
 		open = FALSE
-		name = "missive"
+		name = "послание"
 		slot_flags |= ITEM_SLOT_HIP
 		throw_range = 7
 		return
@@ -105,10 +105,10 @@
 		name = initial(name)
 	else
 		icon_state = "scroll_closed"
-		name = "scroll"
+		name = "свиток"
 
 /obj/item/paper/scroll/cargo
-	name = "shipping order"
+	name = "заказ на поставку"
 	icon_state = "contractunsigned"
 	var/signedname
 	var/signedjob
@@ -124,7 +124,7 @@
 /obj/item/paper/scroll/cargo/examine(mob/user)
 	. = ..()
 	if(signedname)
-		. += "It was signed by [signedname] the [signedjob]."
+		. += "Подписан [signedname] the [signedjob]."
 
 	//for each order, add up total price and display orders
 
@@ -137,7 +137,7 @@
 		name = initial(name)
 	else
 		icon_state = "scroll_closed"
-		name = "scroll"
+		name = "свиток"
 
 
 /obj/item/paper/scroll/cargo/attackby(obj/item/P, mob/living/carbon/human/user, params)
@@ -146,50 +146,50 @@
 			if(signedname)
 				to_chat(user, span_warning("[signedname]"))
 				return
-			switch(alert("Sign your name?",,"Yes","No"))
-				if("Yes")
+			switch(alert("Подписать своим именем?",,"Да","Нет"))
+				if("Да")
 					if(user.mind && user.mind.assigned_role)
 						if(do_after(user, 20, target = src))
 							signedname = user.real_name
 							signedjob = user.mind.assigned_role
 							icon_state = "contractsigned"
-							user.visible_message(span_notice("[user] signs the [src]."))
+							user.visible_message(span_notice("[user] подписывает [src]."))
 							update_icon_state()
 							playsound(src, 'sound/items/write.ogg', 100, FALSE)
 							rebuild_info()
-				if("No")
+				if("Нет")
 					return
 
 /obj/item/paper/scroll/cargo/proc/rebuild_info()
 	info = null
 	info += "<div style='vertical-align:top'>"
-	info += "<h2 style='color:#06080F;font-family:\"Segoe Script\"'>Shipping Order</h2>"
+	info += "<h2 style='color:#06080F;font-family:\"Segoe Script\"'>Заказ на поставку</h2>"
 	info += "<hr/>"
 
 	if(orders.len)
 		info += "<ul>"
 		for(var/datum/supply_pack/A in orders)
-			info += "<li style='color:#06080F;font-size:11px;font-family:\"Segoe Script\"'>[A.name] - [A.cost] mammons</li><br/>"
+			info += "<li style='color:#06080F;font-size:11px;font-family:\"Segoe Script\"'>[A.name] - [A.cost] маммон</li><br/>"
 		info += "</ul>"
 
 	info += "<br/></font>"
 
 	if(signedname)
-		info += "<font size=\"2\" face=\"[FOUNTAIN_PEN_FONT]\" color=#27293f>[signedname] the [signedjob] of Rockhill</font>"
+		info += "<font size=\"2\" face=\"[FOUNTAIN_PEN_FONT]\" color=#27293f>[signedname] the [signedjob] из града Рокхилла</font>"
 
 	info += "</div>"
 
 /obj/item/paper/confession
-	name = "confession"
+	name = "признание"
 	icon_state = "confession"
-	info = "THE GUILTY PARTY ADMITS THEIR SIN AND THE WEAKENING OF PSYDON'S HOLY FLOCK. THEY WILL REPENT AND SUBMIT TO ANY PUNISHMENT THE CLERGY DEEMS APPROPRIATE, OR BE RELEASED IMMEDIATELY. LET THIS RECORD OF THEIR SIN WEIGH ON THE ANGEL GABRIEL'S JUDGEMENT AT THE MANY-SPIKED GATES OF HEAVEN.<br/><br/>SIGNED,"
+	info = "ВИНОВНАЯ СТОРОНА ПРИЗНАЕТ СВОЙ ГРЕХ И ОСЛАБЛЕНИЕ СВЯЩЕННОЙ ПАСТВЫ ЕДИНОМОГУЩЕГО ПСАЙДОНА. ВИНОВНЫЙ ПОКАЕТСЯ И ПОДВЕРГНЕТСЯ ЛЮБОМУ НАКАЗАНИЮ, КОТОРОЕ ДУХОВЕНСТВО ПОСЧИТАЕТ ПОДХОДЯЩИМ, ИЛИ БУДЕТ НЕМЕДЛЕННО ОСВОБОЖДЕН. ПУСТЬ ЭТО СВИДЕТЕЛЬСТВО О ГРЕХЕ БУДЕТ ВЗВЕШЕНО НА СУДЕ АНГЕЛА ГАВРИИЛА У ВРАТ НЕБЕСНОГО РАЯ.<br/><br/>ПОДПИСАНО,"
 	var/signed = FALSE
 	textper = 150
 
 /obj/item/paper/confession/update_icon_state()
 	if(mailer)
 		icon_state = "paper_prep"
-		name = "letter"
+		name = "письмо"
 		throw_range = 7
 		return
 	name = initial(name)
@@ -203,11 +203,11 @@
 	if(signed)
 		return ..()
 	if(!M.get_bleed_rate())
-		to_chat(user, span_warning("No. The sinner must be bleeding."))
+		to_chat(user, span_warning("Нет. Грешники должны искупиться кровью."))
 		return
 	if(!M.stat)
-		to_chat(user, span_info("I courteously offer the confession to [M]."))
-		if(alert(M, "Sign the confession with your blood?", "CONFESSION OF SIN", "Yes", "No") != "Yes")
+		to_chat(user, span_info("Я вежливо протягиваю признание в руки [M]."))
+		if(alert(M, "Подписать признание своей кровью?", "ПРИЗНАНИЕ ВО ГРЕХЕ", "Да", "Нет") != "Да")
 			return
 		if(M.stat)
 			return
@@ -215,4 +215,4 @@
 			return
 		M.add_stress(/datum/stressevent/confessed)
 		signed = M.real_name
-		info = "THE GUILTY PARTY ADMITS THEIR SIN AND THE WEAKENING OF PSYDON'S HOLY FLOCK. THEY WILL REPENT AND SUBMIT TO ANY PUNISHMENT THE CLERGY DEEMS APPROPRIATE, OR BE RELEASED IMMEDIATELY. LET THIS RECORD OF THEIR SIN WEIGH ON THE ANGEL GABRIEL'S JUDGEMENT AT THE MANY-SPIKED GATES OF HEAVEN.<br/><br/>SIGNED,<br/><font color='red'>[signed]</font>"
+		info = "ВИНОВНАЯ СТОРОНА ПРИЗНАЕТ СВОЙ ГРЕХ И ОСЛАБЛЕНИЕ СВЯЩЕННОЙ ПАСТВЫ ЕДИНОМОГУЩЕГО ПСАЙДОНА. ВИНОВНЫЙ ПОКАЕТСЯ И ПОДВЕРГНЕТСЯ ЛЮБОМУ НАКАЗАНИЮ, КОТОРОЕ ДУХОВЕНСТВО ПОСЧИТАЕТ ПОДХОДЯЩИМ, ИЛИ БУДЕТ НЕМЕДЛЕННО ОСВОБОЖДЕН. ПУСТЬ ЭТО СВИДЕТЕЛЬСТВО О ГРЕХЕ БУДЕТ ВЗВЕШЕНО НА СУДЕ АНГЕЛА ГАВРИИЛА У ВРАТ НЕБЕСНОГО РАЯ.<br/><br/>ПОДПИСАНО,<br/><font color='red'>[signed]</font>"
