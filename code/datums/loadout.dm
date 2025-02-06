@@ -70,6 +70,10 @@ GLOBAL_LIST_EMPTY(loadout_items)
 	name = "Dark Boots"
 	path = /obj/item/clothing/shoes/roguetown/armor
 
+/datum/loadout_item/darkboots
+	name = "грензельхофтские сапоги"
+	path = /obj/item/clothing/shoes/roguetown/armor/grenzelhoft
+
 /datum/loadout_item/shortboots
 	name = "Short Boots"
 	path = /obj/item/clothing/shoes/roguetown/shortboots
