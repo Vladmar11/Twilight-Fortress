@@ -110,9 +110,9 @@
 	if (isliving(thing))
 
 		if (thing != user)
-			user.visible_message(span_notice("[user] медленно тянется к [thing], искры света мерцают на [user.rus_them()] кончиках пальцев..."), span_notice("Благословенн[user.patron.rus_aya()] [user.patron.name], Я прошу лишь света, который укажет путь..."))
+			user.visible_message(span_notice("[user] медленно тянется к [thing], искры света мерцают на [user.rus_them()] кончиках пальцев..."), span_notice("Благословенн[rus_aya(FALSE, user.patron.gender)] [user.patron.name], Я прошу лишь света, который укажет путь..."))
 		else
-			user.visible_message(span_notice("[user] закрывает свои глаза и кладет светящуюся руку на  [user.p_their()] chest..."), span_notice("Благословенн[user.patron.rus_aya()] [user.patron.name], Я прошу лишь света, который укажет путь..."))
+			user.visible_message(span_notice("[user] закрывает свои глаза и кладет светящуюся руку на свою грудь..."), span_notice("Благословенн[rus_aya(FALSE, user.patron.gender)] [user.patron.name], Я прошу лишь света, который укажет путь..."))
 		
 		if (do_after(user, cast_time, target = thing))
 			var/mob/living/living_thing = thing
@@ -152,7 +152,7 @@
 	if (thing == user)
 		// give us a buff that makes our next spoken thing really loud and also cause any linked, un-muted scom to shriek out the phrase at a 15% chance
 		var/cast_time = 50 - (holy_skill * 5)
-		user.visible_message(span_notice("[user] торжественно опускает свою голову, c [user.rus_them()] губ шепотом срываются слова молитвы..."), span_notice("О пресвят[user.patron.rus_oy()] [user.patron.name], поделись со мной частичкой своей силы..."))
+		user.visible_message(span_notice("[user] торжественно опускает свою голову, c [user.rus_them()] губ шепотом срываются слова молитвы..."), span_notice("О пресвят[rus_oy(FALSE, user.patron.gender)] [user.patron.name], поделись со мной частичкой своей силы..."))
 		
 		if (!user.has_status_effect(/datum/status_effect/thaumaturgy))
 			if (do_after(user, cast_time, target = user))
