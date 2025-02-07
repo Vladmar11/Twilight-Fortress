@@ -4,7 +4,7 @@
 /datum/species/halforc
 	name = "Полуорк"
 	id = "halforc"
-	desc = "<b>Полуорк</b><br>\
+	desc = "<b>Полуорки</b><br>\
 	С кланом Железная Маска, который уже веками ведет войну с целью объединения всех орков под своим знаменем, \
 	разгромленные оркские племена потеряли своих мужчин, а вдовы воинов были разбросаны по отдаленным землям. \
 	Между человеческой цивилизацией и оркским варварством оркские женщины, выбирающие изгнание вместо позора, \
@@ -92,7 +92,7 @@
 
 /datum/species/halforc/after_creation(mob/living/carbon/C)
 	..()
-	to_chat(C, "<span class='info'>I can speak Orcish with ,o before my speech.</span>")
+	to_chat(C, "<span class='info'>Я могу говорить на Орочьем, используя ключ <b>,o</b> перед моей речью.</span>")
 
 /datum/species/halforc/on_species_loss(mob/living/carbon/C)
 	. = ..()

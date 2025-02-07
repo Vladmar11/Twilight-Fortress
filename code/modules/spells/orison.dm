@@ -1,10 +1,10 @@
 /obj/effect/proc_holder/spell/targeted/touch/orison
-	name = "Orison"
+	name = "Молитва"
 	overlay_state = "thaumaturgy"
-	desc = "The basic precept of holy magic orients around the power of prayer and soliciting a Divine Patron for a tiny sliver of Their might."
+	desc = "Основная заповедь священного чудотворства основана на силе молитвы и обращении к Божественному Покровителю за крошечной частичкой Их могущества."
 	clothes_req = FALSE
-	drawmessage = "I calm my mind and prepare to draw upon an orison."
-	dropmessage = "I return my mind to the now."
+	drawmessage = "Я успокаиваю свой разум и готовлюсь произнести молитву."
+	dropmessage = "Я возвращаю свои мысли в настоящее."
 	school = "transmutation"
 	chargedrain = 0
 	chargetime = 0
@@ -16,11 +16,11 @@
 	hand_path = /obj/item/melee/touch_attack/orison
 
 /obj/item/melee/touch_attack/orison
-	name = "\improper lesser prayer"
-	desc = "The fundamental teachings of theology return to you:\n \
-		<b>Fill</b>: Beseech your Divine to create a small quantity of water in a container that you touch for some devotion.\n \
-		<b>Touch</b>: Direct a sliver of divine thaumaturgy into your being, causing your voice to become LOUD when you next speak. Known to sometimes scare the rats inside the SCOMlines. Can be used on light sources at range, and it will cause them flicker.\n \
-		<b>Use</b>: Issue a prayer for illumination, causing you or another living creature to begin glowing with light for five minutes - this stacks each time you cast it, with no upper limit. Using thaumaturgy on a person will remove this blessing from them, and MMB on your praying hand will remove any light blessings from yourself."
+	name = "Малая молитва"
+	desc = "Вы вспоминаете основы учения богословию:\n \
+		<b>Fill</b>: Попросите своего Покровителя создать небольшое количество воды в контейнере, к которому вы прикоснетесь, за некоторую преданность.\n \
+		<b>Touch</b>: Направьте частицу божественной магии в свое существо, и ваш голос станет ГРОМКИМ, когда вы в следующий раз заговорите. Известно, что это часто пугает крыс внутри линий SCOM. Может использоваться на источниках света на расстоянии, что приведет к их мерцанию.\n \
+		<b>Use</b>: Произнесите молитву об освещении, заставив вас или другое живое существо начать светиться ярким светом в течение пяти минут — длительность эффекта суммируется каждый раз, когда вы ее произносите, без верхнего предела. Использование чудотворства на человеке лишит его этого благословения, а нажатие ПКМ на вашей молящейся руке удалит любые благословения света с вас самих."
 	catchphrase = null
 	possible_item_intents = list(/datum/intent/fill, INTENT_HELP, /datum/intent/use)
 	icon = 'icons/mob/roguehudgrabs.dmi'
@@ -41,7 +41,7 @@
 	. = ..()
 	if (user.has_status_effect(/datum/status_effect/light_buff))
 		user.remove_status_effect(/datum/status_effect/light_buff)
-		user.visible_message(span_notice("[user] closes [user.p_their()] eyes, and the holy light surrounding them retreats into their chest and disappears."), span_notice("I relinquish the gift of [user.patron.name]'s light."))
+		user.visible_message(span_notice("[user] закрывает свои глаза, и окружающий [user.rus_them()] святой свет отступает в [user.rus_them()] грудь и исчезает."), span_notice("Я отказываюсь от дара света, и [user.patron.name] забирает его обратно."))
 		return
 
 /obj/item/melee/touch_attack/orison/afterattack(atom/target, mob/living/carbon/human/user, proximity)
@@ -65,8 +65,8 @@
 #define BLESSINGOFLIGHT_FILTER "bol_glow"
 
 /atom/movable/screen/alert/status_effect/light_buff
-	name = "Miraculous Light"
-	desc = "A blessing of light wards off the darkness surrounding me."
+	name = "Чудесный Свет"
+	desc = "Благословение света отгоняет тьму, окружающую меня."
 	icon_state = "stressvg"
 
 /datum/status_effect/light_buff
@@ -74,7 +74,7 @@
 	alert_type = /atom/movable/screen/alert/status_effect/light_buff
 	duration = 5 MINUTES
 	status_type = STATUS_EFFECT_REFRESH
-	examine_text = "SUBJECTPRONOUN is surrounded by an aura of gentle light."
+	examine_text = "SUBJECTPRONOUN окруженENDING аурой мягкого света."
 	var/outline_colour = "#ffffff"
 	var/list/mobs_affected
 	var/obj/effect/dummy/lighting_obj/moblight/mob_light_obj
@@ -87,7 +87,7 @@
 	if (!.)
 		return
 	playsound(owner, 'sound/magic/whiteflame.ogg', 75, FALSE)
-	to_chat(owner, span_notice("Light blossoms into being around me!"))
+	to_chat(owner, span_notice("Чудесный свет исходит вокруг меня!"))
 	var/filter = owner.get_filter(BLESSINGOFLIGHT_FILTER)
 	if (!filter)
 		owner.add_filter(BLESSINGOFLIGHT_FILTER, 2, list("type" = "outline", "color" = outline_colour, "alpha" = 60, "size" = 1))
@@ -96,7 +96,7 @@
 
 /datum/status_effect/light_buff/on_remove()
 	playsound(owner, 'sound/items/firesnuff.ogg', 75, FALSE)
-	to_chat(owner, span_notice("The miraculous light surrounding me has fled..."))
+	to_chat(owner, span_notice("Чудесный свет, окружающий меня, исчез..."))
 	owner.remove_filter(BLESSINGOFLIGHT_FILTER)
 	QDEL_NULL(mob_light_obj)
 
@@ -104,15 +104,15 @@
 	var/holy_skill = user.mind?.get_skill_level(attached_spell.associated_skill)
 	var/cast_time = 35 - (holy_skill * 3)
 	if (!thing.Adjacent(user))
-		to_chat(user, span_info("I need to be next to [thing] to channel a blessing of light!"))
+		to_chat(user, span_info("Мне нужно быть рядом с [thing], чтобы направить направить благословение света на [thing.rus_forthem()]!"))
 		return
 
 	if (isliving(thing))
 
 		if (thing != user)
-			user.visible_message(span_notice("[user] reaches gently towards [thing], beads of light glimmering at [user.p_their()] fingertips..."), span_notice("Blessed [user.patron.name], I ask but for a light to guide the way..."))
+			user.visible_message(span_notice("[user] медленно тянется к [thing], искры света мерцают на [user.rus_them()] кончиках пальцев..."), span_notice("Благословенн[rus_aya(FALSE, user.patron.gender)] [user.patron.name], Я прошу лишь света, который укажет путь..."))
 		else
-			user.visible_message(span_notice("[user] closes [user.p_their()] eyes and places a glowing hand upon [user.p_their()] chest..."), span_notice("Blessed [user.patron.name], I ask but for a light to guide the way..."))
+			user.visible_message(span_notice("[user] закрывает свои глаза и кладет светящуюся руку на свою грудь..."), span_notice("Благословенн[rus_aya(FALSE, user.patron.gender)] [user.patron.name], Я прошу лишь света, который укажет путь..."))
 		
 		if (do_after(user, cast_time, target = thing))
 			var/mob/living/living_thing = thing
@@ -120,21 +120,21 @@
 			set_light_on()
 
 			if (living_thing.has_status_effect(/datum/status_effect/light_buff))
-				user.visible_message(span_notice("The holy light emanating from [living_thing] becomes brighter!"), span_notice("I feed further devotion into [living_thing]'s blessing of light."))
+				user.visible_message(span_notice("Священный свет, исходящий из [living_thing], становится ярче!"), span_notice("Я питаю благословение света в теле [living_thing] большей преданностью."))
 			else
-				user.visible_message(span_notice("A gentle illumination suddenly blossoms into being around [living_thing]!"), span_notice("I grant [living_thing] a blessing of light."))
+				user.visible_message(span_notice("Слабое освещение внезапно расцветает вокруг сущности [living_thing]!"), span_notice("Я даю [living_thing] благословение света."))
 
 			living_thing.apply_status_effect(/datum/status_effect/light_buff, light_power)
 
 			return light_devotion
 	else
-		to_chat(user, span_notice("Only living creachers can bear the blessing of [user.patron.name]'s light."))
+		to_chat(user, span_notice("Только живые верующие могут нести благословение света, что дает [user.patron.name]."))
 		return
 
 #undef BLESSINGOFLIGHT_FILTER
 /atom/movable/screen/alert/status_effect/thaumaturgy
-	name = "Thaumaturgical Voice"
-	desc = "The power of my god will make the next thing I say carry much further!"
+	name = "Громозвучный голос"
+	desc = "Сила моего бога заставит то, что я скажу, распространиться гораздо дальше!"
 	icon_state = "stressvg"
 
 /datum/status_effect/thaumaturgy
@@ -152,15 +152,15 @@
 	if (thing == user)
 		// give us a buff that makes our next spoken thing really loud and also cause any linked, un-muted scom to shriek out the phrase at a 15% chance
 		var/cast_time = 50 - (holy_skill * 5)
-		user.visible_message(span_notice("[user] lowers [user.p_their()] head solemnly, whispered prayers spilling from [user.p_their()] lips..."), span_notice("O holy [user.patron.name], share unto me a sliver of your power..."))
+		user.visible_message(span_notice("[user] торжественно опускает свою голову, c [user.rus_them()] губ шепотом срываются слова молитвы..."), span_notice("О пресвят[rus_oy(FALSE, user.patron.gender)] [user.patron.name], поделись со мной частичкой своей силы..."))
 		
 		if (!user.has_status_effect(/datum/status_effect/thaumaturgy))
 			if (do_after(user, cast_time, target = user))
 				user.apply_status_effect(/datum/status_effect/thaumaturgy, holy_skill)
-				user.visible_message(span_notice("[user] throws open [user.p_their()] eyes, suddenly emboldened!"), span_notice("A feeling of power wells up in my throat: speak, and many will hear!"))
+				user.visible_message(span_notice("[user] раскрывает свои глаза, внезапно взбодрившись!"), span_notice("Чувство силы подступает к горлу: скажи, и многие услышат!"))
 				return thaumaturgy_devotion
 		else
-			to_chat(user, span_notice("I'm already empowered with divine thaumaturgy!"))
+			to_chat(user, span_notice("Я уже наделен[user.rus_a()] божественной силой!"))
 			return
 	else
 		// make a light source flicker, and others around it within a radius	
@@ -176,7 +176,7 @@
 						mobile_light.turn_off()
 						user.devotion?.update_devotion(-1)
 
-			to_chat(user, span_notice("I direct the weight of my faith towards nearby flames, causing them to flicker!"))
+			to_chat(user, span_notice("Я направляю тяжесть своей веры на ближайший огонь, заставляя его мерцать!"))
 			
 			return thaumaturgy_devotion
 		else if (isturf(thing))
@@ -188,29 +188,29 @@
 				did_flicker = TRUE
 
 			if (did_flicker)
-				to_chat(user, span_notice("I direct the weight of my faith towards nearby flames, causing them to flicker!"))
+				to_chat(user, span_notice("Я направляю тяжесть своей веры на ближайший огонь, заставляя его мерцать!"))
 
 				return thaumaturgy_devotion
 			else
-				to_chat(user, span_notice("My faith finds no flames to show its passage..."))
+				to_chat(user, span_notice("Моя вера не находит пламени, которое бы отреагировало на её течение..."))
 				qdel(src)
 		else if (isliving(thing))
 
 			var/mob/living/living_thing = thing
 			if (living_thing.has_status_effect(/datum/status_effect/light_buff))
 				living_thing.remove_status_effect(/datum/status_effect/light_buff)
-				user.visible_message(span_notice("[user] issues a reserved gesture towards [living_thing], and the holy light leaves [living_thing.p_them()]."), span_notice("I gesture towards [living_thing], and [living_thing.p_their()] blessing of light recedes."))
+				user.visible_message(span_notice("[user] делает сдержанный жест в сторону [living_thing], и священный свет покидает [living_thing.rus_them()]."), span_notice("Я указываю на [living_thing], и [living_thing.rus_them()] благословение света отступает."))
 				return
 			else
-				to_chat(user, span_notice("My divine thaumaturgy can only augment my own voice, or dismiss the blessing of light on others."))
+				to_chat(user, span_notice("Моя божественная магия может только усилить мой собственный голос или лишить других благословения света."))
 				return
 		else
-			to_chat(user, span_warning("I can only direct thaumaturgical prayers towards myself, the ground, and any nearby light sources."))
+			to_chat(user, span_warning("Я могу направить молитву только на себя, в землю и на ближайшие источники света."))
 			return
 
 /datum/reagent/water/blessed
-	name = "blessed water"
-	description = "A gift of Devotion. Very slightly heals wounds."
+	name = "святая вода"
+	description = "Дар Преданности. Очень слабо заживляет раны."
 
 /datum/reagent/water/blessed/on_mob_life(mob/living/carbon/M)
 	. = ..()
@@ -233,14 +233,14 @@
 	if (method == TOUCH)
 		if (M.mob_biotypes & MOB_UNDEAD)
 			M.adjustFireLoss(2*reac_volume, 0)
-			M.visible_message(span_warning("[M] erupts into angry fizzling and hissing!"), span_warning("BLESSED WATER!!! IT BURNS!!!"))
+			M.visible_message(span_warning("[M] извергает сердитое шипение и хрип!"), span_warning("СВЯТАЯ ВОДА!!! ЖЖЕТСЯ!!!"))
 			M.emote("scream")
 	
 	return ..()
 
 /datum/reagent/water/cursed
-	name = "cursed water"
-	description = "A gift of Devotion. Very slightly heals wounds of the dead and the enlightened."
+	name = "проклятая вода"
+	description = "Дар Преданности. Очень слабо залечивает раны мёртвых и просвещённых."
 
 /datum/reagent/water/cursed/on_mob_life(mob/living/carbon/M)
 	. = ..()
@@ -269,15 +269,15 @@
 /obj/item/melee/touch_attack/orison/proc/create_water(atom/thing, mob/living/carbon/human/user)
 	// normally we wouldn't use fatigue here to keep in line w/ other holy magic, but we have to since water is a persistent resource
 	if (!thing.Adjacent(user))
-		to_chat(user, span_info("I need to be closer to [thing] in order to try filling it with water."))
+		to_chat(user, span_info("Мне нужно быть проближе к [thing] чтобы попытаться наполнить [thing.rus_them()] водой."))
 		return
 
 	if (thing.is_refillable())
 		if (thing.reagents.holder_full())
-			to_chat(user, span_warning("[thing] is full."))
+			to_chat(user, span_warning("В [thing] больше не влезет."))
 			return
 		
-		user.visible_message(span_info("[user] closes [user.p_their()] eyes in prayer and extends a hand over [thing] as water begins to stream from [user.p_their()] fingertips..."), span_notice("I utter forth a plea to [user.patron.name] for succour, and hold my hand out above [thing]..."))
+		user.visible_message(span_info("[user] прикрыл[user.rus_a()] свои глаза в молитве, выставив руку над [thing], когда с [user.rus_them()] кончиков пальцев начала сочиться вода..."), span_notice("Я обращаюсь к [user.patron.name] с просьбой о помощи и протягиваю свою руку над [thing]..."))
 
 		var/holy_skill = user.mind?.get_skill_level(attached_spell.associated_skill)
 		var/drip_speed = 56 - (holy_skill * 8)
@@ -309,7 +309,7 @@
 		if (!the_cloth.wet)
 			var/holy_skill = user.mind?.get_skill_level(attached_spell.associated_skill)
 			the_cloth.wet += holy_skill * 5
-			user.visible_message(span_info("[user] closes [user.p_their()] eyes in prayer, beads of moisture coalescing in [user.p_their()] hands to moisten [the_cloth]."), span_notice("I utter forth a plea to [user.patron.name] for succour, and will moisture into [the_cloth]. I should be able to clean with it properly now."))
+			user.visible_message(span_info("[user] прикрыл[user.rus_a()] свои глаза в молитве, капельки влаги слипаются в [user.rus_them()] руках и увлажняют [the_cloth]."), span_notice("Я обращаюсь с просьбой к [user.patron.name], и [user.patron.rus_them()] дар увлажняет [the_cloth] в моих руках. Теперь я смогу прибраться, как следует."))
 			return water_moisten
 	else
-		to_chat(user, span_info("I'll need to find a container that can hold water."))
+		to_chat(user, span_info("Мне нужно найти емкость, в которой можно хранить воду."))

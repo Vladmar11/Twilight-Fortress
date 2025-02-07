@@ -1,5 +1,5 @@
 /obj/structure/fireaxecabinet
-	name = "sword rack"
+	name = "стойка для меча"
 	icon = 'icons/obj/wallmounts.dmi'
 	icon_state = "fireaxe"
 	anchored = TRUE
@@ -33,12 +33,12 @@
 		if(istype(I, /obj/item/rogueweapon/sword/long/heirloom) && !heirloom)
 			var/obj/item/rogueweapon/sword/long/heirloom/F = I
 			if(F.wielded)
-				to_chat(user, span_warning("Unwield the [F.name] first."))
+				to_chat(user, span_warning("Я держу [F.name] обеими руками. Нужно ослабить хватку."))
 				return
 			if(!user.transferItemToLoc(F, src))
 				return
 			heirloom = F
-			to_chat(user, span_notice("I place the [F.name] back in the [name]."))
+			to_chat(user, span_notice("Я вешаю [F.name] обратно на [name]."))
 			update_icon()
 			return
 		else if(!broken)
@@ -78,7 +78,7 @@
 		if(heirloom)
 			user.put_in_hands(heirloom)
 			heirloom = null
-			to_chat(user, span_notice("I take the sword from the [name]."))
+			to_chat(user, span_notice("Я беру меч с [name]."))
 			src.add_fingerprint(user)
 			update_icon()
 			return

@@ -103,7 +103,7 @@
 /obj/item/clothing/suit/roguetown/armor/plate/scale/inqcoat
 	slot_flags = ITEM_SLOT_ARMOR
 	name = "пальто инквизитора"
-	desc = "Тяжелый плащ, усиленный металлическими пластинками. Живи, умри, и повтори."
+	desc = "Тяжелый плащ, усиленный металлическими пластинками. Живи, умри, страдай и повтори."
 	body_parts_covered = CHEST|VITALS|GROIN|LEGS|ARMS
 	allowed_sex = list(MALE, FEMALE)
 	icon_state = "inqcoat"

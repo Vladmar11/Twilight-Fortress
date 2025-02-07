@@ -1,13 +1,13 @@
 /obj/item/clothing/neck/roguetown/psicross/abyssor
-	name = "amulet of Abyssor"
+	name = "амулет Абиссора"
 	desc = ""
 	icon = 'modular_twilight/icons/roguetown/clothing/neck.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/neck.dmi'
 	icon_state = "abyssor"
 
 /obj/item/clothing/neck/roguetown/psicross/xylix
-	name = "amulet of Xylix"
-	desc = "Be not fooled, and be not afraid to."
+	name = "амулет Ксайликса"
+	desc = "Не будьте одурачены, не бойтесь остаться в дураках."
 	icon = 'modular_twilight/icons/roguetown/clothing/neck.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/neck.dmi'
 	icon_state = "xylix"

@@ -2,9 +2,10 @@
 	race = /datum/species/anthromorphsmall
 
 /datum/species/anthromorphsmall
-	name = "Верминволк" 
+	name = "Верминволк"
 	id = "anthromorphsmall"
-	desc = "Раса, схожая с вайлдкинами, но отличающаяся значительно меньшим ростом. \
+	desc = "<b>Верминволки</b><br>\
+	Раса, схожая с вайлдкинами, но отличающаяся значительно меньшим ростом. \
 	Несколько менее уважаемы, чем их сородичи, из-за более близкого сходства с вредителями, как дихотомия между кобольдами и ящеролюдами."
 	default_color = "444"
 	species_traits = list(
@@ -104,7 +105,7 @@
 		/datum/body_marking/small/spotted,
 	)
 	stress_examine = TRUE
-	stress_desc = span_red("Filthy vermin...")
+	stress_desc = span_red("Грязная тварь...")
 	descriptor_choices = list(
 		/datum/descriptor_choice/height,
 		/datum/descriptor_choice/body,

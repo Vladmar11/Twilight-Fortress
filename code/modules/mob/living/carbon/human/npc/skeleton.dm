@@ -1,5 +1,5 @@
 /mob/living/carbon/human/species/skeleton
-	name = "skeleton"
+	name = "скелет"
 
 	race = /datum/species/human/northern
 	gender = MALE
@@ -50,8 +50,8 @@
 		QDEL_NULL(src.charflaw)
 	mob_biotypes |= MOB_UNDEAD
 	faction = list("undead")
-	name = "Skeleton"
-	real_name = "Skeleton"
+	name = "скелет"
+	real_name = "скелет"
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_EASYDISMEMBER, TRAIT_GENERIC)

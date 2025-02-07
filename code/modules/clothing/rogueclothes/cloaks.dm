@@ -163,17 +163,17 @@
 	detail_color = CLOTHING_WHITE
 
 /obj/item/clothing/cloak/tabard/crusader/dendor
-	name = "сюрко ордена Дендора"
+	name = "табард ордена Дендора"
 	icon_state = "tabard_dendor"
 	item_state = "tabard_dendor"
 
 /obj/item/clothing/cloak/tabard/crusader/pestra
-	name = "сюрко ордена Пестры"
+	name = "табард ордена Пестры"
 	icon_state = "tabard_pestra"
 	item_state = "tabard_pestra"
 
 /obj/item/clothing/cloak/tabard/crusader/noc
-	name = "сюрко лунного ордена Нок"
+	name = "табард лунного ордена Нок"
 	icon_state = "tabard_noc"
 	item_state = "tabard_noc"
 
@@ -182,22 +182,22 @@
 	item_state = "tabard_noc_alt"
 
 /obj/item/clothing/cloak/tabard/crusader/eora
-	name = "сюрко ордена Эоры"
+	name = "табард ордена Эоры"
 	icon_state = "tabard_eora"
 	item_state = "tabard_eora"
 
 /obj/item/clothing/cloak/tabard/crusader/abyssor
-	name = "сюрко ордена Абиссора"
+	name = "табард ордена Абиссора"
 	icon_state = "tabard_abyssor"
 	item_state = "tabard_abyssor"
 
 /obj/item/clothing/cloak/tabard/crusader/ravox
-	name = "сюрко ордена Равокса"
+	name = "табард ордена Равокса"
 	icon_state = "tabard_ravox"
 	item_state = "tabard_ravox"
 
 /obj/item/clothing/cloak/tabard/crusader/xylix
-	name = "сюрко ордена Ксайликса"
+	name = "табард ордена Ксайликса"
 	icon_state = "tabard_xylix"
 	item_state = "tabard_xylix"
 
@@ -1172,7 +1172,7 @@
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/cloaks.dmi'
 	alternate_worn_layer = TABARD_LAYER
 	boobed = FALSE
-	name = "сюрко рыцаря Астраты"
+	name = "табард рыцаря Астраты"
 	desc = "Прекрасные одежды храмовника. Прошиты выцветшим, но все еще ярко блестящим златом солнечного крестоносца Астраты."
 	icon_state = "astratatabard"
 
@@ -1180,16 +1180,16 @@
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/cloaks.dmi'
 	alternate_worn_layer = TABARD_LAYER
 	boobed = FALSE
-	name = "сюрко рыцаря Маллума"
-	desc = "Одеяния храмовника светло-черного и серого цвета. Полотно рассекается ярко-красными оттенками, словно искрами вечного пламени из-под железного молота Маллума."
+	name = "табард рыцаря Маллума"
+	desc = "Одеяние храмовника светло-черного и серого цвета. Полотно рассекается ярко-красными оттенками, словно искрами вечного пламени из-под железного молота Маллума."
 	icon_state = "malumtabard"
 
 /obj/item/clothing/cloak/templar/necran
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/cloaks.dmi'
 	alternate_worn_layer = TABARD_LAYER
 	boobed = FALSE
-	name = "сюрко рыцаря Некры"
-	desc = "Одеяния храмовника глубокого темного цвета. Черный покров поглощающает весь свет, чтобы погрузить недругов Некры в вечный сон."
+	name = "табард рыцаря Некры"
+	desc = "Одеяние храмовника глубокого темного цвета. Черный покров поглощающает весь свет, чтобы погрузить недругов Некры в вечный сон."
 	icon_state = "necratabard"
 
 /obj/item/clothing/cloak/fauld

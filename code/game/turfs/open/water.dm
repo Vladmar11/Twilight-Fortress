@@ -14,8 +14,8 @@
 
 /turf/open/water
 	gender = PLURAL
-	name = "water"
-	desc = "Good enough to drink, wet enough to douse fires."
+	name = "вода"
+	desc = "Достаточно хороша, и чтобы пить, и чтобы потушить пожар."
 	icon = 'icons/turf/roguefloor.dmi'
 	icon_state = "together"
 	baseturfs = /turf/open/water
@@ -145,7 +145,7 @@
 	if(user.used_intent.type == /datum/intent/fill)
 		if(C.reagents)
 			if(C.reagents.holder_full())
-				to_chat(user, span_warning("[C] is full."))
+				to_chat(user, span_warning("В [C] нет свободного места."))
 				return
 			if(do_after(user, 8, target = src))
 				user.changeNext_move(CLICK_CD_MELEE)
@@ -153,7 +153,7 @@
 				var/list/L = list()
 				L[water_reagent] = 200
 				C.reagents.add_reagent_list(L)
-				to_chat(user, span_notice("I fill [C] from [src]."))
+				to_chat(user, span_notice("Я наполняю [C] из [src]."))
 			return
 	. = ..()
 
@@ -166,7 +166,7 @@
 		playsound(user, pick_n_take(wash), 100, FALSE)
 		var/item2wash = user.get_active_held_item()
 		if(!item2wash)
-			user.visible_message(span_info("[user] starts to wash in [src]."))
+			user.visible_message(span_info("[user] пытается умыться [src]."))
 			if(do_after(L, 30, target = src))
 				if(wash_in)
 					wash_atom(user, CLEAN_STRONG)
@@ -176,7 +176,7 @@
 					water_color = "#a4955b"
 					update_icon()*/
 		else
-			user.visible_message(span_info("[user] starts to wash [item2wash] in [src]."))
+			user.visible_message(span_info("[user] моет [item2wash] в [src]."))
 			if(do_after(L, 30, target = src))
 				if(wash_in)
 					wash_atom(item2wash, CLEAN_STRONG)
@@ -194,7 +194,7 @@
 			if(C.is_mouth_covered())
 				return
 		playsound(user, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
-		user.visible_message(span_info("[user] starts to drink from [src]."))
+		user.visible_message(span_info("[user] черпает [src] и пьет."))
 		if(do_after(L, 25, target = src))
 			var/list/waterl = list()
 			waterl[water_reagent] = 12
@@ -233,8 +233,8 @@
 
 
 /turf/open/water/bath
-	name = "water"
-	desc = "Faintly yellow colored.. Suspicious."
+	name = "вода"
+	desc = "Вода, чуть мутная от мыла и грязи. Не стоит такую пить."
 	icon = 'icons/turf/roguefloor.dmi'
 	icon_state = "bathtileW"
 	water_level = 2
@@ -247,8 +247,8 @@
 	icon_state = "bathtile"
 
 /turf/open/water/sewer
-	name = "sewage"
-	desc = "This dark water smells like dead rats and sulphur!"
+	name = "сточные воды"
+	desc = "Эта темная вода пахнет дохлыми крысами и серой!"
 	icon = 'icons/turf/roguefloor.dmi'
 	icon_state = "pavingW"
 	water_level = 1
@@ -263,8 +263,8 @@
 	.  = ..()
 
 /turf/open/water/swamp
-	name = "murk"
-	desc = "Weeds and algae cover the surface of the water."
+	name = "мутная вода"
+	desc = "Сорняки и водоросли плавают на поверхности."
 	icon = 'icons/turf/roguefloor.dmi'
 	icon_state = "dirtW2"
 	water_level = 2
@@ -303,8 +303,8 @@
 				return .
 
 /turf/open/water/swamp/deep
-	name = "murk"
-	desc = "Deep water with several weeds and algae on the surface."
+	name = "мутная вода"
+	desc = "Тут, кажется, глубоко. Сорняки и водоросли плавают на поверхности."
 	icon_state = "dirtW"
 	water_level = 3
 	water_color = "#705a43"
@@ -335,8 +335,8 @@
 				return .
 
 /turf/open/water/cleanshallow
-	name = "water"
-	desc = "Clear and shallow water, what a blessing!"
+	name = "вода"
+	desc = "Чистая и мелкая вода, какое счастье!"
 	icon = 'icons/turf/roguefloor.dmi'
 	icon_state = "rockw2"
 	water_level = 2
@@ -351,8 +351,8 @@
 
 
 /turf/open/water/river
-	name = "river"
-	desc = "Crystal clear water! Flowing swiflty along the river."
+	name = "речная вода"
+	desc = "Кристально чистая вода! Быстро стекает вниз по течению."
 	icon_state = "rivermove"
 	icon = 'icons/turf/roguefloor.dmi'
 	water_level = 3

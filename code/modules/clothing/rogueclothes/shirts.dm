@@ -329,7 +329,7 @@
 
 /obj/item/clothing/suit/roguetown/shirt/jester
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
-	name = "одеяния шута"
+	name = "одеяние шута"
 	desc = "Выглядят так же смехотворно, как тот, кто её носит."
 	body_parts_covered = CHEST|GROIN|ARMS|VITALS
 	icon_state = "jestershirt"

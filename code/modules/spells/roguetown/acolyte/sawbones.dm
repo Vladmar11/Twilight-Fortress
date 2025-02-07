@@ -1238,7 +1238,7 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	grind_results = null
 
 /obj/item/reagent_containers/pill/pnkpill
-	name = "Pозовые исцеляющие таблетки"
+	name = "розовые исцеляющие таблетки"
 	desc = "Маленькие розовые шарики. С беглого взгляда вы можете быть уверены, что это разбавленные красный и пепельный цвета."
 	icon_state = "pinkb"
 	icon = 'icons/roguetown/items/surgery.dmi'
@@ -1247,14 +1247,14 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	grind_results = null
 
 /obj/item/reagent_containers/hypospray/medipen/sty/detox
-	name = "Антитоксин"
+	name = "антитоксин"
 	desc = "Очищает организм от всего неестественного."
 	volume = 34
 	amount_per_transfer_from_this = 34
 	list_reagents = list(/datum/reagent/medicine/antihol = 10, /datum/reagent/medicine/pen_acid = 24)
 
 /obj/item/reagent_containers/hypospray/medipen/sealbottle/reju
-	name = "Элексир омоложения"
+	name = "эликсир омоложения"
 	desc = "Восстанавливает кровь, заживляет раны, помогает стабилизировать дыхание и слегка притупляет боль."
 	icon_state = "THEbottle"
 	volume = 16
@@ -1262,7 +1262,7 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	list_reagents = list(/datum/reagent/medicine/stimu = 15, /datum/reagent/medicine/caffeine = 1)
 
 /obj/item/reagent_containers/hypospray/medipen/sealbottle/purify
-	name = "элексир очищения"
+	name = "эликсир очищения"
 	desc = "Мощный препарат, очищающий кровь и заживляющий раны на теле. Очень больно."
 	icon_state = "THEbottle"
 	volume = 30
@@ -1311,9 +1311,9 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	// Heal the specific body part every second while bandaged and manage wound pain and disabling effects
 	addtimer(CALLBACK(src, /proc/heal_and_manage_pain_disabling, H, affecting), 10, 1, TRUE)
 	if (M == user)
-		user.visible_message("Вы перевязываете [affecting].")
+		to_chat(user, "Вы перевязываете [affecting].")
 	else
-		user.visible_message("Вы помогаете [M] и перевязываете [affecting] .")
+		to_chat(user, "Вы помогаете [M] и перевязываете [affecting].")
 
 /proc/heal_and_manage_pain_disabling(var/mob/living/carbon/human/H, var/obj/item/bodypart/affecting)
 	if (!affecting) return
@@ -1395,7 +1395,7 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 		. += span_notice("Куб в процессе перегонки.")
 		for (var/obj/item/I in active_brews)
 			var/time_left = (I.brewing_time - (world.time - I.start_time)) / 10
-			. += span_notice("[I]: [time_left] секунд до заершения.")
+			. += span_notice("[I]: [time_left] секунд до завершения.")
 
 /obj/item/reagent_containers/glass/alembic/proc/makebrew(obj/item/I)
 	if(I.reagents)
@@ -1513,10 +1513,10 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	if(istype(I, /obj/item/reagent_containers/glass))
 		if(user.used_intent.type == INTENT_POUR)
 			if(!I.reagents.total_volume)
-				to_chat(user, "[I] пуста!")
+				to_chat(user, "В [I] ничего нет!")
 				return TRUE
 			if(reagents.holder_full())
-				to_chat(user, "[src] заполнена.")
+				to_chat(user, "В [src] нет свободного места.")
 				return TRUE
 			user.visible_message(span_notice("Переливание начинается."), span_notice("Переливание окончено."))
 			if(user.m_intent != MOVE_INTENT_SNEAK)
@@ -1532,10 +1532,10 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 			return
 		if(is_drainable() && (user.used_intent.type == /datum/intent/fill))
 			if(!reagents.total_volume)
-				to_chat(user, "[src] пуст!")
+				to_chat(user, "В [src] ничего нет!")
 				return
 			if(I.reagents.holder_full())
-				to_chat(user, "[I] полон.")
+				to_chat(user, "В [I] нет свободного места.")
 				return
 			if(user.m_intent != MOVE_INTENT_SNEAK)
 				if(fillsounds)
@@ -1567,35 +1567,35 @@ end recipe count: 8 ash, 8 minced meat, 4 swampweed, 2 poisonberry to make 1 bot
 	i_type = "Tools"
 
 /datum/crafting_recipe/roguetown/mortar
-	name = "Ступка и пестик - (1 полено, 1 палка)"
+	name = "Ступка и пестик - (1 полено, 1 палка; НОВИЧОК)"
 	result = /obj/item/reagent_containers/glass/mortar
 	reqs = list(/obj/item/grown/log/tree/stick = 1, /obj/item/grown/log/tree/small = 1,)
 	skill_level = 1
 	skillcraft = /datum/skill/craft/crafting
 
 /datum/crafting_recipe/roguetown/bandage
-	name = "Набор повязок - (3 ткани, 1 пепел)"
+	name = "Набор повязок - (3 ткани, 1 пепел; УЧЕНИК)"
 	result = /obj/item/natural/bundle/cloth/bandage/full
 	reqs = list(/obj/item/natural/cloth = 3, /obj/item/ash = 1,)
 	skill_level = 2
 	skillcraft = /datum/skill/misc/treatment
 
 /datum/crafting_recipe/roguetown/impsaw
-	name = "примитивная пила - (1 волокно, 1 камень, 1 палка)"
+	name = "примитивная пила - (1 волокно, 1 камень, 1 палка; НОВИЧОК)"
 	result = /obj/item/rogueweapon/surgery/saw/improv
 	reqs = list(/obj/item/natural/fibers = 1, /obj/item/natural/stone = 1, /obj/item/grown/log/tree/stick = 1,)
 	skill_level = 1
 	skillcraft = /datum/skill/craft/crafting
 
 /datum/crafting_recipe/roguetown/impretra
-	name = "примитивный зажим - (1 волокно, 2 палки)"
+	name = "примитивный зажим - (1 волокно, 2 палки; НОВИЧОК)"
 	result = /obj/item/rogueweapon/surgery/hemostat/improv
 	reqs = list(/obj/item/natural/fibers = 1, /obj/item/grown/log/tree/stick = 2,)
 	skill_level = 1
 	skillcraft = /datum/skill/craft/crafting
 
 /datum/crafting_recipe/roguetown/imphemo
-	name = "примитивный расширитель - (1 волокно, 2 палки)"
+	name = "примитивный расширитель - (1 волокно, 2 палки; НОВИЧОК)"
 	result = /obj/item/rogueweapon/surgery/retractor/improv
 	reqs = list(/obj/item/natural/fibers = 1, /obj/item/grown/log/tree/stick = 2,)
 	skill_level = 1

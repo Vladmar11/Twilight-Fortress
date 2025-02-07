@@ -43,10 +43,10 @@
 		return TRUE
 	if(do_after(user, 8, target = src))
 		user.visible_message(span_notice("[user] начинает вращать жёрнова"), \
-						span_notice("Я начинаю вращать жёрнов."))
+						span_notice("Я начинаю вращать жёрнова."))
 		grindUp(to_grind, usr)
-		user.visible_message(span_notice("[user] заканчиваю перемалывание"), \
-						span_notice("Я закончил перемалывание."))
+		user.visible_message(span_notice("[user] заканчивает перемалывание"), \
+						span_notice("Я закончил[user.rus_a()] перемалывание."))
 		return TRUE
 	..()
 
@@ -56,10 +56,10 @@
 		if(user.used_intent.type == INTENT_POUR) //Something like a glass. Player probably wants to transfer TO it.
 			testing("attackobj2")
 			if(!I.reagents.total_volume)
-				to_chat(user, span_warning("[I] пуст!"))
+				to_chat(user, span_warning("В [I] ничего нет!"))
 				return
 			if(reagents.holder_full())
-				to_chat(user, span_warning("[src] полон."))
+				to_chat(user, span_warning("В [src] нет свободного места."))
 				return
 			user.visible_message(span_notice("[user] заливаю [I] в [src]."), \
 							span_notice("Я переливаю [I] в [src]."))
@@ -77,10 +77,10 @@
 		if(is_drainable() && (user.used_intent.type == /datum/intent/fill)) //A dispenser. Transfer FROM it TO us.
 			testing("attackobj3")
 			if(!reagents.total_volume)
-				to_chat(user, span_warning("[src] пуст!"))
+				to_chat(user, span_warning("В [src] ничего нет!"))
 				return
 			if(I.reagents.holder_full())
-				to_chat(user, span_warning("[I] полон."))
+				to_chat(user, span_warning("В [I] нет свободного места."))
 				return
 			user.visible_message(span_notice("[user] наполняет [I] из [src]."), \
 								span_notice("Я наполняю [I] из [src]."))

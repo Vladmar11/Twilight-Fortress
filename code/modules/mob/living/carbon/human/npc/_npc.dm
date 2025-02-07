@@ -371,7 +371,7 @@
 		if(L.alpha == 0 && L.rogue_sneaking)
 			// we just got hit by something hidden so try and find them
 			if (prob(5))
-				visible_message(span_notice("[src] begins searching around frantically..."))
+				visible_message(span_notice("[src] начинает лихорадочно осматриваться..."))
 			var/extra_chance = (health <= maxHealth * 50) ? 30 : 0 // if we're below half health, we're way more alert
 			if (!npc_detect_sneak(L, extra_chance))
 				return
@@ -409,7 +409,7 @@
 	if (prob(probby))
 		// whoops it saw us
 		target.mob_timers[MT_FOUNDSNEAK] = world.time
-		to_chat(target, span_danger("[src] sees me! I'm found!"))
+		to_chat(target, span_danger("[src] видит меня! Я раскры[src.rus_sya()]!"))
 		target.update_sneak_invis(TRUE)
 		return TRUE
 	else

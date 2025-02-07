@@ -1,5 +1,5 @@
 /datum/language/thievescant
-	name = "Trickster's Tongue"
+	name = "Плутовской говор"
 	desc = ""
 	speech_verb = "murmurs"
 	ask_verb = "questions"
@@ -10,10 +10,10 @@
 	default_priority = 80
 	icon_state = "asse"
 	spans = list(SPAN_PAPYRUS)
-	syllables = list("trick", "peasant", "torch", "cards", "gamble", "cottar", "knight", "grove", "mire", "coast", "dice", "dragon", "speak",
-		"limner", "caudle", "fel", "trencher", "volf", "skelelon", "zomble", "kingsfield", "azure peak", "prince", "princess", "trap",
-		"dawn", "dusk", "night", "day", "table", "bench", "tunnel", "roof", "floorboards",
-		"pintle", "drake", "elf", "dwarf", "tall", "short", "frame", "portrait", "lord", "lady", "river", "woods", "axe", "dagger", "sword", "day", "night", "listen",
-		"look", "see", "watch", "hear", "peep", "smell", "taste", "no", "yes", "silver", "gold", "sand", "grass", "rock",
-		"mud", "hah", "save", "cave","over", "under", "carkin", "lark", "tosser", "knobhead", "daft", "gnerd", "knave",
-		"fort", "cave","through the","hand","leg","foot","head","arrow","knee","elbow","eye","for a","reach","the","a","an","ask","tell","pray","travel","journey","quest")
+	syllables = list("трюк", "крестьянин", "факел", "карты", "играть", "батрак", "рыцарь", "роща", "болото", "берег", "кость", "дракон", "говорит",
+		"художник", "ласкает", "упал", "землекоп", "волк", "скелет", "зомби", "Кингсфилд", "лазурный пик", "принц", "принцесса", "капкан",
+		"рассвет", "закат", "ночь", "день", "стол", "скамья", "тоннель", "крыша", "половицы",
+		"штифт", "селезень", "эльф", "дворф", "высокий", "низкий", "рама", "портрет", "лорд", "леди", "река", "лес", "топор", "кинжал", "меч", "короткий", "ночь", "слушает",
+		"смотрит", "смотри", "наблюдает", "слышит", "писк", "запах", "вкус", "нет", "да", "серебро", "золото", "песок", "трава", "камень",
+		"грязь", "хах", "спас", "пещера", "там", "тут", "скука", "забава", "метатель", "головастик", "глупый", "умник", "лжец",
+		"форт", "пещера","через","рука","нога","ступня","голова","стрела","колено","локоть","глаз","за","достигнул","этот","тот","так","спросил","сказал","молится","прошел","путешествует","задание")

@@ -222,7 +222,7 @@ GLOBAL_LIST_INIT(name_adjustments, list())
 			to_chat(user, "[pref_species.desc]")
 		if(pref_species.expanded_desc)
 			to_chat(user, "<a href='?src=[REF(user)];view_species_info=[pref_species.expanded_desc]'>Читать ещё</a>")
-		to_chat(user, "<font color='red'>Сбросить.</font>")
+		to_chat(user, "<font color='red'>Роли и профессии были сброшены.</font>")
 	random_character(gender)
 	accessory = "Nothing"
 
@@ -1433,7 +1433,8 @@ Slots: [job.spawn_positions]</span>
 						hair_color = hairs[pick(hairs)]
 						facial_hair_color = hair_color
 						ResetJobs()
-						to_chat(user, "<font color='red'>Classes reset.</font>")
+						to_chat(user, "<span class='notice'>Выбран возраст: <span class='bold'>[age]</span></span>")
+						to_chat(user, "<font color='red'>Роли и профессии были сброшены.</font>")
 
 				if("faith")
 					var/list/faiths_named = list()
@@ -1592,6 +1593,7 @@ Slots: [job.spawn_positions]</span>
 						result = coom[result]
 						var/datum/charflaw/C = new result()
 						charflaw = C
+						to_chat(user, "<span class='notice'>Новый изъян: [C]</span>")
 						if(charflaw.desc)
 							to_chat(user, "<span class='info'>[charflaw.desc]</span>")
 
@@ -1750,7 +1752,8 @@ Slots: [job.spawn_positions]</span>
 					if(pickedGender && pickedGender != gender)
 						gender = pickedGender
 						ResetJobs()
-						to_chat(user, "<font color='red'>Classes reset.</font>")
+						to_chat(user, "<span class='notice'>Пол изменен</span>")
+						to_chat(user, "<font color='red'>Роли и профессии были сброшены.</font>")
 						random_character(gender)
 				if("domhand")
 					if(domhand == 1)

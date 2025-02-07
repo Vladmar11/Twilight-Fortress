@@ -4,8 +4,8 @@
 //These assets are for use solely within this project and may not be extracted or repurposed for other projects or commercial use.
 
 /obj/item/rogueweapon/sword/uchigatana
-	name = "учигатана"
-	desc = "Более короткая и простая, чем тачи, учигатана является основным оружием пехотинцев Изумы и Туманных островов. \
+	name = "утигатана"
+	desc = "Более короткая и простая, чем тачи, утигатана является основным оружием пехотинцев Изумы и Туманных островов. \
 	Как и у дзатаны, изогнутый клинок позволяет наносить мощные рубящие удары, но не имеет защитной перекладины, а изгиб делает его менее эффективным при нанесении ударов."
 	icon = 'modular_twilight/icons/roguetown/weapons/64.dmi'
 	icon_state = "uchigatana"

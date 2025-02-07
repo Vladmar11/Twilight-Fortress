@@ -3,6 +3,7 @@
 
 /datum/species/moth
 	name = "Флювиан"
+	name_f = "Флювианка"
 	id = "moth"
 	desc = "In time you will learn the history of this race"
 	species_traits = list(EYECOLOR,LIPS,STUBBLE,MUTCOLORS)

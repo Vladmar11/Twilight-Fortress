@@ -1,6 +1,6 @@
 /obj/item/clothing/suit/roguetown/shirt/steward
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
-	name = "пиджак казначея"
+	name = "красный пиджак казначея"
 	desc = "Более официальный пиджак казначея, сшитый специально для носки отдельно от повседневных одеяний."
 	body_parts_covered = CHEST|GROIN|VITALS|LEGS|ARMS
 	boobed = FALSE
@@ -14,7 +14,7 @@
 	l_sleeve_status = SLEEVE_NORMAL
 
 /obj/item/clothing/suit/roguetown/shirt/steward/dress
-	name = "платье казначея"
+	name = "алое платье казначея"
 	desc = "Более официальное платье казначея, сшитое специально для носки отдельно от повседневных одеяний."
 	icon_state = "stewarddress"
 	item_state = "stewarddress"

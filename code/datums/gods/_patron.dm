@@ -8,6 +8,8 @@ GLOBAL_LIST_EMPTY(preference_patrons)
 /datum/patron
 	/// Name of the god
 	var/name
+	/// Gender of the god personality. For using adjectives and correct pronouns
+	var/gender
 	/// Domain of the god, such as earth, fire, water, murder etc
 	var/domain = "Bad coding practices"
 	/// Description of the god
