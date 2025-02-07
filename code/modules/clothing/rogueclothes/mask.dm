@@ -165,6 +165,7 @@
 
 /obj/item/clothing/mask/rogue/facemask/goldmask
 	name = "золотая маска"
+	desc = "Изящная и очень дорогая маска из чистого золота. Годится скорее для церемоний, нежели для защиты."
 	icon_state = "goldmask"
 	max_integrity = 150
 	sellprice = 100
