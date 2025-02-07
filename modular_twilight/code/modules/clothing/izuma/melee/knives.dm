@@ -1,3 +1,9 @@
+//All the items in this folder and its subdirectories are licensed under a proprietary agreement between client: [Vladmar] and artist: [SayonaraEcho].
+
+//Redistribution, reproduction, or modification of these assets is prohibited without express permission from both licensors. 
+//These assets are for use solely within this project and may not be extracted or repurposed for other projects or commercial use.
+
+
 /obj/item/rogueweapon/huntingknife/kunai //Practically a villager knife with more utility. It helps others to climb walls.
 	name = "кунай"
 	desc = "Простое колющее оружие из железа, которое возникло как инструмент для кладки или садоводства, полезный для лазания по стенам, подобно питонам."

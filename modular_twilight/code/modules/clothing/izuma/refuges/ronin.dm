@@ -1,3 +1,8 @@
+//All the items in this folder and its subdirectories are licensed under a proprietary agreement between client: [Vladmar] and artist: [SayonaraEcho].
+
+//Redistribution, reproduction, or modification of these assets is prohibited without express permission from both licensors. 
+//These assets are for use solely within this project and may not be extracted or repurposed for other projects or commercial use.
+
 /datum/subclass/ronin
 	name = "Ronin"
 	tutorial = "Вы - ронин, странник и свободный воин из Изумы, потерявший покровительство своего сюзерена, либо не сумевший уберечь его от смерти, \
