@@ -236,7 +236,7 @@
 	item_state = "silkdress"
 	color = "#e6e5e5"
 	silk_salvage = TRUE
-	salvage_result = /obj/item/natural/silk = 2
+	salvage_result = /obj/item/natural/silk
 
 /obj/item/clothing/suit/roguetown/shirt/dress/silkdress/black
 	color = CLOTHING_BLACK
@@ -364,6 +364,8 @@
 	l_sleeve_status = SLEEVE_NORMAL
 	var/picked = FALSE
 	colorgrenz = TRUE
+	salvage_result = /obj/item/natural/silk
+	salvage_amount = 4
 
 /obj/item/clothing/suit/roguetown/shirt/grenzelhoft/attack_right()
 	..()

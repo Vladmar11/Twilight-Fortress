@@ -35,6 +35,7 @@
 	name = "шелковые чулки"
 	desc = "Чулки, созданные только для чистой эстетики. Изготовлены из тончайшего шелка. Популярны среди богатых и влиятельных женщин."
 	icon_state = "silk"
+	silk_salvage = TRUE
 
 /obj/item/clothing/under/roguetown/tights/stockings/silk/random/Initialize()
 	. = ..()
@@ -42,7 +43,6 @@
 
 /obj/item/clothing/under/roguetown/tights/stockings/silk/white
 	color = "#e6e5e5"
-	silk_salvage = TRUE
 
 /obj/item/clothing/under/roguetown/tights/stockings/silk/black
 	color = CLOTHING_BLACK
