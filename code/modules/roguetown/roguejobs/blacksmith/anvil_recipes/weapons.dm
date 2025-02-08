@@ -115,7 +115,7 @@
 	req_bar = /obj/item/ingot/steel
 	created_item = /obj/item/rogueweapon/sword/iron/messer/steel
 
-/datum/anvil_recipe/weapons/iron/dagger
+/datum/anvil_recipe/weapons/steel/dagger
 	name = "Кинжал"
 	req_bar = /obj/item/ingot/steel
 	created_item = /obj/item/rogueweapon/huntingknife/idagger/steel
