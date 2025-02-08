@@ -30,3 +30,6 @@
 	icon_state = "shadowrobe"
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
+	silk_salvage = TRUE
+	salvage_result = /obj/item/natural/silk
+	salvage_amount = 2

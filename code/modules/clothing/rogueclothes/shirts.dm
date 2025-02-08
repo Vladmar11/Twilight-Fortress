@@ -235,6 +235,8 @@
 	icon_state = "silkdress"
 	item_state = "silkdress"
 	color = "#e6e5e5"
+	silk_salvage = TRUE
+	salvage_result = /obj/item/natural/silk = 2
 
 /obj/item/clothing/suit/roguetown/shirt/dress/silkdress/black
 	color = CLOTHING_BLACK
@@ -260,6 +262,8 @@
 	icon_state = "velvetdress"
 	item_state = "velvetdress"
 	ignore_sleeves_code = TRUE // No sleeves, otherwise arms will be over the sprite
+	salvage_result = /obj/item/natural/silk
+	salvage_amount = 4
 
 /obj/item/clothing/suit/roguetown/shirt/dress/velvetdress/black
 	color = CLOTHING_BLACK
@@ -285,6 +289,8 @@
 	icon_state = "nobledress"
 	item_state = "nobledress"
 	ignore_sleeves_code = TRUE // No sleeves, otherwise arms will be over the sprite
+	silk_salvage = TRUE
+	salvage_amount = 4
 
 /obj/item/clothing/suit/roguetown/shirt/dress/nobledress/black
 	color = CLOTHING_BLACK
@@ -306,6 +312,7 @@
 	sleevetype = null
 	sleeved = null
 	color = "#a90707"
+	salvage_amount = 6
 
 /obj/item/clothing/suit/roguetown/shirt/dress/gen/sexy/Initialize()
 	. = ..()
@@ -324,7 +331,8 @@
 	l_sleeve_status = SLEEVE_NORMAL
 	body_parts_covered = CHEST|ARMS|VITALS
 	color = null
-	salvage_amount = 1
+	fiber_salvage = FALSE
+	silk_salvage = TRUE
 	salvage_result = /obj/item/natural/silk
 
 /obj/item/clothing/suit/roguetown/shirt/jester

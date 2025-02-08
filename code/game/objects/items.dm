@@ -222,6 +222,9 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	/// Temporary snowflake var to be used in the rare cases clothing doesn't require fibers to sew, to avoid material duping
 	var/fiber_salvage = FALSE
 
+	/// Var to be used in silk crafts, useful for sewing recipies "cloth+silk" (fiber_salvage covered "cloth+fiber" sewing)
+	var/silk_salvage = FALSE
+
 	/// Number of torn sleves, important for salvaging calculations and examine text
 	var/torn_sleeve_number = 0
 

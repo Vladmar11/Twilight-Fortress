@@ -28,6 +28,7 @@
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	ignore_sleeves_code = TRUE // No sleeves, otherwise arms will be over the sprite
+	silk_salvage = TRUE
 
 /obj/item/clothing/suit/roguetown/shirt/robe/noc
 	slot_flags = ITEM_SLOT_ARMOR
@@ -43,6 +44,7 @@
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	ignore_sleeves_code = TRUE // No sleeves, otherwise arms will be over the sprite
+	silk_salvage = TRUE
 
 /obj/item/clothing/suit/roguetown/shirt/robe/necromancer
 	slot_flags = ITEM_SLOT_ARMOR
@@ -73,6 +75,7 @@
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	ignore_sleeves_code = TRUE // No sleeves, otherwise arms will be over the sprite
+	silk_salvage = TRUE
 
 /obj/item/clothing/suit/roguetown/shirt/robe/necra
 	slot_flags = ITEM_SLOT_ARMOR
@@ -87,6 +90,7 @@
 	color = null
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
+	silk_salvage = TRUE
 
 /obj/item/clothing/suit/roguetown/shirt/robe/black
 	color = "#222222"
@@ -191,6 +195,7 @@
 	flags_inv = HIDEBOOB|HIDECROTCH
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
+	silk_salvage = TRUE
 	var/fanatic_wear = FALSE
 
 /obj/item/clothing/suit/roguetown/shirt/robe/eora/alt

@@ -42,6 +42,7 @@
 
 /obj/item/clothing/under/roguetown/tights/stockings/silk/white
 	color = "#e6e5e5"
+	silk_salvage = TRUE
 
 /obj/item/clothing/under/roguetown/tights/stockings/silk/black
 	color = CLOTHING_BLACK
