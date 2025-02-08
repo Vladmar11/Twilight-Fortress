@@ -407,6 +407,7 @@
 	armor_class = ARMOR_CLASS_LIGHT
 	allowed_sex = list(MALE, FEMALE)
 	allowed_race = CLOTHED_RACES_TYPES
+	silk_salvage = TRUE
 	salvage_result = /obj/item/natural/fur
 
 /obj/item/clothing/suit/roguetown/armor/silkcoat/Initialize()
@@ -525,4 +526,5 @@
 	max_integrity = 300
 	sellprice = 40
 	armor_class = ARMOR_CLASS_LIGHT
+	silk_salvage = TRUE
 

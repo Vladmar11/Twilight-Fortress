@@ -11,6 +11,7 @@
 	nodismemsleeves = TRUE
 	inhand_mod = TRUE
 	toggle_icon_state = FALSE
+	silk_salvage = TRUE
 	salvage_result = /obj/item/natural/silk
 
 /obj/item/clothing/cloak/shadow/ComponentInitialize()

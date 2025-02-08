@@ -93,7 +93,10 @@
 	item_state = "webs"
 	r_sleeve_status = SLEEVE_NOMOD
 	l_sleeve_status = SLEEVE_NOMOD
+	fiber_salvage = FALSE
+	silk_salvage = TRUE
 	salvage_result = /obj/item/natural/silk
+	salvage_amount = 1
 
 /obj/item/clothing/under/roguetown/trou
 	name = "рабочие брюки"

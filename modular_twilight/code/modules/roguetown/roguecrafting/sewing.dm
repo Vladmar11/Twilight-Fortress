@@ -52,7 +52,7 @@
 	skill_level = 3
 
 /datum/crafting_recipe/roguetown/sewing/abyssortemplartabard
-	name = "табард рыцаря Абиссора - (3 ткани, 1 волокно; УМЕЛЕЦ)"
+	name = "табард Абиссора - (3 ткани, 1 волокно; УМЕЛЕЦ)"
 	result = list(/obj/item/clothing/cloak/abyssortabard)
 	reqs = list(/obj/item/natural/cloth = 3,
 				/obj/item/natural/fibers = 1)

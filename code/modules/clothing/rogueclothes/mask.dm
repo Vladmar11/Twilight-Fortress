@@ -132,6 +132,8 @@
 	toggle_icon_state = TRUE
 	experimental_onhip = TRUE
 	sewrepair = TRUE
+	fiber_salvage = FALSE
+	silk_salvage = TRUE
 	salvage_amount = 1
 
 /obj/item/clothing/mask/rogue/shepherd/AdjustClothes(mob/user)
@@ -182,3 +184,4 @@
 	dynamic_hair_suffix = ""
 	flags_inv = HIDEFACE | HIDEFACIALHAIR
 	resistance_flags = FIRE_PROOF
+	smeltresult = /obj/item/ingot/silver

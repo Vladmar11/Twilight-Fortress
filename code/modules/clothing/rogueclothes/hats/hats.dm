@@ -157,6 +157,8 @@
 	adjustable = CAN_CADJUST
 	toggle_icon_state = TRUE
 	max_integrity = 100
+	fiber_salvage = FALSE
+	silk_salvage = TRUE
 
 /obj/item/clothing/head/roguetown/roguehood/nochood
 	name = "лунный капюшон"
@@ -173,6 +175,8 @@
 	adjustable = CAN_CADJUST
 	toggle_icon_state = TRUE
 	max_integrity = 100
+	fiber_salvage = FALSE
+	silk_salvage = TRUE
 
 /obj/item/clothing/head/roguetown/necrahood
 	name = "вуаль смерти"
@@ -182,6 +186,8 @@
 	item_state = "necrahood"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 	dynamic_hair_suffix = ""
+	fiber_salvage = FALSE
+	silk_salvage = TRUE
 
 /obj/item/clothing/head/roguetown/dendormask
 	name = "маска друидов"

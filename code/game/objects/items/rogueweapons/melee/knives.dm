@@ -189,6 +189,8 @@
 				return
 			if(item.fiber_salvage) //We're getting fiber as base if fiber is present on the item
 				new /obj/item/natural/fibers(get_turf(item))
+			if(item.silk_salvage) //Getting silk if it is present on the item
+				new /obj/item/natural/silk(get_turf(item))
 			if(istype(item, /obj/item/storage))
 				var/obj/item/storage/bag = item
 				bag.emptyStorage()
