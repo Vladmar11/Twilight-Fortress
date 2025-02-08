@@ -213,6 +213,7 @@
 	icon_state = "dressgen"
 	item_state = "dressgen"
 	color = "#6b5445"
+	silk_salvage = TRUE
 
 /obj/item/clothing/suit/roguetown/shirt/dress/gen/black
 	color = CLOTHING_BLACK
