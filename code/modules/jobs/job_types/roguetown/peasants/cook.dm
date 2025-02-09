@@ -7,7 +7,7 @@
 	spawn_positions = 1
 
 	allowed_races = RACES_VERY_SHUNNED_UP
-	tutorial = "Working closely with the barkeep who owns Skull Crack Inn, the cook should focus on cooking food for all the hungry mouths of Roguetown."
+	tutorial = "Работая в тесном контакте с барменом, владеющим трактиром Skull Crack Inn, повар должен сосредоточиться на приготовлении еды для всех голодных ртов Рокхилла."
 
 	outfit = /datum/outfit/job/roguetown/cook
 	display_order = JDO_COOK
@@ -44,7 +44,8 @@
 		neck = /obj/item/storage/belt/rogue/pouch/coins/poor
 		H.change_stat("constitution", 2)
 	else
-		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random
+		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/lowcut
+		pants = /obj/item/clothing/under/roguetown/shortskirt
 		cloak = /obj/item/clothing/cloak/apron/cook
 		head = /obj/item/clothing/head/roguetown/cookhat
 		shoes = /obj/item/clothing/shoes/roguetown/simpleshoes

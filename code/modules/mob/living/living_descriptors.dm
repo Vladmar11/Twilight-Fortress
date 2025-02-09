@@ -42,6 +42,7 @@
 		/datum/mob_descriptor/breasts,
 		/datum/mob_descriptor/vagina,
 		/datum/mob_descriptor/defiant,
+		/datum/mob_descriptor/sexual,
 		)
 
 /mob/living/proc/get_descriptor_of_slot(descriptor_slot, list/descs)
@@ -132,9 +133,15 @@
 		him_replace = "him"
 	else
 		him_replace = "her"
+	var/his_replace
+	if(described.gender == MALE)
+		his_replace = "his"
+	else
+		his_replace = "her"
 	string = replacetext(string, "%THEY%", they_replace)
 	string = replacetext(string, "%HAVE%", "has")
 	string = replacetext(string, "%MAN%", man_replace)
 	string = replacetext(string, "%HIM%", him_replace)
+	string = replacetext(string, "%HIS%", his_replace)
 	string = capitalize(string)
 	return string

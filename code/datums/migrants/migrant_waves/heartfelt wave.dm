@@ -12,7 +12,8 @@
 		/datum/migrant_role/heartfelt/magos = 1,
 		/datum/migrant_role/heartfelt/prior = 1,
 	)
-	greet_text = "Fleeing disaster, you have come together as a court, united in a final effort to restore the former glory and promise of Heartfelt. Stay close and watch out for each other, for all of your sakes!"
+	greet_text = "Спасаясь от катастрофы, вы собрались вместе, кто остался из придворных, объединившись в последней попытке восстановить былую славу и обещания Хартфелта.\
+	Держитесь ближе и берегите друг друга, ради всех вас!"
 
 /datum/migrant_wave/heartfelt_down_one
 	name = "The Court of Heartfelt"
@@ -26,7 +27,8 @@
 		/datum/migrant_role/heartfelt/magos = 1,
 		/datum/migrant_role/heartfelt/prior = 1,
 	)
-	greet_text = "Fleeing disaster, you have come together as a court, united in a final effort to restore the former glory and promise of Heartfelt. Stay close and watch out for each other, for all of your sakes! Some of you already did not make it on the way here..."
+	greet_text = "Спасаясь от катастрофы, вы собрались вместе, кто остался из придворных, объединившись в последней попытке восстановить былую славу и обещания Хартфелта.\
+	Держитесь ближе и берегите друг друга, ради всех вас! Некоторые из вас уже не успели добраться сюда..."
 
 /datum/migrant_wave/heartfelt_down_two
 	name = "The Court of Heartfelt"
@@ -39,7 +41,8 @@
 		/datum/migrant_role/heartfelt/knight = 1,
 		/datum/migrant_role/heartfelt/magos = 1,
 	)
-	greet_text = "Fleeing disaster, you have come together as a court, united in a final effort to restore the former glory and promise of Heartfelt. Stay close and watch out for each other, for all of your sakes! Some of you already did not make it on the way here..."
+	greet_text = "Спасаясь от катастрофы, вы собрались вместе, кто остался из придворных, объединившись в последней попытке восстановить былую славу и обещания Хартфелта. \
+	Держитесь ближе и берегите друг друга, ради всех вас! Некоторые из вас уже не успели добраться сюда..."
 
 
 /datum/migrant_wave/heartfelt_down_three
@@ -51,4 +54,5 @@
 		/datum/migrant_role/heartfelt/knight = 1,
 		/datum/migrant_role/heartfelt/hand = 1,
 	)
-	greet_text = "Fleeing disaster, you have come together as a court, united in a final effort to restore the former glory and promise of Heartfelt. Stay close and watch out for each other, for all of your sakes! Some of you already did not make it on the way here..."
+	greet_text = "Спасаясь от катастрофы, вы собрались вместе, кто остался из придворных, объединившись в последней попытке восстановить былую славу и обещания Хартфелта.\
+	Держитесь ближе и берегите друг друга, ради всех вас! Некоторые из вас уже не успели добраться сюда..."

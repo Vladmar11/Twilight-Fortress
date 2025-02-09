@@ -1,8 +1,8 @@
 #define PILLORY_HEAD_OFFSET      2 // How much we need to move the player to center their head
 
 /obj/structure/pillory
-	name = "Pillory"
-	desc = "To keep the criminals locked!"
+	name = "позорный столб"
+	desc = "Удерживает преступников на месте!"
 	icon_state = "pillory_single"
 	icon = 'modular/icons/obj/pillory.dmi'
 	can_buckle = TRUE
@@ -50,19 +50,19 @@
 /obj/structure/pillory/examine(mob/user)
 	. = ..()
 
-	var/msg = "It is [latched ? "latched" : "unlatched"] and [locked ? "locked." : "unlocked."]<br/>"
+	var/msg = "Колодки [latched ? "защелкнуты" : "не защелкнуты"] и [locked ? "закрыты на замок." : "не закрыты."]<br/>"
 	. += msg
 
 /obj/structure/pillory/attack_right(mob/living/user)
 	. = ..()
 	if(!buckled_mobs.len)
-		to_chat(user, span_warning("What's the point of latching it with nobody inside?"))
+		to_chat(user, span_warning("Какой смысл запирать колодки, если внутри никого нет?"))
 		return
 	if(user in buckled_mobs)
-		to_chat(user, span_warning("I can't reach the latch!"))
+		to_chat(user, span_warning("Не могу дотянуться до защелки!"))
 		return
 	if(locked)
-		to_chat(usr, span_warning("Unlock it first!"))
+		to_chat(usr, span_warning("Сперва нужно отпереть замок!"))
 		return
 	togglelatch(user)
 	
@@ -70,29 +70,29 @@
 	if(istype(P, /obj/item/customlock/finished))
 		var/obj/item/customlock/finished/K = P
 		if(keylock)
-			to_chat(user, span_warning("[src] already has a lock."))
+			to_chat(user, span_warning("На [src] уже установлен замок."))
 		else
 			keylock = TRUE
 			accepted_id = list(K.lockhash)
-			to_chat(user, span_notice("You add [K] to [P]."))
+			to_chat(user, span_notice("Вы вешаете [K] на [P]."))
 			qdel(P)
 		return
 	if(user in buckled_mobs)
-		to_chat(user, span_warning("I can't reach the lock!"))
+		to_chat(user, span_warning("Я не могу добраться до замка!"))
 		return
 	if(!latched && keylock)
-		to_chat(user, span_warning("It's not latched shut!"))
+		to_chat(user, span_warning("Колодки не заперты!"))
 		return
 	if(istype(P, /obj/item/key))
 		var/obj/item/key/K = P
 		if (!keylock)
-			to_chat(user, span_warning("\The [src] lacks a lock."))
+			to_chat(user, span_warning("На [src] нет замка."))
 			return
 		if(K.lockid in accepted_id)
 			togglelock(user)
 			return
 		else
-			to_chat(user, span_warning("Wrong key."))
+			to_chat(user, span_warning("Ключ не подходит."))
 			playsound(src, 'sound/foley/doors/lockrattle.ogg', 100)
 			return
 	if(istype(P, /obj/item/storage/keyring))
@@ -107,7 +107,7 @@
 
 /obj/structure/pillory/proc/trypicklock(obj/item/I, mob/user)
 	if(!latched)
-		to_chat(user, "<span class='warning'>This cannot be picked while it is unlatched.</span>")
+		to_chat(user, "<span class='warning'>Раскрытые колодки нельзя вскрыть отмычкой.</span>")
 		return
 	if(!keylock)
 		return
@@ -141,13 +141,13 @@
 			if(prob(pickchance))
 				lockprogress += moveup
 				playsound(src.loc, pick('sound/items/pickgood1.ogg','sound/items/pickgood2.ogg'), 5, TRUE)
-				to_chat(user, "<span class='warning'>Click...</span>")
+				to_chat(user, "<span class='warning'>Щёлк...</span>")
 				if(L.mind)
 					var/amt2raise = L.STAINT
 					var/boon = L.STALUC/4
 					L.mind.add_sleep_experience(/datum/skill/misc/lockpicking, amt2raise + boon)
 				if(lockprogress >= locktreshold)
-					to_chat(user, "<span class='deadsay'>The locking mechanism gives.</span>")
+					to_chat(user, "<span class='deadsay'>Запирающий механизм поддается.</span>")
 					togglelock(user)
 					break
 				else
@@ -155,35 +155,35 @@
 			else
 				playsound(loc, 'sound/items/pickbad.ogg', 40, TRUE)
 				I.take_damage(1)
-				to_chat(user, "<span class='warning'>Clack.</span>")
+				to_chat(user, "<span class='warning'>Звяк.</span>")
 				continue
 		return
 
 /obj/structure/pillory/proc/togglelatch(mob/living/user, silent)
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(latched)
-		user.visible_message(span_warning("[user] unlatches [src]."), \
-			span_notice("I unlatch [src]."))
+		user.visible_message(span_warning("[user] расщелкивает колодки на [src]."), \
+			span_notice("Я защелкиваю колодки на [src]."))
 		playsound(src, 'sound/foley/doors/lock.ogg', 100)
 		latched = FALSE
 	else
-		user.visible_message(span_warning("[user] latches [src]."), \
-			span_notice("I latch [src]."))
+		user.visible_message(span_warning("[user] защелкивает [src]."), \
+			span_notice("Я защелкиваю колодки на [src]."))
 		playsound(src, 'sound/foley/doors/lock.ogg', 100)
 		latched = TRUE
 
 /obj/structure/pillory/proc/togglelock(mob/living/user, silent)
 	user.changeNext_move(CLICK_CD_MELEE)
 	if (!latched)
-		to_chat(user, span_warning("\The [src] is not latched shut."))
+		to_chat(user, span_warning("Колодки на [src] не защелкнулись!"))
 	if(locked)
-		user.visible_message(span_warning("[user] unlocks [src]."), \
-			span_notice("I unlock [src]."))
+		user.visible_message(span_warning("[user] открывает замок на [src]."), \
+			span_notice("Я открываю замок на [src]."))
 		playsound(src, 'sound/foley/doors/lock.ogg', 100)
 		locked = FALSE
 	else
-		user.visible_message(span_warning("[user] locks [src]."), \
-			span_notice("I lock [src]."))
+		user.visible_message(span_warning("[user] закрывает [src] на замок."), \
+			span_notice("Я закрываю [src] на замок."))
 		playsound(src, 'sound/foley/doors/lock.ogg', 100)
 		locked = TRUE
 
@@ -192,17 +192,17 @@
 		return FALSE
 
 	if(locked)
-		to_chat(usr, span_warning("Unlock it first!"))
+		to_chat(usr, span_warning("Сперва нужно открыть замок!"))
 		return FALSE
 
 	if ((!istype(M, /mob/living/carbon/human)) || HAS_TRAIT(M, TRAIT_TINY))
-		to_chat(usr, span_warning("It doesn't look like [M.p_they()] can fit into this properly!"))
+		to_chat(usr, span_warning("Не похоже, что [M.p_they()] влезет сюда так, как задумано!"))
 		return FALSE // Can't hold non-humanoids
 
 	for(var/obj/item/grabbing/G in M.grabbedby)
 		if(G.grab_state == 1)
 			return ..(M, force, FALSE)
-	to_chat(usr, span_warning("I must grab them more forcefully to put them in the pillory."))
+	to_chat(usr, span_warning("Мне нужно схватить сильнее, чтобы поставить жертву к позорному столбу."))
 	return FALSE
 
 /obj/structure/pillory/post_buckle_mob(mob/living/M)
@@ -244,12 +244,12 @@
 	if(latched)
 		if(user.STASTR >= 18)
 			if(do_after(user, 25))
-				user.visible_message(span_warning("[user] breaks [src] open!"))
+				user.visible_message(span_warning("[user] с силой выламывает колодки на [src]!"))
 				locked = FALSE
 				latched = FALSE
 				..()
 		else
-			to_chat(usr, span_warning("Unlock it first!"))
+			to_chat(usr, span_warning("Сперва нужно открыть защелку!"))
 			return FALSE
 	else
 		..()

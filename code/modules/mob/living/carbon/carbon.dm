@@ -114,6 +114,8 @@
 				var/input = input(user, "Which surgery step do you want to perform?", "PESTRA", ) as null|anything in possible_steps
 				if(input)
 					done_step = possible_steps[input]
+				else
+					return TRUE
 			else
 				done_step = possible_steps[possible_steps[1]]
 			if(done_step?.try_op(user, src, user.zone_selected, I, user.used_intent, try_to_fail))

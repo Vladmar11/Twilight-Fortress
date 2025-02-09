@@ -1,13 +1,15 @@
 //................	Glass panes	............... //
 /obj/item/natural/glass
-	name = "glass"
-	desc = "Windowpanes for construction work."
+	name = "стекло"
+	desc = "Оконные стекла для строительных работ."
 	icon = 'icons/roguetown/items/crafting.dmi'
 	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
 	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
 	experimental_inhand = FALSE
 	icon_state = "glasspane"
 	dropshrink = 0.8
+	grid_width = 64
+	grid_height = 64
 	drop_sound = 'sound/foley/dropsound/glass_drop.ogg'
 	possible_item_intents = list(/datum/intent/use)
 	force = 0
@@ -33,7 +35,7 @@
 /obj/item/natural/glass/attack_right(mob/user)
 	if(user.get_active_held_item())
 		return
-	to_chat(user, span_warning("I start to collect [src]..."))
+	to_chat(user, span_warning("Я собираю [src]..."))
 	if(move_after(user, 4 SECONDS, target = src))
 		var/stackcount = 0
 		for(var/obj/item/natural/glass/F in get_turf(src))
@@ -54,8 +56,8 @@
 
 //................	Glass panes stack	............... //
 /obj/item/natural/bundle/glass
-	name = "stack of glass"
-	desc = "A stack of fragile glass panes."
+	name = "стопка стекол"
+	desc = "Стопка хрупких стеклянных панелей."
 	icon = 'icons/roguetown/items/crafting.dmi'
 	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
 	righthand_file = 'icons/roguetown/onmob/righthand.dmi'
@@ -63,6 +65,8 @@
 	icon_state = "glasspane1"
 	item_state = "glasspane"
 	dropshrink = 0.8
+	grid_width = 64
+	grid_height = 64
 	drop_sound = 'sound/foley/dropsound/glass_drop.ogg'
 	possible_item_intents = list(/datum/intent/use)
 	force = 15
@@ -72,7 +76,7 @@
 	resistance_flags = null
 	firemod = null
 	w_class = WEIGHT_CLASS_HUGE
-	stackname = "glass"
+	stackname = "панелей"
 	stacktype = /obj/item/natural/glass
 	maxamount = 3
 	icon1 = "glasspane1"
@@ -91,8 +95,8 @@
 
 //................	Glass shard	............... //
 /obj/item/natural/glass_shard
-	name = "shard"
-	desc = "A sharp shard of glass."
+	name = "осколок стекла"
+	desc = "Острый кусок битого стекла."
 	icon = 'icons/roguetown/items/crafting.dmi'
 	lefthand_file = 'icons/roguetown/onmob/lefthand.dmi'
 	righthand_file = 'icons/roguetown/onmob/righthand.dmi'

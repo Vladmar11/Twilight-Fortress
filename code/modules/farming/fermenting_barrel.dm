@@ -1,5 +1,5 @@
 /obj/structure/fermenting_barrel
-	name = "barrel"
+	name = "бочка"
 	desc = ""
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "barrel1"
@@ -44,26 +44,28 @@
 		var/success
 		for(var/obj/item/reagent_containers/food/snacks/grown/bagged_fruit in I.contents)
 			if(try_ferment(bagged_fruit, user, TRUE))
+				var/datum/component/storage/STR = I.GetComponent(/datum/component/storage)
+				STR.remove_from_storage(bagged_fruit)
 				success = TRUE
 		if(success)
-			to_chat(user, span_info("I dump the contents of [I] into [src]."))
+			to_chat(user, span_info("Я сбрасываю содержимое [I] в [src]."))
 			I.update_icon()
 		else
-			to_chat(user, span_warning("There's nothing in [I] that I can ferment."))
+			to_chat(user, span_warning("В [I] нет ничего, что можно было бы ферментировать."))
 		return TRUE
 	..()
 
 /obj/structure/fermenting_barrel/proc/try_ferment(obj/item/reagent_containers/food/snacks/grown/fruit, mob/user, batch_process)
 	if(!fruit.can_distill)
 		if(!batch_process)
-			to_chat(user, span_warning("I can't ferment this into anything."))
+			to_chat(user, span_warning("Из этого не получится ничего выбродить."))
 		return FALSE
 	else if(!user.transferItemToLoc(fruit,src))
 		if(!batch_process)
-			to_chat(user, span_warning("[fruit] is stuck to my hand!"))
+			to_chat(user, span_warning("[fruit] прилипает к моей руке!"))
 		return FALSE
 	if(!batch_process)
-		to_chat(user, span_info("I place [fruit] into [src]."))
+		to_chat(user, span_info("Я кладу [fruit] в [src]."))
 	addtimer(CALLBACK(src, PROC_REF(makeWine), fruit), rand(1 MINUTES, 3 MINUTES))
 	return TRUE
 
@@ -80,7 +82,7 @@
 //	update_icon()
 
 /datum/crafting_recipe/fermenting_barrel
-	name = "Wooden Barrel"
+	name = "Деревянная бочка"
 	result = /obj/structure/fermenting_barrel
 	reqs = list(/obj/item/grown/log/tree/small = 2)
 	time = 50

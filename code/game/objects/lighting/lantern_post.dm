@@ -1,5 +1,5 @@
 /obj/machinery/light/rogue/lanternpost
-	name = "lantern post"
+	name = "фонарный столб"
 	icon = 'icons/roguetown/misc/tallstructure.dmi'
 	icon_state = "streetlantern1"
 	base_state = "streetlantern"

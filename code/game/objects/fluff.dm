@@ -2,7 +2,7 @@
 // ausbush
 
 /obj/structure/flora/ausbushes
-	name = "bush"
+	name = "кустарник"
 	desc = ""
 	icon = 'icons/obj/flora/ausflora.dmi'
 	icon_state = "firstbush_1"
@@ -13,6 +13,7 @@
 	. = ..()
 
 /obj/structure/flora/ausbushes/reedbush
+	name = "болотный аир"
 	icon_state = "reedbush_1"
 
 /obj/structure/flora/ausbushes/reedbush/Initialize()
@@ -76,6 +77,7 @@
 	. = ..()
 
 /obj/structure/flora/ausbushes/lavendergrass
+	name = "лаванда"
 	icon_state = "lavendergrass_1"
 
 /obj/structure/flora/ausbushes/lavendergrass/Initialize()
@@ -83,6 +85,7 @@
 	. = ..()
 
 /obj/structure/flora/ausbushes/ywflowers
+	name = "цветы"
 	icon_state = "ywflowers_1"
 
 /obj/structure/flora/ausbushes/ywflowers/Initialize()
@@ -90,6 +93,7 @@
 	. = ..()
 
 /obj/structure/flora/ausbushes/brflowers
+	name = "цветы"
 	icon_state = "brflowers_1"
 
 /obj/structure/flora/ausbushes/brflowers/Initialize()
@@ -97,6 +101,7 @@
 	. = ..()
 
 /obj/structure/flora/ausbushes/ppflowers
+	name = "цветы"
 	icon_state = "ppflowers_1"
 
 /obj/structure/flora/ausbushes/ppflowers/Initialize()
@@ -104,6 +109,7 @@
 	. = ..()
 
 /obj/structure/flora/ausbushes/sparsegrass
+	name = "старая трава"
 	icon_state = "sparsegrass_1"
 
 /obj/structure/flora/ausbushes/sparsegrass/Initialize()
@@ -111,6 +117,7 @@
 	. = ..()
 
 /obj/structure/flora/ausbushes/fullgrass
+	name = "старая трава"
 	icon_state = "fullgrass_1"
 
 /obj/structure/flora/ausbushes/fullgrass/Initialize()

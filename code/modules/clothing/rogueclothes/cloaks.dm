@@ -1,14 +1,17 @@
 /obj/item/clothing/cloak
-	name = "cloak"
+	name = "плащ"
 	icon = 'icons/roguetown/clothing/cloaks.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/cloaks.dmi'
 	slot_flags = ITEM_SLOT_CLOAK
-	desc = "Protects you from the weather and your identity from everyone else."
+	desc = "Защищает от непогоды и скрывает от окружающих вашу личность."
 	edelay_type = 1
 	equip_delay_self = 10
 	bloody_icon_state = "bodyblood"
 	sewrepair = TRUE //Vrell - AFAIK, all cloaks are cloth ATM. Technically semi-less future-proof, but it removes a line of code from every subtype, which is worth it IMO.
 	w_class = WEIGHT_CLASS_NORMAL
+
+	grid_width = 64
+	grid_height = 64
 
 
 //////////////////////////
@@ -16,8 +19,8 @@
 ////////////////////////
 
 /obj/item/clothing/cloak/tabard
-	name = "tabard"
-	desc = "A long vest meant for knights."
+	name = "табард"
+	desc = "Длинный жилет рыцарей, предназначенный для надевания поверх металлического доспеха."
 	color = null
 	icon_state = "tabard"
 	item_state = "tabard"
@@ -42,39 +45,39 @@
 	if(picked)
 		return
 	var/the_time = world.time
-	var/design = input(user, "Select a design.","Tabard Design") as null|anything in list("None", "Symbol", "Split", "Quadrants", "Boxes", "Diamonds")
+	var/design = input(user, "Выберите узор:","Изменение внешнего вида") as null|anything in list("Без узора", "Рисунок", "Пополам", "Четверти", "В клетку", "Ромбы")
 	if(!design)
 		return
 	if(world.time > (the_time + 30 SECONDS))
 		return
 	var/symbol_chosen = FALSE
-	if(design == "Symbol")
+	if(design == "Рисунок")
 		design = null
-		design = input(user, "Select a symbol.","Tabard Design") as null|anything in list("chalice","psy","peace","z","imp","skull","widow","arrow")
+		design = input(user, "Выберите рисунок: ","Изменение внешнего вида") as null|anything in list("chalice","psy","peace","z","imp","skull","widow","arrow")
 		if(!design)
 			return
 		design = "_[design]"
 		symbol_chosen = TRUE
-	var/colorone = input(user, "Select a primary color.","Tabard Design") as null|anything in CLOTHING_COLOR_NAMES
+	var/colorone = input(user, "Выберите основной цвет: ","Изменение внешнего вида") as null|anything in CLOTHING_COLOR_NAMES
 	if(!colorone)
 		return
 	var/colortwo
-	if(design != "None")
-		colortwo = input(user, "Select a primary color.","Tabard Design") as null|anything in CLOTHING_COLOR_NAMES
+	if(design != "Без узора")
+		colortwo = input(user, "Выберите второстепенный цвет: ","Изменение внешнего вида") as null|anything in CLOTHING_COLOR_NAMES
 		if(!colortwo)
 			return
 	if(world.time > (the_time + 30 SECONDS))
 		return
-	if(design != "None")
+	if(design != "Без узора")
 		detail_tag = design
 	switch(design)
-		if("Split")
+		if("Пополам")
 			detail_tag = "_spl"
-		if("Quadrants")
+		if("Четверти")
 			detail_tag = "_quad"
-		if("Boxes")
+		if("В клетку")
 			detail_tag = "_box"
-		if("Diamonds")
+		if("Ромбы")
 			detail_tag = "_dim"
 	boobed_detail = !symbol_chosen
 	color = clothing_color2hex(colorone)
@@ -84,7 +87,7 @@
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
-	if(alert("Are you pleased with your heraldry?", "Heraldry", "Yes", "No") != "Yes")
+	if(alert("Вас устраивает результат?", "Готово!", "Да", "Нет") != "Да")
 		detail_color = initial(detail_color)
 		color = initial(color)
 		boobed_detail = initial(boobed_detail)
@@ -125,27 +128,27 @@
 	if(picked)
 		return
 	var/the_time = world.time
-	var/design = input(user, "Select a design.","Tabard Design") as null|anything in list("Default", "Gold Cross", "Jeruah", "BlackGold", "BlackWhite")
+	var/design = input(user, "Выберите цветовую схему:","Изменение внешнего вида") as null|anything in list("Стандартный", "Золотой крест", "Бирюзовый", "Черное золото", "Черно-белый")
 	if(!design)
 		return
 	if(world.time > (the_time + 30 SECONDS))
 		return
-	if(design == "Gold Cross")
+	if(design == "Золотой крест")
 		detail_color = "#b5b004"
-	if(design == "Jeruah")
+	if(design == "Бирюзовый")
 		detail_color = "#b5b004"
 		color = "#249589"
-	if(design == "BlackGold")
+	if(design == "Черное золото")
 		detail_color = CLOTHING_YELLOW
 		color = CLOTHING_BLACK
-	if(design == "BlackWhite")
+	if(design == "Черно-белый")
 		detail_color = CLOTHING_WHITE
 		color = CLOTHING_BLACK
 	update_icon()
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
-	if(alert("Are you pleased with your heraldry?", "Heraldry", "Yes", "No") != "Yes")
+	if(alert("Вас устраивает результат?", "Готово!", "Да", "Нет") != "Да")
 		detail_color = initial(detail_color)
 		color = initial(color)
 		update_icon()
@@ -160,17 +163,17 @@
 	detail_color = CLOTHING_WHITE
 
 /obj/item/clothing/cloak/tabard/crusader/dendor
-	name = "surcoat of the dendorian order"
+	name = "табард ордена Дендора"
 	icon_state = "tabard_dendor"
 	item_state = "tabard_dendor"
 
 /obj/item/clothing/cloak/tabard/crusader/pestra
-	name = "surcoat of the pestran order"
+	name = "табард ордена Пестры"
 	icon_state = "tabard_pestra"
 	item_state = "tabard_pestra"
 
 /obj/item/clothing/cloak/tabard/crusader/noc
-	name = "surcoat of the lunar order"
+	name = "табард лунного ордена Нок"
 	icon_state = "tabard_noc"
 	item_state = "tabard_noc"
 
@@ -179,27 +182,22 @@
 	item_state = "tabard_noc_alt"
 
 /obj/item/clothing/cloak/tabard/crusader/eora
-	name = "surcoat of the eoran order"
+	name = "табард ордена Эоры"
 	icon_state = "tabard_eora"
 	item_state = "tabard_eora"
 
-/obj/item/clothing/cloak/tabard/crusader/pestra
-	name = "surcoat of the pestran order"
-	icon_state = "tabard_pestra"
-	item_state = "tabard_pestra"
-
 /obj/item/clothing/cloak/tabard/crusader/abyssor
-	name = "surcoat of the abyssal order"
+	name = "табард ордена Абиссора"
 	icon_state = "tabard_abyssor"
 	item_state = "tabard_abyssor"
 
 /obj/item/clothing/cloak/tabard/crusader/ravox
-	name = "surcoat of the ravoxian order"
+	name = "табард ордена Равокса"
 	icon_state = "tabard_ravox"
 	item_state = "tabard_ravox"
 
 /obj/item/clothing/cloak/tabard/crusader/xylix
-	name = "surcoat of the xylixian order"
+	name = "табард ордена Ксайликса"
 	icon_state = "tabard_xylix"
 	item_state = "tabard_xylix"
 
@@ -207,22 +205,22 @@
 	if(picked)
 		return
 	var/the_time = world.time
-	var/design = input(user, "Select a design.","Tabard Design") as null|anything in list("Default", "RedBlack", "BlackRed")
+	var/design = input(user, "Выберите цветовую схему:","Изменение внешнего вида") as null|anything in list("Стандартный", "Красный и черный", "Черный и красный")
 	if(!design)
 		return
 	if(world.time > (the_time + 30 SECONDS))
 		return
-	if(design == "RedBlack")
+	if(design == "Красный и черный")
 		detail_color = CLOTHING_BLACK
 		color = CLOTHING_RED
-	if(design == "BlackRed")
+	if(design == "Черный и красный")
 		detail_color = CLOTHING_RED
 		color = CLOTHING_BLACK
 	update_icon()
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
-	if(alert("Are you pleased with your heraldry?", "Heraldry", "Yes", "No") != "Yes")
+	if(alert("Вас устраивает результат?", "Готово!", "Да", "Нет") != "Да")
 		detail_color = initial(detail_color)
 		color = initial(color)
 		update_icon()
@@ -233,7 +231,7 @@
 	picked = TRUE
 
 /obj/item/clothing/cloak/tabard/knight/guard
-	desc = "A tabard with the lord's heraldic colors."
+	desc = "Табард лейб-гвардейца, который принято одевать поверх лат во время длительной службы. Окрашен в цвета геральдики правителя."
 	color = CLOTHING_RED
 	detail_tag = "_spl"
 	detail_color = CLOTHING_PURPLE
@@ -242,25 +240,25 @@
 	if(picked)
 		return
 	var/the_time = world.time
-	var/chosen = input(user, "Select a design.","Tabard Design") as null|anything in list("Split", "Quadrants", "Boxes", "Diamonds")
+	var/chosen = input(user, "Выберите узор:","Изменение внешнего вида") as null|anything in list("Пополам", "Четверти", "В клетку", "Ромбы")
 	if(world.time > (the_time + 10 SECONDS))
 		return
 	if(!chosen)
 		return
 	switch(chosen)
-		if("Split")
+		if("Пополам")
 			detail_tag = "_spl"
-		if("Quadrants")
+		if("Четверти")
 			detail_tag = "_quad"
-		if("Boxes")
+		if("В клетку")
 			detail_tag = "_box"
-		if("Diamonds")
+		if("Ромбы")
 			detail_tag = "_dim"
 	update_icon()
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
-	if(alert("Are you pleased with your heraldry?", "Heraldry", "Yes", "No") != "Yes")
+	if(alert("Вас устраивает результат?", "Готово!", "Да", "Нет") != "Да")
 		detail_tag = initial(detail_tag)
 		update_icon()
 		if(ismob(loc))
@@ -308,8 +306,8 @@
 ////////////////////////
 
 /obj/item/clothing/cloak/stabard
-	name = "surcoat"
-	desc = "A medieval overcoat meant to be used over the armor."
+	name = "сюрко"
+	desc = "Средневековое пальто, которое надевают поверх доспехов. Оно похоже по покрою на пончо и часто украшается гербом владельца."
 	icon_state = "stabard"
 	alternate_worn_layer = TABARD_LAYER
 	body_parts_covered = CHEST|GROIN
@@ -326,27 +324,27 @@
 	if(picked)
 		return
 	var/the_time = world.time
-	var/design = input(user, "Select a design.","Tabard Design") as null|anything in list("None","Split", "Quadrants", "Boxes", "Diamonds")
+	var/design = input(user, "Выберите узор:","Изменение внешнего вида") as null|anything in list("Без узора","Пополам", "Четверти", "В клетку", "Ромбы")
 	if(!design)
 		return
-	var/colorone = input(user, "Select a primary color.","Tabard Design") as null|anything in CLOTHING_COLOR_NAMES
+	var/colorone = input(user, "Выберите основной цвет: ","Изменение внешнего вида") as null|anything in CLOTHING_COLOR_NAMES
 	if(!colorone)
 		return
 	var/colortwo
-	if(design != "None")
-		colortwo = input(user, "Select a primary color.","Tabard Design") as null|anything in CLOTHING_COLOR_NAMES
+	if(design != "Без узора")
+		colortwo = input(user, "Выберите второстепенный цвет: ","Изменение внешнего вида") as null|anything in CLOTHING_COLOR_NAMES
 		if(!colortwo)
 			return
 	if(world.time > (the_time + 30 SECONDS))
 		return
 	switch(design)
-		if("Split")
+		if("Пополам")
 			detail_tag = "_spl"
-		if("Quadrants")
+		if("Четверти")
 			detail_tag = "_quad"
-		if("Boxes")
+		if("В клетку")
 			detail_tag = "_box"
-		if("Diamonds")
+		if("Ромбы")
 			detail_tag = "_dim"
 	color = clothing_color2hex(colorone)
 	if(colortwo)
@@ -355,7 +353,7 @@
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
-	if(alert("Are you pleased with your heraldry?", "Heraldry", "Yes", "No") != "Yes")
+	if(alert("Вас устраивает результат?", "Готово!", "Да", "Нет") != "Да")
 		detail_color = initial(detail_color)
 		color = initial(color)
 		boobed_detail = initial(boobed_detail)
@@ -368,8 +366,8 @@
 	picked = TRUE
 
 /obj/item/clothing/cloak/stabard/guard
-	name = "guard tabard"
-	desc = "A tabard with the lord's heraldic colors."
+	name = "сюрко стражника"
+	desc = "Крепкое сюрко, предназначенное для ношения поверх брони в качестве единой формы гарнизона. Окрашено в цвета геральдики правителя."
 	color = CLOTHING_RED
 	detail_tag = "_spl"
 	detail_color = CLOTHING_PURPLE
@@ -378,25 +376,25 @@
 	if(picked)
 		return
 	var/the_time = world.time
-	var/chosen = input(user, "Select a design.","Tabard Design") as null|anything in list("Split", "Quadrants", "Boxes", "Diamonds")
+	var/chosen = input(user, "Выберите узор:","Изменение внешнего вида") as null|anything in list("Пополам", "Четверти", "В клетку", "Ромбы")
 	if(world.time > (the_time + 10 SECONDS))
 		return
 	if(!chosen)
 		return
 	switch(chosen)
-		if("Split")
+		if("Пополам")
 			detail_tag = "_spl"
-		if("Quadrants")
+		if("Четверти")
 			detail_tag = "_quad"
-		if("Boxes")
+		if("В клетку")
 			detail_tag = "_box"
-		if("Diamonds")
+		if("Ромбы")
 			detail_tag = "_dim"
 	update_icon()
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
-	if(alert("Are you pleased with your heraldry?", "Heraldry", "Yes", "No") != "Yes")
+	if(alert("Вас устраивает результат?", "Готово!", "Да", "Нет") != "Да")
 		detail_tag = initial(detail_tag)
 		update_icon()
 		if(ismob(loc))
@@ -434,15 +432,15 @@
 	return ..()
 
 /obj/item/clothing/cloak/raincloak/vanguard
-	name = "vanguard cloak"
-	desc = "A nightly cloak worn by those that protect the citizenry from what lurks beyond" // THE BOG DESERVES A BETTER DESCRIPTION!
+	name = "плащ авангарда"
+	desc = "Старая накидка в темных тонах. Её гордо носят те, что стойко защищают город и его жителей от всего нечестивого за каменными стенами."
 	color = CLOTHING_VANGUARD
 	detail_color = CLOTHING_VANGUARD_DETAIL
 
 
 /obj/item/clothing/cloak/stabard/grenzelhoft
-	name = "grenzelhoft mercenary tabard"
-	desc = "A tabard bearing the colors of the Grenzelhoft Free Corps"
+	name = "табард наемника"
+	desc = "Накидка поверх брони, окрашенная в цвета Свободного Корпуса Грензельхофта."
 	color = CLOTHING_YELLOW
 	detail_color = CLOTHING_RED
 	detail_tag = "_box"
@@ -471,7 +469,7 @@
 ////////////////////////
 
 /obj/item/clothing/cloak/stabard/surcoat
-	name = "jupon"
+	name = "жиппон"
 	icon_state = "surcoat"
 
 /obj/item/clothing/cloak/stabard/surcoat/marshal
@@ -484,27 +482,27 @@
 	if(picked)
 		return
 	var/the_time = world.time
-	var/design = input(user, "Select a design.","Tabard Design") as null|anything in list("None","Split", "Quadrants", "Boxes", "Diamonds")
+	var/design = input(user, "Выберите узор:","Изменение внешнего вида") as null|anything in list("Без узора","Пополам", "Четверти", "В клетку", "Ромбы")
 	if(!design)
 		return
-	var/colorone = input(user, "Select a primary color.","Tabard Design") as null|anything in CLOTHING_COLOR_NAMES
+	var/colorone = input(user, "Выберите основной цвет: ","Изменение внешнего вида") as null|anything in CLOTHING_COLOR_NAMES
 	if(!colorone)
 		return
 	var/colortwo
-	if(design != "None")
-		colortwo = input(user, "Select a primary color.","Tabard Design") as null|anything in CLOTHING_COLOR_NAMES
+	if(design != "Без узора")
+		colortwo = input(user, "Выберите второстепенный цвет: ","Изменение внешнего вида") as null|anything in CLOTHING_COLOR_NAMES
 		if(!colortwo)
 			return
 	if(world.time > (the_time + 30 SECONDS))
 		return
 	switch(design)
-		if("Split")
+		if("Пополам")
 			detail_tag = "_spl"
-		if("Quadrants")
+		if("Четверти")
 			detail_tag = "_quad"
-		if("Boxes")
+		if("В клетку")
 			detail_tag = "_box"
-		if("Diamonds")
+		if("Ромбы")
 			detail_tag = "_dim"
 	color = clothing_color2hex(colorone)
 	if(colortwo)
@@ -513,7 +511,7 @@
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
-	if(alert("Are you pleased with your heraldry?", "Heraldry", "Yes", "No") != "Yes")
+	if(alert("Вас устраивает результат?", "Готово!", "Да", "Нет") != "Да")
 		detail_color = initial(detail_color)
 		color = initial(color)
 		detail_tag = initial(detail_tag)
@@ -534,7 +532,7 @@
 		add_overlay(pic)
 
 /obj/item/clothing/cloak/stabard/surcoat/guard
-	desc = "A surcoat with the lord's heraldic colors."
+	desc = "Накидка, предназначенная для ношения поверх брони в качестве единой формы гарнизона. Окрашен в цвета геральдики правителя."
 	color = CLOTHING_RED
 	detail_tag = "_quad"
 	detail_color = CLOTHING_PURPLE
@@ -543,25 +541,25 @@
 	if(picked)
 		return
 	var/the_time = world.time
-	var/chosen = input(user, "Select a design.","Tabard Design") as null|anything in list("Split", "Quadrants", "Boxes", "Diamonds")
+	var/chosen = input(user, "Выберите узор:","Изменение внешнего вида") as null|anything in list("Пополам", "Четверти", "В клетку", "Ромбы")
 	if(world.time > (the_time + 10 SECONDS))
 		return
 	if(!chosen)
 		return
 	switch(chosen)
-		if("Split")
+		if("Пополам")
 			detail_tag = "_spl"
-		if("Quadrants")
+		if("Четверти")
 			detail_tag = "_quad"
-		if("Boxes")
+		if("В клетку")
 			detail_tag = "_box"
-		if("Diamonds")
+		if("Ромбы")
 			detail_tag = "_dim"
 	update_icon()
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
-	if(alert("Are you pleased with your heraldry?", "Heraldry", "Yes", "No") != "Yes")
+	if(alert("Вас устраивает результат?", "Готово!", "Да", "Нет") != "Да")
 		detail_tag = initial(detail_tag)
 		update_icon()
 		if(ismob(loc))
@@ -591,8 +589,8 @@
 	return ..()
 
 /obj/item/clothing/cloak/lordcloak
-	name = "lordly cloak"
-	desc = "Ermine trimmed, handed down."
+	name = "величественный плащ"
+	desc = "Очень дорогой плащ из отборного меха, что своим видом подчеркивает состояние своего владельца."
 	color = null
 	icon_state = "lord_cloak"
 	item_state = "lord_cloak"
@@ -638,13 +636,8 @@
 
 /obj/item/clothing/cloak/lordcloak/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/storage/concrete)
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR)
-		STR.max_combined_w_class = 4
-		STR.max_w_class = WEIGHT_CLASS_BULKY
-		STR.max_items = 1
-
+	AddComponent(/datum/component/storage/concrete/roguetown/cloak/lord)
+	
 /obj/item/clothing/cloak/lordcloak/dropped(mob/living/carbon/human/user)
 	..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
@@ -654,8 +647,8 @@
 			STR.remove_from_storage(I, get_turf(src))
 
 /obj/item/clothing/cloak/apron
-	name = "apron"
-	desc = "An apron used by many workshop workers."
+	name = "фартук"
+	desc = "Фартуки носят многие мастера и ремесленники, чтобы не запачкать одежду."
 	color = null
 	icon_state = "apron"
 	item_state = "apron"
@@ -667,8 +660,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/clothing/cloak/apron/blacksmith
-	name = "leather apron"
-	desc = "A leather apron used by those who temper metals and work forges."
+	name = "фартук кузнеца"
+	desc = "Жаропрочный кожаный фартук, который используют мастера плавки, ковки и закалки металлов."
 	color = null
 	icon_state = "leather_apron"
 	item_state = "leather_apron"
@@ -681,8 +674,8 @@
 	color = CLOTHING_BROWN
 
 /obj/item/clothing/cloak/apron/waist
-	name = "apron"
-	desc = "An apron used by many workshop workers."
+	name = "короткий фартук"
+	desc = "Такие можно увидеть на придворных слугах и горничных."
 	color = null
 	icon_state = "waistpron"
 	item_state = "waistpron"
@@ -698,8 +691,8 @@
 
 
 /obj/item/clothing/cloak/apron/cook
-	name = "cook apron"
-	desc = "An apron meant to show how clean the cook is."
+	name = "поварской фартук"
+	desc = "Показывает опрятность, аккуратность и чистоплотность повара."
 	color = null
 	icon_state = "aproncook"
 	item_state = "aproncook"
@@ -707,22 +700,9 @@
 	boobed = FALSE
 	flags_inv = HIDECROTCH|HIDEBOOB
 
-/*
-/obj/item/clothing/cloak/apron/waist/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_combined_w_class = 21
-	STR.max_w_class = WEIGHT_CLASS_SMALL
-	STR.max_items = 1
-
-/obj/item/clothing/cloak/apron/waist/attack_right(mob/user)
-	var/datum/component/storage/CP = GetComponent(/datum/component/storage)
-	CP.on_attack_hand(CP, user)
-	return TRUE*/
-
 /obj/item/clothing/cloak/raincloak
-	name = "cloak"
-	desc = "This one will help against the rainy weather."
+	name = "кожаный плащ"
+	desc = "Поможет не намокнуть в самую дождливую погоду. А еще в нем не так больно лежать на камнях"
 	color = null
 	icon_state = "rain_cloak"
 	item_state = "rain_cloak"
@@ -737,6 +717,9 @@
 	hoodtype = /obj/item/clothing/head/hooded/rainhood
 	toggle_icon_state = FALSE
 	salvage_result = /obj/item/natural/hide/cured
+	flags_inv = HIDEBOOB
+	edelay_type = 1
+	equip_delay_self = 10
 
 /obj/item/clothing/wash_act(clean)
 	. = ..()
@@ -745,12 +728,7 @@
 
 /obj/item/clothing/cloak/raincloak/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/storage/concrete)
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR)
-		STR.max_combined_w_class = 3
-		STR.max_w_class = WEIGHT_CLASS_NORMAL
-		STR.max_items = 1
+	AddComponent(/datum/component/storage/concrete/roguetown/cloak)
 
 /obj/item/clothing/cloak/raincloak/dropped(mob/living/carbon/human/user)
 	..()
@@ -766,8 +744,8 @@
 	color = CLOTHING_RED
 
 /obj/item/clothing/cloak/raincloak/mortus
-	name = "funeral cloak"
-	desc = "A cloak worn by morticians on their solemn task of putting the dead to rest."
+	name = "похоронный плащ"
+	desc = "Плащ, который носят гробовщики во время частых ритуалов по захоронению мертвых."
 	color = CLOTHING_BLACK
 
 /obj/item/clothing/cloak/raincloak/brown
@@ -783,8 +761,8 @@
 	color = CLOTHING_PURPLE
 
 /obj/item/clothing/head/hooded/rainhood
-	name = "hood"
-	desc = "This one will shelter you from the weather and hide your identity too."
+	name = "капюшон"
+	desc = "Частично спасет от непогоды и скроет вашу личность."
 	icon_state = "rain_hood"
 	item_state = "rain_hood"
 	slot_flags = ITEM_SLOT_HEAD
@@ -803,8 +781,8 @@
 	user.update_fov_angles()
 
 /obj/item/clothing/cloak/raincloak/furcloak
-	name = "fur cloak"
-	desc = "This glorious cloak is made of animal fur. Very soft and warm."
+	name = "меховой плащ"
+	desc = "Этот великолепный плащ сделан из меха животных и качественной кожи. Очень мягкий и теплый."
 	icon_state = "furgrey"
 	inhand_mod = FALSE
 	hoodtype = /obj/item/clothing/head/hooded/rainhood/furhood
@@ -827,8 +805,8 @@
 	block2add = FOV_BEHIND
 
 /obj/item/clothing/cloak/cape
-	name = "cape"
-	desc = "A beautiful, flowing cape. Too bad it tangles too much on the vegetation."
+	name = "накидка"
+	desc = "Красивая, развевающаяся на ветру накидка. Жаль, что она слишком сильно цепляется за растительность."
 	color = null
 	icon_state = "cape"
 	item_state = "cape"
@@ -908,8 +886,8 @@
 
 
 /obj/item/clothing/cloak/stole
-	name = "stole"
-	desc = "Garments of a priest, usually worn when giving mass to the people."
+	name = "стола"
+	desc = "Литургические облачения священника, которые принято носить во время мессы перед паствой."
 	icon_state = "stole_gold"
 	sleeved = null
 	sleevetype = null
@@ -923,8 +901,8 @@
 	icon_state = "stole_purple"
 
 /obj/item/clothing/cloak/black_cloak
-	name = "fur coat"
-	desc = ""
+	name = "черное меховой плащ"
+	desc = "Качественно скроенный, прошитый и обработанный дорогими маслами плащ из черного меха и шкур."
 	icon_state = "black_cloak"
 	body_parts_covered = CHEST|GROIN|VITALS|ARMS
 	sleeved = 'icons/roguetown/clothing/onmob/cloaks.dmi'
@@ -936,8 +914,8 @@
 	nodismemsleeves = TRUE
 
 /obj/item/clothing/cloak/heartfelt
-	name = "red cloak"
-	desc = ""
+	name = "изысканный плащ"
+	desc = "Произведение искусства и гордость ремесленников."
 	icon_state = "heartfelt_cloak"
 	body_parts_covered = CHEST|GROIN|VITALS|ARMS
 	sleeved = 'icons/roguetown/clothing/onmob/cloaks.dmi'
@@ -949,8 +927,8 @@
 	nodismemsleeves = TRUE
 
 /obj/item/clothing/cloak/half
-	name = "halfcloak"
-	desc = "A cloak designed to cover one half of the body predominantly over the other."
+	name = "полуплащ"
+	desc = "Плащ, закрывающий преимущественно одну половину тела."
 	color = null
 	icon_state = "halfcloak"
 	alternate_worn_layer = CLOAK_BEHIND_LAYER
@@ -968,16 +946,12 @@
 	allowed_race = NON_DWARVEN_RACE_TYPES
 	flags_inv = null
 	w_class = WEIGHT_CLASS_SMALL
-	salvage_amount = 1
+	silk_salvage = TRUE
+	salvage_amount = 0
 
 /obj/item/clothing/cloak/half/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/storage/concrete)
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	if(STR)
-		STR.max_combined_w_class = 3
-		STR.max_w_class = WEIGHT_CLASS_NORMAL
-		STR.max_items = 1
+	AddComponent(/datum/component/storage/concrete/roguetown/cloak)
 
 /obj/item/clothing/cloak/half/dropped(mob/living/carbon/human/user)
 	..()
@@ -997,7 +971,7 @@
 	color = CLOTHING_ORANGE
 
 /obj/item/clothing/cloak/half/vet
-	name = "town watch cloak"
+	name = "плащ городской стражи"
 	icon_state = "guardcloak"
 	color = CLOTHING_RED
 	allowed_sex = list(MALE, FEMALE)
@@ -1017,28 +991,29 @@
 
 // Dumping old black knight stuff here
 /obj/item/clothing/cloak/cape/blkknight
-	name = "blood cape"
+	name = "кровавая мантия"
 	icon_state = "bkcape"
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
 	sleeved = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
 
 /obj/item/clothing/head/roguetown/helmet/heavy/blkknight
-	name = "blacksteel helmet"
+	name = "шлем из черной стали"
 	icon_state = "bkhelm"
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/clothing/cloak/tabard/blkknight
-	name = "blood sash"
+	name = "кровавый пояс"
+	desc = "Старый тканевый табард, перекинутый через плечо и вымоченный в чьей-то крови."
 	icon_state = "bksash"
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/clothing/under/roguetown/platelegs/blk
-	name = "blacksteel legs"
+	name = "поножи из черной стали"
 	icon_state = "bklegs"
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
@@ -1046,7 +1021,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/clothing/gloves/roguetown/plate/blk
-	name = "blacksteel gaunties"
+	name = "наручи из черной стали"
 	icon_state = "bkgloves"
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
@@ -1054,8 +1029,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/clothing/neck/roguetown/blkknight
-	name = "dragonscale necklace"
-	desc = ""
+	name = "ожерелье из драконьей чешуи"
+	desc = "Один только блеск чешуек заставляет кровь закипеть..."
 	icon_state = "bktrinket"
 	max_integrity = 100000
 	armor = list("blunt" = 100, "slash" = 100, "stab" = 100, "bullet" = 100, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 0)
@@ -1076,7 +1051,7 @@
 		return
 	active_item = TRUE
 	if(user.mind.special_role == "Bandit")
-		to_chat(user, span_notice("I feel bolstered by Matthios Power!..."))
+		to_chat(user, span_notice("Я чувствую воодушевление от сил Маттиоса!..."))
 		user.change_stat("strength", 2)
 		user.change_stat("perception", 2)
 		user.change_stat("intelligence", 2)
@@ -1085,7 +1060,7 @@
 		user.change_stat("speed", 2)
 		armor = getArmor("blunt" = 100, "slash" = 100, "stab" = 100, "bullet" = 100, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 0)
 	else
-		to_chat(user, span_notice("I feel an evil power about that necklace.."))
+		to_chat(user, span_notice("Я чувствую, как злая сила исходит от этого ожерелья..."))
 		armor = getArmor("blunt" = 0, "slash" = 0, "stab" = 0, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 
 /obj/item/clothing/neck/roguetown/blkknight/dropped(mob/living/user)
@@ -1093,7 +1068,7 @@
 		return
 	active_item = FALSE
 	if(user.mind.special_role == "Bandit")
-		to_chat(user, span_notice("I've removed the necklace of Matthios..."))
+		to_chat(user, span_notice("Я снял ожерелье Маттиоса..."))
 		user.change_stat("strength", -2)
 		user.change_stat("perception", -2)
 		user.change_stat("intelligence", -2)
@@ -1101,12 +1076,12 @@
 		user.change_stat("endurance", -2)
 		user.change_stat("speed", -2)
 	else
-		to_chat(user, span_notice("Strange, I don't feel that power anymore.."))
+		to_chat(user, span_notice("Хм, странное ощущение исчезло..."))
 		armor = getArmor("blunt" = 100, "slash" = 100, "stab" = 100, "bullet" = 100, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 0)
 
 /obj/item/clothing/suit/roguetown/armor/plate/blkknight
 	slot_flags = ITEM_SLOT_ARMOR
-	name = "blacksteel plate"
+	name = "латы из черной стали"
 	body_parts_covered = CHEST|GROIN|VITALS|ARMS
 	r_sleeve_status = SLEEVE_NOMOD
 	l_sleeve_status = SLEEVE_NOMOD
@@ -1117,7 +1092,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/clothing/shoes/roguetown/armor/steel/blkknight
-	name = "blacksteel boots"
+	name = "сабатоны из черной стали"
 	icon_state = "bkboots"
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
@@ -1127,8 +1102,8 @@
 //Short hoods for guards
 
 /obj/item/clothing/cloak/stabard/guardhood
-	name = "guard hood"
-	desc = "A hood with the lord's heraldic colors."
+	name = "капюшон стражника"
+	desc = "Наплечный капюшон, окрашенный в цвета геральдики правителя."
 	color = CLOTHING_RED
 	detail_tag = "_spl"
 	detail_color = CLOTHING_PURPLE
@@ -1139,19 +1114,19 @@
 	if(picked)
 		return
 	var/the_time = world.time
-	var/chosen = input(user, "Select a design.","Tabard Design") as null|anything in list("Split")
+	var/chosen = input(user, "Выберите узор:","Изменение внешнего вида") as null|anything in list("Пополам")
 	if(world.time > (the_time + 10 SECONDS))
 		return
 	if(!chosen)
 		return
 	switch(chosen)
-		if("Split")
+		if("Пополам")
 			detail_tag = "_spl"
 	update_icon()
 	if(ismob(loc))
 		var/mob/L = loc
 		L.update_inv_cloak()
-	if(alert("Are you pleased with your heraldry?", "Heraldry", "Yes", "No") != "Yes")
+	if(alert("Вас устраивает результат?", "Готово!", "Да", "Нет") != "Да")
 		detail_tag = initial(detail_tag)
 		update_icon()
 		if(ismob(loc))
@@ -1198,29 +1173,29 @@
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/cloaks.dmi'
 	alternate_worn_layer = TABARD_LAYER
 	boobed = FALSE
-	name = "astratan tabard"
-	desc = "The washed out golds of an asratan crusader adorn these fine robes."
+	name = "табард рыцаря Астраты"
+	desc = "Прекрасные одежды храмовника. Прошиты выцветшим, но все еще ярко блестящим златом солнечного крестоносца Астраты."
 	icon_state = "astratatabard"
 
 /obj/item/clothing/cloak/templar/malummite
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/cloaks.dmi'
 	alternate_worn_layer = TABARD_LAYER
 	boobed = FALSE
-	name = "malummite tabard"
-	desc = "Light blacks and greys, with a tinge of red, the everlasting fire of Malum's iron hammer as it strikes."
+	name = "табард рыцаря Маллума"
+	desc = "Одеяние храмовника светло-черного и серого цвета. Полотно рассекается ярко-красными оттенками, словно искрами вечного пламени из-под железного молота Маллума."
 	icon_state = "malumtabard"
 
 /obj/item/clothing/cloak/templar/necran
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/cloaks.dmi'
 	alternate_worn_layer = TABARD_LAYER
 	boobed = FALSE
-	name = "necran tabard"
-	desc = "Deep dark blacks, swallowing all light as if the night itself."
+	name = "табард рыцаря Некры"
+	desc = "Одеяние храмовника глубокого темного цвета. Черный покров поглощающает весь свет, чтобы погрузить недругов Некры в вечный сон."
 	icon_state = "necratabard"
 
 /obj/item/clothing/cloak/fauld
-	name = "fauld"
-	desc = "A piece of cloth usually worn to cover the hips and part of the legs."
+	name = "тканевый фольд"
+	desc = "Кусок ткани, обычно его носят что бы частично прикрыть ноги или бедра."
 	color = null
 	icon_state = "faulds"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/cloaks.dmi'
@@ -1239,8 +1214,8 @@
 		add_overlay(pic)
 
 /obj/item/clothing/cloak/fauld/battleskirt
-	name = "battle skirt"
-	desc = "A skirt usually worn on battle with the colors of the wearer."
+	name = "боевая юбка"
+	desc = "Длинная юбка, которую обычно носят в бою, окрашивая в цвет ее владельца."
 	icon_state = "battleskirt"
 
 /obj/item/clothing/cloak/fauld/battleskirt/update_icon()
@@ -1252,18 +1227,18 @@
 		add_overlay(pic)
 
 /obj/item/clothing/cloak/stabard/crusader
-	name = "surcoat of the golden order"
+	name = "сюрко златоносного ордена"
 	icon_state = "crusader_surcoat"
 	icon = 'icons/roguetown/clothing/special/crusader.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/crusader.dmi'
 	sleeved = 'icons/roguetown/clothing/special/onmob/crusader.dmi'
 
 /obj/item/clothing/cloak/stabard/crusader/t
-	name = "surcoat of the silver order"
+	name = "сюрко сереброносного ордена"
 	icon_state = "crusader_surcoatt2"
 
 /obj/item/clothing/cloak/cape/crusader
-	name = "desert cape"
+	name = "пустынная накидка"
 	icon_state = "crusader_cloak"
 	icon = 'icons/roguetown/clothing/special/crusader.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/crusader.dmi'

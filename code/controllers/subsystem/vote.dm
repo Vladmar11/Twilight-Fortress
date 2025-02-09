@@ -146,7 +146,6 @@ SUBSYSTEM_DEF(vote)
 			if("endround")
 				if(. == "Continue Playing")
 					log_game("LOG VOTE: CONTINUE PLAYING AT [REALTIMEOFDAY]")
-					addomen(OMEN_ROUNDSTART)
 					GLOB.round_timer = GLOB.round_timer + ROUND_EXTENSION_TIME
 				else
 					log_game("LOG VOTE: ELSE  [REALTIMEOFDAY]")
@@ -155,7 +154,7 @@ SUBSYSTEM_DEF(vote)
 						log_game("LOG VOTE: ROUNDVOTEEND [REALTIMEOFDAY]")
 						to_chat(world, "\n<font color='purple'>[ROUND_END_TIME_VERBAL] remain.</font>")
 						C.roundvoteend = TRUE
-						C.round_ends_at = GLOB.round_timer + ROUND_END_TIME
+						C.round_ends_at = (world.time - SSticker.round_start_time) + ROUND_END_TIME
 	if(restart)
 		var/active_admins = 0
 		for(var/client/C in GLOB.admins)
@@ -178,8 +177,8 @@ SUBSYSTEM_DEF(vote)
 			if(vote && 1<=vote && vote<=choices.len)
 				voted += usr.ckey
 				var/vote_power = 1
-				if(usr.client.holder)
-					vote_power += 5
+				/*if(usr.client.holder)
+					vote_power += 5*/
 				if(ishuman(usr))
 					var/mob/living/carbon/H = usr
 					if(H.stat != DEAD)

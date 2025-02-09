@@ -1,5 +1,5 @@
 /mob/living/carbon/human/species/goblin
-	name = "goblin"
+	name = "гоблин"
 
 	icon = 'icons/roguetown/mob/monster/goblins.dmi'
 	icon_state = "blank"
@@ -26,7 +26,7 @@
 	wander = TRUE
 
 /mob/living/carbon/human/species/goblin/hell
-	name = "hell goblin"
+	name = "адский гоблин"
 	race = /datum/species/goblin/hell
 
 /mob/living/carbon/human/species/goblin/npc/hell
@@ -34,11 +34,11 @@
 /mob/living/carbon/human/species/goblin/npc/ambush/hell
 	race = /datum/species/goblin/hell
 /datum/species/goblin/hell
-	name = "hell goblin"
+	name = "адский гоблин"
 	raceicon = "goblin_hell"
 
 /mob/living/carbon/human/species/goblin/cave
-	name = "cave goblin"
+	name = "пещерный гоблин"
 	race = /datum/species/goblin/cave
 /mob/living/carbon/human/species/goblin/npc/cave
 	race = /datum/species/goblin/cave
@@ -48,7 +48,7 @@
 	raceicon = "goblin_cave"
 
 /mob/living/carbon/human/species/goblin/sea
-	name = "sea goblin"
+	name = "морской гоблин"
 	race = /datum/species/goblin/sea
 /mob/living/carbon/human/species/goblin/npc/sea
 	race = /datum/species/goblin/sea
@@ -58,7 +58,7 @@
 	raceicon = "goblin_sea"
 
 /mob/living/carbon/human/species/goblin/moon
-	name = "moon goblin"
+	name = "лунный гоблин"
 	race = /datum/species/goblin/moon
 /mob/living/carbon/human/species/goblin/npc/moon
 	race = /datum/species/goblin/moon
@@ -70,7 +70,7 @@
 
 /datum/species/goblin/moon/spec_death(gibbed, mob/living/carbon/human/H)
 	new /obj/item/reagent_containers/powder/moondust_purest(get_turf(H))
-	H.visible_message(span_blue("Moondust falls from [H]!"))
+	H.visible_message(span_blue("Лунная пыль сыпется с трупа гоблина!"))
 //	qdel(H)
 
 /obj/item/bodypart/chest/goblin
@@ -98,7 +98,7 @@
 
 
 /datum/species/goblin
-	name = "goblin"
+	name = "гоблин"
 	id = "goblin"
 	species_traits = list(NO_UNDERWEAR,NOEYESPRITES)
 	inherent_traits = list(TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_RADIMMUNE)
@@ -227,8 +227,8 @@
 		QDEL_NULL(src.charflaw)
 	update_body()
 	faction = list("orcs")
-	name = "goblin"
-	real_name = "goblin"
+	name = "гоблин"
+	real_name = "гоблин"
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOSTAMINA, TRAIT_GENERIC)
@@ -349,7 +349,7 @@
 
 
 /obj/structure/gob_portal
-	name = "Gob Portal"
+	name = "портал гоблинов"
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "shitportal"
 	max_integrity = 200
@@ -375,7 +375,7 @@
 	if(!in_range(src, user))
 		return
 	if(gobs >= (maxgobs+1))
-		to_chat(user, span_danger("Too many Gobs."))
+		to_chat(user, span_danger("Слишком много гоблинов."))
 		return
 	gobs++
 	var/mob/living/carbon/human/species/goblin/npc/N = new (get_turf(src))
