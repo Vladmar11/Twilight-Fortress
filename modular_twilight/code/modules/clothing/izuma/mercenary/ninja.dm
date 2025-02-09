@@ -25,9 +25,7 @@
 	mask = /obj/item/clothing/mask/rogue/izuma/eyeband/black
 	wrists = /obj/item/clothing/wrists/roguetown/bracers/leather/khudagach
 	belt = /obj/item/storage/belt/rogue/leather/black
-	beltr = /obj/item/rogueweapon/huntingknife/sai
 	beltl = /obj/item/rogueweapon/flail/kusarigama
-	r_hand = /obj/item/rogueweapon/huntingknife/sai
 	neck = /obj/item/clothing/neck/roguetown/leather/black
 	shirt = /obj/item/clothing/suit/roguetown/shirt/looseshirt
 	head = /obj/item/clothing/head/roguetown/shinobi_zukin
@@ -39,6 +37,21 @@
 	backl = /obj/item/storage/backpack/rogue/satchel/black
 	backpack_contents = list(/obj/item/throwing_star/ninja = 7, /obj/item/rogueweapon/tetsubishi = 3, /obj/item/storage/keyring/mercenary = 1, /obj/item/storage/belt/rogue/pouch/coins/poor = 1, /obj/item/smokebomb = 6)
 
+	var/weapons = list("sai", "ninjato") 
+	var/weaponschoice = input("Choose your weapon", "Available weapons") as anything in weapons
+
+	switch(weaponschoice)
+
+		if("sai")
+			beltr = /obj/item/rogueweapon/huntingknife/sai
+			r_hand = /obj/item/rogueweapon/huntingknife/sai
+			H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+		if("ninjato")
+			beltr = /obj/item/rogueweapon/huntingknife/kunai
+			r_hand = /obj/item/rogueweapon/sword/short/ninjato
+			H.mind.adjust_skillrank(/datum/skill/combat/swords, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/knives, 1, TRUE)
+
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
@@ -46,7 +59,6 @@
 		H.mind.adjust_skillrank(/datum/skill/combat/bows, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 4, TRUE)

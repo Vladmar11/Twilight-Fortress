@@ -5,7 +5,7 @@
 
 /obj/item/rogueweapon/sword/uchigatana
 	name = "утигатана"
-	desc = "Более короткая и простая, чем тачи, утигатана является основным оружием пехотинцев Изумы и Туманных островов. \
+	desc = "Более короткая и простая, чем тати, утигатана является основным оружием пехотинцев Изумы и Туманных островов. \
 	Как и у дзатаны, изогнутый клинок позволяет наносить мощные рубящие удары, но не имеет защитной перекладины, а изгиб делает его менее эффективным при нанесении ударов."
 	icon = 'modular_twilight/icons/roguetown/weapons/64.dmi'
 	icon_state = "uchigatana"
@@ -38,7 +38,7 @@
 	return
 
 /obj/item/rogueweapon/sword/long/tachi //this sword is all fucked. Oh God. Help me.
-	name = "тачи"
+	name = "тати"
 	desc = "Длинный, изогнутый затан, появившийся после того, как рейдеры Вокоу вернулись на Туманные Острова с захваченными лошадьми и \
 	начали разрабатывать собственную кавалерийскую тактику."
 	icon = 'modular_twilight/icons/roguetown/weapons/64.dmi'
@@ -102,6 +102,13 @@
 	desc = "Простая, укороченная версия обоюдоострого цзяня. Обычно выдается гражданам Изумы в качестве права на самооборону по воле императора."
 	icon = 'modular_twilight/icons/roguetown/weapons/32.dmi'
 	icon_state = "shortjian"
+
+/obj/item/rogueweapon/sword/short/ninjato
+	name = "синобикен"
+	desc = "Короткий меч, напоминающий дзатану, но прямой клинком, он покрыт тёмным лаком для уменьшения бликов. Дешёвый, лёгкий для ковки, \
+	компактный и от которого не жалко избавиться при побеге - выбор шиноби, когда востребована гибкость."
+	icon = 'modular_twilight/icons/roguetown/weapons/32.dmi'
+	icon_state = "ninjato"
 
 /obj/item/rogueweapon/sword/short/wakizashi
 	name = "вакидзаси"
