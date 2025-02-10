@@ -107,8 +107,16 @@
 	name = "синобикен"
 	desc = "Короткий меч, напоминающий дзатану, но прямой клинком, он покрыт тёмным лаком для уменьшения бликов. Дешёвый, лёгкий для ковки, \
 	компактный и от которого не жалко избавиться при побеге - выбор шиноби, когда востребована гибкость."
+	slot_flags = ITEM_SLOT_HIP | ITEM_SLOT_BACK
 	icon = 'modular_twilight/icons/roguetown/weapons/32.dmi'
 	icon_state = "ninjato"
+
+/obj/item/rogueweapon/sword/short/ninjato/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("onback") 
+				return list("shrink" = 0.55,"sx" = -1,"sy" = 2,"nx" = 0,"ny" = 2,"wx" = 2,"wy" = 1,"ex" = 0,"ey" = 1,"nturn" = 0,"sturn" = 0,"wturn" = 70,"eturn" = 15,"nflip" = 1,"sflip" = 1,"wflip" = 1,"eflip" = 1,"northabove" = 1,"southabove" = 0,"eastabove" = 0,"westabove" = 0)
 
 /obj/item/rogueweapon/sword/short/wakizashi
 	name = "вакидзаси"

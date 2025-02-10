@@ -98,8 +98,26 @@
 			cooldown = world.time
 		H.Stun(60)
 
-/obj/item/throwing_star/ninja
+/obj/item/throwing_star/shuriken
 	name = "сюрикэн"
 	desc = "Простой отвлекающий инструмент, используемый для создания суматохи и кровотечения, чтобы его пользователь мог разбежаться."
 	icon_state = "shuriken"
 	icon = 'modular_twilight/icons/roguetown/weapons/32.dmi'
+
+/obj/item/ammo_holder/shuriken
+	name = "сюрикэнбукуро"
+	desc = "Небольшой тёмный мешочек. Плетён гораздо прочнее, чем выглядит, раз хранит сюрикэны и не рвётся."
+	icon = 'modular_twilight/icons/roguetown/weapons/ammo.dmi'
+	icon_state = "spouch0"
+	item_state = "spouch"
+	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_NECK
+	max_storage = 7
+	ammo_type = list(/obj/item/throwing_star/shuriken)
+	color = "#b5b5b5"
+
+/obj/item/ammo_holder/shuriken/shurikens/Initialize()
+	. = ..()
+	for(var/i in 1 to max_storage)
+		var/obj/item/throwing_star/shuriken/A = new()
+		ammo += A
+	update_icon()
