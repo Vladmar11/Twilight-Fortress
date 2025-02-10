@@ -2,8 +2,8 @@
 //newtree
 
 /obj/structure/flora/roguetree
-	name = "старое дерево"
-	desc = "Старое, злобное дерево, которое не смогли полюбить даже эльфы."
+	name = "old tree"
+	desc = "An old, wicked tree that not even elves could love."
 	icon = 'icons/roguetown/misc/foliagetall.dmi'
 	icon_state = "t1"
 	opacity = 1
@@ -26,7 +26,7 @@
 /obj/structure/flora/roguetree/attack_right(mob/user)
 	if(user.mind && isliving(user))
 		if(user.mind.special_items && user.mind.special_items.len)
-			var/item = input(user, "Что я возьму?", "ТАЙНИК") as null|anything in user.mind.special_items
+			var/item = input(user, "What will I take?", "STASH") as null|anything in user.mind.special_items
 			if(item)
 				if(user.Adjacent(src))
 					if(user.mind.special_items[item])
@@ -104,7 +104,7 @@
 	var/datum/spacevine_controller/controller
 
 /obj/structure/flora/roguetree/wise
-	name = "мудрое древо"
+	name = "wise tree"
 	icon_state = "mystical"
 
 /obj/structure/flora/roguetree/wise/Initialize()
@@ -117,8 +117,8 @@
 */
 
 /obj/structure/flora/roguetree/burnt
-	name = "сгоревшее дерево"
-	desc = "Может молния, а может быть, пламя войны забрало жизнь этого когда-то живого дерева."
+	name = "burnt tree"
+	desc = "Maybe lightning, maybe war took the life of this once lively tree."
 	icon = 'icons/roguetown/misc/96x96.dmi'
 	icon_state = "t1"
 	stump_type = /obj/structure/flora/roguetree/stump/burnt
@@ -129,8 +129,8 @@
 	icon_state = "t[rand(1,4)]"
 
 /obj/structure/flora/roguetree/stump/burnt
-	name = "горелый пень"
-	desc = "Этот пень сгорел. Может, кто-то пытался добыть уголь таким простым способом."
+	name = "tree stump"
+	desc = "This stump is burnt. Maybe someone is trying to get coal the easy way."
 	icon_state = "st1"
 	icon = 'icons/roguetown/misc/96x96.dmi'
 	stump_type = null
@@ -142,8 +142,8 @@
 	icon_state = "st[rand(1,2)]"
 
 /obj/structure/flora/roguetree/underworld
-	name = "кричащее дерево"
-	desc = "Человеческие лица мерещатся повсюду."
+	name = "screaming tree"
+	desc = "Human faces everywhere."
 	icon = 'icons/roguetown/misc/foliagetall.dmi'
 	icon_state = "screaming1"
 	opacity = 1
@@ -154,8 +154,8 @@
 	icon_state = "screaming[rand(1,3)]"
 
 /obj/structure/flora/roguetree/stump
-	name = "пень"
-	desc = "Кто-то срубил это дерево."
+	name = "tree stump"
+	desc = "Someone cut this tree down."
 	icon_state = "t1stump"
 	opacity = 0
 	max_integrity = 100
@@ -188,12 +188,12 @@
 				new /obj/item/grown/log/tree/small/essence(get_turf(src))
 				if(!essense_sound_played)
 					essense_sound_played = TRUE
-					to_chat(user, span_warning("Дендор наблюдает за нами..."))
+					to_chat(user, span_warning("Dendor watches over us..."))
 					playsound(src,pick('sound/items/gem.ogg'), 100, FALSE)
 			else
 				new lumber(get_turf(src))
 		if(!skill_level)
-			to_chat(user, span_info("С большим опытом я мог бы получить больше древесины..."))
+			to_chat(user, span_info("I could have gotten more timber were I more skilled..."))
 		user.mind.add_sleep_experience(/datum/skill/labor/lumberjacking, (user.STAINT*0.5))
 		playsound(src, destroy_sound, 100, TRUE)
 		qdel(src)
@@ -205,8 +205,8 @@
 	icon_state = "t[rand(1,4)]stump"
 
 /obj/structure/flora/roguetree/stump/log
-	name = "старое бревно"
-	desc = "Гнилые останки дерева, много лет назад пострадавшего от буйства природы."
+	name = "ancient log"
+	desc = "Rotten remains of a tree that sufered nature's cruelty ages ago."
 	icon_state = "log1"
 	opacity = 0
 	max_integrity = 200
@@ -224,8 +224,8 @@
 //newbushes
 
 /obj/structure/flora/roguegrass
-	name = "трава"
-	desc = "Зеленая, мягкая и яркая."
+	name = "grass"
+	desc = "Green, soft and lively."
 	icon = 'icons/roguetown/misc/foliage.dmi'
 	icon_state = "grass1"
 	attacked_sound = "plantcross"
@@ -247,14 +247,14 @@
 	icon_state = "grass[rand(1, 6)]"
 
 /obj/structure/flora/roguegrass/water
-	name = "трава"
-	desc = "Эта трава мокрая и грязная."
+	name = "grass"
+	desc = "This grass is sodden and muddy."
 	icon_state = "swampgrass"
 	max_integrity = 5
 
 /obj/structure/flora/roguegrass/water/reeds
-	name = "камыш"
-	desc = "Это растение хорошо себя чувствует в воде и скрывает опасности."
+	name = "reeds"
+	desc = "This plant thrives in water, and shelters dangers."
 	icon_state = "reeds"
 	opacity = 1
 	max_integrity = 10
@@ -285,8 +285,8 @@
 
 
 /obj/structure/flora/roguegrass/bush
-	name = "куст"
-	desc = "Неприхотливый куст. Кажется, я вижу, как в нем ползают пауки."
+	name = "bush"
+	desc = "A bush, I think I can see some spiders crawling in it."
 	icon_state = "bush1"
 	layer = ABOVE_ALL_MOB_LAYER
 	var/res_replenish
@@ -297,12 +297,19 @@
 	debris = list(/obj/item/natural/fibers = 1, /obj/item/grown/log/tree/stick = 1)
 	var/list/looty = list()
 	var/bushtype
+	//Why bother generating the same list for every single bush? Static list time.
+	var/static/list/bush_options = list(
+        /obj/item/reagent_containers/food/snacks/grown/berries/rogue = 5,
+        /obj/item/reagent_containers/food/snacks/grown/berries/rogue/poison = 3,
+        /obj/item/reagent_containers/food/snacks/grown/rogue/pipeweed = 1
+    )
+
+
 
 /obj/structure/flora/roguegrass/bush/Initialize()
-	if(prob(88))
-		bushtype = pickweight(list(/obj/item/reagent_containers/food/snacks/grown/berries/rogue=5,
-					/obj/item/reagent_containers/food/snacks/grown/berries/rogue/poison=3,
-					/obj/item/reagent_containers/food/snacks/grown/rogue/pipeweed=1))
+	var/area/A = get_area(src)
+	if(prob(isintown(A) ? 10 : 88))
+		bushtype = pickweight(bush_options)
 	loot_replenish()
 	pixel_x += rand(-3,3)
 	return ..()
@@ -321,7 +328,7 @@
 		var/mob/living/L = AM
 		if(L.m_intent == MOVE_INTENT_RUN && (L.mobility_flags & MOBILITY_STAND))
 			if(!ishuman(L))
-				to_chat(L, span_warning("Я натыкаюсь на шипы!"))
+				to_chat(L, span_warning("I'm cut on a thorn!"))
 				L.apply_damage(5, BRUTE)
 
 			else
@@ -333,10 +340,10 @@
 						var/obj/item/natural/thorn/TH = new(src.loc)
 						BP.add_embedded_object(TH, silent = TRUE)
 						BP.receive_damage(10)
-						to_chat(H, span_danger("Острый [TH] пронзает мою [BP.name]!"))
+						to_chat(H, span_danger("\A [TH] impales my [BP.name]!"))
 				else
 					var/obj/item/bodypart/BP = pick(H.bodyparts)
-					to_chat(H, span_warning("Шипы оставляют [pick("разрез","порез","глубокую царапину")] на моей [BP.name]."))
+					to_chat(H, span_warning("A thorn [pick("slices","cuts","nicks")] my [BP.name]."))
 					BP.receive_damage(10)
 
 /obj/structure/flora/roguegrass/bush/attack_hand(mob/user)
@@ -356,15 +363,15 @@
 				if(B)
 					B = new B(user.loc)
 					user.put_in_hands(B)
-					user.visible_message(span_notice("[user] находит [B] в [src]."))
+					user.visible_message(span_notice("[user] finds [B] in [src]."))
 					return
-			user.visible_message(span_warning("[user] ищет что-то в [src]."))
+			user.visible_message(span_warning("[user] searches through [src]."))
 #ifdef MATURESERVER
 			if(!looty.len)
-				to_chat(user, span_warning("Куст обобран подчистую."))
+				to_chat(user, span_warning("Picked clean."))
 #else
 			if(!looty.len)
-				to_chat(user, span_warning("Куст обобран... Стоит позже попробовать."))
+				to_chat(user, span_warning("Picked clean... I should try later."))
 #endif
 /obj/structure/flora/roguegrass/bush/update_icon()
 	icon_state = "bush[rand(1, 4)]"
@@ -384,8 +391,8 @@
 	return 1
 
 /obj/structure/flora/roguegrass/bush/wall
-	name = "большой куст"
-	desc = "Куст, ветви и корни которого толстые и преграждают путь."
+	name = "great bush"
+	desc = "A bush, this one's roots are thick and block the way."
 	opacity = TRUE
 	density = 1
 	climbable = FALSE
@@ -427,7 +434,7 @@
 
 /*	..................   Wild Swampweed   ................... */
 /obj/structure/wild_swampweed
-	name = "болотная трава"
+	name = "swampweed"
 	desc = ""
 	icon = 'icons/roguetown/misc/crops.dmi'
 	icon_state = "weed2"
@@ -438,7 +445,7 @@
 	debris = list(/obj/item/natural/fibers = 1, /obj/item/reagent_containers/food/snacks/grown/rogue/sweetleaf = 1)
 /obj/structure/wild_swampweed/attack_hand(mob/living/carbon/human/user)
 	playsound(src.loc, "plantcross", 80, FALSE, -1)
-	user.visible_message(span_warning("[user] собирает [src]."))
+	user.visible_message(span_warning("[user] harvests [src]."))
 	if(do_after(user, 3 SECONDS, target = src))
 		new /obj/item/reagent_containers/food/snacks/grown/rogue/sweetleaf (get_turf(src))
 		qdel(src)
@@ -446,8 +453,8 @@
 	playsound(src.loc, "plantcross", 80, FALSE, -1)
 
 /obj/structure/flora/rogueshroom
-	name = "гриб"
-	desc = "Грибы — единственные счастливые существа на этом острове."
+	name = "mushroom"
+	desc = "Mushrooms are the only happy beings in this island."
 	icon = 'icons/roguetown/misc/foliagetall.dmi'
 	icon_state = "mush1"
 	opacity = 0
@@ -464,7 +471,7 @@
 /obj/structure/flora/rogueshroom/attack_right(mob/user)
 	if(user.mind && isliving(user))
 		if(user.mind.special_items && user.mind.special_items.len)
-			var/item = input(user, "Что я возьму?", "ТАЙНИК") as null|anything in user.mind.special_items
+			var/item = input(user, "What will I take?", "STASH") as null|anything in user.mind.special_items
 			if(item)
 				if(user.Adjacent(src))
 					if(user.mind.special_items[item])
@@ -508,8 +515,8 @@
 
 
 /obj/structure/flora/shroomstump
-	name = "грибной пень"
-	desc = "Это был очень счастливый гриб. Теперь не очень."
+	name = "shroom stump"
+	desc = "It was a very happy shroom. Not anymore."
 	icon_state = "mush1stump"
 	opacity = 0
 	max_integrity = 100
@@ -532,8 +539,8 @@
 	icon_state = "t[rand(1,4)]stump"
 
 /obj/structure/roguerock
-	name = "скала"
-	desc = "Камень, выступающий из земли."
+	name = "rock"
+	desc = "A rock protuding from the ground."
 	icon_state = "rock1"
 	icon = 'icons/roguetown/misc/foliage.dmi'
 	opacity = 0
@@ -558,8 +565,8 @@
 //Thorn bush
 
 /obj/structure/flora/roguegrass/thorn_bush
-    name = "терновый куст"
-    desc = "Тернистый куст, осторожнее с ним!"
+    name = "thorn bush"
+    desc = "A thorny bush, watch your step!"
     icon_state = "thornbush"
     layer = ABOVE_ALL_MOB_LAYER
     blade_dulling = DULLING_CUT
