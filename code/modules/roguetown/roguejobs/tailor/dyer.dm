@@ -33,7 +33,8 @@
 			/obj/item/clothing/suit/roguetown/armor/armordress,
 			/obj/item/storage,
 			/obj/item/bedroll,
-			/obj/item/clothing/under/roguetown/loincloth
+			/obj/item/clothing/under/roguetown/loincloth,
+			/obj/item/clothing/suit/roguetown/shirt/tunic
 			)
 	var/activecolor = "#FFFFFF"
 	var/static/list/selectable_colors = list(
@@ -59,7 +60,7 @@
 		"Тёмно-зелёный" = "#264d26",
 		"Бирюзовый" = "#249589",
 		"Барвинковый" = "#8f99fb",
-		"Вайдовый синий" = "#597fb9",
+		"Вайдовый синий" = "#537bc6",
 		"Королевский пурпур" = "#8747b1",
 		"Пурпурный" = "#962e5c",
 		"Орсельный" = "#66023C",

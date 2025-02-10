@@ -11,7 +11,9 @@
 	max_integrity = 150
 	break_sound = 'sound/foley/cloth_rip.ogg'
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
-	salvage_result = /obj/item/natural/silk
+	fiber_salvage = FALSE
+	silk_salvage = TRUE
+	salvage_amount = 1
 
 /obj/item/clothing/gloves/roguetown/wrap
 	name = "тканевые обмотки для рук"

@@ -55,9 +55,13 @@
 	associated_skill = /datum/skill/combat/knives
 	max_blade_int = 50
 	dropshrink = 0.9
+	var/already_assembled
 
 /obj/item/rogueweapon/chisel/attackby(obj/item/W, mob/living/user, params)
 	. = ..()
+	if(already_assembled)
+		return
+
 	if(istype(W,/obj/item/natural/stoneblock))
 		playsound(get_turf(user.loc), 'sound/foley/brickdrop.ogg', 100)
 		user.visible_message("<span class='info'>[user] adds a striking tool to the chisel set.</span>")
@@ -111,6 +115,7 @@
 	grid_height = 64
 	possible_item_intents = list(/datum/intent/hit)
 	gripped_intents =  list(/datum/intent/chisel)
+	already_assembled = TRUE
 
 /obj/item/rogueweapon/chisel/assembly/mallet
 	icon_state = "chiselm"

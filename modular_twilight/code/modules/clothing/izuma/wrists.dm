@@ -48,6 +48,7 @@
 	icon = 'modular_twilight/icons/roguetown/clothing/wrists.dmi'
 	mob_overlay_icon = 'modular_twilight/icons/roguetown/clothing/onmob/wrists.dmi'
 	sleeved = 'modular_twilight/icons/roguetown/clothing/onmob/wrists.dmi'
+	smeltresult = null
 
 /obj/item/clothing/wrists/roguetown/bracers/bonebracer
 	name = "bone bracers"

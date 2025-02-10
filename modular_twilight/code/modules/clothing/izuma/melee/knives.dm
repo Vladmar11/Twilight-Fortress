@@ -23,7 +23,7 @@
 
 /obj/item/rogueweapon/huntingknife/idagger/tanto
 	name = "стальной танто"
-	desc = "Изначально танто был клинком-компаньоном тачи в дайсё самурая, но затем был заменен вакидзаси с переходом к пехотной тактике."
+	desc = "Изначально танто был клинком-компаньоном тати в дайсё самурая, но затем был заменен вакидзаси с переходом к пехотной тактике."
 	icon = 'modular_twilight/icons/roguetown/weapons/32.dmi'
 	icon_state = "tanto"
 	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust, /datum/intent/dagger/chop)

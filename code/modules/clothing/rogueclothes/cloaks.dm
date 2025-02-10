@@ -946,7 +946,8 @@
 	allowed_race = NON_DWARVEN_RACE_TYPES
 	flags_inv = null
 	w_class = WEIGHT_CLASS_SMALL
-	salvage_amount = 1
+	silk_salvage = TRUE
+	salvage_amount = 0
 
 /obj/item/clothing/cloak/half/ComponentInitialize()
 	. = ..()
