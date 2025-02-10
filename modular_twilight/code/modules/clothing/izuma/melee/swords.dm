@@ -5,7 +5,7 @@
 
 /obj/item/rogueweapon/sword/uchigatana
 	name = "утигатана"
-	desc = "Более короткая и простая, чем тачи, утигатана является основным оружием пехотинцев Изумы и Туманных островов. \
+	desc = "Более короткая и простая, чем тати, утигатана является основным оружием пехотинцев Изумы и Туманных островов. \
 	Как и у дзатаны, изогнутый клинок позволяет наносить мощные рубящие удары, но не имеет защитной перекладины, а изгиб делает его менее эффективным при нанесении ударов."
 	icon = 'modular_twilight/icons/roguetown/weapons/64.dmi'
 	icon_state = "uchigatana"
@@ -38,7 +38,7 @@
 	return
 
 /obj/item/rogueweapon/sword/long/tachi //this sword is all fucked. Oh God. Help me.
-	name = "тачи"
+	name = "тати"
 	desc = "Длинный, изогнутый затан, появившийся после того, как рейдеры Вокоу вернулись на Туманные Острова с захваченными лошадьми и \
 	начали разрабатывать собственную кавалерийскую тактику."
 	icon = 'modular_twilight/icons/roguetown/weapons/64.dmi'
@@ -102,6 +102,21 @@
 	desc = "Простая, укороченная версия обоюдоострого цзяня. Обычно выдается гражданам Изумы в качестве права на самооборону по воле императора."
 	icon = 'modular_twilight/icons/roguetown/weapons/32.dmi'
 	icon_state = "shortjian"
+
+/obj/item/rogueweapon/sword/short/ninjato
+	name = "синобикен"
+	desc = "Короткий меч, напоминающий дзатану, но прямой клинком, он покрыт тёмным лаком для уменьшения бликов. Дешёвый, лёгкий для ковки, \
+	компактный и от которого не жалко избавиться при побеге - выбор шиноби, когда востребована гибкость."
+	slot_flags = ITEM_SLOT_HIP | ITEM_SLOT_BACK
+	icon = 'modular_twilight/icons/roguetown/weapons/32.dmi'
+	icon_state = "ninjato"
+
+/obj/item/rogueweapon/sword/short/ninjato/getonmobprop(tag)
+	. = ..()
+	if(tag)
+		switch(tag)
+			if("onback") 
+				return list("shrink" = 0.55,"sx" = -1,"sy" = 2,"nx" = 0,"ny" = 2,"wx" = 2,"wy" = 1,"ex" = 0,"ey" = 1,"nturn" = 0,"sturn" = 0,"wturn" = 70,"eturn" = 15,"nflip" = 1,"sflip" = 1,"wflip" = 1,"eflip" = 1,"northabove" = 1,"southabove" = 0,"eastabove" = 0,"westabove" = 0)
 
 /obj/item/rogueweapon/sword/short/wakizashi
 	name = "вакидзаси"
