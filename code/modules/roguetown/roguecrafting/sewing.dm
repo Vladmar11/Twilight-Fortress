@@ -68,6 +68,13 @@
 				/obj/item/natural/fibers = 1)
 	skill_level = 1
 
+/datum/crafting_recipe/roguetown/sewing/armingcap
+	name = "arming cap - (2 cloths, fiber; NOVICE)"
+	result = list(/obj/item/clothing/head/roguetown/armingcap)
+	reqs = list(/obj/item/natural/cloth = 2,
+				/obj/item/natural/fibers = 1)
+	skill_level = 1
+
 /datum/crafting_recipe/roguetown/sewing/Leyepatch
 	name = "глазная повязка (левый) - (1 ткань, 1 волокно; НОВИЧОК)"
 	result = list(/obj/item/clothing/mask/rogue/eyepatch/left)
@@ -242,8 +249,36 @@
 	skill_level = 3
 
 /datum/crafting_recipe/roguetown/sewing/wizhatblue
-	name = "шляпа волшебника - (2 ткани, 1 волокно; УМЕЛЕЦ)"
+	name = "шляпа волшебника(синяя) - (2 ткани, 1 волокно; УМЕЛЕЦ)"
 	result = list(/obj/item/clothing/head/roguetown/wizhat)
+	reqs = list(/obj/item/natural/cloth = 2,
+				/obj/item/natural/fibers = 1)
+	skill_level = 3
+
+/datum/crafting_recipe/roguetown/sewing/wizardhatred
+	name = "wizard hat (red) - (2 cloths, fiber; JOURNEYMAN)"
+	result = list(/obj/item/clothing/head/roguetown/wizhat/red)
+	reqs = list(/obj/item/natural/cloth = 2,
+				/obj/item/natural/fibers = 1)
+	skill_level = 3
+
+/datum/crafting_recipe/roguetown/sewing/wizardhatyellow
+	name = "wizard hat (yellow) - (2 cloths, fiber; JOURNEYMAN)"
+	result = list(/obj/item/clothing/head/roguetown/wizhat/yellow)
+	reqs = list(/obj/item/natural/cloth = 2,
+				/obj/item/natural/fibers = 1)
+	skill_level = 3
+
+/datum/crafting_recipe/roguetown/sewing/wizardhatgreen
+	name = "wizard hat (green) - (2 cloths, fiber; JOURNEYMAN)"
+	result = list(/obj/item/clothing/head/roguetown/wizhat/green)
+	reqs = list(/obj/item/natural/cloth = 2,
+				/obj/item/natural/fibers = 1)
+	skill_level = 3
+
+/datum/crafting_recipe/roguetown/sewing/wizardhatblack
+	name = "wizard hat (black) - (2 cloths, fiber; JOURNEYMAN)"
+	result = list(/obj/item/clothing/head/roguetown/wizhat/black)
 	reqs = list(/obj/item/natural/cloth = 2,
 				/obj/item/natural/fibers = 1)
 	skill_level = 3
