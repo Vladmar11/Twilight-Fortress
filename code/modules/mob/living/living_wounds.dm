@@ -61,6 +61,8 @@
 /// Loops through our list of wounds healing them until we run out of healing or all wounds are healed
 /mob/living/proc/heal_wounds(heal_amount)
 	var/healed_any = FALSE
+	if(has_status_effect(/datum/status_effect/buff/fortify))
+		heal_amount *= 1.5
 	for(var/datum/wound/wound as anything in get_wounds())
 		if(heal_amount <= 0)
 			continue
@@ -199,7 +201,7 @@
 	if(!silent)
 		emote("embed")
 	if(crit_message)
-		next_attack_msg += " <span class='userdanger'>[embedder] is stuck in [src]!</span>"
+		next_attack_msg += " <span class='userdanger'>[embedder] застревает в [src]!</span>"
 	return TRUE
 
 /// Simple version for removing an embedded object - DO NOT CALL THIS ON CARBON MOBS!

@@ -49,8 +49,8 @@
 	icon_state = "weird2"
 
 /turf/open/floor/rogue/ruinedwood/platform
-	name = "platform"
-	desc = "A destructible platform."
+	name = "помост"
+	desc = "Разрушаемый помост из дерева."
 	damage_deflection = 8
 	max_integrity = 600
 	break_sound = 'sound/combat/hits/onwood/destroywalldoor.ogg'
@@ -76,8 +76,8 @@
 	. = ..()
 
 /turf/open/floor/rogue/twig/platform
-	name = "platform"
-	desc = "A destructible platform."
+	name = "помост из прутьев"
+	desc = "Разрушаемый помост из прутьев."
 	damage_deflection = 4
 	max_integrity = 150
 	break_sound = 'sound/combat/hits/onwood/destroywalldoor.ogg'
@@ -136,7 +136,7 @@
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
 /turf/open/floor/rogue/rooftop
-	name = "roof"
+	name = "крыша"
 	icon_state = "roof-arw"
 	footstep = FOOTSTEP_WOOD
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
@@ -171,8 +171,8 @@
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
 /turf/open/floor/rogue/grass
-	name = "grass"
-	desc = "Grass, sodden with mud and bogwater."
+	name = "трава"
+	desc = "Трава, пропитанная грязью и болотной водой."
 	icon_state = "grass"
 	layer = MID_TURF_LAYER
 	footstep = FOOTSTEP_GRASS
@@ -198,8 +198,8 @@
 	src.ChangeTurf(/turf/open/floor/rogue/dirt, flags = CHANGETURF_INHERIT_AIR)
 
 /turf/open/floor/rogue/snow
-	name = "snow"
-	desc = "A gentle blanket of snow."
+	name = "снег"
+	desc = "Нежный снежный покров."
 	icon_state = "snow"
 	layer = MID_TURF_LAYER
 	footstep = FOOTSTEP_GRASS
@@ -219,8 +219,8 @@
 	roguesmooth(adjacencies)
 
 /turf/open/floor/rogue/snowrough
-	name = "rough snow"
-	desc = "A rugged blanket of snow."
+	name = "грубый снег"
+	desc = "Плотный снежный покров."
 	icon_state = "snowrough"
 	layer = MID_TURF_LAYER
 	footstep = FOOTSTEP_GRASS
@@ -241,8 +241,8 @@
 	roguesmooth(adjacencies)
 
 /turf/open/floor/rogue/snowpatchy
-	name = "patchy snow"
-	desc = "Half-melted snow revealing the hardy grass underneath."
+	name = "подтаявший снег"
+	desc = "Полурастаявший снег обнажил жесткую траву под ним."
 	icon_state = "snowpatchy_grass"
 	layer = MID_TURF_LAYER
 	footstep = FOOTSTEP_GRASS
@@ -260,8 +260,8 @@
 	roguesmooth(adjacencies)
 
 /turf/open/floor/rogue/grasscold
-	name = "tundra grass"
-	desc = "Grass, frigid and touched by winter."
+	name = "замерзшая трава"
+	desc = "Трава, холодная и тронутая зимой."
 	icon_state = "grass_cold"
 	layer = MID_TURF_LAYER
 	footstep = FOOTSTEP_GRASS
@@ -284,8 +284,8 @@
 	roguesmooth(adjacencies)
 
 /turf/open/floor/rogue/grassred
-	name = "red grass"
-	desc = "Grass, ripe with Dendor's blood."
+	name = "красная трава"
+	desc = "Трава, созревшая от крови Дендора."
 	icon_state = "grass_red"
 	layer = MID_TURF_LAYER
 	footstep = FOOTSTEP_GRASS
@@ -311,8 +311,8 @@
 	roguesmooth(adjacencies)
 
 /turf/open/floor/rogue/grassyel
-	name = "yellow grass"
-	desc = "Grass, blessed by Astrata's light."
+	name = "желтая трава"
+	desc = "Трава, благословленная светом Астраты."
 	icon_state = "grass_yel"
 	layer = MID_TURF_LAYER
 	footstep = FOOTSTEP_GRASS
@@ -345,8 +345,8 @@
 	slowdown = 0
 
 /turf/open/floor/rogue/dirt/ambush
-	name = "dirt"
-	desc = "The dirt is pocked with the scars of countless wars."
+	name = "земля"
+	desc = "Земля усеяна шрамами бесчисленных войн."
 	icon_state = "dirt"
 	layer = MID_TURF_LAYER
 	footstep = FOOTSTEP_GRASS
@@ -363,8 +363,8 @@
 	dirt_amt = 3
 
 /turf/open/floor/rogue/dirt
-	name = "dirt"
-	desc = "The dirt is pocked with the scars of countless wars."
+	name = "земля"
+	desc = "Земля усеяна шрамами бесчисленных войн.."
 	icon_state = "dirt"
 	layer = MID_TURF_LAYER
 	footstep = FOOTSTEP_GRASS
@@ -404,7 +404,7 @@
 			return
 		var/obj/item/I = new /obj/item/natural/dirtclod(src)
 		if(L.put_in_active_hand(I))
-			L.visible_message(span_warning("[L] picks up some dirt."))
+			L.visible_message(span_warning("[L] берет комок грязи с земли."))
 			dirt_amt--
 			if(dirt_amt <= 0)
 				src.ChangeTurf(/turf/open/floor/rogue/dirt/road, flags = CHANGETURF_INHERIT_AIR)
@@ -494,8 +494,8 @@
 		bloodiness = 20
 
 /turf/open/floor/rogue/dirt/road
-	name = "dirt"
-	desc = "The dirt is pocked with the scars of countless steps."
+	name = "земля"
+	desc = "Земля усеяна шрамами бесчисленных войн."
 	icon_state = "road"
 	layer = MID_TURF_LAYER
 	footstep = FOOTSTEP_SAND
@@ -577,8 +577,8 @@
 	return New
 
 /turf/open/floor/rogue/dirt/nrich
-	name = "enriched soil"
-	desc = "transplanted dirt, made into a pile and smoothed over to grow crops."
+	name = "обогащенная почва"
+	desc = "Землю перенесли, собрали в кучу и разровняли, чтобы вырастить на ней урожай."
 	icon_state = "dirt"
 	layer = MID_TURF_LAYER
 	footstep = FOOTSTEP_MUD
@@ -592,11 +592,11 @@
 	muddy = FALSE
 
 /turf/open/floor/rogue/underworld/road
-	name = "ash"
-	desc = "Smells like burnt wood."
+	name = "пепел"
+	desc = "Пахнет горелым деревом."
 /turf/open/floor/rogue/underworld/road
-	name = "ash"
-	desc = "Smells like burnt wood."
+	name = "пепел"
+	desc = "Пахнет горелым деревом."
 	icon_state = "ash"
 	layer = MID_TURF_LAYER
 	footstep = FOOTSTEP_SAND
@@ -613,8 +613,8 @@
 	dir = rand(0,8)
 
 /turf/open/floor/rogue/volcanic
-	name = "dirt"
-	desc = "The dirt is pocked with the scars of countless steps."
+	name = "земля"
+	desc = "Земля усеяна шрамами бесчисленных войн."
 	icon_state = "lavafloor"
 	layer = MID_TURF_LAYER
 	footstep = FOOTSTEP_SAND
@@ -670,8 +670,8 @@
 	icon_state = "paving-t"
 
 /turf/open/floor/rogue/blocks/platform
-	name = "platform"
-	desc = "A destructible platform."
+	name = "помост из каменных блоков"
+	desc = "Разрушаемый помост из каменных блоков"
 	damage_deflection = 10
 	max_integrity = 800
 	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
@@ -739,6 +739,7 @@
 	max_integrity = 800
 	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'
 	attacked_sound = list('sound/combat/hits/onstone/wallhit.ogg', 'sound/combat/hits/onstone/wallhit2.ogg', 'sound/combat/hits/onstone/wallhit3.ogg')
+	shine = SHINE_SHINY
 
 /turf/open/floor/rogue/churchmarble/cardinal_smooth(adjacencies)
 	roguesmooth(adjacencies)
@@ -1060,7 +1061,7 @@
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
 /turf/open/floor/rogue/shroud
-	name = "treetop"
+	name = "верхушка дерева"
 	icon_state = "treetop1"
 	landsound = 'sound/foley/jumpland/dirtland.wav'
 	footstep = null
@@ -1093,8 +1094,8 @@
 	return
 
 /turf/open/floor/rogue/sand
-	name = "sand"
-	desc = "It's coarse and gets everywhere."
+	name = "песок"
+	desc = "Он грубый и забивается повсюду."
 	icon_state = "sand"
 	layer = MID_TURF_LAYER
 	footstep = FOOTSTEP_SAND

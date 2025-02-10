@@ -29,8 +29,8 @@
 	density = TRUE
 
 /obj/structure/underworld/carriage_normal
-	name = "Carriage"
-	desc = "The ride stopped here..."
+	name = "дилижанс"
+	desc = "Повозка остановилась здесь..."
 	icon = 'icons/roguetown/underworld/enigma_carriage.dmi'
 	icon_state = "carriage_normal"
 	layer = ABOVE_MOB_LAYER

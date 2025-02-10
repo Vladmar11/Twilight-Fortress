@@ -1,7 +1,7 @@
 /obj/item/clothing/suit/roguetown/armor/leathercoat
 	slot_flags = ITEM_SLOT_ARMOR
-	name = "leather coat"
-	desc = "A long leather coat made with quality materials for experienced hunters or noble explorers. The leather still offers some protection."
+	name = "кожаное пальто"
+	desc = "Длинное кожаное пальто, сшитое из качественных материалов для опытных егерей и дворян-исследователей. Прочная кожа обеспечивает неплохую защиту."
 	icon = 'icons/roguetown/clothing/newclothes/dripobj.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/newclothes/onmob/onmobdrip.dmi'
 	sleeved = 'icons/roguetown/clothing/newclothes/onmob/sleeves_armor.dmi'
@@ -24,7 +24,7 @@
 	if(detail_tag)
 		return
 	var/the_time = world.time
-	var/pickedcolor = input(user, "Select a color.","Coat Color") as null|anything in CLOTHING_COLOR_NAMES
+	var/pickedcolor = input(user, "Выберите цвет:","Цвет пальто") as null|anything in CLOTHING_COLOR_NAMES
 	if(!pickedcolor)
 		return
 	if(world.time > (the_time + 30 SECONDS))
@@ -46,8 +46,8 @@
 		add_overlay(pic)
 
 /obj/item/clothing/suit/roguetown/armor/leathercoat/heavy
-	name = "heavy leather coat"
-	desc = "A long leather coat made with the best furs around. Thicker than the common coat, offers exceptional protection."
+	name = "тяжелое кожаное пальто"
+	desc = "Длинное кожаное пальто, утепленное лучшими мехами в округе. Плотнее и прочнее обычного, потому предоставляет отличную защиту."
 	icon_state = "bleathercoat"
 	armor = list("blunt" = 70, "slash" = 40, "stab" = 50, "bullet" = 20, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)

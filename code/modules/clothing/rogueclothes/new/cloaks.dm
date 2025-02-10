@@ -1,6 +1,6 @@
 /obj/item/clothing/cloak/shadow
-	name = "vanguard cloak"
-	desc = "A nightly cloak worn by those that protect the citizenry from what lurks beyond."
+	name = "плащ авангарда"
+	desc = "Ночной плащ, который носят те, кто защищает граждан от того, что таится за его пределами."
 	icon = 'icons/roguetown/clothing/newclothes/objshadowcloak.dmi'
 	icon_state = "shadowcloak"
 	item_state = "shadowcloak"
@@ -11,6 +11,7 @@
 	nodismemsleeves = TRUE
 	inhand_mod = TRUE
 	toggle_icon_state = FALSE
+	silk_salvage = TRUE
 	salvage_result = /obj/item/natural/silk
 
 /obj/item/clothing/cloak/shadow/ComponentInitialize()

@@ -1,6 +1,6 @@
 /datum/wound/dismemberment
-	name = "bleeding stump"
-	check_name = span_danger("<B>STUMP</B>")
+	name = "кровоточащая культя"
+	check_name = span_danger("<B>КУЛЬТЯ</B>")
 	severity = WOUND_SEVERITY_CRITICAL
 	whp = 75
 	sewn_whp = 25
@@ -23,26 +23,26 @@
 	return TRUE
 
 /datum/wound/dismemberment/head
-	name = "neck stump"
-	check_name = span_danger("<B>NECK STUMP</B>")
+	name = "обезглавливание"
+	check_name = span_danger("<B>КУЛЬТЯ: ШЕЯ</B>")
 	mob_overlay = "dis_head"
 
 /datum/wound/dismemberment/r_arm
-	name = "right arm stump"
-	check_name = span_danger("<B>RIGHT ARM STUMP</B>")
+	name = "отсечение правой руки"
+	check_name = span_danger("<B>КУЛЬТЯ: ПРАВАЯ РУКА</B>")
 	mob_overlay = "dis_ra"
 
 /datum/wound/dismemberment/l_arm
-	name = "left arm stump"
-	check_name = span_danger("<B>LEFT ARM STUMP</B>")
+	name = "отсечение левой руки"
+	check_name = span_danger("<B>КУЛЬТЯ: ЛЕВАЯ РУКА</B>")
 	mob_overlay = "dis_la"
 
 /datum/wound/dismemberment/r_leg
-	name = "right leg stump"
-	check_name = span_danger("<B>RIGHT LEG STUMP</B>")
+	name = "отсечение правой ноги"
+	check_name = span_danger("<B>КУЛЬТЯ: ПРАВАЯ НОГА</B>")
 	mob_overlay = "dis_rl"
 
 /datum/wound/dismemberment/l_leg
-	name = "left leg stump"
-	check_name = span_danger("<B>LEFT LEG STUMP</B>")
+	name = "отсечение левой ноги"
+	check_name = span_danger("<B>КУЛЬТЯ: ЛЕВАЯ НОГА</B>")
 	mob_overlay = "dis_ll"

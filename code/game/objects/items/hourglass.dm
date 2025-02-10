@@ -1,8 +1,8 @@
 #define HOURGLASS_STATES 7 //Remember to update if you change the sprite
 
 /obj/item/hourglass
-	name = "hourglass"
-	desc = ""
+	name = "песочные часы"
+	desc = "Каждая песчинка отсчитывает время вплоть до одной минуты."
 	var/obj/effect/countdown/hourglass/countdown
 	var/time = 1 MINUTES
 	var/finish_time //So countdown doesn't need to fiddle with timers
@@ -22,11 +22,11 @@
 
 /obj/item/hourglass/proc/toggle(mob/user)
 	if(!timing_id)
-		to_chat(user,span_notice("I flip the [src]."))
+		to_chat(user,span_notice("Я переворачиваю [src]."))
 		start()
 		flick("hourglass_flip",src)
 	else
-		to_chat(user,span_notice("I stop the [src].")) //Sand magically flows back because that's more convinient to use.
+		to_chat(user,span_notice("Я останавливаю [src].")) //Sand magically flows back because that's more convinient to use.
 		stop()
 
 /obj/item/hourglass/update_icon()
@@ -57,7 +57,7 @@
 	update_icon()
 
 /obj/item/hourglass/proc/finish()
-	visible_message(span_notice("[src] stops."))
+	visible_message(span_notice("[src] останавливаются."))
 	stop()
 
 /obj/item/hourglass/Destroy()

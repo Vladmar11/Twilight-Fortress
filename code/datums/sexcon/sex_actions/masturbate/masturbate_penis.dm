@@ -1,5 +1,5 @@
 /datum/sex_action/masturbate_penis
-	name = "Jerk off"
+	name = "Вздрочнуть"
 
 /datum/sex_action/masturbate_penis/shows_on_menu(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user != target)
@@ -21,10 +21,10 @@
 
 /datum/sex_action/masturbate_penis/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	..()
-	user.visible_message(span_warning("[user] starts jerking off..."))
+	user.visible_message(span_warning("[user] начинает наяривать..."))
 
 /datum/sex_action/masturbate_penis/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	var/chosen_verb = pick(list("jerks his cock", "strokes his cock", "masturbates", "jerks off"))
+	var/chosen_verb = pick(list("вздрачивает свой хер", "наяривает ствол", "мастурбирует", "дрочит"))
 	if(user.sexcon.do_message_signature("[type]"))
 		user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] [chosen_verb]..."))
 	playsound(user, 'sound/misc/mat/fingering.ogg', 30, TRUE, -2, ignore_walls = FALSE)
@@ -35,7 +35,7 @@
 
 /datum/sex_action/masturbate_penis/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	..()
-	user.visible_message(span_warning("[user] stops jerking off."))
+	user.visible_message(span_warning("[user] перестает наяривать."))
 
 /datum/sex_action/masturbate_penis/is_finished(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user.sexcon.finished_check())

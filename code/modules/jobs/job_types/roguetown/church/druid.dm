@@ -11,7 +11,9 @@
 	allowed_races = RACES_VERY_SHUNNED_UP
 	allowed_patrons = ALL_DIVINE_PATRONS //gets set to dendor on the outfit anyways lol
 	outfit = /datum/outfit/job/roguetown/druid
-	tutorial = "You have always been drawn to the wild, and the wild drawn to you. When your calling came, it was from Dendor. Your patron claims dominion over all of nature and promises bounty to those who act in his name to bring balance to His domain. The Bog is the most comfortable place for you, toiling alongside soilsons and soilbrides although sometimes what lies beyond the gates fills your soul with a feral yearning."
+	tutorial = "Вас всегда тянуло к дикой природе, а дикую природу - к вам. Когда пришло ваше призвание, Дендор отозвался на ваш зов.\
+		Ваш покровитель претендует на власть над всей природой и обещает щедрость тем, кто действует от его имени, чтобы принести равновесие в его владения. \
+		Болото - самое удобное место для тебя, ты трудишься рядом с почвопокровниками и почвопокровницами, хотя иногда то, что лежит за воротами, наполняет твою душу дикой тоской."
 
 	display_order = JDO_DRUID
 	give_bank_account = TRUE
@@ -26,11 +28,11 @@
 /datum/outfit/job/roguetown/druid/pre_equip(mob/living/carbon/human/H)
 	..()
 	H.faction += list("rats", "spiders", "wolfs")
+	mask = /obj/item/clothing/mask/rogue/briar_mask
 	belt = /obj/item/storage/belt/rogue/leather/rope
 	beltl = /obj/item/storage/belt/rogue/pouch/coins/poor
 	beltr = /obj/item/flashlight/flare/torch/lantern
 	backl = /obj/item/storage/backpack/rogue/satchel
-	head = /obj/item/clothing/head/roguetown/dendormask
 	neck = /obj/item/clothing/neck/roguetown/psicross/dendor
 	armor = /obj/item/clothing/suit/roguetown/shirt/robe/dendor
 	r_hand = /obj/item/rogueweapon/woodstaff

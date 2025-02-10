@@ -10,59 +10,58 @@
 /obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried
 	eat_effect = null
 	slices_num = 0
-	name = "frysteak"
-	desc = "A slab of beastflesh, fried to a perfect medium-rare(Serve as is or add Pepper, Onion or use with salt to make a Coppiette)"
+	name = "стейк"
+	desc = "Кусок мяса зверя, обжаренный до идеальной средней прожарки. (Подавайте как есть или добавьте перец либо жареный лук; используйте с солью, чтобы приготовить солонину)"
 	icon_state = "frysteak"
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = MEATSLAB_NUTRITION)
 	rotprocess = SHELFLIFE_DECENT
-	tastes = list("warm steak" = 1)
+	tastes = list("теплого стейка" = 1)
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/steak/fried/attackby(obj/item/I, mob/living/user, params)
 	var/obj/item/reagent_containers/peppermill/mill = I
 	if (!isturf(src.loc) || \
 		!(locate(/obj/structure/table) in src.loc) && \
 		!(locate(/obj/structure/table/optable) in src.loc) && \
-		!(locate(/obj/item/storage/bag/tray) in src.loc))
-		to_chat(user, "<span class='warning'>I need to use a table.</span>")
+		!(locate(/obj/item/storage/tray) in src.loc))
+		to_chat(user, "<span class='warning'>Мне необходимо использовать стол.</span>")
 		return FALSE
 	if(user.mind)
 		short_cooktime = (60 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*5))
 		long_cooktime = (100 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*10))
 	if(istype(mill))
 		if(!mill.reagents.has_reagent(/datum/reagent/consumable/blackpepper, 1))
-			to_chat(user, "There's not enough black pepper to make anything with.")
+			to_chat(user, "Не хватает черного перца, чтобы что-нибудь приготовить.")
 			return TRUE
 		mill.icon_state = "peppermill_grind"
-		to_chat(user, "You start rubbing the steak with black pepper.")
+		to_chat(user, "Вы начинаете натирать стейк черным перцем...")
 		playsound(get_turf(user), 'modular/Neu_Food/sound/peppermill.ogg', 100, TRUE, -1)
 		if(do_after(user,long_cooktime, target = src))
 			if(!mill.reagents.has_reagent(/datum/reagent/consumable/blackpepper, 1))
-				to_chat(user, "There's not enough black pepper to make anything with.")
+				to_chat(user, "Не хватает черного перца, чтобы что-нибудь приготовить.")
 				return TRUE
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 			mill.reagents.remove_reagent(/datum/reagent/consumable/blackpepper, 1)
 			new /obj/item/reagent_containers/food/snacks/rogue/peppersteak(loc)
 			qdel(src)
+		else
+			to_chat(user, "<span class='warning'>Нужно положить [src] на стол, чтобы втереть специи.</span>")
 
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/preserved/onion_fried))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-		to_chat(user, "<span class='notice'>Adding onions...</span>")
+		to_chat(user, "<span class='notice'>Добавляю луковые кольца...</span>")
 		if(do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 			new /obj/item/reagent_containers/food/snacks/rogue/onionsteak(loc)
 			qdel(I)
 			qdel(src)
 
-	else
-		to_chat(user, "<span class='warning'>You need to put [src] on a table to knead in the spice.</span>")
-
 
 /*	.............   Grenzelbun   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/bun_grenz
 	list_reagents = list(/datum/reagent/consumable/nutriment = SAUSAGE_NUTRITION+SMALLDOUGH_NUTRITION)
-	tastes = list("savory sausage" = 1, "bread" = 1)
-	name = "grenzelbun"
-	desc = "Originally an elven cuisine composed of mortal races flesh and bread, the classic wiener in a bun, now modified and staple food of Grenzelhoft cuisine."
+	tastes = list("пикантной колбаски" = 1, "румяной булки" = 1)
+	name = "грензельдог"
+	desc = "Первоначально эльфийская кухня, состоящая из мяса и хлеба смертных рас - классическая сосиска в булочке, теперь по улучшенному рецепту. Основная еда кухни Грензельхофта."
 	icon_state = "grenzbun"
 	foodtype = GRAIN | MEAT
 	warming = 5 MINUTES
@@ -85,9 +84,9 @@
 /obj/item/reagent_containers/food/snacks/rogue/friedegg
 	trash = null
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
-	tastes = list("fried cackleberry" = 1)
-	name = "fried cackleberry"
-	desc = "A favorite dish among Astratans."
+	tastes = list("жареного яйца" = 1)
+	name = "яичница"
+	desc = "Любимое блюдо Астратанцев."
 	icon_state = "friedegg"
 	foodtype = MEAT
 	warming = 5 MINUTES
@@ -113,9 +112,9 @@
 /*	.............   Twin fried cackleberries   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/friedegg/two
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
-	tastes = list("fried cackleberries" = 1)
-	name = "fried cackleberries"
-	desc = "Double the yolks, double the fun."
+	tastes = list("жареного яйца" = 1)
+	name = "большая яичницы"
+	desc = "Больше желтков, больше удовольствия."
 	icon_state = "seggs"
 
 /obj/item/reagent_containers/food/snacks/rogue/friedegg/two/attackby(obj/item/I, mob/living/user, params)
@@ -139,9 +138,10 @@
 /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet/fried
 	eat_effect = null
 	slices_num = 0
-	name = "frybird"
-	desc = "Poultry scorched to a perfect delicious crisp."
+	name = "жареная птица"
+	desc = "Мясо птицы, зажаренное на сковороде до идеальной хрустящей корочки."
 	icon_state = "frybird"
+	tastes = list("жареной птицы" = 1)
 	fried_type = null
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	rotprocess = SHELFLIFE_DECENT
@@ -174,18 +174,20 @@
 /*	.............   Crispy bacon   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/meat/bacon/fried
 	eat_effect = null
-	name = "fried bacon"
-	desc = "A trufflepig's retirement plan."
+	name = "жареный бекон"
+	desc = "Перспективы кабанчика на старость."
 	icon_state = "friedbacon"
+	tastes = list("жирного мяса" = 1)
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	rotprocess = SHELFLIFE_DECENT
 
 
 /*	.............   Fryspider   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/meat/spider/fried
-	name = "fried spidermeat"
-	desc = "A spider leg, shaved and roasted."
+	name = "печеное паучье мясо"
+	desc = "Паучья ножка, побритая и обжаренная."
 	icon_state = "friedspider"
+	tastes = list("жгучего мяса" = 1)
 	eat_effect = null
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
 	rotprocess = SHELFLIFE_DECENT
@@ -194,25 +196,26 @@
 /*	.............   Sausage & Wiener   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/meat/sausage/cooked
 	eat_effect = null
-	name = "sausage"
-	desc = "Delicious flesh stuffed in a intestine casing."
+	name = "жареная колбаска"
+	desc = "Вкусное мясо, уплотненное в кишечной оболочке."
 	icon_state = "wiener"
+	tastes = list("мясной колбаски" = 1)
 	fried_type = null
 	bonus_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	rotprocess = SHELFLIFE_EXTREME
 
 /obj/item/reagent_containers/food/snacks/rogue/meat/sausage/cooked/wiener // wiener meant to be made from beef or maybe mince + bacon, luxury sausage, not implemented yet
-	name = "wiener"
+	name = "жареная сосиска"
 
 
 /*	.............   Cooked cabbage   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/preserved/cabbage_fried
-	name = "cooked cabbage"
+	name = "тушеная капуста"
 	icon_state = "cabbage_fried"
-	desc = "A peasant's delight."
+	desc = "Радость крестьянина."
 	bitesize = 6
 	list_reagents = list(/datum/reagent/consumable/nutriment = 6)
-	tastes = list("warm cabbage" = 1)
+	tastes = list("теплой капусты" = 1)
 	rotprocess = SHELFLIFE_LONG
 /obj/item/reagent_containers/food/snacks/rogue/preserved/cabbage_fried/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
@@ -233,9 +236,10 @@
 
 /*	.............   Baked potato   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/preserved/potato_baked
-	name = "baked potatos"
-	desc = "A dwarven favorite, as a meal or a game of hot potato."
+	name = "печеный картофель"
+	desc = "Любимое блюдо дворфов и снаряд для игры в горячую картошку."
 	icon_state = "potato_baked"
+	tastes = list("мягкого картофеля")
 	bitesize = 4
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	rotprocess = SHELFLIFE_LONG
@@ -248,7 +252,7 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/meat/sausage/cooked))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
-			to_chat(user, "Preparing a serving of wiener and tatos...")
+			to_chat(user, "Готовлю порцию колбаски с картофелем...")
 			if(do_after(user,short_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 				new /obj/item/reagent_containers/food/snacks/rogue/wienerpotato(loc)
@@ -257,7 +261,7 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet/fried))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
-			to_chat(user, "Preparing a serving of frybird and tatos...")
+			to_chat(user, "Готовлю порцию птицы с картофелем...")
 			if(do_after(user,short_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 				new /obj/item/reagent_containers/food/snacks/rogue/frybirdtato(loc)
@@ -269,12 +273,12 @@
 
 /*	.............   Fried onions   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/preserved/onion_fried
-	name = "fried onion"
-	desc = "Seared onions roasted to a delicious set of rings."
+	name = "луковые кольца"
+	desc = "Ломтики лука, обжаренные до вкусных колец."
 	icon_state = "onion_fried"
 	bitesize = 6
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
-	tastes = list("savoury morsel" = 1)
+	tastes = list("пикантного лука" = 1, "слёз" = 1)
 	rotprocess = SHELFLIFE_DECENT
 /obj/item/reagent_containers/food/snacks/rogue/preserved/onion_fried/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
@@ -284,7 +288,7 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/meat/sausage/cooked))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
-			to_chat(user, "Preparing a serving of wiener and onions...")
+			to_chat(user, "Готовлю порцию колбаски с луковыми кольцами...")
 			if(do_after(user,short_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 				new /obj/item/reagent_containers/food/snacks/rogue/wieneronions(loc)
@@ -295,12 +299,12 @@
 
 /*	.............   Fried potato   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/preserved/potato_fried
-	name = "fried potato"
-	desc = "Potato bits, well roasted."
+	name = "жареный картофель"
+	desc = "Хорошо прожаренные картофельные кусочки."
 	icon_state = "potato_fried"
 	bitesize = 3
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
-	tastes = list("warm potato" = 1)
+	tastes = list("картофеля с корочкой" = 1)
 	rotprocess = SHELFLIFE_LONG
 	
 /obj/item/reagent_containers/food/snacks/rogue/preserved/potato_fried/attackby(obj/item/I, mob/living/user, params)
@@ -311,7 +315,7 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/meat/sausage/cooked))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
-			to_chat(user, "Preparing a serving of wiener and tatos...")
+			to_chat(user, "Готовлю порцию колбаски с картофельными ломтиками...")
 			if(do_after(user,short_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 				new /obj/item/reagent_containers/food/snacks/rogue/wienerpotato(loc)
@@ -320,7 +324,7 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet/fried))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/gen_drop.ogg', 30, TRUE, -1)
-			to_chat(user, "Preparing a serving of frybird and tatos...")
+			to_chat(user, "Готовлю порцию птицы с картофельными ломтиками...")
 			if(do_after(user,short_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 				new /obj/item/reagent_containers/food/snacks/rogue/frybirdtato(loc)

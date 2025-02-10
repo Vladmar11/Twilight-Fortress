@@ -10,8 +10,9 @@
 	allowed_ages = list(AGE_ADULT)
 	subclass_cat_rolls = list(CTAG_SQUIRE = 20)
 
-	tutorial = "You are a little hero bound to your master. Often mistreated, you are still a warrior, yet a young and an inexperienced one. \
-	The dae when you will be proudly charging into the enemy wearing a plate armor will come eventually, but for now... NOT A STEP FROM YOUR MASTER!"
+	tutorial = "Мама и папа говорили, что ты станешь кем-то, у них были для тебя лучшие пожелания, чем жизнь крестьянина. \
+	Вместе с друзьями ты отрабатывал азы в поле, сражаясь на мечах с палками, гоняясь за кроликами и помогая по дому поднимать тяжелые мешки с зерном. \
+	Рыцарь заметил твой потенциал и взял тебя к себе в личные подопечные. Когда-нибудь ты станешь кем-то."
 
 	outfit = /datum/outfit/job/roguetown/squire
 	display_order = JDO_SQUIRE
@@ -51,8 +52,8 @@
 
 /datum/subclass/squire/Page
 	name = "Page"
-	tutorial = "Born into nobility, you are yet to become a real knight. Yet, the Gods smile upon you, so eventually you will be the one in need of a squire. \
-	A riddle, little one, who is superior: a noble squire or an unremarkable man-at-arms?"
+	tutorial = "Рожденный в дворянстве, вы еще не стали настоящим рыцарем. Однако боги улыбаются вам, и в конце концов именно вам понадобится оруженосец. \
+	Загадка, малыш, кто лучше: благородный оруженосец или ничем не примечательный человек?"
 	outfit = /datum/outfit/job/roguetown/squire/page
 	category_tags = list(CTAG_SQUIRE)
 	maximum_possible_slots = 2
@@ -86,8 +87,8 @@
 
 /datum/subclass/squire/recruit
 	name = "Recruit"
-	tutorial = "You are a freshly enlisted fellow yet to be ready serve your liege on your own. You knight will take care of your training as well as you shall take care of them. \
-	Thanks to your diligence, you outperform lots of your kins in battle."
+	tutorial = "Вы только что поступили на службу, но еще не готовы самостоятельно служить своему лорду. Рыцарь позаботится о твоем обучении, как и ты позаботишься о нем. \
+	Благодаря своему усердию, вы превосходите многих своих сородичей в бою."
 	outfit = /datum/outfit/job/roguetown/squire/recruit
 	category_tags = list(CTAG_SQUIRE)
 	maximum_possible_slots = 2
@@ -120,8 +121,8 @@
 
 /datum/subclass/squire/levy
 	name = "Levy"
-	tutorial = "You were supposed to live a lyfe of a humble farmer, yet the lyfe had other plans for you. Taken away from your parents, you joined the ranks of levies. \
-	Nobody knows how far you could go with your commoner education living among nobles and experienced warriors. But hey, lyfe in the village taught you a lot."
+	tutorial = "Вы должны были жить жизнью скромного фермера, но у жизни были другие планы на вас. Отнятый у родителей, ты вступил в ряды ополчения. \
+	Никто не знает, как далеко ты мог зайти со своим простонародным образованием, живя среди дворян и опытных воинов. Но ополчение в деревне многому тебя научили."
 	outfit = /datum/outfit/job/roguetown/squire/levy
 	category_tags = list(CTAG_SQUIRE)
 	maximum_possible_slots = 2

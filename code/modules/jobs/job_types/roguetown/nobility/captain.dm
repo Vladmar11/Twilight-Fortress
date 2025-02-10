@@ -9,19 +9,20 @@
 
 	allowed_races = RACES_TOLERATED_UP
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD)
-	tutorial = "You served your time gracefully as a Knight of the crown, and now you've grown into a role which many men dream to become. \
-				You are the Marshal's chosen, a Banneret, elevated to command His Highness' personal retinue. \
-				Keep your men in line, as for this realm to prosper, the duke must be safe. \
-				The Men at Arms and the Gatemaster are under your direct supervision. \
-				The only men on par with you, as part of the armed retinue and not under your direct command, are your fellow Knights."
+	tutorial = "Вы с честью отслужили свой срок в качестве рыцаря герцога, а теперь выросли до той должности, о которой мечтают многие. \
+				Вы - избранник маршала, баннерет, возведенный в ранг командира лейб-гвардии Его Высочества. \
+				Держите своих людей в узде, ведь для процветания герцогства монарх должен быть в безопасности. \
+				Вы непосредственно подчиняетесь герцогу, герцогской семье и маршалу. \
+				Лейб-гвардия и привратник находятся под вашим непосредственным руководством. \
+				Единственные люди, которые входят в состав лейб-гвардии и не находятся под вашим непосредственным командованием, это ваши коллеги-рыцари."
+
 	display_order = JDO_GUARD_CAPTAIN
 	whitelist_req = FALSE
 
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/guard)
 	outfit = /datum/outfit/job/roguetown/captain
 
-	give_bank_account = 26
+	give_bank_account = 100
 	min_pq = 8
 	max_pq = null
 
@@ -46,18 +47,18 @@
 
 /datum/outfit/job/roguetown/captain/pre_equip(mob/living/carbon/human/H)
 	..()
-	head = /obj/item/clothing/head/roguetown/helmet/heavy/pigface
+	head = /obj/item/clothing/head/roguetown/helmet/heavy/captain
 	neck = /obj/item/clothing/neck/roguetown/gorget/steel
-	armor = /obj/item/clothing/suit/roguetown/armor/plate
-	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
-	pants = /obj/item/clothing/under/roguetown/chainlegs
+	armor = /obj/item/clothing/suit/roguetown/armor/captain
+	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk
+	pants = /obj/item/clothing/under/roguetown/platelegs/captain
 	gloves = /obj/item/clothing/gloves/roguetown/plate
 	wrists = /obj/item/clothing/wrists/roguetown/bracers
 	shoes = /obj/item/clothing/shoes/roguetown/armor/steel
 	belt = /obj/item/storage/belt/rogue/leather/plaquesilver
 	beltr = /obj/item/rogueweapon/mace/steel
 	beltl = /obj/item/rogueweapon/sword/sabre
-	cloak = /obj/item/clothing/cloak/stabard/guardhood
+	cloak = /obj/item/clothing/cloak/captain
 	backl = /obj/item/rogueweapon/shield/tower
 	backr = /obj/item/storage/backpack/rogue/satchel/black
 	backpack_contents = list(/obj/item/storage/keyring/captain = 1, /obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/signal_horn = 1, /obj/item/natural/feather = 1)

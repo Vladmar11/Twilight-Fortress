@@ -1,6 +1,6 @@
 /obj/structure/plough
-	name = "plough"
-	desc = "A wooden plough with iron blades to till the earth for crops."
+	name = "плуг"
+	desc = "Деревянный плуг с железными лезвиями для подготовки почвы под посевы."
 	icon = 'icons/obj/structures/plough.dmi'
 	icon_state = "plough"
 	density = TRUE

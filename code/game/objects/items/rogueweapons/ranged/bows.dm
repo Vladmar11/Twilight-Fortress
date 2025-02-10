@@ -20,6 +20,9 @@
 	associated_skill = /datum/skill/combat/bows
 	metalizer_result = /obj/item/restraints/legcuffs/beartrap/armed
 
+	grid_height = 32
+	grid_width = 64
+
 /obj/item/gun/ballistic/revolver/grenadelauncher/bow/getonmobprop(tag)
 	. = ..()
 	if(tag)
@@ -111,8 +114,9 @@
 	if(mastermob && chargetime)
 		var/newtime = 0
 		//skill block
-		newtime = newtime + 10
-		newtime = newtime - (mastermob.mind.get_skill_level(/datum/skill/combat/bows) * (10/6))
+		if(mastermob.mind)
+			newtime = newtime + 10
+			newtime = newtime - (mastermob.mind.get_skill_level(/datum/skill/combat/bows) * (10/6))
 		//str block //rtd replace 10 with drawdiff on bows that are hard and scale str more (10/20 = 0.5)
 		newtime = newtime + 10
 		newtime = newtime - (mastermob.STASTR * (10/20))

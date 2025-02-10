@@ -239,9 +239,11 @@ SUBSYSTEM_DEF(family)
 	if(!R)
 		R = new /datum/relation/relative(holder,target)
 	relations += R
+	if(holder.mind)
+		holder.mind.store_memory("<b>[target.real_name] ([target.job])</b> - мо[R.rus_my()] <b>[R.name]</b>. [target.rus_they(TRUE)] [target.age] [target.dna.species.name].")
 	if(announce)
 		spawn(1)
-			to_chat(holder,"<span class='notice'>My [R.name]. [target.real_name] ([target.dna.species.name], [target.job], [target.age]) is here alongside me.</span>")
+			to_chat(holder,"<span class='notice'><b>[target.real_name] ([target.job])</b> - мо[R.rus_my()] <b>[R.name]</b>. [target.rus_they(TRUE)] [target.age] [target.dna.species.name]. Я это помню.</span>")
 
 		R.onConnect(holder,target) //Bit of hack to have this here. But it stops church marriages from being given rings.
 
@@ -277,6 +279,13 @@ SUBSYSTEM_DEF(family)
 
 			if(HAS_TRAIT(member, TRAIT_NOBLE) && !HAS_TRAIT(target, TRAIT_NOBLE))
 				return
+			
+			if(member.client.prefs.spouse_ckey)
+				if(target.client.ckey != lowertext(member.client.prefs.spouse_ckey))
+					return FALSE
+
+				if(member.client.ckey != lowertext(target.client.prefs.spouse_ckey))
+					return FALSE
 
 			return TRUE //suitable.
 
@@ -341,7 +350,7 @@ proc/getMatchingRel(var/rel_type)
 	members[H.real_name] = WEAKREF(H)
 	member_identity[H.real_name] = H.dna.uni_identity
 	H.family = src
-	to_chat(H,"<span class='notice'><big>I'm apart of the [name] family!</big>")
+	to_chat(H,"<span class='notice'><big>Я стал[H.rus_a()] частью семьи [name]!</big>")
 
 /mob/living/carbon/human
 	var/datum/family/family
@@ -377,7 +386,7 @@ proc/getMatchingRel(var/rel_type)
 	name = getName() //Done once to prevent any organ changes from changing the name.
 
 /datum/relation/spouse
-	name = "Spouse"
+	name = "Супруг(a)"
 	rel_type = REL_TYPE_SPOUSE
 	rel_state = "love"
 
@@ -385,10 +394,10 @@ proc/getMatchingRel(var/rel_type)
 	var/mob/living/carbon/human/T = target:resolve()
 	if(T)
 		if(T.gender == MALE)
-			return "Husband"
+			return "Муж"
 		if(T.gender == FEMALE)
-			return "Wife"
-	return "Spouse"
+			return "Жена"
+	return "Супруг(а)"
 
 /datum/relation/spouse/onConnect(mob/living/carbon/human/holder, mob/living/carbon/human/target)
 	var/datum/job/holder_job = SSjob.GetJob(holder.job)
@@ -402,66 +411,75 @@ proc/getMatchingRel(var/rel_type)
 		// Try to store in belt first
 		var/obj/item/storage/belt = holder.get_item_by_slot(SLOT_BELT)
 		if(istype(belt) && SEND_SIGNAL(belt, COMSIG_TRY_STORAGE_INSERT, holder.wear_ring, holder))
-			to_chat(holder, span_notice("I store my old ring in my belt."))
+			to_chat(holder, span_notice("Я храню свое старое кольцо на поясе."))
 		else
 			// Try backpack slots if belt storage fails
 			var/obj/item/storage/backpack/backr = holder.get_item_by_slot(SLOT_BACK_R)
 			if(istype(backr) && SEND_SIGNAL(backr, COMSIG_TRY_STORAGE_INSERT, holder.wear_ring, holder))
-				to_chat(holder, span_notice("I store my old ring in my right backpack."))
+				to_chat(holder, span_notice("Я храню свое старое кольцо в правой сумке."))
 			else
 				var/obj/item/storage/backpack/backl = holder.get_item_by_slot(SLOT_BACK_L)
 				if(istype(backl) && SEND_SIGNAL(backl, COMSIG_TRY_STORAGE_INSERT, holder.wear_ring, holder))
-					to_chat(holder, span_notice("I store my old ring in my left backpack."))
+					to_chat(holder, span_notice("Я храню свое старое кольцо в левой сумке."))
 				else
 					holder.dropItemToGround(holder.wear_ring)
-					to_chat(holder, span_warning("I had to drop my old ring."))
+					to_chat(holder, span_warning("Мне пришлось бросить свое старое кольцо."))
 
 
 /datum/relation/sibling
-	name = "Sibling"
+	name = "Родная кровь"
 	rel_type = REL_TYPE_SIBLING
 
 /datum/relation/sibling/getName()
 	var/mob/living/carbon/human/T = target:resolve()
 	if(T)
 		if(T.gender == MALE)
-			return "Brother"
+			return "Брат"
 		if(T.gender == FEMALE)
-			return "Sister"
-	return "Sibling"
+			return "Сестра"
+	return "Родная кровь"
 
 
 /datum/relation/parent
-	name = "Parent"
+	name = "Родитель"
 	rel_type = REL_TYPE_PARENT
 
 /datum/relation/parent/getName()
 	var/mob/living/carbon/human/T = target:resolve()
 	if(T)
 		if(T.gender == MALE)
-			return "Father"
+			return "Отец"
 		if(T.gender == FEMALE)
-			return "Mother"
-	return "Parent"
+			return "Мать"
+	return "Родитель"
 
 
 /datum/relation/offspring
-	name = "Child"
+	name = "Ребенок"
 	rel_type = REL_TYPE_OFFSPRING
 
 /datum/relation/offspring/getName()
 	var/mob/living/carbon/human/T = target:resolve()
 	if(T)
 		if(T.getorganslot(ORGAN_SLOT_PENIS))
-			return "Son"
+			return "Сын"
 		if(T.getorganslot(ORGAN_SLOT_VAGINA))
-			return "Daughter"
-	return "Child"
+			return "Дочь"
+	return "Ребенок"
 
 /datum/relation/relative
-	name = "Relative"
+	name = "Родственник"
 	rel_type = REL_TYPE_RELATIVE
 	rel_state = "rel2"
+
+/datum/relation/relative/getName()
+	var/mob/living/carbon/human/T = target:resolve()
+	if(T)
+		if(T.gender == MALE)
+			return "Родственник"
+		if(T.gender == FEMALE)
+			return "Родственница"
+	return "Родственник"
 
 /mob/living/carbon/human/proc/getFamily(true_family = FALSE)//Returns the family src belongs to. By default. We use our names + DNA to support people pretending to be family members. Use true_family if you wish to get their ACTUAL family.
 	if(true_family)

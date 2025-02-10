@@ -11,7 +11,10 @@
 	allowed_ages = list(AGE_ADULT)
 	subclass_cat_rolls = list(CTAG_HEIR = 20)
 
-	tutorial = "You’ve never felt the gnawing of the winter, never known the bite of hunger and certainly have never known what the peasantry call a honest day's work. In your youth you were as free as any bird in the sky, but that is of the past. Your noble duties are fast approaching and you will soon have to choose: Continue to spend life leisurely, or stalwartly shoulder the duties you've been handed."
+	tutorial = "Вы никогда не ощущали зимней грызни, не знали, что такое голод, и уж тем более не знали, что крестьяне называют честным рабочим днем. \
+	В юности вы были свободны, как любая птица в небе, но это в прошлом. \
+	Ваши благородные обязанности быстро приближаются, и скоро вам придется выбирать: \
+	Продолжать вести праздный образ жизни или стойко выполнять возложенные на вас обязанности."
 
 	outfit = /datum/outfit/job/roguetown/prince
 	display_order = JDO_PRINCE
@@ -36,23 +39,25 @@
 
 /datum/outfit/job/roguetown/prince/pre_equip(mob/living/carbon/human/H)
 	..()
-	if(H.gender == MALE)
-		armor = /obj/item/clothing/suit/roguetown/armor/leather/heir
-		belt = /obj/item/storage/belt/rogue/leather
-		pants = /obj/item/clothing/under/roguetown/tights
-	if(H.gender == FEMALE)
-		armor = /obj/item/clothing/suit/roguetown/armor/leather/heiress
-		belt = /obj/item/storage/belt/rogue/leather/cloth/lady
-		pants = /obj/item/clothing/under/roguetown/tights/stockings/white
 	beltl = /obj/item/storage/keyring/royal
 	beltr = /obj/item/storage/belt/rogue/pouch/coins/rich
+	belt = /obj/item/storage/belt/rogue/leather
 	backr = /obj/item/storage/backpack/rogue/satchel
-	shoes = /obj/item/clothing/shoes/roguetown/armor/nobleboot
+	head = /obj/item/clothing/head/roguetown/nyle
+	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail
+	if(H.gender == MALE)
+		armor = /obj/item/clothing/suit/roguetown/shirt/dress/royal/prince
+		pants = /obj/item/clothing/under/roguetown/tights/black
+		shoes = /obj/item/clothing/shoes/roguetown/nobleboot/thighboots
+	if(H.gender == FEMALE)
+		armor = /obj/item/clothing/suit/roguetown/shirt/dress/royal/princess
+		pants = /obj/item/clothing/under/roguetown/tights/stockings/white
+		shoes = /obj/item/clothing/shoes/roguetown/armor/nobleboot
 
 /datum/subclass/prince/sheltered
 	name = "Sheltered Successor"
-	tutorial = "Your fate was already defined the moment you were born. One dae you shall inherit the throne and your father's realm. \
-	But for now, you can just enjoy your highborn lyfe."
+	tutorial = "Твоя судьба была определена еще в момент твоего рождения. Однажды ты унаследуешь трон и герцогство своего отца или матери. \
+	А пока ты можешь просто наслаждаться своей высокородной жизнью."
 	outfit = /datum/outfit/job/roguetown/prince/sheltered
 	category_tags = list(CTAG_HEIR)
 	maximum_possible_slots = 10
@@ -89,8 +94,8 @@
 
 /datum/subclass/prince/militant
 	name = "Militant"
-	tutorial = "All this aristocratic haughtiness has never been for you, your heart desired battle instead. \
-	Given the opportunity, you'd lead the retinue into battle personally."
+	tutorial = "Вся эта аристократическая надменность никогда не была для вас, ваше сердце желало битвы. \
+	Если бы была возможность, вы бы лично повели дружину в бой."
 	outfit = /datum/outfit/job/roguetown/prince/militant
 	category_tags = list(CTAG_HEIR)
 	maximum_possible_slots = 1
@@ -125,8 +130,8 @@
 
 /datum/subclass/prince/bookworm
 	name = "Bookworm"
-	tutorial = "You have never felt fancy about company of the others. Knowledge however is your desire. \
-	Through the years you studied lots of arts and given the time you'd study a lot more."
+	tutorial = "Вам никогда не нравилось общество других людей. Однако знания - это ваше желание. \
+	На протяжении многих лет вы изучали множество искусств, и если бы у вас было время, вы бы изучили еще больше."
 	outfit = /datum/outfit/job/roguetown/prince/bookworm
 	category_tags = list(CTAG_HEIR)
 	maximum_possible_slots = 1
@@ -165,8 +170,8 @@
 
 /datum/subclass/prince/inbred
 	name = "Inbred"
-	tutorial = "You'd have had a beautiful lyfe without knowing a trouble, yet this world made a not so funny trick on you. \
-	You were doomed to become a disgrace to your family, yet you still live in the manor. For now."
+	tutorial = "Ты бы прожил прекрасную жизнь, не зная бед, но этот мир подстроил тебе не очень веселый фокус. \
+	Вы были обречены стать позором для своей семьи, но все еще живете в поместье. Пока что."
 	outfit = /datum/outfit/job/roguetown/prince/inbred
 	category_tags = list(CTAG_HEIR)
 	maximum_possible_slots = 1
