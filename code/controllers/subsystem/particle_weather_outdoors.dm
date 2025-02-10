@@ -62,6 +62,7 @@ SUBSYSTEM_DEF(outdoor_effects)
 
 
 	var/list/turf_weather_affectable_z_levels = list()
+	var/next_day = FALSE // Resets when station_time is less than the next start time.
 
 /datum/controller/subsystem/outdoor_effects/proc/fullPlonk()
 	for (var/z in SSmapping.levels_by_trait(ZTRAIT_STATION))
@@ -83,14 +84,26 @@ SUBSYSTEM_DEF(outdoor_effects)
 
 /datum/controller/subsystem/outdoor_effects/proc/InitializeTurfs(list/targets)
 	for (var/z in SSmapping.levels_by_trait(ZTRAIT_STATION))
-		for (var/turf/T in block(locate(1,1,z), locate(world.maxx,world.maxy,z)))
-			GLOB.SUNLIGHT_QUEUE_WORK += T
+		init_z_turfs(z)
+
+/datum/controller/subsystem/outdoor_effects/proc/init_z_turfs(z)
+	for (var/turf/T in block(locate(1,1,z), locate(world.maxx,world.maxy,z)))
+		GLOB.SUNLIGHT_QUEUE_WORK += T
 
 
 /datum/controller/subsystem/outdoor_effects/proc/check_cycle()
-	if(station_time() > next_step_datum.start)
+	if(!next_step_datum)
 		get_time_of_day()
 		return TRUE
+
+	if(station_time() > next_step_datum.start)
+		if(next_day)
+			return FALSE
+		get_time_of_day()
+		return TRUE
+	else if (next_day) // It is now the next morning, reset our next day
+		next_day = FALSE
+
 	return FALSE
 
 /datum/controller/subsystem/outdoor_effects/proc/get_time_of_day()
@@ -116,6 +129,10 @@ SUBSYSTEM_DEF(outdoor_effects)
 
 	current_step_datum = new_step
 	picked_color = pick(current_step_datum.color)
+
+	// If the next start time is less than the current start time (i.e 10 PM vs 5 AM) then set our NextDay value
+	if(next_step_datum.start <= current_step_datum.start)
+		next_day = TRUE
 
 	//If it is round-start, we wouldn't have had a current_step_datum, so set our last_color to the current one
 	if(!last_color)
@@ -234,6 +251,9 @@ SUBSYSTEM_DEF(outdoor_effects)
 		var/static/datum/lighting_corner/dummy/dummy_lighting_corner = new
 
 		var/list/corners = OE.source_turf.corners
+		if(!length(corners))
+			OE.source_turf.generate_missing_corners()
+			corners = OE.source_turf.corners
 		var/datum/lighting_corner/cr = corners[3] || dummy_lighting_corner
 		var/datum/lighting_corner/cg = corners[2] || dummy_lighting_corner
 		var/datum/lighting_corner/cb = corners[4] || dummy_lighting_corner

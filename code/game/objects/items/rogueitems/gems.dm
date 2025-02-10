@@ -1,9 +1,9 @@
 
 /obj/item/roguegem
-	name = "rontz"
+	name = "ронц"
 	icon_state = "ruby_cut"
 	icon = 'icons/roguetown/items/gems.dmi'
-	desc = "Its facets shine so brightly.."
+	desc = "Его алые грани ярко сияют."
 	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
 	w_class = WEIGHT_CLASS_TINY
@@ -27,34 +27,34 @@
 	..()
 
 /obj/item/roguegem/green
-	name = "gemerald"
+	name = "гемеральд"
 	icon_state = "emerald_cut"
 	sellprice = 42
-	desc = "Glints with verdant brilliance."
+	desc = "Отсвечивает зеленым блеском."
 
 /obj/item/roguegem/blue
-	name = "blortz"
+	name = "блорц"
 	icon_state = "quartz_cut"
 	sellprice = 88
-	desc = "Pale blue, like a frozen tear." // i am not sure if this is really quartz.
+	desc = "Бледно-голубой, как замерзшая слеза." // i am not sure if this is really quartz.
 
 /obj/item/roguegem/yellow
-	name = "toper"
+	name = "топер"
 	icon_state = "topaz_cut"
 	sellprice = 34
-	desc = "Its amber hues remind you of the sunset."
+	desc = "Его янтарные переливающиеся оттенки напоминают о закате."
 
 /obj/item/roguegem/violet
-	name = "saffira"
+	name = "саффира"
 	icon_state = "sapphire_cut"
 	sellprice = 56
-	desc = "This gem is admired by many wizards."
+	desc = "Этим драгоценным камнем восхищаются многие волшебники."
 
 /obj/item/roguegem/diamond
-	name = "dorpel"
+	name = "дорпель"
 	icon_state = "diamond_cut"
 	sellprice = 121
-	desc = "Beautifully clear, it demands respect."
+	desc = "Прекрасный и чистый, вызывает уважение к себе."
 
 
 /obj/item/roguegem/random
@@ -73,10 +73,10 @@
 
 
 /obj/item/riddleofsteel
-	name = "riddle of steel"
+	name = "Загадка Стали"
 	icon_state = "ros"
 	icon = 'icons/roguetown/items/gems.dmi'
-	desc = "Flesh, mind."
+	desc = "Плоть или разум?"
 	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
 	w_class = WEIGHT_CLASS_TINY

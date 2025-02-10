@@ -1,5 +1,5 @@
 /obj/item/storage/book
-	name = "hollowed book"
+	name = "книга с полостью"
 	desc = ""
 	icon = 'icons/obj/library.dmi'
 	icon_state ="book"
@@ -15,4 +15,4 @@
 	STR.max_items = 1
 
 /obj/item/storage/book/attack_self(mob/user)
-	to_chat(user, "<span class='notice'>The pages of [title] have been cut out!</span>")
+	to_chat(user, "<span class='notice'>Страницы [title] были вырезаны в середине!</span>")

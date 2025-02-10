@@ -1,6 +1,8 @@
 /datum/migrant_role/fablefield/goliard
 	name = "Fablefield Goliard"
-	greet_text = "For years you've travelled to Fablefield, honing your craft at the annual grand festival of tales. You are a respected weaver of glorious and valorous stories, with a tongue and wit as sharp as your blade. Of late, you've been obsessed with the isle of Enigma... What fantastical adventures could you embark on here, with your proteges?"
+	greet_text = "Много лет вы путешествуете по миру, оттачивая свое мастерство на ежегодном грандиозном фестивале сказок.\
+	Вы - уважаемый ткач славных и доблестных историй, язык и остроумие которого так же остры, как и ваш клинок. В последнее время вы одержимы островом Энигма... \
+	Какие фантастические приключения вы могли бы затеять здесь вместе со своими протеже?"
 	outfit = /datum/outfit/job/roguetown/fablefield/goliard
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_SHUNNED_UP
@@ -52,7 +54,9 @@
 
 /datum/migrant_role/fablefield/troubadour
 	name = "Fablefield Troubadour"
-	greet_text = "At the last grand festival of tales in Fablefield, you were inspired by a figure who sung of dragons, faeries, gods and heroes. This year, you plan to be the hero of your own story. A talented bard, and good with a blade, you follow your muse with nothing but the highest hopes, although so far Enigma isn't quite what you expected..."
+	greet_text = "На последнем грандиозном фестивале сказок в Фейблфилде вас вдохновил человек, который пел о драконах, фейри, богах и героях. \
+	В этом году вы планируете стать героем своей собственной истории. Талантливый бард и мастерски владеющий клинком, вы следуете за своей музой,\
+	возлагая на нее лишь самые смелые надежды, хотя пока Энигма - не совсем то, чего вы ожидали..."
 	outfit = /datum/outfit/job/roguetown/fablefield/troubadour
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_SHUNNED_UP

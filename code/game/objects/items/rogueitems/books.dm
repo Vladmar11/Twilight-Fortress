@@ -82,7 +82,7 @@
 
 /obj/item/book/rogue/read(mob/user)
 	if(!open)
-		to_chat(user, span_info("Open me first."))
+		to_chat(user, span_info("Сперва открой."))
 		return FALSE
 	. = ..()
 
@@ -167,48 +167,50 @@
 	..()
 
 /obj/item/book/rogue/bibble
-    name = "The Book"
-    icon_state = "bibble_0"
-    base_icon_state = "bibble"
-    title = "bible"
-    dat = "gott.json"
-    var/uses_remaining = 10 // Define uses_remaining
+	name = "The Book"
+	icon_state = "bibble_0"
+	base_icon_state = "bibble"
+	title = "bible"
+	dat = "gott.json"
+	var/uses_remaining = 10 // Define uses_remaining
 
 /obj/item/book/rogue/bibble/read(mob/user)
-    if(!open)
-        to_chat(user, span_info("Open me first."))
-        return FALSE
-    if(!user.client || !user.hud_used)
-        return
-    if(!user.hud_used.reads)
-        return
-    if(!user.can_read(src))
-        return
-    if(in_range(user, src) || isobserver(user))
-        user.changeNext_move(CLICK_CD_MELEE)
-        var/m
-        var/list/verses = world.file2list("strings/bibble.txt")
-        m = pick(verses)
-        if(m)
-            user.say(m)
+	if(!open)
+		to_chat(user, span_info("Сперва открой."))
+		return FALSE
+	if(!user.client || !user.hud_used)
+		return
+	if(!user.hud_used.reads)
+		return
+	if(!user.can_read(src))
+		return
+	if(in_range(user, src) || isobserver(user))
+		user.changeNext_move(CLICK_CD_MELEE)
+		var/m
+		var/list/verses = world.file2list("strings/bibble.txt")
+		m = pick(verses)
+		if(m)
+			user.say(m)
 
 /obj/item/book/rogue/bibble/attack(mob/living/M, mob/user)
-    if(user.mind && user.mind.assigned_role == "Priest")
-        if(!user.can_read(src))
-            to_chat(user, span_warning("I don't understand these scribbly black lines."))
-            return
-        if (uses_remaining <= 0)
-            to_chat(user, span_warning("All charges are spent, hope the last poor bastard was worth it."))
-            qdel(src) // Delete the book
-            user << "The book turns to ash in your hands."
-            return
-        if (uses_remaining == 1)
-            to_chat(user, span_notice("This is your last charge. Use it wisely!"))
-        M.apply_status_effect(/datum/status_effect/buff/blessed)
-        M.add_stress(/datum/stressevent/blessed)
-        user.visible_message(span_notice("[user] blesses [M]."))
-        playsound(user, 'sound/magic/bless.ogg', 100, FALSE)
-        return
+	if(user.mind && user.mind.assigned_role == "Priest")
+		if(!user.can_read(src))
+			to_chat(user, span_warning("Я не понимаю этих линий из черных каракулей."))
+			return
+		if (uses_remaining <= 0)
+			to_chat(user, span_warning("Все заряды израсходованы, надеюсь, последний бедняга того стоил."))
+			qdel(src) // Delete the book
+			user << "Книга превращается в пепел в твоих руках..."
+			return
+		if (uses_remaining == 1)
+			to_chat(user, span_notice("Это последний заряд. Используй с умом!"))
+		if (M.has_status_effect(/datum/status_effect/debuff/death_weaken))
+			M.remove_status_effect(/datum/status_effect/debuff/death_weaken)
+		M.apply_status_effect(/datum/status_effect/buff/blessed)
+		M.add_stress(/datum/stressevent/blessed)
+		user.visible_message(span_notice("[user] благословляет [M]."))
+		playsound(user, 'sound/magic/bless.ogg', 100, FALSE)
+		return
 
 /datum/status_effect/buff/blessed
 	id = "blessed"
@@ -217,20 +219,20 @@
 	duration = 20 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/blessed
-	name = "Blessed"
+	name = "Благословлен"
 	desc = ""
 	icon_state = "buff"
 
 
 /obj/item/book/rogue/law
-	name = "Tome of Justice"
-	desc = "Issued by the Chancery of the Kingdom to serve as the legal framework for the realm."
+	name = "Книга Правосудия"
+	desc = "Выпущен Королевской Канцелярией в качестве правовой основы для государства."
 	icon_state ="lawtome_0"
 	base_icon_state = "lawtome"
 	bookfile = "law.json"
 
 /obj/item/book/rogue/cooking
-	name = "Tastes Fit For The Lord"
+	name = "Вкусы, достойные Его Величества"
 	desc = ""
 	icon_state ="book_0"
 	base_icon_state = "book"
@@ -238,15 +240,15 @@
 
 		//no more theif stole the books
 /obj/item/book/rogue/knowledge1
-	name = "Book of Knowledge"
+	name = "Книга знаний"
 	desc = ""
 	icon_state ="book5_0"
 	base_icon_state = "book5"
 	bookfile = "knowledge.json"
 
 /obj/item/book/rogue/secret/xylix
-	name = "Book of Gold"
-	desc = "{<font color='red'><blink>An ominous book with untold powers.</blink></font>}"
+	name = "Книга золота"
+	desc = "{<font color='red'><blink>Зловещая книга с неисчислимой силой.</blink></font>}"
 	icon_state ="xylix_0"
 	base_icon_state = "xylix"
 	bookfile = "xylix.json"
@@ -257,111 +259,111 @@
 		return
 	..()
 	user.update_inv_hands()
-	to_chat(user, span_notice("You feel laughter echo in your head."))
+	to_chat(user, span_notice("Вы чувствуете, как смех отражается эхом в вашей голове."))
 
 //player made books
 /obj/item/book/rogue/tales1
-	name = "Assorted Tales From Yester Yils"
-	desc = "By Alamere J Wevensworth"
+	name = "Разные сказки от Йестер Йилс"
+	desc = "За авторством Аламер Дж. Уэвенсворт"
 	icon_state ="book_0"
 	base_icon_state = "book"
 	bookfile = "tales1.json"
 
 /obj/item/book/rogue/festus
-	name = "Book of Festus"
-	desc = "Unknown Author"
+	name = "Книга пиров"
+	desc = "Автор неизвестен"
 	icon_state ="book2_0"
 	base_icon_state = "book2"
 	bookfile = "tales2.json"
 
 
 /obj/item/book/rogue/tales3
-	name = "Myths & Legends of Rockhill & Beyond Volume I"
-	desc = "Arbalius The Younger"
+	name = "Мифы и легенды Рокхилла и за его пределами, том I"
+	desc = "Автор - Арбалиус Младший"
 	icon_state ="book3_0"
 	base_icon_state = "book3"
 	bookfile = "tales3.json"
 
 /obj/item/book/rogue/bookofpriests
-	name = "Holy Book of Saphria"
+	name = "Священная книга Сафрии"
 	desc = ""
 	icon_state ="knowledge_0"
 	base_icon_state = "knowledge"
 	bookfile = "holyguide.json"
 
 /obj/item/book/rogue/robber
-	name = "Reading for Robbers"
-	desc = "By Flavius of Dendor"
+	name = "Чтение для разбойников"
+	desc = "Автор - Флавий Дендорский"
 	icon_state ="basic_book_0"
 	base_icon_state = "basic_book"
 	bookfile = "tales4.json"
 
 /obj/item/book/rogue/cardgame
-	name = "Graystone's Torment Basic Rules"
-	desc = "By Johnus of Doe"
+	name = "Основные правила пыточного мастерства Грейстоуна"
+	desc = "Автор - Джонус Доу"
 	icon_state ="basic_book_0"
 	base_icon_state = "basic_book"
 	bookfile = "tales5.json"
 
 /obj/item/book/rogue/blackmountain
-	name = "Zabrekalrek, The Black Mountain Saga: Part One"
-	desc = "Written by Gorrek Tale-Writer, translated by Hargrid Men-Speaker."
+	name = "Забрекалрек, Сага о Черной горе: Часть первая"
+	desc = "Автор - Горрек-Летописец, переведено Харгридом-Сказочником."
 	icon_state ="book6_0"
 	base_icon_state = "book6"
 	bookfile = "tales6.json"
 
 /obj/item/book/rogue/beardling
-	name = "Rock and Stone - ABC & Tales for Beardlings"
-	desc = "Distributed by the Dwarven Federation"
+	name = "Булыжник и камень — Алфавит и сказки для бородатых"
+	desc = "Распространяется Федерацией дворфов по всей Гримории."
 	icon_state ="book8_0"
 	base_icon_state = "book8"
 	bookfile = "tales7.json"
 
 /obj/item/book/rogue/abyssor
-	name = "A Tale of Those Who Live At Sea"
-	desc = "By Bellum Aegir"
+	name = "Повесть о тех, кто в море живет"
+	desc = "Написано Беллумром Эгиром"
 	icon_state ="book2_0"
 	base_icon_state = "book2"
 	bookfile = "tales8.json"
 
 /obj/item/book/rogue/necra
-	name = "Burial Rites for Necra"
-	desc = "By Hunlaf, Gravedigger. Revised by Lenore, Priest of Necra."
+	name = "Погребальные обряды Некры"
+	desc = "Автор: Хунлаф, Могильщик. Отредактировано Ленорой, жрецом Некры."
 	icon_state ="book6_0"
 	base_icon_state = "book6"
 	bookfile = "tales9.json"
 
 /obj/item/book/rogue/noc
-	name = "Dreamseeker"
-	desc = "By Hunlaf, Gravedigger. Revised by Lenore, Priest of Necra."
+	name = "Искатель снов"
+	desc = ""
 	icon_state ="book6_0"
 	base_icon_state = "book6"
 	bookfile = "tales10.json"
 
 /obj/item/book/rogue/fishing
-	name = "Fontaine's Advanced Guide to Fishery"
-	desc = "By Ford Fontaine"
+	name = "Расширенное руководство Фонтейна по рыболовству"
+	desc = "Книга Форда Фонтейна"
 	icon_state ="book2_0"
 	base_icon_state = "book2"
 	bookfile = "tales11.json"
 
 /obj/item/book/rogue/sword
-	name = "The Six Follies: How To Survive by the Sword"
-	desc = "By Theodore Spillguts"
+	name = "Шесть глупостей: Как выжить с помощью меча"
+	desc = "Автор - Сэр Теодор"
 	icon_state ="book5_0"
 	base_icon_state = "book5"
 	bookfile = "tales12.json"
 
 /obj/item/book/rogue/arcyne
-	name = "Latent Magicks, where does Arcyne Power come from?"
-	desc = "By Kildren Birchwood, scholar of Magicks"
+	name = "Скрытое волшебство: Откуда берется Древняя Магия?"
+	desc = "Автор - Килдрен Берчвуд, специалист по магии"
 	icon_state ="book4_0"
 	base_icon_state = "book4"
 	bookfile = "tales13.json"
 
 /obj/item/book/rogue/nitebeast
-	name = "Legend of the Nitebeast"
-	desc = "By Paquetto the Scholar"
+	name = "Легенда о Ночном звере"
+	desc = "Рассказано и написано Пакетто, ученым"
 	icon_state ="book8_0"
 	base_icon_state = "book8"
 	bookfile = "tales14.json"
@@ -385,8 +387,8 @@
 	"Red with embossed saffira" = "book2",
 	"Brown with embossed gold" = "book1",
 	"Brown without embossed material" = "basic_book")
-	name = "unknown title"
-	desc = "by an unknown author"
+	name = "безымянная книга"
+	desc = "Автор - Неизвестно"
 	icon_state = "basic_book_0"
 	base_icon_state = "basic_book"
 	override_find_book = TRUE
@@ -397,11 +399,11 @@
 	if(is_in_round_player_generated)
 		player_book_text = text
 		while(!player_book_author_ckey) // doesn't have to be this, but better than defining a bool.
-			player_book_title = dd_limittext(capitalize(sanitize_hear_message(input(in_round_player_mob, "What title do you want to give the book? (max 42 characters)", "Title", "Unknown"))), MAX_NAME_LEN)
-			player_book_author = "[dd_limittext(sanitize_hear_message(input(in_round_player_mob, "What do you want the author text to be? (max 42 characters)", "Author", "")), MAX_NAME_LEN)]"
-			player_book_icon = book_icons[input(in_round_player_mob, "Choose a book style", "Book Style") as anything in book_icons]
+			player_book_title = dd_limittext(capitalize(sanitize_hear_message(input(in_round_player_mob, "Как назовете вашу книгу? (не более 42 символов)", "Название", "Unknown"))), MAX_NAME_LEN)
+			player_book_author = "[dd_limittext(sanitize_hear_message(input(in_round_player_mob, "Кто будет автором этой книги? (не более 42 символов)", "Автор", "")), MAX_NAME_LEN)]"
+			player_book_icon = book_icons[input(in_round_player_mob, "Выберите стиль обложки:", "Обложка") as anything in book_icons]
 			player_book_author_ckey = in_round_player_mob.ckey
-			if(alert("Confirm?:\nTitle: [player_book_title]\nAuthor: [player_book_author]\nBook Cover: [player_book_icon]", "", "Yes", "No") == "No")
+			if(alert("Подтвердить?:\nНазвание: [player_book_title]\nАвтор: [player_book_author]\nОбложка: [player_book_icon]", "", "Да", "Нет") == "Нет")
 				player_book_author_ckey = null
 		message_admins("[player_book_author_ckey]([in_round_player_mob.real_name]) has generated the player book: [player_book_title]")
 	else
@@ -420,11 +422,11 @@
 	desc = "By [player_book_author]"
 	icon_state = "[player_book_icon]_0"
 	base_icon_state = "[player_book_icon]"
-	pages = list("<b3><h3>Title: [player_book_title]<br>Author: [player_book_author]</b><h3>[player_book_text]")
+	pages = list("<b3><h3>Название: [player_book_title]<br>Автор: [player_book_author]</b><h3>[player_book_text]")
 
 /obj/item/manuscript
-	name = "2 page manuscript"
-	desc = "A 2 page written piece, with aspirations of becoming a book."
+	name = "рукопись из 2 страниц"
+	desc = "Произведение на 2 страницах, мечтающее стать полноценной книгой."
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "manuscript"
 	dir = 2
@@ -448,15 +450,15 @@
 		return
 	var/obj/item/paper/P = I
 	if(!(P.info))
-		to_chat(user, "the paper needs to contain text to be added to a manuscript!")
+		to_chat(user, "Страница должна содержать текст, который будет добавлен в рукопись!")
 		return
 	if(number_of_pages == 8)
-		to_chat(user, "The manuscript pile cannot surpass 8 pages!")
+		to_chat(user, "Стопка рукописей не может превышать 8 страниц!")
 		return
 
 	++number_of_pages
-	name = "[number_of_pages] page manuscript"
-	desc = "A [number_of_pages] page written piece, with aspirations of becoming a book."
+	name = "рукопись из [number_of_pages] страниц"
+	desc = "Произведение на [number_of_pages] страницах, мечтающее стать полноценной книгой."
 	page_texts += P.info
 	compiled_pages += "<p>[P.info]</p>"
 	qdel(P)
@@ -466,7 +468,7 @@
 
 /obj/item/manuscript/examine(mob/user)
 	. = ..()
-	. += "<a href='?src=[REF(src)];read=1'>Read</a>"
+	. += "<a href='?src=[REF(src)];read=1'>Читать</a>"
 
 /obj/item/manuscript/Topic(href, href_list)
 	..()
@@ -501,17 +503,23 @@
 		return
 	if(in_range(user, src) || isobserver(user))
 		var/dat = {"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
-			<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><style type=\"text/css\">
-					body { background-image:url('book.png');background-repeat: repeat; }</style></head><body scroll=yes>"}
+			<html>
+			<head>
+				<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+				<style type=\"text/css\">
+					body { background-image:url('book.png');background-repeat: repeat; }
+				</style>
+			</head>
+			<body scroll=yes>"}
 		for(var/I in page_texts)
 			dat += "<p>[I]</p>"
 		dat += "<br>"
-		dat += "<a href='?src=[REF(src)];close=1' style='position:absolute;right:50px'>Close</a>"
+		dat += "<a href='?src=[REF(src)];close=1' style='position:absolute;right:50px'>Закрыть</a>"
 		dat += "</body></html>"
 		user << browse(dat, "window=reading;size=1000x700;can_close=1;can_minimize=0;can_maximize=0;can_resize=0;titlebar=0")
 		onclose(user, "reading", src)
 	else
-		return span_warning("I'm too far away to read it.")
+		return span_warning("Я слишком далеко, чтобы прочитать.")
 
 /obj/item/manuscript/update_icon()
 	. = ..()
@@ -558,14 +566,14 @@
 			return
 		else
 			update_icon()
-			name = "[number_of_pages] page manuscript"
-			desc = "A [number_of_pages] page written piece, with aspirations of becoming a book."
+			name = "рукопись из [number_of_pages] страниц"
+			desc = "Произведение на [number_of_pages] страницах, мечтающее стать полноценной книгой."
 			return
 
 	. = ..()
 
 /obj/item/book_crafting_kit
-	name = "book crafting kit"
-	desc = "Apply on a written manuscript to create a book"
+	name = "набор для создания книги"
+	desc = "Соедините с рукописью для создания новой книги"
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "book_crafting_kit"

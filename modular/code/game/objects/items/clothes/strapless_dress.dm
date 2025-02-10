@@ -3,8 +3,8 @@
 	body_parts_covered = null
 	icon = 'modular/icons/obj/items/clothes/dress.dmi'
 	mob_overlay_icon = 'modular/icons/obj/items/clothes/on_mob/dress.dmi'
-	name = "strapless dress"
-	desc = "It barely covers anything at all!"
+	name = "платье без бретелек"
+	desc = "Оно вообще почти ничего не покрывает!"
 	body_parts_covered = null
 	icon_state = "strapless"
 	sleevetype = null

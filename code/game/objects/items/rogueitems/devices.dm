@@ -1,8 +1,8 @@
 /obj/item/gem_device
-	name = "rontz"
+	name = "ронц"
 	icon_state = "ruby_cut"
 	icon = 'icons/roguetown/items/gems.dmi'
-	desc = "Its facets shine so brightly.."
+	desc = "Его алые грани ярко сияют."
 	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
 	w_class = WEIGHT_CLASS_TINY
@@ -12,27 +12,27 @@
 	var/usage_prompt
 
 /obj/item/gem_device/attack_self(mob/living/user)
-	var/alert = alert(user, "Do I want to use this? \n[usage_prompt]", "Enchanted Gem", "Yes", "No")
-	if(alert != "Yes")
+	var/alert = alert(user, "Я хочу использовать это? \n[usage_prompt]", "Зачарованный камень", "Да", "Нет")
+	if(alert != "Да")
 		return
 	if(!on_use(user))
-		to_chat(user, span_warning("\The [src] glows, then fizzles out!"))
+		to_chat(user, span_warning("В вашей руке [src] вспыхивает, а затем быстро гаснет!"))
 		return
-	to_chat(user, span_warning("With a bright spark \the [src] disappears!"))
+	to_chat(user, span_warning("Издав яркую вспышку, [src] исчезает!"))
 	qdel(src)
 
 /obj/item/gem_device/proc/on_use(mob/living/user)
 	return FALSE
 
 /obj/item/gem_device/goldface
-	name = "gemerald"
+	name = "гемеральд"
 	icon_state = "emerald_cut"
-	desc = "Glints with verdant brilliance."
-	usage_prompt = "Summon GOLDFACE"
+	desc = "Отсвечивает зеленым блеском."
+	usage_prompt = "Призвать GOLDFACE"
 
 /obj/item/gem_device/goldface/on_use(mob/living/user)
 	var/turf/step_turf = get_step(get_turf(user), user.dir)
 	do_sparks(3, TRUE, step_turf)
 	new /obj/structure/roguemachine/merchantvend(step_turf)
-	to_chat(user, span_notice("With a bright flash, a GOLDFACE appears in front of you!"))
+	to_chat(user, span_notice("Издав яркую вспышку, перед вами появляется GOLDFACE!"))
 	return TRUE

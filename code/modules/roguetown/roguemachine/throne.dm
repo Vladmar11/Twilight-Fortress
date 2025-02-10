@@ -1,8 +1,8 @@
 GLOBAL_VAR(king_throne)
 
 /obj/structure/roguethrone
-	name = "throne of rockhill"
-	desc = "A big throne, to hold the Lord's giant personality. Say 'help' with the crown on your head if you are confused."
+	name = "трон Рокхилла"
+	desc = "Большой трон, на котором восседает Его Величество, Герцог. Если вы расстерялись, скажите «help», держа корону на голове."
 	icon = 'icons/roguetown/misc/96x96.dmi'
 	icon_state = "throne"
 	density = FALSE
@@ -54,7 +54,7 @@ GLOBAL_VAR(king_throne)
 	if(!P)
 		return
 	if(rebel_leader_sit_time == 0)
-		to_chat(user, span_notice("Finally, I'm sitting on the throne - when I get more comfortable here I'll be able to announce victory. Other rebels here will help me get comfortable faster."))
+		to_chat(user, span_notice("Наконец-то я сижу на троне – когда я пробуду на нем достаточно долго, я смогу объявить о победе восстания. Другие бунтовщики поблизости помогут мне освоиться быстрее."))
 	var/time_modifier = 1.0
 	/// Increase modifier for every other conscious rebel in view
 	for(var/mob/living/living_mob in view(7, loc))
@@ -69,7 +69,7 @@ GLOBAL_VAR(king_throne)
 	rebel_leader_sit_time += (dt * time_modifier)
 	if(rebel_leader_sit_time >= REBEL_THRONE_TIME && !notified_rebel_able)
 		notified_rebel_able = TRUE
-		to_chat(user, span_notice("That's it - time to announce our victory!"))
+		to_chat(user, span_notice("Вот и все – время объявить о нашей победе!"))
 	
 /obj/structure/roguethrone/lordcolor(primary,secondary)
 	if(!primary || !secondary)

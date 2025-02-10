@@ -525,37 +525,45 @@ GLOBAL_LIST_EMPTY(asset_datums)
 /datum/asset/group/goonchat
 	children = list(
 		/datum/asset/simple/jquery,
+		/datum/asset/simple/purify,
 		/datum/asset/simple/goonchat,
 		/datum/asset/spritesheet/goonchat,
-		/datum/asset/simple/fontawesome
+		/datum/asset/simple/fontawesome,
+		/datum/asset/simple/roguefonts
 	)
 
+/datum/asset/simple/purify
+	verify = TRUE
+	assets = list(
+		"purify.min.js"            = 'code/modules/goon/browserassets/js/purify.min.js',
+	)
 
 /datum/asset/simple/jquery
-	verify = FALSE
-/*	assets = list(
-		"jquery.min.js"            = 'code/modules/goonchat/browserassets/js/jquery.min.js',
-	)*/
+	verify = TRUE
+	assets = list(
+		"jquery.min.js"            = 'code/modules/goon/browserassets/js/jquery.min.js',
+	)
 
 /datum/asset/simple/goonchat
 	verify = FALSE
-/*	assets = list(
-		"json2.min.js"             = 'code/modules/goonchat/browserassets/js/json2.min.js',
-		"browserOutput.js"         = 'code/modules/goonchat/browserassets/js/browserOutput.js',
-		"browserOutput.css"	       = 'code/modules/goonchat/browserassets/css/browserOutput.css',
-		"browserOutput_white.css"	      = 'code/modules/goonchat/browserassets/css/browserOutput.css',
-	)*/
+	verify = TRUE
+	assets = list(
+		"json2.min.js"             = 'code/modules/goon/browserassets/js/json2.min.js',
+		"browserOutput.js"         = 'code/modules/goon/browserassets/js/browserOutput.js',
+		"browserOutput.css"	       = 'code/modules/goon/browserassets/css/browserOutput.css',
+		"browserOutput_white.css"  = 'code/modules/goon/browserassets/css/browserOutput.css',
+	) //sosiSmiley
 
 /datum/asset/simple/fontawesome
 	verify = FALSE
-/*	assets = list(
+	assets = list(
 		"fa-regular-400.eot"  = 'html/font-awesome/webfonts/fa-regular-400.eot',
 		"fa-regular-400.woff" = 'html/font-awesome/webfonts/fa-regular-400.woff',
 		"fa-solid-900.eot"    = 'html/font-awesome/webfonts/fa-solid-900.eot',
 		"fa-solid-900.woff"   = 'html/font-awesome/webfonts/fa-solid-900.woff',
 		"font-awesome.css"    = 'html/font-awesome/css/all.min.css',
-		"v4shim.css"          = 'html/font-awesome/css/v4-shims.min.css'
-	)*/
+	//	"v4shim.css"          = 'html/font-awsosismileyesome/css/v4-shims.min.css'
+	)
 
 /datum/asset/simple/blackedstone_class_menu_slop_layout
 	verify = FALSE
@@ -577,7 +585,8 @@ GLOBAL_LIST_EMPTY(asset_datums)
 /datum/asset/simple/roguefonts
 	verify = TRUE
 	assets = list(
-		"pterra.ttf" = 'interface/fonts/pterra.ttf',
+		"Mookmania.otf" = 'interface/fonts/Mookmania.otf', // основной шрифт
+		"ebbe.ttf" = 'interface/fonts/ebbe.ttf',
 		"chiseld.ttf" = 'interface/fonts/chiseld.ttf',
 		"blackmoor.ttf" = 'interface/fonts/blackmoor.ttf',
 		"handwrite.ttf" = 'interface/fonts/handwrite.ttf',
@@ -585,16 +594,17 @@ GLOBAL_LIST_EMPTY(asset_datums)
 		"book2.ttf" = 'interface/fonts/book1.ttf',
 		"book3.ttf" = 'interface/fonts/book1.ttf',
 		"book4.ttf" = 'interface/fonts/book1.ttf',
-		"dwarf.ttf" = 'interface/fonts/languages/dwarf.ttf',
-		"elf.ttf" = 'interface/fonts/languages/elf.ttf',
-		"hell.ttf" = 'interface/fonts/languages/hell.ttf',
-		"orc.ttf" = 'interface/fonts/languages/orc.ttf',
-		"sand.ttf" = 'interface/fonts/languages/sand.ttf',
-		"undead.ttf" = 'interface/fonts/languages/undead.ttf',
-		"draconic.ttf" = 'interface/fonts/languages/draconic.ttf',
-		"fae.ttf" = 'interface/fonts/languages/fae.ttf',
-		"lupian.ttf" = 'interface/fonts/languages/lupian.ttf',
-		"felid.ttf" = 'interface/fonts/languages/felid.ttf'
+		"Celtes SP.otf" = 'interface/fonts/languages/Celtes SP.otf', // дварфы
+		"Passions Conflict RUS.otf" = 'interface/fonts/languages/Passions Conflict RUS.otf', // Эльфы
+		"Comforter Brush.otf" = 'interface/fonts/languages/Comforter Brush.otf', // Тифлинги
+		"VizaviTYGRA.ttf" = 'interface/fonts/languages/VizaviTYGRA.ttf', // Орки
+		"Kamelia.ttf" = 'interface/fonts/languages/Kamelia.ttf', // ангелы
+		"FDMedian.ttf" = 'interface/fonts/languages/FDMedian.ttf', // нежить
+		"Kautiva Cyrillic Black.ttf" = 'interface/fonts/languages/Kautiva Cyrillic Black.ttf', // ящерицы
+		"shakyhands.otf" = 'interface/fonts/languages/shakyhands.otf', // винкс
+		"ALOT Gutenberg B Normal.ttf" = 'interface/fonts/languages/ALOT Gutenberg B Normal.ttf', // вульпы
+		"Satyr SP.otf" = 'interface/fonts/languages/Satyr SP.otf', // фелиниды
+		"Schwabacher.ttf" = 'interface/fonts/languages/Schwabacher.ttf'
 	)
 
 /datum/asset/spritesheet/goonchat
@@ -611,8 +621,8 @@ GLOBAL_LIST_EMPTY(asset_datums)
 		var/icon = initial(L.icon)
 		if (icon != 'icons/misc/language.dmi')
 			var/icon_state = initial(L.icon_state)
-			Insert("language-[icon_state]", icon, icon_state=icon_state)
-*/
+			Insert("language-[icon_state]", icon, icon_state=icon_state)*/
+
 	..()
 
 /datum/asset/simple/permissions

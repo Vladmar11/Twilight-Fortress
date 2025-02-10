@@ -13,8 +13,9 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	allowed_races = RACES_TOLERATED_UP
 	allowed_patrons = ALL_DIVINE_PATRONS
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD)
-	tutorial = "The Divine is all that matters in a world of the immoral. The Weeping God left his children to rule over us mortals and you will preach their wisdom to any who still heed their will. The faithless are growing in number, it is up to you to shepard them to a Gods-fearing future."
+	tutorial = "Божественное - это все, что имеет значение в мире безнравственных. \
+	Плачущий Бог оставил своих детей править нами, смертными, и вы будете проповедовать их мудрость всем, кто еще прислушивается к их воле. \
+	Безбожников становится все больше, и именно вам предстоит направить их в богобоязненное будущее."
 	whitelist_req = FALSE
 
 	spells = list(/obj/effect/proc_holder/spell/self/convertrole/templar, /obj/effect/proc_holder/spell/self/convertrole/monk)
@@ -22,8 +23,9 @@ GLOBAL_LIST_EMPTY(heretical_players)
 
 	display_order = JDO_PRIEST
 	give_bank_account = 115
-	min_pq = 8
+	min_pq = 3
 	max_pq = null
+	required = TRUE
 
 	cmode_music = 'sound/music/combat_clergy.ogg'
 
@@ -240,3 +242,46 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	recruitment_message = "Serve the ten, %RECRUIT!"
 	accept_message = "FOR THE TEN!"
 	refuse_message = "I refuse."
+
+/obj/effect/proc_holder/spell/invoked/solar_smite
+	name = "Solar Smite"
+	overlay_state = "solarsmite"
+	releasedrain = 100
+	chargedrain = 0
+	chargetime = 1 SECONDS
+	range = 8
+	warnie = "sydwarning"
+	movement_interrupt = FALSE
+	chargedloop = /datum/looping_sound/invokeholy
+	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
+	sound = 'sound/magic/churn.ogg'
+	invocation = "ASTRATA SMITE YOU! BURN!!"
+	invocation_type = "shout"
+	associated_skill = /datum/skill/magic/holy
+	antimagic_allowed = TRUE
+	charge_max = 90 SECONDS
+	miracle = TRUE
+	devotion_cost = 100
+	//explosion values
+	var/exp_heavy = 0
+	var/exp_light = 4
+	var/exp_flash = 8
+
+/obj/effect/proc_holder/spell/invoked/solar_smite/cast(list/targets, mob/user = usr)
+	. = ..()
+	if(isliving(targets[1]))
+		var/mob/living/L = targets[1]
+		user.visible_message("<font color='yellow'>[user] points at [L]!</font>")
+		explosion(L, -1, exp_heavy, exp_light, 8, 0, soundin = 'sound/misc/lava_death.ogg')
+		L.adjust_fire_stacks(6)
+		L.IgniteMob()
+		L.adjustFireLoss(30)
+		if(istype(get_area(L), /area/rogue/indoors/town/church))
+			L.adjust_fire_stacks(9)
+			L.adjustFireLoss(50)
+			if(L.mob_biotypes & MOB_UNDEAD) //positive energy harms the undead
+				L.visible_message(span_danger("[L] is unmade by holy light!"), span_userdanger("I'm unmade by holy light!"))
+				L.gib()
+		return TRUE
+	else
+		return FALSE

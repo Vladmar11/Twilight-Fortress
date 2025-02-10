@@ -621,35 +621,35 @@
 	var/deep_examination = advanced
 	if(user == src)
 		m1 = "I am"
-		examination += "<span class='notice'>Let's see how I am doing.</span>"
+		examination += "<span class='notice'>Посмотрим, как у меня дела...</span>"
 		if(!stat && !silent)
-			user.visible_message(span_notice("[src] examines [p_them()]self."), \
-				span_notice("I check myself for injuries."))
+			user.visible_message(span_notice("[src] осматривает себя."), \
+				span_notice("Я проверяю у себя наличие травм."))
 	else if(user)
 		m1 = "[p_they(TRUE)] [p_are()]"
 		if(!deep_examination)
 			deep_examination = HAS_TRAIT(user, TRAIT_EMPATH)
-		examination += span_notice("Let's see how [src] is doing.")
+		examination += span_notice("Посмотрим, как самочувствие у [src]...")
 		if(!user.stat && !silent)
-			user.visible_message(span_notice("[user] examines [src]."), \
-				span_notice("I check [src] for injuries."))
+			user.visible_message(span_notice("[user] осматривает [src]."), \
+				span_notice("Я проверяю [src] на наличие травм."))
 
 	if(stat < DEAD)
 		examination += "[m1] still alive."
 		if(stat >= UNCONSCIOUS)
-			examination += "[m1] [IsSleeping() ? "asleep" : "unconscious"]."
+			examination += "[m1] [IsSleeping() ? "спит" : "без сознания"]."
 	else
 		examination += span_dead("[m1] dead.")
 
 	switch(blood_volume)
 		if(-INFINITY to BLOOD_VOLUME_SURVIVE)
-			examination += span_artery("<B>[m1] extremely anemic.</B>")
+			examination += span_artery("<B>[m1] выглядит невероятно бледно, потеряв колоссальный объем крови.</B>")
 		if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
-			examination += span_artery("<B>[m1] very anemic.</B>")
+			examination += span_artery("<B>[m1] выглядит очень бледно, испытывая тяжелую кровопотерю.</B>")
 		if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
-			examination += span_artery("[m1] anemic.")
+			examination += span_artery("[m1] выглядит бледно, потеряв много крови.")
 		if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
-			examination += span_artery("[m1] a little anemic.")
+			examination += span_artery("[m1] испытывает небольшую кровопотерю.")
 
 	if(HAS_TRAIT(src, TRAIT_PARALYSIS))
 		if(HAS_TRAIT(src, TRAIT_NO_BITE))
@@ -670,7 +670,7 @@
 	for(var/body_zone in body_zones)
 		var/obj/item/bodypart/bodypart = get_bodypart(body_zone)
 		if(!bodypart)
-			examination += span_info("☼ [capitalize(parse_zone(body_zone))]: <span class='deadsay'><b>MISSING</b></span>")
+			examination += span_info("☼ [capitalize(parse_zone(body_zone))]: <span class='deadsay'><b>ОТСУТСТВУЕТ</b></span>")
 			continue
 		examination += bodypart.check_for_injuries(user, deep_examination)
 
@@ -684,21 +684,21 @@
 	var/list/examination = list("<span class='info'>ø ------------ ø")
 	var/deep_examination = advanced
 	if(user == src)
-		examination += "<span class='notice'>Let's see how my [parse_zone(choice)] is doing.</span>"
+		examination += "<span class='notice'>Посмотрим, что с моей [parse_zone(choice)].</span>"
 		if(!stat && !silent)
-			visible_message(span_notice("[src] examines [p_their()] [parse_zone(choice)]."))
+			visible_message(span_notice("[src] осматривает [p_their()] [parse_zone(choice)]."))
 	else if(user)
 		if(!deep_examination)
 			deep_examination = HAS_TRAIT(user, TRAIT_EMPATH)
-		examination += span_notice("Let's see how [src]'s [parse_zone(choice)] is doing.")
+		examination += span_notice("Посмотрим, что у [src] с [parse_zone(choice)].")
 		if(!user.stat && !silent)
-			visible_message(span_notice("[user] examines [src]'s [parse_zone(choice)]."))
+			visible_message(span_notice("[user] осматривает [parse_zone(choice)] [src]."))
 
 	var/obj/item/bodypart/examined_part = get_bodypart(choice)
 	if(examined_part)
 		examination += examined_part.check_for_injuries(user, advanced)
 	else
-		examination += span_info("☼ [capitalize(parse_zone(choice))]: <span class='deadsay'><B>MISSING</B></span>")
+		examination += span_info("☼ [capitalize(parse_zone(choice))]: <span class='deadsay'><B>ОТСУТСТВУЕТ</B></span>")
 	examination += "ø ------------ ø</span>"
 	if(!silent)
 		to_chat(user, examination.Join("\n"))
