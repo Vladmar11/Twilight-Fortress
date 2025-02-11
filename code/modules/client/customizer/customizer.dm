@@ -10,6 +10,7 @@
 	var/allows_disabling = FALSE
 	/// Whether this choice defaults to being missing.
 	var/default_disabled = FALSE
+	
 
 /datum/customizer/New()
 	. = ..()

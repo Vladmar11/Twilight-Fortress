@@ -1,4 +1,4 @@
-//Just the special, massively higher for a bounty
+/* //Just the special, massively higher for a bounty
 /datum/charflaw/dead_or_alive
 	name = "Hunted"
 	desc = "A bounty has been placed on my head, issued to the head takers of the realm. I should keep an eye over my shoulder."
@@ -154,3 +154,4 @@
 		I have been accused of [reason], and [employer] has put a bounty on my head!"))
 
 	add_bounty(character.real_name, amount, FALSE, reason, employer)
+*/

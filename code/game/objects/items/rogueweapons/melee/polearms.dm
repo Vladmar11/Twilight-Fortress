@@ -206,7 +206,7 @@
 	wlength = WLENGTH_GREAT
 	w_class = WEIGHT_CLASS_BULKY
 	minstr = 8
-	max_blade_int = 100
+	max_blade_int = 150
 	anvilrepair = /datum/skill/craft/blacksmithing
 	smeltresult = /obj/item/ingot/iron
 	associated_skill = /datum/skill/combat/polearms
@@ -233,7 +233,7 @@
 	smeltresult = /obj/item/ingot/steel
 	max_blade_int = 200
 	minstr = 8
-	wdefense = 6
+	wdefense = 7
 	throwforce = 15
 
 /obj/item/rogueweapon/spear/improvisedbillhook
@@ -243,7 +243,7 @@
 	desc = "Looks hastily made."
 	icon_state = "billhook"
 	smeltresult = /obj/item/ingot/iron
-	max_blade_int = 100
+	max_blade_int = 125
 	wdefense = 4
 	throwforce = 10
 
@@ -294,7 +294,7 @@
 	associated_skill = /datum/skill/combat/polearms
 	blade_dulling = DULLING_BASHCHOP
 	walking_stick = TRUE
-	wdefense = 6
+	wdefense = 7
 
 /obj/item/rogueweapon/halberd/getonmobprop(tag)
 	. = ..()
@@ -316,7 +316,11 @@
 	icon_state = "bardiche"
 	anvilrepair = /datum/skill/craft/blacksmithing
 	smeltresult = /obj/item/ingot/iron
-	max_blade_int = 200
+	minstr = 8
+	wdefense = 5
+	force = 18
+	force_wielded = 25
+	max_blade_int = 150
 
 /datum/intent/spear/cut/halberd
 	damfactor = 0.9
@@ -340,11 +344,12 @@
 	wlength = WLENGTH_GREAT
 	w_class = WEIGHT_CLASS_BULKY
 	minstr = 11
+	max_blade_int = 200
 	smeltresult = /obj/item/ingot/steel
 	associated_skill = /datum/skill/combat/polearms
 	blade_dulling = DULLING_BASHCHOP
 	walking_stick = TRUE
-	wdefense = 6
+	wdefense = 7
 
 /obj/item/rogueweapon/eaglebeak/getonmobprop(tag)
 	. = ..()
@@ -362,9 +367,12 @@
 	name = "lucerne"
 	desc = "A polehammer with a sharp pointy end."
 	icon_state = "polehammer"
-	force_wielded = 30
+	minstr = 8
+	wdefense = 5
+	max_blade_int = 150
+	force_wielded = 25
 	smeltresult = /obj/item/ingot/iron
-	max_blade_int = 200
+	max_blade_int = 150
 
 /datum/intent/spear/thrust/eaglebeak
 	penfactor = 20

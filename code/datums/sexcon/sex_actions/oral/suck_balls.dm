@@ -1,5 +1,5 @@
 /datum/sex_action/suck_balls
-	name = "Suck their balls"
+	name = "Вылизать яйца"
 	check_incapacitated = FALSE
 	gags_user = TRUE
 
@@ -26,17 +26,17 @@
 /datum/sex_action/suck_balls/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	..()
 	if(HAS_TRAIT(user, TRAIT_TINY) && !(HAS_TRAIT(target, TRAIT_TINY)))
-		user.visible_message(span_warning("[user] starts licking [target]'s balls..."))	//Fairy too small to do anything but lick instead
+		user.visible_message(span_warning("[user] лижет яички [target]..."))	//Fairy too small to do anything but lick instead
 	else
-		user.visible_message(span_warning("[user] starts sucking [target]'s balls..."))
+		user.visible_message(span_warning("[user] помещает мешочек с яичками [target] в свой рот..."))
 
 
 /datum/sex_action/suck_balls/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user.sexcon.do_message_signature("[type]"))
 		if(HAS_TRAIT(user, TRAIT_TINY) && !(HAS_TRAIT(target, TRAIT_TINY)))
-			user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] licks [target]'s balls..."))
+			user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] вылизывает шары [target]..."))
 		else
-			user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] sucks [target]'s balls..."))
+			user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] обсасывает шары [target]..."))
 	user.make_sucking_noise()
 
 	user.sexcon.perform_sex_action(target, 1, 3, TRUE)
@@ -45,9 +45,9 @@
 /datum/sex_action/suck_balls/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	..()
 	if(HAS_TRAIT(user, TRAIT_TINY) && !(HAS_TRAIT(target, TRAIT_TINY)))
-		user.visible_message(span_warning("[user] stops licking [target]'s balls ..."))
+		user.visible_message(span_warning("[user] перестает вылизывать яйца [target]..."))
 	else
-		user.visible_message(span_warning("[user] stops sucking [target]'s balls ..."))
+		user.visible_message(span_warning("[user] вынимает из собственной пасти шары [target]..."))
 
 
 /datum/sex_action/suck_balls/is_finished(mob/living/carbon/human/user, mob/living/carbon/human/target)

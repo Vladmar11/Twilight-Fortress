@@ -95,8 +95,17 @@
 	///Bitflags to determine lighting-related atom properties.
 	var/light_flags = NONE
 
+	///Reflective overlay
+	var/mutable_appearance/reflection
+	var/mutable_appearance/reflection_displacement
+	var/mutable_appearance/total_reflection_mask
+	var/shine = SHINE_MATTE
+
 	///AI controller that controls this atom. type on init, then turned into an instance during runtime
 	var/datum/ai_controller/ai_controller
+	///our reflection child
+	var/tmp/obj/reflection/basic_reflection
+	var/has_reflection = FALSE
 
 /**
   * Called when an atom is created in byond (built in engine proc)
@@ -122,6 +131,8 @@
 		if(SSatoms.InitAtom(src, args))
 			//we were deleted
 			return
+	if(has_reflection)
+		basic_reflection = new/obj/reflection(null,src)
 
 /**
   * The primary method that objects are setup in SS13 with
@@ -179,7 +190,44 @@
 	ComponentInitialize()
 	InitializeAIController()
 
+	if(shine)
+		make_shiny(shine)
+
 	return INITIALIZE_HINT_NORMAL
+
+/atom/proc/make_shiny(_shine = SHINE_REFLECTIVE, _reflection_plane = REFLECTIVE_PLANE)
+	if(reflection || reflection_displacement)
+		if(shine != _shine)
+			cut_overlay(reflection)
+			cut_overlay(reflection_displacement)
+		else
+			return
+	var/r_overlay
+	switch(_shine)
+		if(SHINE_MATTE)
+			return
+		if(SHINE_REFLECTIVE)
+			r_overlay = "partialOverlay"
+		if(SHINE_SHINY)
+			r_overlay = "whiteOverlay"
+	reflection = mutable_appearance('icons/turf/overlays.dmi', r_overlay, plane = _reflection_plane)
+	reflection_displacement = mutable_appearance('icons/turf/overlays.dmi', "flip", plane = REFLECTIVE_DISPLACEMENT_PLANE)
+	reflection_displacement.appearance_flags = 0 //Have to do this to make map work. Why? IDK, displacements are special like that
+	var/masking_plane = _reflection_plane == REFLECTIVE_PLANE ? REFLECTIVE_ALL_PLANE : REFLECTIVE_ALL_ABOVE_PLANE
+	total_reflection_mask = mutable_appearance('icons/turf/overlays.dmi', "whiteFull", plane = masking_plane)
+	reflection.pixel_y -= 32
+	total_reflection_mask.pixel_y -= 32
+	reflection_displacement.pixel_y -= 32
+	add_overlay(reflection)
+	add_overlay(reflection_displacement)
+	add_overlay(total_reflection_mask)
+	shine = _shine
+
+/atom/proc/make_unshiny()
+	cut_overlay(reflection)
+	cut_overlay(reflection_displacement)
+	cut_overlay(total_reflection_mask)
+	shine = SHINE_MATTE
 
 /**
   * Late Intialization, for code that should run after all atoms have run Intialization
@@ -226,6 +274,11 @@
 
 	QDEL_NULL(light)
 	QDEL_NULL(ai_controller)
+
+	if(basic_reflection)
+		if(ismovableatom(src))
+			src:vis_contents -= basic_reflection
+		QDEL_NULL(basic_reflection)
 
 	return ..()
 
@@ -376,17 +429,17 @@
   * COMSIG_ATOM_GET_EXAMINE_NAME signal
   */
 /atom/proc/get_examine_name(mob/user)
-	. = "\a [src]"
-	var/list/override = list(gender == PLURAL ? "some" : "a", " ", "[name]")
+	. = "[src.name]"
+	var/list/override = list(gender == PLURAL ? "some" : "[name]")
 	if(article)
-		. = "[article] [src]"
-		override[EXAMINE_POSITION_ARTICLE] = article
+		. = "[src.name]"
+		override[EXAMINE_POSITION_ARTICLE] = ""
 	if(SEND_SIGNAL(src, COMSIG_ATOM_GET_EXAMINE_NAME, user, override) & COMPONENT_EXNAME_CHANGED)
 		. = override.Join("")
 
 ///Generate the full examine string of this atom (including icon for goonchat)
 /atom/proc/get_examine_string(mob/user, thats = FALSE)
-	return "[thats? "That's ":""][get_examine_name(user)]"
+	return "[thats? "Это ":""][get_examine_name(user)]"
 
 /atom/proc/get_inspect_button()
 	return ""
@@ -409,9 +462,9 @@
 		if(reagents.flags & TRANSPARENT)
 			if(length(reagents.reagent_list))
 				if(user.can_see_reagents() || (user.Adjacent(src) && user.mind.get_skill_level(/datum/skill/misc/treatment) >= 2)) //Show each individual reagent
-					. += "It contains:"
+					. += "Внутри содержится:"
 					for(var/datum/reagent/R in reagents.reagent_list)
-						. += "[round(R.volume / 3, 0.1)] oz of <font color=[R.color]>[R.name]</font>"
+						. += "[round(R.volume / 3, 0.1)] oz <font color=[R.color]>[R.name]</font>"
 				else //Otherwise, just show the total volume
 					var/total_volume = 0
 					var/reagent_color
@@ -419,16 +472,16 @@
 						total_volume += R.volume
 					reagent_color = mix_color_from_reagents(reagents.reagent_list)
 					if(total_volume / 3 < 1)
-						. += "It contains less than 1 oz of <font color=[reagent_color]>something.</font>"
+						. += "Внутри содержится меньше 1oz <font color=[reagent_color]>жидкости.</font>"
 					else
-						. += "It contains [round(total_volume / 3)] oz of <font color=[reagent_color]>something.</font>"
+						. += "Внутри содержится [round(total_volume / 3)] oz <font color=[reagent_color]>жидкости.</font>"
 			else
-				. += "Nothing."
+				. += "Ничего."
 		else if(reagents.flags & AMOUNT_VISIBLE)
 			if(reagents.total_volume)
-				. += span_notice("It has [round(reagents.total_volume / 3)] oz left.")
+				. += span_notice("Внутри осталось [round(reagents.total_volume / 3)] oz.")
 			else
-				. += span_danger("It's empty.")
+				. += span_danger("Пусто.")
 
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .)
 
@@ -466,7 +519,7 @@
 /atom/proc/relaymove(mob/user)
 	if(buckle_message_cooldown <= world.time)
 		buckle_message_cooldown = world.time + 50
-		to_chat(user, span_warning("I should try resisting."))
+		to_chat(user, span_warning("Мне нужно сопротивляться."))
 	return
 
 /// Handle what happens when your contents are exploded by a bomb
@@ -1122,14 +1175,20 @@
 		update_filters()
 	return .
 
+/proc/cmp_filter_data_priority(list/A, list/B)
+	return A["priority"] - B["priority"]
+
 /atom/movable/proc/update_filters()
 	filters = null
-	sortTim(filter_data,associative = TRUE)
-	for(var/f in filter_data)
-		var/list/data = filter_data[f]
+	var/atom/atom_cast = src // filters only work with images or atoms.
+	atom_cast.filters = null
+	filter_data = sortTim(filter_data, GLOBAL_PROC_REF(cmp_filter_data_priority), TRUE)
+	for(var/filter_raw in filter_data)
+		var/list/data = filter_data[filter_raw]
 		var/list/arguments = data.Copy()
 		arguments -= "priority"
-		filters += filter(arglist(arguments))
+		atom_cast.filters += filter(arglist(arguments))
+	UNSETEMPTY(filter_data)
 
 /atom/movable/proc/get_filter(name)
 	if(filter_data && filter_data[name])

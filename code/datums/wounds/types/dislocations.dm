@@ -1,12 +1,12 @@
 /datum/wound/dislocation
-	name = "dislocation"
-	check_name = span_bone("DISLOCATION")
+	name = "вывих"
+	check_name = span_bone("ВЫВИХ")
 	severity = WOUND_SEVERITY_MODERATE
 	crit_message = list(
-		"The %BODYPART jolts painfully!",
-		"The %BODYPART is twisted out of place!",
-		"The %BODYPART is wrenched out of it's socket!",
-		"The %BODYPART is dislocated!",
+		"Видно, как %BODYPART неестественно толкает в сторону!",
+		"В результате, %BODYPART смещается со своего места!",
+		"При этом, %BODYPART вырывается из своего сустава!",
+		"Кажется, %BODYPART вывихнуло!",
 	)
 	sound_effect = "fracturedry"
 	whp = 40
@@ -64,12 +64,12 @@
 	return TRUE
 
 /datum/wound/dislocation/neck
-	name = "cervical dislocation"
-	check_name = span_bone("NECK")
+	name = "смещение шейных позвонков"
+	check_name = span_bone("ШЕЯ")
 	crit_message = list(
-		"The spine slips!",
-		"The spine twists!",
-		"The %BODYPART is wrenched out of it's socket!",
+		"Позвонки соскальзывают до щелчка!",
+		"Позвоночник перекрутило!",
+		"При этом, %BODYPART вырывается из своего сустава!",
 	)
 	whp = 80
 	woundpain = 100

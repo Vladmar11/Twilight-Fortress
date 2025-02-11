@@ -253,57 +253,67 @@ GLOBAL_LIST_INIT(ambience_files, list(
 	'sound/music/area/spidercave.ogg',
 	'sound/music/area/towngen.ogg',
 	'sound/music/area/townstreets.ogg',
-	'sound/music/jukeboxes/tav3.ogg',
 	'sound/music/area/underworlddrone.ogg',
-	'sound/misc/comboff.ogg',
-	'sound/misc/combon.ogg'
-))
+	'sound/music/jukeboxes/tav3.ogg',
+	'sound/music/jukeboxes/tav4.ogg',
+	))
 
-/client/New() // This tiny little bit of code is what we use to make preloading happen automatically upon a new client connecting.
-	..()
-	spawn(10)
-		PreloadAmbience()
+GLOBAL_LIST_INIT(music_files, list(
+	'sound/music/circus.ogg',
+	'sound/music/combat.ogg',
+	'sound/music/combat2.ogg',
+	'sound/music/combatbandit.ogg',
+	'sound/music/combatcult.ogg',
+	'sound/music/combatmaniac.ogg',
+	'sound/music/combatvamp.ogg',
+	'sound/music/combat_bandit.ogg',
+	'sound/music/combat_bandit2.ogg',
+	'sound/music/combat_bandit_brigand.ogg',
+	'sound/music/combat_bandit_mage.ogg',
+	'sound/music/combat_bog.ogg',
+	'sound/music/combat_bum.ogg',
+	'sound/music/combat_clergy.ogg',
+	'sound/music/combat_cult.ogg',
+	'sound/music/combat_desertrider.ogg',
+	'sound/music/combat_duelist.ogg',
+	'sound/music/combat_forlorn.ogg',
+	'sound/music/combat_giza.ogg',
+	'sound/music/combat_grenzelhoft.ogg',
+	'sound/music/combat_gronn.ogg',
+	'sound/music/combat_guard.ogg',
+	'sound/music/combat_guard2.ogg',
+	'sound/music/combat_jester.ogg',
+	'sound/music/combat_maniac.ogg',
+	'sound/music/combat_maniac2.ogg',
+	'sound/music/combat_murderer.ogg',
+	'sound/music/combat_old.ogg',
+	'sound/music/combat_physician.ogg',
+	'sound/music/combat_pirate.ogg',
+	'sound/music/combat_vamp.ogg',
+	'sound/music/combat_vamp2.ogg',
+	'sound/music/combat_vaquero.ogg',
+	'sound/music/combat_weird.ogg',
+	'sound/music/combat_werewolf.ogg',
+	'sound/music/combat_zybantine.ogg',
+	'sound/music/credits.ogg',
+	'sound/music/death.ogg',
+	'sound/music/dreamer_is_still_asleep.ogg',
+	'sound/music/gurglingflesh.ogg',
+	'sound/music/horror.ogg',
+	'sound/music/lorddeath.ogg',
+	'sound/music/maniac.ogg',
+	'sound/music/spice.ogg',
+	'sound/music/traitor.ogg',
+	'sound/music/tree.ogg',
+	'sound/music/vampintro.ogg',
+	'sound/music/wartitle.ogg',
+	'sound/music/wolfintro.ogg',
+	))
 
-/client/proc/PreloadAmbience()
-    if(!mob)
-        return
+/client/verb/preload_sounds()
+	set category = "Options"
+	set name = "Preload Ambience"
 
-    var/chunk_size = 3 // We use this for batches essentially
-    var/inbetween_delay = 5 // Added this to try to smooth the loading out a bit more. It's used to make it so each sound loaded within a chunk is separated by five ticks. Just so you're not bombarded with the full download at once.
-    var/chunk_delay = 10 // When a chunk ends, this var is what we use to give the client a little more breathing room. (Which should smooth out the load)
-    var/max_lag = 3 // This is the stop button. If the server is lagging too much, we halt preloading.
-
-    var/list/to_load = GLOB.ambience_files.Copy()
-    if(!to_load.len)
-        return
-
-    var/ambiencecounter = to_load.len
-
-    PreloadAmbienceChunk(1, ambiencecounter, chunk_size, inbetween_delay, chunk_delay, max_lag, to_load)
-
-
-/client/proc/PreloadAmbienceChunk(start, ambiencecounter, chunk_size, inbetween_delay, chunk_delay, max_lag, to_load)
-    if(world.tick_usage > max_lag)
-        return
-
-    if(!mob)
-        return
-
-    if(start > ambiencecounter)
-        return
-
-    var/chunkcap = start + chunk_size - 1
-    if(chunkcap > ambiencecounter)
-        chunkcap = ambiencecounter
-
-    for(var/i = start, i <= chunkcap, i++)
-        if(!mob)
-            return
-
-        var/sound_path = to_load[i]
-        mob.playsound_local(mob, sound_path, 0)
-        sleep(inbetween_delay)
-
-    sleep(chunk_delay)
-
-    PreloadAmbienceChunk(chunkcap + 1, ambiencecounter, chunk_size, inbetween_delay, chunk_delay, max_lag, to_load)
+	for(var/music in GLOB.ambience_files)
+		mob.playsound_local(mob, music, 0.1)
+		sleep(10)

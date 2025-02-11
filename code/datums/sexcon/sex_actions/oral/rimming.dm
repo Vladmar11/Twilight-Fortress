@@ -1,5 +1,5 @@
 /datum/sex_action/rimming
-	name = "Rim them"
+	name = "Римминг"
 	check_incapacitated = FALSE
 	gags_user = TRUE
 
@@ -22,14 +22,14 @@
 	if(HAS_TRAIT(target, TRAIT_TINY) && !(HAS_TRAIT(user, TRAIT_TINY))) //Size difference check, non-fairy on fairy will say this
 		user.visible_message(span_warning("[user] starts licking [target]'s entire butt..."))
 	else
-		user.visible_message(span_warning("[user] starts rimming [target]'s butt..."))
+		user.visible_message(span_warning("[user] прижимает язычок к анальному отверстию [target]..."))
 
 /datum/sex_action/rimming/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user.sexcon.do_message_signature("[type]"))
 		if(HAS_TRAIT(target, TRAIT_TINY) && !(HAS_TRAIT(user, TRAIT_TINY))) //Size difference check, non-fairy on fairy will say this
 			user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] licks [target]'s entire butt..."))
 		else
-			user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] rims [target]'s butt..."))
+			user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] вылизывает попку [target]..."))
 	user.make_sucking_noise()
 	do_thrust_animate(user, target)
 
@@ -41,7 +41,7 @@
 	if(HAS_TRAIT(target, TRAIT_TINY) && !(HAS_TRAIT(user, TRAIT_TINY))) //Size difference check, non-fairy on fairy will say this
 		user.visible_message(span_warning("[user] stops licking [target]'s butt ..."))
 	else
-		user.visible_message(span_warning("[user] stops rimming [target]'s butt ..."))
+		user.visible_message(span_warning("[user] перестает ласкать попку [target] своим языком..."))
 
 /datum/sex_action/rimming/is_finished(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(target.sexcon.finished_check())

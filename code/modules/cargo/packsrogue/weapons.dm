@@ -184,6 +184,7 @@
 					)
 */
 
+
 /datum/supply_pack/rogue/weapons/arquebus
 	name = "Arquebus Rifle"
 	cost = 90
@@ -208,3 +209,8 @@
 	name = "Bullet Pouch (grape)"
 	cost = 30
 	contains = list(/obj/item/ammo_holder/bullet/grapeshot)
+
+/datum/supply_pack/rogue/weapons/runelockammo
+	name = "Bullet Pouch (runelock)"
+	cost = 40
+	contains = list(/obj/item/storage/belt/rogue/pouch/ammo)

@@ -1,5 +1,5 @@
 /datum/wound/facial
-	name = "facial trauma"
+	name = "лицевая травма"
 	sound_effect = 'sound/combat/crit.ogg'
 	severity = WOUND_SEVERITY_SEVERE
 	whp = null
@@ -14,11 +14,11 @@
 	return TRUE
 
 /datum/wound/facial/ears
-	name = "tympanosectomy"
-	check_name = span_danger("EARS")
+	name = "разрыв барабанных перепонок"
+	check_name = span_danger("УШИ")
 	crit_message = list(
-		"The eardrums are gored!",
-		"The eardrums are ruptured!",
+		"Барабанные перепонки разорваны!",
+		"Барабанные перепонки порваны!",
 	)
 	can_sew = FALSE
 	can_cauterize = FALSE
@@ -39,12 +39,12 @@
 		ears.forceMove(affected.drop_location())
 
 /datum/wound/facial/eyes
-	name = "eye evisceration"
-	check_name = span_warning("EYE")
+	name = "выпадание глаза"
+	check_name = span_warning("ГЛАЗ")
 	crit_message = list(
-		"The eye is poked!",
-		"The eye is gouged!",
-		"The eye is destroyed!",
+		"Глаз выколот!",
+		"Глаз выдолблен из глазницы!",
+		"Глаз превратился в месиво!",
 	)
 	woundpain = 30
 	can_sew = FALSE
@@ -65,12 +65,12 @@
 		affected.blind_eyes(5)
 
 /datum/wound/facial/eyes/right
-	name = "right eye evisceration"
-	check_name = span_danger("RIGHT EYE")
+	name = "выпадание правого глаза"
+	check_name = span_danger("ПРАВЫЙ ГЛАЗ")
 	crit_message = list(
-		"The right eye is poked!",
-		"The right eye is gouged!",
-		"The right eye is destroyed!",
+		"Правый глаз выколот!",
+		"Правый глаз выдолблен из глазницы!",
+		"Правый гла превратился в месиво!",
 	)
 
 /datum/wound/facial/eyes/right/can_stack_with(datum/wound/other)
@@ -100,12 +100,12 @@
 	do_blinding = FALSE
 
 /datum/wound/facial/eyes/left
-	name = "left eye evisceration"
-	check_name = span_danger("LEFT EYE")
+	name = "выпадание левого глаза"
+	check_name = span_danger("ЛЕВЫЙ ГЛАЗ")
 	crit_message = list(
-		"The left eye is poked!",
-		"The left eye is gouged!",
-		"The left eye is destroyed!",
+		"Левый глаз выколот!",
+		"Левый глаз выдолблен из глазницы!",
+		"Левый глаз превратился в месиво!",
 	)
 
 /datum/wound/facial/eyes/left/can_stack_with(datum/wound/other)
@@ -135,12 +135,12 @@
 	do_blinding = FALSE
 
 /datum/wound/facial/tongue
-	name = "glossectomy"
-	check_name = span_danger("TONGUE")
+	name = "отсечение языка"
+	check_name = span_danger("ЯЗЫК")
 	crit_message = list(
-		"The tongue is cut!",
-		"The tongue is severed!",
-		"The tongue flies off in an arc!"
+		"Язык отсечен!",
+		"Язык разорван!",
+		"Язык вырван изо рта!"
 	)
 	can_sew = FALSE
 	can_cauterize = FALSE
@@ -161,10 +161,10 @@
 		tongue_up_my_asshole.forceMove(affected.drop_location())
 
 /datum/wound/facial/disfigurement
-	name = "disfigurement"
-	check_name = span_warning("FACE")
+	name = "обезображивание"
+	check_name = span_warning("ЛИЦО")
 	severity = 0
-	crit_message = "The face is mangled beyond recognition!"
+	crit_message = "Лицо искалечено до неузнаваемости!"
 	whp = null
 	woundpain = 20
 	mob_overlay = "cut"
@@ -181,11 +181,11 @@
 	REMOVE_TRAIT(affected, TRAIT_DISFIGURED, "[type]")
 	
 /datum/wound/facial/disfigurement/nose
-	name = "rhinotomy"
-	check_name = span_warning("NOSE")
+	name = "перелом носа"
+	check_name = span_warning("НОС")
 	crit_message = list(
-		"The nose is mangled beyond recognition!",
-		"The nose is destroyed!",
+		"Нос искомсан до неузнаваемости!",
+		"Нос сломан!",
 	)
 
 /datum/wound/facial/disfigurement/nose/on_mob_gain(mob/living/affected)
@@ -199,11 +199,11 @@
 	REMOVE_TRAIT(affected, TRAIT_MISSING_NOSE, "[type]")
 
 /datum/wound/cbt
-	name = "testicular torsion"
-	check_name = span_userdanger("<B>NUTCRACK</B>")
+	name = "перекручение яичек"
+	check_name = span_userdanger("<B>БУБЕНЦЫ</B>")
 	crit_message = list(
-		"The testicles are twisted!",
-		"The testicles are torsioned!",
+		"Яички скручены!",
+		"Яички перекручены!",
 	)
 	whp = 50
 	woundpain = 100
@@ -223,20 +223,20 @@
 	. = ..()
 	affected.emote("groin", forced = TRUE)
 	affected.Stun(20)
-	to_chat(affected, span_userdanger("Something twists inside my groin!"))
+	to_chat(affected, span_userdanger("Что-то крутится у меня в паху!"))
 	if(affected.gender != MALE)
-		name = "ovarian torsion"
-		check_name = span_userdanger("<B>EGGCRACK</B>")
+		name = "перекручение яичников"
+		check_name = span_userdanger("<B>ЯИЧНИКИ</B>")
 		crit_message = list(
-			"The ovaries are twisted!",
-			"The ovaries are torsioned!",
+			"Яичники скручены!",
+			"Яичники перекручены!",
 		)
 	else
-		name = "testicular torsion"
-		check_name = span_userdanger("<B>NUTCRACK</B>")
+		name = "перекручение яичек"
+		check_name = span_userdanger("<B>БУБЕНЦЫ</B>")
 		crit_message = list(
-			"The testicles are twisted!",
-			"The testicles are torsioned!",
+			"Яички скручены!",
+			"Яички перекручены!",
 		)
 	if(HAS_TRAIT(affected, TRAIT_CRITICAL_WEAKNESS))
 		affected.death()
@@ -250,26 +250,26 @@
 		carbon_owner.vomit(1, stun = TRUE)
 
 /datum/wound/cbt/permanent
-	name = "testicular evisceration"
+	name = "потрошение яичек"
 	crit_message = list(
-		"The testicles are destroyed!",
-		"The testicles are eviscerated!",
+		"Яички уничтожены!",
+		"Бубенцы разорваны!",
 	)
 	whp = null
 
 /datum/wound/cbt/permanent/on_mob_gain(mob/living/affected)
 	. = ..()
 	if(affected.gender != MALE)
-		name = "ovarian evisceration"
-		check_name = span_userdanger("<B>EGGCRACK</B>")
+		name = "потрошение яичников"
+		check_name = span_userdanger("<B>ЯИЧНИКИ</B>")
 		crit_message = list(
-			"The ovaries are destroyed!",
-			"The ovaries are eviscerated!",
+			"Яичники уничтожены!",
+			"Яичники разорваны!",
 		)
 	else
-		name = "testicular evisceration"
-		check_name = span_userdanger("<B>NUTCRACK</B>")
+		name = "потрошение яичек"
+		check_name = span_userdanger("<B>БУБЕНЦЫ</B>")
 		crit_message = list(
-			"The testicles are destroyed!",
-			"The testicles are eviscerated!",
+			"Яички уничтожены!",
+			"Бубенцы разорваны!",
 		)

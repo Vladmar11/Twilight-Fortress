@@ -10,9 +10,9 @@
 /*	..................   Pepper steak   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/peppersteak
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_CHUNKY)
-	tastes = list("steak" = 1, "pepper" = 1)
-	name = "peppersteak"
-	desc = "Roasted flesh flanked with a generous coating of ground pepper for intense flavor."
+	tastes = list("теплого стейка" = 1, "черного перца" = 1)
+	name = "стейк с перцем"
+	desc = "Жареное мясо с щедрым слоем молотого перца для интенсивного вкуса."
 	icon_state = "peppersteak"
 	foodtype = MEAT
 	warming = 5 MINUTES
@@ -34,10 +34,10 @@
 
 /*	..................   Onion steak   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/onionsteak
-	name = "onion steak"
-	desc = "Roasted flesh garnished with tender fried onions. Fragrant and slathered with juices of both ingredients to a perfect mouth-watering sauce."
+	name = "стейк с луком"
+	desc = "Жареное мясо, украшенное нежным жареным луком, в ароматном и пропитанном соками обоих ингредиентов аппетитном соусе."
 	icon_state = "onionsteak"
-	tastes = list("steak" = 1, "onions" = 1)
+	tastes = list("теплого стейка" = 1, "жареного лука" = 1)
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_MEAGRE)
 	foodtype = MEAT | VEGETABLES
 	warming = 5 MINUTES
@@ -60,9 +60,9 @@
 /*	.................   Wiener Cabbage   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/wienercabbage
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_MEAGRE)
-	tastes = list("savory sausage" = 1, "cabbage" = 1)
-	name = "wiener on cabbage"
-	desc = "A rich and heavy meal, a perfect ration for a soldier on the march."
+	tastes = list("пикантной колбаски" = 1, "тушеной капусты" = 1)
+	name = "колбаска на капусте"
+	desc = "Сытная и тяжелая еда — идеальный рацион для солдата в походе."
 	icon_state = "wienercabbage"
 	foodtype = VEGETABLES | MEAT
 	warming = 3 MINUTES
@@ -84,9 +84,9 @@
 /*	.................   Wiener & Fried potato   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/wienerpotato
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_MEAGRE)
-	tastes = list("savory sausage" = 1, "potato" = 1)
-	name = "wiener on tato"
-	desc = "Stout and nourishing."
+	tastes = list("пикантной колбаски" = 1, "жареного картофеля" = 1)
+	name = "колбаска с картофелем"
+	desc = "Плотное и питательное блюдо."
 	icon_state = "wienerpotato"
 	foodtype = VEGETABLES | MEAT
 	warming = 3 MINUTES
@@ -135,9 +135,9 @@
 /*	.................   Wiener & Fried onions   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/wieneronions
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_MEAGRE)
-	tastes = list("savory sausage" = 1, "fried onions" = 1)
-	name = "wiener and onions"
-	desc = "Stout and flavourful."
+	tastes = list("пикантной колбаски" = 1, "жареного лука" = 1)
+	name = "колбаска с луком"
+	desc = "Крепкое и ароматное блюдо."
 	icon_state = "wieneronions"
 	foodtype = VEGETABLES | MEAT
 	warming = 3 MINUTES
@@ -187,9 +187,9 @@
 /*	.................   Wiener & potato & onions   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/wienerpotatonions
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_GOOD)
-	tastes = list("savory sausage" = 1, "potato" = 1, "onions" = 1)
-	name = "wiener meal"
-	desc = "Stout and nourishing."
+	tastes = list("пикантной колбаски" = 1, "жареного картофеля" = 1, "жареного лука" = 1)
+	name = "колбаска с овощами"
+	desc = "Плотное и питательное блюдо."
 	icon_state = "wpotonion"
 	foodtype = VEGETABLES | MEAT
 	warming = 3 MINUTES
@@ -210,9 +210,9 @@
 /*	.................   Frybird & Tato   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/frybirdtato
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_MEAGRE)
-	tastes = list("frybird" = 1, "tato" = 1)
-	name = "frybird with a tato"
-	desc = "Hearty, comforting and rich - Alleged favorite dish of Ravox."
+	tastes = list("печеной птицы" = 1, "жареного картофеля" = 1)
+	name = "птица с картофелем"
+	desc = "Сытное, уютное и насыщенное – предположительно, любимое блюдо Равокса при смертной жизни."
 	icon_state = "frybirdtato"
 	foodtype = VEGETABLES | MEAT
 	warming = 3 MINUTES
@@ -234,9 +234,9 @@
 /*	.................   Valerian Omelette   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/friedegg/tiberian
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_GOOD)
-	tastes = list("fried cackleberries" = 1, "cheese" = 1)
-	name = "valerian omelette"
-	desc = "Fried cackleberries on a bed of half-melted cheese, a dish from distant lands."
+	tastes = list("жареного яйца" = 1, "сыра" = 1)
+	name = "валерианский омлет"
+	desc = "Жареное яйцо на подушке из полурасплавленного сыра, блюдо из далеких стран."
 	icon_state = "omelette"
 	bitesize = 6
 	eat_effect = /datum/status_effect/buff/foodbuff
@@ -256,7 +256,7 @@
 
 /*	.................   Plated fryfish   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/fryfish/carp/plated
-	desc = "Abyssor's bounty, make sure to eat the eyes!"
+	desc = "Подарок Абиссора. Обязательно съешьте глаза!"
 	icon_state = "carpcooked_plated"
 	item_state = "plate_food"
 	lefthand_file = 'modular/Neu_Food/icons/food_lefthand.dmi'
@@ -268,7 +268,7 @@
 	rotprocess = SHELFLIFE_LONG
 
 /obj/item/reagent_containers/food/snacks/rogue/fryfish/clownfish/plated
-	desc = "Abyssor's bounty, make sure to eat the eyes!"
+	desc = "Подарок Абиссора. Обязательно съешьте глаза!"
 	icon_state = "clownfishcooked_plated"
 	item_state = "plate_food"
 	lefthand_file = 'modular/Neu_Food/icons/food_lefthand.dmi'
@@ -280,7 +280,7 @@
 	rotprocess = SHELFLIFE_LONG
 
 /obj/item/reagent_containers/food/snacks/rogue/fryfish/angler/plated
-	desc = "Abyssor's bounty, make sure to eat the eyes!"
+	desc = "Подарок Абиссора. Обязательно съешьте глаза!"
 	icon_state = "anglercooked_plated"
 	item_state = "plate_food"
 	lefthand_file = 'modular/Neu_Food/icons/food_lefthand.dmi'
@@ -292,7 +292,7 @@
 	rotprocess = SHELFLIFE_LONG
 
 /obj/item/reagent_containers/food/snacks/rogue/fryfish/eel/plated
-	desc = "Abyssor's bounty, make sure to eat the eyes!"
+	desc = "Подарок Абиссора. Обязательно съешьте глаза!"
 	icon_state = "eelcooked_plated"
 	item_state = "plate_food"
 	lefthand_file = 'modular/Neu_Food/icons/food_lefthand.dmi'
@@ -306,13 +306,13 @@
 
 /*	.................   Chicken roast   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked
-	desc = "A plump bird, roasted to a perfect temperature and bears a crispy skin."
+	desc = "Пухлая птица, запеченная до идеальной температуры и хрустящей кожицы."
 	eat_effect = null
 	slices_num = 0
-	name = "roast bird"
+	name = "запеченая птица"
 	icon_state = "roastchicken"
-	tastes = list("tasty birdmeat" = 1)
-	bitesize = 5
+	tastes = list("вкусного мяса птицы" = 1)
+  bitesize = 5
 	cooked_type = null
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_MEAGRE)
 	rotprocess = SHELFLIFE_DECENT
@@ -321,19 +321,19 @@
 	if (!isturf(src.loc) || \
 		!(locate(/obj/structure/table) in src.loc) && \
 		!(locate(/obj/structure/table/optable) in src.loc) && \
-		!(locate(/obj/item/storage/bag/tray) in src.loc))
-		to_chat(user, "<span class='warning'>I need to use a table.</span>")
+		(locate(/obj/item/storage/tray) in src.loc))
+		to_chat(user, "<span class='warning'>Мне необходимо использовать стол.</span>")
 		return FALSE
 	if(istype(mill))
 		if(!mill.reagents.has_reagent(/datum/reagent/consumable/blackpepper, 1))
-			to_chat(user, "There's not enough black pepper to make anything with.")
+			to_chat(user, "Не хватает черного перца, чтобы что-нибудь приготовить.")
 			return TRUE
 		mill.icon_state = "peppermill_grind"
-		to_chat(user, "You start rubbing the bird roast with black pepper.")
+		to_chat(user, "Вы начинаете натирать запеченую птицу черным перцем.")
 		playsound(get_turf(user), 'modular/Neu_Food/sound/peppermill.ogg', 100, TRUE, -1)
 		if(do_after(user,3 SECONDS, target = src))
 			if(!mill.reagents.has_reagent(/datum/reagent/consumable/blackpepper, 1))
-				to_chat(user, "There's not enough black pepper to make anything with.")
+				to_chat(user, "Не хватает черного перца, чтобы что-нибудь приготовить.")
 				return TRUE
 			mill.reagents.remove_reagent(/datum/reagent/consumable/blackpepper, 1)
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
@@ -341,16 +341,14 @@
 			qdel(src)
 
 	else
-		to_chat(user, "<span class='warning'>You need to put [src] on a table to knead in the spice.</span>")
-
+		to_chat(user, "<span class='warning'>Нужно положить [src] на стол, чтобы втереть специи.</span>")
 /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked/spiced
-	desc = "A plump bird, roasted perfection, spiced to taste divine."
+	desc = "Пухлая птица, зажаренная до совершенства и приправленная пряностями. Божественный вкус!"
 	eat_effect = /datum/status_effect/buff/foodbuff
 	name = "spiced bird-roast"
 	color = "#ffc0c0"
-	tastes = list("spicy birdmeat" = 1)
+	tastes = list("вкусного мяса птицы" = 1, "черного перца" = 1)
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_AVERAGE)
-
 /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked/plated
 	icon_state = "roastchicken_plated"
 	item_state = "plate_food"
@@ -365,9 +363,10 @@
 
 /*	.................   Cooked rat   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/friedrat/plated
-	desc = "The beggar's feast."
+	desc = "Праздник нищего."
 	icon_state = "cookedrat_plated"
 	item_state = "plate_food"
+	tastes = list("крысятины" = 1, "бедности" = 1)
 	lefthand_file = 'modular/Neu_Food/icons/food_lefthand.dmi'
 	righthand_file = 'modular/Neu_Food/icons/food_righthand.dmi'
 	experimental_inhand = FALSE

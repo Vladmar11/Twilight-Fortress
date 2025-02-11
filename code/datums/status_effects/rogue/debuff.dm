@@ -10,8 +10,8 @@
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/hungryt1
-	name = "Hungry"
-	desc = "Hunger weakens this living body."
+	name = "Голод"
+	desc = "Голод ослабляет мое тело."
 	icon_state = "hunger1"
 
 /datum/status_effect/debuff/hungryt2
@@ -21,8 +21,8 @@
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/hungryt2
-	name = "Hungry"
-	desc = "This living body suffers heavily from hunger."
+	name = "Сильный голод"
+	desc = "Мое тело сильно страдает от голода."
 	icon_state = "hunger2"
 
 /datum/status_effect/debuff/hungryt3
@@ -32,8 +32,8 @@
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/hungryt3
-	name = "Hungry"
-	desc = "My body can barely hold it!"
+	name = "Смертельный голод"
+	desc = "Моё тело едва выдерживает это!"
 	icon_state = "hunger3"
 
 //SILVER DAGGER EFFECT
@@ -44,8 +44,8 @@
 	duration = 5 SECONDS
 
 /atom/movable/screen/alert/status_effect/debuff/silver_curse
-	name = "Silver Curse"
-	desc = "My BANE!"
+	name = "Серебряное проклятие"
+	desc = "Моя ПОГИБЕЛЬ!"
 	icon_state = "hunger3"
 
 ////////////////////
@@ -57,8 +57,8 @@
 	duration = 20 SECONDS
 
 /atom/movable/screen/alert/status_effect/debuff/moondust_crash
-	name = "Moondust Crash"
-	desc = "My body feels sluggish and strained."
+	name = "Ломка (Лунная пыль)"
+	desc = "Мое тело кажется неповоротливым и напряженным."
 	icon_state = "muscles"
 
 
@@ -69,8 +69,8 @@
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/thirstyt1
-	name = "Thirsty"
-	desc = "I need water."
+	name = "Жажда"
+	desc = "Мне нужна вода."
 	icon_state = "thirst1"
 
 /datum/status_effect/debuff/thirstyt2
@@ -80,8 +80,8 @@
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/thirstyt2
-	name = "Thirsty"
-	desc = "My mouth feels much drier."
+	name = "Сильная жажда"
+	desc = "Во рту стало намного суше."
 	icon_state = "thirst2"
 
 /datum/status_effect/debuff/thirstyt3
@@ -91,8 +91,8 @@
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/thirstyt3
-	name = "Thirsty"
-	desc = "I urgently need water!"
+	name = "Невыносимая жажда"
+	desc = "мне срочно нужна вода! Прямо сейчас!"
 	icon_state = "thirst3"
 
 /////////
@@ -154,7 +154,7 @@
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/bleedingt1
-	name = "Dizzy"
+	name = "Головокружение"
 	desc = ""
 	icon_state = "bleed1"
 
@@ -165,7 +165,7 @@
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/bleedingt2
-	name = "Faint"
+	name = "Слабость"
 	desc = ""
 	icon_state = "bleed2"
 
@@ -176,7 +176,7 @@
 	duration = 100
 
 /atom/movable/screen/alert/status_effect/debuff/bleedingt3
-	name = "Drained"
+	name = "Анемия"
 	desc = ""
 	icon_state = "bleed3"
 
@@ -186,8 +186,8 @@
 	effectedstats = list("speed" = -1, "endurance" = -1)
 
 /atom/movable/screen/alert/status_effect/debuff/sleepytime
-	name = "Tired"
-	desc = "I should get some rest."
+	name = "Усталость"
+	desc = "Мне следует немного отдохнуть."
 	icon_state = "sleepy"
 
 /datum/status_effect/debuff/muscle_sore
@@ -196,8 +196,8 @@
 	effectedstats = list("strength" = -1, "endurance" = -1)
 
 /atom/movable/screen/alert/status_effect/debuff/muscle_sore
-	name = "Muscle Soreness"
-	desc = "My muscles need some sleep to recover."
+	name = "Боль в мышцах"
+	desc = "Мне нужен сон, чтобы мои мышцы могли восстановиться."
 	icon_state = "muscles"
 
 /datum/status_effect/debuff/goblingas
@@ -207,8 +207,8 @@
 	duration = 40 SECONDS
 
 /atom/movable/screen/alert/status_effect/debuff/goblingas
-	name = "Goblin Brained"
-	desc = "My entire body's going numb..."
+	name = "Гоблиноголовый"
+	desc = "Все мое тело немеет..."
 	icon_state = "fentanyl"
 
 /datum/status_effect/debuff/vamp_dreams
@@ -216,8 +216,8 @@
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/vamp_dreams
 
 /atom/movable/screen/alert/status_effect/debuff/vamp_dreams
-	name = "Insight"
-	desc = "With some sleep in a coffin I feel like I could become better."
+	name = "Озарение"
+	desc = "Немного поспав в гробу, я чувствую, что могу стать лучше."
 	icon_state = "sleepy"
 
 /datum/status_effect/debuff/cumbrained
@@ -227,8 +227,8 @@
 	duration = 60 SECONDS
 
 /atom/movable/screen/alert/status_effect/debuff/cumbrained
-	name = "Cum Brained"
-	desc = "It's hard to think..."
+	name = "Изношенность"
+	desc = "Тяжело даже думать..."
 	icon_state = "fentanyl"
 
 /// SURRENDERING DEBUFFS
@@ -249,7 +249,7 @@
 	REMOVE_TRAIT(owner, TRAIT_SPELLCOCKBLOCK, id)
 
 /atom/movable/screen/alert/status_effect/debuff/breedable
-	name = "Breedable"
+	name = "Готовность к размножению"
 
 /datum/status_effect/debuff/submissive
 	id = "submissive"
@@ -265,7 +265,7 @@
 	owner.remove_movespeed_modifier("SUBMISSIVE")
 
 /atom/movable/screen/alert/status_effect/debuff/submissive
-	name = "Submissive"
+	name = "Покорность"
 
 /// SEELIE DEBUFFS
 
@@ -276,8 +276,8 @@
 	duration = 60 SECONDS
 
 /atom/movable/screen/alert/status_effect/buff/seelie/sad
-	name = "Seelie Curse"
-	desc = "A nearby Seelie has spread their poor mood unto me."
+	name = "Опыление Феи"
+	desc = "Фея поблизости поделилась со мной своим плохим настроением."
 	icon_state = "stressb"
 
 /datum/status_effect/debuff/seelie_wing_curse
@@ -287,8 +287,8 @@
 	duration = 4 MINUTES
 
 /atom/movable/screen/alert/status_effect/debuff/seelie_wing_curse
-	name = "Curse of the Seelie"
-	desc = "I've been cursed for my horrific deed..."
+	name = "Проклятие Феи"
+	desc = "Меня обрекли на проклятье за свой ужасный поступок..."
 	icon_state = "stressb"
 
 /// Ravox Curses
@@ -299,9 +299,10 @@
 	duration = 12 SECONDS
 
 /atom/movable/screen/alert/status_effect/debuff/ravox_burden
-	name = "Ravox's Burden"
-	desc = "Some divine power is straining my mind!"
+	name = "Бремя Равокса"
+	desc = "Какая-то божественная сила напрягает мой разум!"
 	icon_state = "muscles"
+
 
 // Darkling debuffs
 /datum/status_effect/debuff/darkling_glare
@@ -311,8 +312,8 @@
 	duration = 10 SECONDS
 
 /atom/movable/screen/alert/status_effect/debuff/darkling_glare
-	name = "Eye Strain"
-	desc = "My eyes are starting to water, the light burns."
+	name = "Перенапряжение глаз"
+	desc = "Глаза начинают слезиться, свет обжигает."
 	icon_state = "stressb"
 
 /datum/status_effect/debuff/darkling_migraine
@@ -322,9 +323,10 @@
 	duration = 20 SECONDS
 
 /atom/movable/screen/alert/status_effect/debuff/darkling_migraine
-	name = "Migraine"
+	name = "Мигрень"
 	icon_state = "muscles"
-	desc = "My head is pounding, I can barely think. I need to get away from the light and rest a while!"
+	desc = "Голова раскалывается, я едва могу думать. Мне нужно уйти от света и немного отдохнуть!"
+
 
 /// Strengthen undead debuff
 /datum/status_effect/debuff/weaken_living
@@ -334,6 +336,14 @@
 	duration = 25 SECONDS
 
 /atom/movable/screen/alert/status_effect/debuff/weaken_living
-	name = "Macabre chill"
-	desc = "I can feel the cold embrace of death seeping into my bones"
+	name = "Смертная слабость"
+	desc = "Я чувствую холодные объятия смерти, проникающие в мое нутро."
 	icon_state = "muscles"
+
+/datum/status_effect/debuff/death_weaken
+	id = "death_weaken"
+	alert_type = null
+	status_type = STATUS_EFFECT_UNIQUE
+	examine_text = span_notice("В теле нет целостности, как будто какая-то часть осталась позади.")
+	effectedstats = list("strength" = -2, "perception" = -2, "intelligence" = -2, "constitution" = -2, "endurance" = -2, "speed" = -2)
+	var/extralives = 1

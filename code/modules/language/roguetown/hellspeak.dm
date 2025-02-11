@@ -1,5 +1,5 @@
 /datum/language/hellspeak
-	name = "Infernal"
+	name = "Инфернальный"
 	desc = ""
 	speech_verb = "says"
 	ask_verb = "asks"

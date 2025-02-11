@@ -10,10 +10,10 @@
 	healing_factor = STANDARD_ORGAN_HEALING
 	decay_factor = STANDARD_ORGAN_DECAY
 
-	low_threshold_passed = span_info("My stomach flashes with pain before subsiding. Food doesn't seem like a good idea right now.")
-	high_threshold_passed = span_warning("My stomach flares up with constant pain- you can hardly stomach the idea of food right now!")
-	high_threshold_cleared = span_info("The pain in my stomach dies down for now, but food still seems unappealing.")
-	low_threshold_cleared = span_info("The last bouts of pain in my stomach have died out.")
+	low_threshold_passed = span_info("Мой желудок вспыхивает от боли, прежде чем утихнуть. Наверное, не стоит пока есть.")
+	high_threshold_passed = span_warning("Мой желудок горит от постоянной боли. Мысли о еде совсем не перевариваются.")
+	high_threshold_cleared = span_info("Боль в желудке на данный момент утихает. Есть от этого сильнее не захотелось")
+	low_threshold_cleared = span_info("Последние приступы боли в животе утихли.")
 
 	var/disgust_metabolism = 1
 
@@ -35,12 +35,12 @@
 	if(Nutri)
 		if(prob((damage/40) * Nutri.volume * Nutri.volume))
 			H.vomit(damage)
-			to_chat(H, span_warning("My stomach reels in pain as you're incapable of holding down all that food!"))
+			to_chat(H, span_warning("Мой желудок скручивается от боли, не в состоянии удерживать всю эту еду!"))
 
 	else if(Nutri && damage > high_threshold)
 		if(prob((damage/10) * Nutri.volume * Nutri.volume))
 			H.vomit(damage)
-			to_chat(H, span_warning("My stomach reels in pain as you're incapable of holding down all that food!"))
+			to_chat(H, span_warning("Мой желудок скручивается от боли, не в состоянии удержать всю эту еду.!"))
 
 /obj/item/organ/stomach/proc/handle_disgust(mob/living/carbon/human/H)
 	if(H.disgust)
@@ -50,7 +50,7 @@
 				H.stuttering += 1
 				H.confused += 2
 			if(prob(10) && !H.stat)
-				to_chat(H, span_warning("I feel kind of iffy..."))
+				to_chat(H, span_warning("Что-то мне нехорошо..."))
 			H.jitteriness = max(H.jitteriness - 3, 0)
 		if(H.disgust >= DISGUST_LEVEL_VERYGROSS)
 			if(prob(pukeprob)) //iT hAndLeS mOrE ThaN PukInG
@@ -121,7 +121,7 @@
 	if(flags & SHOCK_ILLUSION)
 		return
 	adjust_charge(shock_damage * siemens_coeff * 2)
-	to_chat(owner, span_notice("I absorb some of the shock into my body!"))
+	to_chat(owner, span_notice("Я поглощаю часть электроудара своим телом!"))
 
 /obj/item/organ/stomach/ethereal/proc/adjust_charge(amount)
 	crystal_charge = CLAMP(crystal_charge + amount, ETHEREAL_CHARGE_NONE, ETHEREAL_CHARGE_FULL)

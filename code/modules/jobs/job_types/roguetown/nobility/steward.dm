@@ -9,7 +9,9 @@
 	allowed_races = RACES_TOLERATED_UP
 	allowed_sexes = list(MALE, FEMALE)
 	display_order = JDO_STEWARD
-	tutorial = "Coin, Coin, Coin! Oh beautiful coin: You're addicted to it, and you hold the position as the Duke's personal treasurer of both coin and information. You know the power silver and gold has on a man's mortal soul, and you know just what lengths they'll go to in order to get even more. Keep your festering economy and your rats alive, the'yre the only two things you can weigh any trust into anymore."
+	tutorial = "Монета, монета, монета! О прекрасная монета: вы пристрастились к ней и занимаете должность личного казначея герцога, \
+	хранящего как монеты, так и информацию. Вы знаете, какую силу серебро и золото оказывают на смертную душу человека, \
+	и знаете, на что они пойдут, чтобы получить еще больше. Сохраните свою гниющую экономику и своих крыс в ГЕРМЕС'е - это единственные две вещи, которым можно больше доверять."
 	outfit = /datum/outfit/job/roguetown/steward
 	give_bank_account = 17
 	min_pq = 2
@@ -17,35 +19,59 @@
 
 /datum/outfit/job/roguetown/steward/pre_equip(mob/living/carbon/human/H)
 	..()
-	armor = /obj/item/clothing/suit/roguetown/armor/leather/steward
-	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/red
-	pants = /obj/item/clothing/under/roguetown/tights/black
-	shoes = /obj/item/clothing/shoes/roguetown/shortboots
-	belt = /obj/item/storage/belt/rogue/leather
-	beltr = /obj/item/storage/keyring/steward
-	backr = /obj/item/storage/backpack/rogue/satchel
-	mask = /obj/item/clothing/mask/rogue/spectacles
-	backpack_contents = list(/obj/item/clothing/mask/rogue/spectacles = 1)
-
-	ADD_TRAIT(H, TRAIT_SEEPRICES, type)
-
-
-	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/misc/reading, 6, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/treatment, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
-		H.change_stat("intelligence", 2)
-		H.change_stat("perception", 1)
-		H.change_stat("speed", 1)
+	if(H.gender == MALE)
+		head = /obj/item/clothing/head/roguetown/stewardtophat
+		shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/steward
+		armor = /obj/item/clothing/suit/roguetown/armor/leather/jacket/handjacket
+		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/red
+		pants = /obj/item/clothing/under/roguetown/tights/black
+		shoes = /obj/item/clothing/shoes/roguetown/nobleboot/thighboots
+		belt = /obj/item/storage/belt/rogue/leather
+		beltr = /obj/item/storage/keyring/steward
+		backr = /obj/item/storage/backpack/rogue/satchel
+		mask = /obj/item/clothing/mask/rogue/spectacles
+		backpack_contents = list(/obj/item/clothing/mask/rogue/spectacles = 1)
+		if(H.mind)
+			H.mind.adjust_skillrank(/datum/skill/misc/reading, 6, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/treatment, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
+			H.change_stat("intelligence", 2)
+			H.change_stat("perception", 1)
+			H.change_stat("speed", 1)
+	else
+		head = /obj/item/clothing/head/roguetown/stewardtophat
+		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/stewarddress
+		armor = /obj/item/clothing/suit/roguetown/armor/leather/jacket/handjacket
+		pants = /obj/item/clothing/under/roguetown/tights/stockings/silk/white
+		shoes = /obj/item/clothing/shoes/roguetown/shortboots
+		backr = /obj/item/storage/backpack/rogue/satchel
+		belt = /obj/item/storage/belt/rogue/leather
+		beltr = /obj/item/storage/keyring/steward
+		if(H.mind)
+			H.mind.adjust_skillrank(/datum/skill/misc/reading, 6, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/climbing, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/swords, 1, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/misc/treatment, 2, TRUE)
+			H.mind.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
+			H.change_stat("intelligence", 2)
+			H.change_stat("perception", 1)
+			H.change_stat("speed", 1)
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
 

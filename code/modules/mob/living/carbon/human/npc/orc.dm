@@ -1,5 +1,5 @@
 /mob/living/carbon/human/species/orc
-	name = "orc"
+	name = "орк"
 
 	icon = 'icons/roguetown/mob/monster/Orc.dmi'
 	icon_state = "orc"
@@ -162,8 +162,8 @@
 		QDEL_NULL(src.charflaw)
 	update_body()
 	faction = list("orcs")
-	name = "orc"
-	real_name = "orc"
+	name = "орк"
+	real_name = "орк"
 	ADD_TRAIT(src, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOMOOD, TRAIT_GENERIC)
 	ADD_TRAIT(src, TRAIT_NOHUNGER, TRAIT_GENERIC)
@@ -177,7 +177,7 @@
 //			equipOutfit(O)
 
 /datum/species/orc
-	name = "orc"
+	name = "орк"
 	id = "orc"
 	species_traits = list(NO_UNDERWEAR,NOEYESPRITES)
 	inherent_traits = list(TRAIT_RESISTCOLD,TRAIT_RESISTHIGHPRESSURE,TRAIT_RESISTLOWPRESSURE,TRAIT_RADIMMUNE,TRAIT_CRITICAL_WEAKNESS, TRAIT_NASTY_EATER, TRAIT_LEECHIMMUNE, TRAIT_INHUMENCAMP)
@@ -327,7 +327,7 @@
 
 //NEW ORCS WITH DIFFERENT GEAR AND SHIT
 /mob/living/carbon/human/species/orc/tribal
-	name = "Tribal Orc"
+	name = "племенной орк"
 	var/loadout = /datum/outfit/job/roguetown/npc/orc/tribal
 	ambushable = FALSE
 
@@ -378,7 +378,7 @@
 //////////////////////////////////////////////////////////
 
 /mob/living/carbon/human/species/orc/warrior
-	name = "Warrior Orc"
+	name = "орк-воин"
 	var/loadout = /datum/outfit/job/roguetown/npc/orc/warrior
 	ambushable = FALSE
 
@@ -450,7 +450,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////
 
 /mob/living/carbon/human/species/orc/marauder
-	name = "Marauder Orc"
+	name = "орк-мародер"
 	var/loadout = /datum/outfit/job/roguetown/npc/orc/marauder
 	ambushable = FALSE
 
@@ -505,7 +505,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////
 /mob/living/carbon/human/species/orc/warlord
-	name = "Warlord Orc"
+	name = "орк-военачальник"
 	var/loadout = /datum/outfit/job/roguetown/npc/orc/warlord
 	ambushable = FALSE
 

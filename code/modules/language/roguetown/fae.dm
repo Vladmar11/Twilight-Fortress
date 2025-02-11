@@ -1,5 +1,5 @@
 /datum/language/faexin
-	name = "Faexin"
+	name = "Язык Фей"
 	desc = ""
 	speech_verb = "says"
 	ask_verb = "asks"

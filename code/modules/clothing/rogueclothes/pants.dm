@@ -42,8 +42,8 @@
 #endif
 
 /obj/item/clothing/under/roguetown/tights
-	name = "tights"
-	desc = "A pair of form fitting tights."
+	name = "трико"
+	desc = "Пара облегающих штанов."
 	gender = PLURAL
 	icon_state = "tights"
 	item_state = "tights"
@@ -60,7 +60,7 @@
 	color = CLOTHING_PURPLE
 
 /obj/item/clothing/under/roguetown/tights/jester
-	desc = "Funny tights!"
+	desc = "Забавные трико!"
 	color = "#1E3B20"
 	do_sound_bell = FALSE
 
@@ -82,22 +82,25 @@
 	return ..()
 
 /obj/item/clothing/under/roguetown/tights/sailor
-	name = "pants"
+	name = "морские трико"
 	icon_state = "sailorpants"
 
 /obj/item/clothing/under/roguetown/webs
-	name = "webbing"
-	desc = "a fine webbing made from spidersilk, popular fashion within the underdark"
+	name = "штаны-сетка"
+	desc = "Тонкая паутинка, сделанная из паучьего шелка. Популярная мода в Подземье"
 	gender = PLURAL
 	icon_state = "webs"
 	item_state = "webs"
 	r_sleeve_status = SLEEVE_NOMOD
 	l_sleeve_status = SLEEVE_NOMOD
+	fiber_salvage = FALSE
+	silk_salvage = TRUE
 	salvage_result = /obj/item/natural/silk
+	salvage_amount = 1
 
 /obj/item/clothing/under/roguetown/trou
-	name = "work trousers"
-	desc = "Good quality trousers worn by laborers."
+	name = "рабочие брюки"
+	desc = "Брюки хорошего качества, которые носят рабочие."
 	gender = PLURAL
 	icon_state = "trou"
 	item_state = "trou"
@@ -113,8 +116,8 @@
 	salvage_result = /obj/item/natural/cloth
 
 /obj/item/clothing/under/roguetown/chainlegs
-	name = "chain chausses"
-	desc = "Steel chain leggings, composed of interlinked metal rings, that absorb arrow impacts decently enough."
+	name = "кольчужные шоссы"
+	desc = "Стальные поножи, состоящие из сцепленных между собой металлических колец, которые достаточно прилично поглощают удары стрел."
 	gender = PLURAL
 	icon_state = "chain_legs"
 	item_state = "chain_legs"
@@ -134,8 +137,8 @@
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/under/roguetown/brayette
-	name = "brayette"
-	desc = "Chain underwear which protect the family jewels."
+	name = "кольчужный гульфик"
+	desc = "Кольчужное белье для особой защиты фамильных ценностей."
 	gender = PLURAL
 	icon_state = "chain_bootyshorts"
 	item_state = "chain_bootyshorts"
@@ -154,15 +157,15 @@
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/under/roguetown/chainlegs/iron
-	desc = "Iron chain leggings, composed of interlinked metal rings, that absorb arrow impacts decently enough."
+	desc = "Железные поножи, состоящие из сцепленных между собой металлических колец, которые достаточно прилично поглощают удары стрел."
 	icon_state = "ichain_legs"
 	anvilrepair = /datum/skill/craft/blacksmithing
 	max_integrity = 175
 	smeltresult = /obj/item/ingot/iron
 
 /obj/item/clothing/under/roguetown/platelegs
-	name = "plated chausses"
-	desc = "Plated armor to protect the legs, especially against arrows."
+	name = "латные поножи"
+	desc = "Латная броня для защиты ног, особенно от попаданий стрел."
 	gender = PLURAL
 	icon_state = "chain_legs"
 	item_state = "chain_legs"
@@ -182,8 +185,8 @@
 	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/under/roguetown/loincloth
-	name = "loincloth"
-	desc = "Covers your dignity, but only just."
+	name = "набедренная повязка"
+	desc = "Прикрывает только ваш срам, не больше."
 	icon_state = "loincloth"
 	item_state = "loincloth"
 //	adjustable = CAN_CADJUST
@@ -199,8 +202,8 @@
 	color = "#b98ae3"
 
 /obj/item/clothing/under/roguetown/grenzelpants
-	name = "grenzelhoftian paumpers"
-	desc = "Padded pants for extra comfort and protection, adorned in vibrant colors."
+	name = "грензельхофтские помперы"
+	desc = "Брюки, украшенные яркими цветами и дополненные мягкой подкладкой для большего комфорта и защиты."
 	icon_state = "grenzelpants"
 	item_state = "grenzelpants"
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/stonekeep_merc.dmi'
@@ -219,8 +222,8 @@
 		add_overlay(pic)
 
 /obj/item/clothing/under/roguetown/splintlegs
-	name = "brigandine chausses"
-	desc = "Splint mail and brigandine chausses, designed to protect the legs while still providing almost complete free range of movement."
+	name = "бригантинные шоссы"
+	desc = "Бригантинные поножи, дополненные металлическими шинами и кольчугой. Предназначены для защиты ног, при этом обеспечивая почти полную свободу движений."
 	icon_state = "splintlegs"
 	item_state = "splintlegs"
 	max_integrity = 250
@@ -240,8 +243,8 @@
 //----------------- BLACKSTEEL---------------------
 
 /obj/item/clothing/under/roguetown/blacksteel/platelegs
-	name = "Blacksteel Plate Chausses"
-	desc = "Reinforced leg plates forged of durable blacksteel."
+	name = "поножи из черной стали"
+	desc = "Крепкие пластины для защиты ног выкованы из прочной черной стали."
 	gender = PLURAL
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
