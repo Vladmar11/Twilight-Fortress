@@ -10,14 +10,14 @@
 /obj/item/reagent_containers/food/snacks/grown/onion/rogue
 	desc = "Замечательный многослойный овощ обладающий широкой вкусовой палитрой"
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/veg/onion_sliced
-	tastes = list("лука" = 1)
+	slices_num = 3
+	tastes = list("лука" = 1)n
 	chopping_sound = TRUE
 	dropshrink = 0.8
 
 /obj/item/reagent_containers/food/snacks/rogue/veg/onion_sliced
 	name = "нарезанный лук"
 	icon_state = "onion_sliced"
-	slices_num = 3
 	tastes = list("концентрированных слез" = 1)
 	fried_type = /obj/item/reagent_containers/food/snacks/rogue/preserved/onion_fried
 	cooked_smell = /datum/pollutant/food/fried_onion
