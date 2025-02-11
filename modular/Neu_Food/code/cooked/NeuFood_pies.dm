@@ -627,7 +627,7 @@
 	icon_state = "handpie"
 	eat_effect = /datum/status_effect/buff/foodbuff
 	bitesize = 4
-	bonus_reagents = list(/datum/reagent/consumable/nutriment = BUTTERDOUGHSLICE_NUTRITION+MINCE_NUTRITION, /datum/reagent/medicine/omnizine = 5) // donkpocket
+	list_reagents = list(/datum/reagent/consumable/nutriment = BUTTERDOUGHSLICE_NUTRITION+MINCE_NUTRITION, /datum/reagent/medicine/omnizine = 5)
 	tastes = list("хрустящего теста" = 1)
 	rotprocess = null
 	dropshrink = 0.8
