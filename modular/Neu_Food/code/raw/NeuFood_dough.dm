@@ -408,13 +408,20 @@
 /obj/item/reagent_containers/food/snacks/rogue/breadslice/toast/buttered
 	name = "тост с маслом"
 	icon_state = "toast_butter"
-	tastes = list("масла" = 1, "хлеба" = 1)
+	tastes = list("butter" = 1)
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR+1)
 
 // -------------- BREAD WITH FOOD ON IT (not american sandwich) -----------------
 /obj/item/reagent_containers/food/snacks/rogue/sandwich
-	desc = "Восхитительный кусочек рая."
+	desc = "A delightful piece of heaven, in every slice."
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR+1)
+	tastes = list("масла" = 1, "хлеба" = 1)
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+
+// -------------- BREAD WITH FOOD ON IT (not american sandwich) -----------------
+/obj/item/reagent_containers/food/snacks/rogue/sandwich
+	desc = "Восхитительный кусочек рая."
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
 	rotprocess = 30 MINUTES
 	bitesize = 2
 
@@ -453,7 +460,9 @@
 	icon_state = "bun"
 	list_reagents = list(/datum/reagent/consumable/nutriment = SMALLDOUGH_NUTRITION)
 	w_class = WEIGHT_CLASS_SMALL
-	tastes = list("хлеба" = 1)
+	tastes = list("bread" = 1)
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	w_class = WEIGHT_CLASS_NORMAL
 	bitesize = 2
 	rotprocess = SHELFLIFE_EXTREME
 /obj/item/reagent_containers/food/snacks/rogue/bun/attackby(obj/item/I, mob/living/user, params)
@@ -497,23 +506,31 @@
 	bitesize = 3
 	rotprocess = SHELFLIFE_DECENT
 
+/*  ..................   Frybread   ......................*/
 /obj/item/reagent_containers/food/snacks/rogue/frybread
 	name = "жареный хлеб"
 	desc = "Лепешка, обжаренная на сильном огне со сливочным маслом, чтобы она стала хрустящей снаружи. Основа эльфийской кухни."
 	icon_state = "frybread"
 	list_reagents = list(/datum/reagent/consumable/nutriment = BUTTERDOUGHSLICE_NUTRITION)
-	tastes = list("хрустящего хлеба с мякишем" = 1)
+	tastes = list("crispy bread with a soft inside" = 1)
 	foodtype = GRAIN | DAIRY | FRIED
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	tastes = list("хрустящего хлеба с мякишем" = 1)
 	w_class = WEIGHT_CLASS_NORMAL
 	bitesize = 3
 	eat_effect = /datum/status_effect/buff/foodbuff
 
 /*	.................   Pastry   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/pastry
-	name = "выпечка"
-	desc = "Популярна среди детей и любителей сладкого.(Добавьте сахар, чтобы сделать сладкий рулет)"
+	name = "pastry"
+	desc = "Favored among children and sweetlovers. (Add sugar to make a sweetroll)"
 	icon_state = "pastry"
 	list_reagents = list(/datum/reagent/consumable/nutriment = BUTTERDOUGHSLICE_NUTRITION)
+	tastes = list("crispy butterdough" = 1)
+	name = "выпечка"
+	desc = "Популярна среди детей и любителей сладкого."
+	icon_state = "pastry"
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	tastes = list("хрустящего сдобного теста" = 1)
 	w_class = WEIGHT_CLASS_NORMAL
 	bitesize = 3
@@ -524,15 +541,19 @@
 /*	.................   Sweetroll   ................... */
 
 /obj/item/reagent_containers/food/snacks/rogue/sweetroll
+	name = "sweetroll"
+	desc = "A pastry covered with sugar. The sweetlovers favourite."
 	name = "сладкий рулет"
-	desc = "Тесто посыпанное сахаром. Любимец влюбленных"
+	desc = ""
 	icon = 'icons/roguetown/items/food.dmi'
 	icon_state = "sweetroll"
 	dropshrink = 0.75
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS + 1)
 	w_class = WEIGHT_CLASS_NORMAL
-	tastes = list("хрустящего теста" = 1, "сахарной глазури" = 1)
+	tastes = list("sugar and crispy dough" = 1)
 	foodtype = SUGAR | GRAIN | DAIRY
+	tastes = list("хрустящего теста" = 1, "сахарной глазури" = 1)
+	foodtype = SUGAR
 	rotprocess = SHELFLIFE_EXTREME
 	eat_effect = /datum/status_effect/buff/foodbuff
 
@@ -574,8 +595,9 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = BUTTERDOUGHSLICE_NUTRITION+SNACK_POOR)
 	w_class = WEIGHT_CLASS_NORMAL
 	bitesize = 3
-	tastes = list("хрустящего теста" = 1, "изюма" = 1)
+	tastes = list("crispy butterdough" = 1, "raisins" = 1)
 	foodtype = GRAIN | DAIRY | FRUIT
+	tastes = list("хрустящего теста" = 1, "изюма" = 1)
 	eat_effect = /datum/status_effect/buff/foodbuff
 
 
@@ -594,6 +616,8 @@
 	desc = "Следующая лучшая вещь после нарезанного хлеба. Обычно такое готовят дворфы."
 	icon_state = "prezzel"
 	list_reagents = list(/datum/reagent/consumable/nutriment = BUTTERDOUGHSLICE_NUTRITION)
+	tastes = list("crispy butterdough" = 1)
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	tastes = list("хрустящего теста" = 1)
 	w_class = WEIGHT_CLASS_NORMAL
 	bitesize = 3
@@ -757,8 +781,8 @@
 	name = "кусок зибантийского торта"
 	icon_state = "honeycakeslice"
 	slices_num = 0
-	tastes = list("нежного бисквита" = 1, "вкусной медовой глазури" = 1)
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT-1)
+	tastes = list("нежного бисквита" = 1, "вкусной медовой глазури" = 1)
 	w_class = WEIGHT_CLASS_NORMAL
 	cooked_type = null
 	foodtype = GRAIN | DAIRY | SUGAR
@@ -806,7 +830,6 @@
 	name = "кусок чизкейка"
 	icon_state = "cheesecake_slice"
 	slices_num = 0
-	tastes = list("нежного бисквита" = 1, "кремовой сырной глазури" = 1)
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT-1)
 	w_class = WEIGHT_CLASS_NORMAL
 	cooked_type = null
