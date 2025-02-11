@@ -7,7 +7,7 @@
 	item_state = ""
 	slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb = list("whips", "lashes")
+	attack_verb = list("хлестает", "стегает")
 	max_integrity = 300
 	equip_sound = 'sound/blank.ogg'
 	content_overlays = FALSE
@@ -123,7 +123,7 @@
 	righthand_file = 'icons/mob/inhands/equipment/belt_righthand.dmi'
 	slot_flags = ITEM_SLOT_HIP|ITEM_SLOT_NECK
 	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb = list("whips", "lashes")
+	attack_verb = list("хлестает", "стегает")
 	max_integrity = 300
 	equip_sound = 'sound/blank.ogg'
 	content_overlays = FALSE
