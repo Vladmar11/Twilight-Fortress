@@ -29,7 +29,7 @@
 	beltr = /obj/item/rogueweapon/sword/short/wakizashi
 	neck = /obj/item/clothing/neck/roguetown/chaincoif/iron/kusari_zukin //
 	shirt = /obj/item/clothing/suit/roguetown/shirt/tunic/kimono //
-	head = /obj/item/clothing/head/roguetown/zurarikabutonew //
+	head = /obj/item/clothing/head/roguetown/helmet/zurarikabutonew //
 	armor = /obj/item/clothing/suit/roguetown/armor/brigandine/oyoroi/oyoroigusoku //
 	pants = /obj/item/clothing/under/roguetown/chainlegs/sendan //
 	shoes = /obj/item/clothing/shoes/roguetown/boots/armor/light/kusaritabi //

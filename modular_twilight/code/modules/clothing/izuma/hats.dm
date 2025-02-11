@@ -236,7 +236,7 @@
 	armor = list("blunt" = 90, "slash" = 100, "stab" = 80, "bullet" = 100, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	body_parts_covered = HEAD|HAIR|NOSE|EARS|EYES
 
-/obj/item/clothing/head/roguetown/zurarikabutonew
+/obj/item/clothing/head/roguetown/helmet/zurarikabutonew
 	name = "зунари кабуто Изумы"
 	desc = "Кабуто этчу дзунари с маркировкой Изумы. У него нет демонической\
 	маски для устрашения - но она остается такой же эффективной, к тому же демонстрирует\
