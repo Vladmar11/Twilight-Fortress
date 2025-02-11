@@ -9,7 +9,7 @@
 
 /*	..................   Pepper steak   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/peppersteak
-	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_MEAGRE)
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_CHUNKY)
 	tastes = list("теплого стейка" = 1, "черного перца" = 1)
 	name = "стейк с перцем"
 	desc = "Жареное мясо с щедрым слоем молотого перца для интенсивного вкуса."
@@ -18,6 +18,7 @@
 	warming = 5 MINUTES
 	rotprocess = SHELFLIFE_DECENT
 	eat_effect = /datum/status_effect/buff/foodbuff
+	bitesize = 4
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
 /obj/item/reagent_containers/food/snacks/rogue/peppersteak/plated
 	icon_state = "peppersteak_plated"
@@ -37,9 +38,10 @@
 	desc = "Жареное мясо, украшенное нежным жареным луком, в ароматном и пропитанном соками обоих ингредиентов аппетитном соусе."
 	icon_state = "onionsteak"
 	tastes = list("теплого стейка" = 1, "жареного лука" = 1)
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT+3)
-	foodtype = MEAT
+	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_MEAGRE)
+	foodtype = MEAT | VEGETABLES
 	warming = 5 MINUTES
+	bitesize = 5
 	rotprocess = SHELFLIFE_DECENT
 	eat_effect = /datum/status_effect/buff/foodbuff
 	drop_sound = 'sound/foley/dropsound/gen_drop.ogg'
@@ -64,6 +66,7 @@
 	icon_state = "wienercabbage"
 	foodtype = VEGETABLES | MEAT
 	warming = 3 MINUTES
+	bitesize = 5
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
 /obj/item/reagent_containers/food/snacks/rogue/wienercabbage/plated
@@ -87,6 +90,7 @@
 	icon_state = "wienerpotato"
 	foodtype = VEGETABLES | MEAT
 	warming = 3 MINUTES
+	bitesize = 5
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
 /obj/item/reagent_containers/food/snacks/rogue/wienerpotato/attackby(obj/item/I, mob/living/user, params)
@@ -137,6 +141,7 @@
 	icon_state = "wieneronions"
 	foodtype = VEGETABLES | MEAT
 	warming = 3 MINUTES
+	bitesize = 5
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
 /obj/item/reagent_containers/food/snacks/rogue/wieneronions/attackby(obj/item/I, mob/living/user, params)
@@ -181,13 +186,14 @@
 
 /*	.................   Wiener & potato & onions   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/wienerpotatonions
-	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_MEAGRE)
+	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_GOOD)
 	tastes = list("пикантной колбаски" = 1, "жареного картофеля" = 1, "жареного лука" = 1)
 	name = "колбаска с овощами"
 	desc = "Плотное и питательное блюдо."
 	icon_state = "wpotonion"
 	foodtype = VEGETABLES | MEAT
 	warming = 3 MINUTES
+	bitesize = 6
 	rotprocess = SHELFLIFE_DECENT
 	eat_effect = /datum/status_effect/buff/foodbuff
 /obj/item/reagent_containers/food/snacks/rogue/wienerpotatonions/plated
@@ -210,6 +216,7 @@
 	icon_state = "frybirdtato"
 	foodtype = VEGETABLES | MEAT
 	warming = 3 MINUTES
+	bitesize = 5
 	rotprocess = SHELFLIFE_DECENT
 	eat_effect = /datum/status_effect/buff/foodbuff
 /obj/item/reagent_containers/food/snacks/rogue/frybirdtato/plated
@@ -226,13 +233,16 @@
 
 /*	.................   Valerian Omelette   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/friedegg/tiberian
-	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_MEAGRE)
+	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_GOOD)
 	tastes = list("жареного яйца" = 1, "сыра" = 1)
 	name = "валерианский омлет"
 	desc = "Жареное яйцо на подушке из полурасплавленного сыра, блюдо из далеких стран."
 	icon_state = "omelette"
+	bitesize = 6
 	eat_effect = /datum/status_effect/buff/foodbuff
 	rotprocess = SHELFLIFE_DECENT
+	foodtype = MEAT | DAIRY
+
 /obj/item/reagent_containers/food/snacks/rogue/friedegg/tiberian/plated
 	icon_state = "omelette_plated"
 	item_state = "plate_food"
@@ -302,8 +312,9 @@
 	name = "запеченая птица"
 	icon_state = "roastchicken"
 	tastes = list("вкусного мяса птицы" = 1)
+  bitesize = 5
 	cooked_type = null
-	bonus_reagents = list(/datum/reagent/consumable/nutriment = MEAL_MEAGRE)
+	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_MEAGRE)
 	rotprocess = SHELFLIFE_DECENT
 /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked/attackby(obj/item/I, mob/living/user, params)
 	var/obj/item/reagent_containers/peppermill/mill = I
@@ -337,6 +348,7 @@
 	name = "spiced bird-roast"
 	color = "#ffc0c0"
 	tastes = list("вкусного мяса птицы" = 1, "черного перца" = 1)
+	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_AVERAGE)
 /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked/plated
 	icon_state = "roastchicken_plated"
 	item_state = "plate_food"

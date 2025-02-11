@@ -65,6 +65,7 @@
 	icon_state = "grenzbun"
 	foodtype = GRAIN | MEAT
 	warming = 5 MINUTES
+	bitesize = 4
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
 
@@ -111,7 +112,7 @@
 
 /*	.............   Twin fried cackleberries   ................ */
 /obj/item/reagent_containers/food/snacks/rogue/friedegg/two
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_CHUNKY)
 	tastes = list("жареного яйца" = 1)
 	name = "большая яичницы"
 	desc = "Больше желтков, больше удовольствия."
@@ -213,8 +214,8 @@
 	name = "тушеная капуста"
 	icon_state = "cabbage_fried"
 	desc = "Радость крестьянина."
-	bitesize = 6
-	list_reagents = list(/datum/reagent/consumable/nutriment = 6)
+	bitesize = 2
+	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	tastes = list("теплой капусты" = 1)
 	rotprocess = SHELFLIFE_LONG
 /obj/item/reagent_containers/food/snacks/rogue/preserved/cabbage_fried/attackby(obj/item/I, mob/living/user, params)
@@ -276,8 +277,8 @@
 	name = "луковые кольца"
 	desc = "Ломтики лука, обжаренные до вкусных колец."
 	icon_state = "onion_fried"
-	bitesize = 6
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	bitesize = 2
+	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	tastes = list("пикантного лука" = 1, "слёз" = 1)
 	rotprocess = SHELFLIFE_DECENT
 /obj/item/reagent_containers/food/snacks/rogue/preserved/onion_fried/attackby(obj/item/I, mob/living/user, params)
@@ -302,8 +303,8 @@
 	name = "жареный картофель"
 	desc = "Хорошо прожаренные картофельные кусочки."
 	icon_state = "potato_fried"
-	bitesize = 3
-	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	bitesize = 2
+	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	tastes = list("картофеля с корочкой" = 1)
 	rotprocess = SHELFLIFE_LONG
 	
