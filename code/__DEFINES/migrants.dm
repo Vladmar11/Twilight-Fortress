@@ -8,6 +8,7 @@
 	/datum/migrant_role/heartfelt/knight,\
 	/datum/migrant_role/heartfelt/magos,\
 	/datum/migrant_role/heartfelt/prior,\
+	/datum/migrant_role/izumawave/samurai,\
 
 #define MIGRANT_LORDS \
 	/datum/migrant_role/heartfelt/lord,\

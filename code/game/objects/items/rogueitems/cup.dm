@@ -1,6 +1,6 @@
 /obj/item/reagent_containers/glass/cup
-	name = "metal cup"
-	desc = "A sturdy cup, often used by warriors, bogwatch and other sturdy men."
+	name = "металлическая кружка"
+	desc = "Прочная кружка, часто используемая воинами, стражами и другими крепкими мужчинами."
 	icon_state = "iron"
 	icon = 'icons/roguetown/items/cooking.dmi'
 	force = 5
@@ -30,14 +30,14 @@
 		add_overlay(filling)
 
 /obj/item/reagent_containers/glass/cup/pewter
-	name = "pewter tankard"
-	desc = "A fancy tankard for drinking like wannabe noblemen."
+	name = "оловянная кружка"
+	desc = "Изысканная кружка для питья, подражая аристократам."
 	icon_state = "pewter"
 	sellprice = 10
 
 /obj/item/reagent_containers/glass/cup/wooden
-	name = "wooden cup"
-	desc = "This cup whispers tales of drunken battles and feasts."
+	name = "деревянная кружка"
+	desc = "Дно этой кружки шепчет сказки о пьяных битвах и пирах."
 	resistance_flags = FLAMMABLE
 	icon_state = "wooden"
 	drop_sound = 'sound/foley/dropsound/wooden_drop.ogg'
@@ -46,21 +46,21 @@
 	metalizer_result = /obj/item/reagent_containers/glass/cup
 
 /obj/item/reagent_containers/glass/cup/steel
-	name = "goblet"
-	desc = "A steel goblet, its surface adorned with intricate carvings."
+	name = "кубок"
+	desc = "Стальной кубок, поверхность которого украшена сложной резьбой."
 	icon_state = "steel"
 	sellprice = 10
 
 /obj/item/reagent_containers/glass/cup/silver
-	name = "silver goblet"
-	desc = "A silver goblet, its surface adorned with intricate carvings and runes."
+	name = "серебрянный кубок"
+	desc = "Серебряный кубок, поверхность которого украшена сложной резьбой и рунами."
 	icon_state = "silver"
 	sellprice = 30
 	var/last_used = 0
 
 /obj/item/reagent_containers/glass/cup/silver/funny_attack_effects(mob/living/target, mob/living/user = usr, nodmg)
 	if(world.time < src.last_used + 12 SECONDS)
-		to_chat(user, span_notice("The silver effect is on cooldown."))
+		to_chat(user, span_notice("Эффект серебра находится на перезарядке."))
 		return
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
@@ -68,7 +68,7 @@
 			if(istype(H.dna.species, /datum/species/werewolf))
 				H.adjustFireLoss(10)
 				H.fire_act(1,10)
-				to_chat(H, span_userdanger("I'm hit with my BANE!"))
+				to_chat(H, span_userdanger("Меня ударили моей ПОГИБЕЛЬЮ!"))
 				src.last_used = world.time
 				return
 		if(target.mind && target.mind.has_antag_datum(/datum/antagonist/vampirelord))
@@ -76,7 +76,7 @@
 			if(!VD.disguised)
 				H.adjustFireLoss(10)
 				H.fire_act(1,10)
-				to_chat(H, span_userdanger("I'm hit with my BANE!"))
+				to_chat(H, span_userdanger("Меня ударили моей ПОГИБЕЛЬЮ!"))
 				src.last_used = world.time
 				return
 
@@ -87,18 +87,18 @@
 	var/datum/antagonist/werewolf/W = H.mind.has_antag_datum(/datum/antagonist/werewolf/)
 	if(ishuman(H))
 		if(H.mind.has_antag_datum(/datum/antagonist/vampirelord/lesser))
-			to_chat(H, span_userdanger("I can't pick up the silver, it is my BANE!"))
+			to_chat(H, span_userdanger("Я не могу брать в руки серебро, это моя ПОГИБЕЛЬ!"))
 			H.Knockdown(10)
 			H.Paralyze(10)
 			H.adjustFireLoss(25)
 			H.fire_act(1,10)
 		if(V_lord)
 			if(V_lord.vamplevel < 4 && !H.mind.has_antag_datum(/datum/antagonist/vampirelord/lesser))
-				to_chat(H, span_userdanger("I can't pick up the silver, it is my BANE!"))
+				to_chat(H, span_userdanger("Я не могу брать в руки серебро, это моя ПОГИБЕЛЬ!"))
 				H.Knockdown(10)
 				H.adjustFireLoss(25)
 		if(W && W.transformed == TRUE)
-			to_chat(H, span_userdanger("I can't pick up the silver, it is my BANE!"))
+			to_chat(H, span_userdanger("Я не могу брать в руки серебро, это моя ПОГИБЕЛЬ!"))
 			H.Knockdown(10)
 			H.Paralyze(10)
 			H.adjustFireLoss(25)
@@ -114,28 +114,28 @@
 				M.Paralyze(10)
 				M.adjustFireLoss(25)
 				H.fire_act(1,10)
-				to_chat(H, span_userdanger("I can't pick up the silver, it is my BANE!"))
+				to_chat(H, span_userdanger("Я не могу брать в руки серебро, это моя ПОГИБЕЛЬ!"))
 				return FALSE
 	if(M.mind && M.mind.has_antag_datum(/datum/antagonist/vampirelord))
 		M.adjustFireLoss(25)
 		M.fire_act(1,10)
-		to_chat(M, span_userdanger("I can't pick up the silver, it is my BANE!"))
+		to_chat(M, span_userdanger("Я не могу брать в руки серебро, это моя ПОГИБЕЛЬ!"))
 		return FALSE
 
 /obj/item/reagent_containers/glass/cup/golden
-	name = "golden goblet"
-	desc = "Adorned with gemstones, this goblet radiates opulence and grandeur."
+	name = "золотой кубок"
+	desc = "Этот кубок, украшенный драгоценными камнями, излучает богатство и величие."
 	icon_state = "golden"
 	sellprice = 50
 
 /obj/item/reagent_containers/glass/cup/skull
-	name = "skull goblet"
-	desc = "The hollow eye sockets tell you of forgotten, dark rituals."
+	name = "кубок из черепа"
+	desc = "Полые глазницы расскажут вам о забытых темных ритуалах."
 	icon_state = "skull"
 
 /obj/item/reagent_containers/glass/bowl
-	name = "bowl"
-	desc = "It is the empty space that makes the bowl useful."
+	name = "миска"
+	desc = "Именно пустое пространство делает чашу полезной."
 	icon = 'icons/roguetown/items/cooking.dmi'
 	icon_state = "bowl"
 	force = 5

@@ -18,12 +18,12 @@
 
 /datum/anvil_recipe/proc/advance(mob/user, breakthrough = FALSE)
 	if(progress == 100)
-		to_chat(user, span_info("It's ready."))
-		user.visible_message(span_warning("[user] strikes the bar!"))
+		to_chat(user, span_info("Готово."))
+		user.visible_message(span_warning("[user] ударяет по заготовке!"))
 		return FALSE
 	if(needed_item)
-		to_chat(user, span_info("Now it's time to add \a [initial(needed_item.name)]."))
-		user.visible_message(span_warning("[user] strikes the bar!"))
+		to_chat(user, span_info("Теперь пора добавить \a [initial(needed_item.name)]."))
+		user.visible_message(span_warning("[user] ударяет по заготовке!"))
 		return FALSE
 	var/moveup = 1
 	var/user_skill = user.mind.get_skill_level(appro_skill)
@@ -43,14 +43,14 @@
 		additional_items -= needed_item
 		progress = 0
 	if(!moveup)
-		if(prob(round(proab)))
+		if(prob(round(proab/2)))
 			user.visible_message(span_warning("[user] spoils the bar!"))
 			if(parent)
 				var/obj/item/P = parent
 				qdel(P)
 			return FALSE
 		else
-			user.visible_message(span_warning("[user] fumbles with the bar!"))
+			user.visible_message(span_warning("[user] неуклюже обращается с заготовкой!"))
 			progress -= skill_level * 2 - user_skill //Lose progress when you make mistakes
 			return FALSE
 	else
@@ -64,11 +64,11 @@
 				else if (prob(20)) //Might take a few hits to realize you're wasting your time
 					to_chat(user, span_warning("This is too complicated for my current skill level, I'm not making any progress."))
 		if(breakthrough)
-			user.visible_message(span_warning("[user] strikes the bar!"))
+			user.visible_message(span_warning("[user] ударяет по заготовке!"))
 		else
-			user.visible_message(span_info("[user] strikes the bar!"))
+			user.visible_message(span_info("[user] ударяет по заготовке!"))
 		return TRUE
 
 /datum/anvil_recipe/proc/item_added(mob/user)
-	user.visible_message(span_info("[user] adds [initial(needed_item.name)]."))
+	user.visible_message(span_info("[user] добавляет [initial(needed_item.name)]."))
 	needed_item = null

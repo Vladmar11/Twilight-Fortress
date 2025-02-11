@@ -89,14 +89,14 @@
 				hood.color = color
 			if(slot_flags == ITEM_SLOT_ARMOR)
 				if(H.wear_armor != src)
-					to_chat(H, span_warning("I should put that on first."))
+					to_chat(H, span_warning("Мне стоит сначала это надеть."))
 					return
 			if(slot_flags == ITEM_SLOT_CLOAK)
 				if(H.cloak != src)
-					to_chat(H, span_warning("I should put that on first."))
+					to_chat(H, span_warning("Мне стоит сначала это надеть."))
 					return
 			if(H.head)
-				to_chat(H, span_warning("I'm already wearing something on my head."))
+				to_chat(H, span_warning("У меня уже что-то есть на голове."))
 				return
 			else if(H.equip_to_slot_if_possible(hood,SLOT_HEAD,0,0,1))
 				testing("begintog")
@@ -159,7 +159,7 @@
 	if(!can_use(usr))
 		return 0
 
-	to_chat(usr, span_notice("I toggle [src]'s [togglename]."))
+	to_chat(usr, span_notice("Я поправляю [togglename] у [src]."))
 	if(src.hoodtoggled)
 		src.icon_state = "[initial(icon_state)]"
 		src.hoodtoggled = FALSE
@@ -174,4 +174,4 @@
 
 /obj/item/clothing/suit/toggle/examine(mob/user)
 	. = ..()
-	. += "Alt-click on [src] to toggle the [togglename]."
+	. += "Нажмите Alt+ЛКМ по [src], чтобы переключить вид [togglename]."

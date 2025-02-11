@@ -1,5 +1,5 @@
 /obj/item/clothing/neck/roguetown
-	name = "necklace"
+	name = ""
 	desc = ""
 	icon = 'icons/roguetown/clothing/neck.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/neck.dmi'
@@ -7,10 +7,10 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/clothing/neck/roguetown/coif
-	name = "coif"
+	name = "койф"
 	icon_state = "coif"
 	item_state = "coif"
-	desc = "A coif made either of leather or cloth that is comfortable enough to sleep in that protects the head, ears and neck, while providing no protection from arrows and bolts and sadly enough, too soft to prevent chops from decapitating."
+	desc = "Капюшон из ткани, достаточно удобный для сна, защищающий голову, уши и шею, но не обеспечивающий защиты от стрел и болтов, и, как ни прискорбно, слишком мягкий, чтобы предотвратить обезглавливание."
 	flags_inv = HIDEHAIR
 	slot_flags = ITEM_SLOT_NECK|ITEM_SLOT_HEAD
 	blocksound = SOFTHIT
@@ -46,10 +46,10 @@
 
 
 /obj/item/clothing/neck/roguetown/chaincoif
-	name = "chain coif"
+	name = "кольчужный койф"
 	icon_state = "chaincoif"
 	item_state = "chaincoif"
-	desc = "A steel chain coif, composed of interlinked metal rings that barely absorb impacts from arrows and bolts that protects the head, ears and neck, and is sadly too uncomfortable to sleep in."
+	desc = "Стальной койф, состоящий из сцепленных между собой металлических колец. Немного защищает голову, уши и шею, но не позволит заснуть."
 	flags_inv = HIDEHAIR
 	resistance_flags = FIRE_PROOF
 	armor = list("blunt" = 30, "slash" = 60, "stab" = 45, "bullet" = 10, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
@@ -89,21 +89,21 @@
 /obj/item/clothing/neck/roguetown/chaincoif/iron
 	icon_state = "ichaincoif"
 	anvilrepair = /datum/skill/craft/blacksmithing
-	desc = "An iron chain coif, composed of interlinked metal rings, that barely absorb impacts from arrows that protects the head, ears and neck, and is sadly too uncomfortable to sleep in."
+	desc = "Железный койф, состоящий из сцепленных между собой металлических колец. Немного защищает голову, уши и шею, но не позволит заснуть."
 	smeltresult = /obj/item/ingot/iron
 	max_integrity = 150
 
 /obj/item/clothing/neck/roguetown/chaincoif/ironb
 	icon_state = "ichaincoif"
 	anvilrepair = /datum/skill/craft/blacksmithing
-	desc = "An iron chain coif, composed of interlinked metal rings, that barely absorb impacts from arrows that protects the head, ears and neck, and is sadly too uncomfortable to sleep in. blackened iron."
+	desc = "Койф из почерневшего железа, состоящий из сцепленных между собой металлических колец. Немного защищает голову, уши и шею, но не позволит заснуть."
 	smeltresult = /obj/item/ingot/iron
 	color = "#151615"
 	max_integrity = 150
 
 /obj/item/clothing/neck/roguetown/bervor
-	name = "bevor"
-	desc = "A steel bevor that protects the lower part of the head, that being the neck, mouth and nose."
+	name = "бевор"
+	desc = "Стальной бевор, защищающий нижнюю часть головы: шею, рот и нос."
 	icon_state = "bervor"
 	armor = list("blunt" = 90, "slash" = 100, "stab" = 80, "bullet" = 100, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	anvilrepair = /datum/skill/craft/blacksmithing
@@ -116,8 +116,8 @@
 	blocksound = PLATEHIT
 
 /obj/item/clothing/neck/roguetown/gorget
-	name = "gorget"
-	desc = "An iron gorget to protect the neck."
+	name = "горжет"
+	desc = "Железный горжет, предназначенный для защиты шеи."
 	icon_state = "gorget"
 	armor = list("blunt" = 90, "slash" = 100, "stab" = 80, "bullet" = 100, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	smeltresult = /obj/item/ingot/iron
@@ -131,27 +131,27 @@
 
 
 /obj/item/clothing/neck/roguetown/gorget/oring
-	name = "ringed gorget"
-	desc = "An iron gorget to protect the neck, this one has an odd ring mounted on the front."
+	name = "горжет с кольцом"
+	desc = "Железный воротник для защиты шеи. Спереди у него есть странное кольцо."
 	leashable = TRUE
 	icon_state = "ironcollargorget"
 
 /obj/item/clothing/neck/roguetown/gorget/steel
-	name ="steel gorget"
-	desc = "A steel gorget to protect the neck."
+	name ="стальной горжет"
+	desc = "Стальной горжет, предназначенный для защиты шеи."
 	smeltresult = /obj/item/ingot/steel
 	max_integrity = 300
 	icon_state = "sgorget"
 
 /obj/item/clothing/neck/roguetown/gorget/steel/oring
-	desc = "A steel gorget to protect the neck, this one has an odd ring mounted on the front."
-	name ="ringed steel gorget"
+	desc = "Стальной воротник для защиты шеи. Спереди у него есть странное кольцо."
+	name ="стальной горжет с кольцом"
 	leashable = TRUE
 	icon_state = "steelcollargorget"
 
 /obj/item/clothing/neck/roguetown/leather
-	name = "hardened leather gorget"
-	desc = "Sturdy, durable, flexible. Will protect your neck from some good lumbering."
+	name = "крепкий кожаный горжет"
+	desc = "Прочный, долговечный, гибкий. Представляет собой кожаный воротник для защиты шеи и горла от мечей и других видов холодного оружия."
 	icon_state = "lgorget"
 	armor = list("blunt" = 70, "slash" = 60, "stab" = 30, "bullet" = 20, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	max_integrity = 150
@@ -164,14 +164,14 @@
 	salvage_result = /obj/item/natural/hide/cured
 
 /obj/item/clothing/neck/roguetown/gorget/alt
-	name = "vreccale"
-	desc = "Nature knows not of mercy."
+	name = "волчий ошейник"
+	desc = "Природа не знает пощады."
 	icon_state = "iwolfcollar"
 	leashable = TRUE
 
 /obj/item/clothing/neck/roguetown/psicross
-	name = "psycross"
-	desc = ""
+	name = "крест"
+	desc = "Символ божественности Псайдона и Десяти"
 	icon_state = "psicross"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/neck.dmi'
 	//dropshrink = 0.75
@@ -182,57 +182,57 @@
 	anvilrepair = /datum/skill/craft/blacksmithing
 
 /obj/item/clothing/neck/roguetown/psicross/astrata
-	name = "amulet of Astrata"
-	desc = ""
+	name = "амулет Астраты"
+	desc = "Блестит, как луч солнца, наставляющий на путь."
 	icon_state = "astrata"
 
 /obj/item/clothing/neck/roguetown/psicross/silver/astrata
-	name = "imbued amulet of Astrata"
-	desc = "Similar to a normal amulet of Astrata. This one is blessed and made of silver."
+	name = "освященный амулет Астраты"
+	desc = "Амулет Астраты из чистого серебра. Этот был благословлен церковью Десяти."
 	icon_state = "astrata"
 
 /obj/item/clothing/neck/roguetown/psicross/noc
-	name = "amulet of Noc"
-	desc = ""
+	name = "амулет Нок"
+	desc = "Полумесяц кажется еще ярче в лунном свете."
 	icon_state = "noc"
 
 /obj/item/clothing/neck/roguetown/psicross/dendor
-	name = "amulet of Dendor"
-	desc = ""
+	name = "амулет Дендора"
+	desc = "Когти олицетворяют дары, принесенные природой. Как и кару за её разорение."
 	icon_state = "dendor"
 
 /obj/item/clothing/neck/roguetown/psicross/necra
-	name = "amulet of Necra"
-	desc = ""
+	name = "амулет Некры"
+	desc = "Неотвратимость и неизбежность смерти отражены в глазницах черепа."
 	icon_state = "necra"
 
 /obj/item/clothing/neck/roguetown/psicross/pestra
-	name = "amulet of Pestra"
-	desc = ""
+	name = "амулет Пестры"
+	desc = "Принять страдание и исцелиться. Духом и телом."
 	icon_state = "pestra"
 
 /obj/item/clothing/neck/roguetown/psicross/ravox
 	name = "amulet of Ravox"
-	desc = ""
+	desc = "Острие копья звенит, неся справедливость. Близится Суд."
 	icon_state = "ravox"
 
 /obj/item/clothing/neck/roguetown/psicross/malum
-	name = "amulet of Malum"
+	name = "амулет Маллума"
 	icon_state = "malum"
-	desc = ""
+	desc = "В горниле вечного пламени Маллума - пусть к неистовому мастерству."
 	
 /obj/item/clothing/neck/roguetown/psicross/eora
-	name = "amulet of Eora"
-	desc = ""
+	name = "амулет Эоры"
+	desc = "Пахнет розами и жизнью."
 	icon_state = "eora"
 
 /obj/item/clothing/neck/roguetown/psicross/wood
-	name = "wooden psycross"
+	name = "деревянный крест"
 	icon_state = "psicrossw"
 	sellprice = 0
 
 /obj/item/clothing/neck/roguetown/psicross/silver
-	name = "silver psycross"
+	name = "серебрянный крест"
 	icon_state = "psicrossiron"
 	sellprice = 50
 
@@ -245,18 +245,18 @@
 	var/datum/antagonist/werewolf/W = H.mind.has_antag_datum(/datum/antagonist/werewolf/)
 	if(ishuman(H))
 		if(H.mind.has_antag_datum(/datum/antagonist/vampirelord/lesser))
-			to_chat(H, span_userdanger("I can't pick up the silver, it is my BANE!"))
+			to_chat(H, span_userdanger("Я не могу дотрагиваться до серебра, это моя ПОГИБЕЛЬ!"))
 			H.Knockdown(20)
 			H.adjustFireLoss(60)
 			H.Paralyze(20)
 			H.fire_act(1,5)
 		if(V_lord)
 			if(V_lord.vamplevel < 4 && !H.mind.has_antag_datum(/datum/antagonist/vampirelord/lesser))
-				to_chat(H, span_userdanger("I can't pick up the silver, it is my BANE!"))
+				to_chat(H, span_userdanger("Я не могу дотрагиваться до серебра, это моя ПОГИБЕЛЬ!"))
 				H.Knockdown(10)
 				H.Paralyze(10)
 		if(W && W.transformed == TRUE)
-			to_chat(H, span_userdanger("I can't equip the silver, it is my BANE!"))
+			to_chat(H, span_userdanger("Я не могу носить серебро, это моя ПОГИБЕЛЬ!"))
 			H.Knockdown(20)
 			H.Paralyze(20)
 
@@ -269,32 +269,32 @@
 		var/datum/antagonist/vampirelord/V_lord = H.mind.has_antag_datum(/datum/antagonist/vampirelord/)
 		var/datum/antagonist/werewolf/W = H.mind.has_antag_datum(/datum/antagonist/werewolf/)
 		if(H.mind.has_antag_datum(/datum/antagonist/vampirelord/lesser))
-			to_chat(H, span_userdanger("I can't equip the silver, it is my BANE!"))
+			to_chat(H, span_userdanger("Я не могу носить серебро, это моя ПОГИБЕЛЬ!"))
 			H.Knockdown(20)
 			H.adjustFireLoss(60)
 			H.Paralyze(20)
 			H.fire_act(1,5)
 		if(V_lord)
 			if(V_lord.vamplevel < 4 && !H.mind.has_antag_datum(/datum/antagonist/vampirelord/lesser))
-				to_chat(H, span_userdanger("I can't equip the silver, it is my BANE!"))
+				to_chat(H, span_userdanger("Я не могу носить серебро, это моя ПОГИБЕЛЬ!"))
 				H.Knockdown(10)
 				H.Paralyze(10)
 		if(W && W.transformed == TRUE)
-			to_chat(H, span_userdanger("I can't equip the silver, it is my BANE!"))
+			to_chat(H, span_userdanger("Я не могу носить серебро, это моя ПОГИБЕЛЬ!"))
 			H.Knockdown(20)
 			H.Paralyze(20)
 
 /obj/item/clothing/neck/roguetown/psicross/g
-	name = "golden psycross"
-	desc = ""
+	name = "золотой крест"
+	desc = "Крест Псайдона из чистого золота"
 	icon_state = "psicrossg"
 	//dropshrink = 0.75
 	resistance_flags = FIRE_PROOF
 	sellprice = 100
 
 /obj/item/clothing/neck/roguetown/talkstone
-	name = "talkstone"
-	desc = ""
+	name = "Lapis Loquens"
+	desc = "Издаваемый камнем таинственный шепот позволяет вам в точности понимать речь на других языках."
 	icon_state = "talkstone"
 	item_state = "talkstone"
 	//dropshrink = 0.75
@@ -305,7 +305,7 @@
 	anvilrepair = /datum/skill/craft/blacksmithing
 
 /obj/item/clothing/neck/roguetown/horus
-	name = "eye of horuz"
+	name = "око Гора"
 	desc = ""
 	icon_state = "horus"
 	//dropshrink = 0.75
@@ -314,7 +314,7 @@
 	anvilrepair = /datum/skill/craft/blacksmithing
 
 /obj/item/clothing/neck/roguetown/shalal
-	name = "desert rider medal"
+	name = "медальон пустынного всадника"
 	desc = ""
 	icon_state = "shalal"
 	//dropshrink = 0.75
@@ -338,8 +338,8 @@
 	salvage_result = /obj/item/rope
 
 /obj/item/clothing/neck/roguetown/collar/leather
-	name = "leather collar"
-	desc = "A comfortable collar made of leather."
+	name = "ошейник из кожи"
+	desc = "Удобный ошейник из полос кожи."
 	icon_state = "leathercollar"
 	color = null
 	slot_flags = ITEM_SLOT_NECK
@@ -348,7 +348,7 @@
 
 /obj/item/clothing/neck/roguetown/collar/leather/cursed/Initialize(mapload)
 	. = ..()
-	name = "cursed collar"
+	name = "проклятый ошейник"
 	resistance_flags = FIRE_PROOF
 	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
 	clothing_flags = ITEM_SLOT_NECK
@@ -363,8 +363,8 @@
 	qdel(src)
 
 /obj/item/clothing/neck/roguetown/collar/leather/bell
-	name = "jingly leather collar"
-	desc = "A comfortable collar made of leather, this one has a jingly little catbell!"
+	name = "звенящий ошейник"
+	desc = "Удобный ошейник из полос кожи с закрепленными на нем бубенчиками!"
 	icon_state = "catbellcollar"
 	slot_flags = ITEM_SLOT_NECK
 	do_sound_bell = TRUE
@@ -372,8 +372,8 @@
 	salvage_result = list(/obj/item/natural/hide/cured = 1, /obj/item/catbell = 1)
 
 /obj/item/clothing/neck/roguetown/collar/leather/bell/cow
-	name = "jingly leather collar"
-	desc = "A comfortable collar made of leather, this one has a jingly little cowbell!"
+	name = "звенящий ошейник"
+	desc = "Удобный ошейник из полос кожи с закрепленным на нем колокольчиком!"
 	icon_state = "cowbellcollar"
 	slot_flags = ITEM_SLOT_NECK
 	salvage_result = list(/obj/item/natural/hide/cured = 1, /obj/item/catbell/cow = 1)

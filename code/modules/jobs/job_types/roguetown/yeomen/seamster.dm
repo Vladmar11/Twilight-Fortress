@@ -7,9 +7,9 @@
 	total_positions = 1
 	spawn_positions = 1
 	allowed_races = RACES_NEARLY_ALL_PLUS_SEELIE
-	tutorial = "You are the Seamster. Be it repairing a brigand's leather armour, a Lord's cape, the garnments of common folk and clergy alike, you have done it all. \
-				Through many sleepless nights and by the sweat of your brow you have now managed to purchase your own workshop. \
-				What you do now is up to you, a needle, and a thread..."
+	tutorial = "Вы - швея. Будь то починка кожаных доспехов разбойника, плаща лорда, одежды простых людей и священнослужителей - вы делали все это. \
+				За долгие бессонные ночи и в поте лица вы приобрели собственную мастерскую. \
+				Что вы теперь будете делать, зависит только от вас, иголки и нитки..."
 	outfit = /datum/outfit/job/roguetown/seamster
 	display_order = JDO_SEAMSTER
 	selection_color = JCOLOR_MERCENARY
@@ -20,7 +20,7 @@
 	..()
 	neck = /obj/item/storage/belt/rogue/pouch/coins/poor
 	cloak = /obj/item/clothing/cloak/raincloak/furcloak
-	shirt = /obj/item/clothing/suit/roguetown/shirt/tunic/white
+	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/fancy
 	pants = /obj/item/clothing/under/roguetown/tights/random
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots
 	beltr = /obj/item/rogueweapon/huntingknife/scissors
@@ -33,6 +33,7 @@
 	else
 		belt = /obj/item/storage/belt/rogue/leather/cloth/lady
 		armor = /obj/item/clothing/suit/roguetown/armor/armordress
+		pants = /obj/item/clothing/under/roguetown/tights/stockings/silk
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/misc/sewing, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)

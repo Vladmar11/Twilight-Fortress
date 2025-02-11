@@ -5,8 +5,8 @@
 #define SOIL_DECAY_TIME 10 MINUTES
 
 /obj/structure/soil
-	name = "soil"
-	desc = "Dirt, ready to give life like a womb."
+	name = "почва"
+	desc = "Земляная утроба, готовая дать жизнь."
 	icon = 'icons/obj/structures/soil.dmi'
 	icon_state = "soil"
 	density = FALSE
@@ -54,17 +54,17 @@
 	var/chance_to_ruin = 50 - (farming_skill * 25)
 	if(prob(chance_to_ruin))
 		ruin_produce()
-		to_chat(user, span_warning("I ruin the produce..."))
+		to_chat(user, span_warning("Из-за неопытности я порчу весь урожай..."))
 		return
-	var/feedback = "I harvest the produce."
+	var/feedback = "Я собираю урожай."
 	var/modifier = 0
 	var/chance_to_ruin_single = 75 - (farming_skill * 25)
 	if(prob(chance_to_ruin_single))
-		feedback = "I harvest the produce, ruining a little."
+		feedback = "Я собираю урожай, немного подпортив его."
 		modifier -= 1
 	var/chance_to_get_extra = -75 + (farming_skill * 25)
 	if(prob(chance_to_get_extra))
-		feedback = "I harvest the produce well."
+		feedback = "Я собираю большой урожай."
 		modifier += 1
 
 	to_chat(user, span_notice(feedback))
@@ -73,7 +73,7 @@
 /obj/structure/soil/proc/try_handle_harvest(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/rogueweapon/sickle))
 		if(!plant || !produce_ready)
-			to_chat(user, span_warning("There is nothing to harvest!"))
+			to_chat(user, span_warning("Здесь нечего собирать!"))
 			return TRUE
 		user_harvests(user)
 		playsound(src,'sound/items/seed.ogg', 100, FALSE)
@@ -89,10 +89,10 @@
 
 /obj/structure/soil/proc/try_handle_uprooting(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/rogueweapon/shovel))
-		to_chat(user, span_notice("I begin to uproot the crop..."))
+		to_chat(user, span_notice("Я начинаю выкорчевывать растение..."))
 		playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
 		if(do_after(user, get_farming_do_time(user, 4 SECONDS), target = src))
-			to_chat(user, span_notice("I uproot the crop."))
+			to_chat(user, span_notice("Я выкорчевываю растение."))
 			playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
 			uproot()
 		return TRUE
@@ -100,10 +100,10 @@
 
 /obj/structure/soil/proc/try_handle_tilling(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/rogueweapon/hoe))
-		to_chat(user, span_notice("I begin to till the soil..."))
+		to_chat(user, span_notice("Я начинаю вспахивать почву..."))
 		playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
 		if(do_after(user, get_farming_do_time(user, 4 SECONDS), target = src))
-			to_chat(user, span_notice("I till the soil."))
+			to_chat(user, span_notice("Я вспахиваю почву."))
 			playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
 			user_till_soil(user)
 		return TRUE
@@ -113,7 +113,7 @@
 	var/water_amount = 0
 	if(istype(attacking_item, /obj/item/reagent_containers))
 		if(water >= MAX_PLANT_WATER * 0.8)
-			to_chat(user, span_warning("The soil is already wet!"))
+			to_chat(user, span_warning("Почва уже влажная!"))
 			return TRUE
 		var/obj/item/reagent_containers/container = attacking_item
 		if(container.reagents.has_reagent(/datum/reagent/water, 10))
@@ -123,12 +123,12 @@
 			container.reagents.remove_reagent(/datum/reagent/water/gross, 10)
 			water_amount = 150
 		else
-			to_chat(user, span_warning("There's no water in \the [container]!"))
+			to_chat(user, span_warning("В [container] нет воды!"))
 			return TRUE
 	if(water_amount > 0)
 		var/list/wash = list('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg')
 		playsound(user, pick_n_take(wash), 100, FALSE)
-		to_chat(user, span_notice("I water the soil."))
+		to_chat(user, span_notice("Я поливаю почву."))
 		adjust_water(water_amount)
 		return TRUE
 	return FALSE
@@ -143,9 +143,9 @@
 		fertilize_amount = 150
 	if(fertilize_amount > 0)
 		if(nutrition >= MAX_PLANT_NUTRITION * 0.8)
-			to_chat(user, span_warning("The soil is already fertilized!"))
+			to_chat(user, span_warning("Почва уже удобрена!"))
 		else
-			to_chat(user, span_notice("I fertilize the soil."))
+			to_chat(user, span_notice("Я удобряю почву."))
 			adjust_nutrition(fertilize_amount)
 			qdel(attacking_item)
 		return TRUE
@@ -155,15 +155,15 @@
 	if(weeds < MAX_PLANT_WEEDS * 0.3)
 		return FALSE
 	if(attacking_item == null)
-		to_chat(user, span_notice("I begin ripping out the weeds with my hands..."))
+		to_chat(user, span_notice("Я начинаю выдергивать сорняки руками..."))
 		if(do_after(user, get_farming_do_time(user, 3 SECONDS), target = src))
 			apply_farming_fatigue(user, 20)
-			to_chat(user, span_notice("I rip out the weeds."))
+			to_chat(user, span_notice("Я пропалываю грядку от сорняков."))
 			deweed()
 		return TRUE
 	if(istype(attacking_item, /obj/item/rogueweapon/hoe))
 		apply_farming_fatigue(user, 10)
-		to_chat(user, span_notice("I rip out the weeds with the [attacking_item]"))
+		to_chat(user, span_notice("Я пропалываю грядку с помощью [attacking_item]"))
 		deweed()
 		return TRUE
 	return FALSE
@@ -172,32 +172,32 @@
 	if(plant)
 		return FALSE
 	if(istype(attacking_item, /obj/item/rogueweapon/shovel))
-		to_chat(user, span_notice("I begin flattening the soil with \the [attacking_item]..."))
+		to_chat(user, span_notice("Я начинаю выравнивать почву с помощью [attacking_item]..."))
 		playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
 		if(do_after(user, get_farming_do_time(user, 3 SECONDS), target = src))
 			if(plant)
 				return FALSE
 			apply_farming_fatigue(user, 10)
 			playsound(src,'sound/items/dig_shovel.ogg', 100, TRUE)
-			to_chat(user, span_notice("I flatten the soil."))
+			to_chat(user, span_notice("Я выравниваю почву."))
 			decay_soil()
 		return TRUE
 	return FALSE
 
 /obj/structure/soil/attack_hand(mob/user)
 	if(plant && produce_ready)
-		to_chat(user, span_notice("I begin collecting the produce..."))
+		to_chat(user, span_notice("Я начинаю собирать урожай..."))
 		if(do_after(user, get_farming_do_time(user, 4 SECONDS), target = src))
 			playsound(src,'sound/items/seed.ogg', 100, FALSE)
 			user_harvests(user)
 		return
 	if(plant && plant_dead)
-		to_chat(user, span_notice("I begin to remove the dead crop..."))
+		to_chat(user, span_notice("Я начинаю выкапывать мертвое растение..."))
 		if(do_after(user, get_farming_do_time(user, 6 SECONDS), target = src))
 			if(!plant || !plant_dead)
 				return
 			apply_farming_fatigue(user, 10)
-			to_chat(user, span_notice("I remove the crop."))
+			to_chat(user, span_notice("Я выкапываю растение с грядки."))
 			playsound(src,'sound/items/seed.ogg', 100, FALSE)
 			uproot()
 		return
@@ -378,46 +378,46 @@
 	. = ..()
 	// Plant description
 	if(plant)
-		. += span_info("\The [plant.name] is growing here...")
+		. += span_info("На этой грядке растет [plant.name]...")
 		// Plant health feedback
 		if(plant_dead == TRUE)
-			. += span_warning("It's dead!")
+			. += span_warning("Растение погибло!")
 		else if(plant_health <=  MAX_PLANT_HEALTH * 0.3)
-			. += span_warning("It's dying!")
+			. += span_warning("Растение умирает!")
 		else if (plant_health <=  MAX_PLANT_HEALTH * 0.6)
-			. += span_warning("It's brown and unhealthy...")
+			. += span_warning("Растение имеет нездороый цвет...")
 		// Plant maturation and produce feedback
 		if(matured)
-			. += span_info("It's fully matured.")
+			. += span_info("Полностью созрело.")
 		else
-			. += span_info("It has yet to mature.")
+			. += span_info("Оно еще созревает.")
 		if(produce_ready)
-			. += span_info("It's ready for harvest.")
+			. += span_info("Можно собирать урожай!")
 	// Water feedback
 	if(water <= MAX_PLANT_WATER * 0.15)
-		. += span_warning("The soil is thirsty.")
+		. += span_warning("Почва пересохла.")
 	else if (water <= MAX_PLANT_WATER * 0.5)
-		. += span_info("The soil is moist.")
+		. += span_info("Почва увлажнена.")
 	else
-		. += span_info("The soil is wet.")
+		. += span_info("Почва влажная.")
 	// Nutrition feedback
 	if(nutrition <= MAX_PLANT_NUTRITION * 0.15)
-		. += span_warning("The soil is hungry.")
+		. += span_warning("Почва бедная.")
 	else if (nutrition <= MAX_PLANT_NUTRITION * 0.5)
-		. += span_info("The soil is sated.")
+		. += span_info("Почва насыщена.")
 	else
-		. += span_info("The soil looks fertile.")
+		. += span_info("Почва выглядит плодородной.")
 	// Weeds feedback
 	if(weeds >= MAX_PLANT_WEEDS * 0.6)
-		. += span_warning("It's overtaken by the weeds!")
+		. += span_warning("Грядка заросла сорняками!")
 	else if (weeds >= MAX_PLANT_WEEDS * 0.3)
-		. += span_warning("Weeds are growing out...")
+		. += span_warning("На грядке прорастают сорняки...")
 	// Tilled feedback
 	if(tilled_time > 0)
-		. += span_info("The soil is tilled.")
+		. += span_info("Почва вспахана.")
 	// Blessed feedback
 	if(blessed_time > 0)
-		. += span_good("The soil seems blessed.")
+		. += span_good("Почва получила благословение.")
 
 #define BLESSING_WEED_DECAY_RATE 10 / (1 MINUTES)
 #define WEED_GROWTH_RATE 3 / (1 MINUTES)

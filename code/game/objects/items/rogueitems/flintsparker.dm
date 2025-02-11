@@ -1,6 +1,6 @@
 /obj/item/flint
-	name = "flint"
-	desc = "A jagged piece of flint, witness to the dances of fire and stone."
+	name = "огниво"
+	desc = "Зазубренный кусок кремня, свидетель танцев огня и камня."
 	icon_state = "flint"
 	gripped_intents = null
 	//dropshrink = 0.75
@@ -11,6 +11,9 @@
 	var/flintcd = 0
 	anvilrepair = /datum/skill/craft/blacksmithing
 	w_class = WEIGHT_CLASS_TINY
+
+	grid_height = 32
+	grid_width = 32
 
 /obj/item/flint/attack_self(mob/living/user)
 	if(world.time < flintcd + 10)

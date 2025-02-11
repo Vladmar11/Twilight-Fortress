@@ -9,6 +9,7 @@
 /datum/sprite_accessory/hair/head
 	abstract_type = /datum/sprite_accessory/hair/head
 	icon = 'icons/mob/sprite_accessory/hair/human_hair.dmi'
+	var/datum/sprite_accessory/hair/head/tied_type = null
 
 /datum/sprite_accessory/hair/head/is_visible(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
 	return is_human_part_visible(owner, HIDEHAIR)

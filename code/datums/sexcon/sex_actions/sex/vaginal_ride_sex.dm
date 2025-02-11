@@ -1,5 +1,5 @@
 /datum/sex_action/vaginal_ride_sex
-	name = "Ride them"
+	name = "Оседлать (вагина)"
 	stamina_cost = 1.0
 	aggro_grab_instead_same_tile = FALSE
 	check_incapacitated = FALSE
@@ -31,18 +31,18 @@
 /datum/sex_action/vaginal_ride_sex/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	..()
 	if(HAS_TRAIT(target, TRAIT_TINY) && !(HAS_TRAIT(user, TRAIT_TINY)))
-		user.visible_message(span_warning("[user] gets on top of [target], trying and failing to ride the tiny cock with their cunt!"))
+		user.visible_message(span_warning("[user] заняв верхнюю позицию над [target], безуспешно пытается оседлать крохотный хер!"))
 	else
-		user.visible_message(span_warning("[user] gets on top of [target] and begins riding them with their cunt!"))
+		user.visible_message(span_warning("[user] занимает верхнюю позицию над [target] и направляет головку члена в свое лоно!"))
 		playsound(target, list('sound/misc/mat/insert (1).ogg','sound/misc/mat/insert (2).ogg'), 20, TRUE, ignore_walls = FALSE)
 
 /datum/sex_action/vaginal_ride_sex/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user.sexcon.do_message_signature("[type]"))
 		if(HAS_TRAIT(target, TRAIT_TINY) && !(HAS_TRAIT(user, TRAIT_TINY)))
-			user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] tries to ride [target], unsuccessfully."))
+			user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] скачает на стволе [target], безуспешно."))
 			do_thrust_animate(user, target)
 			return	//Return because male seelie cannot succesfully penetrate a large humen target
-		user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] rides [target]."))
+		user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] скачет на [target]."))
 	playsound(target, 'sound/misc/mat/segso.ogg', 50, TRUE, -2, ignore_walls = FALSE)
 	do_thrust_animate(user, target)
 
@@ -54,7 +54,7 @@
 
 	user.sexcon.perform_sex_action(target, 2, 4, FALSE)
 	if(target.sexcon.check_active_ejaculation())
-		target.visible_message(span_lovebold("[target] cums into [user]'s cunt!"))
+		target.visible_message(span_lovebold("[target] наполняет лоно [user] своим горячим семенем!"))
 		target.sexcon.cum_into()
 		target.try_impregnate(user)
 		target.virginity = FALSE
@@ -62,7 +62,7 @@
 
 /datum/sex_action/vaginal_ride_sex/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	..()
-	user.visible_message(span_warning("[user] gets off [target]."))
+	user.visible_message(span_warning("[user] поднимается с [target]."))
 
 /datum/sex_action/vaginal_ride_sex/is_finished(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user.sexcon.finished_check())

@@ -1,5 +1,5 @@
 /datum/wound/bruise
-	name = "hematoma"
+	name = "гематома"
 	whp = 30
 	bleed_rate = 0
 	clotting_threshold = null
@@ -13,14 +13,14 @@
 	werewolf_infection_probability = 0
 
 /datum/wound/bruise/small
-	name = "bruise"
+	name = "ушиб"
 	whp = 15
 	bleed_rate = 0
 	woundpain = 5
 	sew_threshold = 25
 
 /datum/wound/bruise/large
-	name = "massive hematoma"
+	name = "обширная гематома"
 	whp = 40
 	bleed_rate = 0.9
 	clotting_rate = 0.02

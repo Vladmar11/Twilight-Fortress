@@ -94,7 +94,7 @@
 /obj/bullet_act(obj/projectile/P)
 	. = ..()
 	playsound(src.loc, P.hitsound, 50, TRUE)
-	visible_message(span_danger("[src] is hit by \a [P]!"), null, null, COMBAT_MESSAGE_RANGE)
+	visible_message(span_danger("[src] принимает удар летящей [P]!"), null, null, COMBAT_MESSAGE_RANGE)
 	if(!QDELETED(src)) //Bullet on_hit effect might have already destroyed this object
 		take_damage(P.damage, P.damage_type, P.flag, 0, turn(P.dir, 180), P.armor_penetration)
 

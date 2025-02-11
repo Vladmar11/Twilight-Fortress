@@ -19,12 +19,9 @@
 	static_debris = list(/obj/item/grown/log/tree = 1)
 	alpha = 200
 	leanable = TRUE
-	var/stump_type = /obj/structure/table/roguetree/stump
+	var/stump_type = /obj/structure/flora/roguetree/stump
 	metalizer_result = /obj/machinery/light/roguestreet
 	smeltresult = /obj/item/rogueore/coal
-
-/obj/structure/table/roguetree
-	var/stump_type = null
 
 /obj/structure/flora/roguetree/attack_right(mob/user)
 	if(user.mind && isliving(user))
@@ -124,14 +121,14 @@
 	desc = "Maybe lightning, maybe war took the life of this once lively tree."
 	icon = 'icons/roguetown/misc/96x96.dmi'
 	icon_state = "t1"
-	stump_type = /obj/structure/table/roguetree/stump/burnt
+	stump_type = /obj/structure/flora/roguetree/stump/burnt
 	pixel_x = -32
 
 /obj/structure/flora/roguetree/burnt/Initialize()
 	. = ..()
 	icon_state = "t[rand(1,4)]"
 
-/obj/structure/table/roguetree/stump/burnt
+/obj/structure/flora/roguetree/stump/burnt
 	name = "tree stump"
 	desc = "This stump is burnt. Maybe someone is trying to get coal the easy way."
 	icon_state = "st1"
@@ -140,7 +137,7 @@
 	pixel_x = -32
 	metalizer_result = /obj/machinery/anvil
 
-/obj/structure/table/roguetree/stump/burnt/Initialize()
+/obj/structure/flora/roguetree/stump/burnt/Initialize()
 	. = ..()
 	icon_state = "st[rand(1,2)]"
 
@@ -156,7 +153,7 @@
 	. = ..()
 	icon_state = "screaming[rand(1,3)]"
 
-/obj/structure/table/roguetree/stump
+/obj/structure/flora/roguetree/stump
 	name = "tree stump"
 	desc = "Someone cut this tree down."
 	icon_state = "t1stump"
@@ -177,7 +174,7 @@
 	var/lumber_amount = 1
 	var/lumber = /obj/item/grown/log/tree/small
 
-/obj/structure/table/roguetree/stump/attacked_by(obj/item/I, mob/living/user)
+/obj/structure/flora/roguetree/stump/attacked_by(obj/item/I, mob/living/user)
 	if(user.used_intent.blade_class == BCLASS_CHOP && lumber_amount)
 		var/skill_level = user.mind.get_skill_level(/datum/skill/labor/lumberjacking)
 		var/lumber_time = (120 - (skill_level * 15))
@@ -203,11 +200,11 @@
 		return TRUE
 	..()
 
-/obj/structure/table/roguetree/stump/Initialize()
+/obj/structure/flora/roguetree/stump/Initialize()
 	. = ..()
 	icon_state = "t[rand(1,4)]stump"
 
-/obj/structure/table/roguetree/stump/log
+/obj/structure/flora/roguetree/stump/log
 	name = "ancient log"
 	desc = "Rotten remains of a tree that sufered nature's cruelty ages ago."
 	icon_state = "log1"
@@ -219,7 +216,7 @@
 	stump_type = FALSE
 	metalizer_result = /obj/structure/bars/pipe
 
-/obj/structure/table/roguetree/stump/log/Initialize()
+/obj/structure/flora/roguetree/stump/log/Initialize()
 	. = ..()
 	icon_state = "log[rand(1,2)]"
 
@@ -512,12 +509,12 @@
 	return ..()
 
 /obj/structure/flora/rogueshroom/obj_destruction(damage_flag)
-	var/obj/structure/S = new /obj/structure/table/shroomstump(loc)
+	var/obj/structure/S = new /obj/structure/flora/shroomstump(loc)
 	S.icon_state = "[icon_state]stump"
 	. = ..()
 
 
-/obj/structure/table/shroomstump
+/obj/structure/flora/shroomstump
 	name = "shroom stump"
 	desc = "It was a very happy shroom. Not anymore."
 	icon_state = "mush1stump"
@@ -537,7 +534,7 @@
 	destroy_sound = 'sound/misc/woodhit.ogg'
 	static_debris = list( /obj/item/grown/log/tree/small = 1)
 
-/obj/structure/table/shroomstump/Initialize()
+/obj/structure/flora/shroomstump/Initialize()
 	. = ..()
 	icon_state = "t[rand(1,4)]stump"
 
