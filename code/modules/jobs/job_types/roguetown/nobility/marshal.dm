@@ -18,7 +18,7 @@
 
 	whitelist_req = FALSE
 
-	spells = list(/obj/effect/proc_holder/spell/self/convertrole/guard, /obj/effect/proc_holder/spell/self/convertrole/bog)
+	spells = list(SPELL_CONVERT_ROLE_GUARD, SPELL_CONVERT_ROLE_BOG)
 	outfit = /datum/outfit/job/roguetown/marshal
 
 	give_bank_account = 200

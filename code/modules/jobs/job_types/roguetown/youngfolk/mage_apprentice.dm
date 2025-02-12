@@ -13,7 +13,7 @@
 	Путь к использованию магии - это нечто коварное и неизведанное, и вам еще не один десяток лет, чтобы назвать себя даже подмастерьем в этой области. \
 	Слушайте и служите, и однажды вы заслужите свою шляпу."
 
-	spells = list(/obj/effect/proc_holder/spell/invoked/learnspell)
+	spells = list(SPELL_LEARNSPELL)
 	outfit = /datum/outfit/job/roguetown/wapprentice
 
 	display_order = JDO_MAGEAPPRENTICE
@@ -47,4 +47,3 @@
 		H.mind.adjust_spellpoints(6)
 	H.change_stat("intelligence", 2)
 	H.change_stat("speed", -1)
-
