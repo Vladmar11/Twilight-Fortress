@@ -7,7 +7,7 @@
 // multiple stair objects can be chained together; the Z level transition will happen on the final stair object in the chain
 
 /obj/structure/stairs
-	name = "stairs"
+	name = "ступени"
 	icon = 'icons/obj/stairs.dmi'
 	icon_state = "stairs"
 	anchored = TRUE
@@ -15,7 +15,7 @@
 	nomouseover = TRUE
 
 /obj/structure/stairs/stone
-	name = "stone stairs"
+	name = "каменные ступени"
 	icon = 'icons/obj/stairs.dmi'
 	icon_state = "stonestairs"
 	max_integrity = 600

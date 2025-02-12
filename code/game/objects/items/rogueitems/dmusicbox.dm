@@ -16,8 +16,8 @@
 			L.add_stress(stress2give)
 
 /obj/item/dmusicbox
-	name = "dwarven music box"
-	desc = "It is essential that the deepest caves be tuned to the right frequency of vibrations."
+	name = "гномий проигрыватель"
+	desc = "Очень важно, чтобы самые глубокие пещеры были настроены на правильную частоту вибраций."
 	icon = 'icons/roguetown/misc/machines.dmi'
 	icon_state = "mbox0"
 	gripped_intents = list(INTENT_GENERIC)
@@ -73,13 +73,13 @@
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(lastfilechange)
 		if(world.time < lastfilechange + 3 MINUTES)
-			say("NOT YET!")
+			say("НЕ СЕЙЧАС!")
 			return
 //	if(!loaded)
 //		say("FEED ME SPIDER MILK!")
 //		return
 	playsound(loc, 'sound/misc/beep.ogg', 100, FALSE, -1)
-	var/infile = input(user, "CHOOSE A NEW SONG", src) as null|file
+	var/infile = input(user, "ВЫБЕРИТЕ НОВУЮ КОМПОЗИЦИЮ", src) as null|file
 
 	if(!infile)
 		return
@@ -92,10 +92,10 @@
 	var/file_size = length(infile)
 
 	if(file_ext != ".ogg")
-		to_chat(user, span_warning("SONG MUST BE AN OGG."))
+		to_chat(user, span_warning("МУЗЫКА ДОЛЖНА БЫТЬ В ФОРМАТЕ .OGG."))
 		return
 	if(file_size > 6485760)
-		to_chat(user, span_warning("TOO BIG. 6 MEGS OR LESS."))
+		to_chat(user, span_warning("СЛИШКОМ БОЛЬШАЯ. НЕ БОЛЕЕ 6 Мб."))
 		return
 	lastfilechange = world.time
 	fcopy(infile,"data/jukeboxuploads/[user.ckey]/[filename]")

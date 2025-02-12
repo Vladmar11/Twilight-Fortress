@@ -1,5 +1,5 @@
 /datum/sex_action/armpit_lick
-	name = "Lick their armpit"
+	name = "Вылизать подмышки"
 	check_same_tile = FALSE
 	check_incapacitated = FALSE
 
@@ -19,13 +19,13 @@
 
 /datum/sex_action/armpit_lick/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	..()
-	user.visible_message(span_warning("[user] starts licking [target]'s armpit..."))
+	user.visible_message(span_warning("[user] прикасается языком к подплечию [target]..."))
 
 /datum/sex_action/armpit_lick/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user.sexcon.do_message_signature("[type]"))
-		user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] licks [target]'s armpit..."))
+		user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] лижет подмышку [target]..."))
 	user.make_sucking_noise()
 
 /datum/sex_action/armpit_lick/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	..()
-	user.visible_message(span_warning("[user] stops licking [target]'s armpit ..."))
+	user.visible_message(span_warning("[user] заканчивает лизать подмыхи [target]..."))

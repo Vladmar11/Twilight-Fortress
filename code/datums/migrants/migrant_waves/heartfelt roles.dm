@@ -1,6 +1,7 @@
 /datum/migrant_role/heartfelt/lord
 	name = "Lord of Heartfelt"
-	greet_text = "You are the Lord of Heartfelt, ruler of a once-prosperous barony now in ruin. Guided by your Magos, you journey to Rockhill, seeking aid to restore your domain to its former glory, or perhaps claim a new throne."
+	greet_text = "Вы - лорд Хартфелта, правитель некогда процветающего островного королевства, ныне пришедшего в упадок. \
+	Ведомый своим придворным магом, вы отправляетесь в Рокхилл в поисках помощи, чтобы вернуть своим владениям былую славу или, возможно, занять новый трон."
 	outfit = /datum/outfit/job/roguetown/heartfelt/lord
 	allowed_sexes = list(MALE)
 	allowed_races = RACES_TOLERATED_UP
@@ -14,13 +15,14 @@
 	belt = /obj/item/storage/belt/rogue/leather/black
 	shoes = /obj/item/clothing/shoes/roguetown/armor/nobleboot
 	pants = /obj/item/clothing/under/roguetown/tights/black
-	cloak = /obj/item/clothing/cloak/heartfelt
+	cloak = /obj/item/clothing/cloak/lordcloak
 	armor = /obj/item/clothing/suit/roguetown/armor/heartfelt/lord
 	neck = /obj/item/storage/belt/rogue/pouch/coins/rich
 	beltl = /obj/item/rogueweapon/sword/long/marlin
 	beltr = /obj/item/rogueweapon/huntingknife
 	gloves = /obj/item/clothing/gloves/roguetown/leather/black
 	backl = /obj/item/storage/backpack/rogue/satchel
+	head = /obj/item/clothing/head/roguetown/crownheart
 	id = /obj/item/scomstone
 	if(H.mind)
 		H.virginity = TRUE
@@ -53,7 +55,8 @@
 
 /datum/migrant_role/heartfelt/lady
 	name = "Lady of Heartfelt"
-	greet_text = "You are the Lady of Heartfelt, once a respected noblewoman now struggling to survive in a desolate landscape. With your home in ruins, you look to Rockhill, hoping to find new purpose or refuge amidst the chaos."
+	greet_text = "Вы - леди Хартфелта, некогда уважаемая консорт-лорда, а теперь пытающаяся выжить в пустынном ландшафте.\
+	Когда ваш дом лежит в руинах, вы обращаетесь к Рокхиллу в надежде найти новую цель или убежище среди хаоса."
 	outfit = /datum/outfit/job/roguetown/heartfelt/lady
 	allowed_sexes = list(FEMALE)
 	allowed_races = RACES_TOLERATED_UP
@@ -96,7 +99,8 @@
 
 /datum/migrant_role/heartfelt/hand
 	name = "Hand of Heartfelt"
-	greet_text = "You are the Hand of Heartfelt, burdened by the perception of failure in protecting your Lord's domain. Despite doubts from others, your loyalty remains steadfast as you journey to Rockhill, determined to fulfill your duties."
+	greet_text = "Вы - Десница Хартфелта, которого тяготит ощущение провала в защите владений своего лорда. \
+	Несмотря на сомнения окружающих, ваша преданность остается непоколебимой, и вы отправляетесь в Рокхилл, полный решимости выполнить свой долг."
 	outfit = /datum/outfit/job/roguetown/heartfelt/hand
 	allowed_races = RACES_TOLERATED_UP
 	grant_lit_torch = TRUE
@@ -139,7 +143,8 @@
 
 /datum/migrant_role/heartfelt/knight
 	name = "Knight of Heartfelt"
-	greet_text = "You are a Knight of Heartfelt, once part of a brotherhood in service to your Lord. Now, alone and committed to safeguarding what remains of your court, you ride to Rockhill, resolved to ensure their safe arrival."
+	greet_text = "Вы - рыцарь Хартфелта, некогда входивший в братство, служившее своему лорду. \
+	Теперь, оставшись в одиночестве и стремясь защитить то, что осталось от вашего двора, вы отправляетесь в Рокхилл, решив обеспечить их безопасное прибытие."
 	outfit = /datum/outfit/job/roguetown/heartfelt/knight
 	allowed_races = RACES_TOLERATED_UP
 	grant_lit_torch = TRUE
@@ -212,7 +217,8 @@
 
 /datum/migrant_role/heartfelt/magos
 	name = "Magos of Heartfelt"
-	greet_text = "You are the Magos of Heartfelt, renowned for your arcane knowledge yet unable to foresee the tragedy that befell your home. Drawn by a guiding star to Rockhill, you seek answers and perhaps a new purpose in the wake of destruction."
+	greet_text = "Вы - придворный маг из Хартфелта, известный своими познаниями в арканах, но не сумевший предвидеть трагедию, постигшую ваш дом. \
+	Привлеченный путеводной звездой в Рокхилл, вы ищете ответы и, возможно, новую цель после разрушения."
 	outfit = /datum/outfit/job/roguetown/heartfelt/magos
 	allowed_races = RACES_TOLERATED_UP
 	grant_lit_torch = TRUE
@@ -273,7 +279,8 @@
 
 /datum/migrant_role/heartfelt/prior
 	name = "Prior of Heartfelt"
-	greet_text = "The Prior of Heartfelt, you were destined for ascension within the Church, but fate intervened with the barony's downfall, delaying it indefinitely. Still guided by the blessings of Astrata, you journey to Rockhill, determined to offer what aid and solace you can."
+	greet_text = "Приор Хартфелта, вы были предназначены для возвышения в Церкви, но судьба вмешалась в падение королевства, отсрочив его на неопределенное время.\
+	Все еще ведомый благословениями Астраты, вы отправляетесь в Рокхилл, полный решимости оказать посильную помощь и утешение."
 	outfit = /datum/outfit/job/roguetown/heartfelt/prior
 	allowed_races = RACES_TOLERATED_UP
 	grant_lit_torch = TRUE

@@ -158,7 +158,7 @@
 		return
 	if(stat >= DEAD) //do shit the natural way i guess
 		return
-	to_chat(src, span_danger("I feel horrible... REALLY horrible..."))
+	to_chat(src, span_danger("Я чувствую себя ужасно... ДЕЙСТВИТЕЛЬНО ужасно..."))
 	mob_timers["puke"] = world.time
 	vomit(1, blood = TRUE, stun = FALSE)
 	addtimer(CALLBACK(src, PROC_REF(wake_zombie)), 1 MINUTES)
@@ -169,7 +169,7 @@
 	if(!zombie_antag || zombie_antag.has_turned)
 		return FALSE
 	flash_fullscreen("redflash3")
-	to_chat(src, span_danger("It hurts... Is this really the end for me?"))
+	to_chat(src, span_danger("Больно... Неужели мой конец пришел?"))
 	emote("scream") // heres your warning to others bro
 	Knockdown(1)
 	zombie_antag.wake_zombie(TRUE)

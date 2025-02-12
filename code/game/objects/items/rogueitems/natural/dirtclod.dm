@@ -1,6 +1,6 @@
 /obj/item/natural/dirtclod
-	name = "clod"
-	desc = "A handful of dirt clod."
+	name = "ком земли"
+	desc = "Горсть земли, выкопанной из почвы."
 	icon_state = "clod1"
 	dropshrink = 0
 	throwforce = 0
@@ -37,7 +37,7 @@
 			new /obj/structure/fluff/clodpile(T)
 
 /obj/item/natural/dirtclod/attack_self(mob/living/user)
-	user.visible_message(span_warning("[user] scatters [src]."))
+	user.visible_message(span_warning("[user] разбрасывает [src]."))
 	qdel(src)
 
 /obj/item/natural/dirtclod/Initialize()
@@ -45,8 +45,8 @@
 	. = ..()
 
 /obj/structure/fluff/clodpile
-	name = "dirt pile"
-	desc = "A pile of dirt."
+	name = "грязевая куча"
+	desc = "Куча выкопанной грязи. Когда зарастет травой, станет холмом."
 	icon_state = "clodpile"
 	var/dirtamt = 5
 	icon = 'icons/roguetown/items/natural.dmi'

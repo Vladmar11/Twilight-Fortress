@@ -11,7 +11,8 @@
 	allowed_ages = ALL_AGES_LIST
 	subclass_cat_rolls = list(CTAG_SERVANT = 20)
 
-	tutorial = "Granted a life of comfortable servitute in the Duke's manor, you follow the Head Butler/Maid's commands and spend your day performing necessary but menial tasks."
+	tutorial = "Получив право на беспечную жизнь в поместье герцога, \
+	вы выполняете приказы старшего дворецкого или горничной и проводите свой день, выполняя необходимые, но рутинные задания."
 
 	outfit = /datum/outfit/job/roguetown/servant
 	display_order = JDO_SERVANT
@@ -45,8 +46,8 @@
 
 /datum/subclass/servant/groundkeeper
 	name = "Groundkeeper"
-	tutorial = "Cleaning, repairs, chores... The manor must always look great and presentable for the unexpected guests. \
-	It is within your responsibility to make sure the keep stays in decent condition."
+	tutorial = "Уборка, ремонт, работа по дому... Поместье должно всегда выглядеть великолепно и презентабельно для неожиданных гостей. \
+	В ваши обязанности входит следить за тем, чтобы поместье оставалось в приличном состоянии."
 	outfit = /datum/outfit/job/roguetown/servant/groundkeeper
 	category_tags = list(CTAG_SERVANT)
 	allowed_races = RACES_SHUNNED_UP_PLUS_SEELIE
@@ -85,8 +86,8 @@
 
 /datum/subclass/servant/chef
 	name = "Chef"
-	tutorial = "You are Their Lordship's favorite cook. Your task is simple: prepare feasts, feed the nobles and the retinue. \
-	Why wouldnt you brew a barrel full of wine or something else as well? And remember... Do NOT put bad berries into your meals."
+	tutorial = "Вы - любимый повар Их Сиятельства. Ваша задача проста: готовить пиры, кормить вельмож и дружину. \
+	Почему бы вам не сварить бочку вина или что-нибудь еще? И помните... Не добавляйте в еду плохие ягоды."
 	outfit = /datum/outfit/job/roguetown/servant/chef
 	category_tags = list(CTAG_SERVANT)
 	allowed_races = RACES_SHUNNED_UP_PLUS_SEELIE
@@ -124,9 +125,9 @@
 
 /datum/subclass/servant/bankrupt
 	name = "Bankrupt Aristocrat"
-	tutorial = "You were born into low nobility, but unfortunately for you your family has gone bankrupt. \
-	The crown of Rockhill agreed to pay your debts off in return for your service, but you didnt expect them to make you a literal servant. \
-	Now you must find your way back into the high society, as well as hide your shame of lowlife work."
+	tutorial = "Вы родились в дворянском роду, но, к несчастью для вас, ваша семья разорилась. \
+	Корона Рокхилла согласилась оплатить ваши долги в обмен на вашу службу, но вы не ожидали, что они сделают вас в прямом смысле слова слугой. \
+	Теперь вы должны найти свой путь обратно в высшее общество, а также скрыть свой позор, связанный с низкой работой."
 	outfit = /datum/outfit/job/roguetown/servant/bankrupt
 	category_tags = list(CTAG_SERVANT)
 	allowed_races = RACES_SHUNNED_UP

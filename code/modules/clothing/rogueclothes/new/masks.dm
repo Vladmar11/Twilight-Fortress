@@ -1,6 +1,6 @@
 /obj/item/clothing/mask/rogue/pestra
-	name = "pestran mask"
-	desc = "A mask made in such a way to keep the rot away as much as possible from you. Some of the smell still goes through."
+	name = "пестранская маска"
+	desc = "Изготовленная особым образом маска оберегает носителя от гнили, насколько это возможно. Часть запаха все равно просачивается под ткань."
 	icon = 'icons/roguetown/clothing/newclothes/objmasks.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/newclothes/onmob/masks.dmi'
 	icon_state = "feldmask"
@@ -10,13 +10,13 @@
 	sewrepair = TRUE
 
 /obj/item/clothing/mask/rogue/pestra/court
-	name = "court physician mask"
-	desc = "A mask specially made for the court physician, one of the most experienced pestrans around."
+	name = "маска придворного лекаря"
+	desc = "Сделана специально для лекаря при дворце герцога, наиболее опытного целителя в округе."
 	icon_state = "pestramask"
 
 /obj/item/clothing/mask/rogue/rag
-	name = "rag mask"
-	desc = "A piece of cloth folded in a way to make it easy to protect your identity or your nose from the rot."
+	name = "тряпичная маска"
+	desc = "Кусок ткани, сложенный таким образом, чтобы можно было легко скрыть свое лицо или защитить нос от противных запахов."
 	icon = 'icons/roguetown/clothing/newclothes/objmasks.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/newclothes/onmob/masks.dmi'
 	icon_state = "ragmask"

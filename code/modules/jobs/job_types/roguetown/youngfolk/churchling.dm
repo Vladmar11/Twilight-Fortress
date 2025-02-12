@@ -10,8 +10,8 @@
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_ADULT)
 
-	tutorial = "It doesnt matter if you are an orphan, your family were zealots so they sent you here, or you just decided to follow the path of the Gods yourself. \
-	You ended up in the Rockhillian Church, given a shelter and food, submitting to the will of Their eminence. You have faith, and the rest is meaningless."
+	tutorial = "Твоя семья была фанатиками, они ругали тебя ремнем с шипами и молились как грешники каждый божий час, когда не трудились в поле. \
+	Ты сбежал от них, став прислужником, а гарантированное образование - это не так уж плохо."
 
 	outfit = /datum/outfit/job/roguetown/churchling
 	display_order = JDO_CHURCHLING
@@ -26,11 +26,11 @@
 	if(H.gender == MALE)
 		armor = /obj/item/clothing/suit/roguetown/shirt/robe
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
+		pants = /obj/item/clothing/under/roguetown/tights
 	else
 		head = /obj/item/clothing/head/roguetown/armingcap
-		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random
-		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
-	pants = /obj/item/clothing/under/roguetown/tights
+		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/lowcut
+		pants = /obj/item/clothing/under/roguetown/shortskirt
 	belt = /obj/item/storage/belt/rogue/leather/rope
 	beltl = /obj/item/key/church
 	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes

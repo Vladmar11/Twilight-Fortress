@@ -11,9 +11,11 @@
 	allowed_patrons = list(
 		/datum/patron/psydon
 	)
-	tutorial = "Created with the re-emergence of the cult of Psydon, \
-	The Inquisition has sent you to Rockhill on a quest to root out the blasphemous and the accursed of these lands. \
-	Guided by religious fervor and paranoia, you hope that your uneasy alliance with the Church will hold."
+
+	tutorial = "Созданная в связи с возрождением культа Псайдона,\
+    Инквизиция отправила вас в Рокхилл с целью искоренить богохульников и проклятых в этих землях. \
+    Руководствуясь религиозным рвением и паранойей, вы надеетесь, что ваш непростой союз с Церковью Десяти устоит."
+
 	whitelist_req = TRUE
 
 	outfit = /datum/outfit/job/roguetown/puritan
@@ -21,6 +23,16 @@
 	give_bank_account = 200
 	min_pq = 8
 	max_pq = null
+
+/datum/job/roguetown/puritan/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+	..()
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		var/prev_real_name = H.real_name
+		var/prev_name = H.name
+		var/title = "Magister"
+		H.real_name = "[title] [prev_real_name]"
+		H.name = "[title] [prev_name]"
 
 /datum/outfit/job/roguetown/puritan
 	name = "Inquisitor"
@@ -35,14 +47,15 @@
 	shoes = /obj/item/clothing/shoes/roguetown/armor/inqboots
 	pants = /obj/item/clothing/under/roguetown/tights/black
 	cloak = /obj/item/clothing/cloak/cape/puritan
-	beltr = /obj/item/gun/ballistic/revolver/grenadelauncher/runelock
-	beltl = /obj/item/storage/belt/rogue/pouch/ammo
+	beltr = /obj/item/gun/ballistic/firearm/arquebus_pistol
+	beltl = /obj/item/ammo_holder/bullet/lead
 	head = /obj/item/clothing/head/roguetown/inqhat
 	gloves = /obj/item/clothing/gloves/roguetown/inqgloves
 	armor = /obj/item/clothing/suit/roguetown/armor/plate/scale/inqcoat
 	backr = /obj/item/rogueweapon/sword/rapier
 	backl = /obj/item/storage/backpack/rogue/satchel
-	backpack_contents = list(/obj/item/storage/keyring/puritan = 1, /obj/item/rogueweapon/huntingknife/idagger/silver, /obj/item/lockpick = 1)
+	r_hand = /obj/item/roguekey/psydonkey
+	backpack_contents = list(/obj/item/storage/keyring/puritan = 1, /obj/item/rogueweapon/huntingknife/idagger/silver, /obj/item/lockpick = 1, /obj/item/powderflask = 1)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/swords, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/whipsflails, 4, TRUE)
@@ -74,6 +87,7 @@
 	H.verbs |= /mob/living/carbon/human/proc/torture_victim
 	ADD_TRAIT(H, TRAIT_NOSEGRAB, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_INQUISITION, TRAIT_GENERIC)
 
 /mob/living/carbon/human/proc/torture_victim()
 	set name = "Extract Confession"

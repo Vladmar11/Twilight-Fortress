@@ -2,7 +2,8 @@
 	race = /datum/species/vulpkanin
 
 /datum/species/vulpkanin
-	name = "Vulpkian"
+	name = "Вульпкиан"
+	name_f = "Вульпкианка"
 	id = "vulpkanin"
 	desc = "In time you will learn the history of this race"
 	default_color = "444"

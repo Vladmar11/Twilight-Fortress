@@ -58,6 +58,39 @@
 						U = new/obj/item/undies/f(get_turf(src))
 					U.color = underwear_color
 					user.put_in_hands(U)
+		if(user.zone_selected == BODY_ZONE_HEAD)
+			if(!get_location_accessible(src, BODY_ZONE_HEAD, skipundies = TRUE))
+				return
+
+			if(held_item)
+				user.show_message(span_warning("Тебе нужны свободные руки, чтобы преобразовать свою прическу!"))
+				return
+
+			var/datum/bodypart_feature/hair/head/hair = get_bodypart_feature_of_slot(BODYPART_FEATURE_HAIR)
+
+			if(!hair)
+				user.show_message("Нечего преобразовывать!")
+				return
+
+			if(hair.accessory_type == /datum/sprite_accessory/hair/head/bald)
+				user.show_message("Нечего преобразовывать!")
+				return
+
+			var/datum/sprite_accessory/hair/head/tied_type = hair.get_tied_type()
+
+			if(isnull(tied_type))
+				user.show_message("У тебя нет идей во что эту прическу получится преобразовать!")
+				return
+
+			if(user == src)
+				user.visible_message(span_info("[user] преобразовывает свою прическу..."))
+			else
+				user.visible_message(span_info("[user] преобразовывает прическу [src]'s"))
+
+			if(do_after(user, 25, needhand = 1, target = src))
+				hair.accessory_type = tied_type
+				update_hair()
+
 #endif
 
 /mob/living/carbon/human/Initialize()
@@ -628,7 +661,7 @@
 /mob/living/carbon/human/vv_do_topic(list/href_list)
 	. = ..()
 	if(href_list[VV_HK_REAPPLY_PREFS])
-	
+
 		if(!check_rights(R_SPAWN))
 			return
 		if(!client || !client.prefs)
