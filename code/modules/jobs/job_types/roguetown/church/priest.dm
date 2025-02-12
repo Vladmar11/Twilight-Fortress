@@ -18,7 +18,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	Безбожников становится все больше, и именно вам предстоит направить их в богобоязненное будущее."
 	whitelist_req = FALSE
 
-	spells = list(/obj/effect/proc_holder/spell/self/convertrole/templar, /obj/effect/proc_holder/spell/self/convertrole/monk)
+	spells = list(SPELL_CONVERT_ROLE_TEMPLAR, SPELL_CONVERT_ROLE_MONK)
 	outfit = /datum/outfit/job/roguetown/priest
 
 	display_order = JDO_PRIEST

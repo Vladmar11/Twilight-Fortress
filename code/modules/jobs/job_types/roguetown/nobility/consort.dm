@@ -13,7 +13,7 @@
 	 В этот день ваша верность и, возможно, любовь будут проверены на прочность. \
 	 Ведь кинжалы, угрожающие вашему возлюбленному, в равной степени направлены и на ваше собственное горло."
 
-	spells = list(/obj/effect/proc_holder/spell/self/convertrole/servant)
+	spells = list(SPELL_CONVERT_ROLE_SERVANT)
 	outfit = /datum/outfit/job/roguetown/consort
 
 	display_order = JDO_LADY
