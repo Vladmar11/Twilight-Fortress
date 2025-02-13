@@ -173,4 +173,3 @@
 	name = "Dragonscale Necklace"
 	cost = 2000
 	contains = list(/obj/item/clothing/neck/roguetown/blkknight)
-
