@@ -1,6 +1,6 @@
 /obj/structure/roguemachine/vendor
 	name = "PEDDLER"
-	desc = "Недра этой штуки можно наполнить интересными вещами, которые вы сможете купить."
+	desc = "The stomach of this thing can been stuffed with fun things for you to buy."
 	icon = 'icons/roguetown/misc/machines.dmi'
 	icon_state = "streetvendor1"
 	density = TRUE
@@ -27,7 +27,7 @@
 			playsound(loc, 'sound/misc/machinevomit.ogg', 100, TRUE, -1)
 			return attack_hand(user)
 		else
-			to_chat(user, span_warning("Заполнено."))
+			to_chat(user, span_warning("Full."))
 			return
 
 /obj/structure/roguemachine/vendor/attackby(obj/item/P, mob/user, params)
@@ -49,7 +49,7 @@
 			if(!locked)
 				insert(P, user)
 			else	
-				to_chat(user, span_warning("Неподходящий ключ."))
+				to_chat(user, span_warning("Wrong key."))
 				return
 	if(istype(P, /obj/item/storage/keyring))
 		var/obj/item/storage/keyring/K = P
@@ -77,7 +77,7 @@
 					budget -= held_items[O]["PRICE"]
 					wgain += held_items[O]["PRICE"]
 				else
-					say("ЗА ВСЕ НАДО ПЛАТИТЬ!")
+					say("NO MONEY NO HONEY!")
 					return
 			held_items -= O
 			if(!usr.put_in_hands(O))
@@ -118,7 +118,7 @@
 			var/prename
 			if(held_items[O]["NAME"])
 				prename = held_items[O]["NAME"]
-			var/newname = input(usr, "УКАЖИТЕ НАЗВАНИЕ ДЛЯ ЭТОГО ТОВАРА", src, prename)
+			var/newname = input(usr, "SET A NEW NAME FOR THIS PRODUCT", src, prename)
 			if(newname)
 				held_items[O]["NAME"] = newname
 	if(href_list["setprice"])
@@ -131,17 +131,12 @@
 			var/preprice
 			if(held_items[O]["PRICE"])
 				preprice = held_items[O]["PRICE"]
-			var/newprice = input(usr, "УКАЖИТЕ ЦЕНУ ДЛЯ ЭТОГО ТОВАРА", src, preprice) as null|num
+			var/newprice = input(usr, "SET A NEW PRICE FOR THIS PRODUCT", src, preprice) as null|num
 			if(newprice)
 				if(findtext(num2text(newprice), "."))
 					return attack_hand(usr)
-					// Проверка на отрицательную цену
-				if(newprice < 0)
-					to_chat(usr, span_warning("ИДИ НАХУЙ ПИДОРАС!"))
-					return attack_hand(usr)
 				held_items[O]["PRICE"] = newprice
-		return attack_hand(usr)
-
+	return attack_hand(usr)
 
 /obj/structure/roguemachine/vendor/attack_hand(mob/living/user)
 	. = ..()
@@ -152,17 +147,17 @@
 	var/canread = user.can_read(src, TRUE)
 	var/contents
 	if(canread)
-		contents = "<center>THE PEDDLER, ТРЕТЬЕ ПОКОЛЕНИЕ<BR>"
+		contents = "<center>THE PEDDLER, THIRD ITERATION<BR>"
 		if(locked)
-			contents += "<a href='?src=[REF(src)];change=1'>Маммонов внутри:</a> [budget]<BR>"
+			contents += "<a href='?src=[REF(src)];change=1'>Stored Mammon:</a> [budget]<BR>"
 		else
-			contents += "<a href='?src=[REF(src)];withdrawgain=1'>Заработано маммонов:</a> [wgain]<BR>"
+			contents += "<a href='?src=[REF(src)];withdrawgain=1'>Stored Profits:</a> [wgain]<BR>"
 	else
-		contents = "<center>[stars("THE PEDDLER, ТРЕТЬЕ ПОКОЛЕНИЕ")]<BR>"
+		contents = "<center>[stars("THE PEDDLER, THIRD ITERATION")]<BR>"
 		if(locked)
-			contents += "<a href='?src=[REF(src)];change=1'>[stars("Маммонов внутри:")]</a> [budget]<BR>"
+			contents += "<a href='?src=[REF(src)];change=1'>[stars("Stored Mammon:")]</a> [budget]<BR>"
 		else
-			contents += "<a href='?src=[REF(src)];withdrawgain=1'>[stars("Заработано маммонов:")]</a> [wgain]<BR>"
+			contents += "<a href='?src=[REF(src)];withdrawgain=1'>[stars("Stored Profits:")]</a> [wgain]<BR>"
 
 	contents += "</center>"
 
@@ -176,14 +171,14 @@
 			namer = "thing"
 		if(locked)
 			if(canread)
-				contents += "[icon2html(I, user)] [namer] - [price] <a href='?src=[REF(src)];buy=[REF(I)]'>КУПИТЬ</a>"
+				contents += "[icon2html(I, user)] [namer] - [price] <a href='?src=[REF(src)];buy=[REF(I)]'>BUY</a>"
 			else
-				contents += "[icon2html(I, user)] [stars(namer)] - [price] <a href='?src=[REF(src)];buy=[REF(I)]'>[stars("КУПИТЬ")]</a>"
+				contents += "[icon2html(I, user)] [stars(namer)] - [price] <a href='?src=[REF(src)];buy=[REF(I)]'>[stars("BUY")]</a>"
 		else
 			if(canread)
-				contents += "[icon2html(I, user)] <a href='?src=[REF(src)];setname=[REF(I)]'>[namer]</a> - <a href='?src=[REF(src)];setprice=[REF(I)]'>[price]</a> <a href='?src=[REF(src)];retrieve=[REF(I)]'>ВЗЯТЬ</a>"
+				contents += "[icon2html(I, user)] <a href='?src=[REF(src)];setname=[REF(I)]'>[namer]</a> - <a href='?src=[REF(src)];setprice=[REF(I)]'>[price]</a> <a href='?src=[REF(src)];retrieve=[REF(I)]'>TAKE</a>"
 			else
-				contents += "[icon2html(I, user)] <a href='?src=[REF(src)];setname=[REF(I)]'>[stars(namer)]</a> - <a href='?src=[REF(src)];setprice=[REF(I)]'>[price]</a> <a href='?src=[REF(src)];retrieve=[REF(I)]'>[stars("ВЗЯТЬ")]</a>"
+				contents += "[icon2html(I, user)] <a href='?src=[REF(src)];setname=[REF(I)]'>[stars(namer)]</a> - <a href='?src=[REF(src)];setprice=[REF(I)]'>[price]</a> <a href='?src=[REF(src)];retrieve=[REF(I)]'>[stars("TAKE")]</a>"
 		contents += "<BR>"
 
 	var/datum/browser/popup = new(user, "VENDORTHING", "", 370, 300)
@@ -286,8 +281,8 @@
 
 /obj/structure/roguemachine/vendor/portshop
 	lockid = "steward"
-	name = "Portshop Key Seller."
-	desc = "Get the key for the shop here!"
+	name = "Portshop key seller."
+	desc = "Get key from shop here!"
 
 /obj/structure/roguemachine/vendor/portshop/Initialize()
 	. = ..()
@@ -295,12 +290,12 @@
 		var/obj/P = new X(src)
 		held_items[P] = list()
 		held_items[P]["NAME"] = P.name
-		held_items[P]["PRICE"] = 10
+		held_items[P]["PRICE"] = 7
 
 /obj/structure/roguemachine/vendor/street_smithshop01
 	lockid = "steward"
-	name = "Shop Key Seller"
-	desc = "Get the key for the shop here!"
+	name = "Smith shop key seller."
+	desc = "Get key from shop here!"
 
 /obj/structure/roguemachine/vendor/street_smithshop01/Initialize()
 	. = ..()
@@ -308,12 +303,12 @@
 		var/obj/P = new X(src)
 		held_items[P] = list()
 		held_items[P]["NAME"] = P.name
-		held_items[P]["PRICE"] = 10
+		held_items[P]["PRICE"] = 7
 
 /obj/structure/roguemachine/vendor/street_shop01
 	lockid = "steward"
-	name = "Shop Key Seller"
-	desc = "Get the key for the shop here!"
+	name = "Street shop key seller."
+	desc = "Get key from shop here!"
 
 /obj/structure/roguemachine/vendor/street_shop01/Initialize()
 	. = ..()
@@ -321,12 +316,12 @@
 		var/obj/P = new X(src)
 		held_items[P] = list()
 		held_items[P]["NAME"] = P.name
-		held_items[P]["PRICE"] = 10
+		held_items[P]["PRICE"] = 7
 
 /obj/structure/roguemachine/vendor/street_shop02
 	lockid = "steward"
-	name = "Shop Key Seller"
-	desc = "Get the key for the shop here!"
+	name = "Street shop key seller."
+	desc = "Get key from shop here!"
 
 /obj/structure/roguemachine/vendor/street_shop02/Initialize()
 	. = ..()
@@ -334,23 +329,17 @@
 		var/obj/P = new X(src)
 		held_items[P] = list()
 		held_items[P]["NAME"] = P.name
-		held_items[P]["PRICE"] = 10
+		held_items[P]["PRICE"] = 7
 
 /obj/structure/roguemachine/vendor/smallstreet_master01
 	lockid = "steward"
-	name = "Stall Shop Key Seller"
-	desc = "Get the key for a stall here!"
+	name = "Market shop key seller."
+	desc = "Get key from shop here!"
 
 /obj/structure/roguemachine/vendor/smallstreet_master01/Initialize()
 	. = ..()
-	for(var/X in list(
-		/obj/item/key/smallstreet_shop01,
-		/obj/item/key/smallstreet_shop02,
-		/obj/item/key/smallstreet_shop03,
-		/obj/item/key/smallstreet_shop04,
-		/obj/item/key/smallstreet_shop05,
-		/obj/item/key/smallstreet_shop06))
+	for(var/X in list(/obj/item/key/smallstreet_shop01, /obj/item/key/smallstreet_shop02, /obj/item/key/smallstreet_shop03, /obj/item/key/smallstreet_shop04, /obj/item/key/smallstreet_shop05, /obj/item/key/smallstreet_shop06))
 		var/obj/P = new X(src)
 		held_items[P] = list()
 		held_items[P]["NAME"] = P.name
-		held_items[P]["PRICE"] = 10
+		held_items[P]["PRICE"] = 5

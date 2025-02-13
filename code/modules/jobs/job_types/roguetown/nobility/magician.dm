@@ -9,7 +9,7 @@
 
 	allowed_races = RACES_TOLERATED_UP
 	allowed_sexes = list(MALE, FEMALE)
-	spells = list(/obj/effect/proc_holder/spell/invoked/learnspell, /obj/effect/proc_holder/spell/invoked/projectile/fireballgreater, /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
+	spells = list(SPELL_LEARNSPELL, SPELL_FIREBALLGREATER, SPELL_PRESTIDIGITATION)
 	display_order = JDO_MAGICIAN
 	tutorial = "Ваше кредо - покорение магических искусств и постоянное стремление к знаниям. \
 		Вы обязаны жизнью герцогу, ибо именно его маммоны позволили вам продолжить обучение в эти темные времена. \
