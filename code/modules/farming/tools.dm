@@ -3,8 +3,8 @@
 \-----------*/
 
 /obj/item/rogueweapon/thresher
-	name = "thresher"
-	desc = "Crushes grain, or skulls."
+	name = "молотилка"
+	desc = "Дробит зерно или черепа."
 	icon_state = "thresher"
 	item_state = "thresher"
 	icon = 'icons/roguetown/weapons/tools.dmi'
@@ -36,8 +36,8 @@
 	wlength = 66
 
 /obj/item/rogueweapon/thresher/wflail
-	name = "war flail"
-	desc = "A peasants thresher turned into a weapon of war."
+	name = "крестьянский боевой цеп"
+	desc = "Крестьянская молотилка, превращенная в орудие войны."
 	icon_state = "wflail"
 	item_state = "wflail"
 	minstr = 9
@@ -68,8 +68,8 @@
 				playsound(loc,"plantcross", 90, FALSE)
 				playsound(loc,"smashlimb", 35, FALSE)
 				apply_farming_fatigue(user, 10)
-				user.visible_message("<span class='notice'>[user] threshes the stalks!</span>", \
-									"<span class='notice'>I thresh the stalks.</span>")
+				user.visible_message("<span class='notice'>[user] молотит стебли!</span>", \
+									"<span class='notice'>Я обмолачиваю стебли.</span>")
 			return
 	..()
 
@@ -79,8 +79,8 @@
 \---------*/
 
 /obj/item/rogueweapon/sickle
-	name = "sickle"
-	desc = "Rusted blade, worn handle, symbol of toil."
+	name = "серп"
+	desc = "Ржавое лезвие, изношенная рукоятка. Символ тяжелого труда."
 	icon_state = "sickle1"
 	item_state = "sickle"
 	icon = 'icons/roguetown/weapons/tools.dmi'
@@ -111,8 +111,8 @@
 \------*/
 
 /obj/item/rogueweapon/hoe
-	name = "hoe"
-	desc = ""
+	name = "мотыга"
+	desc = "Нужна для разрыхления почвы. Главное, не бросайте её на дороге."
 	icon_state = "hoe"
 	item_state = "hoe"
 	icon = 'icons/roguetown/weapons/tools.dmi'
@@ -179,8 +179,8 @@
 \------------*/
 
 /obj/item/rogueweapon/pitchfork
-	name = "pitchfork"
-	desc = "Compost, chaff, hay, it matters not."
+	name = "вилы"
+	desc = "Компост, солома, сено – не важно."
 	icon_state = "pitchfork"
 	item_state = "pitchfork"
 	icon = 'icons/roguetown/weapons/tools.dmi'
@@ -228,7 +228,7 @@
 			for(var/obj/item/I in forked)
 				I.forceMove(target)
 				forked -= I
-			to_chat(user, span_warning("I dump the stalks."))
+			to_chat(user, span_warning("Я сбрасываю стебли в кучу."))
 		update_icon()
 		playsound(loc,"plantcross", 80, FALSE)
 		return

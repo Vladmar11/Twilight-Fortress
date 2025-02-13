@@ -7,8 +7,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/clothing/mask/rogue/spectacles
-	name = "spectacles"
-	desc = "A finely made set of spectacles for those with trouble seeing."
+	name = "пенсне"
+	desc = "Тщательно подогнанные очки для дворян и служащих, страдающих от слепоты."
 	icon_state = "glasses"
 	break_sound = "glassbreak"
 	attacked_sound = 'sound/combat/hits/onglass/glasshit.ogg'
@@ -20,8 +20,8 @@
 //	block2add = FOV_BEHIND
 
 /obj/item/clothing/mask/rogue/spectacles/golden
-	name = "golden spectacles"
-	desc = "A finely made set of spectacles, these ones seem to have been commissioned by a noble."
+	name = "позолоченные очки"
+	desc = "Тщательно подогнанные очки с позолоченной оправой. Похоже, изготовлены на заказ кем-то состоятельным и благородным."
 	icon_state = "goggles"
 	break_sound = "glassbreak"
 	attacked_sound = 'sound/combat/hits/onglass/glasshit.ogg'
@@ -49,8 +49,8 @@
 	user.update_fov_angles()
 
 /obj/item/clothing/mask/rogue/eyepatch
-	name = "eyepatch"
-	desc = "An eyepatch, fitted for the right eye."
+	name = "глазная повязка"
+	desc = "Повязка, приспособленная для правого глаза."
 	icon_state = "eyepatch"
 	max_integrity = 20
 	integrity_failure = 0.5
@@ -60,13 +60,13 @@
 	salvage_amount = 1
 
 /obj/item/clothing/mask/rogue/eyepatch/left
-	desc = "An eyepatch, fitted for the left eye."
+	desc = "Повязка, приспособленная для левого глаза."
 	icon_state = "eyepatch_l"
 	block2add = FOV_LEFT
 
 /obj/item/clothing/mask/rogue/lordmask
-	name = "golden halfmask"
-	desc = "Half of your face turned gold."
+	name = "полумаска из золота"
+	desc = "Скрывает половину лица за блестящим золотом."
 	icon_state = "lmask"
 	sellprice = 50
 	anvilrepair = /datum/skill/craft/blacksmithing
@@ -75,8 +75,8 @@
 	icon_state = "lmask_l"
 
 /obj/item/clothing/mask/rogue/facemask
-	name = "iron mask"
-	desc = "An iron mask which protects the eyes, nose and mouth while also obscuring the face it."
+	name = "железная маска"
+	desc = "Железная маска, которая защищает глаза, нос и рот, а также скрывает лицо."
 	icon_state = "imask"
 	max_integrity = 100
 	blocksound = PLATEHIT
@@ -94,8 +94,8 @@
 	smeltresult = /obj/item/ingot/iron
 
 /obj/item/clothing/mask/rogue/facemask/hound
-	name = "iron hound mask"
-	desc = "An iron mask, made for those who have snouts, protecting the eyes, nose and muzzle while obscuring the face."
+	name = "железная маска гончей"
+	desc = "Железная маска-намордник, защищающая глаза, нос и морду, скрывая при этом лицо."
 	icon_state = "imask_hound"
 
 /obj/item/clothing/mask/rogue/facemask/prisoner/Initialize()
@@ -111,19 +111,19 @@
 	qdel(src)
 
 /obj/item/clothing/mask/rogue/facemask/steel
-	name = "steel mask"
-	desc = "A mask of steel which protects the eyes, nose and mouth while also obscuring the face."
+	name = "стальная маска"
+	desc = "Маска из стали, которая защищает глаза, нос и рот, а также скрывает лицо."
 	icon_state = "smask"
 	max_integrity = 200
 	smeltresult = /obj/item/ingot/steel
 
 /obj/item/clothing/mask/rogue/facemask/steel/hound
-	name = "steel hound mask"
-	desc = "A steel mask, made for those who have snouts, protecting the eyes, nose and muzzle while obscuring the face."
+	name = "стальная маска гончей"
+	desc = "Стальная маска-намордник, защищающая глаза, нос и морду, скрывая при этом лицо."
 	icon_state = "smask_hound"
 
 /obj/item/clothing/mask/rogue/shepherd
-	name = "halfmask"
+	name = "полумаска"
 	icon_state = "shepherd"
 	flags_inv = HIDEFACE|HIDEFACIALHAIR
 	body_parts_covered = NECK|MOUTH
@@ -132,6 +132,8 @@
 	toggle_icon_state = TRUE
 	experimental_onhip = TRUE
 	sewrepair = TRUE
+	fiber_salvage = FALSE
+	silk_salvage = TRUE
 	salvage_amount = 1
 
 /obj/item/clothing/mask/rogue/shepherd/AdjustClothes(mob/user)
@@ -155,8 +157,8 @@
 					H.update_inv_wear_mask()
 
 /obj/item/clothing/mask/rogue/physician
-	name = "plague mask"
-	desc = "What better laboratory than the blood-soaked battlefield?"
+	name = "чумная маска"
+	desc = "И какая лаборатория лучше пропитанного кровью поля битвы?"
 	icon_state = "physmask"
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDEEARS
 	body_parts_covered = FACE|EARS|EYES|MOUTH|NECK
@@ -164,16 +166,22 @@
 	sewrepair = TRUE
 
 /obj/item/clothing/mask/rogue/facemask/goldmask
-	name = "Gold Mask"
+	name = "золотая маска"
+	desc = "Изящная и очень дорогая маска из чистого золота. Годится скорее для церемоний, нежели для защиты."
 	icon_state = "goldmask"
 	max_integrity = 150
 	sellprice = 100
 	smeltresult = /obj/item/ingot/gold
 
-/obj/item/clothing/mask/rogue/exoticsilkmask
-	name = "Exotic Silk Mask"
-	icon_state = "exoticsilkmask"
-	flags_inv = HIDEFACE|HIDEFACIALHAIR
-	body_parts_covered = NECK|MOUTH
-	slot_flags = ITEM_SLOT_MASK|ITEM_SLOT_HIP
-	sewrepair = TRUE
+/obj/item/clothing/mask/rogue/eoran_mask
+	name = "эоранская маска"
+	desc = "Серебряная оперная маска, которую носят верующие Эоры, как правило, во время своих ритуалов."
+	icon = 'icons/roguetown/clothing/head.dmi'
+	icon_state = "eoramask"
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
+	worn_x_dimension = 64
+	worn_y_dimension = 64
+	dynamic_hair_suffix = ""
+	flags_inv = HIDEFACE | HIDEFACIALHAIR
+	resistance_flags = FIRE_PROOF
+	smeltresult = /obj/item/ingot/silver

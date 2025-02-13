@@ -1,8 +1,8 @@
 //////////////Church stuff
 
 /obj/item/handheld_bell
-	name = "church bell"
-	desc = "A small bell that rings loudly when used."
+	name = "церковный колокольчик"
+	desc = "Маленький колокольчик, который громко звонит при использовании."
 	icon = 'icons/roguetown/items/misc.dmi'
 	icon_state = "churchbell"
 	throw_speed = 2
@@ -24,9 +24,9 @@
 
 	for(var/mob/M in view(10, src.loc))
 		if(M.client)
-			to_chat(M, span_notice("The handheld bell rings sharply through the area."))
+			to_chat(M, span_notice("Звон колокольчика резко раздается в округе."))
 
-	user.visible_message(span_notice("[user] rings [src]."))
+	user.visible_message(span_notice("[user] звонит в [src]."))
 	ringing = TRUE
 	sleep(cooldown)
 	ringing = FALSE
@@ -43,8 +43,8 @@
 //////////Stationary Church bell
 
 /obj/structure/bell_barrier
-	name = "invisible barrier"
-	desc = "An invisible barrier that prevents movement."
+	name = "невидимый барьер"
+	desc = "Невидимая преграда не дает вам двигаться через неё."
 	icon = null
 	icon_state = ""
 	density = TRUE
@@ -53,8 +53,8 @@
 	invisibility = INVISIBILITY_MAXIMUM
 
 /obj/structure/stationary_bell
-	name = "church bell"
-	desc = "A large bell that rings out for all to hear."
+	name = "храмовый колокол"
+	desc = "Большой церковный колокол, который громко звонит во всеуслышание."
 	icon = 'icons/roguetown/misc/96x96.dmi'
 	icon_state = "churchbell"
 	anchored = TRUE
@@ -85,8 +85,8 @@
 		playsound(loc, 'sound/misc/bell.ogg', 50, 1)
 		for(var/mob/M in orange(150, src))
 			if(M.client)
-				to_chat(M, span_notice("The church bell rings, echoing solemnly through the area."))
-		visible_message(span_notice("[user] uses the [used_item] to ring the [src]."))
+				to_chat(M, span_notice("Звон церковного колокола торжественно разносится по округе."))
+		visible_message(span_notice("[user], используя [used_item], звонит в [src]."))
 		ringing = TRUE
 		sleep(cooldown)
 		ringing = FALSE

@@ -1,6 +1,8 @@
 /datum/migrant_role/slaver/master
 	name = "Zybantynian Master"
-	greet_text = "The leader of the Zybantynian slave troup. You have came to the Isle of Enigma from the western deserts of Zybantine in the hopes of gathering wealth through the trade unfortunate laborers. The practice can be called despicable by some, but it is without a doubt efficient in filling your pockets before you return to Zybantine"
+	greet_text = "Вы - предводитель зибантийской группы работорговцев. \
+	Вы прибыли на остров Энигма из западных пустынь Зибантии в надежде разбогатеть за счет торговли несчастными рабочими. \
+	Некоторые называют эту практику презренной, но она, несомненно, помогает набить ваши карманы до возвращения в Зибантию."
 	outfit = /datum/outfit/job/roguetown/slaver/master
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_TOLERATED_UP
@@ -51,7 +53,7 @@
 
 /datum/migrant_role/slaver/slavemercsword
 	name = "Zybantynian Blade Mercenary"
-	greet_text = "A hired arm for the Zybantine Slave troup. You have come from the western deserts of Zybantine, and are hired for the week you are spending on this island."
+	greet_text = "Наемная рука для группы зибантийских работорговцев. Вы прибыли из западных пустынь Зибантии и наняты на неделю, которую проведете на этом острове."
 	outfit = /datum/outfit/job/roguetown/slaver/slavemercsword
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_TOLERATED_UP
@@ -104,7 +106,7 @@
 
 /datum/migrant_role/slaver/slavemercwhip
 	name = "Zybantynian Whip Mercenary"
-	greet_text = "A hired arm for the Zybantine Slave troup. You have come from the western deserts of Zybantine, and are hired for the week you are spending on this island."
+	greet_text = "Наемная рука для группы зибантийских работорговцев. Вы прибыли из западных пустынь Зибантии и наняты на неделю, которую проведете на этом острове."
 	outfit = /datum/outfit/job/roguetown/slaver/slavemercwhip
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_TOLERATED_UP
@@ -157,7 +159,8 @@
 
 /datum/migrant_role/slaver/slavemercbow
 	name = "Zybantynian Light Crossbow Mercenary"
-	greet_text = "A hired arm for the Zybantine Slave troup, and also a discount first aider. You have come from the western deserts of Zybantine, and are hired for the week you are spending on this island."
+	greet_text = "Наемный убийца в отряде зибантийских работорговцев, а также первый помощник со скидкой. \
+	Вы прибыли из западных пустынь Зибантии и наняты на неделю, которую проведете на этом острове."
 	outfit = /datum/outfit/job/roguetown/slaver/slavemercbow
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_TOLERATED_UP
@@ -210,7 +213,7 @@
 
 /datum/migrant_role/slaver/slavez
 	name = "Slave"
-	greet_text = "An unlucky slave, captured and trained for labor, now being transported from the western deserts of the Zybantines to the marsh filled Isle of Enigma."
+	greet_text = "Вы - неудачливый раб, захваченный и обученный для работы, теперь вас перевозят из западных пустынь Зибантии на заполненный болотами остров Энигма."
 	outfit = /datum/outfit/job/roguetown/slaver/slavez
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
@@ -218,15 +221,20 @@
 	show_wanderer_examine = FALSE
 	show_foreign_examine = TRUE
 
-/datum/outfit/job/roguetown/slaver/slavez/pre_equip(mob/living/carbon/human/H) 
+/datum/outfit/job/roguetown/slaver/slavez/pre_equip(mob/living/carbon/human/H)
 	..()
-	shirt = /obj/item/clothing/suit/roguetown/shirt/exoticsilkbra 
 	neck = /obj/item/clothing/neck/roguetown/collar/leather/cursed
-	belt = /obj/item/storage/belt/rogue/leather/exoticsilkbelt
 	beltl = /obj/item/storage/belt/rogue/pouch
 	beltr = /obj/item/flint
-	shoes = /obj/item/clothing/shoes/roguetown/anklets
-	mask = /obj/item/clothing/mask/rogue/exoticsilkmask
+	if(H.gender == MALE)
+		belt =	/obj/item/storage/belt/rogue/leather/cloth
+		armor = /obj/item/clothing/suit/roguetown/shirt/rags
+		shoes = /obj/item/clothing/shoes/roguetown/shortboots
+	else
+		mask = /obj/item/clothing/mask/rogue/exoticsilkmask
+		shirt = /obj/item/clothing/suit/roguetown/shirt/exoticsilkbra
+		belt =	/obj/item/storage/belt/rogue/leather/exoticsilkbelt
+		shoes = /obj/item/clothing/shoes/roguetown/goldanklets
 	if(H.mind)
 		H.virginity = TRUE
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
@@ -247,6 +255,5 @@
 		H.change_stat("intelligence", 3)
 		H.change_stat("speed", 1)
 		H.change_stat("fortune", -1)
-		H.cmode_music = 'sound/music/combat_zybantine.ogg'
 
 	ADD_TRAIT(H, TRAIT_GOODLOVER, TRAIT_GENERIC)

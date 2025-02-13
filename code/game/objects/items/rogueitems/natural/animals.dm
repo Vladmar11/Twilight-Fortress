@@ -1,34 +1,34 @@
 /obj/item/natural/hide
-	name = "hide"
+	name = "шкура"
 	icon_state = "hide"
-	desc = "Hide from one of Gott's creachers."
+	desc = "Шкура одного из божьих созданий. Содрав изнанку, можно получить пригодную для работы кожу."
 	w_class = WEIGHT_CLASS_SMALL
 	resistance_flags = FLAMMABLE
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	sellprice = 20
 
 /obj/item/natural/hide/cured
-	name = "cured leather"
+	name = "обработанная кожа"
 	icon_state = "leather"
-	desc = "A hide piece that has been cured and may now be worked."
+	desc = "Кусок шкуры, с которой была содрана мездра. Получившаяся кожа может быть использована в ремесле."
 	sellprice = 7
 	bundletype = /obj/item/natural/bundle/curred_hide
 
 /obj/item/natural/bundle/curred_hide
-	name = "bundle of cured leather"
-	desc = "A bunch of cured leather pieces bundled together."
+	name = "связка обработанной кожи"
+	desc = "Куча листов выделанной кожи, связанных вместе."
 	icon_state = "leatherroll1"
 	maxamount = 10
 	spitoutmouth = FALSE
 	stacktype = /obj/item/natural/hide/cured
-	stackname = "cured leather"
+	stackname = "полотен кожи"
 	icon1 = "leatherroll1"
 	icon1step = 5
 	icon2 = "leatherroll2"
 	icon2step = 10
 
 /obj/item/natural/hide/cured/attack_right(mob/user)
-	to_chat(user, span_warning("I start to collect [src]..."))
+	to_chat(user, span_warning("Я собираю [src]..."))
 	if(move_after(user, 1 SECONDS, target = src))
 		var/curredcount = 0
 		for(var/obj/item/natural/hide/cured/F in get_turf(src))
@@ -46,17 +46,17 @@
 			qdel(F)
 
 /obj/item/natural/cured/essence
-	name = "essence of wilderness"
+	name = "эссенция природы"
 	icon_state = "wessence"
-	desc = "A mystical essence embued with the power of Dendor. Merely holding it transports one's mind to ancient times."
+	desc = "Мистическая сущность, наполненная силой Дендора. Просто держа её в руках, переносишься в древние времена."
 	resistance_flags = FLAMMABLE
 	w_class = WEIGHT_CLASS_SMALL
 	sellprice = 20
 
 /obj/item/natural/fur
-	name = "fur"
+	name = "мех"
 	icon_state = "wool1"
-	desc = "Fur from one of Gott's creachers."
+	desc = "Мех одного из божих созданий."
 	force = 0
 	throwforce = 0
 	w_class = WEIGHT_CLASS_SMALL
@@ -67,7 +67,8 @@
 
 //RTD make this a storage item and make clickign on animals with things put it in storage
 /obj/item/natural/saddle
-	name = "saddle"
+	name = "седло"
+	desc = "Удобное сиденье для всадников. Крепится на спину ездового животного."
 	icon_state = "saddle"
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK_L
@@ -85,9 +86,9 @@
 		if(S.can_saddle && !S.ssaddle)
 			testing("yea2")
 			if(!target.has_buckled_mobs())
-				user.visible_message(span_warning("[user] tries to saddle [target]..."))
+				user.visible_message(span_warning("[user] забрасывает седло на [target]..."))
 				if(do_after(user, 40, target = target))
-					S.name = input("Choose a new name for your mount!","Name", S.name)
+					S.name = input("Выберите имя для вашего нового ездового животного: ","Имя", S.name)
 					playsound(loc, 'sound/foley/saddledismount.ogg', 100, FALSE)
 					user.dropItemToGround(src)
 					S.ssaddle = src

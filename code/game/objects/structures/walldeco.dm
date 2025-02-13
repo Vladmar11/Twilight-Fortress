@@ -26,7 +26,7 @@
 	return
 
 /obj/structure/fluff/walldeco/wantedposter
-	name = "bandit notice"
+	name = "предупреждение о бандитах"
 	desc = ""
 	icon_state = "wanted1"
 	layer = BELOW_MOB_LAYER
@@ -48,14 +48,14 @@
 	. = ..()
 	if(user.Adjacent(src))
 		if(SSrole_class_handler.bandits_in_round)
-			. += span_bold("I see that bandits are active in the region.")
+			. += span_bold("Кажется, в наших краях активизировались бандиты.")
 			user.playsound_local(user, 'sound/misc/notice (2).ogg', 100, FALSE)
 		else
-			. += span_bold("There doesn't seem to be any reports of bandit activity.")
+			. += span_bold("Похоже, нет никаких сообщений о бандитской деятельности.")
 
 /obj/structure/fluff/walldeco/innsign
-	name = "sign"
-	desc = ""
+	name = "Расколотый Череп"
+	desc = "Здесь можно найти еду, выпивку, комнату и даже не потерять зубы."
 	icon_state = "bar"
 	layer = ABOVE_MOB_LAYER
 
@@ -66,8 +66,8 @@
 	layer = ABOVE_MOB_LAYER
 
 /obj/structure/fluff/walldeco/bsmith
-	name = "sign"
-	desc = ""
+	name = "Кузница"
+	desc = "Здесь у кузнеца можно заказать изделия из металлов."
 	icon = 'icons/roguetown/misc/tallstructure.dmi'
 	icon_state = "bsmith"
 	layer = ABOVE_MOB_LAYER
@@ -95,13 +95,13 @@
 	icon_state = "serpent"
 
 /obj/structure/fluff/walldeco/artificerflag
-	name = "Artificer's Guild"
+	name = "Гильдия Ремесленника"
 	desc = ""
 	icon_state = "artificer"
 
 /obj/structure/fluff/walldeco/maidendrape
-	name = "black drape"
-	desc = "A drape of fabric."
+	name = "черный занавес"
+	desc = "Занавес из плотной ткани."
 	icon_state = "black_drape"
 	dir = SOUTH
 	pixel_y = 32
@@ -112,7 +112,7 @@
 	icon_state = "wallshield"
 
 /obj/structure/fluff/walldeco/psybanner
-	name = "banner"
+	name = "знамя"
 	icon_state = "Psybanner-PURPLE"
 
 /obj/structure/fluff/walldeco/psybanner/red
@@ -136,7 +136,7 @@
 	return ..()
 
 /obj/structure/fluff/walldeco/maidensigil
-	name = "stone sigil"
+	name = "сигил из камня"
 	desc = ""
 	icon_state = "maidensigil"
 	mouse_opacity = 0
@@ -148,7 +148,7 @@
 	pixel_x = 16
 
 /obj/structure/fluff/walldeco/bigpainting
-	name = "painting"
+	name = "картина"
 	icon = 'icons/roguetown/misc/64x64.dmi'
 	icon_state = "sherwoods"
 	pixel_y = 32
@@ -158,13 +158,13 @@
 	icon_state = "lake"
 
 /obj/structure/fluff/walldeco/mona
-	name = "painting"
+	name = "картина"
 	icon = 'icons/roguetown/misc/tallstructure.dmi'
 	icon_state = "mona"
 	pixel_y = 32
 
 /obj/structure/fluff/walldeco/chains
-	name = "hanging chains"
+	name = "свисающие цепи"
 	alpha = 180
 	layer = 4.26
 	icon_state = "chains1"
@@ -180,7 +180,7 @@
 	return ..()
 
 /obj/structure/fluff/walldeco/customflag
-	name = "rockhill flag"
+	name = "флаг Рокхилла"
 	desc = ""
 	icon_state = "wallflag"
 
@@ -207,7 +207,7 @@
 	GLOB.lordcolor -= src
 
 /obj/structure/fluff/walldeco/moon
-	name = "banner"
+	name = "знамя наемников"
 	icon_state = "moon"
 
 /obj/structure/fluff/walldeco/rpainting

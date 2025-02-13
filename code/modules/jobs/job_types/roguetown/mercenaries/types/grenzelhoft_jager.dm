@@ -5,23 +5,10 @@
 	fill the Auxiliary ranks, however you are one of the lucky few that was allowed to join the Free Corps. \
 	You are expected to provide the Guild with your expertise in tracking, and scouting. Alongside your marksmanship."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		/datum/species/axian,
-		/datum/species/vulpkanin,
-		/datum/species/lupian,
-		/datum/species/moth, //grenzelmoft?
-		/datum/species/dwarf/mountain,
-		/datum/species/human/northern,
-		/datum/species/demihuman,
-		/datum/species/anthromorph,
-		/datum/species/tabaxi,
-		/datum/species/kobold,
-		/datum/species/elf/wood,
-		/datum/species/elf/dark,
-	)
+	allowed_races = RACES_TOLERATED_UP
 	outfit = /datum/outfit/job/roguetown/mercenary/grenzelhoft_jager
 	maximum_possible_slots = 4
-	min_pq = 18
+	min_pq = 20
 	torch = FALSE
 	cmode_music = 'sound/music/combat_grenzelhoft.ogg'
 	category_tags = list(CTAG_MERCENARY)
@@ -31,7 +18,7 @@
 	wrists = /obj/item/clothing/wrists/roguetown/bracers
 	belt = /obj/item/storage/belt/rogue/leather
 	beltl = /obj/item/ammo_holder/bullet/lead
-	beltr = /obj/item/rogueweapon/stoneaxe/woodcut/steel
+	beltr = /obj/item/rogueweapon/stoneaxe/battle
 	backl = /obj/item/storage/backpack/rogue/backpack
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	shirt = /obj/item/clothing/suit/roguetown/shirt/grenzelhoft
@@ -62,7 +49,7 @@
 
 
 	if(H.mind)
-		H.mind.adjust_skillrank(/datum/skill/combat/firearms, 4, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/firearms, 5, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/axes, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/hunting, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/labor/lumberjacking, 3, TRUE)

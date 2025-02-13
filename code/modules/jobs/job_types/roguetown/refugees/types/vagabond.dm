@@ -1,8 +1,8 @@
 /datum/subclass/vagabond
 	name = "Vagabond"
-	tutorial = "Your life never really amounted to much. Wandering has always been your lifestyle regardless of the \
-				plagues and strife gripping the world. You've strayed to yet another city, bringing your dubious career with you, \
-				your life might yet turn around, but it probably wont."
+	tutorial = "Твоя жизнь никогда не была такой уж насыщенной. Странствия всегда были вашим образом жизни, несмотря на \
+				чумы и раздоров, охвативших мир. Вы отправились в очередной город, прихватив с собой сомнительную репутацию. \
+				Возможно, ваша жизнь еще перевернется, но, скорее всего, этого не произойдет."
 
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
@@ -65,6 +65,7 @@
 			H.change_stat("fortune", -1)
 
 		if("Drunkard")
+			r_hand = /obj/item/reagent_containers/glass/bottle/rogue/wine
 			pants = /obj/item/clothing/under/roguetown/tights/vagrant
 			gloves = /obj/item/clothing/gloves/roguetown/fingerless
 			shirt = /obj/item/clothing/suit/roguetown/shirt/shortshirt/random
@@ -75,7 +76,7 @@
 			belt = /obj/item/storage/belt/rogue/leather
 			beltr = /obj/item/clothing/mask/cigarette/rollie/cannabis
 			beltl = /obj/item/flint
-			backpack_contents = list(/obj/item/storage/pill_bottle/dice = 1, /obj/item/toy/cards/deck = 1, /obj/item/reagent_containers/glass/bottle/rogue/wine = 1)
+			backpack_contents = list(/obj/item/storage/pill_bottle/dice = 1, /obj/item/toy/cards/deck = 1)
 			H.mind.adjust_skillrank(/datum/skill/misc/stealing, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)

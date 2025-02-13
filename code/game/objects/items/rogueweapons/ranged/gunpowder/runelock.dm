@@ -24,7 +24,7 @@
 	/// Chance for the weapon to misfire
 	var/misfire_chance = 0
 	/// Reload time, in SECONDS
-	var/reload_time = 10
+	var/reload_time = 9
 	weapon_embed_chance = 100 //this was here to make a weaker version of the gun, didn't do it, still keeping this here to be used
 	damfactor = 5
 
@@ -45,6 +45,7 @@
 		update_icon()
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/runelock/attack_self(mob/living/user)
+	var/skill_reload_time = 0
 	if(chambered)
 		..()
 	else
@@ -53,8 +54,8 @@
 			if(user.mind)
 				var/skill = user.mind.get_skill_level(/datum/skill/combat/firearms)
 				if(skill)
-					reload_time = reload_time / skill
-			if(move_after(user, reload_time SECONDS, target = user))
+					skill_reload_time = reload_time / skill
+			if(move_after(user, skill_reload_time SECONDS, target = user))
 				playsound(user, 'sound/foley/musketcock.ogg', 100, FALSE)
 				cocked = TRUE
 				if(icon_state_ready)

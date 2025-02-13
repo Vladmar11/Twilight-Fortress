@@ -23,6 +23,7 @@
 	var/base_type //used for compares
 	var/quantity = 1
 	var/plural_name
+	var/plural_name_alert
 
 /obj/item/roguecoin/Initialize(mapload, coin_amount)
 	. = ..()
@@ -44,7 +45,7 @@
 	. = ..()
 	if(HAS_TRAIT(user, TRAIT_MATTHIOS_CURSE))
 		var/mob/living/carbon/human/H = user
-		to_chat(H, span_warning("The idea repulses me!"))
+		to_chat(H, span_warning("Эта идея меня отталкивает!"))
 		H.cursed_freak_out()
 		H.Paralyze(20)
 		return
@@ -72,20 +73,22 @@
 /obj/item/roguecoin/examine(mob/user)
 	. = ..()
 	if(quantity > 1)
-		. += span_info("\Roman [quantity] coins.")
+		. += span_info("\Roman [quantity] монет.")
 
 /obj/item/roguecoin/proc/merge(obj/item/roguecoin/G, mob/user)
 	if(!G)
 		return
 	if(G.base_type != base_type)
 		return
+	if(user)
+		if(user.get_inactive_held_item() != G && !isturf(G.loc) && user.get_active_held_item() != G)
+			return
 
 	var/amt_to_merge = min(G.quantity, MAX_COIN_STACK_SIZE - quantity)
 	if(amt_to_merge <= 0)
 		return
 	set_quantity(quantity + amt_to_merge)
 	last_merged_heads_tails = G.heads_tails
-
 	G.set_quantity(G.quantity - amt_to_merge)
 	if(G.quantity == 0)
 		user.doUnEquip(G)
@@ -95,10 +98,10 @@
 
 /obj/item/roguecoin/attack_hand(mob/user)
 	if(user.get_inactive_held_item() == src && quantity > 1)
-		var/amt_text = " (1 to [quantity])"
+		var/amt_text = " (от 1 до [quantity])"
 		if(quantity == 1)
 			amt_text = ""
-		var/amount = input(user, "How many [plural_name] to split?[amt_text]", null, round(quantity/2, 1)) as null|num
+		var/amount = input(user, "Сколько [plural_name_alert] взять?[amt_text]", null, round(quantity/2, 1)) as null|num
 		amount = clamp(amount, 0, quantity)
 		amount = round(amount, 1) // no taking non-integer coins
 		if(!amount)
@@ -124,10 +127,10 @@
 	flip_cd = world.time
 	playsound(user, 'sound/foley/coinphy (1).ogg', 100, FALSE)
 	if(prob(50))
-		user.visible_message(span_info("[user] flips the coin. Heads!"))
+		user.visible_message(span_info("[user] кидает монетку. Орел!"))
 		heads_tails = TRUE
 	else
-		user.visible_message(span_info("[user] flips the coin. Tails!"))
+		user.visible_message(span_info("[user] кидает монетку. Решка!"))
 		heads_tails = FALSE
 	update_icon()
 
@@ -171,37 +174,43 @@
 /obj/item/roguecoin/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/roguecoin))
 		var/obj/item/roguecoin/G = I
-		merge(G, user)
+		if(item_flags & IN_STORAGE)
+			merge(G, user)
+		else
+			G.merge(src, user)
 		return
 	return ..()
 
 //GOLD
 /obj/item/roguecoin/gold
-	name = "zenar"
-	desc = "A gold coin bearing the symbol of the Taurus and the pre-kingdom psycross. These were in the best condition of the provincial gold mints, the rest were melted down."
+	name = "зенарий"
+	desc = "Золотая монета с символом Тельца и предцарственного креста. Эти монеты находились в лучшем состоянии среди провинциальных монетных дворов, когда остальные были переплавлены."
 	icon_state = "g1"
 	sellprice = 10
 	base_type = CTYPE_GOLD
-	plural_name = "zenarii"
+	plural_name = "зенарии"
+	plural_name_alert = "зенариев"
 
 
 // SILVER
 /obj/item/roguecoin/silver
-	name = "ziliqua"
-	desc = "An ancient silver coin still in use due to their remarkable ability to last the ages."
+	name = "зелика"
+	desc = "Древняя серебряная монета, которая до сих пор используется из-за ее замечательной способности сохраняться веками."
 	icon_state = "s1"
 	sellprice = 5
 	base_type = CTYPE_SILV
-	plural_name = "ziliquae"
+	plural_name = "зелики"
+	plural_name_alert = "зелик"
 
 // COPPER
 /obj/item/roguecoin/copper
-	name = "zenny"
-	desc = "A brand-new bronze coin minted by the capital in an effort to be rid of the financial use of silver."
+	name = "зенни"
+	desc = "Новая бронзовая монета, отчеканенная в столице с целью избавиться от использования серебра в экономике."
 	icon_state = "c1"
 	sellprice = 1
 	base_type = CTYPE_COPP
-	plural_name = "zennies"
+	plural_name = "зенни"
+	plural_name_alert = "зенни"
 
 /obj/item/roguecoin/copper/pile/Initialize()
 	. = ..()

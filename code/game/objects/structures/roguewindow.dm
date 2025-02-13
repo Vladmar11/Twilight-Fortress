@@ -1,7 +1,7 @@
 
 /obj/structure/roguewindow
-	name = "window"
-	desc = "A glass window."
+	name = "окно"
+	desc = "Стеклянное окно."
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "window-solid"
 	layer = TABLE_LAYER
@@ -71,7 +71,7 @@
 	integrity_failure = 0.9
 
 /obj/structure/roguewindow/openclose/reinforced
-	desc = "A glass window. This one looks reinforced with a metal mesh."
+	desc = "Стеклянное окно. Это, похоже, укреплено металлической сеткой."
 	icon_state = "reinforcedwindowdir"
 	base_state = "reinforcedwindow"
 	max_integrity = 800
@@ -106,7 +106,7 @@
 		if(try_toggle_curtains(user))
 			return
 	user.changeNext_move(CLICK_CD_MELEE)
-	src.visible_message(span_info("[user] knocks on [src]."))
+	src.visible_message(span_info("[user] стучится в [src]."))
 	add_fingerprint(user)
 	playsound(src, 'sound/misc/glassknock.ogg', 100)
 
@@ -119,10 +119,10 @@
 	if(!openable)
 		return
 	if(get_dir(src,user) != lockdir)
-		to_chat(user, span_warning("The window doesn't close from this side."))
+		to_chat(user, span_warning("С этой стороны окно не открывается."))
 		return
 	if(brokenstate)
-		to_chat(user, span_warning("It's broken, that would be foolish."))
+		to_chat(user, span_warning("Окно сломано, это было бы глупо."))
 		return
 	if(currently_opened)
 		close_up(user)
@@ -141,9 +141,9 @@
 	playsound(loc, 'sound/items/curtain.ogg', 50, TRUE)
 	currently_curtained = !currently_curtained
 	if(currently_curtained)
-		to_chat(user, span_info("I close the curtains"))
+		to_chat(user, span_info("Я задергиваю шторы."))
 	else
-		to_chat(user, span_info("I open the curtains"))
+		to_chat(user, span_info("Я раздвигаю шторы."))
 	update_opacity()
 	update_icon()
 	return TRUE
@@ -205,7 +205,7 @@
 	opacity = FALSE
 
 /obj/structure/roguewindow/proc/open_up(mob/user)
-	visible_message(span_info("[user] opens [src]."))
+	visible_message(span_info("[user] открывает [src]."))
 	playsound(src, 'sound/foley/doors/windowup.ogg', 100, FALSE)
 	climbable = TRUE
 	currently_opened = TRUE
@@ -213,7 +213,7 @@
 	update_icon()
 
 /obj/structure/roguewindow/proc/close_up(mob/user)
-	visible_message(span_info("[user] closes [src]."))
+	visible_message(span_info("[user] закрывает [src]."))
 	playsound(src, 'sound/foley/doors/windowdown.ogg', 100, FALSE)
 	climbable = FALSE
 	currently_opened = FALSE
@@ -266,7 +266,7 @@
 	integrity_failure = 0.9
 
 /obj/structure/roguewindow/openclose/reinforced
-	desc = "A glass window. Glass is very rare nowadays. This one looks reinforced with a metal mesh."
+	desc = "Стеклянное окно. Это окно, похоже, укреплено металлической сеткой."
 	icon_state = "reinforcedwindowdir"
 	base_state = "reinforcedwindow"
 	max_integrity = 800

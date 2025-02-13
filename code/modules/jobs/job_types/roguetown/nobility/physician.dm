@@ -9,11 +9,11 @@
 	allowed_races = RACES_TOLERATED_UP
 	allowed_sexes = list(MALE, FEMALE)
 	display_order = JDO_PHYSICIAN
-	tutorial = "You were a child born into good wealth - But poor health. \
-		Perhaps in another life, you would have turned out to be a powerful mage, wise archivist or a shrewd steward, \
-		but leprosy took away your younger years. \
-		Out of desperation, you followed the ways of Pestra and managed to be cured. \
-		Now you serve in the Duke's court ensuring the good health of those inhabiting the keep."
+	tutorial = "Вы родились в хорошем достатке, но с плохим здоровьем. \
+		Возможно, в другой жизни вы стали бы могущественным магом, мудрым архивариусом или проницательным управленцем,\
+		но болезнь отняла у вас молодые годы. \
+		В отчаянии вы последовали пути Пестры и смогли излечиться. \
+		Теперь вы служите при дворе герцога, следя за здоровьем обитателей замка."
 	outfit = /datum/outfit/job/roguetown/physician
 	whitelist_req = TRUE
 
@@ -30,7 +30,7 @@
 /datum/outfit/job/roguetown/physician/pre_equip(mob/living/carbon/human/H)
 	..()
 	head = /obj/item/clothing/head/roguetown/physician
-	mask = /obj/item/clothing/mask/rogue/physician
+	mask = /obj/item/clothing/mask/rogue/pestra/court
 	neck = /obj/item/clothing/neck/roguetown/psicross/pestra
 	armor = /obj/item/clothing/suit/roguetown/shirt/robe/physician
 	shirt = /obj/item/clothing/suit/roguetown/shirt/tunic/red
@@ -44,7 +44,8 @@
 	id = /obj/item/clothing/ring/quartzs
 	r_hand = /obj/item/rogueweapon/woodstaff
 	backl = /obj/item/storage/backpack/rogue/backpack
-	backpack_contents = list(/obj/item/storage/fancy/skit = 1, /obj/item/storage/fancy/ifak = 1, /obj/item/reagent_containers/glass/alembic = 1, /obj/item/clothing/mask/rogue/pestra/court = 1, /obj/item/thermometer = 1)
+	backr = /obj/item/bedroll // field surgery
+	backpack_contents = list(/obj/item/storage/fancy/skit = 1, /obj/item/storage/fancy/ifak = 1, /obj/item/reagent_containers/glass/alembic = 1, /obj/item/thermometer = 1, /obj/item/rope = 1, /obj/item/natural/cloth = 1) // tie and gag zombies
 	ADD_TRAIT(H, TRAIT_NOBLE, "[type]")
 	ADD_TRAIT(H, TRAIT_EMPATH, "[type]")
 	ADD_TRAIT(H, TRAIT_NOSTINK, "[type]")

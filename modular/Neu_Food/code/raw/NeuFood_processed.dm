@@ -8,8 +8,8 @@
 // -------------- FAT -----------------
 /obj/item/reagent_containers/food/snacks/fat
 	icon = 'modular/Neu_Food/icons/food.dmi'
-	name = "fat"
-	desc = "The raw fat from a butchered animal, tastes great most of the time (Add mince to make a wiener, use with salt and dryingrack to make salo)"
+	name = "жир"
+	desc = "Кусочек животного жира, пригодный и в пищу, и в хозяйстве."
 	icon_state = "fat"
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	eat_effect = /datum/status_effect/debuff/uncookedfood
@@ -21,7 +21,7 @@
 		long_cooktime = (100 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*10))
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/meat/mince))
 		if(isturf(loc)&& (found_table))
-			to_chat(user, "<span class='notice'>Stuffing a wiener...</span>")
+			to_chat(user, "<span class='notice'>Начиняю колбаску жиром...</span>")
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
 			if(do_after(user,long_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
@@ -29,19 +29,19 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	else
 		return ..()
 
 // -------------- RAISINS -----------------
 /obj/item/reagent_containers/food/snacks/rogue/raisins
-	name = "raisins"
+	name = "изюм"
 	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "raisins5"
 	bitesize = 5
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
 	w_class = WEIGHT_CLASS_TINY
-	tastes = list("dried fruit" = 1)
+	tastes = list("сухофруктов" = 1)
 	foodtype = GRAIN
 	eat_effect = null
 	rotprocess = null
@@ -68,8 +68,8 @@
 
 // -------------- CANDY -----------------
 /obj/item/reagent_containers/powder/sugar
-	name = "sugar"
-	desc = "Sweet embrace, goes great with pastries."
+	name = "сахар"
+	desc = "Сладкий порошок, песок богачей."
 	gender = PLURAL
 	icon_state = "sugar"
 	list_reagents = list(/datum/reagent/consumable/sugar = 1)
@@ -87,17 +87,17 @@
 	if(!istype(R) || (water_added))
 		return ..()
 	if(isturf(loc)&& (!found_table))
-		to_chat(user, "<span class='notice'>Need a table...</span>")
+		to_chat(user, "<span class='notice'>Нужен стол.</span>")
 		return ..()	
 	if(!R.reagents.has_reagent(/datum/reagent/water, 10))
-		to_chat(user, "<span class='notice'>Needs more water to work it.</span>")
+		to_chat(user, "<span class='notice'>Нужно больше воды.</span>")
 		return TRUE
-	to_chat(user, "<span class='notice'>Adding water, now its time to knead it...</span>")
+	to_chat(user, "<span class='notice'>Добавляю воду, пора замешивать...</span>")
 	playsound(get_turf(user), 'modular/Neu_Food/sound/splishy.ogg', 100, TRUE, -1)
 	if(do_after(user,2 SECONDS, target = src))
 		user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
-		name = "sticky sugar"
-		desc = "Destined for greatness, at your hands."
+		name = "липкий сахар"
+		desc = "Предназначен для величия. Все в ваших руках."
 		R.reagents.remove_reagent(/datum/reagent/water, 10)
 		water_added = TRUE
 		color = "#d9d0cb"	
@@ -113,13 +113,13 @@
 	else ..()
 
 /obj/item/reagent_containers/food/snacks/rogue/candybase
-	name = "candy base"
+	name = "основа для сладостей"
 	desc = ""
 	icon = 'icons/roguetown/items/food.dmi'
 	icon_state = "candybase"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
 	w_class = WEIGHT_CLASS_NORMAL
-	tastes = list("sweet, sticky, and malleable" = 1)
+	tastes = list("слипшегося сахара" = 1)
 	foodtype = SUGAR
 	eat_effect = /datum/status_effect/debuff/uncookedfood
 
@@ -131,7 +131,7 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/grown/apple))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'modular/Neu_Food/sound/kneading.ogg', 90, TRUE, -1)
-			to_chat(user, "<span class='notice'>Breaking the apple down into the base...</span>")
+			to_chat(user, "<span class='notice'>Раскладываю яблоко на сладкую основу...</span>")
 			if(do_after(user,short_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 				new /obj/item/reagent_containers/food/snacks/rogue/applecandy(loc)
@@ -140,7 +140,7 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/grown/berries/rogue))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'modular/Neu_Food/sound/kneading.ogg', 100, TRUE, -1)
-			to_chat(user, "<span class='notice'>Breaking the berries down into the base...</span>")
+			to_chat(user, "<span class='notice'>Раскладываю ягоды на сладкую основу...</span>")
 			if(do_after(user,short_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 				new /obj/item/reagent_containers/food/snacks/rogue/berrycandy(loc)
@@ -150,13 +150,13 @@
 		return ..()	
 
 /obj/item/reagent_containers/food/snacks/rogue/applecandy
-	name = "apple candy"
+	name = "яблочные конфеты"
 	desc = ""
 	icon = 'icons/roguetown/items/food.dmi'
 	icon_state = "applecandy6"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 12)
 	w_class = WEIGHT_CLASS_NORMAL
-	tastes = list("sweet, tart apple candy" = 1)
+	tastes = list("яблочной карамели" = 1)
 	foodtype = SUGAR
 	bitesize = 6
 	rotprocess = SHELFLIFE_EXTREME
@@ -176,13 +176,13 @@
 		icon_state = "applecandy1"
 
 /obj/item/reagent_containers/food/snacks/rogue/berrycandy
-	name = "berry candy"
+	name = "ягодные конфеты"
 	desc = ""
 	icon = 'icons/roguetown/items/food.dmi'
 	icon_state = "berrycandy6"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 12)
 	w_class = WEIGHT_CLASS_NORMAL
-	tastes = list("sweet, tart berry candy" = 1)
+	tastes = list("ягодной карамели" = 1)
 	foodtype = SUGAR
 	bitesize = 6
 	rotprocess = SHELFLIFE_EXTREME
@@ -202,20 +202,20 @@
 
 // -------------- SPIDER HONEY -----------------
 /obj/item/reagent_containers/food/snacks/rogue/honey
-	name = "spider honey"
+	name = "паучий мед"
 	icon = 'modular/Neu_Food/icons/food.dmi'
 	icon_state = "spiderhoney"
 	bitesize = 3
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	w_class = WEIGHT_CLASS_TINY
-	tastes = list("sweetness and spiderwebs" = 1)
+	tastes = list("сладкого сока и паутины" = 1)
 	eat_effect = null
 	rotprocess = null
 
 
 /*	........   Drying Rack recipes   ................ */
 /datum/crafting_recipe/roguetown/cooking/salami
-	name = "salumoi"
+	name = "салями"
 	reqs = list(
 		/obj/item/reagent_containers/food/snacks/rogue/meat/sausage = 1,
 		/obj/item/reagent_containers/powder/salt = 1)
@@ -225,7 +225,7 @@
 	skill_level = 0
 
 /datum/crafting_recipe/roguetown/cooking/coppiette
-	name = "coppiette"
+	name = "солонина"
 	reqs = list(
 		/obj/item/reagent_containers/food/snacks/rogue/meat/steak = 1,
 		/obj/item/reagent_containers/powder/salt = 1)
@@ -235,7 +235,7 @@
 	structurecraft = /obj/machinery/tanningrack
 
 /datum/crafting_recipe/roguetown/cooking/salo
-	name = "salo"
+	name = "сало"
 	reqs = list(
 		/obj/item/reagent_containers/food/snacks/fat = 1,
 		/obj/item/reagent_containers/powder/salt = 1)
@@ -245,7 +245,7 @@
 	req_table = FALSE
 
 /datum/crafting_recipe/roguetown/cooking/saltfish
-	name = "saltfish"
+	name = "соленая рыба"
 	reqs = list(
 		/obj/item/reagent_containers/food/snacks/fish = 1,
 		/obj/item/reagent_containers/powder/salt = 1)
@@ -258,7 +258,7 @@
 	structurecraft = /obj/machinery/tanningrack
 
 /datum/crafting_recipe/roguetown/cooking/raisins
-	name = "raisins"
+	name = "изюм"
 	reqs = list(/obj/item/reagent_containers/food/snacks/grown/berries/rogue = 1)
 	parts = list(
 		/obj/item/reagent_containers/food/snacks/grown/berries/rogue = 1)
@@ -271,8 +271,8 @@
 
 // -------------- SALUMOI (dwarven smoked sausage) -----------------
 /obj/item/reagent_containers/food/snacks/rogue/meat/salami
-	name = "salumoi"
-	desc = "Traveling food invented by dwarves. Said to last for ten yils before spoiling"
+	name = "салями"
+	desc = "Еда для путешествий, изобретенная дворфами. Говорят, хватит на десятилетия, прежде чем испортится."
 	icon_state = "salumoi5"
 	eat_effect = null
 	fried_type = null
@@ -281,7 +281,7 @@
 	slice_batch = FALSE
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/meat/salami/slice
-	tastes = list("salted meat" = 1)
+	tastes = list("соленой колбасы" = 1)
 	rotprocess = null
 	slice_sound = TRUE 
 
@@ -306,23 +306,23 @@
 /obj/item/reagent_containers/food/snacks/rogue/meat/salami/slice
 	eat_effect = null
 	slices_num = 0
-	name = "salumoi"
+	name = "кусок салями"
 	icon_state = "salumoi_slice"
 	fried_type = null
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	bitesize = 1
-	tastes = list("salted meat" = 1)
+	tastes = list("соленой колбасы" = 1)
 
 // -------------- COPPIETTE (dried meat) -----------------
 /obj/item/reagent_containers/food/snacks/rogue/meat/coppiette
 	eat_effect = null
-	name = "coppiette"
+	name = "солонина"
 	icon_state = "jerk5"
-	desc = "Dried meat sticks."
+	desc = "Сушеные мясные палочки."
 	fried_type = null
 	bitesize = 5
 	slice_path = null
-	tastes = list("salted meat" = 1)
+	tastes = list("соленого мяса" = 1)
 	rotprocess = null
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
 
@@ -341,13 +341,13 @@
 /obj/item/reagent_containers/food/snacks/rogue/saltfish
 	eat_effect = null
 	icon = 'icons/roguetown/misc/fish.dmi'
-	name = "saltfish"
+	name = "соленая рыба"
 	icon_state = ""
-	desc = "Dried fish."
+	desc = "Высушенная рыба с солью."
 	fried_type = null
 	bitesize = 4
 	slice_path = null
-	tastes = list("salted meat" = 1)
+	tastes = list("соленой рыбы" = 1)
 	rotprocess = null
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
 	dropshrink = 0.6
@@ -359,10 +359,11 @@
 
 // -------------- SALO (salted fat) -----------------
 /obj/item/reagent_containers/food/snacks/fat/salo
-	name = "salo"
+	name = "сало"
 	icon_state = "salo4"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 12)
 	bitesize = 4
+	tastes = list("соленого жира" = 1)
 	slice_path = /obj/item/reagent_containers/food/snacks/fat/salo/slice
 	slices_num = 4
 	slice_batch = FALSE
@@ -386,8 +387,9 @@
 			changefood(slice_path, eater)
 
 /obj/item/reagent_containers/food/snacks/fat/salo/slice
-	name = "salo"
+	name = "кусочек сала"
 	icon_state = "saloslice"
+	tastes = list("соленого жира" = 1)
 	bitesize = 2
 	slices_num = FALSE
 	slice_path = null
@@ -404,7 +406,7 @@
 
 /*	........   Salting milk (for butter & cheesemaking)   ................ */
 /datum/reagent/consumable/milk/salted
-	taste_description = "salty milk"
+	taste_description = "соленого молока"
 
 /obj/item/reagent_containers/attackby(obj/item/I, mob/living/user, params) // add cook time to containers & salted milk for butter churning
 	..()
@@ -413,9 +415,9 @@
 		long_cooktime = (120 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*10))
 	if(istype(I, /obj/item/reagent_containers/powder/salt))
 		if(!reagents.has_reagent(/datum/reagent/consumable/milk, 12))
-			to_chat(user, "<span class='warning'>Not enough milk.</span>")
+			to_chat(user, "<span class='warning'>Недостаточно молока.</span>")
 			return
-		to_chat(user, "<span class='warning'>Adding salt to the milk.</span>")
+		to_chat(user, "<span class='warning'>Добавляю соль в молоко...</span>")
 		playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
 		if(do_after(user,2 SECONDS, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
@@ -429,9 +431,9 @@
 		long_cooktime = (200 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*20))	
 	if(istype(I, /obj/item/kitchen/spoon))
 		if(!reagents.has_reagent(/datum/reagent/consumable/milk/salted, 12))
-			to_chat(user, "<span class='warning'>Not enough salted milk.</span>")
+			to_chat(user, "<span class='warning'>Недостаточно соленого молока.</span>")
 			return
-		user.visible_message("<span class='info'>[user] churns butter...</span>")
+		user.visible_message("<span class='info'>[user] сбивает масло...</span>")
 		playsound(get_turf(user), 'modular/Neu_Food/sound/churn.ogg', 100, TRUE, -1)
 		if(do_after(user,long_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
@@ -443,11 +445,12 @@
 // -------------- BUTTER -----------------
 /obj/item/reagent_containers/food/snacks/butter
 	icon = 'modular/Neu_Food/icons/food.dmi'
-	name = "stick of butter"
-	desc = "The material that was used to make some of the best foods around, and the reason we have butterdough. Tastes good with toast."
+	name = "сливочное масло"
+	desc = "Материал, который используется для приготовления некоторых из лучших блюд, и причина, по которой у нас есть масляное тесто. Вкусно с тостами."
 	icon_state = "butter6"
 	list_reagents = list(/datum/reagent/consumable/nutriment = BUTTER_NUTRITION)
 	foodtype = DAIRY
+	tastes = list("свежего масла" = 1)
 	slice_path = /obj/item/reagent_containers/food/snacks/butterslice
 	slices_num = 6
 	slice_batch = FALSE
@@ -477,9 +480,10 @@
 /obj/item/reagent_containers/food/snacks/butterslice
 	icon = 'modular/Neu_Food/icons/food.dmi'
 	icon_state = "butter_slice"
-	name = "butter"
+	name = "кусочек масла"
 	desc = ""
 	foodtype = DAIRY
+	tastes = list("свежего масла" = 1)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
 
 
@@ -489,7 +493,7 @@
 		long_cooktime = (100 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*10))
 	if(istype(I, /obj/item/natural/cloth))
 		if(reagents.has_reagent(/datum/reagent/consumable/milk/salted, 3))
-			user.visible_message("<span class='info'>[user] strains fresh cheese...</span>")
+			user.visible_message("<span class='info'>[user] процеживает свежий сыр...</span>")
 			playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
 			if(do_after(user,long_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
@@ -504,12 +508,12 @@
 			if(!reagents.has_reagent(/datum/reagent/water, 5))
 				removereg = /datum/reagent/water/gross
 				if(!reagents.has_reagent(/datum/reagent/water/gross, 5))
-					to_chat(user, "<span class='warning'>No water to soak in.</span>")
+					to_chat(user, "<span class='warning'>Нет воды, чтобы обмакнуть.</span>")
 					return
 			wash_atom(T)
 			playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
 			reagents.remove_reagent(removereg, 5)
-			user.visible_message("<span class='info'>[user] soaks [T] in [src].</span>")
+			user.visible_message("<span class='info'>[user] макает [T] в [src].</span>")
 			return
 	..()
 
@@ -521,7 +525,7 @@
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheese))
 		if(isturf(loc)&& (found_table))
-			user.visible_message("<span class='info'>[user] starts packing the cloth with fresh cheese...</span>")
+			user.visible_message("<span class='info'>[user] начинает набивать ткань свежим сыром...</span>")
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 30, TRUE, -1)
 			if(do_after(user,3 SECONDS, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
@@ -530,11 +534,11 @@
 				qdel(src)
 			return
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	..()
 
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/cheesewheel_start
-	name = "unfinished cheese wheel"
+	name = "незавершенное колесо сыра"
 	icon_state = "cheesewheel_1"
 	w_class = WEIGHT_CLASS_BULKY
 	
@@ -552,12 +556,12 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	else
 		return ..()
 
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/cheesewheel_two
-	name = "unfinished cheese wheel"
+	name = "незавершенное колесо сыра"
 	icon_state = "cheesewheel_2"
 	w_class = WEIGHT_CLASS_BULKY
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/cheesewheel_two/attackby(obj/item/I, mob/living/user, params)
@@ -574,12 +578,12 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	else
 		return ..()
 
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/cheesewheel_three
-	name = "unfinished cheese wheel"
+	name = "незавершенное колесо сыра"
 	icon_state = "cheesewheel_3"
 	w_class = WEIGHT_CLASS_BULKY
 	var/mature_proc = .proc/maturing_done
@@ -594,12 +598,12 @@
 			if(do_after(user,short_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 				qdel(I)
-				name = "maturing cheese wheel"
+				name = "созревающее колесо сыра"
 				icon_state = "cheesewheel_end"
-				desc = "Slowly solidifying, best left alone a bit longer."
+				desc = "Медленно затвердевает, лучше оставить в покое еще немного."
 				addtimer(CALLBACK(src, mature_proc), 5 MINUTES)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work on it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	else
 		return ..()
 
@@ -614,13 +618,13 @@
 
 // -------------- CHEESE -----------------
 /obj/item/reagent_containers/food/snacks/rogue/cheese
-	name = "fresh cheese"
-	desc = "A fresh batch of glorious cheese, goes great on buns or as a cake ingredient! (Use with cloth and 3 other cheeses to make a cheese wheel)"
+	name = "свежий сыр"
+	desc = "Свежая порция великолепного сыра, отлично подходит для булочек или в качестве ингредиента для торта! (Используйте вместе с тканью и 3 другими сырами, чтобы сделать сырную головку)"
 	icon_state = "freshcheese"
 	bitesize = 1
 	list_reagents = list(/datum/reagent/consumable/nutriment = FRESHCHEESE_NUTRITION)
 	w_class = WEIGHT_CLASS_TINY
-	tastes = list("cheese" = 1)
+	tastes = list("молодого сыра" = 1)
 	foodtype = DAIRY
 	eat_effect = null
 	rotprocess = SHELFLIFE_DECENT
@@ -628,12 +632,12 @@
 	slice_path = null
 
 /obj/item/reagent_containers/food/snacks/rogue/cheddar
-	name = "wheel of cheese"
+	name = "колесо сыра"
 	icon_state = "cheesewheel"
 	bitesize = 6
 	list_reagents = list(/datum/reagent/consumable/nutriment = FRESHCHEESE_NUTRITION*4)
 	w_class = WEIGHT_CLASS_NORMAL
-	tastes = list("cheese" = 1)
+	tastes = list("сыра" = 1)
 	foodtype = DAIRY
 	eat_effect = null
 	rotprocess = SHELFLIFE_DECENT //Need it to be reasonably low to be able to make aged cheese
@@ -644,7 +648,7 @@
 	slice_sound = TRUE 
 
 /obj/item/reagent_containers/food/snacks/rogue/cheddar/aged
-	name = "wheel of aged cheese"
+	name = "колесо состаренного сыра"
 	icon_state = "blue_cheese"
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/cheddarwedge/aged
 	become_rot_type = null
@@ -652,12 +656,12 @@
 	sellprice = 60
 
 /obj/item/reagent_containers/food/snacks/rogue/cheddarwedge
-	name = "wedge of cheese"
+	name = "кусок сыра"
 	icon_state = "cheese_wedge"
 	bitesize = 3
 	list_reagents = list(/datum/reagent/consumable/nutriment = 4)
 	w_class = WEIGHT_CLASS_TINY
-	tastes = list("cheese" = 1)
+	tastes = list("сыра" = 1)
 	foodtype = DAIRY
 	eat_effect = null
 	rotprocess = SHELFLIFE_DECENT
@@ -672,20 +676,21 @@
 					/obj/item/reagent_containers/food/snacks/fish/angler = 1)
 
 /obj/item/reagent_containers/food/snacks/rogue/cheddarwedge/aged
-	name = "wedge of aged cheese"
+	name = "кусок состаренного сыра"
 	icon_state = "blue_cheese_wedge"
+	tastes = list("терпкого старого сыра" = 1)
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/cheddarslice/aged
 	become_rot_type = null
 	rotprocess = null
 	sellprice = 10
 
 /obj/item/reagent_containers/food/snacks/rogue/cheddarslice
-	name = "slice of cheese"
+	name = "ломтик сыра"
 	icon_state = "cheese_slice"
 	bitesize = 1
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
 	w_class = WEIGHT_CLASS_TINY
-	tastes = list("cheese" = 1)
+	tastes = list("сыра" = 1)
 	foodtype = DAIRY
 	eat_effect = null
 	rotprocess = 20 MINUTES
@@ -698,8 +703,9 @@
 					/obj/item/reagent_containers/food/snacks/fish/eel = 5)
 
 /obj/item/reagent_containers/food/snacks/rogue/cheddarslice/aged
-	name = "slice of aged cheese"
+	name = "ломтик состаренного сыра"
 	icon_state = "blue_cheese_slice"
+	tastes = list("терпкого старого сыра" = 1)
 	become_rot_type = null
 	rotprocess = null
 

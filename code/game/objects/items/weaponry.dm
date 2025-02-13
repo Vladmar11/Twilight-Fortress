@@ -46,10 +46,8 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	sharpness = IS_SHARP
 	resistance_flags = FIRE_PROOF
 
-/obj/item/throwing_star/ninja
-	name = "ninja throwing star"
-	throwforce = 30
-	embedding = list("embedded_pain_multiplier" = 6, "embed_chance" = 100, "embedded_fall_chance" = 0)
+	grid_height = 32
+	grid_width = 32
 
 /obj/item/staff
 	name = "wizard staff"

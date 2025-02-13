@@ -1,5 +1,101 @@
 //NOT using the existing /obj/machinery/door type, since that has some complications on its own, mainly based on its
 //machineryness
+/proc/lockid_to_lockpick_difficulty(lockid)
+	if(!lockid)
+		return 5
+	switch(lockid)
+		if("vault")
+			return 1
+		if("lord")
+			return 1
+		if("manor")
+			return 2
+		if("guest")
+			return 2
+		if("butler")
+			return 3
+		if("dungeon")
+			return 2
+		if("garrison")
+			return 2
+		if("forrestgarrison")
+			return 2
+		if("soilson")
+			return 4
+		if("warehouse")
+			return 3
+		if("sheriff")
+			return 3
+		if("merchant")
+			return 2
+		if("shop")
+			return 5
+		if("tavern")
+			return 5
+		if("roomi")
+			return 6
+		if("roomii")
+			return 6
+		if("roomiii")
+			return 6
+		if("roomiv")
+			return 6
+		if("roomv")
+			return 6
+		if("roomvi")
+			return 6
+		if("medroomi")
+			return 5
+		if("medroomii")
+			return 5
+		if("medroomiii")
+			return 5
+		if("medroomiv")
+			return 5
+		if("medroomv")
+			return 5
+		if("medroomvi")
+			return 5
+		if("luxroomi")
+			return 3
+		if("luxroomi")
+			return 3
+		if("luxroomii")
+			return 3
+		if("luxroomiii")
+			return 3
+		if("luxroomiv")
+			return 3
+		if("luxroomv")
+			return 3
+		if("luxroomvi")
+			return 3
+		if("blacksmith")
+			return 3
+		if("butcher")
+			return 3
+		if("walls")
+			return 2
+		if("priest")
+			return 3
+		if("hpriest")
+			return 2
+		if("tower")
+			return 3
+		if("mage")
+			return 2
+		if("artificer")
+			return 4
+		if("confession")
+			return 1
+		if("hand")
+			return 1
+		if("steward")
+			return 2
+		if("doctor")
+			return 3
+		else
+			return 5
 
 /obj/structure/mineral_door
 	name = "metal door"
@@ -88,15 +184,15 @@
 			return FALSE
 		if(subclass.type != resident_subclass)
 			return FALSE
-	var/alert = alert(user, "Is this my home?", "Home", "Yes", "No")
-	if(alert != "Yes")
+	var/alert = alert(user, "Это мой дом?", "Дом", "Да", "Нет")
+	if(alert != "Да")
 		return
 	if(!grant_resident_key)
 		return
-	var/spare_key = alert(user, "Have I got an extra spare key?", "Home", "Yes", "No")
+	var/spare_key = alert(user, "У меня есть еще один запасной ключ?", "Мой дом", "Да", "Нет")
 	if(!grant_resident_key)
 		return
-	if(spare_key == "Yes")
+	if(spare_key == "Да")
 		resident_key_amount = 2
 	else
 		resident_key_amount = 1
@@ -112,9 +208,9 @@
 	human.received_resident_key = TRUE
 	grant_resident_key = FALSE
 	if(resident_key_amount > 1)
-		to_chat(human, span_notice("They're just where I left them..."))
+		to_chat(human, span_notice("Они лежат там же, где я их оставил..."))
 	else
-		to_chat(human, span_notice("It's just where I left it..."))
+		to_chat(human, span_notice("Он лежит там же, где я его оставил..."))
 	return TRUE
 
 /obj/structure/mineral_door/onkick(mob/user)
@@ -122,8 +218,8 @@
 		return
 	if(door_opened)
 		playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
-		user.visible_message(span_warning("[user] kicks [src] shut!"), \
-			span_notice("I kick [src] shut!"))
+		user.visible_message(span_warning("[user] захлопывает [src] пинком!"), \
+			span_notice("Я захлопываю [src] пинком!"))
 		force_closed()
 	else
 		if(locked)
@@ -133,19 +229,19 @@
 					kickthresh--
 				if((prob(L.STASTR * 0.5) || kickthresh == 0) && (L.STASTR >= initial(kickthresh)))
 					playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
-					user.visible_message(span_warning("[user] kicks open [src]!"), \
-						span_notice("I kick open [src]!"))
+					user.visible_message(span_warning("[user] выбивает [src] ногой!"), \
+						span_notice("Я выбиваю [src] ногой!"))
 					locked = 0
 					force_open()
 				else
 					playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
-					user.visible_message(span_warning("[user] kicks [src]!"), \
-						span_notice("I kick [src]!"))
+					user.visible_message(span_warning("[user] пинает [src]!"), \
+						span_notice("Я пинаю [src]!"))
 			//try to kick open, destroy lock
 		else
 			playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
-			user.visible_message(span_warning("[user] kicks open [src]!"), \
-				span_notice("I kick open [src]!"))
+			user.visible_message(span_warning("[user] распахивает [src] ногой!"), \
+				span_notice("Я распахиваю [src] ногой!"))
 			force_open()
 
 /obj/structure/mineral_door/proc/force_open()
@@ -185,6 +281,7 @@
 	if(lockhash)
 		GLOB.lockhashes += lockhash
 	else if(keylock)
+		AddElement(/datum/element/lockpickable, list(/obj/item/lockpick), list(/obj/item/lockpick), lockid_to_lockpick_difficulty(lockid))
 		if(lockid)
 			if(GLOB.lockids[lockid])
 				lockhash = GLOB.lockids[lockid]
@@ -216,12 +313,12 @@
 		var/mob/user = AM
 		if(HAS_TRAIT(user, TRAIT_BASHDOORS))
 			if(locked)
-				user.visible_message(span_warning("[user] bashes into [src]!"))
+				user.visible_message(span_warning("[user] врезается в [src]!"))
 				take_damage(200, "brute", "blunt", 1)
 			else
 				playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
 				force_open()
-				user.visible_message(span_warning("[user] smashes through [src]!"))
+				user.visible_message(span_warning("[user] прорывается через [src]!"))
 			return
 		if(locked)
 			if(istype(user.get_active_held_item(), /obj/item/key) || istype(user.get_active_held_item(), /obj/item/storage/keyring))
@@ -255,19 +352,19 @@
 	if(locked)
 		if( user.used_intent.type == /datum/intent/unarmed/claw )
 			user.changeNext_move(CLICK_CD_MELEE)
-			to_chat(user, "<span class='warning'>The deadite claws at the door!!</span>")
+			to_chat(user, "<span class='warning'>Мертвец скребется когтями в дверь!</span>")
 			take_damage(40, "brute", "melee", 1)
 			return
 		if(isliving(user))
 			var/mob/living/L = user
 			if(L.m_intent == MOVE_INTENT_SNEAK)
-				to_chat(user, span_warning("This door is locked."))
+				to_chat(user, span_warning("Эта дверь заперта."))
 				return
 		if(world.time >= last_bump+20)
 			last_bump = world.time
 			playsound(src, 'sound/foley/doors/knocking.ogg', 100)
-			user.visible_message(span_warning("[user] knocks on [src]."), \
-				span_notice("I knock on [src]."))
+			user.visible_message(span_warning("[user] стучит в [src]."), \
+				span_notice("Я стучу в [src]."))
 		return
 	return TryToSwitchState(user)
 
@@ -355,11 +452,11 @@
 		var/obj/cast_repair_cost_first = repair_cost_first
 		var/obj/cast_repair_cost_second = repair_cost_second
 		if((repair_state == 0) && (obj_integrity < max_integrity))
-			. += span_notice("A [initial(cast_repair_cost_first.name)] can be used to repair it.")
+			. += span_notice("Можно отремонтировать, используя [initial(cast_repair_cost_first.name)].")
 			if(brokenstate)
-				. += span_notice("An additional [initial(cast_repair_cost_second.name)] is needed to finish repairs.")
+				. += span_notice("Для полного ремонта понадобится еще один [initial(cast_repair_cost_second.name)].")
 		if(repair_state == 1)
-			. += span_notice("An additional [initial(cast_repair_cost_second.name)] is needed to finish repairs.")
+			. += span_notice("Для полного ремонта понадобится еще один [initial(cast_repair_cost_second.name)].")
 	
 
 
@@ -374,7 +471,7 @@
 	user.changeNext_move(CLICK_CD_FAST)
 	if(istype(I, /obj/item/key) || istype(I, /obj/item/storage/keyring))
 		if(!locked)
-			to_chat(user, span_warning("It won't turn this way. Try turning to the right."))
+			to_chat(user, span_warning("Не поворачивается в эту сторону. Попробуйте повернуть налево."))
 			rattle()
 			return
 		if(autobump == TRUE) //Attackby passes UI coordinate onclick stuff, so forcing check to TRUE
@@ -383,34 +480,29 @@
 		else
 			trykeylock(I, user)
 			return
-//	else if(user.used_intent.type != INTENT_HARM)
-//		return attack_hand(user)
-	if(istype(I, /obj/item/lockpick))
-		trypicklock(I, user)
+	if(repairable && (user.mind.get_skill_level(repair_skill) > 0) && ((istype(I, repair_cost_first)) || (istype(I, repair_cost_second)))) // At least 1 skill level needed
+		repairdoor(I,user)
 	else
-		if(repairable && (user.mind.get_skill_level(repair_skill) > 0) && ((istype(I, repair_cost_first)) || (istype(I, repair_cost_second)))) // At least 1 skill level needed
-			repairdoor(I,user)
-		else
-			return ..()
+		return ..()
 
 /obj/structure/mineral_door/proc/repairdoor(obj/item/I, mob/user)
 	if(brokenstate)				
 		switch(repair_state)
 			if(0)					
 				if(istype(I, repair_cost_first))
-					user.visible_message(span_notice("[user] starts repairing [src]."), \
-					span_notice("I start repairing [src]."))
+					user.visible_message(span_notice("[user] начинает ремонтировать [src]."), \
+					span_notice("Я начинаю ремонтировать [src]."))
 					playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
 					if(do_after(user, (300 / user.mind.get_skill_level(repair_skill)), target = src)) // 1 skill = 30 secs, 2 skill = 15 secs etc.
 						qdel(I)
 						playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
 						repair_state = 1
 						var/obj/cast_repair_cost_second = repair_cost_second
-						to_chat(user, span_notice("An additional [initial(cast_repair_cost_second.name)] is needed to finish the job."))				
+						to_chat(user, span_notice("Для полного ремонта понадобится еще один [initial(cast_repair_cost_second.name)]."))				
 			if(1)
 				if(istype(I, repair_cost_second))
-					user.visible_message(span_notice("[user] starts repairing [src]."), \
-					span_notice("I start repairing [src]."))
+					user.visible_message(span_notice("[user] начинает ремонтировать [src]."), \
+					span_notice("Я начинаю ремонтировать [src]."))
 					playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
 					if(do_after(user, (300 / user.mind.get_skill_level(repair_skill)), target = src)) // 1 skill = 30 secs, 2 skill = 15 secs etc.	
 						qdel(I)	
@@ -422,13 +514,13 @@
 						obj_broken = FALSE
 						obj_integrity = max_integrity
 						repair_state = 0								
-						user.visible_message(span_notice("[user] repaired [src]."), \
-						span_notice("I repaired [src]."))												
+						user.visible_message(span_notice("[user] успешно ремонтирует [src]."), \
+						span_notice("Я успешно ремонтирую [src]."))												
 	else
 		if(obj_integrity < max_integrity && istype(I, repair_cost_first))
 			to_chat(user, span_warning("[obj_integrity]"))	
 			user.visible_message(span_notice("[user] starts repairing [src]."), \
-			span_notice("I start repairing [src]."))
+			span_notice("Я начинаю ремонтировать [src]."))
 			playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
 			if(do_after(user, (300 / user.mind.get_skill_level(repair_skill)), target = src)) // 1 skill = 30 secs, 2 skill = 15 secs etc.
 				qdel(I)
@@ -436,14 +528,14 @@
 				obj_integrity = obj_integrity + (max_integrity/2)					
 				if(obj_integrity > max_integrity)
 					obj_integrity = max_integrity
-				user.visible_message(span_notice("[user] repaired [src]."), \
-				span_notice("I repaired [src]."))		
+				user.visible_message(span_notice("[user] успешно ремонтирую [src]."), \
+				span_notice("Я успешно ремонтирую [src]."))		
 /obj/structure/mineral_door/attack_right(mob/user)
 	user.changeNext_move(CLICK_CD_FAST)
 	var/obj/item = user.get_active_held_item()
 	if(istype(item, /obj/item/key) || istype(item, /obj/item/storage/keyring))
 		if(locked)
-			to_chat(user, span_warning("It won't turn this way. Try turning to the left."))
+			to_chat(user, span_warning("Не поворачивается в эту сторону. Попробуйте повернуть налево."))
 			rattle()
 			return
 		trykeylock(item, user)
@@ -456,7 +548,7 @@
 	if(!keylock)
 		return
 	if(lockbroken)
-		to_chat(user, span_warning("The lock to this door is broken."))
+		to_chat(user, span_warning("Замок на этой двери сломан."))
 	user.changeNext_move(CLICK_CD_MELEE)
 	if(istype(I,/obj/item/storage/keyring))
 		var/obj/item/storage/keyring/R = I
@@ -477,12 +569,12 @@
 			else
 				if(user.cmode)
 					rattle()
-		to_chat(user, span_warning("None of the keys on my keyring go to this door."))
+		to_chat(user, span_warning("Ни один из ключей на моей связке не подходит к этой двери."))
 		rattle()
 		return
 	else
 		var/obj/item/key/K = I
-		if(K.lockhash == lockhash)
+		if(K.lockhash == lockhash || istype(K, /obj/item/key/lord))
 			lock_toggle(user)
 			if(autobump)
 				src.Open()
@@ -490,18 +582,18 @@
 				src.last_bumper = user
 			return
 		else
-			to_chat(user, span_warning("This is not the correct key that goes to this door."))
+			to_chat(user, span_warning("Это не тот ключ, который подходит к этой двери."))
 			rattle()
 		return
 
 /obj/structure/mineral_door/proc/trypicklock(obj/item/I, mob/user)
 	if(door_opened || isSwitchingStates)
-		to_chat(user, "<span class='warning'>This cannot be picked while it is open.</span>")
+		to_chat(user, "<span class='warning'>Его нельзя взломать, пока он открыт.</span>")
 		return
 	if(!keylock)
 		return
 	if(lockbroken)
-		to_chat(user, "<span class='warning'>The lock to this door is broken.</span>")
+		to_chat(user, "<span class='warning'>Замок на этой двери сломан.</span>")
 		user.changeNext_move(CLICK_CD_MELEE)
 	else
 		var/lockprogress = 0
@@ -534,13 +626,13 @@
 			if(prob(pickchance))
 				lockprogress += moveup
 				playsound(src.loc, pick('sound/items/pickgood1.ogg','sound/items/pickgood2.ogg'), 5, TRUE)
-				to_chat(user, "<span class='warning'>Click...</span>")
+				to_chat(user, "<span class='warning'>Щёлк...</span>")
 				if(L.mind)
 					var/amt2raise = L.STAINT
 					var/boon = L.STALUC/4
 					L.mind.add_sleep_experience(/datum/skill/misc/lockpicking, amt2raise + boon)
 				if(lockprogress >= locktreshold)
-					to_chat(user, "<span class='deadsay'>The locking mechanism gives.</span>")
+					to_chat(user, "<span class='deadsay'>Запирающий механизм поддается.</span>")
 					lock_toggle(user)
 					break
 				else
@@ -548,7 +640,7 @@
 			else
 				playsound(loc, 'sound/items/pickbad.ogg', 40, TRUE)
 				I.take_damage(1, BRUTE, "blunt")
-				to_chat(user, span_warning("Clack."))
+				to_chat(user, span_warning("Звяк."))
 				continue
 		return
 
@@ -556,13 +648,13 @@
 	if(isSwitchingStates || door_opened)
 		return
 	if(locked)
-		user.visible_message(span_warning("[user] unlocks [src]."), \
-			span_notice("I unlock [src]."))
+		user.visible_message(span_warning("[user] открывает [src]."), \
+			span_notice("Я открываю [src]."))
 		playsound(src, unlocksound, 100)
 		locked = 0
 	else
-		user.visible_message(span_warning("[user] locks [src]."), \
-			span_notice("I lock [src]."))
+		user.visible_message(span_warning("[user] закрывает [src]."), \
+			span_notice("Я закрываю [src]."))
 		playsound(src, locksound, 100)
 		locked = 1
 
@@ -610,35 +702,35 @@
 	..()
 	. = TRUE
 	if(anchored)
-		to_chat(user, span_warning("[src] is still firmly secured to the ground!"))
+		to_chat(user, span_warning("[src] все еще прочно прикреплена к земле!"))
 		return
 
-	user.visible_message(span_notice("[user] starts to weld apart [src]!"), span_notice("I start welding apart [src]."))
+	user.visible_message(span_notice("[user] пытается разрезать [src] на части!"), span_notice("Я пытаюсь разрезать [src] на части."))
 	if(!I.use_tool(src, user, 60, 5, 50))
-		to_chat(user, span_warning("I failed to weld apart [src]!"))
+		to_chat(user, span_warning("мне не удалось разрезать [src]!"))
 		return
 
-	user.visible_message(span_notice("[user] welded [src] into pieces!"), span_notice("I welded apart [src]!"))
+	user.visible_message(span_notice("[user] разрезает [src] на части!"), span_notice("Я разрезаю [src] на части!"))
 	deconstruct(TRUE)
 
 /obj/structure/mineral_door/proc/crowbar_door(mob/living/user, obj/item/I) //if the door is flammable, call this in crowbar_act() so we can still decon it
 	. = TRUE
 	if(anchored)
-		to_chat(user, span_warning("[src] is still firmly secured to the ground!"))
+		to_chat(user, span_warning("[src] все еще прочно прикреплена к земле!"))
 		return
 
-	user.visible_message(span_notice("[user] starts to pry apart [src]!"), span_notice("I start prying apart [src]."))
+	user.visible_message(span_notice("[user] пытается разобрать [src]!"), span_notice("Я пытаюсь разобрать [src]."))
 	if(!I.use_tool(src, user, 60, volume = 50))
-		to_chat(user, span_warning("I failed to pry apart [src]!"))
+		to_chat(user, span_warning("Мне не удалось разобрать [src]!"))
 		return
 
-	user.visible_message(span_notice("[user] pried [src] into pieces!"), span_notice("I pried apart [src]!"))
+	user.visible_message(span_notice("[user] разбирает [src], вырывая из неё куски!"), span_notice("Я разбираю [src]!"))
 	deconstruct(TRUE)
 
 //ROGUEDOOR
 
 /obj/structure/mineral_door/wood
-	name = "door"
+	name = "дверь"
 	desc = ""
 	icon_state = "woodhandle"
 	openSound = 'sound/foley/doors/creak.ogg'
@@ -699,8 +791,8 @@
 	..()
 
 /obj/structure/mineral_door/swing_door
-	name = "swing door"
-	desc = "A door that swings."
+	name = "распашная дверь"
+	desc = "Эта дверь открывается в обе стороны."
 	icon_state = "woodhandle"
 	openSound = 'sound/foley/doors/creak.ogg'
 	closeSound = 'sound/foley/doors/shut.ogg'
@@ -736,7 +828,7 @@
 	metalizer_result = null
 
 /obj/structure/mineral_door/wood/deadbolt
-	desc = "This door comes with a deadbolt."
+	desc = "На этой двери есть засов."
 	icon_state = "wooddir"
 	base_state = "wood"
 	var/lockdir
@@ -761,18 +853,18 @@
 	if(door_opened || isSwitchingStates)
 		return
 	if(lockbroken)
-		to_chat(user, span_warning("The lock to this door is broken."))
+		to_chat(user, span_warning("Замок на этой двери сломан."))
 		return
 	if(brokenstate)
-		to_chat(user, span_warning("There isn't much left of this door."))
+		to_chat(user, span_warning("От этой двери мало что осталось."))
 		return
 	if(get_dir(src,user) == lockdir)
 		lock_toggle(user)
 	else
-		to_chat(user, span_warning("The door doesn't lock from this side."))
+		to_chat(user, span_warning("Дверь не запирается с этой стороны."))
 
 /obj/structure/mineral_door/wood/donjon
-	desc = "dungeon door"
+	desc = "Тяжелая дверь со смотровым окошком."
 	icon_state = "donjondir"
 	base_state = "donjon"
 	keylock = TRUE
@@ -790,7 +882,7 @@
 	smeltresult = /obj/item/ingot/iron
 
 /obj/structure/mineral_door/wood/donjon/stone
-	desc = "stone door"
+	desc = "каменная дверь"
 	icon_state = "stone"
 	base_state = "stone"
 	keylock = TRUE
@@ -817,29 +909,29 @@
 	if(door_opened || isSwitchingStates)
 		return
 	if(brokenstate)
-		to_chat(user, span_warning("There isn't much left of this door."))
+		to_chat(user, span_warning("От этой двери мало что осталось."))
 		return
 	if(get_dir(src,user) == viewportdir)
 		view_toggle(user)
 	else
-		to_chat(user, span_warning("The viewport doesn't toggle from this side."))
+		to_chat(user, span_warning("Смотровое окно находится по другую сторону двери."))
 		return
 
 /obj/structure/mineral_door/wood/donjon/proc/view_toggle(mob/user)
 	if(door_opened)
 		return
 	if(opacity)
-		to_chat(user, span_info("I slide the viewport open."))
+		to_chat(user, span_info("Я открываю смотровое окно."))
 		opacity = FALSE
 		playsound(src, 'sound/foley/doors/windowup.ogg', 100, FALSE)
 	else
-		to_chat(user, span_info("I slide the viewport closed."))
+		to_chat(user, span_info("Я закрываю смотровое окно."))
 		opacity = TRUE
 		playsound(src, 'sound/foley/doors/windowup.ogg', 100, FALSE)
 
 
 /obj/structure/mineral_door/bars
-	name = "iron door"
+	name = "калитка"
 	desc = ""
 	icon_state = "bars"
 	openSound = 'sound/foley/doors/ironopen.ogg'
@@ -876,7 +968,7 @@
 
 
 /obj/structure/mineral_door/bars/onkick(mob/user)
-	user.visible_message(span_warning("[user] kicks [src]!"))
+	user.visible_message(span_warning("[user] распахивает [src] ногой!"))
 	return
 
 /obj/structure/mineral_door/wood/towner
@@ -921,8 +1013,8 @@
 	lockid = "towner_fisher"
 
 /obj/structure/mineral_door/wood/deadbolt/shutter
-	name = "serving hatch"
-	desc = "Can be locked from the inside."
+	name = "легкие ставни"
+	desc = "Защелка должна быть с внутренней стороны."
 	icon_state = "serving"
 	base_state = "serving"
 	max_integrity = 250

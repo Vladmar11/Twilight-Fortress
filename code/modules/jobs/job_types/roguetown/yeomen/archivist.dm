@@ -1,8 +1,8 @@
 /datum/job/roguetown/archivist
 	title = "Scholar"
-	tutorial = "Scholars meticulously preserve and organize ancient texts, safeguarding the collective knowledge of the realm for generations to come. \
-	Nobles and Peasants alike often seek the Scholars expertise on matters of history and fact. \
-	Make a good use of this and manage a little academy in this town, making profits by selling your knowledge, as well as potions."
+	tutorial = "Ученые тщательно хранят и систематизируют древние тексты, сохраняя коллективное знание королевства для будущих поколений. \
+	И дворяне, и крестьяне часто обращаются к ученым за исторической и фактической экспертизой. \
+	Воспользуйтесь этим и организуйте небольшую академию в этом городе, получая прибыль от продажи своих знаний и зелий."
 	flag = ARCHIVIST
 	department_flag = YEOMEN
 	faction = "Station"
@@ -27,11 +27,12 @@
 	..()
 	if(H.gender == FEMALE)
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/nobledress/green
+		armor = /obj/item/clothing/suit/roguetown/shirt/robe/archivist
 		pants = /obj/item/clothing/under/roguetown/tights/stockings/white
 		head  = /obj/item/clothing/head/roguetown/roguehood/black
 	else
-		shirt = /obj/item/clothing/suit/roguetown/shirt/grenzelhoft
-		armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/sailor/nightman
+		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/artificer
+		armor = /obj/item/clothing/suit/roguetown/shirt/robe/archivist
 		pants = /obj/item/clothing/under/roguetown/tights/black
 		head = /obj/item/clothing/head/roguetown/nightman
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots

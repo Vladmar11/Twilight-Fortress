@@ -1,25 +1,14 @@
 /datum/subclass/grenzelhoft_kommandant
 	name = "Grenzelhoft Kommandant"
-	tutorial = "Unbreakable. Resolute. Master of the field. Fearless. \
-	These are the first words that come to mind when one mentions the Kommandant, the leader of the well reputed, \
-	expensive and noble Grenzelhoft mercenaries of the Free Corps of the Grenzel empire. \
-	The mercenaries of Grenzel rightfully fear and respect their Kommandant, walking to certain death on his one word."
+	tutorial = "Непоколебимый. Решительный. Мастер поля боя. Бесстрашный. \
+	Это первые слова, которые приходят на ум при упоминании о коменданте, непревзойденном лидере известной, \
+	дорогих и благородных наемников Грензельхофта, гильдии наёмников империи Грензельхофт. \
+	Наемники Грензельхофта по праву боятся и уважают своего коменданта, идя на верную смерть по одному его слову."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(
-		/datum/species/axian,
-		/datum/species/vulpkanin,
-		/datum/species/lupian,
-		/datum/species/dracon,
-		/datum/species/moth, //grenzelmoft?
-		/datum/species/dwarf/mountain,
-		/datum/species/human/northern,
-		/datum/species/demihuman,
-		/datum/species/anthromorph,
-		/datum/species/tabaxi
-	)
+	allowed_races = RACES_TOLERATED_UP
 	outfit = /datum/outfit/job/roguetown/mercenary/grenzelhoft_kommandant
 	maximum_possible_slots = 1
-	min_pq = 18
+	min_pq = 20
 	torch = FALSE
 	cmode_music = 'sound/music/combat_grenzelhoft.ogg'
 	category_tags = list(CTAG_MERCENARY)
@@ -60,11 +49,6 @@
 			r_hand = /obj/item/rogueweapon/halberd
 			H.mind.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
 
-	//Humie grenzelhofts are always set to be, well, grenzelhoft
-	if(ishumannorthern(H))
-		var/list/skin_slop = H.dna.species.get_skin_list()
-		H.skin_tone = skin_slop["Grenzelhoft"]
-		H.update_body()
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 2, TRUE)
