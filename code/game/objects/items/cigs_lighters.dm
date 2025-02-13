@@ -364,11 +364,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/cigarette/rollie/mindbreaker
 	list_reagents = list(/datum/reagent/toxin/mindbreaker = 35, /datum/reagent/toxin/lipolicide = 15)
 
-/obj/item/cigbutt/Initialize()
-	. = ..()
-	pixel_x = rand(-5, 5)
-	pixel_y = rand(-5, 5)
-
 /obj/item/cigbutt
 	name = "cigarette butt"
 	desc = ""
@@ -379,6 +374,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	grind_results = list(/datum/reagent/carbon = 2)
 	slot_flags = ITEM_SLOT_MOUTH
 	spitoutmouth = TRUE
+
+/obj/item/cigbutt/Initialize()
+	. = ..()
+	pixel_x = rand(-5, 5)
+	pixel_y = rand(-5, 5)
 
 /obj/item/cigbutt/zig
 	name = "roach"
