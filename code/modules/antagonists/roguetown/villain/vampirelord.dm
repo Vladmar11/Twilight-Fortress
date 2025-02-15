@@ -156,12 +156,14 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 
 	for(var/datum/subclass/A in SSrole_class_handler.sorted_class_categories[CTAG_ALLCLASS])
 		if(A.name == selected)
+			if(!A.outfit)
+				to_chat(src, span_clown("Failed to equip chosen class, choose a new one."))
+				log_message("ERROR: Unable to pick [A.name] as a subclass for [src].", LOG_GAME)
+				spawn_pick_class()
+				return
+	
 			if(equipOutfit(A.outfit))
 				return
-			else
-				to_chat(src, span_clown("Failed to equip chosen class, choose a new one."))
-				log_message("ERROR: Unable to pick [A.name] as a subclass for vampire spawn.", LOG_GAME)
-				spawn_pick_class()
 
 /datum/outfit/job/roguetown/vamplord/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -791,6 +793,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 						return
 					if(do_after(user, 100))
 						to_chat(user, "I have summoned a knight from the underworld. I need only wait for them to materialize.")
+						lord.handle_vitae(-5000)
 						C.deathknightspawn = TRUE
 						for(var/mob/dead/observer/D in GLOB.player_list)
 							D.death_knight_spawn()
@@ -805,10 +808,11 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 					to_chat(user, "It's already night!")
 					return
 				if(alert(user, "Force Enigma into Night? Cost:5000","","Yes","No") == "Yes")
-					if(!lord.mypool.check_withdraw(-2500))
+					if(!lord.mypool.check_withdraw(-5000))
 						to_chat(user, "I don't have enough vitae!")
 						return
 					if(do_after(user, 100))
+						lord.handle_vitae(-5000)
 						GLOB.todoverride = "night"
 						sunstolen = TRUE
 						settod()
@@ -827,12 +831,16 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		to_chat(user, "I don't have the power to use this!")
 
 /mob/proc/death_knight_spawn()
-	var/datum/game_mode/chaosmode/C = SSticker.mode
 	SEND_SOUND(src, sound('sound/misc/notice (2).ogg'))
-	if(alert(src, "A Vampire Lord is summoning you from the Underworld.", "Be Risen?", "Yes", "No") == "Yes")
-		if(!C.deathknightspawn)
-			to_chat(src, span_warning("Another soul was chosen."))
-		returntolobby()
+	var/list/mob/dead/observer/candidates = pollCandidatesForMob("Do you want to play as a Death Knight?", ROLE_VAMPIRE, null, null, 10 SECONDS, src, POLL_IGNORE_NECROMANCER_SKELETON)
+	if(LAZYLEN(candidates))
+		var/mob/dead/observer/C = pick(candidates)
+		log_game("VAMPIRE LOG: [C.ckey] chosen as new death knight.")
+		var/mob/living/carbon/human/new_knight = new /mob/living/carbon/human/species/human/northern()
+		new_knight.forceMove(usr.loc)
+		new_knight.ckey = C.key
+		new_knight.equipOutfit(/datum/job/roguetown/deathknight)
+		new_knight.regenerate_icons()
 
 // DEATH KNIGHT ANTAG
 /datum/antagonist/skeleton/knight
