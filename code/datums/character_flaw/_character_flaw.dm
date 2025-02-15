@@ -138,8 +138,8 @@ TRIUMPHS)"=/datum/charflaw/noflaw
 /datum/status_effect/debuff/badvision
 	id = "badvision"
 	alert_type = null
-	effectedstats = list("perception" = -20, "speed" = -5)
-	duration = 10 SECONDS
+	effectedstats = list("perception" = -10, "speed" = -3)
+	duration = 100
 
 /datum/charflaw/badsight/on_mob_creation(mob/user)
 	..()
