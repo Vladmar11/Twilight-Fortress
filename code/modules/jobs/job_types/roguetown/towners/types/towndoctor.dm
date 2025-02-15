@@ -1,6 +1,7 @@
 /datum/subclass/towndoctor
 	name = "Town Physician"
-	tutorial = "You are a freelance physician, taking jobs patching thos up when you can for whatever they can or are willing to pay. its thankless and most of the time it ends up being for free with you swearing to yourself 'next one will appreciate it'"
+	tutorial = "Вы - доктор, берущийся за работу, латая тех, кого можете, за любую сумму, которую они могут или готовы заплатить. \
+	Это неблагодарное занятие, и чаще всего оно заканчивается тем, что вы не получаете маммоны, клянясь себе «следующий мне заплатят»."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/towner/doctor
@@ -17,7 +18,8 @@
 	beltr = /obj/item/rogueweapon/huntingknife/idagger
 	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
 	backl = /obj/item/storage/backpack/rogue/backpack
-	backpack_contents = list(/obj/item/storage/fancy/skit = 1, /obj/item/storage/fancy/ifak = 1, /obj/item/reagent_containers/glass/alembic = 1,)
+	backr = /obj/item/bedroll // field surgery
+	backpack_contents = list(/obj/item/storage/fancy/skit = 1, /obj/item/storage/fancy/ifak = 1, /obj/item/reagent_containers/glass/alembic = 1, /obj/item/rope = 1, /obj/item/natural/cloth = 1) // tie and gag zombies
 	if(H.gender == MALE)
 		armor = /obj/item/clothing/suit/roguetown/armor/leather/vest
 		pants = /obj/item/clothing/under/roguetown/trou

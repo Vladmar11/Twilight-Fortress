@@ -8,6 +8,8 @@ GLOBAL_LIST_EMPTY(preference_patrons)
 /datum/patron
 	/// Name of the god
 	var/name
+	/// Gender of the god personality. For using adjectives and correct pronouns
+	var/gender
 	/// Domain of the god, such as earth, fire, water, murder etc
 	var/domain = "Bad coding practices"
 	/// Description of the god
@@ -38,7 +40,11 @@ GLOBAL_LIST_EMPTY(preference_patrons)
 /datum/patron/proc/on_gain(mob/living/pious)
 	for(var/trait in mob_traits)
 		ADD_TRAIT(pious, trait, "[type]")
+	if(HAS_TRAIT(pious, TRAIT_XYLIX))
+		pious.grant_language(/datum/language/thievescant)
 
 /datum/patron/proc/on_loss(mob/living/pious)
 	for(var/trait in mob_traits)
 		REMOVE_TRAIT(pious, trait, "[type]")
+	if(HAS_TRAIT(pious, TRAIT_XYLIX))
+		pious.remove_language(/datum/language/thievescant)

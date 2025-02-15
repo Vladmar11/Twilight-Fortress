@@ -175,7 +175,7 @@ SUBSYSTEM_DEF(ticker)
 			for(var/client/C in GLOB.clients)
 				window_flash(C, ignorepref = TRUE) //let them know lobby has opened up.
 //			to_chat(world, span_boldnotice("Welcome to [station_name()]!"))
-			send2chat(new /datum/tgs_message_content("<@&[CONFIG_GET(string/game_alert_role_id)]> Round **[GLOB.round_id]** starting on [SSmapping.config.map_name], [CONFIG_GET(string/servername)]! \nIf you wish to be pinged for game related stuff, go to <#[CONFIG_GET(string/role_assign_channel_id)]> and assign yourself the roles."), CONFIG_GET(string/channel_announce_new_game))
+			send2chat(new /datum/tgs_message_content("<@&[CONFIG_GET(string/game_alert_role_id)]> Раунд **[GLOB.round_id]** стартует! \nЕсли вы хотите получить роль для уведомления о новой игре, то вам в <#[CONFIG_GET(string/role_assign_channel_id)]>."), CONFIG_GET(string/channel_announce_new_game))
 			current_state = GAME_STATE_PREGAME
 			//Everyone who wants to be an observer is now spawned
 			create_observers()
@@ -210,6 +210,11 @@ SUBSYSTEM_DEF(ticker)
 				else
 					current_state = GAME_STATE_SETTING_UP
 					Master.SetRunLevel(RUNLEVEL_SETUP)
+					for(var/client/C in GLOB.clients)
+						if(C.mob)
+							for(var/music in GLOB.ambience_files)
+								C.mob.playsound_local(C.mob, music, 0.1, channel = 1010)
+								
 					if(start_immediately)
 						fire()
 
@@ -238,12 +243,7 @@ SUBSYSTEM_DEF(ticker)
 
 /datum/controller/subsystem/ticker/proc/checkreqroles()
 	var/list/readied_jobs = list()
-	var/list/required_jobs = list("Duke")
-
-	// Start now server button
-	if(start_immediately)
-		job_change_locked = TRUE
-		return TRUE
+	var/list/required_jobs = list()
 
 	for(var/V in required_jobs)
 		for(var/mob/dead/new_player/player in GLOB.player_list)
@@ -256,13 +256,6 @@ SUBSYSTEM_DEF(ticker)
 							to_chat(player, span_warning("You cannot be [V] and thus are not considered."))
 							continue
 					readied_jobs.Add(V)
-
-#ifndef FASTLOAD
-	if(!("Duke" in readied_jobs))
-		var/list/stuffy = list("Set Duke to 'high' in your class preferences to start the game!", "PLAY Duke NOW!", "A Duke is required to start.", "Pray for a Duke.", "One day, there will be a Duke.", "Just try playing Duke.", "If you don't play Duke, the game will never start.", "We need at least one Duke to start the game.", "We're waiting for you to pick Duke to start.", "Still no Duke is readied..", "I'm going to lose my mind if we don't get a Duke readied up.","No. The game will not start because there is no Duke.")
-		to_chat(world, span_purple("[pick(stuffy)]"))
-		return FALSE
-#endif
 
 	job_change_locked = TRUE
 	return TRUE
@@ -392,7 +385,8 @@ SUBSYSTEM_DEF(ticker)
 				if(SSfamily.special_role_blacklist.Find(H.mind.special_role))
 					continue
 				if(H.client.prefs.family == FAMILY_FULL)
-					SSfamily.family_candidates += H
+					if(!(H.mind.assigned_role in list("Heir", "Duke Consort", "Duke")))
+						SSfamily.family_candidates += H
 
 
 		SSfamily.SetupLordFamily()
@@ -456,13 +450,11 @@ SUBSYSTEM_DEF(ticker)
 	set waitfor = FALSE
 	mode.post_setup()
 
-	var/list/adm = get_admin_counts()
-	var/list/allmins = adm["present"]
-	send2irc("Server", "Round [GLOB.round_id ? "#[GLOB.round_id]:" : "of"] [hide_mode ? "secret":"[mode.name]"] has started[allmins.len ? ".":" with no active admins online!"]")
+	if(CONFIG_GET(string/game_alert_role_id))
+		send2chat(new /datum/tgs_message_content("Новый раунд начинается!"), CONFIG_GET(string/chat_announce_new_game))
 	setup_done = TRUE
 
 	job_change_locked = FALSE
-
 //	setup_hell()
 	SStriumphs.fire_on_PostSetup()
 	for(var/i in GLOB.start_landmarks_list)
@@ -542,6 +534,7 @@ SUBSYSTEM_DEF(ticker)
 				var/atom/movable/screen/splash/S = new(living.client, TRUE)
 				S.Fade(TRUE)
 			livings += living
+			GLOB.character_ckey_list[living.real_name] = living.ckey
 			if(ishuman(living))
 				try_apply_character_post_equipment(living)
 	if(livings.len)

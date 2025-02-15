@@ -1,5 +1,5 @@
 /datum/sex_action/toy_other_vagina
-	name = "Use toy on their cunt"
+	name = "Трахнуть игрушкой (вагина)"
 
 /datum/sex_action/toy_other_vagina/shows_on_menu(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user == target)
@@ -26,21 +26,21 @@
 	var/obj/item/dildo = get_dildo_in_either_hand(user)
 	if(HAS_TRAIT(target, TRAIT_TINY) && !(HAS_TRAIT(user, TRAIT_TINY)))
 		//Scream and rib break
-		user.visible_message(span_warning("[user] forces \the [dildo] in [target]'s tiny cunt!"))
+		user.visible_message(span_warning("[user] вбивает [dildo] в миниатюрную киску [target]!"))
 		var/obj/item/bodypart/BPC = target.get_bodypart(BODY_ZONE_CHEST)
 		var/obj/item/bodypart/BPG = target.get_bodypart(BODY_ZONE_PRECISE_GROIN)
 		BPC.add_wound(/datum/wound/fracture/chest)
 		BPG.add_wound(/datum/wound/fracture/groin)
 		target.apply_damage(30, BRUTE, BPC)
 	else
-		user.visible_message(span_warning("[user] shoves \the [dildo] in [target]'s cunt..."))
+		user.visible_message(span_warning("[user] запихивает [dildo] в кисоньку [target]..."))
 
 /datum/sex_action/toy_other_vagina/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user.sexcon.do_message_signature("[type]"))
 		if(HAS_TRAIT(target, TRAIT_TINY) && !(HAS_TRAIT(user, TRAIT_TINY)))
-			user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] stuffs [target]'s tiny cunt..."))
+			user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] трахает маленькую киску [target] игрушкой..."))
 		else
-			user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] pleasures [target]'s cunt..."))
+			user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] удовлетворяет киску [target] при помощи игрушки..."))
 	playsound(user, 'sound/misc/mat/fingering.ogg', 30, TRUE, -2, ignore_walls = FALSE)
 
 	if(HAS_TRAIT(target, TRAIT_TINY) && !(HAS_TRAIT(user, TRAIT_TINY)))
@@ -54,7 +54,7 @@
 /datum/sex_action/toy_other_vagina/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	..()
 	var/obj/item/dildo = get_dildo_in_either_hand(user)
-	user.visible_message(span_warning("[user] pulls out \the [dildo] from [target]'s cunt."))
+	user.visible_message(span_warning("[user] вытаскивает [dildo] из лона [target]."))
 
 /datum/sex_action/toy_other_vagina/is_finished(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(target.sexcon.finished_check())

@@ -1,6 +1,6 @@
 /obj/structure/flora/newtree
-	name = "tree"
-	desc = "The thick core of a tree."
+	name = "дерево"
+	desc = "Толстая сердцевина дерева."
 	icon = 'icons/roguetown/misc/tree.dmi'
 	icon_state = "tree1"
 	var/tree_type = 1
@@ -24,7 +24,7 @@
 /obj/structure/flora/newtree/attack_right(mob/user)
 	if(user.mind && isliving(user))
 		if(user.mind.special_items && user.mind.special_items.len)
-			var/item = input(user, "What will I take?", "STASH") as null|anything in user.mind.special_items
+			var/item = input(user, "Что я возьму?", "ТАЙНИК") as null|anything in user.mind.special_items
 			if(item)
 				if(user.Adjacent(src))
 					if(user.mind.special_items[item])
@@ -57,11 +57,11 @@
 						BI.zFall(bio)
 				for(var/obj/structure/flora/newleaf/bil in BI)//2 tile end leaf
 					bil.obj_destruction(damage_flag)
-				BRANCH.obj_flags = CAN_BE_HIT 
+				BRANCH.obj_flags = CAN_BE_HIT
 				BRANCH.obj_destruction(damage_flag)
 			for(var/atom/BRA in B)//unload a sack of rocks on a branch and stand under it, it'll be funny bro
 				B.zFall(BRA)
-	
+
 	for(var/turf/DIA in block(get_step(src, SOUTHWEST), get_step(src, NORTHEAST)))
 		for(var/obj/structure/flora/newleaf/LEAF in DIA)
 			LEAF.obj_destruction(damage_flag)
@@ -78,13 +78,13 @@
 			return
 		var/turf/target = get_step_multiz(user, UP)
 		if(!istype(target, /turf/open/transparent/openspace))
-			to_chat(user, span_warning("I can't climb here."))
+			to_chat(user, span_warning("Я не могу отсюда взобраться выше."))
 			return
 		if(!L.can_zTravel(target, UP))
-			to_chat(user, span_warning("I can't climb there."))
+			to_chat(user, span_warning("Я не могу туда забраться."))
 			return
 		var/used_time = 0
-		var/exp_to_gain = 0 
+		var/exp_to_gain = 0
 		if(L.mind)
 			var/myskill = L.mind.get_skill_level(/datum/skill/misc/climbing)
 			exp_to_gain = L.STAINT/2
@@ -97,7 +97,7 @@
 					myskill += 1
 			used_time = max(70 - (myskill * 10) - (L.STASPD * 3), 30)
 		playsound(user, 'sound/foley/climb.ogg', 100, TRUE)
-		user.visible_message(span_warning("[user] starts to climb [src]."), span_warning("I start to climb [src]..."))
+		user.visible_message(span_warning("[user] взбирается вверх по [src]."), span_warning("Я взбираюсь вверх по [src]..."))
 		if(do_after(L, used_time, target = src))
 			var/pulling = user.pulling
 			if(ismob(pulling))
@@ -181,8 +181,8 @@
 ///BRANCHES
 
 /obj/structure/flora/newbranch
-	name = "branch"
-	desc = "A stable branch, should be safe to walk on."
+	name = "ветка"
+	desc = "Устойчивая ветка, по которой можно безопасно ходить."
 	icon = 'icons/roguetown/misc/tree.dmi'
 	icon_state = "branch-end1"
 //	var/tree_type = 1
@@ -250,7 +250,7 @@
 	update_icon()
 
 /obj/structure/flora/newleaf
-	name = "leaves"
+	name = "листва"
 	icon = 'icons/roguetown/misc/tree.dmi'
 	icon_state = "center-leaf1"
 	density = FALSE

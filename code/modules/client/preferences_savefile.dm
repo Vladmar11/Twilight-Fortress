@@ -165,6 +165,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["crt"]			>> crt
 	S["mastervol"]			>> mastervol
 	S["lastclass"]			>> lastclass
+	S["prefer_old_chat"]	>> prefer_old_chat
 
 
 	S["default_slot"]		>> default_slot
@@ -292,6 +293,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["pda_style"], pda_style)
 	WRITE_FILE(S["pda_color"], pda_color)
 	WRITE_FILE(S["key_bindings"], key_bindings)
+	WRITE_FILE(S["prefer_old_chat"], prefer_old_chat)
 	WRITE_FILE(S["defiant"], defiant)
 	return TRUE
 
@@ -325,6 +327,12 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		charflaw = GLOB.character_flaws[charflaw]
 		charflaw = new charflaw()
 
+/datum/preferences/proc/_load_loadout(S)
+	var/loadout_type
+	S["loadout"] >> loadout_type
+	if (loadout_type)
+		loadout = new loadout_type()
+
 /datum/preferences/proc/_load_appearence(S)
 	S["real_name"]			>> real_name
 	S["gender"]				>> gender
@@ -356,6 +364,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["feature_mcolor3"]					>> features["mcolor3"]
 	S["feature_ethcolor"]					>> features["ethcolor"]
 	S["virginity"]							>> virginity
+	S["spouse_ckey"]		>> spouse_ckey
 
 /datum/preferences/proc/load_character(slot)
 	if(!path)
@@ -382,6 +391,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	_load_species(S)
 
 	_load_flaw(S)
+
+	_load_loadout(S)
 
 	if(!S["features["mcolor"]"] || S["features["mcolor"]"] == "#000")
 		WRITE_FILE(S["features["mcolor"]"]	, "#FFF")
@@ -435,6 +446,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["family"] >> family
 	S["family_species"] >> family_species
 	S["family_gender"] >> family_gender
+
+	S["sexual_pref"] >> sexual_pref
+	if(!sexual_pref)
+		sexual_pref = SEXUAL_PREF_HETERO
 
 	//try to fix any outdated data if necessary
 	if(needs_update >= 0)
@@ -597,7 +612,13 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["update_mutant_colors"] , update_mutant_colors)
 	WRITE_FILE(S["headshot_link"] , headshot_link)
 	WRITE_FILE(S["nudeshot_link"] , nudeshot_link)
+	WRITE_FILE(S["spouse_ckey"] , spouse_ckey)
+	if(loadout)
+		WRITE_FILE(S["loadout"] , loadout.type)
+	else
+		WRITE_FILE(S["loadout"] , null)
 
+	WRITE_FILE(S["sexual_pref"]	, sexual_pref)
 	return TRUE
 
 

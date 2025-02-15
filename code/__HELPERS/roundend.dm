@@ -68,9 +68,9 @@
 /datum/controller/subsystem/ticker/proc/declare_completion()
 	set waitfor = FALSE
 
-	log_game("The round has ended.")
+	log_game("Раунд окончен.")
 
-	to_chat(world, "<BR><BR><BR><span class='reallybig'>So ends another week in Ratwood Keep.</span>")
+	to_chat(world, "<BR><BR><BR><span class='reallybig'>Вот и закончилась еще одна неделя на Twilight Fortress.</span>")
 	get_end_reason()
 
 	var/list/key_list = list()
@@ -80,6 +80,8 @@
 			C.mob.playsound_local(C.mob, 'sound/music/credits.ogg', 100, FALSE)
 		if(isliving(C.mob) && C.ckey)
 			key_list += C.ckey
+	
+			
 //	if(key_list.len)
 //		add_roundplayed(key_list)
 	for(var/mob/living/carbon/human/H in GLOB.player_list)
@@ -152,7 +154,7 @@
 	CHECK_TICK
 
 	//Now print them all into the log!
-	log_game("Antagonists at round end were...")
+	log_game("Антагонистами в этом раунде были...")
 	for(var/antag_name in total_antagonists)
 		var/list/L = total_antagonists[antag_name]
 		log_game("[antag_name]s :[L.Join(", ")].")
@@ -178,13 +180,13 @@
 		var/datum/game_mode/chaosmode/C = SSticker.mode
 		if(C.check_for_lord)
 			if(!C.check_for_lord(forced = TRUE))
-				end_reason = pick("Without a Monarch, they were doomed to become slaves of Zizo.",
-								"Without a Monarch, they were doomed to be eaten by nite creachers.",
-								"Without a Monarch, they were doomed to become victims of Gehenna.",
-								"Without a Monarch, they were doomed to enjoy a mass-suicide.",
-								"Without a Monarch, the Lich made them his playthings.",
-								"Without a Monarch, some jealous rival reigned in tyranny.",
-								"Without a Monarch, the town was abandoned.")
+				end_reason = pick("Вот и закончилась еще одна глава этой истории. Скоро начнется другая.",
+						"Чистая страница заполнена, новый холст представлен на Twilight Fortress.",
+						"Наши актеры снимают маски. Новый состав приступает к репетиции.",
+						"Итак, события недели свершились. Насыщенная событиями или обыденная, жизнь продолжается.",
+						"Пешки богов, проповедники ночи, все собрались вместе, чтобы рассказать эту историю.",
+						"Неважно, с какими потерями... герцогство выживает... пока.",
+						"Жители Twilight Fortress готовятся смотреть вперед; их действия заперты в непроницаемом прошлом.")
 //		if(C.not_enough_players)
 //			end_reason = "The town was abandoned."
 
@@ -203,7 +205,7 @@
 	if(end_reason)
 		to_chat(world, span_bigbold("[end_reason]."))
 	else
-		to_chat(world, span_bigbold("The town has managed to survive another week."))
+		to_chat(world, span_bigbold("Городу удалось продержаться еще неделю."))
 
 /datum/controller/subsystem/ticker/proc/gamemode_report()
 	var/list/all_teams = list()
@@ -255,13 +257,13 @@
 /datum/controller/subsystem/ticker/proc/stats_report()
 	var/list/shit = list()
 	shit += "<br><span class='bold'>Δ--------------------Δ</span><br>"
-	shit += "<br><font color='#9b6937'><span class='bold'>Deaths:</span></font> [deaths]"
-	shit += "<br><font color='#af2323'><span class='bold'>Blood spilt:</span></font> [round(blood_lost / 100, 1)]L"
-	shit += "<br><font color='#36959c'><span class='bold'>TRIUMPH(s) Awarded:</span></font> [tri_gained]"
-	shit += "<br><font color='#a02fa4'><span class='bold'>TRIUMPH(s) Stolen:</span></font> [tri_lost * -1]"
-	shit += "<br><font color='#ffd4fd'><span class='bold'>Pleasures:</span></font> [cums]"
+	shit += "<br><font color='#9b6937'><span class='bold'>Смертей:</span></font> [deaths]"
+	shit += "<br><font color='#af2323'><span class='bold'>Пролито крови:</span></font> [round(blood_lost / 100, 1)]L"
+	shit += "<br><font color='#36959c'><span class='bold'>Заработано триумфов:</span></font> [tri_gained]"
+	shit += "<br><font color='#a02fa4'><span class='bold'>Отобрано триумфов:</span></font> [tri_lost * -1]"
+	shit += "<br><font color='#ffd4fd'><span class='bold'>Удовлетворений:</span></font> [cums]"
 	if(GLOB.cuckolds.len)
-		shit += "<br><font color='#a02fa4'><span class='bold'>Cuckolds were:</span></font> "
+		shit += "<br><font color='#a02fa4'><span class='bold'>Куколды:</span></font> "
 		for(var/i in 1 to GLOB.cuckolds.len)
 			shit += GLOB.cuckolds[i]
 			if(i != GLOB.cuckolds.len)

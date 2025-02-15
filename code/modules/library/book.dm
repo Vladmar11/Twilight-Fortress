@@ -1,10 +1,8 @@
-
-
 /*
  * Book
  */
 /obj/item/book
-	name = "book"
+	name = "книга"
 	icon = 'icons/obj/library.dmi'
 	icon_state ="book"
 	desc = ""
@@ -15,6 +13,10 @@
 	resistance_flags = FLAMMABLE
 	drop_sound = 'sound/blank.ogg'
 	pickup_sound =  'sound/blank.ogg'
+
+	grid_width = 32
+	grid_height = 64
+	
 	var/dat				//Actual page content
 	var/due_date = 0	//Game time in 1/10th seconds
 	var/author			//Who wrote the thing, can be changed by pen or PC. It is not automatically assigned
@@ -29,6 +31,7 @@
 	var/our_font = "Rosemary Roman"
 	var/override_find_book = FALSE
 
+
 /obj/item/book/attack_self(mob/user)
 	if(!user.can_read(src))
 		return
@@ -41,7 +44,7 @@
 
 /obj/item/book/examine(mob/user)
 	. = ..()
-	. += "<a href='?src=[REF(src)];read=1'>Read</a>"
+	. += "<a href='?src=[REF(src)];read=1'>Читать</a>"
 
 /obj/item/book/Topic(href, href_list)
 	..()
@@ -84,19 +87,21 @@
 			if(!override_find_book)
 				pages = SSlibrarian.get_book(bookfile)
 		if(!pages.len)
-			to_chat(user, span_warning("This book is completely blank."))
+			to_chat(user, span_warning("Эта книга совершенно пуста."))
 		if(curpage > pages.len)
 			curpage = 1
 //		var/curdat = pages[curpage]
 		var/dat = {"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
-					<html><head><style type=\"text/css\">
+					<html><head>
+					<meta charset=\"UTF-8\">
+					<style type=\"text/css\">
 					body { background-image:url('book.png');background-repeat: repeat; }</style></head><body scroll=yes>"}
 		for(var/A in pages)
 			dat += A
 			dat += "<br>"
-		dat += "<a href='?src=[REF(src)];close=1' style='position:absolute;right:50px'>Close</a>"
+		dat += "<a href='?src=[REF(src)];close=1' style='position:absolute;right:50px'>Закрыть</a>"
 		dat += "</body></html>"
 		user << browse(dat, "window=reading;size=1000x700;can_close=1;can_minimize=0;can_maximize=0;can_resize=1;titlebar=0;border=0")
 		onclose(user, "reading", src)
 	else
-		return span_warning("You're too far away to read it.")
+		return span_warning("Я слишком далеко, чтобы прочитать.")

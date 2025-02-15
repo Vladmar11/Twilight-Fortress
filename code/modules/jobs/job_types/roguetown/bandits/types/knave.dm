@@ -1,6 +1,7 @@
 /datum/subclass/knave //sneaky bastards - ranged classes of two flavors archers and rogues
 	name = "Knave"
-	tutorial = "Not all followers of Matthios take by force. Thieves, poachers, and ne'er-do-wells of all forms steal from others from the shadows, long gone before their marks realize their misfortune."
+	tutorial = "Не все последователи Маттиоса берут силой. \
+	Воры, браконьеры и пройдохи всех мастей крадут у других из тени, уходя задолго до того, как их следы осознают свое несчастье."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/bandit/knave
@@ -60,7 +61,7 @@
 			head = /obj/item/clothing/head/roguetown/helmet/leather/volfhelm //cool hat
 			backr = /obj/item/storage/backpack/rogue/satchel
 			beltl = /obj/item/ammo_holder/quiver/arrows
-			backpack_contents = list(/obj/item/needle/thorn = 1, /obj/item/natural/cloth = 1, /obj/item/restraints/legcuffs/beartrap = 2) //poacher gets mantraps
+			backpack_contents = list(/obj/item/needle/thorn = 1, /obj/item/natural/cloth = 1, /obj/item/restraints/legcuffs/beartrap = 1) //poacher gets mantraps
 			H.mind.adjust_skillrank(/datum/skill/combat/bows, 1, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/crossbows, 1, TRUE)
 			H.change_stat("strength", 2)

@@ -18,13 +18,13 @@
 
 /client/AllowUpload(filename, filelength)
 	if(filelength >= 6485760)
-		src << "[filename] TOO BIG. 6 MEGS OR LESS!"
+		src << "[filename] СЛИШКОМ БОЛЬШАЯ! НЕ БОЛЕЕ 6МБ!"
 		return 0
 	return 1
 
 /obj/structure/roguemachine/musicbox
-	name = "wax music device"
-	desc = "A marvelous device invented to record sermons. By feeding it the right kind of insects, it now brings us strange music from another realm."
+	name = "восковой проигрыватель"
+	desc = "Чудесное устройство для воспроизведения записей проповедей. Накормленный определенными насекомыми, он теперь приносит нам странную музыку из другого мира."
 	icon = 'icons/roguetown/misc/machines.dmi'
 	icon_state = "music0"
 	density = FALSE
@@ -53,7 +53,7 @@
 	if(playing)
 		return
 	user.changeNext_move(CLICK_CD_MELEE)
-	var/selection = input(user, "Select a song.", "Wax Device") as null|anything in music_tracks
+	var/selection = input(user, "Выберите композицию.", "Проигрыватель") as null|anything in music_tracks
 	if(!selection)
 		return
 	if(!Adjacent(user))

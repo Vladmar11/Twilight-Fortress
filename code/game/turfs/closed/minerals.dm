@@ -191,7 +191,7 @@
 
 /turf/closed/mineral/random/rogue
 //	layer = ABOVE_MOB_LAYER
-	name = "rock"
+	name = "скала"
 	desc = ""
 	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "minrandbad"
@@ -220,7 +220,7 @@
 //begin actual mineral turfs
 /turf/closed/mineral/rogue
 //	layer = ABOVE_MOB_LAYER
-	name = "rock"
+	name = "скала"
 	desc = ""
 	icon = 'icons/turf/roguewall.dmi'
 	icon_state = "rockyash"
@@ -308,5 +308,5 @@
 
 /turf/closed/mineral/rogue/bedrock/attackby(obj/item/I, mob/user, params)
 	..()
-	to_chat(user, span_warning("TOO HARD!"))
+	to_chat(user, span_warning("СЛИШКОМ ТВЕРДАЯ ПОРОДА!"))
 	turf_integrity = max_integrity

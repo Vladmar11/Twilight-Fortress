@@ -18,6 +18,9 @@
 	minstr = 5
 	blade_dulling = DULLING_BASHCHOP
 
+	grid_height = 96
+	grid_width = 32
+
 /datum/intent/lordbash
 	name = "bash"
 	blade_class = BCLASS_BLUNT
@@ -78,6 +81,7 @@
 
 			if(istype(user.used_intent, /datum/intent/lord_electrocute))
 				HU.visible_message(span_warning("[HU] electrocutes [H] with the [src]."))
+				user.Beam(target,icon_state="lightning[rand(1,12)]",time=5)
 				H.electrocute_act(5, src)
 				to_chat(H, span_danger("I'm electrocuted by the scepter!"))
 				return
@@ -103,6 +107,9 @@
 	wdefense = 5
 	var/charge = 100
 	var/on = FALSE
+
+	grid_height = 96
+	grid_width = 64
 
 /obj/item/rogueweapon/mace/stunmace/getonmobprop(tag)
 	. = ..()

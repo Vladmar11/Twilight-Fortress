@@ -1,5 +1,5 @@
 /datum/sex_action/force_rimming
-	name = "Force them to rim you"
+	name = "Принудить к риммингу"
 	require_grab = TRUE
 	stamina_cost = 1.0
 	gags_target = TRUE
@@ -22,11 +22,11 @@
 
 /datum/sex_action/force_rimming/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	..()
-	user.visible_message(span_warning("[user] shoves [target]'s head against his butt!"))
+	user.visible_message(span_warning("[user] прижимает голову [target] к своему заду!"))
 
 /datum/sex_action/force_rimming/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user.sexcon.do_message_signature("[type]"))
-		user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] forces [target] to rim his butt."))
+		user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] вдаливает ртом [target] к своему анальному кольцу."))
 	target.make_sucking_noise()
 	do_thrust_animate(target, user)
 
@@ -38,7 +38,7 @@
 
 /datum/sex_action/force_rimming/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	..()
-	user.visible_message(span_warning("[user] pulls [target]'s head away from his butt."))
+	user.visible_message(span_warning("[user] отпускает голову [target]."))
 
 /datum/sex_action/force_rimming/is_finished(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user.sexcon.finished_check())

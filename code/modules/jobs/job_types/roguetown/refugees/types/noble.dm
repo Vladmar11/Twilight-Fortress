@@ -1,8 +1,8 @@
 /datum/subclass/noble
 	name = "Noble"
-	tutorial = "You were once a person of importance in your local community, but the plague and civil strife have left you with nothing. \
-				Noble in blood but no longer in wealth, you have spent your last riches to embark on a journey towards a place \
-				where you can re-establish your lineage."
+	tutorial = "Когда-то вы были важной персоной в своем обществе, но чума и гражданские беспорядки оставили вас ни с чем. \
+				Благородный по крови, но не по богатству, вы потратили свое последнее богатство, чтобы отправиться в путешествие к месту,\
+				где вы сможете восстановить свой род."
 
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
@@ -44,7 +44,7 @@
 			H.mind.adjust_skillrank(/datum/skill/misc/athletics, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 1, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
-			shoes = /obj/item/clothing/shoes/roguetown/armor
+			shoes = /obj/item/clothing/shoes/roguetown/nobleboot/thighboots
 			belt = /obj/item/storage/belt/rogue/leather/black
 			beltr = /obj/item/flashlight/flare/torch/lantern
 			backl = /obj/item/storage/backpack/rogue/satchel
@@ -75,14 +75,14 @@
 			H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
 			H.mind.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
-			shoes = /obj/item/clothing/shoes/roguetown/armor
+			shoes = /obj/item/clothing/shoes/roguetown/nobleboot/thighboots
 			belt = /obj/item/storage/belt/rogue/leather/black
 			beltr = /obj/item/flashlight/flare/torch/lantern
 			backl = /obj/item/storage/backpack/rogue/satchel
 			backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel)
 			neck = /obj/item/storage/belt/rogue/pouch/coins/rich
 			id = /obj/item/clothing/ring/silver
-			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/purple
+			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/fancy
 			r_hand = /obj/item/rogueweapon/woodstaff
 			pants = /obj/item/clothing/under/roguetown/tights/stockings/silk/white
 			armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen/purple
@@ -97,7 +97,7 @@
 		if("Failed Condottiero")
 			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
 			belt = /obj/item/storage/belt/rogue/leather/black
-			shoes = /obj/item/clothing/shoes/roguetown/armor/nobleboot
+			shoes = /obj/item/clothing/shoes/roguetown/nobleboot/thighboots
 			pants = /obj/item/clothing/under/roguetown/tights/black
 			cloak = /obj/item/clothing/cloak/heartfelt
 			armor = /obj/item/clothing/suit/roguetown/armor/heartfelt/lord

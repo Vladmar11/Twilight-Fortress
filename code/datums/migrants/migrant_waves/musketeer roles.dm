@@ -1,6 +1,6 @@
 /datum/migrant_role/musketeer/musketeer
 	name = "Musketeer"
-	greet_text = "A merry musketman seeking to save the girl and the day! Don't lose sight of your two companions, you're inseperable!"
+	greet_text = "Веселый мушкетер, стремящийся найти интересные приключения! Не теряйте из виду двух своих спутников, вы неразлучны! Ведь один за всех и все за одного!"
 	outfit = /datum/outfit/job/roguetown/musketeer/musketeer
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS

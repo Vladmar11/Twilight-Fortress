@@ -39,7 +39,7 @@
 				return
 	var/list/possible_targets = list()
 	for(var/obj/structure/flora/roguetree/RT in view(5, src))
-		if(istype(RT,/obj/structure/table/roguetree/stump))
+		if(istype(RT,/obj/structure/table/roguetree/stump)) //This probably isn't needed anymore.
 			continue
 		if(isturf(RT.loc))
 			testing("foundtree")
