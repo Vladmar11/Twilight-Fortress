@@ -1,5 +1,5 @@
 /datum/wound/puncture
-	name = "puncture"
+	name = "колотая рана"
 	whp = 40
 	sewn_whp = 20
 	bleed_rate = 0.4
@@ -16,7 +16,7 @@
 	can_cauterize = TRUE
 
 /datum/wound/puncture/small
-	name = "small puncture"
+	name = "малая колотая рана"
 	whp = 20
 	sewn_whp = 10
 	bleed_rate = 0.2
@@ -28,7 +28,7 @@
 	sew_threshold = 35
 
 /datum/wound/puncture/large
-	name = "gaping puncture"
+	name = "зияющая колотая рана"
 	whp = 40
 	sewn_whp = 20
 	bleed_rate = 1
@@ -40,8 +40,8 @@
 	sew_threshold = 100
 
 /datum/wound/puncture/drilling
-	name = "drilling"
-	check_name = span_bloody("<B>DRILLING</B>")
+	name = "высверленный канал"
+	check_name = span_bloody("<B>ПРОСВЕРЛЕНО</B>")
 	severity = WOUND_SEVERITY_SUPERFICIAL
 	whp = 40
 	sewn_whp = 20

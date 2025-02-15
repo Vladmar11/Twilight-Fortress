@@ -1,6 +1,6 @@
 /obj/item/clothing/under/roguetown/shadow
-	name = "silk pants"
-	desc = "Pants made from silk, famous choice for wealthy people that don't have to worry about it getting dirty with mud."
+	name = "шелковые брюки"
+	desc = "Брюки из тончайшего и изысканного шелка — популярный выбор состоятельных людей, которым не нужно беспокоиться о том, что они испачкаются грязью."
 	gender = PLURAL
 	icon = 'icons/roguetown/clothing/newclothes/silkpants.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/newclothes/onmob/onmobsilkpants.dmi'
@@ -12,5 +12,5 @@
 	blade_dulling = DULLING_BASHCHOP
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
-	salvage_amount = 1
 	salvage_result = /obj/item/natural/silk
+	salvage_amount = 3

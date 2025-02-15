@@ -14,7 +14,7 @@
 #define GUILLOTINE_ACTION_WRENCH     6
 
 /obj/structure/guillotine
-	name = "guillotine"
+	name = "гильотина"
 	desc = ""
 	icon = 'icons/obj/guillotine.dmi'
 	icon_state = "guillotine_raised"
@@ -36,20 +36,19 @@
 	. = ..()
 
 /obj/structure/guillotine/examine(mob/user)
-	. = ..()
-
-	var/msg = "The blade "
+	..()
+	var/msg = "Лезвие "
 
 	if (blade_status == GUILLOTINE_BLADE_RAISED)
-		msg += "is raised, ready to fall, and"
+		msg += "поднято, готовое упасть, и"
 
 		if (blade_sharpness >= GUILLOTINE_DECAP_MIN_SHARP)
-			msg += " looks sharp enough to decapitate without any resistance."
+			msg += " выглядит достаточно острым, чтобы обезглавить обреченного без какого-либо сопротивления."
 		else
-			msg += " doesn't look particularly sharp. Perhaps a stone can be used to sharpen it."
+			msg += " выглядит не особенно острым. Возможно, для его заточки можно использовать камень."
 	else
-		msg += "has fallen already."
-	. += msg
+		msg += "упало вниз."
+	to_chat(user, "<span class='info'>[msg]</span>")
 
 /obj/structure/guillotine/attack_hand(mob/user)
 	add_fingerprint(user)
@@ -89,8 +88,8 @@
 			return
 		if (GUILLOTINE_BLADE_RAISED)
 			if (LAZYLEN(buckled_mobs))
-				user.visible_message(span_warning("[user] begins to pull the lever!"),
-					                 span_warning("I begin to pull the lever!"))
+				user.visible_message(span_warning("[user] начинает тянуть за рычаг!"),
+					                 span_warning("Я начинаю тянуть за рычаг!"))
 				current_action = GUILLOTINE_ACTION_INUSE
 
 				if (do_after(user, GUILLOTINE_ACTIVATE_DELAY, target = src) && blade_status == GUILLOTINE_BLADE_RAISED)
@@ -189,8 +188,8 @@
 				blade_status = GUILLOTINE_BLADE_SHARPENING
 				if(do_after(user, 7, target = src))
 					blade_status = GUILLOTINE_BLADE_RAISED
-					user.visible_message(span_notice("[user] sharpens the large blade of the guillotine."),
-						                 span_notice("I sharpen the large blade of the guillotine."))
+					user.visible_message(span_notice("[user] затачивает большое лезвие гильотины."),
+						                 span_notice("Я затачиваю большое лезвие гильотины."))
 					blade_sharpness += 1
 					playsound(src, 'sound/items/sharpen_long1.ogg', 100, TRUE)
 					return
@@ -198,10 +197,10 @@
 					blade_status = GUILLOTINE_BLADE_RAISED
 					return
 			else
-				to_chat(user, span_warning("The blade is sharp enough!"))
+				to_chat(user, span_warning("Лезвие достаточно острое!"))
 				return
 		else
-			to_chat(user, span_warning("I need to raise the blade in order to sharpen it!"))
+			to_chat(user, span_warning("Мне нужно поднять лезвие, чтобы заточить его!"))
 			return
 	else
 		return ..()
@@ -211,11 +210,11 @@
 		return FALSE
 
 	if ((!istype(M, /mob/living/carbon/human)) || HAS_TRAIT(M, TRAIT_TINY))
-		to_chat(usr, span_warning("It doesn't look like [M.p_they()] can fit into this properly!"))
+		to_chat(usr, span_warning("Не похоже, что [M] можно разместить на гильотине!"))
 		return FALSE // Can't decapitate non-humans
 
 	if (blade_status != GUILLOTINE_BLADE_RAISED)
-		to_chat(usr, span_warning("I need to raise the blade before placing someone!"))
+		to_chat(usr, span_warning("Мне нужно поднять лезвие, прежде чем положить кого-то!"))
 		return FALSE
 
 	return ..(M, force, FALSE)
@@ -232,6 +231,7 @@
 
 			if (istype(S))
 				H.cut_overlays()
+				H.regenerate_icons()
 				H.update_body_parts_head_only()
 				H.set_mob_offsets("bed_buckle", _x = 0, _y = -GUILLOTINE_HEAD_OFFSET)
 				H.layer += GUILLOTINE_LAYER_DIFF
@@ -253,7 +253,7 @@
 /obj/structure/guillotine/can_be_unfasten_wrench(mob/user, silent)
 	if (LAZYLEN(buckled_mobs))
 		if (!silent)
-			to_chat(user, span_warning("Can't unfasten, someone's strapped in!"))
+			to_chat(user, span_warning("Не могу открутить, кто-то пристегнут к гильотине!"))
 		return FAILED_UNFASTEN
 
 	if (current_action)

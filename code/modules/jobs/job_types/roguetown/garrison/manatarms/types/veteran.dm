@@ -1,6 +1,6 @@
 /datum/subclass/manorguard/veteran
 	name = "Retinue Veteran"
-	tutorial = "You are a veteran of the Retinue, and have shed many years and much blood for the Kingdom of Enigma. The engraved sword on your belt is a testament to your service and a gift from the Guard Captain himself. Protect the Duchy, protect your comrades, and maybe one day you’ll be able to retire.."
+	tutorial = "Вы - ветеран дружины Герцога, проживший много лет и проливший много крови за Рокхилл. Выгравированный меч на вашем поясе - свидетельство вашей службы и подарок от самого капитана лейб-гвардии. Защищайте герцогство, защищайте своих товарищей, и, возможно, однажды вы сможете уйти в отставку..."
 	outfit = /datum/outfit/job/roguetown/manorguard/veteran
 	min_pq = 8
 	category_tags = list(CTAG_MAA)

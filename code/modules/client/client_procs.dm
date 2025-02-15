@@ -229,7 +229,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 
 /client/New(TopicData)
 	var/tdata = TopicData //save this for later use
-//	chatOutput = new /datum/chatOutput(src)
+	chatOutput = new /datum/chatOutput(src)
 	TopicData = null							//Prevent calls to client.Topic from connect
 
 	if(connection != "seeker" && connection != "web")//Invalid connection type.
@@ -237,7 +237,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 
 	GLOB.clients += src
 	GLOB.directory[ckey] = src
-
+	
 	GLOB.ahelp_tickets.ClientLogin(src)
 	var/connecting_admin = FALSE //because de-admined admins connecting should be treated like admins.
 	//Admin Authorisation
@@ -281,6 +281,10 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 	prefs.last_ip = address				//these are gonna be used for banning
 	prefs.last_id = computer_id			//these are gonna be used for banning
 	fps = prefs.clientfps
+
+	if(prefs.prefer_old_chat == FALSE)
+		spawn() // Goonchat does some non-instant checks in start()
+			chatOutput.start()
 
 	if(fexists(roundend_report_file()))
 		verbs += /client/proc/show_previous_roundend_report
@@ -512,6 +516,11 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 	if(!funeral_login())
 		log_game("[key_name(src)] on login: had an issue with funeral-checking logic.")
 
+	if(SSticker.current_state == GAME_STATE_PLAYING)
+		for(var/music in GLOB.ambience_files)
+			mob.playsound_local(mob, music, 0.1, channel = 1010)
+			sleep(1)
+
 	Master.UpdateTickRate()
 
 //////////////
@@ -556,6 +565,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 	GLOB.ahelp_tickets.ClientLogout(src)
 	GLOB.directory -= ckey
 	GLOB.clients -= src
+	QDEL_NULL(chatOutput)
 	QDEL_LIST_ASSOC_VAL(char_render_holders)
 	if(movingmob != null)
 		movingmob.client_mobs_in_contents -= mob
@@ -879,6 +889,11 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 		ip_intel = res.intel
 
 /client/Click(atom/object, atom/location, control, params)
+	if(click_intercept_time)
+		if(click_intercept_time >= world.time)
+			click_intercept_time = 0 //Reset and return. Next click should work, but not this one.
+			return
+		click_intercept_time = 0 //Just reset. Let's not keep re-gragarnbogchernihchecking forever.
 	var/ab = FALSE
 	var/list/L = params2list(params)
 

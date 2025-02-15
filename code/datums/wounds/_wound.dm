@@ -96,11 +96,11 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 		return
 	var/visible_name = name
 	if(is_sewn())
-		visible_name += " <span class='green'>(sewn)</span>"
+		visible_name += " <span class='green'>(зашита)</span>"
 	if(is_clotted())
-		visible_name += " <span class='danger'>(clotted)</span>"
+		visible_name += " <span class='danger'>(свернулась)</span>"
 	if(has_special_infection())
-		visible_name += " <span class='infection'>(INFECTED)</span>"
+		visible_name += " <span class='infection'>(ЗАРАЖЕНА)</span>"
 	return visible_name
 
 /// Description of this wound returned to the player when the bodypart is checked with check_for_injuries()
@@ -108,7 +108,7 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 	var/visible_name = check_name
 	if(visible_name)
 		if(has_special_infection())
-			visible_name += " <span class='infection'>\[INFECTION\]</span>"
+			visible_name += " <span class='infection'>\[ЗАРАЖЕНИЕ\]</span>"
 	return visible_name
 
 /// Crit message that should be appended when this wound is applied in combat
@@ -120,14 +120,14 @@ GLOBAL_LIST_INIT(primordial_wounds, init_primordial_wounds())
 		final_message = replacetext(final_message, "%VICTIM", "[affected.name]")
 		final_message = replacetext(final_message, "%P_THEIR", "[affected.p_their()]")
 	else
-		final_message = replacetext(final_message, "%VICTIM", "victim")
-		final_message = replacetext(final_message, "%P_THEIR", "their")
+		final_message = replacetext(final_message, "%VICTIM", "Жертва")
+		final_message = replacetext(final_message, "%P_THEIR", "свои")
 	if(affected_bodypart)
 		final_message = replacetext(final_message, "%BODYPART", "[affected_bodypart.name]")
 	else
 		final_message = replacetext(final_message, "%BODYPART", parse_zone(BODY_ZONE_CHEST))
 	if(critical)
-		final_message = span_crit("<b>Critical hit!</b> [final_message]")
+		final_message = span_crit("<b>Критический удар!</b> [final_message]")
 	return final_message
 
 /// Sound that plays when this wound is applied to a mob

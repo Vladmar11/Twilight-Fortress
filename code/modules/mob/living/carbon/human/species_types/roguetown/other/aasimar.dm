@@ -2,19 +2,19 @@
 	race = /datum/species/aasimar
 
 /datum/species/aasimar
-	name = "Aasimar"
+	name = "Аасимар"
 	id = "aasimar"
-	desc = "<b>Aasimar</b><br>\
-	Aasimar are born of a rare union between mortals and Celestials of the Ten. \
-    They bear the mark of their celestial touch through many varying physical features. \
-    Their looks resemble the traditional characteristics of whichever of the Gods the Celestial parent was associated with. \
-    Most commonly, many Aasimar are similar to Humans, albeit taller, and possess uncanny beauty, due generally to Eoran origins. \
-    They may have strangely colored skin and are more physically frail than the average mortal. \
-    Because of their upbringing, they make for natural conduits for godly powers. \
-    Rockhill's populace holds them with a mixture of wariness and respect. \
-    It is also widely believed that an Aasimar's unjust death is a bad omen, that the Ten will not take lightly."
+	desc = "<b>Аасимар</b><br>\
+	Аасимар рождаются от редкого союза между смертными и небожителями Десяти. \
+	Они несут на себе отпечаток небесного прикосновения через множество разнообразных физических особенностей. \
+	Их внешность напоминает традиционные черты того из Богов, с которым был связан их небесный родитель. \
+	Чаще всего Аасимар похожи на людей, хотя и более высокого роста, и обладают сверхъестественной красотой, что, как правило, объясняется происхождением от Эоры. \
+	У них может быть кожа странного цвета, а физически они более хрупкие, чем обычные смертные. \
+	Благодаря своему воспитанию, они являются естественными проводниками божественных сил. \
+	Население Рокхилла относится к ним с опаской и уважением. Широко распространено мнение, \
+	что несправедливая смерть аасимара - дурное предзнаменование, к которому Десять не отнесутся легкомысленно."
 
-	skin_tone_wording = "Craft"
+	skin_tone_wording = "План"
 
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,STUBBLE,OLDGREY)
 	inherent_traits = list(TRAIT_NOMOBSWAP)
@@ -44,12 +44,12 @@
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES_F = list(0,0), \
 		)
 	specstats = list(
-        "strength" = -1,
-        "perception" = 0,
+        "strength" = 0,
+        "perception" = 1,
         "intelligence" = 2,
         "constitution" = -2,
-        "endurance" = 0,
-        "speed" = 0,
+        "endurance" = -1,
+        "speed" = -1,
         "fortune" = 2,
         )
 	enflamed_icon = "widefire"
@@ -82,7 +82,7 @@
 
 /datum/species/aasimar/after_creation(mob/living/carbon/C)
 	..()
-	to_chat(C, "<span class='info'>I can speak Celestial with ,c before my speech.</span>")
+	to_chat(C, "<span class='info'>Я могу говорить на Небесном, используя ключ <b>,c</b> перед моей речью.</span>")
 
 /datum/species/aasimar/on_species_loss(mob/living/carbon/C)
 	. = ..()

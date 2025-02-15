@@ -1,8 +1,8 @@
 GLOBAL_LIST_EMPTY(biggates)
 
 /obj/structure/gate
-	name = "gate"
-	desc = "A steel, strong gate."
+	name = "ворота"
+	desc = "Прочные стальные ворота."
 	icon = 'icons/roguetown/misc/gate.dmi'
 	icon_state = "gate1"
 	density = TRUE
@@ -122,9 +122,9 @@ GLOBAL_LIST_EMPTY(biggates)
 					part.add_wound(/datum/wound/slash/disembowel)
 				part.add_wound(/datum/wound/fracture)
 				part.dismember()
-				M.visible_message(span_warningbig("[M] is crushed by \the [src]!"), span_userdanger("OH [uppertext(M.patron.name)], MY [uppertext(part.name)]!!!"))
+				M.visible_message(span_warningbig("[M] раздавило под [src]!"), span_userdanger("О [uppertext(M.patron.name)], МОЯ [uppertext(part.name)]!!!"))
 			else if(!part)
-				M.visible_message(span_warningbig("[M] is crushed by \the [src]!"), span_userdanger("OH [uppertext(M.patron.name)], THE PAIN!!!"))
+				M.visible_message(span_warningbig("[M] раздавило под [src]!"), span_userdanger("О [uppertext(M.patron.name)], КАК БОЛЬНО!!!"))
 			M.emote("agony")
 			step(M, pick(dir, turn(dir, 180)))
 			M.Knockdown(50)
@@ -138,8 +138,8 @@ GLOBAL_LIST_EMPTY(biggates)
 	update_icon()
 
 /obj/structure/winch
-	name = "winch"
-	desc = "A gatekeeper's only, and most important responsibility."
+	name = "лебедка"
+	desc = "Единственная и самая важная обязанность привратника."
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "winch"
 	density = TRUE
@@ -168,7 +168,7 @@ GLOBAL_LIST_EMPTY(biggates)
 /obj/structure/winch/attack_hand(mob/user)
 	. = ..()
 	if(!attached_gate)
-		to_chat(user, span_warning("The chain is not attached to anything."))
+		to_chat(user, span_warning("Цепь ни к чему не прикреплена."))
 		return
 	if(attached_gate.isSwitchingStates)
 		return
@@ -176,7 +176,7 @@ GLOBAL_LIST_EMPTY(biggates)
 		var/mob/living/L = user
 		L.changeNext_move(CLICK_CD_MELEE)
 		var/used_time = 105 - (L.STASTR * 10)
-		user.visible_message(span_warning("[user] cranks the winch."))
+		user.visible_message(span_warning("[user] крутит лебедку."))
 		playsound(src, 'sound/foley/winch.ogg', 100, extrarange = 3)
 		if(do_after(user, used_time, target = user))
 			attached_gate.toggle()

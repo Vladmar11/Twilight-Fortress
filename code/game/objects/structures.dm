@@ -39,7 +39,7 @@
 				H.apply_damage(15, BRUTE, "chest", H.run_armor_check("chest", "blunt", damage = 15))
 				H.toggle_rogmove_intent(MOVE_INTENT_WALK, TRUE)
 				playsound(src, "genblunt", 100, TRUE)
-				H.visible_message(span_warning("[H] runs into [src]!"), span_warning("I run into [src]!"))
+				H.visible_message(span_warning("[H] сталкивается с [src] на бегу!"), span_warning("Я врезаюсь в [src]!"))
 				addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, Knockdown), 10), 10)
 
 
@@ -124,8 +124,8 @@
 	if(do_mob(user, user, adjusted_climb_time))
 		if(src.loc) //Checking if structure has been destroyed
 			if(do_climb(user))
-				user.visible_message(span_warning("[user] climbs onto [src]."), \
-									span_notice("I climb onto [src]."))
+				user.visible_message(span_warning("[user] залезает на [src]."), \
+									span_notice("Я залезаю на [src]."))
 				log_combat(user, src, "climbed onto")
 				if(climb_stun)
 					user.Stun(climb_stun)
@@ -133,14 +133,14 @@
 					playsound(src, climb_sound, 100)
 				. = 1
 			else
-				to_chat(user, span_warning("I fail to climb onto [src]."))
+				to_chat(user, span_warning("Мне не удалось залезть на [src]."))
 	structureclimber = null
 
 /obj/structure/examine(mob/user)
 	. = ..()
 	if(!(resistance_flags & INDESTRUCTIBLE))
 		if(obj_broken)
-			. += span_notice("It appears to be broken.")
+			. += span_notice("Кажется, сломано.")
 		var/examine_status = examine_status(user)
 		if(examine_status)
 			. += examine_status
@@ -150,8 +150,8 @@
 		var/healthpercent = (obj_integrity/max_integrity) * 100
 		switch(healthpercent)
 			if(50 to 99)
-				return  "It looks slightly damaged."
+				return  "Выглядит слегка поврежденным."
 			if(25 to 50)
-				return  "It appears heavily damaged."
+				return  "Выглядит сильно поврежденным."
 			if(1 to 25)
-				return  span_warning("It's falling apart!")
+				return  span_warning("Вот-вот развалится!")

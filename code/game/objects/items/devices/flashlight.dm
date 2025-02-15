@@ -121,8 +121,8 @@
 	return on * heat
 
 /obj/item/flashlight/flare/torch
-	name = "torch"
-	desc = "The light.. the promise of safety!"
+	name = "факел"
+	desc = "Путь освещён. Дорога чиста. Нам нужны только силы, чтобы следовать ему."
 	w_class = WEIGHT_CLASS_NORMAL
 	light_range = 4
 	light_color = LIGHT_COLOR_ORANGE
@@ -143,6 +143,9 @@
 	light_depth = 0
 	light_height = 0
 	metalizer_result = /obj/item/flashlight/flare/torch/lantern
+
+	grid_width = 32
+	grid_height = 32
 
 /obj/item/flashlight/flare/torch/getonmobprop(tag)
 	. = ..()
@@ -240,7 +243,7 @@
 	return ..()
 
 /obj/item/flashlight/flare/torch/metal
-	name = "torch"
+	name = "факел"
 	force = 15
 	icon_state = "mtorch"
 	light_range = 6
@@ -248,9 +251,9 @@
 	metalizer_result = null
 
 /obj/item/flashlight/flare/torch/lantern
-	name = "iron lamptern"
+	name = "фонарь"
 	icon_state = "lamp"
-	desc = "Flames kept safe within an iron cage."
+	desc = "Пламя хранится в железной клетке."
 	light_range = 7
 	on = FALSE
 	flags_1 = CONDUCT_1
@@ -263,6 +266,9 @@
 	var/max_occupants = 1 //Hard-cap so you can't have multiple seelie in one carrier
 	metalizer_result = null
 	smeltresult = /obj/item/ingot/iron
+	
+	grid_height = 64
+	grid_width = 64
 
 /obj/item/flashlight/flare/torch/lantern/process()
 	open_flame(heat)
@@ -308,10 +314,10 @@
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 
 /obj/item/flashlight/flare/torch/lantern/bronzelamptern
-	name = "bronze lamptern"
+	name = "бронзовый фонарь"
 	icon_state = "bronzelamp"
 	item_state = "bronzelamp"
-	desc = "A marvel of engineering that emits a strange green glow."
+	desc = "Чудо инженерной мысли, излучающее странное зеленое свечение."
 	light_range = 8
 	light_color ="#4ac77e"
 	on = FALSE
@@ -322,7 +328,7 @@
 /obj/item/flashlight/flare/torch/lantern/fire_act(added, maxstacks)
 	if(fuel)
 		if(occupants.len)
-			to_chat(loc, span_warning("There is an occupant, you'll burn them!"))
+			to_chat(loc, span_warning("Внутри кто-то есть, сгорит же!"))
 			return FALSE
 		else if(!on)
 			playsound(src.loc, 'sound/items/firelight.ogg', 100)
@@ -351,20 +357,20 @@
 	if(occupants.len)
 		for(var/V in occupants)
 			var/mob/living/L = V
-			. += span_notice("It has [L] inside.")
+			. += span_notice("Внутри находится [L].")
 	else
-		. += span_notice("It has nothing inside.")
+		. += span_notice("Внутри ничего нет.")
 	//if(user.canUseTopic(src))
 		//. += span_notice("Activate it in your hand to [open ? "close" : "open"] its door.")
 
 //Door closing and opening proc
 /obj/item/flashlight/flare/torch/lantern/rmb_self(mob/living/user)
 	if(open)
-		to_chat(user, span_notice("I close [src]'s door."))
+		to_chat(user, span_notice("Я закрываю дверцу [src]."))
 		playsound(user, 'sound/blank.ogg', 50, TRUE)
 		open = FALSE
 	else
-		to_chat(user, span_notice("I open [src]'s door."))
+		to_chat(user, span_notice("Я открываю дверцу [src]."))
 		playsound(user, 'sound/blank.ogg', 50, TRUE)
 		open = TRUE
 
@@ -373,27 +379,27 @@
 	if(!(istype(user.rmb_intent, /datum/rmb_intent/weak)))	//Only allow caging seelie via weak intent rmb
 		return ..()
 	if(!open)	//Lantern must be "open", or unlocked
-		to_chat(user, span_warning("I need to open the [src]'s door!"))
+		to_chat(user, span_warning("Мне нужно открыть дверцу [src]!"))
 		return
 	if(!HAS_TRAIT(target, TRAIT_TINY))
-		to_chat(user, span_warning("How could they possibly fit?"))
+		to_chat(user, span_warning("Как она может поместиться?"))
 		return
 	if(target.buckled)	//Seelie is buckled
-		to_chat(user, span_warning("Unbuckle them first."))
+		to_chat(user, span_warning("Сначала расстегните фею."))
 		return
 	if((isseelie(user)) && HAS_TRAIT(target, TRAIT_TINY))	//Left this one as a seelie check since they shrink items
-		to_chat(user, span_warning("You shrink the [src] by holding it, they cant fit!"))
+		to_chat(user, span_warning("Вы уменьшаете [src] одним касанием, внутрь никто не влезет!"))
 		return
 	if(on)
-		to_chat(user, span_warning("[src] is lit, you'll burn them!"))
+		to_chat(user, span_warning("[src] горит, ты её сожжешь!"))
 		return
 	load_occupant(user, target)
 
 //Gets called when movement allows mob out of lantern
 /obj/item/flashlight/flare/torch/lantern/relaymove(mob/living/user, direction)
 	if(open)
-		loc.visible_message(span_notice("[user] climbs out of [src]!"), \
-		span_warning("[user] jumps out of [src]!"))
+		loc.visible_message(span_notice("[user] вылезает из [src]!"), \
+		span_warning("[user] выпрыгивает из [src]!"))
 		remove_occupant(user)
 		return
 	//else if(user.client)
@@ -403,23 +409,23 @@
 /obj/item/flashlight/flare/torch/lantern/container_resist(mob/living/user)	//This spams messages while movement key is held down
 	user.changeNext_move(CLICK_CD_BREAKOUT)
 	user.last_special = world.time + CLICK_CD_BREAKOUT
-	loc.visible_message(span_warning("[src] starts rattling as something pushes against the door!"), null, null, null, user)
-	to_chat(user, span_notice("I start pushing against the door of the [src]..."))
+	loc.visible_message(span_warning("[src] начинает греметь, когда что-то толкает дверь!"), null, null, null, user)
+	to_chat(user, span_notice("Я начинаю толкать дверь [src]..."))
 	if(do_after(user, 200, target = src) && !open && (user in occupants))
-		loc.visible_message(span_warning("[user] shoves out of	[src]!"), null, null, null, user)
-		to_chat(user, span_notice("I force open the [src]'s door and fall out!"))
+		loc.visible_message(span_warning("[user] вываливается из [src]!"), null, null, null, user)
+		to_chat(user, span_notice("Я с силой распахиваю дверцу [src] и выпадаю наружу!"))
 		open = TRUE
 		remove_occupant(user)
 	else
-		to_chat(user, span_notice("I fail to break out of [src]..."))
+		to_chat(user, span_notice("Мне не удается вырваться из [src]..."))
 
 //Handle something (O) drag dropped onto lamp by (user)
 /obj/item/flashlight/flare/torch/lantern/MouseDrop_T(atom/movable/O, mob/living/user)
 	if(isliving(O))
 		var/mob/living/l_object = O
 		if(HAS_TRAIT(l_object, TRAIT_TINY) && l_object == user)
-			loc.visible_message(span_notice("[user] starts climbing into [src]!"), \
-			span_warning("[user] starts climbing into [src]!"))
+			loc.visible_message(span_notice("[user] начинает лезть в [src]!"), \
+			span_warning("[user] начинает лезть в [src]!"))
 			if(do_after(user, 120, target = src))
 				add_occupant(l_object)
 
@@ -428,29 +434,29 @@
 /obj/item/flashlight/flare/torch/lantern/MouseDrop(atom/over_atom)
 	. = ..()
 	if(isopenturf(over_atom) && usr.Adjacent(over_atom) && open && occupants.len)
-		usr.visible_message(span_notice("[usr] unloads [src]."), \
-		span_notice("I unload [src] onto [over_atom]."))
+		usr.visible_message(span_notice("[usr] выгружает [src]."), \
+		span_notice("Я выгружаю [src] на [over_atom]."))
 		for(var/V in occupants)
 			remove_occupant(V, over_atom)
 
 //Handle the actual loading of the seelie
 /obj/item/flashlight/flare/torch/lantern/proc/load_occupant(mob/living/user, mob/living/target)
 	if(occupants.len >= max_occupants)
-		to_chat(user, span_warning("[src] is already carrying a seelie!"))
+		to_chat(user, span_warning("Внутри [src] уже есть фея!"))
 		return
-	user.visible_message(span_notice("[user] starts loading [target] into [src]."), \
-	span_notice("I start loading [target] into [src]..."), null, null, target)
-	to_chat(target, span_danger("[user] starts loading you into [user.p_their()] [name]!"))
+	user.visible_message(span_notice("[user] загружает [target] в [src]."), \
+	span_notice("Я загружаю [target] в [src]..."), null, null, target)
+	to_chat(target, span_danger("[user] загружает вас в [user.rus_them()] [name]!"))
 	if(!do_mob(user, target, 30))
 		return
 	if(target in occupants)
 		return
 	if(occupants.len >= max_occupants) //Run the checks again, just in case
-		to_chat(user, span_warning("[src] is already carrying a seelie!"))
+		to_chat(user, span_warning("Внутри [src] уже есть фея!"))
 		return
-	user.visible_message(span_notice("[user] loads [target] into [src]!"), \
-	span_notice("I load [target] into [src]."), null, null, target)
-	to_chat(target, span_danger("[user] loads you into [user.p_their()] [name]!"))
+	user.visible_message(span_notice("[user] загрузил[user.rus_a()] [target] в [src]!"), \
+	span_notice("Я загрузил[user.rus_a()] [target] в [src]."), null, null, target)
+	to_chat(target, span_danger("[user] загрузил[user.rus_a()] вас в свой [name]!"))
 	add_occupant(target)
 
 //Adds the seelie to the list of occupants

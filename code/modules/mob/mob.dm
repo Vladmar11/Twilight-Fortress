@@ -291,6 +291,8 @@ GLOBAL_VAR_INIT(mobids, 1)
 		return FALSE
 	equip_to_slot(W, slot, redraw_mob, initial) //This proc should not ever fail.
 	update_a_intents()
+	if(isliving(src))
+		src:update_reflection()
 	return TRUE
 
 /**
@@ -528,6 +530,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 	var/D = dir
 	if((spintime < 1)||(speed < 1)||!spintime||!speed)
 		return
+	flags_1 |= IS_SPINNING_1
 	while(spintime >= speed)
 		sleep(speed)
 		switch(D)
@@ -541,6 +544,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 				D = NORTH
 		setDir(D)
 		spintime -= speed
+	flags_1 &= ~IS_SPINNING_1
 
 ///Update the pulling hud icon
 /mob/proc/update_pull_hud_icon()

@@ -9,8 +9,8 @@
 
 /*	.................   Dough   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/dough_base
-	name = "unfinished dough"
-	desc = "With a little more ambition, you will conquer.(Add powder and knead to make dough)"
+	name = "незавершенное тесто"
+	desc = "Проявив немного больше амбиций, вы победите. (Добавьте муку и замесите тесто)"
 	icon_state = "dough_base"
 	w_class = WEIGHT_CLASS_NORMAL
 /obj/item/reagent_containers/food/snacks/rogue/dough_base/attackby(obj/item/I, mob/living/user, params)
@@ -21,20 +21,20 @@
 	if(istype(I, /obj/item/reagent_containers/powder/flour))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'modular/Neu_Food/sound/kneading.ogg', 100, TRUE, -1)
-			to_chat(user, "<span class='notice'>Kneading in more powder...</span>")
+			to_chat(user, "<span class='notice'>Замешиваю больше муки...</span>")
 			if(do_after(user,short_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 				new /obj/item/reagent_containers/food/snacks/rogue/dough(loc)
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	else
 		return ..()	
 
 /obj/item/reagent_containers/food/snacks/rogue/dough
-	name = "dough"
-	desc = "The triumph of all bakers.(Bake to make bread, add butter to make butterdough, cut to make small dough, add three raisins to make Raisinloaf, roll to make Hardtack)"
+	name = "тесто"
+	desc = "Триумф всех пекарей. (Поместите в печь, чтобы испечь хлеб; добавьте масло, чтобы получилось сдобное тесто; разрежьте, чтобы получить кусочки теста; добавьте две изюминки, чтобы получился хлеб с изюмом; раскатайте, чтобы получить сырые галеты)"
 	icon_state = "dough"
 	slices_num = 2
 	slice_batch = TRUE
@@ -52,48 +52,47 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/butterslice))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'modular/Neu_Food/sound/kneading_alt.ogg', 90, TRUE, -1)
-			to_chat(user, "<span class='notice'>Kneading butter into the dough...</span>")
+			to_chat(user, "<span class='notice'>Замешиваю сливочное масло в тесто...</span>")
 			if(do_after(user,long_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 				new /obj/item/reagent_containers/food/snacks/rogue/butterdough(loc)
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to roll it out!</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/raisins))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'modular/Neu_Food/sound/kneading.ogg', 100, TRUE, -1)
-			to_chat(user, "<span class='notice'>Kneading the dough and adding raisins...</span>")
+			to_chat(user, "<span class='notice'>Добавляю изюм в тесто...</span>")
 			if(do_after(user,short_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 				new /obj/item/reagent_containers/food/snacks/rogue/rbread_half(loc)
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to roll it out!</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	if(istype(I, /obj/item/kitchen/rollingpin))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'modular/Neu_Food/sound/rollingpin.ogg', 100, TRUE, -1)
-			to_chat(user, "<span class='notice'>Rolling [src] into cracker dough.</span>")
+			to_chat(user, "<span class='notice'>Раскатываю [src] на галеты.</span>")
 			if(do_after(user,long_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 				new /obj/item/reagent_containers/food/snacks/rogue/foodbase/hardtack_raw(loc)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to roll it out!</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	else
 		return ..()	
 
 /*	.................   Smalldough   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/doughslice
-	name = "small dough"
-	desc = "A smaller piece of dough, normally used on making delicious pastries (Bake to make a bun, add cheese to make a cheesebun, combine with small dough to make big dough)"
+	name = "кусочек теста"
 	icon_state = "doughslice"
 	slices_num = 0
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/bun
 	cooked_smell = /datum/pollutant/food/bun
 	w_class = WEIGHT_CLASS_NORMAL
-	tastes = list("dough" = 1)
+	tastes = list("теста" = 1)
 /obj/item/reagent_containers/food/snacks/rogue/doughslice/attackby(obj/item/I, mob/living/user, params)
 	var/found_table = locate(/obj/structure/table) in (loc)
 	if(user.mind)
@@ -102,32 +101,32 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheese))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'modular/Neu_Food/sound/kneading_alt.ogg', 90, TRUE, -1)
-			to_chat(user, "<span class='notice'>Adding fresh cheese...</span>")
+			to_chat(user, "<span class='notice'>Добавляю свежий сыр...</span>")
 			if(do_after(user,short_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 				new /obj/item/reagent_containers/food/snacks/rogue/foodbase/cheesebun_raw(loc)
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to roll it out!</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/doughslice))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'modular/Neu_Food/sound/kneading.ogg', 100, TRUE, -1)
-			to_chat(user, "<span class='notice'>Combining dough...</span>")
+			to_chat(user, "<span class='notice'>Объединяю тесто...</span>")
 			if(do_after(user,short_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 				new /obj/item/reagent_containers/food/snacks/rogue/dough(loc)
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to roll it out!</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	else
 		return ..()
 
 /*	.................   Butterdough   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/butterdough
-	name = "butterdough"
-	desc = "What is a triumph, to a legacy?(Slice to start making a pie, add cackleberry to make cake dough)"
+	name = "сдобное тесто"
+	desc = "Что такое триумф по сравнению с наследием? (Нарежьте, чтобы начать печь пирог; добавьте яйцо, чтобы замесить тесто для торта)"
 	icon_state = "butterdough"
 	color = "#feffc1"
 	slices_num = 2
@@ -144,7 +143,7 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/egg))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			to_chat(user, "<span class='notice'>Working cackleberry into the dough, shaping it into a cake...</span>")
+			to_chat(user, "<span class='notice'>Вмешиваю яйцо в тесто и формирую из него торт...</span>")
 			playsound(get_turf(user), 'modular/Neu_Food/sound/eggbreak.ogg', 100, TRUE, -1)
 			if(do_after(user,long_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
@@ -152,14 +151,14 @@
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to roll it out!</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	else
 		return ..()
 
 /*	.................   Butterdough piece   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/butterdoughslice
-	name = "butterdough piece"
-	desc = "A slice of pedigree, to create lines of history.(Place in oven to make pastry, Roll to make pie dough, Fry to make Frybread, Add raisins to make a biscuit, Slice to make a prezzel)"
+	name = "кусок сдобного теста"
+	desc = "Кусочек родословной, чтобы создать линии истории. (Поместите в духовку, чтобы приготовить выпечку; раскатайте, чтобы приготовить тесто для пирога; поместите один пласт теста для пирога в духовку, чтобы сделать корзинку для пирога; обжарьте, чтобы приготовить жареный хлеб; раскатайте, чтобы приготовить пирожок)"
 	icon_state = "butterdoughslice"
 	color = "#feffc1"
 	slices_num = 0
@@ -176,45 +175,45 @@
 	if(istype(I, /obj/item/kitchen/rollingpin))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'modular/Neu_Food/sound/rollingpin.ogg', 100, TRUE, -1)	
-			to_chat(user, "<span class='notice'>Flattening [src]...</span>")
+			to_chat(user, "<span class='notice'>Раскатываю [src]...</span>")
 			if(do_after(user,short_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 				new /obj/item/reagent_containers/food/snacks/rogue/piedough(loc)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to roll it out!</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/raisins))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			to_chat(user, "<span class='notice'>Adding raisins to the dough...</span>")
+			to_chat(user, "<span class='notice'>Добавляю изюм в тесто...</span>")
 			if(do_after(user,short_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 				new /obj/item/reagent_containers/food/snacks/rogue/foodbase/biscuit_raw(loc)
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to roll it out!</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	if(I.get_sharpness())
 		if(!isdwarf(user))
-			to_chat(user, "<span class='warning'>You lack knowledge of dwarven pastries!</span>")
+			to_chat(user, "<span class='warning'>У меня не хватает знаний о дварфийской выпечке!</span>")
 			return
 		else
 			if(isturf(loc)&& (found_table))
 				playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-				to_chat(user, "<span class='notice'>Cutting the dough in strips and making a prezzel...</span>")
+				to_chat(user, "<span class='notice'>Нарезаю тесто полосками и делаю крендель....</span>")
 				if(do_after(user,short_cooktime, target = src))
 					user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 					new /obj/item/reagent_containers/food/snacks/rogue/foodbase/prezzel_raw(loc)
 					qdel(src)
 			else
-				to_chat(user, "<span class='warning'>You need to put [src] on a table to cut it!</span>")
+				to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	else
 		..()
 
 /*	.................   Piedough   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/piedough
-	name = "pie dough"
-	desc = "The beginning of greater things to come.(Add mince or berries to make handpie!. Bake to make a pie shell)"
+	name = "тесто для пирога"
+	desc = "Начало великих свершений. (Испеките, чтобы получилась корзинка для пирога; добавьте фарш, ягоды или яйца, чтобы получился пирог!)"
 	icon_state = "piedough"
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/foodbase/piebottom
 	cooked_smell = /datum/pollutant/food/pie_base
@@ -233,7 +232,7 @@
 	// 		qdel(src)
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/meat/mince))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
-		to_chat(user, "<span class='notice'>Making a handpie...</span>")
+		to_chat(user, "<span class='notice'>Делаю пирожок...</span>")
 		if(do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 			var/obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/mince/handpie= new(get_turf(user))
@@ -242,7 +241,7 @@
 			qdel(src)
 	if(istype(I, /obj/item/reagent_containers/food/snacks/grown/berries/rogue/poison))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
-		to_chat(user, "<span class='notice'>Making a handpie...</span>")
+		to_chat(user, "<span class='notice'>Делаю пирожок...</span>")
 		if(do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 			var/obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/poison/handpie= new(get_turf(user))
@@ -251,7 +250,7 @@
 			qdel(src)
 	else if(istype(I, /obj/item/reagent_containers/food/snacks/grown/berries/rogue))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
-		to_chat(user, "<span class='notice'>Making a handpie...</span>")
+		to_chat(user, "<span class='notice'>Делаю пирожок...</span>")
 		if(do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 			var/obj/item/reagent_containers/food/snacks/rogue/foodbase/handpieraw/berry/handpie= new(get_turf(user))
@@ -264,20 +263,20 @@
 
 /*	.................   Hardtack   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/hardtack_raw
-	name = "raw hardtack"
-	desc = "Doughy, soft, unacceptable."
+	name = "сырые галеты"
+	desc = "Густые, мягкие, неприемлемые."
 	icon_state = "raw_tack"
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/foodbase/hardtack_raw/cooked
 	w_class = WEIGHT_CLASS_NORMAL
 	eat_effect = null
 
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/hardtack_raw/cooked
-	name = "hardtack"
-	desc = "Very, very hard and dry."
+	name = "галеты"
+	desc = "Очень, очень твердые и сухие."
 	icon_state = "tack6"
 	list_reagents = list(/datum/reagent/consumable/nutriment = DOUGH_NUTRITION)
 	w_class = WEIGHT_CLASS_NORMAL
-	tastes = list("spelt" = 1)
+	tastes = list("полбы" = 1)
 	bitesize = 6
 	rotprocess = null
 
@@ -299,14 +298,14 @@
 
 /*	.................   Bread   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/bread
-	name = "bread loaf"
-	desc = "One of the staple foods of the world, with the decline of magic, the loss of bread-duplication has led to mass famines around Grimoria.(Slice!)"
+	name = "буханка хлеба"
+	desc = "Один из основных продуктов питания в мире. С упадком магии, утрата заклинаний для примножения хлеба привела к массовому голоду в Гримории. (Нарежьте!)"
 	icon_state = "loaf6"
 	slices_num = 6
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/breadslice
 	list_reagents = list(/datum/reagent/consumable/nutriment = DOUGH_NUTRITION)
 	w_class = WEIGHT_CLASS_NORMAL
-	tastes = list("bread" = 1)
+	tastes = list("хлеба" = 1)
 	slice_batch = FALSE
 	slice_sound = TRUE 
 	rotprocess = SHELFLIFE_EXTREME
@@ -333,8 +332,8 @@
 
 /*	.................   Breadslice & Toast   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/breadslice
-	name = "sliced bread"
-	desc = "A bit of comfort to start your dae. (Serve as is or add fried Cackleberry, cheese, butter, salo or salomi slices! Oven to toast it.)"
+	name = "кусок хлеба"
+	desc = "Немного утешения, чтобы начать свое блюдо. (Подавайте как есть или добавьте яичницу, сыр, масло или кусочек сала; поместите в печь, чтобы поджарить.)"
 	icon_state = "loaf_slice"
 	w_class = WEIGHT_CLASS_NORMAL
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/breadslice/toast
@@ -385,9 +384,9 @@
 
 //this is a child so we can be used in sammies
 /obj/item/reagent_containers/food/snacks/rogue/breadslice/toast
-	name = "toast"
+	name = "тост"
 	icon_state = "toast"
-	tastes = list("crispy bread" = 1)
+	tastes = list("хрустящего хлеба" = 1)
 	cooked_type = null
 	bitesize = 2
 	rotprocess = null
@@ -407,7 +406,7 @@
 		return ..()
 
 /obj/item/reagent_containers/food/snacks/rogue/breadslice/toast/buttered
-	name = "buttered toast"
+	name = "тост с маслом"
 	icon_state = "toast_butter"
 	tastes = list("butter" = 1)
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR+1)
@@ -416,32 +415,39 @@
 /obj/item/reagent_containers/food/snacks/rogue/sandwich
 	desc = "A delightful piece of heaven, in every slice."
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR+1)
+	tastes = list("масла" = 1, "хлеба" = 1)
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+
+// -------------- BREAD WITH FOOD ON IT (not american sandwich) -----------------
+/obj/item/reagent_containers/food/snacks/rogue/sandwich
+	desc = "Восхитительный кусочек рая."
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
 	rotprocess = 30 MINUTES
 	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/rogue/sandwich/salami
-	tastes = list("salumoi" = 1,"bread" = 1)
-	name = "salumoi bread"
+	tastes = list("салями" = 1,"хлеба" = 1)
+	name = "хлеб с салями"
 	icon_state = "bread_salami"
 	foodtype = GRAIN | MEAT
 
 /obj/item/reagent_containers/food/snacks/rogue/sandwich/cheese
-	tastes = list("cheese" = 1,"bread" = 1)
-	name = "cheese bread"
+	tastes = list("сыра" = 1,"хлеба" = 1)
+	name = "хлеб с сыром"
 	icon_state = "bread_cheese"
 	foodtype = GRAIN | DAIRY
 
 /obj/item/reagent_containers/food/snacks/rogue/sandwich/egg
-	tastes = list("cheese" = 1,"cackleberry" = 1)
-	name = "cackleberry bread"
+	tastes = list("жареного яйца" = 1,"хлеба" = 1)
+	name = "хлеб с яйцом"
 	icon_state = "bread_egg"
 	foodtype = GRAIN | MEAT
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
 	eat_effect = /datum/status_effect/buff/foodbuff
 
 /obj/item/reagent_containers/food/snacks/rogue/sandwich/salo
-	tastes = list("salty fat" = 1)
-	name = "salo bread"
+	tastes = list("соленого жира" = 1,"хлеба" = 1)
+	name = "хлеб с салом"
 	icon_state = "bread_salo"
 	foodtype = GRAIN | MEAT
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
@@ -449,12 +455,14 @@
 
 /*	.................   Bread bun   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/bun
-	name = "bun"
-	desc = "Portable, quaint and entirely consumable (Serve as is or add cooked sausage to make a Dogroll)"
+	name = "булочка"
+	desc = "Маленькая, причудливая и полностью съедобная. (Подавайте, как есть, или добавьте колбаску, чтобы приготовить догролл)"
 	icon_state = "bun"
 	list_reagents = list(/datum/reagent/consumable/nutriment = SMALLDOUGH_NUTRITION)
 	w_class = WEIGHT_CLASS_SMALL
 	tastes = list("bread" = 1)
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	w_class = WEIGHT_CLASS_NORMAL
 	bitesize = 2
 	rotprocess = SHELFLIFE_EXTREME
 /obj/item/reagent_containers/food/snacks/rogue/bun/attackby(obj/item/I, mob/living/user, params)
@@ -463,7 +471,7 @@
 		long_cooktime = (100 - ((user.mind.get_skill_level(/datum/skill/craft/cooking))*10))
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/meat/sausage/cooked))
 		playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 50, TRUE, -1)
-		to_chat(user, "<span class='notice'>Pushing the wiener through the bun...</span>")
+		to_chat(user, "<span class='notice'>Заворачиваю сосиску в тесто...</span>")
 		if(do_after(user,short_cooktime, target = src))
 			user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 			var/obj/item/reagent_containers/food/snacks/rogue/bun_grenz/hotdog= new(get_turf(user))
@@ -476,10 +484,11 @@
 
 /*	.................   Cheese bun   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/cheesebun_raw
-	name = "raw cheese bun"
-	desc = "Portable, quaint and entirely consumable"
+	name = "сырая сырная булочка"
+	desc = "Маленькая, причудливая и полностью съедобная."
 	icon_state = "cheesebun_raw"
 	color = "#ecce61"
+	tastes = list("теста с сыром" = 1)
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/cheesebun
 	cooked_smell = /datum/pollutant/food/cheese_bun
 	list_reagents = list(/datum/reagent/consumable/nutriment = 4)
@@ -487,24 +496,26 @@
 	foodtype = GRAIN | DAIRY
 
 /obj/item/reagent_containers/food/snacks/rogue/cheesebun
-	name = "fresh cheese bun"
-	desc = "A treat from the Grenzelhoft kitchen."
+	name = "булочка со свежим сыром"
+	desc = "Угощение грензельхофтской кухни"
 	icon_state = "cheesebun"
 	list_reagents = list(/datum/reagent/consumable/nutriment = SMALLDOUGH_NUTRITION+FRESHCHEESE_NUTRITION)
 	w_class = WEIGHT_CLASS_NORMAL
-	tastes = list("crispy bread and cream cheese" = 1)
+	tastes = list("хрустящего хлеба" = 1, "сливочного сыра" = 1)
 	foodtype = GRAIN | DAIRY
 	bitesize = 3
 	rotprocess = SHELFLIFE_DECENT
 
 /*  ..................   Frybread   ......................*/
 /obj/item/reagent_containers/food/snacks/rogue/frybread
-	name = "frybread"
-	desc = "Flatbread fried at high heat with butter to give it a crispy outside. Staple of the elven kitchen."
+	name = "жареный хлеб"
+	desc = "Лепешка, обжаренная на сильном огне со сливочным маслом, чтобы она стала хрустящей снаружи. Основа эльфийской кухни."
 	icon_state = "frybread"
 	list_reagents = list(/datum/reagent/consumable/nutriment = BUTTERDOUGHSLICE_NUTRITION)
 	tastes = list("crispy bread with a soft inside" = 1)
 	foodtype = GRAIN | DAIRY | FRIED
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	tastes = list("хрустящего хлеба с мякишем" = 1)
 	w_class = WEIGHT_CLASS_NORMAL
 	bitesize = 3
 	eat_effect = /datum/status_effect/buff/foodbuff
@@ -516,6 +527,11 @@
 	icon_state = "pastry"
 	list_reagents = list(/datum/reagent/consumable/nutriment = BUTTERDOUGHSLICE_NUTRITION)
 	tastes = list("crispy butterdough" = 1)
+	name = "выпечка"
+	desc = "Популярна среди детей и любителей сладкого."
+	icon_state = "pastry"
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	tastes = list("хрустящего сдобного теста" = 1)
 	w_class = WEIGHT_CLASS_NORMAL
 	bitesize = 3
 	rotprocess = SHELFLIFE_EXTREME
@@ -527,6 +543,8 @@
 /obj/item/reagent_containers/food/snacks/rogue/sweetroll
 	name = "sweetroll"
 	desc = "A pastry covered with sugar. The sweetlovers favourite."
+	name = "сладкий рулет"
+	desc = ""
 	icon = 'icons/roguetown/items/food.dmi'
 	icon_state = "sweetroll"
 	dropshrink = 0.75
@@ -534,6 +552,8 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("sugar and crispy dough" = 1)
 	foodtype = SUGAR | GRAIN | DAIRY
+	tastes = list("хрустящего теста" = 1, "сахарной глазури" = 1)
+	foodtype = SUGAR
 	rotprocess = SHELFLIFE_EXTREME
 	eat_effect = /datum/status_effect/buff/foodbuff
 
@@ -545,30 +565,31 @@
 	if(istype(I, /obj/item/reagent_containers/powder/sugar))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'modular/Neu_Food/sound/kneading.ogg', 100, TRUE, -1)
-			to_chat(user, "<span class='notice'>Adding the sugar...</span>")
+			to_chat(user, "<span class='notice'>Добавляю сахар...</span>")
 			if(do_after(user,short_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 				new /obj/item/reagent_containers/food/snacks/rogue/sweetroll(loc)
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	else
 		return ..()	
 
 /*	.................   Biscuit   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/biscuit_raw
-	name = "uncooked raisin biscuit"
+	name = "сырое печенье с изюмом"
 	icon_state = "biscuit_raw"
 	color = "#ecce61"
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/biscuit
 	cooked_smell = /datum/pollutant/food/biscuit
+	tastes = list("теста с изюмом" = 1)
 	w_class = WEIGHT_CLASS_NORMAL
 	eat_effect = null
 
 /obj/item/reagent_containers/food/snacks/rogue/biscuit
-	name = "biscuit"
-	desc = "A treat made for a wretched dog like you."
+	name = "печенье с изюмом"
+	desc = "Угощение для такой несчастной собаки, как ты."
 	icon_state = "biscuit"
 	filling_color = "#F0E68C"
 	list_reagents = list(/datum/reagent/consumable/nutriment = BUTTERDOUGHSLICE_NUTRITION+SNACK_POOR)
@@ -576,24 +597,28 @@
 	bitesize = 3
 	tastes = list("crispy butterdough" = 1, "raisins" = 1)
 	foodtype = GRAIN | DAIRY | FRUIT
+	tastes = list("хрустящего теста" = 1, "изюма" = 1)
 	eat_effect = /datum/status_effect/buff/foodbuff
 
 
 /*	.................   Prezzel   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/foodbase/prezzel_raw
-	name = "uncooked prezzel"
+	name = "сырой крендель"
 	icon_state = "prezzel_raw"
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/prezzel
 	cooked_smell = /datum/pollutant/food/prezzel
+	tastes = list("теста" = 1)
 	w_class = WEIGHT_CLASS_NORMAL
 	eat_effect = null
 
 /obj/item/reagent_containers/food/snacks/rogue/prezzel
-	name = "prezzel"
-	desc = "The next best thing since sliced bread, naturally, made by a dwarf."
+	name = "крендель"
+	desc = "Следующая лучшая вещь после нарезанного хлеба. Обычно такое готовят дворфы."
 	icon_state = "prezzel"
 	list_reagents = list(/datum/reagent/consumable/nutriment = BUTTERDOUGHSLICE_NUTRITION)
 	tastes = list("crispy butterdough" = 1)
+	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
+	tastes = list("хрустящего теста" = 1)
 	w_class = WEIGHT_CLASS_NORMAL
 	bitesize = 3
 	eat_effect = /datum/status_effect/buff/foodbuff
@@ -601,10 +626,11 @@
 
 /*	.................   Raisin bread   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/rbread_half
-	name = "half-done raisin dough"
-	desc = "Add more raisins!"
+	name = "тесто с изюмом"
+	desc = "Добавьте еще изюма!"
 	icon_state = "dough_raisin"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
+	tastes = list("теста с изюмом" = 1)
 	w_class = WEIGHT_CLASS_NORMAL
 	rotprocess = 30 MINUTES
 /obj/item/reagent_containers/food/snacks/rogue/rbread_half/attackby(obj/item/I, mob/living/user, params)
@@ -615,35 +641,36 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/raisins))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			to_chat(user, "<span class='notice'>Adding the last of the raisins, puffing up the dough for baking.</span>")
+			to_chat(user, "<span class='notice'>Добавляю оставшийся изюм и взбиваю тесто для выпечки.</span>")
 			if(do_after(user,short_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 				new /obj/item/reagent_containers/food/snacks/rogue/rbreaduncooked(loc)
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	else
 		return ..()	
 
 /obj/item/reagent_containers/food/snacks/rogue/rbreaduncooked
-	name = "loaf of raisins"
+	name = "сырой хлеб с изюмом"
 	icon_state = "raisinbreaduncooked"
 	slices_num = 0
+	tastes = list("теста с изюмом" = 1)
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/raisinbread
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
 	w_class = WEIGHT_CLASS_NORMAL
 	rotprocess = 30 MINUTES
 
 /obj/item/reagent_containers/food/snacks/rogue/raisinbread
-	name = "raisin loaf"
-	desc = "Bread enhanced with sweet raisins for a perfect addition to any meal."
+	name = "хлеб с изюмом"
+	desc = "Хлеб со сладким изюмом. Станет прекрасным дополнением к любому блюду."
 	icon_state = "raisinbread6"
 	slices_num = 6
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/raisinbreadslice
 	list_reagents = list(/datum/reagent/consumable/nutriment = MEAL_AVERAGE)
 	w_class = WEIGHT_CLASS_NORMAL
-	tastes = list("bread" = 1,"dried fruit" = 1)
+	tastes = list("сладкого хлеба" = 1, "изюма" = 1)
 	slice_batch = FALSE
 	slice_sound = TRUE 
 	rotprocess = SHELFLIFE_EXTREME
@@ -670,12 +697,12 @@
 			changefood(slice_path, eater)
 
 /obj/item/reagent_containers/food/snacks/rogue/raisinbreadslice
-	name = "raisin loaf slice"
+	name = "кусок хлеба с изюмом"
 	icon_state = "raisinbread_slice"
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_POOR)
 	w_class = WEIGHT_CLASS_NORMAL
 	cooked_type = null
-	tastes = list("spelt" = 1,"dried fruit" = 1)
+	tastes = list("сладкого хлеба" = 1, "изюма" = 1)
 	bitesize = 2
 	rotprocess = SHELFLIFE_LONG
 	eat_effect = /datum/status_effect/buff/foodbuff
@@ -683,9 +710,10 @@
 
 /*	.................   Cake   ................... */
 /obj/item/reagent_containers/food/snacks/rogue/cake_base
-	name = "cake base"
-	desc = "With this sweet thing, you shall make them sing.(Add fresh cheese or honeycomb and bake!)"
+	name = "основа для торта"
+	desc = "С помощью этой сладости вы заставите их воспевать. (Добавьте свежий сыр или мед и запеките!)"
 	icon_state = "cake"
+	tastes = list("сдобного теста" = 1)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
 	w_class = WEIGHT_CLASS_NORMAL
 	foodtype = GRAIN | DAIRY
@@ -698,33 +726,34 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/cheese))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			to_chat(user, "<span class='notice'>Spreading fresh cheese on the cake...</span>")
+			to_chat(user, "<span class='notice'>Выкладываю свежий сыр на торт...</span>")
 			if(do_after(user,long_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 				new /obj/item/reagent_containers/food/snacks/rogue/ccakeuncooked(loc)
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	if(istype(I, /obj/item/reagent_containers/food/snacks/rogue/honey))
 		if(isturf(loc)&& (found_table))
 			playsound(get_turf(user), 'sound/foley/dropsound/food_drop.ogg', 40, TRUE, -1)
-			to_chat(user, "<span class='notice'>Slathering the cake with delicious spider honey...</span>")
+			to_chat(user, "<span class='notice'>Обмазываю торт восхитительным паучьим медом...</span>")
 			if(do_after(user,long_cooktime, target = src))
 				user.mind.add_sleep_experience(/datum/skill/craft/cooking, user.STAINT * 0.8)
 				new /obj/item/reagent_containers/food/snacks/rogue/hcakeuncooked(loc)
 				qdel(I)
 				qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need to put [src] on a table to work it.</span>")
+			to_chat(user, "<span class='warning'>Сначала нужно положить [src] на стол.</span>")
 	else
 		return ..()	
 
 // -------------- SPIDER-HONEY CAKE (Zybantu) -----------------
 /obj/item/reagent_containers/food/snacks/rogue/hcakeuncooked
-	name = "unbaked cake"
+	name = "сырой торт"
 	icon_state = "honeycakeuncook"
 	slices_num = 0
+	tastes = list("сдобного теста" = 1, "меда" = 1)
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/hcake
 	cooked_smell = /datum/pollutant/food/honey_cake
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
@@ -733,14 +762,14 @@
 	rotprocess = SHELFLIFE_DECENT
 
 /obj/item/reagent_containers/food/snacks/rogue/hcake
-	name = "zybantine cake"
-	desc = "Cake glazed with honey, in the famous Zybantu fashion, a delicious sweet treat."
+	name = "йский торт"
+	desc = "Торт, глазированный медом в знаменитом стиле Зибантийской империи. Восхитительное сладкое лакомство."
 	icon_state = "honeycake"
 	slices_num = 8
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/hcakeslice
 	list_reagents = list(/datum/reagent/consumable/nutriment = 40)
 	w_class = WEIGHT_CLASS_NORMAL
-	tastes = list("cake"=1, "delicious honeyfrosting"=1)
+	tastes = list("нежного бисквита" = 1, "вкусной медовой глазури" = 1)
 	foodtype = GRAIN | DAIRY | SUGAR
 	slice_batch = TRUE
 	slice_sound = TRUE 
@@ -749,10 +778,11 @@
 	bitesize = 16
 
 /obj/item/reagent_containers/food/snacks/rogue/hcakeslice
-	name = "zybantine cake slice"
+	name = "кусок зибантийского торта"
 	icon_state = "honeycakeslice"
 	slices_num = 0
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT-1)
+	tastes = list("нежного бисквита" = 1, "вкусной медовой глазури" = 1)
 	w_class = WEIGHT_CLASS_NORMAL
 	cooked_type = null
 	foodtype = GRAIN | DAIRY | SUGAR
@@ -769,9 +799,10 @@
 // -------------- CHEESECAKE -----------------
 
 /obj/item/reagent_containers/food/snacks/rogue/ccakeuncooked
-	name = "unbaked cake of cheese"
+	name = "сырой чизкейк"
 	icon_state = "cheesecakeuncook"
 	slices_num = 0
+	tastes = list("сдобного теста" = 1, "сыра" = 1)
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/ccake
 	cooked_smell = /datum/pollutant/food/cheese_cake
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1)
@@ -780,14 +811,14 @@
 	rotprocess = SHELFLIFE_DECENT
 
 /obj/item/reagent_containers/food/snacks/rogue/ccake
-	name = "cheesecake"
-	desc = "Humenity's favored creation."
+	name = "чизкейк"
+	desc = "Лучшее изобретение человечества."
 	icon_state = "cheesecake"
 	slices_num = 8
 	slice_path = /obj/item/reagent_containers/food/snacks/rogue/ccakeslice
 	list_reagents = list(/datum/reagent/consumable/nutriment = 40)
 	w_class = WEIGHT_CLASS_NORMAL
-	tastes = list("cake"=1, "creamy cheese"=1)
+	tastes = list("нежного бисквита" = 1, "кремовой сырной глазури" = 1)
 	foodtype = GRAIN | DAIRY | SUGAR
 	slice_batch = TRUE
 	slice_sound = TRUE 
@@ -796,7 +827,7 @@
 	bitesize = 16
 
 /obj/item/reagent_containers/food/snacks/rogue/ccakeslice
-	name = "cheesecake slice"
+	name = "кусок чизкейка"
 	icon_state = "cheesecake_slice"
 	slices_num = 0
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT-1)

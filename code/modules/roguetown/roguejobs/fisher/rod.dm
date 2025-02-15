@@ -1,14 +1,18 @@
 /obj/item/fishingrod
 	force = 12
 	possible_item_intents = list(ROD_CAST, SPEAR_BASH)
-	name = "fishing rod"
-	desc = "Made from weathered wood and coarse twine. The tool of the battle against the dark waters below."
+	name = "удочка"
+	desc = "Сделана из промокшего дерева и грубой бечёвки. Орудие в битве со здешними тёмными водами"
 	icon_state = "rod"
 	icon = 'icons/roguetown/weapons/tools.dmi'
 	sharpness = IS_BLUNT
 	wlength = 33
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_HIP
 	w_class = WEIGHT_CLASS_BULKY
+
+	grid_height = 96
+	grid_width = 32
+	
 	///The current bait that we have attached to our fishing rod
 	var/obj/item/baited = null
 
@@ -33,8 +37,8 @@
 
 /obj/item/fishingrod/attackby(obj/item/I, mob/user, params)
 	if(I.baitchance && !baited)
-		user.visible_message(span_notice("[user] hooks something to the line."), \
-							span_notice("I hook [I] to my line."))
+		user.visible_message(span_notice("[user] цепляет что-то на леску."), \
+							span_notice("Я цепляю [I] на леску."))
 		playsound(src.loc, 'sound/foley/pierce.ogg', 50, FALSE)
 		I.forceMove(src)
 		baited = I
@@ -63,8 +67,8 @@
 		return ..()
 
 	var/mob/living/current_fisherman = user
-	current_fisherman.visible_message(span_warning("[current_fisherman] casts a line!"), \
-						span_notice("I cast a line."))
+	current_fisherman.visible_message(span_warning("[current_fisherman] забрасывает удочку!"), \
+						span_notice("Я забрасываю удочку."))
 	playsound(loc, 'sound/items/fishing_plouf.ogg', 100, TRUE)
 
 	var/amt2raise = 0 //How much exp we gain on catch
@@ -80,19 +84,19 @@
 	if(!do_after(current_fisherman, casting_time, target = target))
 		return
 	if(!baited)
-		to_chat(current_fisherman, span_warning("This seems pointless."))
+		to_chat(current_fisherman, span_warning("Это кажется бессмысленным."))
 		return
 
 	if(!prob(baited.baitchance))
-		to_chat(current_fisherman, span_warning("Damn, got away..."))
+		to_chat(current_fisherman, span_warning("Проклятье, сорвалось..."))
 		QDEL_NULL(baited)
 		update_icon()
 		return
 
-	to_chat(current_fisherman, span_notice("Something tugs the line!"))
+	to_chat(current_fisherman, span_notice("Что-то дёргает леску!"))
 	playsound(loc, 'sound/items/fishing_plouf.ogg', 100, TRUE)
 	if(!do_after(current_fisherman, fishing_time, target = target))
-		to_chat(current_fisherman, span_warning("Damn, got away..."))
+		to_chat(current_fisherman, span_warning("Проклятье, сорвалось..."))
 		QDEL_NULL(baited)
 		update_icon()
 		return
@@ -123,15 +127,15 @@
 		if(I.baitchance)
 			baitables += I
 		if(baited)
-			to_chat(user, "My rod already has bait.")
+			to_chat(user, "На моей удочке уже есть наживка.")
 			return
 		for(I in baitables)
 			if(I.baitchance && !baited)
-				to_chat(user, span_info("I begin baiting \the [src]..."))
+				to_chat(user, span_info("Я начинаю насаживать наживку на \the [src]..."))
 				if(!do_after(user, 5, TRUE, src))
 					return
-				user.visible_message(span_notice("[user] hooks something to the line."), \
-								span_notice("I hook [I] to my line."))
+				user.visible_message(span_notice("[user] цепляет что-то на леску."), \
+								span_notice("Я цепляю [I] на леску."))
 				playsound(src.loc, 'sound/foley/pierce.ogg', 50, FALSE)
 				I.forceMove(src)
 				baited = I

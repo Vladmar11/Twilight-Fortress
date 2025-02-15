@@ -80,7 +80,6 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	/datum/rmb_intent/strong,\
 	/datum/rmb_intent/riposte,\
 	/datum/rmb_intent/weak)
-	owner.current.cmode_music = 'sound/music/combat_vamp.ogg'
 	vamp_look()
 	owner.current.AddSpell(new /obj/effect/proc_holder/spell/targeted/transfix)
 	owner.current.AddSpell(new /obj/effect/proc_holder/spell/targeted/vamp_rejuv)

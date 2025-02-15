@@ -1,6 +1,6 @@
 /obj/structure/fog_wall
-	name = "heavy fog"
-	desc = "Heavy, thick fog. The kind to assure you that you're about to have a bad day."
+	name = "густой туман"
+	desc = "Густой туман. Из тех, что предвещают, что у вас будет трудный день."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "nothing"
 	density = FALSE
@@ -36,21 +36,21 @@ GLOBAL_LIST_EMPTY(fogwall_warns) // to avoid spamming the bandit's chat
 	return FALSE
 
 /obj/structure/fog_wall/proc/describe_time()
-	var/timedesc = "... hmm, I'm not sure"
+	var/timedesc = "... хм, трудно сказать..."
 	switch(timeleft(walltimer))
 		if(1 to 3 MINUTES)
-			timedesc = " nearly cleared"
+			timedesc = " почти развеявшимся"
 		if(3 MINUTES to 10 MINUTES)
-			timedesc = " fairly dense"
+			timedesc = " довольно плотным"
 		if(10 MINUTES to 20 MINUTES)
-			timedesc = " considerably heavy"
+			timedesc = " значительно тяжелым"
 		if(20 MINUTES to FOG_DISSIPATE_TIME_MAX)
-			timedesc = " impenetrably thick"
+			timedesc = " непроницаемо густым"
 	return timedesc
 
 /obj/structure/fog_wall/examine(mob/user)
 	. = ..()
-	. += span_info("Currently, it looks to be[span_notice(describe_time())].")
+	. += span_info("Сейчас он выглядит[span_notice(describe_time())].")
 
 /datum/atom_hud/alternate_appearance/basic/fog/New()
 	..()
@@ -64,8 +64,8 @@ GLOBAL_LIST_EMPTY(fogwall_warns) // to avoid spamming the bandit's chat
 	if(isliving(AM))
 		var/mob/living/M = AM
 		if(M.mind?.special_role == "Bandit")
-			to_chat(M, span_warning("The fog's too thick for me to pass through right now.") + span_info("\n\
-								Currently, it looks to be[span_notice(describe_time())]."))
+			to_chat(M, span_warning("Туман слишком густой, чтобы у меня получилось пройти сквозь него.") + span_info("\n\
+								Сейчас он выглядит[span_notice(describe_time())]."))
 			GLOB.fogwall_warns += M
 			addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(clear_fogwall_warning), M), 40 SECONDS)
 			return FALSE

@@ -61,15 +61,13 @@
 	var/dmg_overlay_type //the type of damage overlay (if any) to use when this bodypart is bruised/burned.
 
 	//Damage messages used by help_shake_act()
-	var/heavy_brute_msg = "MANGLED"
-	var/medium_brute_msg = "battered"
-	var/light_brute_msg = "bruised"
-	var/no_brute_msg = "unbruised"
+	var/heavy_brute_msg = "ИЗУРОДОВАНО"
+	var/medium_brute_msg = "травмировано"
+	var/light_brute_msg = "помято"
 
-	var/heavy_burn_msg = "CHARRED"
-	var/medium_burn_msg = "peeling"
-	var/light_burn_msg = "blistered"
-	var/no_burn_msg = "unburned"
+	var/heavy_burn_msg = "ОБУГЛЕНО"
+	var/medium_burn_msg = "сильно обожжено"
+	var/light_burn_msg = "чуть обожжено"
 
 	var/add_extra = FALSE
 	var/offset
@@ -93,6 +91,9 @@
 	var/list/aux_markings
 	/// Visual features of the bodypart, such as hair and accessories
 	var/list/bodypart_features
+
+	grid_width = 32
+	grid_height = 64
 
 	resistance_flags = FLAMMABLE
 
@@ -167,8 +168,8 @@
 /obj/item/bodypart/onbite(mob/living/carbon/human/user)
 	if((user.mind && user.mind.has_antag_datum(/datum/antagonist/zombie)) || istype(user.dna.species, /datum/species/werewolf))
 		if(do_after(user, 50, target = src))
-			user.visible_message(span_warning("[user] consumes [src]!"),\
-							span_notice("I consume [src]!"))
+			user.visible_message(span_warning("[user] жадно поглощает [src]!"),\
+							span_notice("Я проглатываю [src]!"))
 			playsound(get_turf(user), pick(dismemsound), 100, FALSE, -1)
 			new /obj/effect/gibspawner/generic(get_turf(src), user)
 			user.fully_heal()
@@ -184,7 +185,7 @@
 				var/used_time = 210
 				if(user.mind)
 					used_time -= (user.mind.get_skill_level(/datum/skill/craft/hunting) * 30)
-				visible_message("[user] begins to butcher \the [src].")
+				visible_message("[user] приступает к разделыванию \the [src].")
 				playsound(src, 'sound/foley/gross.ogg', 100, FALSE)
 				if(do_after(user, used_time, target = src))
 					if(species_id == "vulpkanin" || species_id == "anthromorph" || species_id == "lupian" || species_id == "tabaxi")
@@ -198,7 +199,7 @@
 					new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))
 					qdel(src)
 			else
-				to_chat(user, span_warning("There is no meat to butcher."))
+				to_chat(user, span_warning("Нет мяса, чтобы его разделывать."))
 	..()
 
 /obj/item/bodypart/attack(mob/living/carbon/C, mob/user)
@@ -355,7 +356,11 @@
 	update_HP()
 	if(required_status && (status != required_status)) //So we can only heal certain kinds of limbs, ie robotic vs organic.
 		return
-
+	if(owner && owner.has_status_effect(/datum/status_effect/buff/fortify))
+		brute *= 1.5
+		burn *= 1.5
+		stamina *= 1.5
+	
 	brute_dam	= round(max(brute_dam - brute, 0), DAMAGE_PRECISION)
 	burn_dam	= round(max(burn_dam - burn, 0), DAMAGE_PRECISION)
 	stamina_dam = round(max(stamina_dam - stamina, 0), DAMAGE_PRECISION)
@@ -656,8 +661,9 @@
 /obj/item/bodypart/deconstruct(disassembled = TRUE)
 	drop_organs()
 	return ..()
+
 /obj/item/bodypart/chest
-	name = BODY_ZONE_CHEST
+	name = "грудь"
 	desc = ""
 	icon_state = "default_human_chest"
 	max_damage = 200
@@ -674,13 +680,16 @@
 	offset_f = OFFSET_ARMOR_F
 	dismemberable = FALSE
 
+	grid_width = 64
+	grid_height = 96
+
 /obj/item/bodypart/chest/set_disabled(new_disabled)
 	. = ..()
 	if(!. || !owner)
 		return
 	if(disabled == BODYPART_DISABLED_DAMAGE || disabled == BODYPART_DISABLED_WOUND)
 		if(owner.stat < DEAD)
-			to_chat(owner, span_warning("I feel a sharp pain in my back!"))
+			to_chat(owner, span_warning("Я чувствую острую боль в спине!"))
 
 /obj/item/bodypart/chest/Destroy()
 	QDEL_NULL(cavity_item)
@@ -703,10 +712,10 @@
 	animal_origin = DEVIL_BODYPART
 
 /obj/item/bodypart/l_arm
-	name = "left arm"
+	name = "левая рука"
 	desc = ""
 	icon_state = "default_human_l_arm"
-	attack_verb = list("slapped", "punched")
+	attack_verb = list("бьет кулаком", "избивает")
 	max_damage = 100
 	max_stamina_damage = 50
 	body_zone = BODY_ZONE_L_ARM
@@ -734,12 +743,12 @@
 		return
 	if(disabled == BODYPART_DISABLED_DAMAGE || disabled == BODYPART_DISABLED_WOUND)
 		if(owner.stat < DEAD)
-			to_chat(owner, span_boldwarning("I can no longer move my [name]!"))
+			to_chat(owner, span_boldwarning("Моя [name]! Не могу пошевелить!"))
 		if(held_index)
 			owner.dropItemToGround(owner.get_item_for_held_index(held_index))
 	else if(disabled == BODYPART_DISABLED_PARALYSIS)
 		if(owner.stat < DEAD)
-			to_chat(owner, span_danger("I can no longer feel my [name]."))
+			to_chat(owner, span_danger("Я перестаю чувствовать что-либо в [name]."))
 			if(held_index)
 				owner.dropItemToGround(owner.get_item_for_held_index(held_index))
 	if(owner.hud_used)
@@ -761,10 +770,10 @@
 	animal_origin = DEVIL_BODYPART
 
 /obj/item/bodypart/r_arm
-	name = "right arm"
+	name = "правая рука"
 	desc = ""
 	icon_state = "default_human_r_arm"
-	attack_verb = list("slapped", "punched")
+	attack_verb = list("бьет кулаком", "избивает")
 	max_damage = 100
 	body_zone = BODY_ZONE_R_ARM
 	body_part = ARM_RIGHT
@@ -792,12 +801,12 @@
 		return
 	if(disabled == BODYPART_DISABLED_DAMAGE || disabled == BODYPART_DISABLED_WOUND)
 		if(owner.stat < DEAD)
-			to_chat(owner, span_danger("I can no longer move my [name]!"))
+			to_chat(owner, span_danger("Моя [name]! Не могу пошевелить!"))
 		if(held_index)
 			owner.dropItemToGround(owner.get_item_for_held_index(held_index))
 	else if(disabled == BODYPART_DISABLED_PARALYSIS)
 		if(owner.stat < DEAD)
-			to_chat(owner, span_danger("I can no longer feel my [name]."))
+			to_chat(owner, span_danger("Я перестаю чувствовать что-либо в [name]."))
 			if(held_index)
 				owner.dropItemToGround(owner.get_item_for_held_index(held_index))
 	if(owner.hud_used)
@@ -818,10 +827,10 @@
 	animal_origin = DEVIL_BODYPART
 
 /obj/item/bodypart/l_leg
-	name = "left leg"
+	name = "левая нога"
 	desc = ""
 	icon_state = "default_human_l_leg"
-	attack_verb = list("kicked", "stomped")
+	attack_verb = list("пинает", "бьет ногой")
 	max_damage = 100
 	body_zone = BODY_ZONE_L_LEG
 	body_part = LEG_LEFT
@@ -846,10 +855,10 @@
 		return
 	if(disabled == BODYPART_DISABLED_DAMAGE || disabled == BODYPART_DISABLED_WOUND)
 		if(owner.stat < DEAD)
-			to_chat(owner, span_danger("I can no longer move my [name]!"))
+			to_chat(owner, span_danger("Моя [name]! Не могу пошевелить!"))
 	else if(disabled == BODYPART_DISABLED_PARALYSIS)
 		if(owner.stat < DEAD)
-			to_chat(owner, span_danger("I can no longer feel my [name]."))
+			to_chat(owner, span_danger("Я перестаю чувствовать что-либо в [name]."))
 
 /obj/item/bodypart/l_leg/digitigrade
 	name = "left digitigrade leg"
@@ -867,11 +876,11 @@
 	animal_origin = DEVIL_BODYPART
 
 /obj/item/bodypart/r_leg
-	name = "right leg"
+	name = "правая нога"
 	desc = ""
 	// alternative spellings of 'pokey' are availible
 	icon_state = "default_human_r_leg"
-	attack_verb = list("kicked", "stomped")
+	attack_verb = list("пинает", "бьет ногой")
 	max_damage = 100
 	body_zone = BODY_ZONE_R_LEG
 	body_part = LEG_RIGHT
@@ -896,10 +905,10 @@
 		return
 	if(disabled == BODYPART_DISABLED_DAMAGE || disabled == BODYPART_DISABLED_WOUND)
 		if(owner.stat < DEAD)
-			to_chat(owner, span_danger("I can no longer move my [name]!"))
+			to_chat(owner, span_danger("Моя [name]! Не могу пошевелить!"))
 	else if(disabled == BODYPART_DISABLED_PARALYSIS)
 		if(owner.stat < DEAD)
-			to_chat(owner, span_danger("I can no longer feel my [name]."))
+			to_chat(owner, span_danger("Я перестаю чувствовать что-либо в [name]."))
 
 /obj/item/bodypart/r_leg/digitigrade
 	name = "right digitigrade leg"

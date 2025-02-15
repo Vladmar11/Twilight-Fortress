@@ -1,9 +1,9 @@
 /datum/migrant_role/gronn/chieftain
 	name = "Gronn Chieftain"
-	greet_text = "You are the leader of your tribe. Guide them to glory or try to survive."
+	greet_text = "Вы - вождь своего племени из равнин Гронн. Ведите их к славе или попытайтесь выжить."
 	outfit = /datum/outfit/job/roguetown/gronn/chieftain
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(/datum/species/human/northern, /datum/species/halforc, /datum/species/goblinp)
+	allowed_races = RACES_ALL_KINDS
 	show_wanderer_examine = FALSE
 	show_foreign_examine = TRUE
 
@@ -58,10 +58,10 @@
 //Shaman
 /datum/migrant_role/gronn/shaman
 	name = "Gronn Shaman"
-	greet_text = "The wisest and likely oldest of the tribe. You commune with Graggah and unleash powers of the divine. Tending as well to the wounded of the tribe."
+	greet_text = "Самый мудрый и, вероятно, самый старый из племени. Вы общаетесь с Граггаром и высвобождаете божественные силы. Ухаживает за ранеными в племени."
 	outfit = /datum/outfit/job/roguetown/gronn/shaman
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(/datum/species/human/northern, /datum/species/halforc, /datum/species/goblinp)
+	allowed_races = RACES_ALL_KINDS
 	show_wanderer_examine = FALSE
 	show_foreign_examine = TRUE
 
@@ -116,10 +116,10 @@
 //Warrior
 /datum/migrant_role/gronn/warrior
 	name = "Gronn Warrior"
-	greet_text = "You are the elite, the best fighters of your tribe. You fight side by side with the Chieftain and ensure his survival."
+	greet_text = "Вы - элита, лучшие бойцы своего племени. Вы сражаетесь бок о бок с вождем и обеспечиваете его выживание."
 	outfit = /datum/outfit/job/roguetown/gronn/warrior
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(/datum/species/human/northern, /datum/species/halforc, /datum/species/goblinp)
+	allowed_races = RACES_ALL_KINDS
 	show_wanderer_examine = FALSE
 	show_foreign_examine = TRUE
 
@@ -169,10 +169,10 @@
 //Tribal
 /datum/migrant_role/gronn/tribal
 	name = "Gronn Tribal"
-	greet_text = "You are the bulk of the tribe. Skilled with bow and axe. Well adapted to surviving off the land."
+	greet_text = "Вы - основная часть племени. Хорошо владеете луком и топором. Хорошо приспособлены к выживанию на земле."
 	outfit = /datum/outfit/job/roguetown/gronn/tribal
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = list(/datum/species/human/northern, /datum/species/halforc, /datum/species/goblinp)
+	allowed_races = RACES_ALL_KINDS
 	show_wanderer_examine = FALSE
 	show_foreign_examine = TRUE
 
@@ -223,7 +223,8 @@
 //Slave
 /datum/migrant_role/gronn/slave
 	name = "Gronn Slave"
-	greet_text = "An unlucky soul. Perhaps caught in a pillaging raid, or alone in the wilderness. You have been enslaved by the tribe. Work hard to appease your new masters."
+	greet_text = "Невезучая душа. Возможно, вы попали в грабительский набег или оказались в одиночестве в пустыне.\
+	Вы попали в рабство к племени. Трудитесь изо всех сил, чтобы угодить своим новым хозяевам."
 	outfit = /datum/outfit/job/roguetown/gronn/slave
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS

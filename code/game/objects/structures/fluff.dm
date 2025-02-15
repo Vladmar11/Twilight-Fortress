@@ -28,7 +28,7 @@
 	icon_state = "paperstack"
 
 /obj/structure/fluff/big_chain
-	name = "giant chain"
+	name = "гигантская цепь"
 	desc = ""
 	icon = 'icons/effects/32x96.dmi'
 	icon_state = "chain"
@@ -38,7 +38,7 @@
 	deconstructible = FALSE
 
 /obj/structure/fluff/railing
-	name = "railing"
+	name = "перила"
 	desc = ""
 	icon = 'icons/obj/railing.dmi'
 	icon_state = "railing"
@@ -151,13 +151,13 @@
 	layer = ABOVE_MOB_LAYER
 
 /obj/structure/fluff/railing/border
-	name = "border"
+	name = "ограда"
 	desc = ""
 	icon_state = "border"
 	passcrawl = FALSE
 
 /obj/structure/fluff/railing/fence
-	name = "palisade"
+	name = "частокол"
 	desc = ""
 	icon = 'icons/roguetown/misc/structure.dmi'
 	attacked_sound = 'sound/misc/woodhit.ogg'
@@ -221,7 +221,7 @@
 	return 1
 
 /obj/structure/bars
-	name = "bars"
+	name = "решетка"
 	desc = ""
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "bars"
@@ -253,7 +253,7 @@
 	icon_state = "chainlink"
 
 obj/structure/bars/steel
-	name = "steel bars"
+	name = "стальная решетка"
 	max_integrity = 2000
 
 /obj/structure/bars/tough
@@ -274,7 +274,7 @@ obj/structure/bars/steel
 	max_integrity = 1500
 
 /obj/structure/bars/passage/steel
-	name = "steel bars"
+	name = "стальная решетка"
 	max_integrity = 2000
 
 /obj/structure/bars/passage/redstone_triggered()
@@ -288,6 +288,7 @@ obj/structure/bars/steel
 		density = TRUE
 
 /obj/structure/bars/passage/shutter
+	name = "ставни"
 	icon_state = "shutter0"
 	density = TRUE
 	opacity = TRUE
@@ -310,7 +311,7 @@ obj/structure/bars/steel
 	opacity = FALSE
 
 /obj/structure/bars/grille
-	name = "grille"
+	name = "напольная решетка"
 	desc = ""
 	icon_state = "floorgrille"
 	density = FALSE
@@ -352,7 +353,7 @@ obj/structure/bars/steel
 
 
 /obj/structure/bars/pipe
-	name = "bronze pipe"
+	name = "бронзовая труба"
 	desc = ""
 	icon_state = "pipe"
 	density = FALSE
@@ -366,7 +367,7 @@ obj/structure/bars/steel
 	smeltresult = /obj/item/ingot/bronze
 
 /obj/structure/bars/pipe/left
-	name = "bronze pipe"
+	name = "бронзовая труба"
 	desc = ""
 	icon_state = "pipe2"
 	dir = WEST
@@ -375,7 +376,7 @@ obj/structure/bars/steel
 //===========================
 
 /obj/structure/fluff/clock
-	name = "clock"
+	name = "часы"
 	desc = ""
 	icon = 'icons/roguetown/misc/tallstructure.dmi'
 	icon_state = "clock"
@@ -417,7 +418,7 @@ obj/structure/bars/steel
 /obj/structure/fluff/clock/attack_right(mob/user)
 	if(user.mind && isliving(user))
 		if(user.mind.special_items && user.mind.special_items.len)
-			var/item = input(user, "What will I take?", "STASH") as null|anything in user.mind.special_items
+			var/item = input(user, "Что я возьму?", "ТАЙНИК") as null|anything in user.mind.special_items
 			if(item)
 				if(user.Adjacent(src))
 					if(user.mind.special_items[item])
@@ -446,7 +447,7 @@ obj/structure/bars/steel
 				day = "Saturn's dae."
 			if(7)
 				day = "Sun's dae."
-		. += "Oh no, it's [station_time_timestamp("hh:mm")] on a [day]"
+		. += "Сейчас [station_time_timestamp("hh:mm")], [day]"
 
 /obj/structure/fluff/clock/CanPass(atom/movable/mover, turf/target)
 	if(get_dir(loc, mover) == dir)
@@ -459,7 +460,7 @@ obj/structure/bars/steel
 	return 1
 
 /obj/structure/fluff/wallclock
-	name = "clock"
+	name = "часы"
 	desc = ""
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "wallclock"
@@ -501,7 +502,7 @@ obj/structure/bars/steel
 				day = "Saturn's dae."
 			if(7)
 				day = "Sun's dae."
-		. += "Oh no, it's [station_time_timestamp("hh:mm")] on a [day]"
+		. += "Сейчас [station_time_timestamp("hh:mm")], [day]"
 
 /obj/structure/fluff/wallclock/Initialize()
 	soundloop = new(src, FALSE)
@@ -525,7 +526,7 @@ obj/structure/bars/steel
 	pixel_x = 32
 //vampire
 /obj/structure/fluff/wallclock/vampire
-	name = "ancient clock"
+	name = "старинные часы"
 	desc = ""
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "wallclockvampire"
@@ -545,7 +546,7 @@ obj/structure/bars/steel
 	pixel_x = 32
 
 /obj/structure/fluff/signage
-	name = "sign"
+	name = "указатель"
 	desc = ""
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "shitsign"
@@ -561,37 +562,37 @@ obj/structure/bars/steel
 /obj/structure/fluff/signage/examine(mob/user)
 	. = ..()
 	if(!user.is_literate())
-		. += "I have no idea what it says."
+		. += "Я не могу разобрать, что тут написано."
 	else
-		. += "It says \"TOWN ON ROCKHILL\""
+		. += "Здесь написано: \"ГРАД РОКХИЛЛ\""
 
 /obj/structure/fluff/buysign
 	icon_state = "signwrote"
-	name = "sign"
+	name = "табличка"
 	desc = ""
 	icon = 'icons/roguetown/misc/structure.dmi'
 /obj/structure/fluff/buysign/examine(mob/user)
 	. = ..()
 	if(!user.is_literate())
-		. += "I have no idea what it says."
+		. += "Я не могу разобрать, что тут написано."
 	else
-		. += "It says \"IMPORTS\""
+		. += "Здесь написано: \"ИМПОРТ\""
 
 /obj/structure/fluff/sellsign
 	icon_state = "signwrote"
-	name = "sign"
+	name = "табличка"
 	desc = ""
 	icon = 'icons/roguetown/misc/structure.dmi'
 /obj/structure/fluff/sellsign/examine(mob/user)
 	. = ..()
 	if(!user.is_literate())
-		. += "I have no idea what it says."
+		. += "Я не могу разобрать, что тут написано."
 	else
-		. += "It says \"EXPORTS\""
+		. += "Здесь написано: \"ЭКСПОРТ\""
 
 
 /obj/structure/fluff/customsign
-	name = "sign"
+	name = "табличка"
 	desc = ""
 	icon_state = "sign"
 	var/wrotesign
@@ -603,28 +604,28 @@ obj/structure/bars/steel
 	. = ..()
 	if(wrotesign)
 		if(!user.is_literate())
-			. += "I have no idea what it says."
+			. += "Я не могу разобрать, что тут написано."
 		else
-			. += "It says \"[wrotesign]\"."
+			. += "Здесь написано: \"[wrotesign]\"."
 
 /obj/structure/fluff/customsign/attackby(obj/item/W, mob/user, params)
 	if(!user.cmode)
 		if(!user.is_literate())
-			to_chat(user, span_warning("I don't know any verba."))
+			to_chat(user, span_warning("Я не умею писать!"))
 			return
 		if((user.used_intent.blade_class == BCLASS_STAB) && (W.wlength == WLENGTH_SHORT))
 			if(wrotesign)
-				to_chat(user, span_warning("Something is already carved here."))
+				to_chat(user, span_warning("Здесь уже что-то вырезано."))
 				return
 			else
-				var/inputty = stripped_input(user, "What would you like to carve here?", "", null, 200)
+				var/inputty = stripped_input(user, "Что вы хотите вырезать на табличке?", "", null, 200)
 				if(inputty && !wrotesign)
 					wrotesign = inputty
 					icon_state = "signwrote"
 	..()
 
 /obj/structure/fluff/statue
-	name = "statue"
+	name = "статуя"
 	desc = ""
 	icon = 'icons/roguetown/misc/tallstructure.dmi'
 	icon_state = "bstatue"
@@ -643,7 +644,7 @@ obj/structure/bars/steel
 /obj/structure/fluff/statue/attack_right(mob/user)
 	if(user.mind && isliving(user))
 		if(user.mind.special_items && user.mind.special_items.len)
-			var/item = input(user, "What will I take?", "STASH") as null|anything in user.mind.special_items
+			var/item = input(user, "Что я возьму?", "ТАЙНИК") as null|anything in user.mind.special_items
 			if(item)
 				if(user.Adjacent(src))
 					if(user.mind.special_items[item])
@@ -680,14 +681,14 @@ obj/structure/bars/steel
 	icon_state = "knightstatue_l"
 
 /obj/structure/fluff/statue/astrata
-	name = "astrata statue"
-	desc = "A stone statue of the sun Goddess Astrata. Bless."
+	name = "статуя Астраты"
+	desc = "Каменная статуя богини солнца Астраты. Помолитесь."
 	icon_state = "astrata"
 	icon = 'icons/roguetown/misc/tallandwide.dmi'
 
 /obj/structure/fluff/statue/astrata/gold
-	name = "ornamental astrata statue"
-	desc = "An ornamental stone statue of the sun Goddess Astrata, decorated with golden jewelry. Bless."
+	name = "украшенная статуя Астраты"
+	desc = "Каменная статуя богини солнца Астраты, украшенная золотыми украшениями. Помолитесь."
 	icon_state = "astrata_bling"
 
 /obj/structure/fluff/statue/knight/r
@@ -720,6 +721,7 @@ obj/structure/bars/steel
 	icon_state = "elfs"
 
 /obj/structure/fluff/statue/pillar
+	name = "шест"
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "pillar"
 
@@ -736,11 +738,11 @@ obj/structure/bars/steel
 	src.transform = M
 
 /obj/structure/fluff/statue/scare
-	name = "scarecrow"
+	name = "пугало"
 	icon_state = "td"
 
 /obj/structure/fluff/statue/tdummy
-	name = "practice dummy"
+	name = "тренировочный манекен"
 	icon_state = "p_dummy"
 	icon = 'icons/roguetown/misc/structure.dmi'
 
@@ -761,16 +763,16 @@ obj/structure/bars/steel
 					if(L.STAINT < 3)
 						probby = 0
 					if(prob(probby) && !user.buckled)
-						user.visible_message(span_info("[user] trains on [src]!"))
+						user.visible_message(span_info("[user] тренируется с [src]!"))
 						var/amt2raise = L.STAINT * 0.35
 						if(!can_train_combat_skill(user, W.associated_skill, SKILL_LEVEL_APPRENTICE))
-							to_chat(user, span_warning("I've learned all I can from doing this, it's time for the real thing."))
+							to_chat(user, span_warning("Я уже научился всем основам, пришло время для настоящей практики."))
 							amt2raise = 0
 						if(amt2raise > 0)
 							user.mind.add_sleep_experience(W.associated_skill, amt2raise, FALSE)
 						playsound(loc,pick('sound/combat/hits/onwood/education1.ogg','sound/combat/hits/onwood/education2.ogg','sound/combat/hits/onwood/education3.ogg'), rand(50,100), FALSE)
 					else
-						user.visible_message(span_danger("[user] trains on [src], but [src] ripostes!"))
+						user.visible_message(span_danger("[user] тренируется с [src], но [src] отвечает на удар!"))
 						L.AdjustKnockdown(1)
 						L.throw_at(get_step(L, get_dir(src,L)), 2, 2, L, spin = FALSE)
 						playsound(loc, 'sound/combat/hits/kick/stomp.ogg', 100, TRUE, -1)
@@ -779,7 +781,7 @@ obj/structure/bars/steel
 	..()
 
 /obj/structure/fluff/statue/spider
-	name = "mother"
+	name = "паучья матерь"
 	icon_state = "spidercore"
 
 /obj/structure/fluff/statue/spider/attackby(obj/item/W, mob/user, params)
@@ -791,16 +793,16 @@ obj/structure/bars/steel
 					var/datum/game_mode/chaosmode/C = SSticker.mode
 					C.delfcontrib += 1
 					if(C.delfcontrib >= C.delfgoal)
-						say("Well done, the brood will grow...",language = /datum/language/elvish)
+						say("Хорошо, выводок взрастится...",language = /datum/language/elvish)
 					else
-						say("Please bring me [C.delfgoal-C.delfcontrib] more honeys, children!",language = /datum/language/elvish)
+						say("Прошу, принесите мне еще [C.delfgoal-C.delfcontrib] куч меда, дети мои!",language = /datum/language/elvish)
 				qdel(W)
 				return TRUE
 	..()
 
 /obj/structure/fluff/statue/evil
-	name = "idol"
-	desc = "A statue built to the robber-god, Matthios, who stole the gift of fire from the underworld. It is said that he grants the wishes of those pagan bandits (free folk) who feed him money and valuable metals."
+	name = "идол"
+	desc = "Статуя бога-разбойника Маттиоса, укравшего дар огня из подземного мира. Говорят, что он исполняет желания тех языческих бандитов (свободных людей), которые жертвуют ему деньги и ценные металлы."
 	icon_state = "evilidol"
 	icon = 'icons/roguetown/misc/structure.dmi'
 
@@ -830,7 +832,7 @@ obj/structure/bars/steel
 	if(user.mind)
 		if(user)
 			if(W.sellprice <= 0)
-				to_chat(user, span_warning("This item is worthless."))
+				to_chat(user, span_warning("Этот предмет бесполезен."))
 				return
 			var/proceed_with_offer = FALSE
 			for(var/TT in treasuretypes)
@@ -846,15 +848,15 @@ obj/structure/bars/steel
 							var/datum/antagonist/bandit/bandit_players = player.mind.has_antag_datum(/datum/antagonist/bandit)
 							bandit_players.favor += donatedamnt
 							bandit_players.totaldonated += donatedamnt
-							to_chat(player, ("<font color='yellow'>[user.name] donates [donatedamnt] to the shrine! You now have [bandit_players.favor] favor.</font>"))
+							to_chat(player, ("<font color='yellow'>[user.name] жертвует [donatedamnt] святыне! У вас теперь [bandit_players.favor] благосклонности.</font>"))
 
 			else
-				to_chat(user, span_warning("This item isn't a good offering."))
+				to_chat(user, span_warning("Этот предмет не является хорошим подношением."))
 				return
 	..()
 
 /obj/structure/fluff/psycross
-	name = "pantheon cross"
+	name = "крест пантеона"
 	icon_state = "psycross"
 	icon = 'icons/roguetown/misc/tallstructure.dmi'
 	break_sound = 'sound/combat/hits/onwood/destroyfurniture.ogg'
@@ -895,14 +897,14 @@ obj/structure/bars/steel
 	return !density
 
 /obj/structure/fluff/psycross/copper
-	name = "pantheon cross"
+	name = "крест пантеона"
 	icon_state = "psycrosschurch"
 	break_sound = null
 	attacked_sound = list("sound/combat/hits/onmetal/metalimpact (1).ogg", "sound/combat/hits/onmetal/metalimpact (2).ogg")
 	chance2hear = 66
 
 /obj/structure/fluff/psycross/crafted
-	name = "wooden pantheon cross"
+	name = "деревянный крест пантеона"
 	icon_state = "psycrosscrafted"
 	max_integrity = 80
 	chance2hear = 10
@@ -952,7 +954,7 @@ obj/structure/bars/steel
 
 						thegroom.adjust_triumphs(1)
 						thebride.adjust_triumphs(1)
-						priority_announce("[thegroom.real_name] has married [thebride.real_name]!", title = "Holy Union!", sound = 'sound/misc/bell.ogg')
+						priority_announce("[thegroom.real_name] заключает брак с [thebride.real_name]!", title = "Священный Союз!", sound = 'sound/misc/bell.ogg')
 						marriage = TRUE
 						qdel(A)
 
@@ -1010,7 +1012,7 @@ obj/structure/bars/steel
 	else //caused by emp/remote signal
 		M.log_message("was [targeted? "flashed(targeted)" : "flashed(AOE)"]",LOG_ATTACK)
 	if(generic_message && M != user)
-		to_chat(M, span_danger("[src] emits a blinding light!"))
+		to_chat(M, span_danger("[src] излучает ослепительный свет!"))
 	if(M.flash_act())
 		var/diff = power - M.confused
 		M.confused += min(power, diff)
@@ -1086,8 +1088,8 @@ obj/structure/bars/steel
 	icon_state = "clockgolem_dead"
 
 /obj/structure/fluff/statue/shisha
-	name = "shisha pipe"
-	desc = "A traditional shisha pipe, this one is broken."
+	name = "кальян"
+	desc = "Традиционный прибор для курения с земель Зибантии. Этот, к сожалению, сломан."
 	icon = 'icons/roguetown/misc/64x64.dmi'
 	icon_state = "zbuski"
 	density = FALSE
@@ -1098,7 +1100,7 @@ obj/structure/bars/steel
 	max_integrity = 300
 
 /obj/structure/fluff/headstake
-	name = "head on a stake"
+	name = "голова на колу"
 	desc = ""
 	icon = 'icons/roguetown/items/natural.dmi'
 	icon_state = "headstake"
@@ -1112,7 +1114,8 @@ obj/structure/bars/steel
 /obj/structure/fluff/headstake/CheckParts(list/parts_list)
 	..()
 	victim = locate(/obj/item/bodypart/head) in parts_list
-	name = "[victim.name] on a stake"
+	name = "голова на колу"
+	desc = "Эта голова принадлежала [victim.name]"
 	update_icon()
 	stake = locate(/obj/item/grown/log/tree/stake) in parts_list
 
@@ -1139,7 +1142,7 @@ obj/structure/bars/steel
 	. = ..()
 	if(.)
 		return
-	to_chat(user, span_notice("I take down [src]."))
+	to_chat(user, span_notice("Я опрокидываю [src]."))
 	victim.forceMove(drop_location())
 	victim = null
 	stake.forceMove(drop_location())
@@ -1147,7 +1150,7 @@ obj/structure/bars/steel
 	qdel(src)
 
 /obj/structure/fluff/littlebanners
-	name = "hanging little banners"
+	name = "гирлянда из флажков"
 	desc = ""
 	icon = 'icons/obj/structures/decor.dmi'
 	icon_state = "hangingbanners_wr"
@@ -1184,7 +1187,7 @@ obj/structure/bars/steel
 	if(over_object == usr && Adjacent(usr) && (in_range(src, usr) || usr.contents.Find(src)))
 		if(!ishuman(usr))
 			return
-		visible_message(span_notice("[usr] tears down [src]."))
+		visible_message(span_notice("[usr] срывает [src]."))
 		if(do_after(usr, 30, target = src))
 			playsound(src,'sound/foley/dropsound/cloth_drop.ogg', 100, FALSE)
 			new /obj/item/natural/cloth (get_turf(src))
@@ -1196,35 +1199,35 @@ obj/structure/bars/steel
 ///Crafting
 
 /datum/crafting_recipe/roguetown/structure/littlebanners
-	name = "fair banners red-white"
+	name = "ярмарочные флажки (красно-белые)"
 	result = list(/obj/structure/fluff/littlebanners)
 	reqs = list(/obj/item/natural/cloth = 4, /obj/item/natural/fibers)
-	verbage_simple = "construct"
-	verbage = "constructs"
+	verbage_simple = "сшиваю"
+	verbage = "сшивает"
 	skill_level = 0
 
 /datum/crafting_recipe/roguetown/structure/littlebanners/greenblue
-	name = "fair banners green-blue"
+	name = "ярмарочные флажки (сине-зеленые)"
 	result = list(/obj/structure/fluff/littlebanners/greenblue)
 
 /datum/crafting_recipe/roguetown/structure/littlebanners/greenred
-	name = "fair banners green-red"
+	name = "ярмарочные флажки (красно-зеленые)"
 	result = list(/obj/structure/fluff/littlebanners/greenred)
 
 /datum/crafting_recipe/roguetown/structure/littlebanners/bluewhite
-	name = "fair banners blue-white"
+	name = "ярмарочные флажки (бело-синие)"
 	result = list(/obj/structure/fluff/littlebanners/bluewhite)
 
 /datum/crafting_recipe/roguetown/structure/littlebanners/greenwhite
-	name = "fair banners green-white"
+	name = "ярмарочные флажки (бело-зеленые)"
 	result = list(/obj/structure/fluff/littlebanners/greenwhite)
 
 /datum/crafting_recipe/roguetown/structure/littlebanners/bluered
-	name = "fair banners blue-red"
+	name = "ярмарочные флажки (сине-красные)"
 	result = list(/obj/structure/fluff/littlebanners/bluered)
 
 /obj/structure/fluff/canopy
-	name = "Canopy"
+	name = "навес"
 	desc = ""
 	icon = 'icons/obj/structures/decor.dmi'
 	icon_state = "canopy"
@@ -1244,15 +1247,19 @@ obj/structure/bars/steel
 	icon_state = "canopyg"
 
 /obj/structure/fluff/canopy/booth
+	name = "придорожный киоск"
 	icon_state = "canopyr-booth"
 
 /obj/structure/fluff/canopy/booth/booth02
+	name = "рыночный киоск"
 	icon_state = "canopyr-booth-2"
 
 /obj/structure/fluff/canopy/booth/booth_green
+	name = "придорожный киоск"
 	icon_state = "canopyg-booth"
 
 /obj/structure/fluff/canopy/booth/booth_green02
+	name = "рыночный киоск"
 	icon_state = "canopyg-booth-2"
 
 /obj/structure/fluff/canopy/side
@@ -1277,56 +1284,56 @@ obj/structure/bars/steel
 ///Crafting
 
 /datum/crafting_recipe/roguetown/structure/display_booth01
-	name = "display booth"
+	name = "красный выставочный стенд - (2 полена, 2 ткани)"
 	result = list(/obj/structure/fluff/canopy, /obj/structure/table/wood/crafted)
 	reqs = list(/obj/item/grown/log/tree/small = 2,
 				/obj/item/natural/cloth = 2)
-	verbage_simple = "construct"
-	verbage = "constructs"
+	verbage_simple = "строю"
+	verbage = "строит"
 
 /datum/crafting_recipe/roguetown/structure/display_booth02
-	name = "display booth green"
+	name = "зеленый выставочный стенд - (2 полена, 2 ткани)"
 	result = list(/obj/structure/fluff/canopy/green, /obj/structure/table/wood/crafted)
 	reqs = list(/obj/item/grown/log/tree/small = 2,
 				/obj/item/natural/cloth = 2)
-	verbage_simple = "construct"
-	verbage = "constructs"
+	verbage_simple = "строю"
+	verbage = "строит"
 
 
 /datum/crafting_recipe/roguetown/structure/booth
-	name = "market booth"
+	name = "красный придорожный киоск - (1 полено, 2 ткани)"
 	result = list(/obj/structure/fluff/canopy/booth)
 	reqs = list(/obj/item/grown/log/tree/small = 1,
 				/obj/item/natural/cloth = 2)
-	verbage_simple = "construct"
-	verbage = "constructs"
+	verbage_simple = "строю"
+	verbage = "строит"
 	skill_level = 0
 
 /datum/crafting_recipe/roguetown/structure/booth02
-	name = "market booth"
+	name = "красный рыночный киоск - (1 полено, 2 ткани)"
 	result = list(/obj/structure/fluff/canopy/booth/booth02)
 	reqs = list(/obj/item/grown/log/tree/small = 1,
 				/obj/item/natural/cloth = 2)
-	verbage_simple = "construct"
-	verbage = "constructs"
+	verbage_simple = "строю"
+	verbage = "строит"
 	skill_level = 0
 
 /datum/crafting_recipe/roguetown/structure/booth_green
-	name = "green market booth"
+	name = "зеленый придорожный киоск - (1 полено, 2 ткани)"
 	result = list(/obj/structure/fluff/canopy/booth/booth_green)
 	reqs = list(/obj/item/grown/log/tree/small = 1,
 				/obj/item/natural/cloth = 2)
-	verbage_simple = "construct"
-	verbage = "constructs"
+	verbage_simple = "строю"
+	verbage = "строит"
 	skill_level = 0
 
 /datum/crafting_recipe/roguetown/structure/booth_green_02
-	name = "green market booth02"
+	name = "зеленый рыночный киоск - (1 полено, 2 ткани)"
 	result = list(/obj/structure/fluff/canopy/booth/booth_green02)
 	reqs = list(/obj/item/grown/log/tree/small = 1,
 				/obj/item/natural/cloth = 2)
-	verbage_simple = "construct"
-	verbage = "constructs"
+	verbage_simple = "строю"
+	verbage = "строит"
 	skill_level = 0
 
 /obj/structure/fluff/canopy/MouseDrop(over_object, src_location, over_location)
@@ -1334,7 +1341,7 @@ obj/structure/bars/steel
 	if(over_object == usr && Adjacent(usr) && (in_range(src, usr) || usr.contents.Find(src)))
 		if(!ishuman(usr))
 			return
-		visible_message(span_notice("[usr] tears down [src]."))
+		visible_message(span_notice("[usr] срывает [src]."))
 		if(do_after(usr, 30, target = src))
 			playsound(src,'sound/foley/dropsound/cloth_drop.ogg', 100, FALSE)
 			new /obj/item/grown/log/tree/small  (get_turf(src))
