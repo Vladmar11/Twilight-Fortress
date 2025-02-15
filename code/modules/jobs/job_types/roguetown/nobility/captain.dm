@@ -42,8 +42,9 @@
 			S.name = "captain's cape ([index])"
 		var/prev_real_name = H.real_name
 		var/prev_name = H.name
-		H.real_name = "Captain [prev_real_name]"
-		H.name = "Captain [prev_name]"
+		var/honorary = "Knight-Captain"
+		H.real_name = "[honorary] [prev_real_name]"
+		H.name = "[honorary] [prev_name]"
 
 /datum/outfit/job/roguetown/captain/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -93,7 +94,6 @@
 			H.update_hair()
 	ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
-	H.verbs |= /mob/proc/haltyell
 
 /obj/effect/proc_holder/spell/self/convertrole
 	name = "Recruit Beggar"
