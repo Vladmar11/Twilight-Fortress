@@ -53,5 +53,4 @@
 	H.mind.AddSpell(new SPELL_PURGE)
 	H.mind.AddSpell(new SPELL_DEBRIDE)
 	H.mind.AddSpell(new SPELL_CPR)
-	H.verbs |= /mob/proc/haltyell
 	H.ambushable = FALSE
