@@ -1,23 +1,23 @@
 /datum/crafting_recipe/roguetown
 	always_available = TRUE
 	skillcraft = /datum/skill/craft/crafting
-
+	//skill_level = 1
 
 /datum/crafting_recipe/roguetown/tneedle
-	name = "thorn sewing needle"
+	name = "швейная игла из шипа - (1 шип, 1 волокно)"
 	result = /obj/item/needle/thorn
 	reqs = list(/obj/item/natural/thorn = 1,
 				/obj/item/natural/fibers = 1)
 	skill_level = 0
 
 /datum/crafting_recipe/roguetown/whet
-	name = "whet stone"
+	name = "точильный камень - (2 камня; НОВИЧОК)"
 	result = /obj/item/natural/whet
 	reqs = list(/obj/item/natural/stone = 2)
 	skill_level = 1
 
 /datum/crafting_recipe/roguetown/cloth5x
-	name = "cloth 5x (10 fibers; none)"
+	name = "ткани (х5) - (10 волокон)"
 	result = list(
 				/obj/item/natural/cloth,
 				/obj/item/natural/cloth,
@@ -28,150 +28,150 @@
 	reqs = list(/obj/item/natural/fibers = 10)
 	tools = list(/obj/item/needle)
 	skillcraft = /datum/skill/misc/sewing
-	verbage_simple = "sew"
-	verbage = "sews"
+	verbage_simple = "сшиваю"
+	verbage = "сшивает"
 	skill_level = 0
 
 /datum/crafting_recipe/roguetown/clothbelt
-	name = "cloth belt"
+	name = "тканевый пояс - (1 ткань)"
 	result = /obj/item/storage/belt/rogue/leather/cloth
 	reqs = list(/obj/item/natural/cloth = 1)
 	skill_level = 0
-	verbage_simple = "tie"
-	verbage = "ties"
+	verbage_simple = "завязываю"
+	verbage = "завязывает"
 
 /datum/crafting_recipe/roguetown/spoon
-	name = "spoon (x3)"
+	name = "деревянные ложки (x3) - (1 полено)"
 	result = list(/obj/item/kitchen/spoon,
 				/obj/item/kitchen/spoon,
 				/obj/item/kitchen/spoon)
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 
 /datum/crafting_recipe/roguetown/platter
-	name = "plater (x3)"
+	name = "деревянные блюдца (x3) - (1 полено)"
 	result = list(/obj/item/cooking/platter,
 				/obj/item/cooking/platter,
 				/obj/item/cooking/platter)
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 
 /datum/crafting_recipe/roguetown/rollingpin
-	name = "rollingpin"
+	name = "скалка - (1 полено)"
 	result = /obj/item/kitchen/rollingpin
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 
 /datum/crafting_recipe/roguetown/bellcollar
-	name = "leather collar with catbell"
+	name = "кожаный ошейник с бубенцами - (1 ошейник, 1 бубенчик)"
 	result = /obj/item/clothing/neck/roguetown/collar/leather/bell
 	reqs = list(/obj/item/clothing/neck/roguetown/collar/leather = 1, /obj/item/catbell = 1)
 	skill_level = 0
-	verbage_simple = "affix"
-	verbage = "affixes"
+	verbage_simple = "скрепляю"
+	verbage = "скрепляет"
 
 /datum/crafting_recipe/roguetown/bellcollar/cow
-	name = "leather collar with cowbell"
+	name = "кожаный ошейник с колоколом - (1 ошейник, 1 колокол)"
 	result = /obj/item/clothing/neck/roguetown/collar/leather/bell/cow
 	reqs = list(/obj/item/clothing/neck/roguetown/collar/leather = 1, /obj/item/catbell/cow = 1)
 	skill_level = 0
-	verbage_simple = "affix"
-	verbage = "affixes"
+	verbage_simple = "скрепляю"
+	verbage = "скрепляет"
 
 /datum/crafting_recipe/roguetown/unclothbelt
-	name = "untie cloth belt"
+	name = "развязать тканевый пояс"
 	result = /obj/item/natural/cloth
 	reqs = list(/obj/item/storage/belt/rogue/leather/cloth = 1)
 	skill_level = 0
-	verbage_simple = "untie"
-	verbage = "unties"
+	verbage_simple = "развязываю"
+	verbage = "развязывает"
 
 /datum/crafting_recipe/roguetown/ropebelt
-	name = "rope belt"
+	name = "веревочный пояс - (1 веревка)"
 	result = /obj/item/storage/belt/rogue/leather/rope
 	reqs = list(/obj/item/rope = 1)
 	skill_level = 0
-	verbage_simple = "tie"
-	verbage = "ties"
+	verbage_simple = "завязываю"
+	verbage = "завязывает"
 
 /datum/crafting_recipe/roguetown/unropebelt
-	name = "untie rope belt"
+	name = "развязать веревочный пояс"
 	result = /obj/item/rope
 	reqs = list(/obj/item/storage/belt/rogue/leather/rope = 1)
 	skill_level = 0
-	verbage_simple = "untie"
-	verbage = "unties"
+	verbage_simple = "развязываю"
+	verbage = "развязывает"
 
 /datum/crafting_recipe/roguetown/rope
-	name = "rope"
+	name = "веревка - (3 волокна; НОВИЧОК)"
 	result = /obj/item/rope
 	reqs = list(/obj/item/natural/fibers = 3)
-	verbage_simple = "braid"
-	verbage = "braids"
+	verbage_simple = "сплетаю"
+	verbage = "сплетает"
 
 /datum/crafting_recipe/roguetown/bowstring
-	name = "bowstring"
+	name = "тетива - (2 волокна; НОВИЧОК)"
 	result = /obj/item/natural/bowstring
 	reqs = list(/obj/item/natural/fibers = 2)
-	verbage_simple = "twist"
-	verbage = "twists"
+	verbage_simple = "скручиваю"
+	verbage = "скручивает"
 
 /datum/crafting_recipe/roguetown/bowpartial
-	name = "unstrung bow"
+	name = "ненатянутый лук - (1 полено; НОВИЧОК)"
 	result = /obj/item/grown/log/tree/bowpartial
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 	tools = list(/obj/item/rogueweapon/huntingknife)
-	verbage_simple = "carve"
-	verbage = "carves"
+	verbage_simple = "вырезаю"
+	verbage = "вырезает"
 
 /datum/crafting_recipe/roguetown/bow
-	name = "strung bow"
+	name = "деревянный лук - (1 основа, 1 тетива; УЧЕНИК)"
 	result = /obj/item/gun/ballistic/revolver/grenadelauncher/bow
 	reqs = list(/obj/item/natural/bowstring = 1, /obj/item/grown/log/tree/bowpartial = 1)
 	skillcraft = /datum/skill/combat/bows
-	verbage_simple = "string together"
-	verbage = "strings together"
+	verbage_simple = "натягиваю"
+	verbage = "натягивает"
 	skill_level = 2
 
 /datum/crafting_recipe/roguetown/torch
-	name = "torch"
+	name = "факел - (1 палка, 1 волокно)"
 	result = /obj/item/flashlight/flare/torch
 	reqs = list(/obj/item/grown/log/tree/stick = 1,
 				/obj/item/natural/fibers = 1)
 	skill_level = 0
 
 /datum/crafting_recipe/roguetown/candle
-	name = "candle (x3)"
+	name = "свечи (x3) - (2 жира; НОВИЧОК)"
 	result = list(/obj/item/candle/yellow,
 				/obj/item/candle/yellow,
 				/obj/item/candle/yellow)
 	reqs = list(/obj/item/reagent_containers/food/snacks/fat = 2)
 
 /datum/crafting_recipe/roguetown/stoneaxe
-	name = "axe (stone)"
+	name = "каменный топор - (1 полено, 1 камень; НОВИЧОК)"
 	result = /obj/item/rogueweapon/stoneaxe
 	reqs = list(/obj/item/grown/log/tree/small = 1,
 				/obj/item/natural/stone = 1)
 
 
 /datum/crafting_recipe/roguetown/stoneknife
-	name = "knife (stone)"
+	name = "каменный нож - (1 палка, 1 камень)"
 	result = /obj/item/rogueweapon/huntingknife/stoneknife
 	reqs = list(/obj/item/grown/log/tree/stick = 1,
 				/obj/item/natural/stone = 1)
 	skill_level = 0
 
 /datum/crafting_recipe/roguetown/stonespear
-	name = "spear (stone)"
+	name = "каменное копье - (1 посох, 1 камень; УЧЕНИК)"
 	result = /obj/item/rogueweapon/spear/stone
 	reqs = list(/obj/item/rogueweapon/woodstaff = 1,
 				/obj/item/natural/stone = 1)
 	skill_level = 2
 
 /datum/crafting_recipe/roguetown/woodclub
-	name = "club (wood)"
+	name = "деревянная дубина - (1 полено; НОВИЧОК)"
 	result = /obj/item/rogueweapon/mace/woodclub/crafted
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 
 /datum/crafting_recipe/roguetown/billhook
-	name = "improvised billhook"
+	name = "примитивный секач - (1 серп, 1 веревка, 1 полено; УЧЕНИК)"
 	result = /obj/item/rogueweapon/spear/improvisedbillhook
 	reqs = list(/obj/item/rogueweapon/sickle = 1,
 				/obj/item/rope = 1,
@@ -179,7 +179,7 @@
 	skill_level = 2
 
 /datum/crafting_recipe/roguetown/goedendag
-	name = "goedendag"
+	name = "годендаг - (1 полено, 1 веревка, 1 мотыга; УЧЕНИК)"
 	result = /obj/item/rogueweapon/mace/goden
 	reqs = list(/obj/item/grown/log/tree/small = 1,
 				/obj/item/rope = 1,
@@ -187,14 +187,14 @@
 	skill_level = 2
 
 /datum/crafting_recipe/roguetown/peasantwarflail
-	name = "peasant war flail (chain)"
+	name = "крестьянский боевой цеп - (1 цепь, 1 молотилка; УЧЕНИК)"
 	result = /obj/item/rogueweapon/thresher/wflail
 	reqs = list(/obj/item/rope/chain = 1,
 				/obj/item/rogueweapon/thresher = 1)
 	skill_level = 2
 
 /datum/crafting_recipe/roguetown/peasantwarflail_alt
-	name = "peasant war flail (chained)"
+	name = "крестьянский боевой цеп - (1 цепной поводок, 1 молотилка; УЧЕНИК)"
 	result = /obj/item/rogueweapon/thresher/wflail
 	reqs = list(/obj/item/leash/chain = 1,			// wish there werent 2 chains with diff item pathing ngl
 				/obj/item/rogueweapon/thresher = 1)
@@ -204,14 +204,14 @@
 	sellprice = 8
 
 /datum/crafting_recipe/roguetown/woodstaff
-	name = "staff"
+	name = "деревянные посохи (х3) - (1 бревно; НОВИЧОК)"
 	result = list(/obj/item/rogueweapon/woodstaff,
 	/obj/item/rogueweapon/woodstaff,
 	/obj/item/rogueweapon/woodstaff)
 	reqs = list(/obj/item/grown/log/tree = 1)
 
 /datum/crafting_recipe/roguetown/woodsword
-	name = "sword (wood)"
+	name = "деревянные мечи (х3) - (1 полено, 1 волокно; НОВИЧОК)"
 	result = list(/obj/item/rogueweapon/mace/wsword,
 				/obj/item/rogueweapon/mace/wsword,
 				/obj/item/rogueweapon/mace/wsword)
@@ -220,12 +220,12 @@
 	skill_level = 1
 
 /datum/crafting_recipe/roguetown/woodbucket
-	name = "bucket"
+	name = "деревянное ведро - (1 полено)"
 	result = /obj/item/reagent_containers/glass/bucket/wooden
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 
 /datum/crafting_recipe/roguetown/woodcup
-	name = "cups (wood) (x3)"
+	name = "деревянные кружки (x3) - (1 полено; НОВИЧОК)"
 	result = list(/obj/item/reagent_containers/glass/cup/wooden/crafted,
 				/obj/item/reagent_containers/glass/cup/wooden/crafted,
 				/obj/item/reagent_containers/glass/cup/wooden/crafted)
@@ -235,32 +235,32 @@
 	sellprice = 3
 
 /datum/crafting_recipe/roguetown/woodtray
-	name = "trays (wood) (x2)"
-	result = list(/obj/item/storage/bag/tray,
-				/obj/item/storage/bag/tray)
+	name = "деревянные подносы (x2) - (1 полено; НОВИЧОК)"
+	result = list(/obj/item/storage/tray,
+				/obj/item/storage/tray)
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 
 /datum/crafting_recipe/roguetown/woodbowl
-	name = "bowls (wood) (x3)"
+	name = "деревянные миски (x3) - (1 полено; НОВИЧОК)"
 	result = list(/obj/item/reagent_containers/glass/bowl,
 				/obj/item/reagent_containers/glass/bowl,
 				/obj/item/reagent_containers/glass/bowl)
 	reqs = list(/obj/item/grown/log/tree/small = 1)
 
 /datum/crafting_recipe/roguetown/pot
-	name = "pot (stone)"
+	name = "каменный котелок - (2 камня; НОВИЧОК)"
 	result = /obj/item/reagent_containers/glass/bucket/pot/stone
 	reqs = list(/obj/item/natural/stone = 2)
 
 /datum/crafting_recipe/roguetown/stonearrow
-	name = "arrow (stone)"
+	name = "каменная стрела - (1 палка, 1 камень; НОВИЧОК)"
 	result = /obj/item/ammo_casing/caseless/rogue/arrow/stone
 	reqs = list(/obj/item/grown/log/tree/stick = 1,
 				/obj/item/natural/stone = 1)
 	req_table = TRUE
 
 /datum/crafting_recipe/roguetown/stonearrow_five
-	name = "stone arrow (x5)"
+	name = "каменные стрелы (x5) - (5 палок, 5 камней; НОВИЧОК)"
 	result = list(
 				/obj/item/ammo_casing/caseless/rogue/arrow/stone,
 				/obj/item/ammo_casing/caseless/rogue/arrow/stone,
@@ -273,7 +273,7 @@
 	req_table = TRUE
 
 /datum/crafting_recipe/roguetown/poisonarrow
-	name = "poisoned arrow"
+	name = "отравленная стрела - (1 стрела, 1.7oz яда; НОВИЧОК)"
 	result = /obj/item/ammo_casing/caseless/rogue/arrow/poison
 	reqs = list(
 				/obj/item/ammo_casing/caseless/rogue/arrow/iron = 1,
@@ -282,7 +282,7 @@
 	req_table = TRUE
 
 /datum/crafting_recipe/roguetown/poisonarrow_stone
-	name = "poisoned stone arrow"
+	name = "отравленная каменная стрела - (1 стрела, 1.7oz яда; НОВИЧОК)"
 	result = /obj/item/ammo_casing/caseless/rogue/arrow/stone/poison
 	reqs = list(
 				/obj/item/ammo_casing/caseless/rogue/arrow/stone = 1,
@@ -300,7 +300,7 @@
 	req_table = TRUE
 */
 /datum/crafting_recipe/roguetown/poisonarrow_five //Arrows and bolts can be smithed in batches of five. Makes sense for them to be dipped in batches of five, too
-	name = "poisoned arrow (x5)"
+	name = "отравленные стрелы (x5) - (5 стрел, 8.3oz яда; НОВИЧОК)"
 	result = list(
 				/obj/item/ammo_casing/caseless/rogue/arrow/poison,
 				/obj/item/ammo_casing/caseless/rogue/arrow/poison,
@@ -324,7 +324,7 @@
 	req_table = TRUE
 */
 /datum/crafting_recipe/roguetown/poisonarrow_five_stone
-	name = "poisoned stone arrow (x5)"
+	name = "отравленные каменные стрелы (x5) - (5 стрел, 8.3oz яда; НОВИЧОК)"
 	result = list(
 				/obj/item/ammo_casing/caseless/rogue/arrow/stone/poison,
 				/obj/item/ammo_casing/caseless/rogue/arrow/stone/poison,
@@ -340,7 +340,7 @@
 	req_table = TRUE
 
 /datum/crafting_recipe/roguetown/sackx5
-	name = "sack x5 (5 cloth, 5 fibers; NONE)"
+	name = "мешки (х5) - (5 тканей, 5 волокон; НОВИЧОК)"
 	result = list(
 				/obj/item/storage/roguebag/crafted,
 				/obj/item/storage/roguebag/crafted,
@@ -359,7 +359,7 @@
 
 
 /datum/crafting_recipe/roguetown/bait
-	name = "bait"
+	name = "приманка - (1 мешок, 2 пшеницы; НОВИЧОК)"
 	result = /obj/item/bait
 	reqs = list(/obj/item/storage/roguebag = 1,
 				/obj/item/reagent_containers/food/snacks/grown/wheat = 2)
@@ -367,7 +367,7 @@
 	subtype_reqs = TRUE
 
 /datum/crafting_recipe/roguetown/sbaita
-	name = "sweetbait (apple)"
+	name = "сладкая приманка (яблоко) - (1 мешок, 2 яблока; НОВИЧОК)"
 	result = /obj/item/bait/sweet
 	reqs = list(/obj/item/storage/roguebag = 1,
 				/obj/item/reagent_containers/food/snacks/grown/apple = 2)
@@ -375,7 +375,7 @@
 	subtype_reqs = TRUE
 
 /datum/crafting_recipe/roguetown/sbait
-	name = "sweetbait (berry)"
+	name = "сладкая приманка (ягоды) - (1 мешок, 2 ягоды; НОВИЧОК)"
 	result = /obj/item/bait/sweet
 	reqs = list(/obj/item/storage/roguebag = 1,
 				/obj/item/reagent_containers/food/snacks/grown/berries/rogue = 2)
@@ -383,7 +383,7 @@
 	subtype_reqs = TRUE
 
 /datum/crafting_recipe/roguetown/bloodbait
-	name = "bloodbait"
+	name = "мясная приманка - (1 мешок, 2 мяса; НОВИЧОК)"
 	result = /obj/item/bait/bloody
 	reqs = list(/obj/item/storage/roguebag = 1,
 				/obj/item/reagent_containers/food/snacks/rogue/meat = 2)
@@ -391,7 +391,7 @@
 	subtype_reqs = TRUE
 
 /datum/crafting_recipe/roguetown/pipe
-	name = "smoking pipe"
+	name = "деревянная трубка - (1 палка; НОВИЧОК)"
 	result = /obj/item/clothing/mask/cigarette/pipe/crafted
 	reqs = list(/obj/item/grown/log/tree/stick = 1)
 
@@ -400,7 +400,7 @@
 	sellprice = 4
 
 /datum/crafting_recipe/roguetown/rod
-	name = "fishing rod"
+	name = "удочка - (1 полено, 2 волокна; НОВИЧОК)"
 	result = /obj/item/fishingrod/crafted
 	reqs = list(/obj/item/grown/log/tree/small = 1,
 		/obj/item/natural/fibers = 2)
@@ -410,7 +410,7 @@
 	sellprice = 8
 
 /datum/crafting_recipe/roguetown/woodspade
-	name = "spade"
+	name = "деревянная лопатка - (1 полено, 1 полено; НОВИЧОК)"
 	result = /obj/item/rogueweapon/shovel/small
 	reqs = list(/obj/item/grown/log/tree/small = 1,
 			/obj/item/grown/log/tree/stick = 1)
@@ -418,7 +418,7 @@
 	sellprice = 5
 
 /datum/crafting_recipe/roguetown/book_crafting_kit
-	name = "book crafting kit"
+	name = "набор для создания книги - (2 кожи, 1 ткань; НОВИЧОК)"
 	result = /obj/item/book_crafting_kit
 	reqs = list(
 			/obj/item/natural/hide = 2,
@@ -427,13 +427,13 @@
 	req_table = TRUE
 
 /datum/crafting_recipe/roguetown/woodcross
-	name = "amulet (wood)"
+	name = "деревянный амулет - (2 волокна, 2 палки; НОВИЧОК)"
 	result = /obj/item/clothing/neck/roguetown/psicross/wood
 	reqs = list(/obj/item/natural/fibers = 2,
 				/obj/item/grown/log/tree/stick = 2)
 
 /datum/crafting_recipe/roguetown/mantrap
-	name = "mantrap"
+	name = "капканы (х2) - (1 полено, 2 волокна, 1 железо; НОВИЧОК)"
 	result = list(/obj/item/restraints/legcuffs/beartrap,
 				/obj/item/restraints/legcuffs/beartrap)
 	reqs = list(/obj/item/grown/log/tree/small = 1,
@@ -445,7 +445,7 @@
 	verbage = "puts together"
 
 /datum/crafting_recipe/roguetown/paperscroll
-	name = "scroll of parchment (x5)"
+	name = "свитки пергамента (x5) - (1 полено, 16.6oz воды; НОВИЧОК)"
 	result = list(/obj/item/paper/scroll,
 				  /obj/item/paper/scroll,
 				  /obj/item/paper/scroll,
@@ -458,7 +458,7 @@
 	skill_level = 1
 
 /datum/crafting_recipe/roguetown/parchment
-	name = "paper parchment (x8)"
+	name = "листы пергамента (x8) - (1 полено, 10oz воды; НОВИЧОК)"
 	result = list(/obj/item/paper,
 				  /obj/item/paper,
 				  /obj/item/paper,
@@ -475,7 +475,7 @@
 
 
 /datum/crafting_recipe/roguetown/briarmask
-	name = "briarmask"
+	name = "маска друидов - (4 палки, 3 волокна; УЧЕНИК)"
 	result = /obj/item/clothing/head/roguetown/dendormask
 	reqs = list(/obj/item/grown/log/tree/stick = 4,
 				/obj/item/natural/fibers = 3)
@@ -489,14 +489,14 @@
 	tools = list(/obj/item/rogueweapon/huntingknife = 1)
 
 /datum/crafting_recipe/roguetown/lumberjacking/cart_upgrade
-	name = "upgrade cog"
+	name = "улучшить шестерню - (2 полена, 1 камень; УЧЕНИК)"
 	result = /obj/item/roguegear/wood/basic
 	reqs = list(/obj/item/grown/log/tree/small = 2,
 				/obj/item/natural/stone = 1)
 	skill_level = 2
 
 /datum/crafting_recipe/roguetown/sawedoff
-	name = "handgonne"
+	name = "укоротить аркебузу"
 	result = /obj/item/gun/ballistic/firearm/handgonne
 	reqs = list(/obj/item/gun/ballistic/firearm/arquebus = 1)
 	skill_level = 0
@@ -506,7 +506,7 @@
 // Blacksmithing Recipes
 
 /datum/crafting_recipe/roguetown/gorget/oring
-	name = "ringed gorget"
+	name = "приковать кольцо к горжету (УЧЕНИК)"
 	skillcraft = /datum/skill/craft/blacksmithing
 	reqs = list(/obj/item/clothing/neck/roguetown/gorget = 1)
 	result = /obj/item/clothing/neck/roguetown/gorget/oring
@@ -515,7 +515,7 @@
 	req_table = TRUE
 
 /datum/crafting_recipe/roguetown/gorget/soring
-	name = "ringed steel gorget"
+	name = "приковать кольцо к стальному горжету (УЧЕНИК)"
 	skillcraft = /datum/skill/craft/blacksmithing
 	reqs = list(/obj/item/clothing/neck/roguetown/gorget/steel = 1)
 	result = /obj/item/clothing/neck/roguetown/gorget/steel/oring
@@ -524,7 +524,7 @@
 	req_table = TRUE
 
 /datum/crafting_recipe/roguetown/chainleash
-	name = "chain leash"
+	name = "поводок из цепи - (1 цепь; УЧЕНИК)"
 	skillcraft = /datum/skill/craft/blacksmithing
 	reqs = list(/obj/item/rope/chain = 1)
 	result = /obj/item/leash/chain
@@ -535,7 +535,7 @@
 //Siege
 
 /datum/crafting_recipe/roguetown/boulder
-	name = "boulder"
+	name = "валун - (5 камней; НОВИЧОК)"
 	result = /obj/item/boulder
 	reqs = list(/obj/item/natural/stone = 5)
 	always_available = TRUE

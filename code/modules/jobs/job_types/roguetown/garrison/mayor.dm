@@ -8,9 +8,8 @@
 
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_TOLERATED_UP
-	allowed_ages = list(AGE_MIDDLEAGED, AGE_OLD)
-	tutorial = "Whether you are a crooked politician or a true benefactor, the cityfolk now turn to you for guidance on smaller matters. \
-				The Duke may hold the official title, but with the Sheriff under your command, will you submit to the weight of tradition or reshape the very idea of authority?"
+	tutorial = "Будь вы продажным политиком или настоящим благодетелем, горожане теперь обращаются к вам за советом по мелким вопросам. \
+				Герцог может и носить официальный титул, но с шерифом под вашим началом, подчинитесь ли вы грузу традиций или измените саму идею власти?"
 	whitelist_req = TRUE
 	outfit = /datum/outfit/job/roguetown/mayor
 	display_order = JDO_MAYOR
@@ -28,8 +27,8 @@
 	..()
 
 	r_hand = /obj/item/gun/ballistic/firearm/arquebus_pistol
-	head = /obj/item/clothing/head/roguetown/nightman //will do for now
-	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest
+	head = /obj/item/clothing/head/roguetown/stewardtophat
+	armor = /obj/item/clothing/suit/roguetown/shirt/tunic/noblecoat
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
 	pants = /obj/item/clothing/under/roguetown/tights/black
 	shoes = /obj/item/clothing/shoes/roguetown/armor

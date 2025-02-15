@@ -1,5 +1,5 @@
 /datum/wound/slash
-	name = "slash"
+	name = "порез"
 	whp = 30
 	sewn_whp = 10
 	bleed_rate = 0.4
@@ -16,7 +16,7 @@
 	can_cauterize = TRUE
 
 /datum/wound/slash/small
-	name = "small slash"
+	name = "небольшой порез"
 	whp = 15
 	sewn_whp = 5
 	bleed_rate = 0.2
@@ -28,7 +28,7 @@
 	sew_threshold = 25
 
 /datum/wound/slash/large
-	name = "gruesome slash"
+	name = "ужасный порез"
 	whp = 40
 	sewn_whp = 12
 	bleed_rate = 1
@@ -40,12 +40,12 @@
 	sew_threshold = 75
 
 /datum/wound/slash/disembowel
-	name = "disembowelment"
-	check_name = span_userdanger("<B>GUTS</B>")
+	name = "потрошение"
+	check_name = span_userdanger("<B>КИШКИ</B>")
 	severity = WOUND_SEVERITY_FATAL
 	crit_message = list(
-		"%VICTIM spills %P_THEIR organs!",
-		"%VICTIM spills %P_THEIR entrails!",
+		"%VICTIM рассыпает %P_THEIR органы!",
+		"%VICTIM демонстрирует %P_THEIR внутренности!",
 	)
 	sound_effect = 'sound/combat/crit2.ogg'
 	whp = 100
@@ -101,8 +101,8 @@
 			cavity.cavity_item = null
 
 /datum/wound/slash/incision
-	name = "incision"
-	check_name = span_bloody("<B>INCISION</B>")
+	name = "надрез"
+	check_name = span_bloody("<B>НАДРЕЗ</B>")
 	severity = WOUND_SEVERITY_SUPERFICIAL
 	whp = 40
 	sewn_whp = 12

@@ -1,6 +1,6 @@
 /obj/item/clothing/gloves/roguetown/shadow
-	name = "silk gloves"
-	desc = "Silken gloves, usually used by the wealthy for the material, or by thieves for the light weight and smooth material."
+	name = "шелковые перчатки"
+	desc = "Перчатки, сшитые из тончайшего шелка. Обычно используются богатыми людьми из-за материала, из которого они сделаны, или ворами из-за легкости, прочности и удобства."
 	icon = 'icons/roguetown/clothing/newclothes/objgloves.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/newclothes/onmob/onmobgloves.dmi'
 	sleeved = 'icons/roguetown/clothing/newclothes/onmob/onmobgloves.dmi'
@@ -11,11 +11,13 @@
 	max_integrity = 150
 	break_sound = 'sound/foley/cloth_rip.ogg'
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
-	salvage_result = /obj/item/natural/silk
+	fiber_salvage = FALSE
+	silk_salvage = TRUE
+	salvage_amount = 1
 
 /obj/item/clothing/gloves/roguetown/wrap
-	name = "cloth wrappings"
-	desc = "Some cloth used to be wrapped around your hands. It won't protect them from much."
+	name = "тканевые обмотки для рук"
+	desc = "Кусок ткани, чтобы обмотать ею руки. Это не защитит их от многого, но хотя бы что-то."
 	icon = 'icons/roguetown/clothing/newclothes/objgloves.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/newclothes/onmob/onmobgloves.dmi'
 	sleeved = 'icons/roguetown/clothing/newclothes/onmob/onmobgloves.dmi'

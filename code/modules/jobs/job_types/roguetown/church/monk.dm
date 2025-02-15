@@ -10,7 +10,10 @@
 	allowed_patrons = ALL_ACOLYTE_PATRONS
 	allowed_sexes = list(MALE, FEMALE)
 	outfit = /datum/outfit/job/roguetown/monk
-	tutorial = "Chores, some more chores- Even more chores.. Oh how the life of a humble cleric is exhausting… You have faith, but even you know you gave up a life of adventure for that of the security in the Church. Assist the Priest in their daily tasks, maybe today will be the day something interesting happens."
+	tutorial = "Обязанности, еще обязанности... Еще больше обязанностей... \
+	О, как утомительна жизнь скромного аколита... \
+	У вас есть вера, но даже вы знаете, что отказались от жизни, полной приключений, ради безопасности в Церкви. \
+	Помогай жрецу в его повседневных делах, может быть, именно сегодня произойдет что-то интересное."
 
 	display_order = JDO_MONK
 	give_bank_account = TRUE
@@ -32,7 +35,7 @@
 /datum/outfit/job/roguetown/monk
 	name = "Acolyte"
 	jobtype = /datum/job/roguetown/monk
-	allowed_patrons = list(/datum/patron/divine/pestra, /datum/patron/divine/astrata, /datum/patron/divine/malum, /datum/patron/divine/eora)
+	allowed_patrons = list(/datum/patron/divine/pestra, /datum/patron/divine/astrata, /datum/patron/divine/malum, /datum/patron/divine/eora, /datum/patron/divine/abyssor, /datum/patron/divine/ravox, /datum/patron/divine/xylix)
 	
 /datum/outfit/job/roguetown/monk/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -57,6 +60,13 @@
 			head = /obj/item/clothing/head/roguetown/dendormask
 			neck = /obj/item/clothing/neck/roguetown/psicross/dendor
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/dendor
+		if(/datum/patron/divine/abyssor) // the deep calls!
+			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
+			shoes = /obj/item/clothing/shoes/roguetown/sandals
+			pants = /obj/item/clothing/under/roguetown/tights
+			neck = /obj/item/clothing/neck/roguetown/psicross/abyssor
+			armor = /obj/item/clothing/suit/roguetown/shirt/robe/abyssor
+			head = /obj/item/clothing/head/roguetown/roguehood/abyssor		
 		if(/datum/patron/divine/necra) //disabled and moved unto gravedigger, but code supports it
 			head = /obj/item/clothing/head/roguetown/necrahood
 			neck = /obj/item/clothing/neck/roguetown/psicross/necra
@@ -77,10 +87,27 @@
 			shirt = /obj/item/clothing/suit/roguetown/shirt/dress/gen/black
 			cloak = /obj/item/clothing/cloak/apron/blacksmith
 		if(/datum/patron/divine/eora)
-			head = /obj/item/clothing/head/roguetown/eoramask
+			mask = /obj/item/clothing/mask/rogue/eoran_mask
 			neck = /obj/item/clothing/neck/roguetown/psicross/eora
 			shoes = /obj/item/clothing/shoes/roguetown/sandals
 			armor = /obj/item/clothing/suit/roguetown/shirt/robe/eora
+		if(/datum/patron/divine/ravox)
+			head = /obj/item/clothing/head/roguetown/roguehood/ravox
+			mask = /obj/item/clothing/mask/rogue/lordmask/naledi
+			neck = /obj/item/clothing/neck/roguetown/psicross/ravox
+			shoes = /obj/item/clothing/shoes/roguetown/sandals
+			armor = /obj/item/clothing/suit/roguetown/shirt/robe/ravox
+			pants = /obj/item/clothing/under/roguetown/trou/leather/mourning
+			gloves = /obj/item/clothing/gloves/roguetown/leather/ravox
+		if(/datum/patron/divine/xylix)
+			shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/black
+			gloves = /obj/item/clothing/gloves/roguetown/leather/xylix
+			armor = /obj/item/clothing/suit/roguetown/shirt/robe/pointfex
+			head = /obj/item/clothing/head/roguetown/roguehood/shalal/xylixheavyhood
+			mask = /obj/item/clothing/mask/rogue/lordmask/shadowfacemask
+			neck = /obj/item/clothing/neck/roguetown/psicross/xylix
+			shoes = /obj/item/clothing/shoes/roguetown/sandals
+			pants = /obj/item/clothing/under/roguetown/trou/leather/mourning
 		else
 			head = /obj/item/clothing/head/roguetown/roguehood/astrata
 			neck = /obj/item/clothing/neck/roguetown/psicross/astrata

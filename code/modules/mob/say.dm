@@ -122,6 +122,7 @@
 		emote(copytext_char(message, 2), intentional = !forced, custom_me = TRUE)
 		return TRUE
 
+
 /mob/proc/check_whisper(message, forced)
 	if(copytext_char(message, 1, 2) == "+")
 		whisper(copytext_char(message, 2),sanitize = FALSE)//already sani'd

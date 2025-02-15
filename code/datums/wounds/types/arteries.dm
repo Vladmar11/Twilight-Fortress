@@ -1,8 +1,8 @@
 /datum/wound/artery
-	name = "severed artery"
-	check_name = span_artery("<B>ARTERY</B>")
+	name = "перерезанная артерия"
+	check_name = span_artery("<B>АРТЕРИЯ</B>")
 	severity = WOUND_SEVERITY_CRITICAL
-	crit_message = "Blood sprays from %VICTIM's %BODYPART!"
+	crit_message = "%VICTIM быстро истекает кровью из %BODYPART!"
 	sound_effect = 'sound/combat/crit.ogg'
 	whp = 50
 	sewn_whp = 20
@@ -39,10 +39,10 @@
 	affected.temporary_crit_paralysis(10 SECONDS)
 
 /datum/wound/artery/neck
-	name = "torn carotid"
-	check_name = span_artery("<B>CAROTID</B>")
+	name = "разорванная сонная артерия"
+	check_name = span_artery("<B>СОННАЯ АРТЕРИЯ</B>")
 	severity = WOUND_SEVERITY_FATAL
-	crit_message = "Blood sprays from %VICTIM's throat!"
+	crit_message = "%VICTIM обильно брызжет кровью из своего горла!"
 	whp = 100
 	sewn_whp = 25
 	bleed_rate = 50
@@ -60,8 +60,8 @@
 	REMOVE_TRAIT(affected, TRAIT_GARGLE_SPEECH, "[type]")
 
 /datum/wound/artery/chest
-	name = "aortic dissection"
-	check_name = span_artery("<B>AORTA</B>")
+	name = "рассечение аорты"
+	check_name = span_artery("<B>АОРТА</B>")
 	severity = WOUND_SEVERITY_FATAL
 	whp = 100
 	sewn_whp = 35
@@ -76,11 +76,11 @@
 		var/mob/living/carbon/carbon_affected = affected
 		carbon_affected.vomit(blood = TRUE)
 	var/static/list/heartaches = list(
-		"OOHHHH MY HEART!",
-		"MY HEART! IT HURTS!",
-		"I AM DYING!",
-		"MY HEART IS TORN!",
-		"MY HEART IS BLEEDING!",
+		"СЕДРЦЕ! С-СЕРДЦЕ!!!",
+		"МОЕ СЕРДЦЕ! КАК БОЛЬНО!",
+		"Я УМИРАЮ!",
+		"БОЛЬ В ОБЛАСТИ СЕРДЦА ПРОСТО НЕВЫНОСИМА!",
+		"ТАК БОЛЬНО, Я СЕЙЧАС УМРУ!!!",
 	)
 	to_chat(affected, span_userdanger("[pick(heartaches)]"))
 	if(HAS_TRAIT(affected, TRAIT_CRITICAL_WEAKNESS))
@@ -95,8 +95,8 @@
 		carbon_owner.vomit(1, blood = TRUE, stun = TRUE)
 
 /datum/wound/artery/reattachment
-	name = "replantation"
-	check_name = span_artery("<B>UNSEWN</B>")
+	name = "незавершенная пересадка"
+	check_name = span_artery("<B>НЕ ЗАШИТА АРТЕРИЯ</B>")
 	severity = WOUND_SEVERITY_FATAL
 	whp = 100
 	sewn_whp = 90

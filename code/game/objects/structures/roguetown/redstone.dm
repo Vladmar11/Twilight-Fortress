@@ -17,8 +17,8 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	return
 
 /obj/structure/lever
-	name = "lever"
-	desc = "I want to pull it."
+	name = "рычаг"
+	desc = "Я хочу его дернуть."
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "leverfloor0"
 	density = FALSE
@@ -31,7 +31,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 		var/mob/living/L = user
 		L.changeNext_move(CLICK_CD_MELEE)
 		var/used_time = 100 - (L.STASTR * 10)
-		user.visible_message(span_warning("[user] pulls the lever."))
+		user.visible_message(span_warning("[user] дергает за рычаг."))
 		log_game("[key_name(user)] pulled the lever with redstone id \"[redstone_id]\"")
 		if(do_after(user, used_time, target = user))
 			for(var/obj/structure/O in redstone_attached)
@@ -44,7 +44,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	if(isliving(user))
 		var/mob/living/L = user
 		L.changeNext_move(CLICK_CD_MELEE)
-		user.visible_message("<span class='warning'>[user] kicks the lever!</span>")
+		user.visible_message("<span class='warning'>[user] пинает по рычагу!</span>")
 		playsound(src, 'sound/combat/hits/onwood/woodimpact (1).ogg', 100)
 		if(prob(L.STASTR * 4))
 			for(var/obj/structure/O in redstone_attached)
@@ -84,8 +84,8 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	
 
 /obj/structure/repeater
-	name = "repeater"
-	desc = "Repeats a signal a set amount of times into an adjacently linked machine when activated by a signal. Looks suspiciously like a barrel."
+	name = "повторитель"
+	desc = "Повторяет сигнал заданное количество раз на соседней машине при активации. Подозрительно похож на бочку."
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "repeater"
 	max_integrity = 5
@@ -295,8 +295,8 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	return ..()
 
 /obj/structure/floordoor
-	name = "floorhatch"
-	desc = "A handy floor hatch for people who need privacy upstairs."
+	name = "люк"
+	desc = "Удобный люк в полу для людей, которым необходимо уединение наверху... Или для тех, кто скоро полетит вниз."
 	icon = 'icons/roguetown/misc/structure.dmi'
 	icon_state = "floorhatch1"
 	density = FALSE
@@ -375,8 +375,8 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	delay2close = 10
 
 /obj/structure/kybraxor
-	name = "Kybraxor the Devourer"
-	desc = "The mad duke's hungriest pet."
+	name = "Кибраксор Пожиратель"
+	desc = "Самый голодный питомец герцога."
 	density = FALSE
 	nomouseover = TRUE
 	icon = 'icons/roguetown/misc/96x96.dmi'

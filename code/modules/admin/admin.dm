@@ -52,6 +52,15 @@
 		body += "<a href='?_src_=holder;[HrefToken()];modantagrep=subtract;mob=[REF(M)]'>\[decrease\]</a> "
 		body += "<a href='?_src_=holder;[HrefToken()];modantagrep=set;mob=[REF(M)]'>\[set\]</a> "
 		body += "<a href='?_src_=holder;[HrefToken()];modantagrep=zero;mob=[REF(M)]'>\[zero\]</a>"
+
+		//PQ
+		body += "<br><br><b>Player Quality:</b> [get_playerquality(M.ckey, FALSE)]"
+		body += "  <a href='?_src_=holder;[HrefToken()];modpq=adjust;mob=[REF(M)]'>\[adjust\]</a>     "
+
+		//Triumphs
+		body += "<b>Triumphs:</b> [M.get_triumphs()]"
+		body += "  <a href='?_src_=holder;[HrefToken()];modtriumphs=adjust;mob=[REF(M)]'>\[adjust\]</a>"
+		
 		var/full_version = "Unknown"
 		if(M.client.byond_version)
 			full_version = "[M.client.byond_version].[M.client.byond_build ? M.client.byond_build : "xxx"]"
@@ -867,3 +876,36 @@
 	epicenter.pollute_turf(choice, amount_choice)
 	message_admins("[ADMIN_LOOKUPFLW(usr)] spawned pollution at [epicenter.loc] ([choice] - [amount_choice]).")
 	log_admin("[key_name(usr)] spawned pollution at [epicenter.loc] ([choice] - [amount_choice]).")
+
+/datum/admins/proc/sleepall()
+	set name = "inview Sleep"
+	set category = "GameMaster"
+	set hidden = FALSE
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	if(alert("This will sleep ALL mobs within your view range. Are you sure?",,"Yes","Cancel") == "Cancel")
+		return
+	for(var/mob/living/M in view(usr.client))
+		M.SetSleeping(999999)
+
+	message_admins("[key_name(usr)] used Toggle Sleep In View.")
+
+/datum/admins/proc/wakeall()
+	set name = "inview Wake"
+	set category = "GameMaster"
+	set hidden = FALSE
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	if(alert("This wake ALL mobs within your view range. Are you sure?",,"Yes","Cancel") == "Cancel")
+		return
+	for(var/mob/living/M in view(usr.client))
+		var/S = M.IsSleeping()
+		if(S)
+			M.remove_status_effect(S)
+			M.set_resting(FALSE, TRUE)
+
+	message_admins("[key_name(usr)] used Toggle Wake In View.")

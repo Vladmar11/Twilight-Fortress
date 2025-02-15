@@ -1,5 +1,5 @@
 /obj/effect/decal/remains
-	name = "remains"
+	name = "останки"
 	gender = PLURAL
 	icon = 'icons/effects/blood.dmi'
 

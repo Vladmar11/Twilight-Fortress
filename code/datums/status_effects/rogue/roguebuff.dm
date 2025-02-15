@@ -9,8 +9,8 @@
 	duration = 5 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/drunk
-	name = "Drunk"
-	desc = ""
+	name = "Опьянение"
+	desc = "Пьяному и море по колено."
 	icon_state = "drunk"
 
 
@@ -21,8 +21,8 @@
 	duration = 10 MINUTES
 
 /atom/movable/screen/alert/status_effect/buff/foodbuff
-	name = "Great Meal"
-	desc = ""
+	name = "Отличная еда"
+	desc = "Хорошая еда - лучшее лекарство для тела."
 	icon_state = "foodbuff"
 
 /datum/status_effect/buff/druqks
@@ -57,8 +57,8 @@
 	. = ..()
 
 /atom/movable/screen/alert/status_effect/buff/druqks
-	name = "High"
-	desc = ""
+	name = "Под веществами"
+	desc = "Чудеса алхимии изменили ваше тело. На какое-то время"
 	icon_state = "acid"
 
 /datum/status_effect/buff/eoradruqks
@@ -170,13 +170,13 @@
 	. = ..()
 
 /atom/movable/screen/alert/status_effect/buff/weed
-	name = "Dazed"
-	desc = ""
+	name = "Галлюцинации"
+	desc = "Мне кажется, или мир вокруг стал слишком уж ярким?"
 	icon_state = "weed"
 
 /atom/movable/screen/alert/status_effect/buff/featherfall
-	name = "Featherfall"
-	desc = "I am somewhat protected against falling from heights."
+	name = "Легкое падение"
+	desc = "Я в некоторой степени защищен от падения с высоты."
 	icon_state = "buff"
 
 /datum/status_effect/buff/featherfall
@@ -186,17 +186,17 @@
 
 /datum/status_effect/buff/featherfall/on_apply()
 	. = ..()
-	to_chat(owner, span_warning("I feel lighter."))
+	to_chat(owner, span_warning("Я чувствую небывалую легкость."))
 	ADD_TRAIT(owner, TRAIT_NOFALLDAMAGE1, MAGIC_TRAIT)
 
 /datum/status_effect/buff/featherfall/on_remove()
 	. = ..()
-	to_chat(owner, span_warning("The feeling of lightness fades."))
+	to_chat(owner, span_warning("Ощущение легкости исчезает."))
 	REMOVE_TRAIT(owner, TRAIT_NOFALLDAMAGE1, MAGIC_TRAIT)
 
 /atom/movable/screen/alert/status_effect/buff/darkvision
-	name = "Darkvision"
-	desc = "I can see in the dark somewhat."
+	name = "Темное зрение"
+	desc = "Я немного вижу в темноте."
 	icon_state = "buff"
 
 /datum/status_effect/buff/darkvision
@@ -206,7 +206,7 @@
 
 /datum/status_effect/buff/darkvision/on_apply()
 	. = ..()
-	to_chat(owner, span_warning("The darkness fades somewhat."))
+	to_chat(owner, span_warning("Темнота несколько рассеивается."))
 	if(HAS_TRAIT(owner, TRAIT_DARKVISION))
 		ADD_TRAIT(owner, TRAIT_DARKVISION_BETTER, MAGIC_TRAIT)
 	else if(HAS_TRAIT(owner, TRAIT_NOCTURNAL))
@@ -216,15 +216,15 @@
 
 /datum/status_effect/buff/darkvision/on_remove()
 	. = ..()
-	to_chat(owner, span_warning("The darkness returns to normal."))
+	to_chat(owner, span_warning("Темнота снова сгущается вокруг..."))
 	if(HAS_TRAIT(owner, TRAIT_DARKVISION_BETTER))
 		REMOVE_TRAIT(owner, TRAIT_DARKVISION_BETTER, MAGIC_TRAIT)
 	else	
 		REMOVE_TRAIT(owner, TRAIT_DARKVISION, MAGIC_TRAIT)
 
 /atom/movable/screen/alert/status_effect/buff/haste
-	name = "Haste"
-	desc = "I am magically hastened."
+	name = "Спешка"
+	desc = "Я волшебным образом двигаюсь быстрее."
 	icon_state = "buff"
 
 /datum/status_effect/buff/haste
@@ -240,7 +240,7 @@
 	duration = 20 SECONDS
 
 /atom/movable/screen/alert/status_effect/buff/seelie_drugs
-	name = "High"
+	name = "Галлюцинации Феи"
 	desc = ""
 	icon_state = "acid"
 
@@ -275,8 +275,8 @@
 	duration = 60 SECONDS
 
 /atom/movable/screen/alert/status_effect/buff/seelie/happy
-	name = "Seelie Blessing"
-	desc = "A nearby Seelie has brought me fortune."
+	name = "Благословение Феи"
+	desc = "Ближайшая Фея принесла мне удачу."
 	icon_state = "stressg"
 
 
@@ -287,6 +287,6 @@
 	duration = 5 SECONDS
 
 /atom/movable/screen/alert/status_effect/buff/darkling_darkly
-	name = "Darkling"
-	desc = "You are at home in the dark. Unbothered. In your lane. Moisturized."
+	name = "Теневая сущность"
+	desc = "В темноте вы как дома. Без страха, в своей обители."
 	icon_state = "stressg"

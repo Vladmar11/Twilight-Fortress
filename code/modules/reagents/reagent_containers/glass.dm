@@ -52,31 +52,31 @@
 								if(do_after(user, 20, target = M))
 									reagents.add_reagent(/datum/reagent/consumable/milk, milk_to_take)
 									humanized.getorganslot(ORGAN_SLOT_BREASTS).milk_stored -= milk_to_take
-									user.visible_message(span_notice("[user] milks [M] using \the [src]."), span_notice("I milk [M] using \the [src]."))
+									user.visible_message(span_notice("[user] доит [M] в [src]."), span_notice("Я дою [M] в [src]."))
 							else
-								to_chat(user, span_warning("[src] is full."))
+								to_chat(user, span_warning("В [src] нет свободного места."))
 						else
 							var/obj/item/organ/vagina/vagina = M.getorganslot(ORGAN_SLOT_VAGINA)
 							if(vagina && vagina.pregnant)
-								to_chat(user, span_warning("[M] is out of milk!"))
+								to_chat(user, span_warning("У [M] нет молока!"))
 							else
-								to_chat(user, span_warning("[M] Does not seem to be producing milk."))
+								to_chat(user, span_warning("[M] не производит молоко."))
 					else
-						to_chat(user, span_warning("[M] cannot be milked!"))
+						to_chat(user, span_warning("[M] невозможно подоить!"))
 				else
-					to_chat(user, span_warning("[M]'s chest must be exposed before I can milk them!"))
+					to_chat(user, span_warning("Грудь [M] должна быть обнажена перед дойкой!"))
 				return 1
 		if(!spillable)
 			return
 
 
 		if(!reagents || !reagents.total_volume)
-			to_chat(user, span_warning("[src] is empty!"))
+			to_chat(user, span_warning("В [src] ничего нет!"))
 			return
 		if(user.used_intent.type == INTENT_SPLASH)
 			var/R
-			M.visible_message(span_danger("[user] splashes the contents of [src] onto [M]!"), \
-							span_danger("[user] splashes the contents of [src] onto you!"))
+			M.visible_message(span_danger("[user] выплеснул[user.rus_a()] содержимое [src] на [M]!"), \
+							span_danger("[user] выплеснул[user.rus_a()] содержимое [src] на вас!"))
 			if(reagents)
 				for(var/datum/reagent/A in reagents.reagent_list)
 					R += "[A] ([num2text(A.volume)]),"
@@ -92,17 +92,17 @@
 			if(!canconsume(M, user))
 				return
 			if(M != user)
-				M.visible_message(span_danger("[user] attempts to feed [M] something."), \
-							span_danger("[user] attempts to feed you something."))
+				M.visible_message(span_danger("[user] пытается чем-то напоить [M]."), \
+							span_danger("[user] пытается вас чем-то напоить."))
 				if(!do_mob(user, M))
 					return
 				if(!reagents || !reagents.total_volume)
 					return // The drink might be empty after the delay, such as by spam-feeding
-				M.visible_message(span_danger("[user] feeds [M] something."), \
-							span_danger("[user] feeds you something."))
+				M.visible_message(span_danger("[user] чем-то поит [M]."), \
+							span_danger("[user] чем-то поит вас."))
 				log_combat(user, M, "fed", reagents.log_list())
 			else
-				to_chat(user, span_notice("I swallow a gulp of [src]."))
+				to_chat(user, span_notice("Я делаю глоток из [src]."))
 			addtimer(CALLBACK(reagents, TYPE_PROC_REF(/datum/reagents, trans_to), M, min(amount_per_transfer_from_this,5), TRUE, TRUE, FALSE, user, FALSE, INGEST), 5)
 			playsound(M.loc,pick(drinksounds), 100, TRUE)
 			return
@@ -119,14 +119,14 @@
 	if(target.is_refillable() && (user.used_intent.type == INTENT_POUR)) //Something like a glass. Player probably wants to transfer TO it.
 		testing("attackobj2")
 		if(!reagents.total_volume)
-			to_chat(user, span_warning("[src] is empty!"))
+			to_chat(user, span_warning("В [src] ничего нет!"))
 			return
 
 		if(target.reagents.holder_full())
-			to_chat(user, span_warning("[target] is full."))
+			to_chat(user, span_warning("В [target] нет свободного места."))
 			return
-		user.visible_message(span_notice("[user] pours [src] into [target]."), \
-						span_notice("I pour [src] into [target]."))
+		user.visible_message(span_notice("[user] выливает содержимое [src] в [target]."), \
+						span_notice("Я выливаю содержимое [src] в [target]."))
 		if(user.m_intent != MOVE_INTENT_SNEAK)
 			if(poursounds)
 				playsound(user.loc,pick(poursounds), 100, TRUE)
@@ -145,17 +145,17 @@
 	if(target.is_drainable() && (user.used_intent.type == /datum/intent/fill)) //A dispenser. Transfer FROM it TO us.
 		testing("attackobj3")
 		if(!target.reagents.total_volume)
-			to_chat(user, span_warning("[target] is empty!"))
+			to_chat(user, span_warning("В [target] ничего нет!"))
 			return
 
 		if(reagents.holder_full())
-			to_chat(user, span_warning("[src] is full."))
+			to_chat(user, span_warning("В [src] нет свободного места."))
 			return
 		if(user.m_intent != MOVE_INTENT_SNEAK)
 			if(fillsounds)
 				playsound(user.loc,pick(fillsounds), 100, TRUE)
-		user.visible_message(span_notice("[user] fills [src] with [target]."), \
-							span_notice("I fill [src] with [target]."))
+		user.visible_message(span_notice("[user] наполняет [src] из [target]."), \
+							span_notice("Я наполняю [src] из [target]."))
 		for(var/i in 1 to 22)
 			if(do_after(user, 8, target = target))
 				if(reagents.holder_full())
@@ -170,8 +170,8 @@
 		return
 
 	if(reagents.total_volume && user.used_intent.type == INTENT_SPLASH)
-		user.visible_message(span_danger("[user] splashes the contents of [src] onto [target]!"), \
-							span_notice("I splash the contents of [src] onto [target]."))
+		user.visible_message(span_danger("[user] выплеснул[user.rus_a()] содержимое [src] на [target]!"), \
+							span_notice("Я выплеснул[user.rus_a()] содержимое [src] на [target]."))
 		reagents.reaction(target, TOUCH)
 		reagents.clear_reagents()
 		return
@@ -188,8 +188,8 @@
 
 	if(isturf(target))
 		if(reagents.total_volume && user.used_intent.type == INTENT_SPLASH)
-			user.visible_message(span_danger("[user] splashes the contents of [src] onto [target]!"), \
-								span_notice("I splash the contents of [src] onto [target]."))
+			user.visible_message(span_danger("[user] выплеснул[user.rus_a()] содержимое [src] на [target]!"), \
+								span_notice("Я выплеснул[user.rus_a()] содержимое [src] на [target]."))
 			reagents.reaction(target, TOUCH)
 			reagents.clear_reagents()
 			return
@@ -198,15 +198,15 @@
 	var/hotness = I.get_temperature()
 	if(hotness && reagents)
 		src.reagents.expose_temperature(hotness)
-		to_chat(user, span_notice("I heat [src] with [I]!"))
+		to_chat(user, span_notice("Я нагреваю [src] при помощи [I]!"))
 
 	if(istype(I, /obj/item/reagent_containers/food/snacks/egg)) //breaking eggs
 		var/obj/item/reagent_containers/food/snacks/egg/E = I
 		if(reagents)
 			if(reagents.total_volume >= reagents.maximum_volume)
-				to_chat(user, span_notice("[src] is full."))
+				to_chat(user, span_notice("В [src] нет свободного места."))
 			else
-				to_chat(user, span_notice("I break [E] in [src]."))
+				to_chat(user, span_notice("Я разбиваю [E] в [src]."))
 				E.reagents.trans_to(src, E.reagents.total_volume, transfered_by = user)
 				qdel(E)
 			return
@@ -216,7 +216,7 @@
 	..()
 	if (slot == SLOT_HEAD)
 		if(reagents.total_volume)
-			to_chat(user, span_danger("[src]'s contents spill all over you!"))
+			to_chat(user, span_danger("Содержимое [src] выливается прямо на вас!"))
 			reagents.reaction(user, TOUCH)
 			reagents.clear_reagents()
 		reagents.flags = NONE
@@ -235,7 +235,7 @@
 	return ..()
 
 /obj/item/reagent_containers/glass/bucket
-	name = "bucket"
+	name = "ведро"
 	desc = ""
 	icon = 'icons/roguetown/items/misc.dmi'
 	lefthand_file = 'modular/Neu_Food/icons/food_lefthand.dmi'
@@ -265,7 +265,7 @@
 	)
 
 /obj/item/reagent_containers/glass/bucket/wooden
-	name = "bucket"
+	name = "ведро"
 	icon_state = "woodbucket"
 	icon = 'icons/roguetown/items/misc.dmi'
 	possible_item_intents = list(/datum/intent/fill, INTENT_POUR, INTENT_SPLASH, INTENT_GENERIC)
@@ -288,7 +288,7 @@
 		if(!reagents.has_reagent(/datum/reagent/water, 5))
 			removereg = /datum/reagent/water/gross
 			if(!reagents.has_reagent(/datum/reagent/water/gross, 5))
-				to_chat(user, span_warning("No water to soak in."))
+				to_chat(user, span_warning("Нет воды, чтобы намочить ткань."))
 				return
 		wash_atom(T)
 		playsound(src, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 100, FALSE)
@@ -325,8 +325,8 @@
 			add_overlay(filling)
 
 /obj/item/pestle
-	name = "pestle"
-	desc = "A small, round-end stone tool oft used by physicians to crush and mix medicine."
+	name = "пестик"
+	desc = "Небольшой каменный инструмент с закругленным концом, который лекари часто используют для измельчения и смешивания лекарств."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "pestle"
 	dropshrink = 0.65

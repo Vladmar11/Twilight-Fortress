@@ -357,3 +357,13 @@
 	icon_state = "lynx"
 	color_keys = 2
 	color_key_names = list("Tail", "Tip")
+
+/datum/sprite_accessory/tail/dragongirl/dragontailm
+	name = "Dragon Tail(m)"
+	icon = 'icons/mob/sprite_accessory/tails/dragongirl.dmi'
+	icon_state = "dragontailm"
+
+/datum/sprite_accessory/tail/dragongirl/dragontailf
+	name = "Dragon Tail(f)"
+	icon = 'icons/mob/sprite_accessory/tails/dragongirl.dmi'
+	icon_state = "dragontailf"

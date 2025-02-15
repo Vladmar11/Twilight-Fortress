@@ -1,5 +1,5 @@
 /datum/language/orcish
-	name = "Orcish"
+	name = "Орочий"
 	desc = ""
 	speech_verb = "grumbles"
 	ask_verb = "asks"

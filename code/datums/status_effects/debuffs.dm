@@ -28,7 +28,7 @@
 	alert_type = /atom/movable/screen/alert/status_effect/stun
 
 /atom/movable/screen/alert/status_effect/stun
-	name = "Stunned"
+	name = "Оглушение"
 	desc = ""
 	icon_state = "stun"
 
@@ -38,7 +38,7 @@
 	alert_type = /atom/movable/screen/alert/status_effect/knocked_down
 
 /atom/movable/screen/alert/status_effect/knocked_down
-	name = "Knocked Down"
+	name = "Нокдаун"
 	desc = ""
 	icon_state = "knockdown"
 
@@ -48,7 +48,7 @@
 	alert_type = /atom/movable/screen/alert/status_effect/immobilized
 
 /atom/movable/screen/alert/status_effect/immobilized
-	name = "Immobilized"
+	name = "Скованность"
 	desc = ""
 	icon_state = "immob"
 
@@ -57,7 +57,7 @@
 	alert_type = /atom/movable/screen/alert/status_effect/paralyzed
 
 /atom/movable/screen/alert/status_effect/paralyzed
-	name = "Paralyzed"
+	name = "Паралич"
 	desc = ""
 	icon_state = "paralyze"
 
@@ -134,7 +134,7 @@
 				owner.emote("snore")
 
 /atom/movable/screen/alert/status_effect/asleep
-	name = "Asleep"
+	name = "Во сне"
 	desc = ""
 	icon_state = "asleep"
 
@@ -173,7 +173,7 @@
         return ..()
 
 /atom/movable/screen/alert/status_effect/stasis
-        name = "Stasis"
+        name = "Стазис"
         desc = ""
         icon_state = "stasis"
 
@@ -194,18 +194,18 @@
 	return ..()
 
 /atom/movable/screen/alert/status_effect/strandling
-	name = "Choking strand"
+	name = "Удавка"
 	desc = ""
 	icon_state = "his_grace"
 	alerttooltipstyle = "hisgrace"
 
 /atom/movable/screen/alert/status_effect/strandling/Click(location, control, params)
 	. = ..()
-	to_chat(mob_viewer, span_notice("I attempt to remove the durathread strand from around my neck."))
+	to_chat(mob_viewer, span_notice("Я пытаюсь снять нить с шеи."))
 	if(do_after(mob_viewer, 35, null, mob_viewer))
 		if(isliving(mob_viewer))
 			var/mob/living/L = mob_viewer
-			to_chat(mob_viewer, span_notice("I succesfuly remove the durathread strand."))
+			to_chat(mob_viewer, span_notice("Я успешно удаляю нить дюратрида."))
 			L.remove_status_effect(STATUS_EFFECT_CHOKINGSTRAND)
 
 
@@ -309,12 +309,12 @@
 	status_type = STATUS_EFFECT_UNIQUE
 	duration = 300
 	tick_interval = 10
-	examine_text = span_warning("SUBJECTPRONOUN seems slow and unfocused.")
+	examine_text = span_warning("SUBJECTPRONOUN не движется и не реагирует.")
 	var/stun = TRUE
 	alert_type = /atom/movable/screen/alert/status_effect/trance
 
 /atom/movable/screen/alert/status_effect/trance
-	name = "Trance"
+	name = "Транс"
 	desc = ""
 	icon_state = "high"
 
@@ -329,8 +329,8 @@
 	RegisterSignal(owner, COMSIG_MOVABLE_HEAR, PROC_REF(hypnotize))
 	ADD_TRAIT(owner, TRAIT_MUTE, "trance")
 	owner.add_client_colour(/datum/client_colour/monochrome/trance)
-	owner.visible_message("[stun ? span_warning("[owner] stands still as [owner.p_their()] eyes seem to focus on a distant point.") : ""]", \
-	span_warning("[pick("You feel my thoughts slow down...", "You suddenly feel extremely dizzy...", "You feel like you're in the middle of a dream...","You feel incredibly relaxed...")]"))
+	owner.visible_message("[stun ? span_warning("[owner] не движется, пока [owner.rus_them()] глаза, кажется, сосредоточены на отдаленной точке.") : ""]", \
+	span_warning("[pick("Вы чувствуете, как мысли замедляются...", "Вы внезапно почувствуете сильное головокружение...", "Ощущение, будто ты посреди сна...","Вы чувствуете себя невероятно расслабленным...")]"))
 	return TRUE
 
 /datum/status_effect/trance/on_creation(mob/living/new_owner, _duration, _stun = TRUE)
@@ -343,7 +343,7 @@
 	REMOVE_TRAIT(owner, TRAIT_MUTE, "trance")
 	owner.dizziness = 0
 	owner.remove_client_colour(/datum/client_colour/monochrome/trance)
-	to_chat(owner, span_warning("I snap out of my trance!"))
+	to_chat(owner, span_warning("Я выхожу из транса!"))
 
 /datum/status_effect/trance/proc/hypnotize(datum/source, list/hearing_args)
 	if(!owner.can_hear())
@@ -366,14 +366,14 @@
 		switch(rand(1,5))
 			if(1)
 				if((owner.mobility_flags & MOBILITY_MOVE) && isturf(owner.loc))
-					to_chat(owner, span_warning("My leg spasms!"))
+					to_chat(owner, span_warning("Мою ногу сводит спазмом!"))
 					step(owner, pick(GLOB.cardinals))
 			if(2)
 				if(owner.incapacitated())
 					return
 				var/obj/item/I = owner.get_active_held_item()
 				if(I)
-					to_chat(owner, span_warning("My fingers spasm!"))
+					to_chat(owner, span_warning("Мои пальцы сводит спазмом!"))
 					owner.log_message("used [I] due to a Muscle Spasm", LOG_ATTACK)
 					I.attack_self(owner)
 			if(3)
@@ -389,14 +389,14 @@
 					if(isliving(M))
 						targets += M
 				if(LAZYLEN(targets))
-					to_chat(owner, span_warning("My arm spasms!"))
+					to_chat(owner, span_warning("Мою руку сводит спазмом!"))
 					owner.log_message(" attacked someone due to a Muscle Spasm", LOG_ATTACK) //the following attack will log itself
 					owner.ClickOn(pick(targets))
 				owner.a_intent = prev_intent
 			if(4)
 				var/prev_intent = owner.a_intent
 				owner.a_intent = INTENT_HARM
-				to_chat(owner, span_warning("My arm spasms!"))
+				to_chat(owner, span_warning("Мою руку сводит спазмом!"))
 				owner.log_message("attacked [owner.p_them()]self to a Muscle Spasm", LOG_ATTACK)
 				owner.ClickOn(owner)
 				owner.a_intent = prev_intent
@@ -408,7 +408,7 @@
 				for(var/turf/T in oview(owner, 3))
 					targets += T
 				if(LAZYLEN(targets) && I)
-					to_chat(owner, span_warning("My arm spasms!"))
+					to_chat(owner, span_warning("Мою руку сводит спазмом!"))
 					owner.log_message("threw [I] due to a Muscle Spasm", LOG_ATTACK)
 					owner.throw_item(pick(targets))
 
@@ -431,7 +431,7 @@
 	owner.forceMove(T)
 
 /atom/movable/screen/alert/status_effect/go_away
-	name = "TO THE STARS AND BEYOND!"
+	name = "К ЗВЕЗДАМ И ВЫШЕ!"
 	desc = ""
 	icon_state = "high"
 
