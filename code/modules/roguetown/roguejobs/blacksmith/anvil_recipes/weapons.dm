@@ -390,7 +390,7 @@
 	skill_level = 3
 
 /datum/anvil_recipe/ammo/arrows
-	name = "Стрелы 20x"
+	name = "Стрелы 20x (+1 Железо, +2 Полена)"
 	appro_skill = /datum/skill/craft/blacksmithing
 	req_bar = /obj/item/ingot/iron
 	additional_items = list(/obj/item/ingot/iron, /obj/item/grown/log/tree/small, /obj/item/grown/log/tree/small)
@@ -418,7 +418,7 @@
 	skill_level = 3
 	
 /datum/anvil_recipe/ammo/bolts
-	name = "Болты 20x"
+	name = "Болты 20x (+1 Железо, +2 Полена)"
 	appro_skill = /datum/skill/craft/blacksmithing
 	req_bar = /obj/item/ingot/iron
 	additional_items = list(/obj/item/ingot/iron, /obj/item/grown/log/tree/small, /obj/item/grown/log/tree/small)
