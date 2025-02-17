@@ -41,9 +41,21 @@
 	..()
 
 /obj/item/roguegear/bronze
-	name = "шестерня"
+	name = "бронзовая шестерня"
 	desc = "Шестерня с зубцами, тщательно выкованными для плотного сцепления."
 	smeltresult = /obj/item/ingot/bronze
+
+/obj/item/roguegear/copper
+	name = "медная шестерня"
+	desc = "Шестерня из наименее ценного из ценных металлов, явно сделанная практики ради."
+	icon_state = "ccog"
+	smeltresult = /obj/item/ingot/copper
+
+/obj/item/roguegear/tin
+	name = "оловянная шестерня"
+	desc = "Шестерня из олова, результат металлизатора или практики начинающего изобретателя."
+	icon_state = "tcog"
+	smeltresult = /obj/item/ingot/tin
 
 /obj/item/roguegear/wood
 	var/cart_capacity = 0
@@ -54,7 +66,7 @@
 	name = "деревянная шестерня"
 	desc = "Простая шестерня, способная увеличить грузоподъёмность деревянной телеги."
 	icon_state = "wcog"
-	metalizer_result = /obj/item/roguegear/bronze
+	metalizer_result = /obj/item/roguegear/tin
 	cart_capacity = 90
 
 /obj/item/roguegear/wood/reliable

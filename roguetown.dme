@@ -2051,6 +2051,7 @@
 #include "modular_twilight\code\modules\necra_tabard\module.dm"
 #include "modular_twilight\code\modules\roguetown\roguecrafting\sewing.dm"
 #include "modular_twilight\code\modules\roguetown\roguejobs\blacksmith\anvil_recipes\armor.dm"
+#include "modular_twilight\code\modules\roguetown\roguejobs\engineering\items.dm"
 #include "modular_twilight\datums\status_effects\rogue\roguebuff.dm"
 #include "modular_twilight\datums\stress\negative_events.dm"
 #include "modular_twilight\datums\wardrobe\TF_wardrobe.dm"

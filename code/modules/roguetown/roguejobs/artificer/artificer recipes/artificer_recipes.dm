@@ -97,14 +97,14 @@
 /datum/artificer_recipe/general/copper/cog
 	name = "Медная шестерня"
 	required_item = /obj/item/ingot/copper
-	created_item = /obj/item/roguegear/bronze
+	created_item = /obj/item/roguegear/copper
 	hammers_per_item = 10
 	skill_level = 1
 
 /datum/artificer_recipe/general/tin/cog
 	name = "Оловянная шестерня"
 	required_item = /obj/item/ingot/tin
-	created_item = /obj/item/roguegear/bronze
+	created_item = /obj/item/roguegear/tin
 	hammers_per_item = 10
 	skill_level = 1
 
@@ -365,7 +365,7 @@
 	created_item = /obj/item/bodypart/l_leg/prosthetic/gold
 
 /datum/artificer_recipe/gold/prosthetic/leg_right
-	name = "Золотая правая нога (+2 ШБронзовая шестерня)"
+	name = "Золотая правая нога (+2 Бронзовая шестерня)"
 	created_item = /obj/item/bodypart/r_leg/prosthetic/gold
 
 // --------- STEEL -----------
