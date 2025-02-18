@@ -1,5 +1,6 @@
 
 GLOBAL_LIST_INIT(character_flaws, list(
+TRIUMPHS)"=/datum/charflaw/noflaw
 	"Алкоголизм"=/datum/charflaw/addiction/alcoholic,
 	"Курильщик"=/datum/charflaw/addiction/smoker,
 	"Нимфомания"=/datum/charflaw/addiction/lovefiend,
@@ -137,8 +138,8 @@ GLOBAL_LIST_INIT(character_flaws, list(
 /datum/status_effect/debuff/badvision
 	id = "badvision"
 	alert_type = null
-	effectedstats = list("perception" = -20, "speed" = -5)
-	duration = 10 SECONDS
+	effectedstats = list("perception" = -10, "speed" = -3)
+	duration = 100
 
 /datum/charflaw/badsight/on_mob_creation(mob/user)
 	..()

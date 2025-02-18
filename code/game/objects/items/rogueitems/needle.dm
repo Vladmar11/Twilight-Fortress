@@ -81,6 +81,9 @@
 		if(!I.sewrepair || !I.max_integrity)
 			to_chat(user, span_warning("[I] can't be repaired!"))
 			return
+		if(!I.sewrepair || !I.max_integrity)
+			to_chat(user, span_warning("[I] can't be repaired!"))
+			return
 		if(I.sewrepair && I.max_integrity)
 			if(I.obj_integrity == I.max_integrity)
 				to_chat(user, span_warning("[I] в целости!"))
