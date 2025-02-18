@@ -333,7 +333,7 @@
 	. = ..()
 	if(. && iscarbon(user))
 		var/mob/living/carbon/L = user
-		if(L.get_complex_pain() > (L.STAEND * 9))
+		if(L.get_complex_pain() > (round((L.STAEND + L.STAINT) / 2) * 9))
 			L.setDir(2)
 			L.SetUnconscious(200)
 		else
