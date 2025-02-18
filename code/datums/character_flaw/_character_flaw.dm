@@ -1,6 +1,5 @@
 
 GLOBAL_LIST_INIT(character_flaws, list(
-TRIUMPHS)"=/datum/charflaw/noflaw
 	"Алкоголизм"=/datum/charflaw/addiction/alcoholic,
 	"Курильщик"=/datum/charflaw/addiction/smoker,
 	"Нимфомания"=/datum/charflaw/addiction/lovefiend,
