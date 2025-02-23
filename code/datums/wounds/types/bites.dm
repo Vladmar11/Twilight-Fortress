@@ -1,5 +1,5 @@
 /datum/wound/bite
-	name = "bite"
+	name = "укус"
 	bleed_rate = 0
 	sewn_bleed_rate = 0
 	clotting_threshold = null
@@ -13,11 +13,11 @@
 	passive_healing = 0.5
 
 /datum/wound/bite/small
-	name = "nip"
+	name = "щипок"
 	whp = 15
 
 /datum/wound/bite/large
-	name = "gnarly bite"
+	name = "рваный укус"
 	whp = 40
 	sewn_whp = 15
 	bleed_rate = 1

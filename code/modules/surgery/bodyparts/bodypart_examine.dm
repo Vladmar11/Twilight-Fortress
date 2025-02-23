@@ -8,7 +8,7 @@
 		return
 	var/list/head_status = list()
 	if(!brain)
-		head_status += span_dead("The brain is missing.")
+		head_status += span_dead("Похоже, мозга нет в черепе.")
 	/*		
 	else if(brain.suicided || brainmob?.suiciding)
 		. += span_info("There's a pretty dumb expression on [real_name]'s face; they must have really hated life. There is no hope of recovery.")
@@ -26,16 +26,16 @@
 	*/
 
 	if(!eyes)
-		head_status += span_warning("The eyes appear to be missing.")
+		head_status += span_warning("Похоже, глаза отсутствуют.")
 
 	if(!ears)
-		head_status += span_warning("The ears appear to be missing.")
+		head_status += span_warning("Похоже, уши отсутствуют.")
 
 	if(!tongue)
-		head_status += span_warning("The tongue appears to be missing.")
+		head_status += span_warning("Похоже, язык отсутствует.")
 	
 	if(length(head_status))
-		. += "<B>Organs:</B>"
+		. += "<B>Органы:</B>"
 		. += head_status
 
 /obj/item/bodypart/proc/inspect_limb(mob/user)
@@ -44,28 +44,28 @@
 	if(owner && disabled)
 		switch(disabled)
 			if(BODYPART_DISABLED_DAMAGE)
-				bodypart_status += "[src] is numb to touch."
+				bodypart_status += "Онемело."
 			if(BODYPART_DISABLED_PARALYSIS)
-				bodypart_status += "[src] is limp."
+				bodypart_status += "Парализовано."
 			if(BODYPART_DISABLED_CLAMPED)
-				bodypart_status += "[src] is clamped."
+				bodypart_status += "Зажато инструментом."
 			else
-				bodypart_status += "[src] is crippled."
+				bodypart_status += "Искалечено."
 	if(has_wound(/datum/wound/fracture))
-		bodypart_status += "[src] is fractured."
+		bodypart_status += "Сломана кость."
 	if(has_wound(/datum/wound/dislocation))
-		bodypart_status += "[src] is dislocated."
+		bodypart_status += "Вывих."
 	var/location_accessible = TRUE
 	if(owner)
 		location_accessible = get_location_accessible(owner, body_zone)
 		if(!observer_privilege && !location_accessible)
-			bodypart_status += "Obscured by clothing."
+			bodypart_status += "Скрыто под одеждой."
 	var/owner_ref = owner ? REF(owner) : REF(src)
 	if(observer_privilege || location_accessible)
 		if(skeletonized)
-			bodypart_status += "[src] is skeletonized."
+			bodypart_status += "Скелет."
 		else if(rotted)
-			bodypart_status += "[src] is necrotic."
+			bodypart_status += "Гниет."
 		
 		var/brute = brute_dam
 		var/burn = burn_dam
@@ -78,42 +78,42 @@
 		if(brute >= DAMAGE_PRECISION)
 			switch(brute/max_damage)
 				if(0.75 to INFINITY)
-					bodypart_status += "[src] is [heavy_brute_msg]."
+					bodypart_status += capitalize("[heavy_brute_msg].")
 				if(0.25 to 0.75)
-					bodypart_status += "[src] is [medium_brute_msg]."
+					bodypart_status += capitalize("[medium_brute_msg].")
 				else
-					bodypart_status += "[src] is [light_brute_msg]."
+					bodypart_status += capitalize("[light_brute_msg].")
 		if(burn >= DAMAGE_PRECISION)
 			switch(burn/max_damage)
 				if(0.75 to INFINITY)
-					bodypart_status += "[src] is [heavy_burn_msg]."
+					bodypart_status += capitalize("[heavy_burn_msg].")
 				if(0.25 to 0.75)
-					bodypart_status += "[src] is [medium_burn_msg]."
+					bodypart_status += capitalize("[medium_burn_msg].")
 				else
-					bodypart_status += "[src] is [light_burn_msg]."
+					bodypart_status += capitalize("[light_burn_msg].")
 
 		if(!location_accessible)
-			bodypart_status += "Obscured by clothing."
+			bodypart_status += "Скрыто под одеждой."
 
 		if(bandage || length(wounds))
-			bodypart_status += "<B>Wounds:</B>"
+			bodypart_status += "<B>Раны:</B>"
 			if(bandage)
 				var/usedclass = "notice"
 				if(bandage.return_blood_DNA())
 					usedclass = "bloody"
-				bodypart_status += "<a href='?src=[owner_ref];bandage=[REF(bandage)];bandaged_limb=[REF(src)]' class='[usedclass]'>Bandaged</a>"
+				bodypart_status += "<a href='?src=[owner_ref];bandage=[REF(bandage)];bandaged_limb=[REF(src)]' class='[usedclass]'>Перевязано</a>"
 			if(!bandage || observer_privilege)
 				for(var/datum/wound/wound as anything in wounds)
 					bodypart_status += wound.get_visible_name(user)
 		
 	if(length(bodypart_status) <= 1)
-		bodypart_status += "[src] is healthy."
+		bodypart_status += "В полном порядке."
 
 	if(length(embedded_objects))
-		bodypart_status += "<B>Embedded objects:</B>"
+		bodypart_status += "<B>Инородные объекты:</B>"
 		for(var/obj/item/embedded as anything in embedded_objects)
 			bodypart_status += "<a href='?src=[owner_ref];embedded_object=[REF(embedded)];embedded_limb=[REF(src)]'>[embedded.name]</a>"
-	
+		
 	return bodypart_status
 
 /obj/item/bodypart/proc/check_for_injuries(mob/user, advanced = FALSE)
@@ -142,9 +142,9 @@
 
 	if(advanced)
 		if(brute)
-			status += brute >= 10 ? span_danger("[brute] BRUTE") : span_warning("[brute] BRUTE")
+			status += brute >= 10 ? span_danger("[brute] ТРАВМЫ") : span_warning("[brute] ТРАВМЫ")
 		if(burn)
-			status += burn >= 10 ? span_danger("[burn] BURN") : span_warning("[burn] BURN")
+			status += burn >= 10 ? span_danger("[burn] ОЖОГИ") : span_warning("[burn] ОЖОГИ")
 	else
 		if(brute >= DAMAGE_PRECISION)
 			switch(brute/max_damage)
@@ -171,9 +171,9 @@
 	var/bleed_rate = get_bleed_rate()
 	if(bleed_rate)
 		if(bleed_rate > 1) //Totally arbitrary value
-			status += span_bloody("<B>BLEEDING</B>")
+			status += span_bloody("<B>КРОВОТЕЧЕНИЕ</B>")
 		else
-			status += span_bloody("BLEEDING")
+			status += span_bloody("КРОВОТЕЧЕНИЕ")
 	
 	var/crazy_infection = FALSE
 	var/list/wound_strings = list()
@@ -185,12 +185,12 @@
 	status += wound_strings
 
 	if(crazy_infection)
-		status += span_infection("INFECTION")
+		status += span_infection("ЗАРАЖЕНИЕ")
 
 	if(skeletonized)
-		status += span_dead("SKELETON")
+		status += span_dead("СКЕЛЕТ")
 	else if(rotted)
-		status += span_necrosis("NECROSIS")
+		status += span_necrosis("НЕКРОЗ")
 
 	var/owner_ref = owner ? REF(owner) : REF(src)
 	for(var/obj/item/embedded as anything in embedded_objects)
@@ -206,7 +206,7 @@
 			status += "<a href='?src=[owner_ref];bandaged_limb=[REF(src)];bandage=[REF(bandage)]' class='info'>[uppertext(bandage.name)]</a>"
 
 	if(disabled)
-		status += span_deadsay("CRIPPLED")
+		status += span_deadsay("ИСКАЛЕЧЕНО")
 
 	return status
 

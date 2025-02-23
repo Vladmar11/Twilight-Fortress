@@ -29,9 +29,8 @@
 	smeltresult = /obj/item/ingot/iron
 	can_cdg = TRUE
 
-/obj/item/rogueweapon/huntingknife/Initialize()
-	. = ..()
-	AddElement(/datum/element/tipped_item)
+	grid_height = 64
+	grid_width = 32
 
 /datum/intent/dagger
 	clickcd = 8
@@ -190,6 +189,8 @@
 				return
 			if(item.fiber_salvage) //We're getting fiber as base if fiber is present on the item
 				new /obj/item/natural/fibers(get_turf(item))
+			if(item.silk_salvage) //Getting silk if it is present on the item
+				new /obj/item/natural/silk(get_turf(item))
 			if(istype(item, /obj/item/storage))
 				var/obj/item/storage/bag = item
 				bag.emptyStorage()

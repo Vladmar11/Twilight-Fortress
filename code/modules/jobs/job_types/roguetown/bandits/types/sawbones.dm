@@ -1,6 +1,8 @@
 /datum/subclass/sawbones // doctor class. like the Refugee, but more evil
 	name = "Sawbones"
-	tutorial = "It was an accident! Your patient wasn't using his second kidney, anyway. After an unfortunate 'misunderstanding' with the town and your medical practice, you now practice medicine on the run with your new associates. Business has never been better!"
+	tutorial = "Это был несчастный случай! Ваш пациент все равно не использовал свою вторую почку. \
+	После досадного «недоразумения» с городом и вашей врачебной практикой вы теперь занимаетесь медициной в бегах со своими новыми коллегами. \
+	Бизнес еще никогда не был таким успешным!"
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
 	outfit = /datum/outfit/job/roguetown/bandit/sawbones
@@ -19,7 +21,8 @@
 	pants = /obj/item/clothing/under/roguetown/trou
 	shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
 	backl = /obj/item/storage/backpack/rogue/backpack
-	backpack_contents = list(/obj/item/storage/fancy/skit = 1, /obj/item/storage/fancy/ifak = 1, /obj/item/reagent_containers/glass/alembic = 1,)
+	backr = /obj/item/bedroll // field surgery
+	backpack_contents = list(/obj/item/storage/fancy/skit = 1, /obj/item/storage/fancy/ifak = 1, /obj/item/reagent_containers/glass/alembic = 1, /obj/item/rope/chain = 1, /obj/item/natural/cloth = 1) // tie and gag zombies
 	H.mind.adjust_skillrank(/datum/skill/combat/knives, 3, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
 	H.mind.adjust_skillrank(/datum/skill/craft/crafting, 2, TRUE)

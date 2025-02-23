@@ -1,5 +1,5 @@
 /datum/language/felid
-	name = "Felid"
+	name = "Фелидский"
 	desc = "The desert sands the ancestors used to walk echoes through this raspy tongue that's mostly composed of murrs and mrrps with the ocassional meow or hiss if one is getting quite vocal. Hailing from the desert tribe and kingdoms ruled by the swift tabaxi this language is sharp and direct. With a keen ear you can notice the vague gizan influence on this language."
 	speech_verb = "murrs"
 	ask_verb = "mrrps"

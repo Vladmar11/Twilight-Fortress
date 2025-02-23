@@ -6,132 +6,134 @@
 	scent = "smell"
 	color = "#000000"
 
-	descriptor = "smell"
+	descriptor = "запах"
 
 /datum/pollutant/food/apple_pie
-	name = "apple pie"
-	scent = "apple pie"
+	name = "яблочный пирог"
+	scent = "яблочного пирога"
 
 /datum/pollutant/food/fish_pie
-	name = "fish pie"
-	scent = "fish pie"
+	name = "рыбный пирог"
+	scent = "рыбного пирога"
 
 /datum/pollutant/food/meat_pie
-	name = "meat pie"
-	scent = "meat pie"
+	name = "мясной пирог"
+	scent = "мясного пирога"
 
 /datum/pollutant/food/pot_pie
-	name = "pot pie"
-	scent = "pot pie"
+	name = "деревенский пирог"
+	scent = "деревенского пирога"
 
 /datum/pollutant/food/berry_pie
-	name = "berry pie"
-	scent = "berry pie"
+	name = "ягодный пирог"
+	scent = "ягодного пирога"
 
 /datum/pollutant/food/bread
-	name = "fresh baked bread"
-	scent = "fresh baked bread"
+	name = "свежеиспеченный хлеб"
+	scent = "свежеиспеченного хлеба"
 
 /datum/pollutant/food/bun
-	name = "fresh baked buns"
-	scent = "fresh baked buns"
+	name = "свежеиспеченные булочки"
+	scent = "свежеиспеченных булочек"
 
 /datum/pollutant/food/pastry
-	name = "fresh baked pastry"
-	scent = "fresh baked pastry"
+	name = "свежеиспеченная выпечка"
+	scent = "свежеиспеченной выпечки"
 
 /datum/pollutant/food/pie_base
-	name = "fresh baked pie crust"
-	scent = "fresh baked pie crust"
+	name = "свежеиспеченная корзинка для пирога"
+	scent = "свежеиспеченной корзинки для пирога"
 
 /datum/pollutant/food/toast
-	name = "cooked toast"
-	scent = "cooked toast"
+	name = "приготовленный тост"
+	scent = "приготовленного тоста"
 
 /datum/pollutant/food/raisin_bread
-	name = "fresh baked loaf of raisin bread"
-	scent = "fresh baked loaf of raisin bread"
+	name = "свежеиспеченный хлеб с изюмом"
+	scent = "свежеиспеченного хлеба с изюмом"
 
 /datum/pollutant/food/cheese_bun
-	name = "fresh baked cheese buns"
-	scent = "fresh baked cheese buns"
+	name = "свежеиспеченные сырные булочки"
+	scent = "свежеиспеченных сырных булочек"
 
 /datum/pollutant/food/biscuit
-	name = "fresh baked biscuits"
-	scent = "fresh baked biscuits"
+	name = "свежеиспеченное печенье"
+	scent = "свежеиспеченного печенья"
 
 /datum/pollutant/food/prezzel
-	name = "fresh baked prezzel"
-	scent = "fresh baked prezzel"
+	name = "свежеиспеченные крендели"
+	scent = "свежевыпеченных кренделей"
 
 /datum/pollutant/food/honey_cake
-	name = "fresh baked honey cake"
-	scent = "fresh baked honey cake"
+	name = "свежевыпеченный медовый торт"
+	scent = "свежевыпеченного медового торта"
 
 /datum/pollutant/food/cheese_cake
-	name = "fresh baked cheese cake"
-	scent = "fresh baked cheese cake"
+	name = "свежевыпеченный чизкейк"
+	scent = "свежевыпеченного чизкейка"
 
 /datum/pollutant/food/baked_potato
-	name = "baked potatos"
-	scent = "baked potatos"
+	name = "печеный картофель"
+	scent = "печеного картофеля"
 
 /datum/pollutant/food/baked_carp
-	name = "cooked carp"
-	scent = "cooked carp"
+	name = "жареный карп"
+	scent = "жареного карпа"
 
 /datum/pollutant/food/baked_eel
-	name = "cooked eel"
-	scent = "cooked eel"
+	name = "жареный угорь"
+	scent = "жареного угря"
 
 /datum/pollutant/food/baked_clownfish
-	name = "cooked clown fish"
-	scent = "cooked clown fish"
+	name = "жареная рыба-клоун"
+	scent = "жареной рыбы-клоуна"
 
 /datum/pollutant/food/baked_angler
-	name = "cooked angler fish"
-	scent = "cooked angler fish"
+	name = "жареный удильщик"
+	scent = "жареного удильщика"
 
 /datum/pollutant/food/truffles
-	name = "cooked truffles"
-	scent = "cooked truffles"
+	name = "приготовленные трюфели"
+	scent = "приготовленных трюфелей"
 
 /datum/pollutant/food/bacon
-	name = "fried bacon"
-	scent = "fried bacon"
+	name = "жареный бекон"
+	scent = "жареного бекона"
 
 /datum/pollutant/food/fried_meat
-	name = "fried meat"
-	scent = "fried meat"
+	name = "запеченое мясо"
+	scent = "запеченого мяса"
 
 /datum/pollutant/food/fried_chicken
-	name = "cooked chicken"
-	scent = "cooked chicken"
+	name = "запеченая птица"
+	scent = "запеченой птицы"
 
 /datum/pollutant/food/sausage
-	name = "cooked sausage"
-	scent = "cooked sausage"
+	name = "жареная колбаска"
+	scent = "жареной колбаски"
 
 /datum/pollutant/food/sausage
-	name = "cooked sausage"
-	scent = "cooked sausage"
+	name = "жареная колбаска"
+	scent = "жареной колбаски"
 
 /datum/pollutant/food/fried_cabbage
-	name = "fried cabbage"
-	scent = "fried cabbage"
+	name = "тушеная капуста"
+	scent = "тушеной капусты"
 
 /datum/pollutant/food/fried_onion
-	name = "fried onion"
-	scent = "fried onion"
+	name = "жареный лук"
+	scent = "жареного лука"
 
 /datum/pollutant/food/roasted_seeds
-	name = "roasted seeds"
-	scent = "roasted seeds"
+	name = "жареные семечки"
+	scent = "жареных семечек"
 
 /datum/pollutant/food/fried_rat
-	name = "fried rats"
-	scent = "fried rats"
+	descriptor = "вонючий запах"
+	name = "жареная крыса"
+	scent = "жареной крысы"
 
 /datum/pollutant/food/fried_crow
-	name = "fried crows"
-	scent = "fried crows"
+	descriptor = "вонючий запах"
+	name = "жареная ворона"
+	scent = "жареной вороны"

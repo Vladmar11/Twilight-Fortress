@@ -84,7 +84,7 @@
 
 /turf/open/lava/proc/burn_stuff(AM)
 	. = 0
-	
+
 	var/thing_to_check = src
 	if (AM)
 		thing_to_check = list(AM)
@@ -100,8 +100,9 @@
 				O.resistance_flags |= FLAMMABLE //Even fireproof things burn up in lava
 			if(O.resistance_flags & FIRE_PROOF)
 				O.resistance_flags &= ~FIRE_PROOF
-			if(O.armor.fire > 50) //obj with 100% fire armor still get slowly burned away.
-				O.armor = O.armor.setRating(fire = 50)
+			if(O.armor)
+				if(O.armor.fire > 50) //obj with 100% fire armor still get slowly burned away.
+					O.armor = O.armor.setRating(fire = 50)
 			qdel(O)
 
 		else if (isliving(thing))

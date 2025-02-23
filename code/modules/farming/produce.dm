@@ -21,10 +21,10 @@
 		if(seed && (user.used_intent.blade_class == BCLASS_BLUNT) && (!user.used_intent.noaa))
 			playsound(src,'sound/items/seedextract.ogg', 100, FALSE)
 			if(prob(5))
-				user.visible_message(span_warning("[user] fails to extract the seeds."))
+				user.visible_message(span_warning("[user] не удалось извлечь семена."))
 				qdel(src)
 				return
-			user.visible_message(span_info("[user] extracts the seeds."))
+			user.visible_message(span_info("[user] извлекает семена."))
 			new seed(location)
 			if(prob(90))
 				new seed(location)
@@ -40,15 +40,15 @@
 
 /obj/item/reagent_containers/food/snacks/grown/wheat
 	seed = /obj/item/seeds/wheat
-	name = "wheat grain"
-	desc = "Strike with object to make seeds, use with Millstone to make Powder"
+	name = "зерно пшеницы"
+	desc = "Ударьте чем-нибудь твердым, чтобы получить семена. Перетрите на мельнице, чтобы сделать муку."
 	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "wheat"
 	gender = PLURAL
 	filling_color = "#F0E68C"
 	bitesize_mod = 2
 	foodtype = GRAIN
-	tastes = list("wheat" = 1)
+	tastes = list("сырой пшеницы" = 1)
 	can_distill = TRUE
 	distill_reagent = /datum/reagent/consumable/ethanol/beer
 	distill_amt = 48
@@ -57,15 +57,15 @@
 
 /obj/item/reagent_containers/food/snacks/grown/oat
 	seed = /obj/item/seeds/wheat/oat
-	name = "oat grain"
-	desc = "Strike with object to make seeds, use with Millstone to make Powder"
+	name = "зерно овса"
+	desc = "Ударьте чем-нибудь твердым, чтобы получить семена. Перетрите на мельнице, чтобы сделать муку."
 	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "oat"
 	gender = PLURAL
 	filling_color = "#556B2F"
 	bitesize_mod = 2
 	foodtype = GRAIN
-	tastes = list("oat" = 1)
+	tastes = list("сырого овса" = 1)
 	can_distill = TRUE
 	distill_reagent = /datum/reagent/consumable/ethanol/ale
 	distill_amt = 24
@@ -74,15 +74,15 @@
 
 /obj/item/reagent_containers/food/snacks/grown/rice
 	seed = /obj/item/seeds/rice
-	name = "rice grain"
-	desc = ""
+	name = "зерна риса"
+	desc = "Белые злаки, которые прибрежные жители перебраживают в отличную рисовую водку."
 	icon = 'icons/roguetown/items/produce.dmi'
 	icon_state = "rice"
 	gender = PLURAL
 	filling_color = "#f0f0f0"
 	bitesize_mod = 2
 	foodtype = GRAIN
-	tastes = list("rice" = 1)
+	tastes = list("сырого риса" = 1)
 	can_distill = TRUE
 	distill_reagent = /datum/reagent/consumable/ethanol/sake
 	distill_amt = 12
@@ -90,13 +90,13 @@
 
 /obj/item/reagent_containers/food/snacks/grown/apple
 	seed = /obj/item/seeds/apple
-	name = "apple"
-	desc = ""
+	name = "яблоко"
+	desc = "Яблоко в дэй - проживешь без лекарей. Годится в сидр и в начинку для сладких пирогов."
 	icon_state = "apple"
 	filling_color = "#FF4500"
 	bitesize = 3
 	foodtype = FRUIT
-	tastes = list("apple" = 1)
+	tastes = list("свежего яблока" = 1)
 	trash = /obj/item/trash/applecore
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/64x64/head.dmi'
 	slot_flags = ITEM_SLOT_HEAD
@@ -119,7 +119,7 @@
 /obj/item/reagent_containers/food/snacks/grown/apple/blockproj(mob/living/carbon/human/H)
 	testing("APPLEHITBEGIN")
 	if(prob(98))
-		H.visible_message(span_notice("[H] is saved by the apple!"))
+		H.visible_message(span_notice("Яблоко слетает с головы [H], приняв удар на себя!"))
 		H.dropItemToGround(H.head)
 		return 1
 	else
@@ -145,10 +145,10 @@
 
 /obj/item/reagent_containers/food/snacks/grown/berries/rogue
 	seed = /obj/item/seeds/berryrogue
-	name = "jacksberries"
-	desc = ""
+	name = "ягода"
+	desc = "Гроздь очень аппетитно выглядящих ягод. Интересно, каковы они на вкус?"
 	icon_state = "berries"
-	tastes = list("berry" = 1)
+	tastes = list("свежих ягод" = 1)
 	bitesize = 5
 	list_reagents = list(/datum/reagent/consumable/nutriment = 3)
 	dropshrink = 0.75
@@ -193,7 +193,7 @@
 /obj/item/reagent_containers/food/snacks/grown/berries/rogue/poison
 	seed = /obj/item/seeds/berryrogue/poison
 	icon_state = "berries"
-	tastes = list("berry" = 1)
+	tastes = list("кислых ягод" = 1)
 	list_reagents = list(/datum/reagent/berrypoison = 5, /datum/reagent/consumable/nutriment = 3)
 	grind_results = list(/datum/reagent/berrypoison = 5)
 	color_index = "bad"
@@ -201,26 +201,26 @@
 
 /obj/item/reagent_containers/food/snacks/grown/rogue/sweetleaf
 	seed = /obj/item/seeds/sweetleaf
-	name = "swampweed"
-	desc = "A 'foggy' pipe weed."
+	name = "болотная трава"
+	desc = "Трава, при курении выделяющая кислый и туманистый дым. Известна своими очищающими свойствами."
 	icon_state = "sweetleaf"
 	filling_color = "#008000"
 	bitesize_mod = 1
 	foodtype = VEGETABLES
 	list_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/berrypoison = 5)
-	tastes = list("sweet" = 1,"bitterness" = 1)
+	tastes = list("сладких стеблей" = 1, "горьких листьев" = 1)
 	eat_effect = /datum/status_effect/debuff/badmeal
 	rotprocess = 60 MINUTES
 
 /obj/item/reagent_containers/food/snacks/grown/rogue/pipeweed
 	seed = /obj/item/seeds/pipeweed
-	name = "westleach leaf"
-	desc = "A generic kind of pipe weed."
+	name = "лист табака"
+	desc = "Используется повсеместно как отличное курительное растение."
 	icon_state = "pipeweed"
 	filling_color = "#008000"
 	bitesize_mod = 1
 	foodtype = VEGETABLES
-	tastes = list("sweet" = 1,"bitterness" = 1)
+	tastes = list("приторной горечи" = 1)
 	list_reagents = list(/datum/reagent/drug/nicotine = 2, /datum/reagent/consumable/nutriment = 1, /datum/reagent/berrypoison = 5)
 	grind_results = list(/datum/reagent/drug/nicotine = 5)
 	eat_effect = /datum/status_effect/debuff/badmeal
@@ -228,8 +228,8 @@
 
 /obj/item/reagent_containers/food/snacks/grown/rogue/pipeweeddry
 	seed = null
-	name = "westleach leaf"
-	desc = "A dried leaf."
+	name = "лист табака"
+	desc = "Высушенный лист, пригодный для заполнения трубки."
 	icon_state = "pipeweedd"
 	dry = TRUE
 	pipe_reagents = list(/datum/reagent/drug/nicotine = 30)
@@ -240,8 +240,8 @@
 
 /obj/item/reagent_containers/food/snacks/grown/rogue/sweetleafdry
 	seed = null
-	name = "swampweed"
-	desc = ""
+	name = "болотная трава"
+	desc = "Высушенные стебли болотной травы, пригодные для алхимиии или же курения."
 	icon_state = "sweetleafd"
 	dry = TRUE
 	pipe_reagents = list(/datum/reagent/drug/space_drugs = 30)
@@ -251,10 +251,11 @@
 	mill_result = /obj/item/reagent_containers/powder/alch/swamp
 
 /obj/item/reagent_containers/food/snacks/grown/cabbage
-	name = "cabbage"
+	name = "капуста"
+	desc = "Плотный кочан, пригодный в пищу и даже не поеденный вредителями."
 	seed = /obj/item/seeds/cabbage
 	icon_state = "cabbage"
-	tastes = list("cabbage" = 1)
+	tastes = list("свежей капусты" = 1)
 	filling_color = "#88c8a0"
 	bitesize = 3
 	foodtype = VEGETABLES
@@ -262,10 +263,11 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
 
 /obj/item/reagent_containers/food/snacks/grown/pear
-	name = "pear"
+	name = "груша"
+	desc = "Изысканный плод, из которого делают лучшие сидры во всей Гримории."
 	seed = /obj/item/seeds/pear
 	icon_state = "pear"
-	tastes = list("pear" = 1)
+	tastes = list("груши" = 1)
 	filling_color = "#9ff35f"
 	bitesize = 3
 	foodtype = FRUIT
@@ -276,10 +278,11 @@
 	distill_reagent = /datum/reagent/consumable/ethanol/beer/cider
 
 /obj/item/reagent_containers/food/snacks/grown/cherry
-	name = "cherries"
+	name = "вишня"
+	desc = "Сладкая заморская ягода, из которой готовят изысканные десерты."
 	seed = /obj/item/seeds/cherry
 	icon_state = "cherry"
-	tastes = list("cherry" = 1)
+	tastes = list("вишни" = 1)
 	filling_color = "#b90019"
 	bitesize = 3
 	foodtype = FRUIT
@@ -288,10 +291,11 @@
 	grind_results = list(/datum/reagent/consumable/cherryjelly = 3)
 
 /obj/item/reagent_containers/food/snacks/grown/olive
-	name = "olive"
+	name = "оливка"
+	desc = "Чуть горьковатый маслянистый плод с косточкой."
 	seed = /obj/item/seeds/olive
 	icon_state = "olive"
-	tastes = list("olive" = 1)
+	tastes = list("оливок" = 1)
 	filling_color = "#a4c74b"
 	bitesize = 3
 	foodtype = FRUIT
@@ -299,20 +303,22 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
 
 /obj/item/reagent_containers/food/snacks/grown/nut
-	name = "rocknut"
+	name = "скальный орех"
+	desc = "Твердый, как камень, даже без скорлупы."
 	seed = /obj/item/seeds/nut
 	icon_state = "nut"
-	tastes = list("nutty" = 1)
+	tastes = list("орехового ядрышка" = 1)
 	filling_color = "#6b4d18"
 	bitesize = 3
 	foodtype = FRUIT
 	list_reagents = list(/datum/reagent/consumable/nutriment = 4)
 
 /obj/item/reagent_containers/food/snacks/grown/tomato
-	name = "tomato"
+	name = "томат"
+	desc = "Свежий, мягкий и очень сочный."
 	seed = /obj/item/seeds/tomato
 	icon_state = "tomato"
-	tastes = list("tomato" = 1)
+	tastes = list("томата" = 1)
 	filling_color = "#e4532b"
 	bitesize = 3
 	foodtype = FRUIT
@@ -324,10 +330,11 @@
 	//slice_path = /obj/item/reagent_containers/food/snacks/rogue/tomatoslice
 
 /obj/item/reagent_containers/food/snacks/grown/onion
-	name = "onion"
+	name = "репчатый лук"
+	desc = "Он заставит вас плакать по-другому."
 	seed = /obj/item/seeds/onion
 	icon_state = "onion"
-	tastes = list("onion" = 1)
+	tastes = list("свежего лука" = 1)
 	filling_color = "#fdfaca"
 	bitesize = 3
 	foodtype = VEGETABLES
@@ -338,11 +345,11 @@
 	//slice_path = /obj/item/reagent_containers/food/snacks/rogue/onionslice
 
 /obj/item/reagent_containers/food/snacks/grown/garlic
-	name = "garlic"
-	desc = "Your last line of defense against the vampiric horde."
+	name = "чеснок"
+	desc = "Последнее средство защиты от орды вампиров."
 	seed = /obj/item/seeds/garlic
 	icon_state = "garlic"
-	tastes = list("garlic" = 1)
+	tastes = list("чеснока" = 1)
 	filling_color = "#fff2c6"
 	bitesize = 3
 	foodtype = VEGETABLES
@@ -350,10 +357,11 @@
 	grind_results = list(/datum/reagent/consumable/garlic = 6)
 
 /obj/item/reagent_containers/food/snacks/grown/carrot
-	name = "carrot"
+	name = "морковь"
+	desc = "Полезна для глаз, даже если остался только один."
 	seed = /obj/item/seeds/carrot
 	icon_state = "carrot"
-	tastes = list("carrot" = 1)
+	tastes = list("моркови" = 1)
 	filling_color = "#d57916"
 	bitesize = 3
 	foodtype = VEGETABLES
@@ -362,10 +370,11 @@
 	grind_results = list(/datum/reagent/medicine/oculine = 3)
 
 /obj/item/reagent_containers/food/snacks/grown/potato
-	name = "potato"
+	name = "картофель"
+	desc = "Вкусно и сытно накормит как голодных горожан, так и отдыхающую знать."
 	seed = /obj/item/seeds/potato
 	icon_state = "potato"
-	tastes = list("potato" = 1)
+	tastes = list("сырого картофеля" = 1)
 	filling_color = "#d8d8b6"
 	bitesize = 3
 	foodtype = VEGETABLES
@@ -376,10 +385,11 @@
 	distill_amt = 12
 
 /obj/item/reagent_containers/food/snacks/grown/eggplant
-	name = "aubergine"
+	name = "баклажан"
+	desc = "Это вам не кабачок."
 	seed = /obj/item/seeds/eggplant
 	icon_state = "eggplant"
-	tastes = list("aubergine" = 1)
+	tastes = list("баклажана" = 1)
 	filling_color = "#b6ab70"
 	bitesize = 3
 	foodtype = FRUIT
@@ -387,10 +397,11 @@
 	list_reagents = list(/datum/reagent/consumable/nutriment = 3)
 
 /obj/item/reagent_containers/food/snacks/grown/bean
-	name = "beans"
+	name = "фасоль"
+	desc = "Из неё получается густой и наваристый суп."
 	seed = /obj/item/seeds/bean
 	icon_state = "bean"
-	tastes = list("bean" = 1)
+	tastes = list("фасоли" = 1)
 	filling_color = "#4b360e"
 	bitesize = 3
 	foodtype = FRUIT
@@ -399,23 +410,25 @@
 
 /obj/item/reagent_containers/food/snacks/grown/radish
 	seed = /obj/item/seeds/radish
-	name = "radish"
+	name = "редька"
+	desc = "Используется в пищу и в народной медицине. Горькая на вкус."
 	icon_state = "radish"
 	filling_color = "#d4689e"
 	bitesize = 3
 	foodtype = VEGETABLES
-	tastes = list("radish" = 1)
+	tastes = list("горькой редьки" = 1)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	rotprocess = 15 MINUTES
 
 /obj/item/reagent_containers/food/snacks/grown/beet
 	seed = /obj/item/seeds/beet
-	name = "sugarbeet"
+	name = "сахарная свекла"
+	desc = "Повара знают, что её можно перетереть в самый настоящий сахар."
 	icon_state = "beet"
 	filling_color = "#ededed"
 	bitesize = 3
 	foodtype = VEGETABLES|SUGAR
-	tastes = list("sugar" = 1)
+	tastes = list("сладкой свеклы" = 1)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/sugar = 3)
 	grind_results = list(/datum/reagent/consumable/sugar = 6)
 	mill_result = /obj/item/reagent_containers/powder/sugar
@@ -423,60 +436,64 @@
 
 /obj/item/reagent_containers/food/snacks/grown/bellpepper
 	seed = /obj/item/seeds/bellpepper
-	name = "tiefling's egg"
-	desc = "Ay ay ay!! Muy caliente!!"
+	name = "перец тифлинга"
+	desc = "Настолько острый, что передает жар самой Преисподней."
 	icon_state = "bellpepper"
 	filling_color = "#d13f05"
 	bitesize = 3
 	foodtype = FRUIT
-	tastes = list("heat" = 1)
+	tastes = list("адского жара" = 1)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/capsaicin = 3)
 	grind_results = list(/datum/reagent/consumable/capsaicin = 6)
 	rotprocess = 25 MINUTES
 
 /obj/item/reagent_containers/food/snacks/grown/peas
 	seed = /obj/item/seeds/peas
-	name = "peas"
+	name = "горох"
+	desc = "Зеленый горошек используется крестьянами для загущения их стряпни."
 	icon_state = "peas"
 	filling_color = "#6ba432"
 	bitesize = 3
 	foodtype = FRUIT
-	tastes = list("mushy" = 1)
+	tastes = list("гороховой кашицы" = 1)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2)
 	rotprocess = 25 MINUTES
 
 /obj/item/reagent_containers/food/snacks/grown/cucumber
 	seed = /obj/item/seeds/cucumber
-	name = "cucumber"
+	name = "огурец"
+	desc = "Длинный и продолговатый овощ."
 	icon_state = "cucumber"
 	filling_color = "#c2daab"
 	bitesize = 3
 	foodtype = FRUIT
-	tastes = list("cucumber" = 1)
+	tastes = list("свежего огурца" = 1)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 3)
 	rotprocess = 20 MINUTES
 	fishloot = list(/obj/item/reagent_containers/food/snacks/fish/shrimp = 10)
 
 /obj/item/reagent_containers/food/snacks/grown/tea
 	seed = /obj/item/seeds/tea
-	name = "tea"
+	name = "чайный лист"
+	desc = "На материке дворяне любят пить напиток из заваренных в кипятке чайных листьев."
 	icon_state = "tea"
 	filling_color = "#19300f"
 	bitesize = 5
 	foodtype = null
-	tastes = list("sugar" = 1)
+	tastes = list("горечи" = 1)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/toxin/teapowder = 3)
 	grind_results = list(/datum/reagent/toxin/teapowder = 6)
 	rotprocess = 20 MINUTES
 
 /obj/item/reagent_containers/food/snacks/grown/plumphelmet
 	seed = /obj/item/seeds/mycelium/plumphelmet
-	name = "plump helmet mushroom"
+	name = "толстошляпник"
+	desc = "Гриб с мясистой шляпкой, который горцы используют для приготовления особого вина."
 	icon_state = "plumphelmet"
 	filling_color = "#d0abda"
 	bitesize = 3
 	foodtype = VEGETABLES
-	tastes = list("the mountainhome" = 1)
+	tastes = list("высокогорья" = 1)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 3)
 	can_distill = TRUE
 	distill_reagent = /datum/reagent/consumable/ethanol/beer/mushroomwine
@@ -484,22 +501,24 @@
 
 /obj/item/reagent_containers/food/snacks/grown/trippy
 	seed = /obj/item/seeds/mycelium/trippy
-	name = "strange blue mushroom"
+	name = "странный синий гриб"
+	desc = "Голова кружится от одного его запаха..."
 	icon_state = "trippy"
 	filling_color = "#abd4da"
 	bitesize = 3
 	foodtype = GROSS
-	tastes = list("colors" = 1)
+	tastes = list("красочных блесток" = 1)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/drug/space_drugs = 3)
 	grind_results = list(/datum/reagent/drug/space_drugs = 6)
 
 /obj/item/reagent_containers/food/snacks/grown/amanita
 	seed = /obj/item/seeds/mycelium/amanita
-	name = "strange red mushroom"
+	name = "странный красный гриб"
+	desc = "Яркая шляпка делает его непохожим на остальные грибы."
 	icon_state = "amanita"
 	filling_color = "#daabab"
 	bitesize = 3
 	foodtype = GROSS
-	tastes = list("numb" = 1)
+	tastes = list("смертной немоты" = 1)
 	list_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/toxin/amanitin = 3)
 	grind_results = list(/datum/reagent/toxin/amanitin = 6)

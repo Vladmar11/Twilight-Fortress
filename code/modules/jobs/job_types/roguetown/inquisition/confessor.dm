@@ -16,9 +16,9 @@ Please do not confuse the two.
 		/datum/patron/psydon
 	)
 
-	tutorial = "Confessors are shady agents of the church hired to spy on the populace and keep them moral. \
-	As the most fanatical members of the clergy, their main concern is assisting the local Inquisitor with their work. \
-	Whether that be in extracting confessions of sin or hunting night beasts and cultists that hide in plain sight."
+	tutorial = "Исповедники - теневые агенты церкви, нанятые для слежки за населением и поддержания его нравственности. \
+    Самые фанатичные представители духовенства, их главная задача - помогать местному инквизитору в его работе. \
+    Будь то выбивание признаний в грехах или охота на ночных зверей и культистов, которые прячутся у всех на виду."
 
 	outfit = /datum/outfit/job/roguetown/shepherd
 	whitelist_req = TRUE
@@ -52,7 +52,7 @@ Please do not confuse the two.
 		H.mind.adjust_skillrank(/datum/skill/misc/treatment, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/sneaking, 4, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/stealing, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 3, TRUE)
@@ -75,3 +75,4 @@ Please do not confuse the two.
 
 	H.verbs |= /mob/living/carbon/human/proc/faith_test
 	H.verbs |= /mob/living/carbon/human/proc/torture_victim
+	ADD_TRAIT(H, TRAIT_INQUISITION, TRAIT_GENERIC)

@@ -1,7 +1,7 @@
 
 /obj/item/bomb
-	name = "bottle bomb"
-	desc = "Dangerous explosion, in a bottle."
+	name = "бутылочная бомба"
+	desc = "Опасный взрыв в одном флаконе."
 	icon_state = "clear_bomb"
 	var/lit_state = "clear_bomb_lit"
 	icon = 'icons/roguetown/items/cooking.dmi'
@@ -81,6 +81,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 0
 	throw_speed = 0.5
+	grid_height = 32
+	grid_width = 32
 
 /obj/item/smokebomb/proc/explodes(skipprob)
 	STOP_PROCESSING(SSfastprocess, src)

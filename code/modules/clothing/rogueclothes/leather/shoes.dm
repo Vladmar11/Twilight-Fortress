@@ -1,23 +1,23 @@
 
 /obj/item/clothing/shoes/roguetown/armor/leather
-	name = "leather boots"
-	desc = "Boots made of leather."
+	name = "кожаные ботинки"
+	desc = "Ботинки, сделанные из кожи."
 	max_integrity = 150
 	icon_state = "leatherboots"
 	salvage_amount = 1
 	salvage_result = /obj/item/natural/hide/cured
 
 /obj/item/clothing/shoes/roguetown/armor/leather/advanced
-	name = "hardened leather boots"
-	desc = "Sturdy, durable, flexible. A marvel of the dark ages that exists solely to protect your toes."
+	name = "крепкие кожаные ботинки"
+	desc = "Прочные, долговечные, гибкие. Чудо темных веков, существующее исключительно для защиты ваших пальцев ног."
 	max_integrity = 200
 	icon_state = "leatherboots" //replace with advanced sprite
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
 	armor = list("blunt" = 50, "slash" = 40, "stab" = 20, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 
 /obj/item/clothing/shoes/roguetown/armor/leather/masterwork
-	name = "masterwork leather boots"
-	desc = "These boots are a craftsmanship marvel. Made with the finest leather. Strong, nimible, reliable."
+	name = "шедевральные кожаные ботинки"
+	desc = "Эти ботинки – чудо мастерства. Сделаны из лучшей кожи, потому они прочные, легкие и надежные."
 	icon_state = "leatherboots" //replace with masterwork sprite
 	max_integrity = 300
 	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST, BCLASS_CHOP) //we're adding chop here!

@@ -2,15 +2,17 @@
 	race = /datum/species/goblinp
 
 /datum/species/goblinp
-	name = "Goblin"
+	name = "Разумный гоблин"
 	id = "goblinp"
-	desc = "<b>Goblin</b><br>\
-	A vile, cursed race of green skinned fiends with brains as small as their hearts. Be not fooled by their appearance - What they lack in stature, they possess in sheer malice."
+	desc = "<b>Разумные гоблины</b><br>\
+	Гоблины, которые отреклись от своего создателя - Граггара, и пошли по пути просветлению Эоры, давшая им шанс на искупление, \
+	смогли в течении нескольких десятилетий обжиться в некоторых цивилизованных городах. К ним до всех пор относятся с презрением, недоверием и опаской, \
+	однако некоторые из них доказали, что имеют талант изобретать из шестерёнок и болтов что-то новое и неизведанное."
 	species_traits = list(EYECOLOR,LIPS,STUBBLE)
 	inherent_traits = list(TRAIT_NOMOBSWAP)
 	possible_ages = ALL_AGES_LIST
 	use_skintones = TRUE
-	skin_tone_wording = "Skin Color"
+	skin_tone_wording = "Цвет кожи"
 	limbs_icon_m = 'icons/mob/species/goblin_male.dmi'
 	limbs_icon_f = 'icons/mob/species/goblin_female.dmi'
 	dam_icon = 'icons/roguetown/mob/bodies/dam/dam_male.dmi'
@@ -38,21 +40,21 @@
 	offset_features = list(
 		OFFSET_ID = list(0,0), OFFSET_GLOVES = list(0,0), OFFSET_WRISTS = list(0,0),\
 		OFFSET_CLOAK = list(0,0), OFFSET_FACEMASK = list(0,-4), OFFSET_HEAD = list(0,-4), \
-		OFFSET_FACE = list(0,-4), OFFSET_BELT = list(0,-4), OFFSET_BACK = list(0,-3), \
+		OFFSET_FACE = list(0,-5), OFFSET_BELT = list(0,-4), OFFSET_BACK = list(0,-3), \
 		OFFSET_NECK = list(0,-4), OFFSET_MOUTH = list(0,-4), OFFSET_PANTS = list(0,0), \
 		OFFSET_SHIRT = list(0,0), OFFSET_ARMOR = list(0,0), OFFSET_HANDS = list(0,-3), \
 		OFFSET_ID_F = list(0,-4), OFFSET_GLOVES_F = list(0,-4), OFFSET_WRISTS_F = list(0,-4), OFFSET_HANDS_F = list(0,-4), \
 		OFFSET_CLOAK_F = list(0,0), OFFSET_FACEMASK_F = list(0,-5), OFFSET_HEAD_F = list(0,-5), \
-		OFFSET_FACE_F = list(0,-5), OFFSET_BELT_F = list(0,-4), OFFSET_BACK_F = list(0,-4), \
+		OFFSET_FACE_F = list(0,-6), OFFSET_BELT_F = list(0,-4), OFFSET_BACK_F = list(0,-4), \
 		OFFSET_NECK_F = list(0,-5), OFFSET_MOUTH_F = list(0,-5), OFFSET_PANTS_F = list(0,0), \
 		OFFSET_SHIRT_F = list(0,0), OFFSET_ARMOR_F = list(0,0), OFFSET_UNDIES = list(0,0), OFFSET_UNDIES_F = list(0,0), \
 		)
 	specstats = list(
 		"strength" = -2, 
 		"perception" = 0, 
-		"intelligence" = -2, 
-		"constitution" = 2,
-		"endurance" = 1, 
+		"intelligence" = 0, 
+		"constitution" = 0,
+		"endurance" = 2, 
 		"speed" = 2, 
 		"fortune" = -1
 		)

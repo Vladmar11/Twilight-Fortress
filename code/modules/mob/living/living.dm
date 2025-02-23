@@ -1,3 +1,69 @@
+/mob/living
+	var/mutable_appearance/reflective_mask
+	var/mutable_appearance/reflective_icon
+
+
+/mob/living/update_overlays()
+	. = ..()
+	update_reflection()
+
+/mob/living/update_icon()
+	. = ..()
+	update_reflection()
+
+/mob/living/proc/create_reflection()
+	//Add custom reflection mask
+	var/mutable_appearance/MA = new()
+	//appearance stuff
+	MA.appearance = appearance
+	if(render_target)
+		MA.render_source = render_target
+	MA.plane = MANUAL_REFLECTIVE_MASK_PLANE
+	reflective_mask = MA
+	add_overlay(MA)
+
+	//Add custom reflection image
+	var/mutable_appearance/MAM = new()
+	//appearance stuff
+	MAM.appearance = appearance
+	if(render_target)
+		MAM.render_source = render_target
+	MAM.plane = MANUAL_REFLECTIVE_PLANE
+	//transform stuff
+	var/matrix/n_transform = MAM.transform
+	n_transform.Scale(1, -1)
+	MAM.transform = n_transform
+	//filters
+	var/icon/I = icon('icons/turf/overlays.dmi', "partialOverlay")
+	I.Flip(NORTH)
+	MAM.filters += filter(type = "alpha", icon = I)
+	reflective_icon = MAM
+	add_overlay(reflective_icon)
+	update_vision_cone()
+
+/mob/living/carbon/human/dummy/update_reflection()
+	return
+
+/mob/living/proc/update_reflection()
+	if(!reflective_icon)
+		create_reflection()
+	cut_overlay(reflective_icon)
+	reflective_icon.appearance = appearance
+	if(render_target)
+		reflective_icon.render_source = render_target
+	reflective_icon.plane = MANUAL_REFLECTIVE_PLANE
+	reflective_icon.pixel_y -= 32
+	//transform stuff
+	var/matrix/n_transform = reflective_icon.transform
+	n_transform.Scale(1, -1)
+	reflective_icon.transform = n_transform
+	//filters
+	var/icon/I = icon('icons/turf/overlays.dmi', "partialOverlay")
+	I.Flip(NORTH)
+	reflective_icon.filters += filter(type = "alpha", icon = I)
+	add_overlay(reflective_icon)
+	update_vision_cone()
+
 /mob/living/Initialize()
 	. = ..()
 	update_a_intents()
@@ -8,6 +74,8 @@
 	faction += "[REF(src)]"
 	GLOB.mob_living_list += src
 	init_faith()
+
+	create_reflection()
 
 /mob/living/Destroy()
 	surgeries = null
@@ -45,8 +113,8 @@
 	for(var/i in 2 to levels)
 		i++
 		points += "!"
-	visible_message(span_danger("[src] falls down[points]"), \
-					span_danger("I fall down[points]"))
+	visible_message(span_danger("[src] падает вниз[points]"), \
+					span_danger("Я падаю[points]"))
 	playsound(src.loc, 'sound/foley/zfall.ogg', 100, FALSE)
 	if(!isgroundlessturf(T))
 		ZImpactDamage(T, levels)
@@ -99,14 +167,14 @@
 		//Should stop you pushing a restrained person out of the way
 		if(L.pulledby && L.pulledby != src && L.pulledby != L && L.restrained())
 			if(!(world.time % 5))
-				to_chat(src, span_warning("[L] is restrained, you cannot push past."))
+				to_chat(src, span_warning("[L] связан[L.rus_a()], вы не можете оттолкнуть [L.rus_them()] с пути."))
 			return TRUE
 
 		if(L.pulling)
 			if(ismob(L.pulling) && L.pulling != L)
 				var/mob/P = L.pulling
 				if(!(world.time % 5))
-					to_chat(src, span_warning("[L] is grabbing [P], you cannot push past."))
+					to_chat(src, span_warning("[L] тянет [P], вы не можете оттолкнуть [L.rus_them()] с пути."))
 				return TRUE
 
 	if(moving_diagonally)//no mob swap during diagonal moves.
@@ -200,7 +268,7 @@
 				playsound = TRUE
 			if(playsound)
 				playsound(src, "genblunt", 100, TRUE)
-			visible_message(span_warning("[src] charges into [L]!"), span_warning("I charge into [L]!"))
+			visible_message(span_warning("[src] столкну[src.rus_sya()] с [L]!"), span_warning("Я столкну[src.rus_sya()] c [L]!"))
 			return TRUE
 
 	//okay, so we didn't switch. but should we push?
@@ -225,9 +293,9 @@
 			if(statchance < 10)
 				statchance = 10
 			if(prob(statchance))
-				visible_message(span_info("[src] pushes [M]."))
+				visible_message(span_info("[src] толкает [M]."))
 			else
-				visible_message(span_warning("[src] pushes [M]."))
+				visible_message(span_warning("[src] толкает [M]."))
 				return TRUE
 
 	//anti-riot equipment is also anti-push
@@ -274,7 +342,7 @@
 	if(isliving(user))
 		var/mob/living/L = user
 		if(!get_bodypart(check_zone(L.zone_selected)))
-			to_chat(L, span_warning("[src] is missing that."))
+			to_chat(L, span_warning("У [src] нет [L.zone_selected], схватиться не получится."))
 			return FALSE
 		if(!lying_attack_check(L))
 			return FALSE
@@ -287,7 +355,7 @@
 		return TRUE
 	var/list/acceptable = list(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG, BODY_ZONE_R_ARM, BODY_ZONE_CHEST, BODY_ZONE_L_ARM)
 	if( !(check_zone(L.zone_selected) in acceptable) )
-		to_chat(L, span_warning("I can't reach that."))
+		to_chat(L, span_warning("Я не могу достать до [L.zone_selected]."))
 		return FALSE
 	return TRUE
 
@@ -318,12 +386,12 @@
 		CZ = TRUE
 	if(CZ)
 		if( !(check_zone(L.zone_selected) in acceptable) )
-			to_chat(L, span_warning("I can't reach that."))
+			to_chat(L, span_warning("Я не могу достать до [L.zone_selected]."))
 			testing("reach2")
 			return FALSE
 	else
 		if( !(L.zone_selected in acceptable) )
-			to_chat(L, span_warning("I can't reach that."))
+			to_chat(L, span_warning("Я не могу достать до [L.zone_selected]."))
 			testing("reach2")
 			return FALSE
 	return TRUE
@@ -336,7 +404,7 @@
 	if(throwing || !(mobility_flags & MOBILITY_PULL))
 		return FALSE
 	if(!(isliving(AM)) && isseelie(src))	//Seelie grabbing non living object
-		to_chat(src, span_warning("My hands are too small to grab that."))
+		to_chat(src, span_warning("Мои руки слишком крохотные!"))
 		return FALSE
 
 	AM.add_fingerprint(src)
@@ -361,8 +429,8 @@
 
 		// Makes it so people who recently broke out of grabs cannot be grabbed again
 		if(TIMER_COOLDOWN_RUNNING(M, "broke_free") && M.stat == CONSCIOUS)
-			M.visible_message(span_warning("[M] slips from [src]'s grip."), \
-					span_warning("I slip from [src]'s grab."))
+			M.visible_message(span_warning("[M] выскальзывает из хватки [src]."), \
+					span_warning("Я выскользнул[M.rus_a()] из хватки [src]."))
 			log_combat(src, M, "tried grabbing", addition="passive grab")
 			return
 
@@ -422,9 +490,9 @@
 		update_grab_intents()
 
 /mob/living/proc/send_pull_message(mob/living/target)
-	target.visible_message(span_warning("[src] grabs [target]."), \
-					span_warning("[src] grabs me."), span_hear("I hear shuffling."), null, src)
-	to_chat(src, span_info("I grab [target]."))
+	target.visible_message(span_warning("[src] cхватил[src.rus_a()] [target]."), \
+					span_warning("[src] cхватил[src.rus_a()] меня."), span_hear("Я слышу шарканье."), null, src)
+	to_chat(src, span_info("Я cхватил[src.rus_a()] [target]."))
 
 /mob/living/proc/set_pull_offsets(mob/living/M, grab_state = GRAB_PASSIVE)
 	if(M.buckled)
@@ -534,7 +602,7 @@
 		return FALSE
 	if(!..())
 		return FALSE
-	visible_message(span_notice(span_name("[src]") + " points at [A]."), span_notice("I point at [A]."))
+	visible_message(span_notice(span_name("[src]") + " показывает на [A]."), span_notice("Я показываю на [A]."))
 	return TRUE
 
 /mob/living/verb/succumb(whispered as null, reaper as null)
@@ -597,7 +665,7 @@
 	if(stat)
 		return
 	if(pulledby)
-		to_chat(src, span_warning("I'm grabbed!"))
+		to_chat(src, span_warning("Меня схватили!"))
 		return
 	if(!resting)
 		set_resting(TRUE, FALSE)
@@ -609,27 +677,27 @@
 	if(stat)
 		return FALSE
 	if(pulledby)
-		to_chat(src, span_warning("I'm grabbed!"))
+		to_chat(src, span_warning("Меня схватили!"))
 		return FALSE
 	if(resting)
 		if(isseelie(src))
 			var/obj/item/organ/wings/Wing = src.getorganslot(ORGAN_SLOT_WINGS)
 			if(Wing == null)
-				to_chat(src, span_warning("I can't stand without my wings!"))
+				to_chat(src, span_warning("Я не могу ровно стоять без моих крыльев!"))
 				return FALSE
 		if(!IsKnockdown() && !IsStun() && !IsParalyzed())
 			if(move_after(src, 20, target = src))
 				set_resting(FALSE, FALSE)
 				if(resting)
-					src.visible_message(span_warning("[src] tries to stand up."))
+					src.visible_message(span_warning("[src] пытается встать."))
 					return FALSE // workaround for broken legs and stuff
-				src.visible_message(span_notice("[src] stands up."))
+				src.visible_message(span_notice("[src] встает."))
 				return TRUE
 			else
-				src.visible_message(span_warning("[src] tries to stand up."))
+				src.visible_message(span_warning("[src] пытается встать."))
 				return FALSE
 		else
-			src.visible_message(span_warning("[src] tries to stand up."))
+			src.visible_message(span_warning("[src] пытается встать."))
 			return FALSE
 
 /mob/living/proc/toggle_rest()
@@ -639,20 +707,20 @@
 	if(stat)
 		return
 	if(pulledby)
-		to_chat(src, span_warning("I'm grabbed!"))
+		to_chat(src, span_warning("Меня схватили!"))
 		return
 	if(resting)
 		if(isseelie(src))
 			var/obj/item/organ/wings/Wing = src.getorganslot(ORGAN_SLOT_WINGS)
 			if(Wing == null)
-				to_chat(src, span_warning("I can't stand without my wings!"))
+				to_chat(src, span_warning("Я не могу ровно стоять без моих крыльев!"))
 				return
 		if(!IsKnockdown() && !IsStun() && !IsParalyzed())
-			src.visible_message(span_info("[src] begins to stand up."))
+			src.visible_message(span_info("[src] поднимается на ноги."))
 			if(move_after(src, 20, target = src))
 				set_resting(FALSE, FALSE)
 		else
-			src.visible_message(span_warning("[src] struggles to stand up."))
+			src.visible_message(span_warning("[src] изо всех сил пытается встать."))
 	else
 		set_resting(TRUE, FALSE)
 
@@ -679,7 +747,7 @@
 				else
 					playsound(src, 'sound/foley/toggleup.ogg', 100, FALSE)
 		else
-			to_chat(src, span_warning("I fail to get up!"))
+			to_chat(src, span_warning("Я не смог[src.gender == FEMALE ? "ла" : ""] встать!"))
 	update_cone_show()
 
 /mob/living/proc/update_resting()
@@ -721,6 +789,7 @@
 	SEND_SIGNAL(src, COMSIG_LIVING_REVIVE, full_heal, admin_revive)
 	if(full_heal)
 		fully_heal(admin_revive = admin_revive)
+		remove_status_effect(/datum/status_effect/debuff/death_weaken)
 	if(stat == DEAD && (admin_revive || can_be_revived())) //in some cases you can't revive (e.g. no brain)
 		GLOB.dead_mob_list -= src
 		GLOB.alive_mob_list += src
@@ -737,7 +806,7 @@
 			if(admin_revive)
 				mind.remove_antag_datum(/datum/antagonist/zombie)
 			else if(mind.funeral && !CONFIG_GET(flag/force_respawn_on_funeral))
-				to_chat(src, span_warning("My funeral rites are undone!"))
+				to_chat(src, span_warning("Мои похоронные обряды отменены!"))
 				mind.funeral = FALSE
 			for(var/S in mind.spell_list)
 				var/obj/effect/proc_holder/spell/spell = S
@@ -988,7 +1057,7 @@
 	Knockdown(300)
 	apply_status_effect(/datum/status_effect/debuff/breedable)
 	apply_status_effect(/datum/status_effect/debuff/submissive)
-	src.visible_message(span_notice("[src] yields!"))
+	src.visible_message(span_notice("[src] сдается!"))
 	playsound(src, 'sound/misc/surrender.ogg', 100, FALSE, -1, ignore_walls=TRUE)
 	update_vision_cone()
 	addtimer(CALLBACK(src, PROC_REF(end_submit)), 600)
@@ -1001,7 +1070,7 @@
 	if(atkswinging)
 		atkswinging = FALSE
 		if(message)
-			to_chat(src, span_warning("Attack stopped."))
+			to_chat(src, span_warning("Атака остановлена."))
 	if(client)
 		client.charging = 0
 		client.chargedprog = 0
@@ -1029,7 +1098,7 @@
 	var/combat_modifier = 1
 
 	if(HAS_TRAIT(src, TRAIT_PARALYSIS))//Will stop someone who is paralized from trying to resist
-		to_chat(src, span_warning("I can't move!"))
+		to_chat(src, span_warning("Я не могу пошевелиться!"))
 		return FALSE
 	if(mind)
 		wrestling_diff += (mind.get_skill_level(/datum/skill/combat/wrestling)) //NPCs don't use this
@@ -1057,9 +1126,9 @@
 		client.move_delay = world.time + 20
 	if(prob(resist_chance))
 		stamina_add(rand(5,15))
-		visible_message(span_warning("[src] breaks free of [pulledby]'s grip!"), \
-						span_notice("I break free of [pulledby]'s grip!"), null, null, pulledby)
-		to_chat(pulledby, span_danger("[src] breaks free of my grip!"))
+		visible_message(span_warning("[src] вырывается из хватки [pulledby]!"), \
+						span_notice("Я вырва[src.rus_sya()] из хватки [pulledby]!"), null, null, pulledby)
+		to_chat(pulledby, span_danger("[src] вырва[src.rus_sya()] из моей хватки!"))
 		log_combat(pulledby, src, "broke grab")
 		pulledby.changeNext_move(CLICK_CD_GRABBING)
 		pulledby.stop_pulling()
@@ -1075,9 +1144,9 @@
 		var/shitte = ""
 //		if(client?.prefs.showrolls)
 //			shitte = " ([resist_chance]%)"
-		visible_message(span_warning("[src] struggles to break free from [pulledby]'s grip!"), \
-						span_warning("I struggle against [pulledby]'s grip![shitte]"), null, null, pulledby)
-		to_chat(pulledby, span_warning("[src] struggles against my grip!"))
+		visible_message(span_warning("[src] изо всех сил пытается вырваться из хватки [pulledby]!"), \
+						span_warning("Я пытаюсь вырваться из хватки [pulledby]![shitte]"), null, null, pulledby)
+		to_chat(pulledby, span_warning("[src] пытается вырваться из моей хватки!"))
 
 		return TRUE
 
@@ -1091,9 +1160,9 @@
 				if(G.limb_grabbed == head)
 					if(G.grabbee == pulledby)
 						if(G.sublimb_grabbed == BODY_ZONE_PRECISE_NOSE)
-							visible_message(span_warning("[src] struggles to break free from [pulledby]'s grip!"), \
-											span_warning("I struggle against [pulledby]'s grip!"), null, null, pulledby)
-							to_chat(pulledby, span_warning("[src] struggles against my grip!"))
+							visible_message(span_warning("[src] изо всех сил пытается вырваться из хватки [pulledby]!"), \
+											span_warning("Я пытаюсь вырваться из хватки [pulledby]!"), null, null, pulledby)
+							to_chat(pulledby, span_warning("[src] пытается вырваться из моей хватки!"))
 							return FALSE
 	return ..()
 
@@ -1149,23 +1218,23 @@
 // Override if a certain type of mob should be behave differently when stripping items (can't, for example)
 /mob/living/stripPanelUnequip(obj/item/what, mob/who, where)
 	if(!what.canStrip(who))
-		to_chat(src, span_warning("I can't remove \the [what.name], it appears to be stuck!"))
+		to_chat(src, span_warning("Я не могу снять [what.name], кажется, застряло!"))
 		return
 
 	if(!has_active_hand()) //can't attack without a hand.
-		to_chat(src, span_warning("I lack working hands."))
+		to_chat(src, span_warning("Мне не хватает рабочих рук."))
 		return
 
 	if(!has_hand_for_held_index(active_hand_index)) //can't attack without a hand.
-		to_chat(src, span_warning("I can't move this hand."))
+		to_chat(src, span_warning("Не могу пошевелить своими пальцами."))
 		return
 
 	if(check_arm_grabbed(active_hand_index))
-		to_chat(src, span_warning("Someone is grabbing my arm!"))
+		to_chat(src, span_warning("Кто-то держит меня за руку!"))
 		return
 
 	if(istype(src, /mob/living/carbon/spirit))
-		to_chat(src, span_warning("Your hands pass right through \the [what]!"))
+		to_chat(src, span_warning("Мои руки проходят сквозь [what]!"))
 		return
 
 	var/surrender_mod = 1
@@ -1178,9 +1247,9 @@
 		if(L.surrendering)
 			surrender_mod = 0.5
 
-	who.visible_message(span_warning("[src] tries to remove [who]'s [what.name]."), \
-					span_danger("[src] tries to remove my [what.name]."), null, null, src)
-	to_chat(src, span_danger("I try to remove [who]'s [what.name]..."))
+	who.visible_message(span_warning("[src] пытается снять [what.name] с тела [who]."), \
+					span_danger("[src] пытается снять с меня [what.name]."), null, null, src)
+	to_chat(src, span_danger("Я пытаюсь снять [what.name] с тела [who]..."))
 	what.add_fingerprint(src)
 	if(do_mob(src, who, what.strip_delay * surrender_mod))
 		if(what && Adjacent(who))
@@ -1203,7 +1272,7 @@
 /mob/living/stripPanelEquip(obj/item/what, mob/who, where)
 	what = src.get_active_held_item()
 	if(what && (HAS_TRAIT(what, TRAIT_NODROP)))
-		to_chat(src, span_warning("I can't put \the [what.name] on [who], it's stuck to my hand!"))
+		to_chat(src, span_warning("Я не могу надеть [what.name] на [who], прилипло к моей руке!"))
 		return
 	if(what)
 		var/list/where_list
@@ -1216,7 +1285,7 @@
 			final_where = where
 
 		if(!what.mob_can_equip(who, src, final_where, TRUE, TRUE))
-			to_chat(src, span_warning("\The [what.name] doesn't fit in that place!"))
+			to_chat(src, span_warning("Кажется, [(what.name)] сюда не налезет!"))
 			return
 
 		var/surrender_mod = 1
@@ -1224,14 +1293,14 @@
 		if(isliving(who))
 			var/mob/living/L = who
 			if(L.cmode && L.mobility_flags & MOBILITY_STAND)
-				to_chat(src, span_warning("I can't put \the [what] on them, they are too tense!"))
+				to_chat(src, span_warning("Я не могу надеть [what], [who] сильно брыкается!"))
 				return
 			if(L.surrendering)
 				surrender_mod = 0.5
 
-		who.visible_message(span_notice("[src] tries to put [what] on [who]."), \
-						span_notice("[src] tries to put [what] on you."), null, null, src)
-		to_chat(src, span_notice("I try to put [what] on [who]..."))
+		who.visible_message(span_notice("[src] пытается надеть [what] на [who]."), \
+						span_notice("[src] пытается надеть [what] на вас."), null, null, src)
+		to_chat(src, span_notice("Я пытаюсь надеть [what] на [who]..."))
 		if(do_mob(src, who, what.equip_delay_other * surrender_mod))
 			if(what && Adjacent(who) && what.mob_can_equip(who, src, final_where, TRUE, TRUE))
 				if(temporarilyRemoveItemFromInventory(what))
@@ -1302,22 +1371,22 @@
 
 /mob/living/canUseTopic(atom/movable/M, be_close=FALSE, no_dexterity=FALSE, no_tk=FALSE)
 	if(incapacitated())
-		to_chat(src, span_warning("I can't do that right now!"))
+		to_chat(src, span_warning("Я не могу сделать это прямо сейчас!"))
 		return FALSE
 	if(be_close && !in_range(M, src))
-		to_chat(src, span_warning("I am too far away!"))
+		to_chat(src, span_warning("Я слишком далеко!"))
 		return FALSE
 	if(!no_dexterity)
-		to_chat(src, span_warning("I don't have the dexterity to do this!"))
+		to_chat(src, span_warning("У меня не хватит сноровки, чтобы это сделать!"))
 		return FALSE
 	return TRUE
 
 /mob/living/proc/can_use_guns(obj/item/G)//actually used for more than guns!
 	if(G.trigger_guard == TRIGGER_GUARD_NONE)
-		to_chat(src, span_warning("I are unable to fire this!"))
+		to_chat(src, span_warning("Я не могу из этого выстрелить!"))
 		return FALSE
 	if(G.trigger_guard != TRIGGER_GUARD_ALLOW_ALL && !IsAdvancedToolUser())
-		to_chat(src, span_warning("I try to fire [G], but can't use the trigger!"))
+		to_chat(src, span_warning("Я пытаюсь выстрелить из [G], но не могу нажать на спуск!"))
 		return FALSE
 	return TRUE
 
@@ -1367,8 +1436,8 @@
 	if(fire_stacks > 0 && !on_fire)
 		testing("ignis")
 		on_fire = TRUE
-		src.visible_message(span_warning("[src] catches fire!"), \
-						span_danger("I'm set on fire!"))
+		src.visible_message(span_warning("[src] загоре[src.rus_sya()]!"), \
+						span_danger("Я горю!"))
 		new/obj/effect/dummy/lighting_obj/moblight/fire(src)
 		throw_alert("fire", /atom/movable/screen/alert/fire)
 		update_fire()
@@ -1624,14 +1693,14 @@
 	if(!ishuman(user))
 		return
 	if(user.get_active_held_item())
-		to_chat(user, span_warning("My hands are full!"))
+		to_chat(user, span_warning("Мои руки заняты!"))
 		return FALSE
 	if(buckled)
-		to_chat(user, span_warning("[src] is buckled to something!"))
+		to_chat(user, span_warning("[src] прикреплен к чему-то!"))
 		return FALSE
-	user.visible_message(span_warning("[user] starts trying to scoop up [src]!"), \
-					span_danger("I start trying to scoop up [src]..."), null, null, src)
-	to_chat(src, span_danger("[user] starts trying to scoop you up!"))
+	user.visible_message(span_warning("[user] пытается поднять [src] на руки!"), \
+					span_danger("Я пытаюсь поднять [src] на руки..."), null, null, src)
+	to_chat(src, span_danger("[user] пытается поднять вас на руки!"))
 	if(!do_after(user, 20, target = src))
 		return FALSE
 	mob_pickup(user)
@@ -1727,7 +1796,7 @@
 		return
 	changeNext_move(CLICK_CD_EXHAUSTED)
 	if(m_intent != MOVE_INTENT_SNEAK)
-		visible_message(span_info("[src] begins looking around."))
+		visible_message(span_info("[src] осматривается вокруг..."))
 	var/looktime = 50 - (STAPER * 2)
 	if(do_after(src, looktime, target = src))
 		for(var/mob/living/M in view(7,src))
@@ -1745,14 +1814,14 @@
 				found_ping(get_turf(M), client, "hidden")
 				if(M.m_intent == MOVE_INTENT_SNEAK)
 					emote("huh")
-					to_chat(M, span_danger("[src] sees me! I'm found!"))
+					to_chat(M, span_danger("[src] видит меня! Я раскры[src.rus_sya()]!"))
 					M.mob_timers[MT_FOUNDSNEAK] = world.time
 			else
 				if(M.m_intent == MOVE_INTENT_SNEAK)
 					if(M.client?.prefs.showrolls)
-						to_chat(M, span_warning("[src] didn't find me... [probby]%"))
+						to_chat(M, span_warning("[src] не [src.gender == FEMALE ? "нашла" : "нашел"] меня... [probby]%"))
 					else
-						to_chat(M, span_warning("[src] didn't find me."))
+						to_chat(M, span_warning("[src] не [src.gender == FEMALE ? "нашла" : "нашел"] меня."))
 				else
 					found_ping(get_turf(M), client, "hidden")
 
@@ -1789,29 +1858,29 @@
 		return
 	changeNext_move(CLICK_CD_RAPID)
 	if(m_intent != MOVE_INTENT_SNEAK)
-		visible_message(span_info("[src] looks up."))
+		visible_message(span_info("[src] смотрит наверх."))
 	var/turf/ceiling = get_step_multiz(src, UP)
 	var/turf/T = get_turf(src)
 	if(!ceiling) //We are at the highest z-level.
 		if(T.can_see_sky())
 			switch(GLOB.forecast)
 				if("prerain")
-					to_chat(src, span_warning("Dark clouds gather..."))
+					to_chat(src, span_warning("Тучи сгущаются..."))
 					return
 				if("rain")
-					to_chat(src, span_warning("A wet wind blows."))
+					to_chat(src, span_warning("Влажный ветер дует."))
 					return
 				if("rainbow")
-					to_chat(src, span_notice("A beautiful rainbow!"))
+					to_chat(src, span_notice("Красивая радуга!"))
 					return
 				if("fog")
-					to_chat(src, span_warning("I can't see anything, the fog has set in."))
+					to_chat(src, span_warning("Я ничего не вижу, спустился туман."))
 					return
-			to_chat(src, span_warning("There is nothing special to say about this weather."))
+			to_chat(src, span_warning("Про такую ​​погоду сказать особо нечего."))
 			do_time_change()
 		return
 	else if(!istransparentturf(ceiling)) //There is no turf we can look through above us
-		to_chat(src, span_warning("A ceiling above my head."))
+		to_chat(src, span_warning("Над моей головой потолок."))
 		return
 
 	if(T.can_see_sky())
@@ -1847,7 +1916,7 @@
 		if(ttime < 0)
 			ttime = 0
 	if(m_intent != MOVE_INTENT_SNEAK)
-		visible_message(span_info("[src] looks into the distance."))
+		visible_message(span_info("[src] смотрит вдаль."))
 	animate(client, pixel_x = world.icon_size*_x, pixel_y = world.icon_size*_y, ttime)
 //	RegisterSignal(src, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(stop_looking))
 	update_cone_show()
@@ -1873,7 +1942,7 @@
 	if(!OS)
 		return
 
-	visible_message(span_info("[src] looks down through [T]."))
+	visible_message(span_info("[src] смотрит вниз через [T]."))
 
 
 	changeNext_move(CLICK_CD_RAPID)

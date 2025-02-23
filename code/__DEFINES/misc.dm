@@ -13,6 +13,7 @@
 
 
 //Human Overlays Indexes/////////
+#define REFLECTION_LAYER		49
 #define MUTATIONS_LAYER			49		//mutations. Tk headglows, cold resistance glow, etc
 #define CLOAK_BEHIND_LAYER		48
 #define HANDS_BEHIND_LAYER		47

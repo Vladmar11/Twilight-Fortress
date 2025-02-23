@@ -11,9 +11,8 @@
 	allowed_ages = list(AGE_ADULT)
 	subclass_cat_rolls = list(CTAG_CLERK = 20)
 
-	tutorial = "You have been granted the privilege of serving as a clerk in the Steward's office. \
-	You help the Steward with anything they need, and learn how coin keeps the town moving and prosperous. \
-	Perhaps, one dae the office will belong to nobody but you."
+	tutorial = "Вы получили привилегию служить клерком в офисе казначея. \
+	Вы помогаете казначею во всем, что ему нужно, и узнаете, как монеты обеспечивают движение и процветание города."
 
 	display_order = JDO_CLERK
 	give_bank_account = TRUE
@@ -30,25 +29,19 @@
 
 /datum/subclass/clerk/apprentice
 	name = "Noble Apprentice"
-	tutorial = "You were born in a noble family and the moment you grew up, your parents decided to give you under apprenticeship of the Steward. \
-	It is your calling that eventually you will take your master's place, but for now, you must follow the Steward's orders and lessons."
+	tutorial = "Вы родились в благородной семье, и как только вы выросли, ваши родители решили отдать вас в ученики к казначею. \
+	Это ваше призвание, и со временем вы займете место своего хозяина, но пока вы должны следовать приказам и урокам казначея."
 	outfit = /datum/outfit/job/roguetown/clerk/apprentice
 	category_tags = list(CTAG_CLERK)
 
 /datum/outfit/job/roguetown/clerk/apprentice/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.gender == MALE)
-		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/puritan
+		shirt = /obj/item/clothing/suit/roguetown/shirt/tunic/noblecoat
 		pants = /obj/item/clothing/under/roguetown/tights
 	if(H.gender == FEMALE)
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/nobledress/green
 		pants = /obj/item/clothing/under/roguetown/tights/stockings/white
-	shoes = /obj/item/clothing/shoes/roguetown/armor
-	belt = /obj/item/storage/belt/rogue/leather
-	beltr = /obj/item/storage/belt/rogue/pouch/coins/mid
-	beltl = /obj/item/storage/keyring/steward
-	backr = /obj/item/storage/backpack/rogue/satchel
-	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel = 1)
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 5, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
@@ -66,15 +59,15 @@
 
 /datum/subclass/clerk/assistant
 	name = "Ignoble Assistant"
-	tutorial = "You might've already starved to death, but luckily for you the Steward noticed your capabilities and gave you an offer that changed your lyfe. \
-	It is a rare occasion for a commoner to be granted a great honor of apprenticeship in the matters of coin. Dont disappoint your master."
+	tutorial = "Вы могли бы уже умереть от голода, но, к счастью, казначей заметил ваши способности и сделал вам предложение, которое изменило вашу жизнь. \
+	Это редкий случай, когда простолюдин удостаивается великой чести быть подмастерьем в монетном деле. Не разочаруйте своего хозяина."
 	outfit = /datum/outfit/job/roguetown/clerk/assistant
 	category_tags = list(CTAG_CLERK)
 
 /datum/outfit/job/roguetown/clerk/assistant/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.gender == MALE)
-		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/puritan
+		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/fancy
 		pants = /obj/item/clothing/under/roguetown/tights
 	if(H.gender == FEMALE)
 		shirt = /obj/item/clothing/suit/roguetown/shirt/dress/nobledress/green
@@ -105,7 +98,7 @@
 
 /datum/subclass/clerk/thug
 	name = "Thug"
-	tutorial = "You've earned your position not by your diligency, but thanks to your strengh. But dont you think that brute force will get you any better than just a thug."
+	tutorial = "Ты заслужил свое положение не усердием, а силой. Но не думай, что грубая сила сделает тебя лучше, чем просто бандит."
 	outfit = /datum/outfit/job/roguetown/clerk/thug
 	category_tags = list(CTAG_CLERK)
 

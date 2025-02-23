@@ -1,8 +1,8 @@
 /datum/subclass/healer
 	name = "Healer"
-	tutorial = "Whether you have helped people on the battlefield or concocted ailments in private, your life has been dedicated \
-				to healing the sick and wounded. You've joined a refugee caravan to escape the spreading rot, a sickness which even someone \
-				like you cannot truly explain."
+	tutorial = "Помогали ли вы людям на поле боя или придумывали лекарства наедине с собой, ваша жизнь была посвящена \
+				исцелению больных и раненых. Вы присоединились к каравану беженцев, чтобы спастись от распространяющейся чумы, катастроф и войны, которую даже такой человек,\
+				как вы, не может объяснить."
 
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_ALL_KINDS
@@ -69,7 +69,8 @@
 			pants = /obj/item/clothing/under/roguetown/trou
 			shoes = /obj/item/clothing/shoes/roguetown/simpleshoes
 			backl = /obj/item/storage/backpack/rogue/backpack
-			backpack_contents = list(/obj/item/storage/fancy/skit = 1, /obj/item/storage/fancy/ifak = 1)
+			backr = /obj/item/bedroll // field surgery
+			backpack_contents = list(/obj/item/storage/fancy/skit = 1, /obj/item/storage/fancy/ifak = 1, /obj/item/reagent_containers/glass/alembic = 1, /obj/item/rope = 1, /obj/item/natural/cloth = 1) // tie and gag zombies
 			H.change_stat("strength", -1)
 			H.change_stat("intelligence", 2)
 			H.change_stat("perception", 1)

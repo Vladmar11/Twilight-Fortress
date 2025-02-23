@@ -1,5 +1,5 @@
 /datum/sex_action/toy_other_oral
-	name = "Use toy on their mouth"
+	name = "Трахнуть игрушкой (орал)"
 	gags_target = TRUE
 
 /datum/sex_action/toy_other_oral/shows_on_menu(mob/living/carbon/human/user, mob/living/carbon/human/target)
@@ -23,17 +23,17 @@
 /datum/sex_action/toy_other_oral/on_start(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	..()
 	var/obj/item/dildo = get_dildo_in_either_hand(user)
-	user.visible_message(span_warning("[user] forces [target]'s to gobble on \the [dildo]..."))
+	user.visible_message(span_warning("[user] проталкивает в ротик [target] [dildo]..."))
 
 /datum/sex_action/toy_other_oral/on_perform(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(user.sexcon.do_message_signature("[type]"))
-		user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] forces [target] to suck on the dildo..."))
+		user.visible_message(user.sexcon.spanify_force("[user] [user.sexcon.get_generic_force_adjective()] трахает при помощи дилдо ротик [target]..."))
 	target.make_sucking_noise()
 
 /datum/sex_action/toy_other_oral/on_finish(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	..()
 	var/obj/item/dildo = get_dildo_in_either_hand(user)
-	user.visible_message(span_warning("[user] pulls \the [dildo] from [target]'s mouth."))
+	user.visible_message(span_warning("[user] вынимает [dildo] из рта [target]."))
 
 /datum/sex_action/toy_other_oral/is_finished(mob/living/carbon/human/user, mob/living/carbon/human/target)
 	if(target.sexcon.finished_check())

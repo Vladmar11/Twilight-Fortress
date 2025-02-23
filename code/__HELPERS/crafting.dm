@@ -127,44 +127,44 @@ proc/construct_item(mob/user, datum/crafting_recipe/R)
 	result_name = N.name
 
 	if(isopenturf(T) && R.wallcraft)
-		to_chat(user, span_warning("Need to craft this on a wall."))
+		to_chat(user, span_warning("Нужно изготовить это на стене."))
 		return
 	if(!isopenturf(T) || R.ontile)
 		T = get_turf(user.loc)
 	if(!R.TurfCheck(user, T))
-		to_chat(user, span_warning("I can't craft here."))
+		to_chat(user, span_warning("Не могу создавать здесь."))
 		return
 	if(isturf(R.result))
 		for(var/obj/structure/fluff/traveltile/TT in range(7, user))
-			to_chat(user, span_warning("I can't craft here."))
+			to_chat(user, span_warning("Не могу создавать здесь."))
 			return
 	if(ispath(R.result, /obj/structure) || ispath(R.result, /obj/machinery))
 		for(var/obj/structure/fluff/traveltile/TT in range(7, user))
-			to_chat(user, span_warning("I can't craft here."))
+			to_chat(user, span_warning("Не могу создавать здесь."))
 			return
 		for(var/obj/structure/S in T)
 			if(R.buildsame && istype(S, R.result))
 				if(user.dir == S.dir)
-					to_chat(user, span_warning("Something is in the way."))
+					to_chat(user, span_warning("Что-то мне мешает."))
 					return
 				continue
 			if(R.structurecraft && istype(S, R.structurecraft))
 				testing("isstructurecraft")
 				continue
 			if(S.density)
-				to_chat(user, span_warning("Something is in the way."))
+				to_chat(user, span_warning("Что-то мне мешает."))
 				return
 		for(var/obj/machinery/M in T)
 			if(M.density)
-				to_chat(user, span_warning("Something is in the way."))
+				to_chat(user, span_warning("Что-то мне мешает."))
 				return
 	if(R.req_table)
 		if(!(locate(/obj/structure/table) in T))
-			to_chat(user, span_warning("I need to make this on a table."))
+			to_chat(user, span_warning("Мне нужно собрать это на столе."))
 			return
 	if(R.structurecraft)
 		if(!(locate(R.structurecraft) in T))
-			to_chat(user, span_warning("I'm missing a structure I need."))
+			to_chat(user, span_warning("Нет необходимой структуры для создания."))
 			return
 	if(check_contents(R, contents))
 		if(check_tools(user, R, contents))
@@ -175,9 +175,9 @@ proc/construct_item(mob/user, datum/crafting_recipe/R)
 				if(do_after(user, time2use, target = user))
 					contents = get_surroundings(user)
 					if(!check_contents(R, contents))
-						return ", missing component."
+						return ", не хватает ресурсов."
 					if(!check_tools(user, R, contents))
-						return ", missing tool."
+						return ", нет подходящего инструмента."
 
 					var/prob2craft = 25
 					if(R.skill_level)
@@ -194,9 +194,9 @@ proc/construct_item(mob/user, datum/crafting_recipe/R)
 					prob2craft = CLAMP(prob2craft, 0, 99)
 					if(!prob(prob2craft))
 						if(user.client?.prefs.showrolls)
-							to_chat(user, span_danger("I've failed to craft \the [result_name]... [prob2craft]%"))
+							to_chat(user, span_danger("Мне не удалось создать [result_name]... [prob2craft]%"))
 							continue
-						to_chat(user, span_danger("I've failed to craft \the [result_name]."))
+						to_chat(user, span_danger("Мне не удалось создать [result_name]."))
 						continue
 					var/list/parts = del_reqs(R, user)
 
@@ -215,8 +215,8 @@ proc/construct_item(mob/user, datum/crafting_recipe/R)
 							var/atom/movable/I = new R.result (T)
 							I.CheckParts(parts, R)
 							I.OnCrafted(user.dir, user)
-					user.visible_message(span_notice("[user] [R.verbage] \a [result_name]!"), \
-										span_notice("I [R.verbage_simple] \a [result_name]!"))
+					user.visible_message(span_notice("[user] [R.verbage] [result_name]!"), \
+										span_notice("Я [R.verbage_simple] [result_name]!"))
 					if(user.mind && R.skillcraft)
 						if(isliving(user))
 							var/mob/living/L = user
@@ -228,9 +228,9 @@ proc/construct_item(mob/user, datum/crafting_recipe/R)
 					return TRUE
 				return 0
 			return "."
-		to_chat(usr, span_warning("I'm missing a tool."))
+		to_chat(usr, span_warning("У меня нет подходящего инструмента."))
 		return
-	return ", missing component."
+	return ", не хватает ресурсов."
 
 
 // Used for multi-stage structures.
@@ -254,10 +254,10 @@ proc/check_constructability(mob/user, datum/crafting_recipe/R)
 				if(do_after(user, time2use, target = user))
 					contents = get_surroundings(user)
 					if(!check_contents(R, contents))
-						to_chat(usr, span_warning("I'm missing a component."))
+						to_chat(usr, span_warning("Мне не хватает ресурсов."))
 						return FALSE
 					if(!check_tools(user, R, contents))
-						to_chat(usr, span_warning("I'm missing a tool."))
+						to_chat(usr, span_warning("У меня нет подходящего инструмента."))
 						return FALSE
 
 					var/prob2craft = 25
@@ -275,9 +275,9 @@ proc/check_constructability(mob/user, datum/crafting_recipe/R)
 					prob2craft = CLAMP(prob2craft, 0, 99)
 					if(!prob(prob2craft))
 						if(user.client?.prefs.showrolls)
-							to_chat(user, span_danger("I've failed to craft \the [result_name]... [prob2craft]%"))
+							to_chat(user, span_danger("Мне не удалось создать [result_name]... [prob2craft]%"))
 							continue
-						to_chat(user, span_danger("I've failed to craft \the [result_name]."))
+						to_chat(user, span_danger("Мне не удалось создать [result_name]."))
 						continue
 					del_reqs(R, user)
 
@@ -292,9 +292,9 @@ proc/check_constructability(mob/user, datum/crafting_recipe/R)
 					return TRUE
 				return FALSE
 			return FALSE
-		to_chat(usr, span_warning("I'm missing a tool."))
+		to_chat(usr, span_warning("У меня нет подходящего инструмента."))
 		return FALSE
-	to_chat(usr, span_warning("I'm missing a component."))
+	to_chat(usr, span_warning("Мне не хватает ресурсов."))
 	return FALSE
 
 /*Del reqs works like this:
@@ -449,7 +449,7 @@ proc/roguecraft(location, control, params, mob/user)
 		return
 	var/area/A = get_area(user)
 	if(!A.can_craft_here())
-		to_chat(user, span_warning("I can't craft here."))
+		to_chat(user, span_warning("Не могу создавать здесь."))
 		return
 	var/list/data = list()
 	var/list/catty = list()
@@ -466,15 +466,15 @@ proc/roguecraft(location, control, params, mob/user)
 					var/datum/skill/S = new R.skillcraft()
 					catty |= S.name
 				else
-					catty |= "Other"
+					catty |= "Прочее"
 	if(!data.len)
-		to_chat(user, span_warning("There is nothing I can craft."))
+		to_chat(user, span_warning("Я не смогу ничего создать."))
 		return
 	if(!catty.len)
 		return
 	var/t
 	if(catty.len > 1)
-		t=input(user, "CHOOSE SKILL") as null|anything in catty
+		t=input(user, "ВЫБЕРИТЕ КАТЕГОРИЮ") as null|anything in catty
 	else
 		t=pick(catty)
 	if(t)
@@ -485,10 +485,10 @@ proc/roguecraft(location, control, params, mob/user)
 				if(t == S.name)
 					realdata += X
 			else
-				if(t == "Other")
+				if(t == "Прочее")
 					realdata += X
 		if(realdata.len)
-			var/r = input(user, "What should I craft?") as null|anything in realdata
+			var/r = input(user, "Что мне создать?") as null|anything in realdata
 			if(r)
 				construct_item(user, r)
 				user.mind.lastrecipe = r

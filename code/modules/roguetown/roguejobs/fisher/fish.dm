@@ -1,6 +1,6 @@
 /obj/item/reagent_containers/food/snacks/fish
-	name = "fish"
-	desc = "Fresh blood stains its silvery skin. Silver-coloured scales shimmering softly.."
+	name = "рыба"
+	desc = "На её чешуе ещё видны остатки крови. Мягкий блеск серебристых чешуек мерцает на свету."
 	icon_state = "carp"
 	icon = 'icons/roguetown/misc/fish.dmi'
 	verb_say = "glubs"
@@ -26,15 +26,15 @@
 	switch(rarity)
 		if("gold")
 			sellprice = sellprice * 10
-			name = "legendary [initial(name)]"
+			name = "легендарн[rus_aya()] [initial(name)]"
 		if("ultra")
 			sellprice = sellprice * 4
-			name = "ultra-rare [initial(name)]"
+			name = "крайне редк[rus_aya2()] [initial(name)]"
 		if("rare")
 			sellprice = sellprice * 2
-			name = "rare [initial(name)]"
+			name = "редк[rus_aya2()] [initial(name)]"
 		if("com")
-			name = "common [initial(name)]"
+			name = "обычн[rus_aya()] [initial(name)]"
 	if(!dead)
 		START_PROCESSING(SSobj, src)
 
@@ -49,7 +49,7 @@
 	else
 		if(isturf(user.loc))
 			src.forceMove(user.loc)
-		to_chat(user, span_warning("Too slippery!"))
+		to_chat(user, span_warning("Слишком скользкая!"))
 		return
 
 /obj/item/reagent_containers/food/snacks/fish/process()
@@ -73,45 +73,50 @@
 
 
 /obj/item/reagent_containers/food/snacks/fish/carp
-	name = "carp"
-	desc = "A majestic scaled fish bearing untold tales."
+	name = "карп"
+	desc = "Величественная рыба с чешуей, что таит в себе несказанные истории."
 	icon_state = "carp"
+	gender = MALE
 	sellprice = 2
 	fried_type = /obj/item/reagent_containers/food/snacks/rogue/fryfish/carp
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/fryfish/carp
 	cooked_smell = /datum/pollutant/food/baked_carp
 
 /obj/item/reagent_containers/food/snacks/fish/clownfish
-	name = "clownfish"
-	desc = "This fish brings vibrant hues to the dark world of Rockhill."
+	name = "рыба-клоун"
+	desc = "Эта рыба приносит яркие краски в тёмный мир Рокхилла."
 	icon_state = "clownfish"
+	gender = FEMALE
 	sellprice = 15
 	fried_type = /obj/item/reagent_containers/food/snacks/rogue/fryfish/clownfish
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/fryfish/clownfish
 	cooked_smell = /datum/pollutant/food/baked_clownfish
 
 /obj/item/reagent_containers/food/snacks/fish/angler
-	name = "anglerfish"
-	desc = "A menacing abyssal predator."
+	name = "удильщик"
+	desc = "Грозный глубинный хищник."
 	icon_state = "angler"
+	gender = MALE
 	sellprice = 10
 	fried_type = /obj/item/reagent_containers/food/snacks/rogue/fryfish/angler
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/fryfish/angler
 	cooked_smell = /datum/pollutant/food/baked_angler
 
 /obj/item/reagent_containers/food/snacks/fish/eel
-	name = "eel"
-	desc = "A sinuous eel that slithers through the dark waters."
+	name = "угорь"
+	desc = "Извивающийся угорь, скользящий сквозь тёмные воды."
 	icon_state = "eel"
+	gender = MALE
 	sellprice = 5
 	fried_type = /obj/item/reagent_containers/food/snacks/rogue/fryfish/eel
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/fryfish/eel
 	cooked_smell = /datum/pollutant/food/baked_eel
 
 /obj/item/reagent_containers/food/snacks/fish/shrimp
-	name = "shrimp"
-	desc = "As shrimple as that."
+	name = "креветка"
+	desc = "Простая, как все креветки."
 	icon_state = "shrimp"
+	gender = FEMALE
 	sellprice = 5
 	fried_type = /obj/item/reagent_containers/food/snacks/rogue/fryfish/shrimp
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/fryfish/shrimp
@@ -120,9 +125,9 @@
 	icon = 'icons/roguetown/misc/fish.dmi'
 	trash = null
 	list_reagents = list(/datum/reagent/consumable/nutriment = 10)
-	tastes = list("fish" = 1)
-	name = "cooked fish"
-	desc = "A charred fish, crisped to perfection."
+	tastes = list("жареной рыбки" = 1)
+	name = "жареная рыба"
+	desc = "Обжаренная рыба с идеально хрустящей корочкой."
 	icon_state = "carpcooked"
 	foodtype = MEAT
 	warming = 5 MINUTES
@@ -154,4 +159,4 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/fryfish/shrimp
 	icon_state = "shrimpcooked"
-	name = "cooked shrimp"
+	name = "жареная креветка"

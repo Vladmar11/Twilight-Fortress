@@ -9,58 +9,59 @@
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 
 /obj/item/clothing/head/roguetown/helmet/heavy/templar/astrata
-	name = "astratan helmet"
-	desc = "Headwear commonly worn by Templars in service to Astrata. The firstborn child's light will forever shine on within its crest."
+	name = "астратанский шлем"
+	desc = "Шлем, который обычно носят тамплиеры на службе Астрате. Свет первенца всегда будет сиять внутри его гребня."
 	icon_state = "astratahelm"
 	item_state = "astratahelm"
 
 /obj/item/clothing/head/roguetown/helmet/heavy/templar/astrata/alt
-	desc = "Gilded gold and silvered metal, the bright, vibrant colors of an Astratan crusader radiate from this blessed helmet."
+	desc = "Этот благословенный шлем излучает позолоченное золото и посеребренный металл — яркие цвета астратанского крестоносца."
 	icon_state = "astratahelm_alt"
 	item_state = "astratahelm_alt"
 	adjustable = CANT_CADJUST
 
 /obj/item/clothing/head/roguetown/helmet/heavy/templar/necra
-	name = "necran helmet"
-	desc = "Headwear commonly worn by Templars in service to Necra. Let its skeletal features remind you of the only thing which is guaranteed in life. You will die."
+	name = "некранский шлем"
+	desc = "Шлем, который обычно носят тамплиеры на службе Некре. Пусть его скелетные черты напомнят вам о единственном, что гарантировано в жизни. Вы умрете."
 	icon_state = "necrahelm"
 	item_state = "necrahelm"
 
 /obj/item/clothing/head/roguetown/helmet/heavy/templar/necra/alt
-	desc = "The darkest of blacks, this hooded helm is reminiscent of an executioner's head, striking fear into those who look upon it that they too may soon face the undermaiden."
+	desc = "Самый темный из черных, этот шлем с капюшоном напоминает голову палача, вселяя в тех, кто смотрит на него, страх того, что они тоже могут вскоре столкнуться с подругой Некрой."
 	icon_state = "necrahelm_alt"
 	item_state = "necrahelm_alt"
 	adjustable = CANT_CADJUST
 
 /obj/item/clothing/head/roguetown/helmet/heavy/templar/malum
-	name = "malummite helmet"
-	desc = "Forged in a coal-black, this helmet carries a sigiled blade upon it's visor, ever reminding it's wearer of Malum's powerful gaze."
+	name = "маллумитский шлем"
+	desc = "Выкованный в угольно-черном цвете, этот шлем украшен символом клинка на забрале, всегда напоминая своему владельцу о могущественном взгляде Малума."
 	icon_state = "malumhelm"
 	item_state = "malumhelm"
 	adjustable = CANT_CADJUST
 
 /obj/item/clothing/head/roguetown/helmet/heavy/templar/noc
-	name = "noctian helmet"
-	desc = "Hearwear commonly worn by Templars in service to Noc. Without the night there can be no day, without Noc there can be no light in the dark hours."
+	name = "ноктианский шлем"
+	desc = "Шлем, который обычно носят тамплиеры на службе Нок. Без ночи не может быть дня, без Нок не может быть света в темный час."
 	icon_state = "nochelm"
 	item_state = "nochelm"
 
 /obj/item/clothing/head/roguetown/helmet/heavy/templar/dendor
-	name = "dendorite helmet"
-	desc = "Headwear commonly worn by Templars in service to Dendor. Its protrusions almost resemble branches. Take root in the earth, and you will never be moved."
+	name = "дендоритский шлем"
+	desc = "Шлем, который обычно носят тамплиеры на службе Дендору. Его выступы почти напоминают ветки. Укоренитесь в земле, и вас никому на сдвинуть."
 	icon_state = "dendorhelm"
 	item_state = "dendorhelm"
 	adjustable = CANT_CADJUST
 
 /obj/item/clothing/head/roguetown/helmet/heavy/templar/ravox
-	name = "ravoxian helmet"
-	desc = "Headwear commonly worn by Templars in service to Ravox. It resembles an heavily adorned visored sallet."
+	name = "равоксианский шлем"
+	desc = "Салад, который обычно носят тамплиеры на службе у Равокса. Он напоминает сильно украшенный салат с козырьком."
 	icon_state = "ravoxhelm"
 	item_state = "ravoxhelm"
 
 /obj/item/clothing/head/roguetown/helmet/sallet/eoran
-	name = "eora helmet"
-	desc = "A standard helmet forged in the style typical of Eoran worshippers, a simple yet practical protective piece of equipment. Upon it lays several laurels of flowers and other colorful ornaments, followed by several symbols and standards of the user's chapter, accomplishments or even punishment"
+	name = "эоранский шлем"
+	desc = "Стандартный шлем, выкованный в стиле, характерном для последователей Эоры, - простой, но практичный защищающий головной убор. \
+	На нем расположено несколько лавровых цветов и других красочных орнаментов, а также несколько символов и штандартов главы, достижений или даже наказания носителя."
 	icon_state = "eorahelm"
 	item_state = "eorahelm"
 
