@@ -190,9 +190,10 @@
 				qdel(C)
 			wet = max(wet-1, 0)
 	
-	to_chat(user, span_info("Я протираю [T.name] при помощи [src]."))
-	playsound(user, "clothwipe", 100, TRUE)
-
+			to_chat(user, span_info("I wipe \the [T.name] with [src]."))
+			playsound(user, "clothwipe", 100, TRUE)
+		else
+			to_chat(user, span_warning("\The [name] is dry!"))
 
 // BANDAGING
 /obj/item/natural/cloth/attack(mob/living/M, mob/user)
