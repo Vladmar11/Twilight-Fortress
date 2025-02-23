@@ -212,7 +212,6 @@
 	new /obj/item/natural/infernalash(deathspot)
 	new /obj/item/natural/infernalash(deathspot)
 	new /obj/item/natural/infernalash(deathspot)
-	new /obj/item/natural/infernalash(deathspot)
 	spill_embedded_objects()
 	update_icon()
 	qdel(src)
