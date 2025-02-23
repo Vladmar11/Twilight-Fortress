@@ -11,7 +11,6 @@
 	climbable = TRUE
 	climb_time = 0
 	layer = 2.8
-	var/heat_time = 100
 	var/obj/item/attachment = null
 	var/obj/item/reagent_containers/food/snacks/food = null
 	cookonme = TRUE
@@ -34,7 +33,7 @@
 		if(T.hingot)
 			var/tyme = world.time
 			T.hott = tyme
-			addtimer(CALLBACK(T, TYPE_PROC_REF(/obj/item/rogueweapon/tongs, make_unhot), tyme),heat_time )
+			addtimer(CALLBACK(T, TYPE_PROC_REF(/obj/item/rogueweapon/tongs, make_unhot), tyme), 100)
 			T.update_icon()
 			user.visible_message(span_info("[user] heats the bar."))
 			return
