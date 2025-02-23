@@ -95,8 +95,8 @@
 	//random painstun
 	if(!stat && !HAS_TRAIT(src, TRAIT_NOPAINSTUN))
 		if(world.time > mob_timers["painstun"] + 600)
-			if(getBruteLoss() + getFireLoss() >= (STAEND * 10))
-				var/probby = 53 - (STAEND * 2)
+			if(getBruteLoss() + getFireLoss() >= round(((STAEND + STAINT)/2)*10))
+				var/probby = 53 - round(((STAEND + STAINT)/2)*2)
 				if(!(mobility_flags & MOBILITY_STAND))
 					probby = probby - 20
 				if(prob(probby))

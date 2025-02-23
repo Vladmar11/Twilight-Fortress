@@ -101,7 +101,7 @@
 	if(H == src)
 		to_chat(src, span_warning("I already torture myself."))
 		return
-	var/painpercent = (H.get_complex_pain() / (H.STAEND * 10)) * 100
+	var/painpercent = (H.get_complex_pain() / round(((H.STAEND + H.STAINT) / 2) * 10)) * 100
 	if(H.add_stress(/datum/stressevent/tortured))
 		if(!H.stat)
 			var/static/list/torture_lines = list(
@@ -131,7 +131,7 @@
 	if(H == src)
 		to_chat(src, span_warning("I already torture myself."))
 		return
-	var/painpercent = (H.get_complex_pain() / (H.STAEND * 10)) * 100
+	var/painpercent = (H.get_complex_pain() / round(((H.STAEND + H.STAINT) / 2) * 10)) * 100
 	if(H.add_stress(/datum/stressevent/tortured))
 		if(!H.stat)
 			var/static/list/faith_lines = list(
