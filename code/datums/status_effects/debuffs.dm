@@ -135,8 +135,8 @@
 
 /atom/movable/screen/alert/status_effect/asleep
 	name = "Asleep"
-	desc = "The land of dreams envelops you while the body rests."
-	icon_state = "sleeping"
+	desc = ""
+	icon_state = "asleep"
 
 //STASIS
 /datum/status_effect/incapacitating/stasis
